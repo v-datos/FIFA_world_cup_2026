@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "match_id": "netherlands_japan_2026",
+    "team1": "Netherlands",
+    "team2": "Japan",
+    "date": "2026-06-14",
+    "time": "15:00 CDT",
+    "venue": "AT&T Stadium, Arlington, Texas",
+    "stage": "Group Stage - Group F"
+  },
+  "ai_summary": {
+    "key_headline": "High-Stakes Group F Opener: Dutch Attacking Might Meets Japan's Defensive Wall",
+    "injuries": {
+      "netherlands": [
+        "Jurrien Timber (groin injury - ruled out of tournament)",
+        "Bart Verbruggen (hip injury - doubtful for opener)"
+      ],
+      "japan": [
+        "Wataru Endo (foot injury - pulled from tournament squad)"
+      ]
+    },
+    "confirmed_tactics": {
+      "netherlands": {
+        "formation": "4-2-3-1",
+        "philosophy": "High possession, technical build-up, using Cody Gakpo and Donyell Malen to widen the pitch.",
+        "manager": "Ronald Koeman"
+      },
+      "japan": {
+        "formation": "3-4-2-1",
+        "philosophy": "High discipline, rapid counter-pressing, defensive transitions, and direct counters.",
+        "coach": "Hajime Moriyasu"
+      }
+    },
+    "tactical_insights": [
+      "The Netherlands enters as favorites but carries defensive concerns, having failed to keep a clean sheet in their last 4 warm-up matches.",
+      "Japan is in scintillating form with a 6-match winning streak, keeping 5 consecutive clean sheets.",
+      "The loss of Wataru Endo is a major blow to Japan's midfield stability, which the Netherlands will aim to exploit through Memphis Depay dropping deep.",
+      "Japan will rely on quick transitions, targeting the space behind Dutch full-backs who push high in Koeman's system."
+    ]
+  }
+}

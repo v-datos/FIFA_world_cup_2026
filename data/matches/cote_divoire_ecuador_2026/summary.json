@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "match_id": "cote_divoire_ecuador_2026",
+    "team1": "Ivory Coast",
+    "team2": "Ecuador",
+    "date": "2026-06-14",
+    "time": "18:00 CDT",
+    "venue": "MetLife Stadium, East Rutherford, New Jersey",
+    "stage": "Group Stage - Group E"
+  },
+  "ai_summary": {
+    "key_headline": "Group E Power Clash: Elephants' Physical Dominance Meets La Tri's High-Altitude Pace",
+    "injuries": {
+      "ivory_coast": [
+        "Sébastien Haller (ankle injury - doubtful)",
+        "Ousmane Diomande (minor muscle strain - fit)"
+      ],
+      "ecuador": [
+        "Pervis Estupiñán (thigh strain - fit)",
+        "Piero Hincapié (suspended for yellow accumulation)"
+      ]
+    },
+    "confirmed_tactics": {
+      "ivory_coast": {
+        "formation": "4-3-3",
+        "philosophy": "Physical, direct wing play using Franck Kessié to boss the midfield and launch counters.",
+        "manager": "Emerse Faé"
+      },
+      "ecuador": {
+        "formation": "3-4-3",
+        "philosophy": "High intensity press, rapid transition down the flanks through Enner Valencia and Moisés Caicedo.",
+        "coach": "Sebastián Beccacece"
+      }
+    },
+    "tactical_insights": [
+      "Ivory Coast will try to exploit set-pieces and physical matchups in the box.",
+      "Ecuador's speed on transition poses a massive threat to the older Ivorian center-backs.",
+      "The midfield battle between Moisés Caicedo and Franck Kessié will decide possession dominance."
+    ]
+  }
+}

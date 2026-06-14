@@ -1,0 +1,16 @@
+{
+  "dixon_coles_forecast": {
+    "team1_win": 0.510,
+    "draw": 0.290,
+    "team2_win": 0.200,
+    "confidence": 0.90
+  },
+  "score_probabilities": [
+    {"score": "1-0", "probability": 0.165},
+    {"score": "2-0", "probability": 0.128},
+    {"score": "1-1", "probability": 0.115},
+    {"score": "2-1", "probability": 0.095},
+    {"score": "0-0", "probability": 0.088},
+    {"score": "0-1", "probability": 0.075}
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "match_id": "sweden_tunisia_2026",
+    "team1": "Sweden",
+    "team2": "Tunisia",
+    "date": "2026-06-14",
+    "time": "21:00 CDT",
+    "venue": "NRG Stadium, Houston, Texas",
+    "stage": "Group Stage - Group F"
+  },
+  "ai_summary": {
+    "key_headline": "Tactical Battle of Group F: Blågult's Modern Attack Challenges Carthage Eagles' Deep Block",
+    "injuries": {
+      "sweden": [
+        "Victor Lindelöf (back stiffness - doubtful for opener)",
+        "Anthony Elanga (ankle knock - fit)"
+      ],
+      "tunisia": [
+        "Hannibal Mejbri (groin strain - doubtful)",
+        "Montassar Talbi (shoulder strain - fit)"
+      ]
+    },
+    "confirmed_tactics": {
+      "sweden": {
+        "formation": "4-2-3-1",
+        "philosophy": "Fluid positional play, high pressing, looking to feed Viktor Gyökeres and Alexander Isak early.",
+        "manager": "Jon Dahl Tomasson"
+      },
+      "tunisia": {
+        "formation": "4-1-4-1",
+        "philosophy": "Low block defensive shape, compact midfield lines, launching swift counters through Msakni.",
+        "coach": "Montasser Louhichi"
+      }
+    },
+    "tactical_insights": [
+      "Sweden will dominate possession but faces the challenge of breaking through Tunisia's highly organized defense.",
+      "Tunisia will look to disrupt Sweden's midfield progression using aggressive double-teaming in the center.",
+      "Viktor Gyökeres' physical runs inside the box will be the primary target for Swedish crossers."
+    ]
+  }
+}
