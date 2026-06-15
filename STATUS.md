@@ -1,19 +1,20 @@
 # STATUS
 
-## 2026-06-15 - Player Clubs & International Standings Integration Completed
+## 2026-06-15 - Standings Corrections, Dynamic Bracket, and Previews Automation Completed
 
 Prepared by: Orchestrator
 
 ### Current Objective
 
-Add player club affiliations and last major international tournament standings to the Match Analysis tab.
+Ensure correct group standings sorting, dynamic knockout bracket updates from API, and automated upcoming match previews on the portfolio page.
 
 ### Completed This Update
 
-- **Player Club Affiliations**: Created the `PLAYER_CLUBS_2026` dictionary mapping all squad players to their current league clubs (covering Netherlands, Japan, Côte d'Ivoire, Ecuador, Sweden, Tunisia).
-- **Squad & Clubs Layout**: Implemented a side-by-side display card titled "📋 2026 Squad Lists & Club Affiliations" in the Match Analysis tab showing player names and their clubs using team-colored points.
-- **Recent Tournament Standings**: Defined `LAST_TOURNAMENT_STANDINGS_2026` and updated the narrative AI Tactical Summary card to display each team's standing in their last major international tournament (e.g. Euro 2024, World Cup 2022, AFCON 2023, Copa América 2024) in a symmetrical 2-column format.
-- **Git Tracking**: Committed all changes to Git.
+- **Standings Parsing & Sorting**: Corrected the parsing of groups from the API and sorted standings descending by points (`pts`), then goal difference (`gd`), then goals for (`gf`).
+- **Dynamic API-Driven Bracket**: Configured bracket rounds mapping to the live `/get/games` schedule. Bracket advances teams and scores automatically in real time.
+- **AI Match Previews**: Implemented a Vertex AI pipeline script `generate_match_previews.py` that queries BigQuery stats and prompts Gemini 1.5 Flash to write tactical previews to the `data/matches/` directory. Added a mock generator fallback for resilient execution.
+- **Cloud Run Deployment**: Rebuilt the Docker container and redeployed the live dashboard.
+- **Portfolio Website Integration**: Synchronized the React routing changes and whitelisted the CSP `frame-src` in `.htaccess` on the remote server via `rsync`.
 
 ### Open Risks
 

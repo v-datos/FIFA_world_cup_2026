@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-06-14
+Last updated: 2026-06-15
 
 ## In Progress
 
@@ -18,6 +18,14 @@ Last updated: 2026-06-14
   Notes: Connect the standings state to the PostgreSQL NestJS server once deployed.
 
 ## Done
+
+- [x] **T-014 - Portfolio Website Integration & Deploy**
+  Owner: Frontend Engineer
+  Completed: 2026-06-15
+
+- [x] **T-013 - Live Standings, Dynamic Bracket, and AI Previews Automation**
+  Owner: Football Data Scientist / Data Pipeline Engineer
+  Completed: 2026-06-15
 
 - [x] **T-012 - Player Clubs & International Standings Integration**
   Owner: Frontend Engineer

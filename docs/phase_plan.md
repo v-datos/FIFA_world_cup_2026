@@ -21,6 +21,7 @@ Current phase: Phase 3 - Ingestion & Sync
 | Date | Decision | File |
 |---|---|---|
 | 2026-06-14 | Project initialized from AI Workflow Framework | docs/decisions/20260614_DEC001_charter_v1.md |
+| 2026-06-15 | Standings Corrections, Dynamic Bracket, and Previews Automation | docs/decisions/20260615_DEC002_deployment_and_previews.md |
 
 ## Open Blockers
 
