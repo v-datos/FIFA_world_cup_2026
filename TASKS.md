@@ -19,6 +19,10 @@ Last updated: 2026-06-14
 
 ## Done
 
+- [x] **T-012 - Player Clubs & International Standings Integration**
+  Owner: Frontend Engineer
+  Completed: 2026-06-15
+
 - [x] **T-011 - Direct DOM Injection & Styling Refactoring**
   Owner: Frontend Engineer
   Completed: 2026-06-15

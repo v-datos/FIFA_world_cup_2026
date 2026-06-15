@@ -1,21 +1,19 @@
 # STATUS
 
-## 2026-06-15 - Streamlit DOM Injection & Styling Refactor Completed
+## 2026-06-15 - Player Clubs & International Standings Integration Completed
 
 Prepared by: Orchestrator
 
 ### Current Objective
 
-Refactor the bracket UI to use `st.html()` for direct DOM injection, resolving sandboxing and height clipping issues, and clean up unstable styling selectors.
+Add player club affiliations and last major international tournament standings to the Match Analysis tab.
 
 ### Completed This Update
 
-- **Direct DOM Injection**: Replaced sandboxed iframe `components.html()` rendering in `bracket_ui.py` with `st.html()` direct DOM injection.
-- **Scroll & Height Fix**: Allowed the lo-fi wood board bracket to flow naturally in the parent DOM, eliminating inner scrollbars and fixed-height clipping.
-- **Cleaned Up Fullscreen Elements**: Removed the iframe-only "FULLSCREEN VIEW" button and its JavaScript since DOM rendering integrates natively.
-- **Scoped Wood Scenery Strictly**: Kept the rustic wood background scoped to the `🏆 Tournament Board` tab, ensuring the `⚔️ Match Analysis` tab maintains its dark cyberpunk theme.
-- **Cleaned Up style.css**: Removed the unstable emotion selector `.css-1d391kg`.
-- **Git Tracking**: Committed all frontend modifications to Git.
+- **Player Club Affiliations**: Created the `PLAYER_CLUBS_2026` dictionary mapping all squad players to their current league clubs (covering Netherlands, Japan, Côte d'Ivoire, Ecuador, Sweden, Tunisia).
+- **Squad & Clubs Layout**: Implemented a side-by-side display card titled "📋 2026 Squad Lists & Club Affiliations" in the Match Analysis tab showing player names and their clubs using team-colored points.
+- **Recent Tournament Standings**: Defined `LAST_TOURNAMENT_STANDINGS_2026` and updated the narrative AI Tactical Summary card to display each team's standing in their last major international tournament (e.g. Euro 2024, World Cup 2022, AFCON 2023, Copa América 2024) in a symmetrical 2-column format.
+- **Git Tracking**: Committed all changes to Git.
 
 ### Open Risks
 
