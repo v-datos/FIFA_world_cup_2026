@@ -90,10 +90,6 @@ section[data-testid="stSidebar"] {
     border-right: 1px solid #1f2937;
 }
 
-.css-1d391kg, .css-1d391kg * {
-    font-family: 'Play', sans-serif !important;
-}
-
 section[data-testid="stSidebar"] * {
     font-family: 'Play', sans-serif !important;
 }

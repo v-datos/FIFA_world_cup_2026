@@ -376,29 +376,6 @@ def render_painters_tape_bracket():
         right: -20px;
         transform: rotate(-30deg);
     }
-
-    .fullscreen-btn {
-        position: absolute;
-        top: 25px;
-        right: 30px;
-        background-color: rgba(244, 230, 181, 0.95);
-        color: #000;
-        font-size: 11px;
-        padding: 5px 12px;
-        box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
-        cursor: pointer;
-        transform: rotate(1.5deg);
-        z-index: 100;
-        border: none;
-        font-family: 'Permanent Marker', cursive;
-        border-radius: 1px;
-        clip-path: polygon(1% 0, 99% 2%, 98% 97%, 2% 98%);
-    }
-
-    .fullscreen-btn:hover {
-        background-color: rgba(244, 230, 181, 1);
-        transform: rotate(1.5deg) scale(1.05);
-    }
     </style>
     """
 
@@ -653,7 +630,6 @@ def render_painters_tape_bracket():
     html_content = f"""
     <div class="bracket-board">
         {board_title}
-        <button class="fullscreen-btn" onclick="toggleFullscreen()">FULLSCREEN VIEW</button>
         {left_groups_html}
         {left_bracket_html}
         {center_html}
@@ -661,24 +637,10 @@ def render_painters_tape_bracket():
         {right_groups_html}
     </div>
     """
-
-    import streamlit.components.v1 as components
     
     full_html = f"""
     {css_content}
     {html_content}
-    <script>
-    function toggleFullscreen() {{
-        var elem = document.documentElement;
-        if (!document.fullscreenElement) {{
-            elem.requestFullscreen().catch(err => {{
-                console.log("Error attempting to enable full-screen mode:", err.message);
-            }});
-        }} else {{
-            document.exitFullscreen();
-        }}
-    }}
-    </script>
     """
     
-    components.html(full_html, height=1010, scrolling=True)
+    st.html(full_html)
