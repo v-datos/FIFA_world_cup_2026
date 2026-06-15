@@ -865,24 +865,51 @@ def main():
         if mode == "2026 World Cup Fixtures (Live Previews)":
             st.subheader("Match of the Day Tactical Preview")
             
-            # Select upcoming matches
-            selected_match = st.selectbox(
-                "Select 2026 Fixture Preview",
-                [
-                    "June 14: Netherlands vs Japan (Upcoming)",
-                    "June 14: Côte d'Ivoire vs Ecuador (Upcoming)",
-                    "June 14: Sweden vs Tunisia (Upcoming)"
-                ]
-            )
+            # Scan data/matches for 2026 previews dynamically
+            from pathlib import Path
+            preview_matches = {}
+            matches_dir = Path("data/matches")
+            if matches_dir.exists():
+                for match_folder in matches_dir.iterdir():
+                    if match_folder.is_dir() and match_folder.name.endswith("_2026"):
+                        sum_path = match_folder / "summary.json"
+                        met_path = match_folder / "metrics.json"
+                        if sum_path.exists() and met_path.exists():
+                            try:
+                                with open(sum_path, "r") as f:
+                                    sum_data = json.load(f)
+                                meta = sum_data.get("metadata", {})
+                                team1 = meta.get("team1", "Team 1")
+                                team2 = meta.get("team2", "Team 2")
+                                m_date = meta.get("date", "")
+                                
+                                # Format nice date: "2026-06-15" -> "June 15"
+                                nice_date = m_date
+                                if m_date:
+                                    try:
+                                        parts = m_date.split("-")
+                                        if len(parts) == 3:
+                                            months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+                                            nice_date = f"{months[int(parts[1])]} {int(parts[2])}"
+                                    except Exception:
+                                        pass
+                                        
+                                label = f"{nice_date}: {team1} vs {team2}"
+                                preview_matches[label] = match_folder.name
+                            except Exception:
+                                pass
             
-            # Resolve match keys and paths
-            match_key = None
-            if "Netherlands vs Japan" in selected_match:
-                match_key = "netherlands_japan_2026"
-            elif "Côte d'Ivoire vs Ecuador" in selected_match:
-                match_key = "cote_divoire_ecuador_2026"
-            elif "Sweden vs Tunisia" in selected_match:
-                match_key = "sweden_tunisia_2026"
+            if preview_matches:
+                # Sort matches by date/label
+                sorted_labels = sorted(list(preview_matches.keys()))
+                selected_match = st.selectbox(
+                    "Select 2026 Fixture Preview",
+                    sorted_labels
+                )
+                match_key = preview_matches[selected_match]
+            else:
+                st.warning("No live fixture previews found.")
+                match_key = None
                 
             if match_key:
                 summary_path = f"data/matches/{match_key}/summary.json"

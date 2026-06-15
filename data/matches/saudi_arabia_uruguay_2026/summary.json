@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "match_id": "saudi_arabia_uruguay_2026",
+        "team1": "Saudi Arabia",
+        "team2": "Uruguay",
+        "date": "06/15/2026",
+        "time": "18:00",
+        "venue": "Stadium 8",
+        "stage": "Group Stage - Group H"
+    },
+    "ai_summary": {
+        "key_headline": "Tactical Clash: Saudi Arabia Takes On Uruguay",
+        "injuries": {
+            "saudi_arabia": [
+                "No major injuries reported"
+            ],
+            "uruguay": [
+                "No major injuries reported"
+            ]
+        },
+        "confirmed_tactics": {
+            "saudi_arabia": {
+                "formation": "4-3-3",
+                "philosophy": "Balanced positional play.",
+                "manager": "Head Coach"
+            },
+            "uruguay": {
+                "formation": "4-4-2",
+                "philosophy": "Compact counter-attacking.",
+                "manager": "Head Coach"
+            }
+        },
+        "tactical_insights": [
+            "Both teams will try to establish control early in the midfield.",
+            "Defensive discipline will be crucial in preventing quick transitions.",
+            "Set-pieces could be the deciding factor in a tightly contested match."
+        ]
+    }
+}

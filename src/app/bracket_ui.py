@@ -27,14 +27,21 @@ def load_live_bracket_state() -> dict:
         "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
     }
 
+    # 1. Fetch live group standings
     try:
-        url = "https://worldcup26.ir/get/groups"
-        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=5)
-        if result.returncode == 0:
-            api_data = json.loads(result.stdout)
-            if isinstance(api_data, list) and len(api_data) > 0:
+        url_groups = "https://worldcup26.ir/get/groups"
+        result_groups = subprocess.run(['curl', '-s', '-k', url_groups], capture_output=True, text=True, timeout=10)
+        if result_groups.returncode == 0:
+            api_data = json.loads(result_groups.stdout)
+            groups_list = []
+            if isinstance(api_data, dict) and "groups" in api_data:
+                groups_list = api_data["groups"]
+            elif isinstance(api_data, list):
+                groups_list = api_data
+                
+            if groups_list:
                 groups = []
-                for group in api_data:
+                for group in groups_list:
                     group_name = f"Group {group.get('name', '')}"
                     standings = []
                     for t in group.get("teams", []):
@@ -47,14 +54,90 @@ def load_live_bracket_state() -> dict:
                                 "w": int(t.get("w", 0)),
                                 "d": int(t.get("d", 0)),
                                 "l": int(t.get("l", 0)),
+                                "gf": int(t.get("gf", 0)),
+                                "ga": int(t.get("ga", 0)),
                                 "gd": int(t.get("gd", 0)),
                                 "pts": int(t.get("pts", 0))
                             })
+                    # Sort standings by pts, then gd, then gf descending
+                    standings.sort(key=lambda x: (x.get("pts", 0), x.get("gd", 0), x.get("gf", 0)), reverse=True)
                     groups.append({
                         "name": group_name,
                         "standings": standings
                     })
                 data["groups"] = groups
+    except Exception:
+        pass
+
+    # 2. Fetch live games and dynamically build knockout rounds
+    try:
+        url_games = "https://worldcup26.ir/get/games"
+        result_games = subprocess.run(['curl', '-s', '-k', url_games], capture_output=True, text=True, timeout=15)
+        if result_games.returncode == 0:
+            api_games_data = json.loads(result_games.stdout)
+            games_list = []
+            if isinstance(api_games_data, dict) and "games" in api_games_data:
+                games_list = api_games_data["games"]
+            elif isinstance(api_games_data, list):
+                games_list = api_games_data
+                
+            if games_list:
+                game_map = {str(g.get("id")): g for g in games_list}
+                
+                # Define exact mapping of API match IDs to bracket grid layout positions
+                r32_ids = ["74", "77", "73", "75", "83", "84", "81", "82", "76", "78", "79", "80", "86", "88", "85", "87"]
+                r16_ids = ["89", "90", "93", "94", "91", "92", "95", "96"]
+                qf_ids = ["97", "98", "99", "100"]
+                sf_ids = ["101", "102"]
+                final_id = "104"
+                third_id = "103"
+                
+                def make_match(match_id, prefix):
+                    g = game_map.get(match_id)
+                    if not g:
+                        return {"id": f"{prefix}_{match_id}", "team1": "???", "team2": "???", "score1": None, "score2": None, "winner": None}
+                    
+                    t1 = g.get("home_team_name_en") or g.get("home_team_label") or "???"
+                    t2 = g.get("away_team_name_en") or g.get("away_team_label") or "???"
+                    
+                    TEAM_NAME_MAP = {
+                        "Turkey": "Turkiye",
+                        "Czech Republic": "Czechia",
+                        "Curaçao": "Curacao",
+                        "Democratic Republic of the Congo": "DR Congo"
+                    }
+                    t1 = TEAM_NAME_MAP.get(t1, t1)
+                    t2 = TEAM_NAME_MAP.get(t2, t2)
+                    
+                    s1 = g.get("home_score")
+                    s2 = g.get("away_score")
+                    
+                    winner = None
+                    if g.get("finished") == "TRUE" or g.get("finished") is True:
+                        w_id = str(g.get("winner_id"))
+                        h_id = str(g.get("home_team_id"))
+                        if w_id == h_id:
+                            winner = t1
+                        else:
+                            winner = t2
+                            
+                    return {
+                        "id": f"{prefix}_{match_id}",
+                        "team1": t1,
+                        "team2": t2,
+                        "score1": int(s1) if s1 is not None and str(s1).isdigit() else None,
+                        "score2": int(s2) if s2 is not None and str(s2).isdigit() else None,
+                        "winner": winner
+                    }
+                
+                data["rounds"] = [
+                    {"name": "Round of 32", "matches": [make_match(mid, "r32") for mid in r32_ids]},
+                    {"name": "Round of 16", "matches": [make_match(mid, "r16") for mid in r16_ids]},
+                    {"name": "Quarterfinals", "matches": [make_match(mid, "qf") for mid in qf_ids]},
+                    {"name": "Semifinals", "matches": [make_match(mid, "sf") for mid in sf_ids]},
+                    {"name": "Final", "matches": [make_match(final_id, "f")]}
+                ]
+                data["third_place"] = make_match(third_id, "tp")
     except Exception:
         pass
 

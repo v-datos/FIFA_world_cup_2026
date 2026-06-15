@@ -40,12 +40,18 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
 
     try:
         url = "https://worldcup26.ir/get/groups"
-        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=15)
         if result.returncode == 0:
             api_data = json.loads(result.stdout)
-            if isinstance(api_data, list) and len(api_data) > 0:
+            groups_list = []
+            if isinstance(api_data, dict) and "groups" in api_data:
+                groups_list = api_data["groups"]
+            elif isinstance(api_data, list):
+                groups_list = api_data
+                
+            if groups_list:
                 groups = []
-                for group in api_data:
+                for group in groups_list:
                     group_name = f"Group {group.get('name', '')}"
                     standings = []
                     for t in group.get("teams", []):
@@ -58,9 +64,13 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
                                 "w": int(t.get("w", 0)),
                                 "d": int(t.get("d", 0)),
                                 "l": int(t.get("l", 0)),
+                                "gf": int(t.get("gf", 0)),
+                                "ga": int(t.get("ga", 0)),
                                 "gd": int(t.get("gd", 0)),
                                 "pts": int(t.get("pts", 0))
                             })
+                    # Sort standings by pts, then gd, then gf descending
+                    standings.sort(key=lambda x: (x.get("pts", 0), x.get("gd", 0), x.get("gf", 0)), reverse=True)
                     groups.append({
                         "name": group_name,
                         "standings": standings

@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "match_id": "belgium_egypt_2026",
+        "team1": "Belgium",
+        "team2": "Egypt",
+        "date": "06/15/2026",
+        "time": "12:00",
+        "venue": "Stadium 14",
+        "stage": "Group Stage - Group G"
+    },
+    "ai_summary": {
+        "key_headline": "Tactical Clash: Belgium Takes On Egypt",
+        "injuries": {
+            "belgium": [
+                "No major injuries reported"
+            ],
+            "egypt": [
+                "No major injuries reported"
+            ]
+        },
+        "confirmed_tactics": {
+            "belgium": {
+                "formation": "4-3-3",
+                "philosophy": "Balanced positional play.",
+                "manager": "Head Coach"
+            },
+            "egypt": {
+                "formation": "4-4-2",
+                "philosophy": "Compact counter-attacking.",
+                "manager": "Head Coach"
+            }
+        },
+        "tactical_insights": [
+            "Both teams will try to establish control early in the midfield.",
+            "Defensive discipline will be crucial in preventing quick transitions.",
+            "Set-pieces could be the deciding factor in a tightly contested match."
+        ]
+    }
+}
