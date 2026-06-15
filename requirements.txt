@@ -1,0 +1,12 @@
+streamlit
+pandas
+google-cloud-bigquery
+plotly
+numpy
+matplotlib
+seaborn
+mplsoccer
+google-auth
+db-dtypes
+pyarrow
+soccerdata

@@ -467,8 +467,8 @@ def render_projections_comparison_html(team1_name, team2_name, probs1, probs2, l
 
 def get_team_group_standings_2026(team_name: str):
     try:
-        with open("data/bracket/grid_state.json", "r") as f:
-            data = json.load(f)
+        from bracket_ui import load_live_bracket_state
+        data = load_live_bracket_state()
         for g in data.get("groups", []):
             group_name = g.get("name", "")
             standings = g.get("standings", [])

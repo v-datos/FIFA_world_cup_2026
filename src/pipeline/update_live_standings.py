@@ -18,17 +18,66 @@ def save_grid_state(data: Dict[str, Any]):
 
 def fetch_live_group_standings() -> List[Dict[str, Any]]:
     """
-    Simulated live aggregator. In a production pipeline, this would hit 
-    an API (or scrape Sofascore/FBref) to collect current GD and Pts for all 12 groups.
+    Fetches live standings from the 2026 World Cup API.
+    If the API call fails, falls back to a curated set of standings as of June 14, 2026.
     """
-    # Current active standings as of June 14, 2026
+    import subprocess
+
+    TEAM_ID_TO_NAME = {
+        "1": "Mexico", "2": "South Africa", "3": "South Korea", "4": "Czechia",
+        "5": "Canada", "6": "Bosnia and Herzegovina", "7": "Qatar", "8": "Switzerland",
+        "9": "Brazil", "10": "Morocco", "11": "Haiti", "12": "Scotland",
+        "13": "United States", "14": "Paraguay", "15": "Australia", "16": "Turkiye",
+        "17": "Germany", "18": "Curacao", "19": "Ivory Coast", "20": "Ecuador",
+        "21": "Netherlands", "22": "Japan", "23": "Sweden", "24": "Tunisia",
+        "25": "Belgium", "26": "Egypt", "27": "Iran", "28": "New Zealand",
+        "29": "Spain", "30": "Cape Verde", "31": "Saudi Arabia", "32": "Uruguay",
+        "33": "France", "34": "Senegal", "35": "Iraq", "36": "Norway",
+        "37": "Argentina", "38": "Algeria", "39": "Austria", "40": "Jordan",
+        "41": "Portugal", "42": "DR Congo", "43": "Uzbekistan", "44": "Colombia",
+        "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
+    }
+
+    try:
+        url = "https://worldcup26.ir/get/groups"
+        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=10)
+        if result.returncode == 0:
+            api_data = json.loads(result.stdout)
+            if isinstance(api_data, list) and len(api_data) > 0:
+                groups = []
+                for group in api_data:
+                    group_name = f"Group {group.get('name', '')}"
+                    standings = []
+                    for t in group.get("teams", []):
+                        team_id = str(t.get("team_id", ""))
+                        team_name = TEAM_ID_TO_NAME.get(team_id)
+                        if team_name:
+                            standings.append({
+                                "team": team_name,
+                                "p": int(t.get("mp", 0)),
+                                "w": int(t.get("w", 0)),
+                                "d": int(t.get("d", 0)),
+                                "l": int(t.get("l", 0)),
+                                "gd": int(t.get("gd", 0)),
+                                "pts": int(t.get("pts", 0))
+                            })
+                    groups.append({
+                        "name": group_name,
+                        "standings": standings
+                    })
+                print("✅ Successfully fetched live group standings from 2026 World Cup API!")
+                return groups
+    except Exception as e:
+        print(f"⚠️ Live API call failed, using offline fallback. Error: {e}")
+
+    # Offline fallback (correct as of June 14, 2026)
     return [
         {
             "name": "Group A",
             "standings": [
                 {"team": "Mexico", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
-                {"team": "Czechia", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "South Korea", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
+                {"team": "South Korea", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
+                {"team": "Czechia", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
                 {"team": "South Africa", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0}
             ]
         },
@@ -37,44 +86,44 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
             "standings": [
                 {"team": "Canada", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
                 {"team": "Bosnia and Herzegovina", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
-                {"team": "Qatar", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "Switzerland", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0}
+                {"team": "Qatar", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
+                {"team": "Switzerland", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1}
             ]
         },
         {
             "name": "Group C",
             "standings": [
-                {"team": "Brazil", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
-                {"team": "Haiti", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "Scotland", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "Morocco", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0}
+                {"team": "Scotland", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
+                {"team": "Brazil", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
+                {"team": "Morocco", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
+                {"team": "Haiti", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0}
             ]
         },
         {
             "name": "Group D",
             "standings": [
-                {"team": "United States", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
-                {"team": "Australia", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "Turkiye", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "Paraguay", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0}
+                {"team": "United States", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 3, "pts": 3},
+                {"team": "Australia", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
+                {"team": "Turkiye", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0},
+                {"team": "Paraguay", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -3, "pts": 0}
             ]
         },
         {
             "name": "Group E",
             "standings": [
-                {"team": "Germany", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
-                {"team": "Ecuador", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
-                {"team": "Ivory Coast", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
-                {"team": "Curacao", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0}
+                {"team": "Germany", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 6, "pts": 3},
+                {"team": "Ivory Coast", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
+                {"team": "Ecuador", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
+                {"team": "Curacao", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -6, "pts": 0}
             ]
         },
         {
             "name": "Group F",
             "standings": [
-                {"team": "Netherlands", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
-                {"team": "Sweden", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
-                {"team": "Japan", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
-                {"team": "Tunisia", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0}
+                {"team": "Sweden", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 4, "pts": 3},
+                {"team": "Netherlands", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
+                {"team": "Japan", "p": 1, "w": 0, "d": 1, "l": 0, "gd": 0, "pts": 1},
+                {"team": "Tunisia", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -4, "pts": 0}
             ]
         },
         {

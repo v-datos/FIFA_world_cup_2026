@@ -2,15 +2,70 @@ import json
 import streamlit as st
 import os
 
-def render_painters_tape_bracket():
-    # Load bracket state
+@st.cache_data(ttl=600)
+def load_live_bracket_state() -> dict:
     bracket_path = "data/bracket/grid_state.json"
     if not os.path.exists(bracket_path):
-        st.warning("Bracket data not found.")
-        return
+        return {}
 
     with open(bracket_path, "r") as f:
         data = json.load(f)
+
+    import subprocess
+    TEAM_ID_TO_NAME = {
+        "1": "Mexico", "2": "South Africa", "3": "South Korea", "4": "Czechia",
+        "5": "Canada", "6": "Bosnia and Herzegovina", "7": "Qatar", "8": "Switzerland",
+        "9": "Brazil", "10": "Morocco", "11": "Haiti", "12": "Scotland",
+        "13": "United States", "14": "Paraguay", "15": "Australia", "16": "Turkiye",
+        "17": "Germany", "18": "Curacao", "19": "Ivory Coast", "20": "Ecuador",
+        "21": "Netherlands", "22": "Japan", "23": "Sweden", "24": "Tunisia",
+        "25": "Belgium", "26": "Egypt", "27": "Iran", "28": "New Zealand",
+        "29": "Spain", "30": "Cape Verde", "31": "Saudi Arabia", "32": "Uruguay",
+        "33": "France", "34": "Senegal", "35": "Iraq", "36": "Norway",
+        "37": "Argentina", "38": "Algeria", "39": "Austria", "40": "Jordan",
+        "41": "Portugal", "42": "DR Congo", "43": "Uzbekistan", "44": "Colombia",
+        "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
+    }
+
+    try:
+        url = "https://worldcup26.ir/get/groups"
+        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=5)
+        if result.returncode == 0:
+            api_data = json.loads(result.stdout)
+            if isinstance(api_data, list) and len(api_data) > 0:
+                groups = []
+                for group in api_data:
+                    group_name = f"Group {group.get('name', '')}"
+                    standings = []
+                    for t in group.get("teams", []):
+                        team_id = str(t.get("team_id", ""))
+                        team_name = TEAM_ID_TO_NAME.get(team_id)
+                        if team_name:
+                            standings.append({
+                                "team": team_name,
+                                "p": int(t.get("mp", 0)),
+                                "w": int(t.get("w", 0)),
+                                "d": int(t.get("d", 0)),
+                                "l": int(t.get("l", 0)),
+                                "gd": int(t.get("gd", 0)),
+                                "pts": int(t.get("pts", 0))
+                            })
+                    groups.append({
+                        "name": group_name,
+                        "standings": standings
+                    })
+                data["groups"] = groups
+    except Exception:
+        pass
+
+    return data
+
+def render_painters_tape_bracket():
+    # Load bracket state
+    data = load_live_bracket_state()
+    if not data:
+        st.warning("Bracket data not found.")
+        return
 
     # CSS to simulate the wood wall, blue painter's tape, and off-white masking tape connectors
     css_content = """

@@ -6,39 +6,39 @@
       "standings": [
         {
           "team": "Mexico",
-          "gd": 2,
-          "pts": 3,
           "p": 1,
           "w": 1,
           "d": 0,
-          "l": 0
-        },
-        {
-          "team": "Czechia",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 2,
+          "pts": 3
         },
         {
           "team": "South Korea",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
-          "w": 0,
+          "p": 1,
+          "w": 1,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 1,
+          "pts": 3
         },
         {
-          "team": "South Africa",
-          "gd": -2,
-          "pts": 0,
+          "team": "Czechia",
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -1,
+          "pts": 0
+        },
+        {
+          "team": "South Africa",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gd": -2,
+          "pts": 0
         }
       ]
     },
@@ -47,39 +47,39 @@
       "standings": [
         {
           "team": "Canada",
-          "gd": 0,
-          "pts": 1,
           "p": 1,
           "w": 0,
           "d": 1,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         },
         {
           "team": "Bosnia and Herzegovina",
-          "gd": 0,
-          "pts": 1,
           "p": 1,
           "w": 0,
           "d": 1,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         },
         {
           "team": "Qatar",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
-          "l": 0
+          "d": 1,
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         },
         {
           "team": "Switzerland",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
-          "l": 0
+          "d": 1,
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         }
       ]
     },
@@ -87,40 +87,40 @@
       "name": "Group C",
       "standings": [
         {
-          "team": "Brazil",
-          "gd": 1,
-          "pts": 3,
+          "team": "Scotland",
           "p": 1,
           "w": 1,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 1,
+          "pts": 3
         },
         {
-          "team": "Haiti",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
+          "team": "Brazil",
+          "p": 1,
           "w": 0,
-          "d": 0,
-          "l": 0
-        },
-        {
-          "team": "Scotland",
+          "d": 1,
+          "l": 0,
           "gd": 0,
-          "pts": 0,
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0
+          "pts": 1
         },
         {
           "team": "Morocco",
-          "gd": -1,
-          "pts": 0,
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gd": 0,
+          "pts": 1
+        },
+        {
+          "team": "Haiti",
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -1,
+          "pts": 0
         }
       ]
     },
@@ -129,39 +129,39 @@
       "standings": [
         {
           "team": "United States",
-          "gd": 2,
-          "pts": 3,
           "p": 1,
           "w": 1,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 3,
+          "pts": 3
         },
         {
           "team": "Australia",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
-          "w": 0,
+          "p": 1,
+          "w": 1,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 2,
+          "pts": 3
         },
         {
           "team": "Turkiye",
-          "gd": 0,
-          "pts": 0,
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0
-        },
-        {
-          "team": "Paraguay",
-          "gd": -2,
-          "pts": 0,
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -2,
+          "pts": 0
+        },
+        {
+          "team": "Paraguay",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gd": -3,
+          "pts": 0
         }
       ]
     },
@@ -170,39 +170,39 @@
       "standings": [
         {
           "team": "Germany",
-          "gd": 2,
-          "pts": 3,
           "p": 1,
           "w": 1,
           "d": 0,
-          "l": 0
-        },
-        {
-          "team": "Ecuador",
-          "gd": 1,
-          "pts": 3,
-          "p": 1,
-          "w": 1,
-          "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 6,
+          "pts": 3
         },
         {
           "team": "Ivory Coast",
-          "gd": -1,
-          "pts": 0,
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gd": 1,
+          "pts": 3
+        },
+        {
+          "team": "Ecuador",
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -1,
+          "pts": 0
         },
         {
           "team": "Curacao",
-          "gd": -2,
-          "pts": 0,
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -6,
+          "pts": 0
         }
       ]
     },
@@ -210,40 +210,40 @@
       "name": "Group F",
       "standings": [
         {
-          "team": "Japan",
-          "gd": -1,
-          "pts": 0,
+          "team": "Sweden",
           "p": 1,
-          "w": 0,
+          "w": 1,
           "d": 0,
-          "l": 1
+          "l": 0,
+          "gd": 4,
+          "pts": 3
         },
         {
           "team": "Netherlands",
-          "gd": 1,
-          "pts": 3,
           "p": 1,
-          "w": 1,
-          "d": 0,
-          "l": 0
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         },
         {
-          "team": "Sweden",
-          "gd": 1,
-          "pts": 3,
+          "team": "Japan",
           "p": 1,
-          "w": 1,
-          "d": 0,
-          "l": 0
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gd": 0,
+          "pts": 1
         },
         {
           "team": "Tunisia",
-          "gd": -1,
-          "pts": 0,
           "p": 1,
           "w": 0,
           "d": 0,
-          "l": 1
+          "l": 1,
+          "gd": -4,
+          "pts": 0
         }
       ]
     },
@@ -252,39 +252,39 @@
       "standings": [
         {
           "team": "Belgium",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Egypt",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Iran",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "New Zealand",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     },
@@ -293,39 +293,39 @@
       "standings": [
         {
           "team": "Cape Verde",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Saudi Arabia",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Spain",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Uruguay",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     },
@@ -334,39 +334,39 @@
       "standings": [
         {
           "team": "France",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Iraq",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Norway",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Senegal",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     },
@@ -375,39 +375,39 @@
       "standings": [
         {
           "team": "Algeria",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Argentina",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Austria",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Jordan",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     },
@@ -416,39 +416,39 @@
       "standings": [
         {
           "team": "Colombia",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "DR Congo",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Portugal",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Uzbekistan",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     },
@@ -457,39 +457,39 @@
       "standings": [
         {
           "team": "Croatia",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "England",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Ghana",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         },
         {
           "team": "Panama",
-          "gd": 0,
-          "pts": 0,
           "p": 0,
           "w": 0,
           "d": 0,
-          "l": 0
+          "l": 0,
+          "gd": 0,
+          "pts": 0
         }
       ]
     }
