@@ -71,6 +71,99 @@ ROSTERS_2026 = {
     ]
 }
 
+PLAYER_CLUBS_2026 = {
+    # Netherlands
+    "Cody Gakpo": "Liverpool",
+    "Memphis Depay": "Corinthians",
+    "Virgil van Dijk": "Liverpool",
+    "Nathan Aké": "Manchester City",
+    "Matthijs de Ligt": "Manchester United",
+    "Denzel Dumfries": "Inter Milan",
+    "Jeremie Frimpong": "Bayer Leverkusen",
+    "Stefan de Vrij": "Inter Milan",
+    "Micky van de Ven": "Tottenham Hotspur",
+    "Tijjani Reijnders": "AC Milan",
+    "Jerdy Schouten": "PSV Eindhoven",
+    "Joey Veerman": "PSV Eindhoven",
+    "Xavi Simons": "RB Leipzig",
+    "Donyell Malen": "Borussia Dortmund",
+    "Wout Weghorst": "Ajax",
+    "Brian Brobbey": "Ajax",
+    "Joshua Zirkzee": "Manchester United",
+    
+    # Japan
+    "Kaoru Mitoma": "Brighton & Hove Albion",
+    "Takefusa Kubo": "Real Sociedad",
+    "Wataru Endo": "Liverpool",
+    "Hidemasa Morita": "Sporting CP",
+    "Daichi Kamada": "Crystal Palace",
+    "Ritsu Doan": "SC Freiburg",
+    "Takumi Minamino": "Monaco",
+    "Keito Nakamura": "Reims",
+    "Ko Itakura": "Borussia Mönchengladbach",
+    "Koki Machida": "Union SG",
+    "Shogo Taniguchi": "Sint-Truiden",
+    "Yukinari Sugawara": "Southampton",
+    "Zion Suzuki": "Parma",
+    "Ayase Ueda": "Feyenoord",
+    "Daizen Maeda": "Celtic",
+    "Takuma Asano": "Mallorca",
+    
+    # Ivory Coast
+    "Franck Kessié": "Al-Ahli",
+    "Sébastien Haller": "Leganés",
+    "Simon Adingra": "Brighton & Hove Albion",
+    "Nicolas Pépé": "Villarreal",
+    "Ibrahim Sangaré": "Nottingham Forest",
+    "Seko Fofana": "Al-Ettifaq",
+    "Odilon Kossounou": "Atalanta",
+    "Evan Ndicka": "Roma",
+    "Serge Aurier": "Galatasaray",
+    "Yahia Fofana": "Angers",
+    
+    # Ecuador
+    "Moisés Caicedo": "Chelsea",
+    "Enner Valencia": "Internacional",
+    "Piero Hincapié": "Bayer Leverkusen",
+    "Pervis Estupiñán": "Brighton & Hove Albion",
+    "Willian Pacho": "Paris Saint-Germain",
+    "Kendry Páez": "Independiente del Valle",
+    "Jeremy Sarmiento": "Burnley",
+    "Félix Torres": "Corinthians",
+    "Alexander Domínguez": "LDU Quito",
+    
+    # Sweden
+    "Alexander Isak": "Newcastle United",
+    "Dejan Kulusevski": "Tottenham Hotspur",
+    "Viktor Gyökeres": "Sporting CP",
+    "Emil Forsberg": "New York Red Bulls",
+    "Victor Lindelöf": "Manchester United",
+    "Ludwig Augustinsson": "Anderlecht",
+    "Robin Olsen": "Aston Villa",
+    "Anthony Elanga": "Nottingham Forest",
+    "Jens Cajuste": "Ipswich Town",
+    
+    # Tunisia
+    "Ellyes Skhiri": "Eintracht Frankfurt",
+    "Youssef Msakni": "Al-Arabi",
+    "Hannibal Mejbri": "Burnley",
+    "Aissa Laïdouni": "Al-Wakrah",
+    "Montassar Talbi": "Lorient",
+    "Wajdi Kechrida": "Standard Liège",
+    "Ali Abdi": "Nice",
+    "Bechir Ben Said": "Espérance de Tunis",
+    "Elias Achouri": "Copenhagen"
+}
+
+LAST_TOURNAMENT_STANDINGS_2026 = {
+    "Netherlands": "Semi-finals (UEFA Euro 2024)",
+    "Japan": "Round of 16 (FIFA World Cup 2022)",
+    "Ivory Coast": "Champions (Africa Cup of Nations 2023)",
+    "Ecuador": "Quarter-finals (Copa América 2024)",
+    "Sweden": "Round of 16 (UEFA Euro 2020)",
+    "Tunisia": "Group Stage (Africa Cup of Nations 2023)"
+}
+
 MATCH_VISUALIZATION_PROXIES = {
     "Netherlands": {"match_id": 3930180, "team": "Netherlands", "label": "UEFA Euro 2024"},
     "Japan": {"match_id": 3857255, "team": "Japan", "label": "FIFA World Cup 2022"},
@@ -848,6 +941,9 @@ def main():
                 inj_t2_html = "".join([f"<li style='margin-bottom:6px;'>{inj}</li>" for inj in inj_t2])
                 insights_html = "".join([f"<li style='margin-bottom:8px;'>{ins}</li>" for ins in ai_sum["tactical_insights"]])
                 
+                standing1 = LAST_TOURNAMENT_STANDINGS_2026.get(team1, "N/A")
+                standing2 = LAST_TOURNAMENT_STANDINGS_2026.get(team2, "N/A")
+                
                 summary_html = f"""
                 <div style="
                     background: linear-gradient(145deg, #111827, #1f2937);
@@ -870,6 +966,15 @@ def main():
                         <div style="background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.2); border-radius: 8px; padding: 16px;">
                             <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} Injury Update</h4>
                             <ul style="margin: 0; padding-left: 20px; color: #d1d5db;">{inj_t2_html}</ul>
+                        </div>
+                        
+                        <div style="background: rgba(0, 198, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.2); border-radius: 8px; padding: 16px;">
+                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag1} {team1} Last Major Standing</h4>
+                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{standing1}</div>
+                        </div>
+                        <div style="background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.2); border-radius: 8px; padding: 16px;">
+                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} Last Major Standing</h4>
+                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{standing2}</div>
                         </div>
                     </div>
                     <h4 style="color: #fff; margin-bottom: 8px; font-weight: bold;">⚽ Key Match Insights</h4>
@@ -913,6 +1018,50 @@ def main():
                 </div>
                 """.replace('\n', ' ')
                 st.markdown(tactics_html, unsafe_allow_html=True)
+                
+                # Symmetrical Squad Lists & Club Affiliations
+                roster1 = ROSTERS_2026.get(team1, [])
+                roster2 = ROSTERS_2026.get(team2, [])
+                
+                # Format players with their clubs
+                r1_items_html = ""
+                for p in roster1:
+                    club = PLAYER_CLUBS_2026.get(p, "Unknown Club")
+                    r1_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#00c6ff; opacity:0.85;'>({club})</span></li>"
+                    
+                r2_items_html = ""
+                for p in roster2:
+                    club = PLAYER_CLUBS_2026.get(p, "Unknown Club")
+                    r2_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#ff007f; opacity:0.85;'>({club})</span></li>"
+                
+                squads_html = f"""
+                <div style="
+                    background: linear-gradient(145deg, #111827, #1f2937);
+                    border: 1px solid #374151;
+                    border-radius: 12px;
+                    padding: 24px;
+                    margin-bottom: 24px;
+                    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+                    font-family: 'Play', sans-serif;
+                ">
+                    <h3 style="color: #60a5fa; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">📋 2026 Squad Lists & Club Affiliations</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
+                        <div>
+                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag1} {team1} Squad</h4>
+                            <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-size: 0.95rem;">
+                                {r1_items_html}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag2} {team2} Squad</h4>
+                            <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-size: 0.95rem;">
+                                {r2_items_html}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                """.replace('\n', ' ')
+                st.markdown(squads_html, unsafe_allow_html=True)
                 
                 # Match Predictions & Forecast
                 forecast = metrics_data["dixon_coles_forecast"]
