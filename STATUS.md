@@ -1,22 +1,21 @@
 # STATUS
 
-## 2026-06-14 - Bespoke Tactical Visualizations Integration Completed
+## 2026-06-15 - Streamlit DOM Injection & Styling Refactor Completed
 
 Prepared by: Orchestrator
 
 ### Current Objective
 
-Integrate passing networks, shot maps, radar charts, and xG timelines into the 2026 World Cup Fixtures (Live Previews) sub-tab.
+Refactor the bracket UI to use `st.html()` for direct DOM injection, resolving sandboxing and height clipping issues, and clean up unstable styling selectors.
 
 ### Completed This Update
 
-- **xG Momentum Timelines**: Interactive Plotly graphs displaying step-wise cumulative expected goals generated dynamically based on match roster and forecast expected goals per 90.
-- **Passing Networks**: Displayed side-by-side pitch pass networks retrieved from historical tournament matchups.
-- **Shot Maps**: Displayed side-by-side vertical pitch shot maps scaled by StatsBomb xG showing goals (footballs) vs shots.
-- **Touch Heatmaps**: Displayed side-by-side spatial touch density plots.
-- **Radar Charts**: Displayed side-by-side radar charts for both teams showing standard tactical performance metrics.
-- **Cleaned Code Clutter**: Removed duplicate local `ROSTERS_2026` mapping inside the player crosswalk block, resolving them from the top-level declaration instead.
-- **Compliance Audit**: Successfully passed all framework and style audits.
+- **Direct DOM Injection**: Replaced sandboxed iframe `components.html()` rendering in `bracket_ui.py` with `st.html()` direct DOM injection.
+- **Scroll & Height Fix**: Allowed the lo-fi wood board bracket to flow naturally in the parent DOM, eliminating inner scrollbars and fixed-height clipping.
+- **Cleaned Up Fullscreen Elements**: Removed the iframe-only "FULLSCREEN VIEW" button and its JavaScript since DOM rendering integrates natively.
+- **Scoped Wood Scenery Strictly**: Kept the rustic wood background scoped to the `🏆 Tournament Board` tab, ensuring the `⚔️ Match Analysis` tab maintains its dark cyberpunk theme.
+- **Cleaned Up style.css**: Removed the unstable emotion selector `.css-1d391kg`.
+- **Git Tracking**: Committed all frontend modifications to Git.
 
 ### Open Risks
 
