@@ -265,8 +265,8 @@ def generate_upcoming_previews():
         
         print(f"Found {len(upcoming_games)} upcoming matches in schedule.")
         
-        # We generate previews for the next 3 matches
-        for g in upcoming_games[:3]:
+        # We generate previews for the next 8 matches
+        for g in upcoming_games[:8]:
             t1 = g.get("home_team_name_en") or g.get("home_team_label")
             t2 = g.get("away_team_name_en") or g.get("away_team_label")
             
@@ -294,6 +294,21 @@ def generate_upcoming_previews():
             print(f"⚙️ Generating AI Tactical Preview for {t1} vs {t2}...")
             preview_data = generate_ai_preview(t1, t2, date_val, time_val, venue, stage)
             
+            # Fetch team metrics from SoccerDataClient fallback profiles
+            import sys
+            parent_dir = str(Path(__file__).resolve().parents[2])
+            if parent_dir not in sys.path:
+                sys.path.append(parent_dir)
+            try:
+                from src.analytics.soccerdata_client import SoccerDataClient
+                sd_client = SoccerDataClient()
+                t1_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t1)
+                t2_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t2)
+            except Exception as e:
+                print(f"⚠️ Failed to load SoccerDataClient for team metrics: {e}")
+                t1_stats_dict = {}
+                t2_stats_dict = {}
+            
             # Write to files
             match_folder.mkdir(parents=True, exist_ok=True)
             
@@ -303,7 +318,11 @@ def generate_upcoming_previews():
             }
             metrics_payload = {
                 "dixon_coles_forecast": preview_data.get("dixon_coles_forecast"),
-                "score_probabilities": preview_data.get("score_probabilities")
+                "score_probabilities": preview_data.get("score_probabilities"),
+                "team_metrics": {
+                    t1: t1_stats_dict,
+                    t2: t2_stats_dict
+                }
             }
             
             with open(sum_path, "w", encoding="utf-8") as f:

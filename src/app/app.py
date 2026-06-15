@@ -68,6 +68,40 @@ ROSTERS_2026 = {
         "Ellyes Skhiri", "Youssef Msakni", "Hannibal Mejbri", "Aissa Laïdouni",
         "Montassar Talbi", "Wajdi Kechrida", "Ali Abdi", "Bechir Ben Said",
         "Elias Achouri"
+    ],
+    "Spain": [
+        "Lamine Yamal", "Nico Williams", "Rodri", "Pedri", "Dani Olmo", 
+        "Álvaro Morata", "Dani Carvajal", "Robin Le Normand", "Unai Simón", "Fabián Ruiz"
+    ],
+    "Cape Verde": [
+        "Ryan Mendes", "Garry Rodrigues", "Jovane Cabral", "Logan Costa", 
+        "Bebé", "Jamiro Monteiro", "Kenny Rocha Santos", "Roberto Lopes"
+    ],
+    "Belgium": [
+        "Kevin De Bruyne", "Romelu Lukaku", "Jérémy Doku", "Lois Openda", 
+        "Leandro Trossard", "Amadou Onana", "Youri Tielemans", "Wout Faes", 
+        "Timothy Castagne", "Koen Casteels"
+    ],
+    "Egypt": [
+        "Mohamed Salah", "Mostafa Mohamed", "Omar Marmoush", "Trezeguet", 
+        "Mohamed Elneny", "Emam Ashour", "Mohamed Hany", "Ahmed Hegazi", "Mohamed Abou Gabal"
+    ],
+    "Saudi Arabia": [
+        "Salem Al-Dawsari", "Firas Al-Buraikan", "Abdulrahman Ghareeb", "Mohamed Kanno", 
+        "Faisal Al-Ghamdi", "Saud Abdulhamid", "Ali Al-Bulaihi", "Yasser Al-Shahrani", "Mohammed Al-Owais"
+    ],
+    "Uruguay": [
+        "Darwin Núñez", "Luis Suárez", "Federico Valverde", "Facundo Pellistri", 
+        "Manuel Ugarte", "Nicolas de la Cruz", "Ronald Araújo", "Mathías Olivera", 
+        "Jose María Giménez", "Sergio Rochet"
+    ],
+    "Iran": [
+        "Mehdi Taremi", "Sardar Azmoun", "Alireza Jahanbakhsh", "Samon Ghoddos", 
+        "Mehdi Ghayedi", "Saeid Ezatolahi", "Milad Mohammadi", "Shojae Khalilzadeh", "Alireza Beiranvand"
+    ],
+    "New Zealand": [
+        "Chris Wood", "Sarpreet Singh", "Liberato Cacace", "Joe Bell", 
+        "Marko Stamenic", "Tyler Bindon", "Michael Boxall", "Alex Paulsen"
     ]
 }
 
@@ -152,7 +186,96 @@ PLAYER_CLUBS_2026 = {
     "Wajdi Kechrida": "Standard Liège",
     "Ali Abdi": "Nice",
     "Bechir Ben Said": "Espérance de Tunis",
-    "Elias Achouri": "Copenhagen"
+    "Elias Achouri": "Copenhagen",
+    
+    # Spain
+    "Lamine Yamal": "Barcelona",
+    "Nico Williams": "Athletic Bilbao",
+    "Rodri": "Manchester City",
+    "Pedri": "Barcelona",
+    "Dani Olmo": "Barcelona",
+    "Álvaro Morata": "AC Milan",
+    "Dani Carvajal": "Real Madrid",
+    "Robin Le Normand": "Atlético Madrid",
+    "Unai Simón": "Athletic Bilbao",
+    "Fabián Ruiz": "Paris Saint-Germain",
+    
+    # Cape Verde
+    "Ryan Mendes": "Kocaelispor",
+    "Garry Rodrigues": "Sivasspor",
+    "Jovane Cabral": "Estrela da Amadora",
+    "Logan Costa": "Villarreal",
+    "Bebé": "Racing Ferrol",
+    "Jamiro Monteiro": "PEC Zwolle",
+    "Kenny Rocha Santos": "AEZ Zakakiou",
+    "Roberto Lopes": "Shamrock Rovers",
+    
+    # Belgium
+    "Kevin De Bruyne": "Manchester City",
+    "Romelu Lukaku": "Napoli",
+    "Jérémy Doku": "Manchester City",
+    "Lois Openda": "RB Leipzig",
+    "Leandro Trossard": "Arsenal",
+    "Amadou Onana": "Aston Villa",
+    "Youri Tielemans": "Aston Villa",
+    "Wout Faes": "Leicester City",
+    "Timothy Castagne": "Fulham",
+    "Koen Casteels": "Al-Qadsiah",
+    
+    # Egypt
+    "Mohamed Salah": "Liverpool",
+    "Mostafa Mohamed": "Nantes",
+    "Omar Marmoush": "Eintracht Frankfurt",
+    "Trezeguet": "Al-Rayyan",
+    "Mohamed Elneny": "Al-Jazira",
+    "Emam Ashour": "Al Ahly",
+    "Mohamed Hany": "Al Ahly",
+    "Ahmed Hegazi": "Neom",
+    "Mohamed Abou Gabal": "National Bank of Egypt",
+    
+    # Saudi Arabia
+    "Salem Al-Dawsari": "Al-Hilal",
+    "Firas Al-Buraikan": "Al-Ahli",
+    "Abdulrahman Ghareeb": "Al-Nassr",
+    "Mohamed Kanno": "Al-Hilal",
+    "Faisal Al-Ghamdi": "Beerschot",
+    "Saud Abdulhamid": "Roma",
+    "Ali Al-Bulaihi": "Al-Hilal",
+    "Yasser Al-Shahrani": "Al-Hilal",
+    "Mohammed Al-Owais": "Al-Hilal",
+    
+    # Uruguay
+    "Darwin Núñez": "Liverpool",
+    "Luis Suárez": "Inter Miami",
+    "Federico Valverde": "Real Madrid",
+    "Facundo Pellistri": "Panathinaikos",
+    "Manuel Ugarte": "Manchester United",
+    "Nicolas de la Cruz": "Flamengo",
+    "Ronald Araújo": "Barcelona",
+    "Mathías Olivera": "Napoli",
+    "Jose María Giménez": "Atlético Madrid",
+    "Sergio Rochet": "Internacional",
+    
+    # Iran
+    "Mehdi Taremi": "Inter Milan",
+    "Sardar Azmoun": "Shabab Al-Ahli",
+    "Alireza Jahanbakhsh": "Heerenveen",
+    "Samon Ghoddos": "Ittihad Kalba",
+    "Mehdi Ghayedi": "Ittihad Kalba",
+    "Saeid Ezatolahi": "Shabab Al-Ahli",
+    "Milad Mohammadi": "Persepolis",
+    "Shojae Khalilzadeh": "Tractor",
+    "Alireza Beiranvand": "Tractor",
+    
+    # New Zealand
+    "Chris Wood": "Nottingham Forest",
+    "Sarpreet Singh": "Unattached",
+    "Liberato Cacace": "Empoli",
+    "Joe Bell": "Viking",
+    "Marko Stamenic": "Olympiacos",
+    "Tyler Bindon": "Reading",
+    "Michael Boxall": "Minnesota United",
+    "Alex Paulsen": "Auckland FC"
 }
 
 LAST_TOURNAMENT_STANDINGS_2026 = {
@@ -161,7 +284,15 @@ LAST_TOURNAMENT_STANDINGS_2026 = {
     "Ivory Coast": "Champions (Africa Cup of Nations 2023)",
     "Ecuador": "Quarter-finals (Copa América 2024)",
     "Sweden": "Round of 16 (UEFA Euro 2020)",
-    "Tunisia": "Group Stage (Africa Cup of Nations 2023)"
+    "Tunisia": "Group Stage (Africa Cup of Nations 2023)",
+    "Spain": "Champions (UEFA Euro 2024)",
+    "Cape Verde": "Quarter-finals (Africa Cup of Nations 2023)",
+    "Belgium": "Round of 16 (UEFA Euro 2024)",
+    "Egypt": "Round of 16 (Africa Cup of Nations 2023)",
+    "Saudi Arabia": "Round of 16 (AFC Asian Cup 2023)",
+    "Uruguay": "Third Place (Copa América 2024)",
+    "Iran": "Semi-finals (AFC Asian Cup 2023)",
+    "New Zealand": "Champions (OFC Nations Cup 2024)"
 }
 
 MATCH_VISUALIZATION_PROXIES = {
@@ -927,6 +1058,12 @@ def main():
                 team1 = summary_data["metadata"]["team1"]
                 team2 = summary_data["metadata"]["team2"]
                 
+                # Normalize spelling for Ivory Coast
+                if team1 == "Côte d'Ivoire":
+                    team1 = "Ivory Coast"
+                if team2 == "Côte d'Ivoire":
+                    team2 = "Ivory Coast"
+                
                 st.markdown(f"""
                     <div style="
                         display: flex; justify-content: space-between; align-items: center;
@@ -1197,8 +1334,11 @@ def main():
                     ])
                     
                     with viz_tabs[0]:
-                        xg1 = metrics_data["team_metrics"][team1].get("expected_goals_per_90", 1.5)
-                        xg2 = metrics_data["team_metrics"][team2].get("expected_goals_per_90", 1.5)
+                        team_metrics = metrics_data.get("team_metrics", {})
+                        t1_metrics = team_metrics.get(team1, {})
+                        t2_metrics = team_metrics.get(team2, {})
+                        xg1 = t1_metrics.get("expected_goals_per_90", 1.5)
+                        xg2 = t2_metrics.get("expected_goals_per_90", 1.5)
                         fig = create_simulated_xg_timeline(team1, team2, xg1, xg2, roster1, roster2)
                         st.plotly_chart(fig, use_container_width=True)
                         

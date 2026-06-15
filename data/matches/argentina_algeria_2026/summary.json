@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "match_id": "argentina_algeria_2026",
+        "team1": "Argentina",
+        "team2": "Algeria",
+        "date": "06/16/2026",
+        "time": "20:00",
+        "venue": "Stadium 6",
+        "stage": "Group Stage - Group J"
+    },
+    "ai_summary": {
+        "key_headline": "Tactical Clash: Argentina Takes On Algeria",
+        "injuries": {
+            "argentina": [
+                "No major injuries reported"
+            ],
+            "algeria": [
+                "No major injuries reported"
+            ]
+        },
+        "confirmed_tactics": {
+            "argentina": {
+                "formation": "4-3-3",
+                "philosophy": "Balanced positional play.",
+                "manager": "Head Coach"
+            },
+            "algeria": {
+                "formation": "4-4-2",
+                "philosophy": "Compact counter-attacking.",
+                "manager": "Head Coach"
+            }
+        },
+        "tactical_insights": [
+            "Both teams will try to establish control early in the midfield.",
+            "Defensive discipline will be crucial in preventing quick transitions.",
+            "Set-pieces could be the deciding factor in a tightly contested match."
+        ]
+    }
+}

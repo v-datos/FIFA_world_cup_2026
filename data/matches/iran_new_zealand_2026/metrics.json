@@ -1,0 +1,70 @@
+{
+    "dixon_coles_forecast": {
+        "team1_win": 0.4,
+        "draw": 0.3,
+        "team2_win": 0.3,
+        "confidence": 0.7
+    },
+    "score_probabilities": [
+        {
+            "score": "1-0",
+            "probability": 0.15
+        },
+        {
+            "score": "1-1",
+            "probability": 0.14
+        },
+        {
+            "score": "0-1",
+            "probability": 0.13
+        },
+        {
+            "score": "2-1",
+            "probability": 0.1
+        },
+        {
+            "score": "0-0",
+            "probability": 0.09
+        },
+        {
+            "score": "1-2",
+            "probability": 0.08
+        }
+    ],
+    "team_metrics": {
+        "Iran": {
+            "squad_market_value_m": 45.0,
+            "average_age": 28.2,
+            "possession_avg": 47.0,
+            "pass_completion_pct": 78.5,
+            "expected_goals_per_90": 1.2,
+            "expected_goals_conceded_per_90": 1.3,
+            "shots_per_90": 11.0,
+            "ppda": 12.2,
+            "field_tilt_pct": 46.8,
+            "goals_per_90": 1.25,
+            "goals_conceded_per_90": 1.25,
+            "shots_on_target_pct": 31.8,
+            "passes_per_90": 380.0,
+            "xg_per_shot": 0.114,
+            "shots_against_per_90": 12.8
+        },
+        "New Zealand": {
+            "squad_market_value_m": 22.0,
+            "average_age": 26.1,
+            "possession_avg": 45.5,
+            "pass_completion_pct": 76.8,
+            "expected_goals_per_90": 1.0,
+            "expected_goals_conceded_per_90": 1.45,
+            "shots_per_90": 9.8,
+            "ppda": 13.5,
+            "field_tilt_pct": 43.8,
+            "goals_per_90": 0.95,
+            "goals_conceded_per_90": 1.4,
+            "shots_on_target_pct": 29.5,
+            "passes_per_90": 350.0,
+            "xg_per_shot": 0.097,
+            "shots_against_per_90": 14.2
+        }
+    }
+}

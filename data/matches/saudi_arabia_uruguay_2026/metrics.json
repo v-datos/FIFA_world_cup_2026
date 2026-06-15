@@ -30,5 +30,41 @@
             "score": "1-2",
             "probability": 0.08
         }
-    ]
+    ],
+    "team_metrics": {
+        "Saudi Arabia": {
+            "squad_market_value_m": 25.0,
+            "average_age": 27.8,
+            "possession_avg": 46.5,
+            "pass_completion_pct": 78.2,
+            "expected_goals_per_90": 1.1,
+            "expected_goals_conceded_per_90": 1.4,
+            "shots_per_90": 10.5,
+            "ppda": 12.8,
+            "field_tilt_pct": 45.5,
+            "goals_per_90": 1.05,
+            "goals_conceded_per_90": 1.35,
+            "shots_on_target_pct": 30.8,
+            "passes_per_90": 370.0,
+            "xg_per_shot": 0.105,
+            "shots_against_per_90": 13.2
+        },
+        "Uruguay": {
+            "squad_market_value_m": 480.0,
+            "average_age": 25.8,
+            "possession_avg": 51.5,
+            "pass_completion_pct": 81.2,
+            "expected_goals_per_90": 1.58,
+            "expected_goals_conceded_per_90": 1.05,
+            "shots_per_90": 13.2,
+            "ppda": 9.2,
+            "field_tilt_pct": 52.0,
+            "goals_per_90": 1.62,
+            "goals_conceded_per_90": 0.95,
+            "shots_on_target_pct": 35.0,
+            "passes_per_90": 440.0,
+            "xg_per_shot": 0.121,
+            "shots_against_per_90": 11.2
+        }
+    }
 }
