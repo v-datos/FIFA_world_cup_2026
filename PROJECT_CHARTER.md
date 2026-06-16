@@ -41,8 +41,8 @@ Build a high-performance web application tracking the live FIFA World Cup 2026. 
 ### Phase 2 - Dashboard UI (Completed)
 - Exit criteria met. Streamlit UI with the wood board symmetrical bracket wall, team analysis panel (with side-by-side comparison mode), and match tactical previews are fully complete and running locally.
 
-### Phase 3 - Ingestion & Sync
-- Connect local group standings data to live Nestor PostgreSQL/NestJS backend standings once deployed.
+### Phase 3 - Ingestion & Sync (Dismissed)
+- Connect local group standings data to live Nestor PostgreSQL/NestJS backend standings. (Dismissed on 2026-06-16: Standings sync is no longer required, local fallback and direct API polling satisfy all project needs).
 
 ## Team
 
@@ -59,6 +59,7 @@ Roles are defined in AGENTS.md.
 |---|---|---|---|
 | 2026-06-14 | Project initialized from AI Workflow Framework | Orchestrator | docs/decisions/20260614_DEC001_charter_v1.md |
 | 2026-06-15 | Deployed Streamlit App to Cloud Run & Configured AI Previews | Orchestrator | docs/decisions/20260615_DEC002_deployment_and_previews.md |
+| 2026-06-16 | Dismissed Phase 3 Standings Sync & Restricted Match Previews to Active Date | Orchestrator | docs/decisions/20260616_DEC003_dismiss_phase3_and_limit_previews.md |
 
 ## Risks
 

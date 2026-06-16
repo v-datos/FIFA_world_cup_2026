@@ -12,10 +12,10 @@ Last updated: 2026-06-15
 
 ## Backlog
 
-- [ ] **T-008 - PostgreSQL Live Standings Ingestion Sync**
+- [-] **T-008 - PostgreSQL Live Standings Ingestion Sync (Cancelled)**
   Phase: Phase 3
   Owner: Data Pipeline Engineer
-  Notes: Connect the standings state to the PostgreSQL NestJS server once deployed.
+  Notes: Cancelled on 2026-06-16. Local fallback and direct API polling satisfy all requirements; Postgres standings sync dismissed.
 
 ## Done
 

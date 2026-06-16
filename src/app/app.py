@@ -1159,8 +1159,11 @@ def main():
             
             # Scan data/matches for 2026 previews dynamically
             from pathlib import Path
+            from datetime import datetime
             preview_matches = {}
             matches_dir = Path("data/matches")
+            matches_details = []
+            
             if matches_dir.exists():
                 for match_folder in matches_dir.iterdir():
                     if match_folder.is_dir() and match_folder.name.endswith("_2026"):
@@ -1174,25 +1177,72 @@ def main():
                                 team1 = meta.get("team1", "Team 1")
                                 team2 = meta.get("team2", "Team 2")
                                 m_date = meta.get("date", "")
+                                m_time = meta.get("time", "12:00")
                                 
-                                # Format nice date: "2026-06-15" -> "June 15"
-                                nice_date = m_date
-                                if m_date:
-                                    try:
-                                        parts = m_date.split("-")
-                                        if len(parts) == 3:
-                                            months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-                                            nice_date = f"{months[int(parts[1])]} {int(parts[2])}"
-                                    except Exception:
-                                        pass
-                                        
-                                label = f"{nice_date}: {team1} vs {team2}"
-                                preview_matches[label] = match_folder.name
+                                # Parse match datetime
+                                try:
+                                    sep = "/" if "/" in m_date else "-"
+                                    date_parts = m_date.split(sep)
+                                    time_parts = m_time.split(":")
+                                    if len(date_parts) == 3:
+                                        if len(date_parts[0]) == 4: # YYYY-MM-DD
+                                            dt = datetime(int(date_parts[0]), int(date_parts[1]), int(date_parts[2]), int(time_parts[0]), int(time_parts[1]))
+                                        else: # MM/DD/YYYY
+                                            dt = datetime(int(date_parts[2]), int(date_parts[0]), int(date_parts[1]), int(time_parts[0]), int(time_parts[1]))
+                                    else:
+                                        dt = datetime.max
+                                except Exception:
+                                    dt = datetime.max
+                                    
+                                matches_details.append({
+                                    "folder": match_folder.name,
+                                    "team1": team1,
+                                    "team2": team2,
+                                    "date": m_date,
+                                    "time": m_time,
+                                    "dt": dt
+                                })
                             except Exception:
                                 pass
             
+            if matches_details:
+                # Determine active preview date: the date of the earliest match in the future (plus 2.5 hours buffer so currently playing games are shown)
+                current_dt = datetime.now()
+                # Find matches that are in the future or started less than 2.5 hours ago
+                active_matches = [m for m in matches_details if m["dt"] > current_dt or (current_dt - m["dt"]).total_seconds() < 9000]
+                
+                if active_matches:
+                    active_matches.sort(key=lambda x: x["dt"])
+                    active_date = active_matches[0]["date"]
+                else:
+                    # If all matches are in the past, use the latest match date
+                    matches_details.sort(key=lambda x: x["dt"], reverse=True)
+                    active_date = matches_details[0]["date"]
+                
+                # Format a nice subheader representing the active date
+                nice_active_date = active_date
+                try:
+                    sep = "/" if "/" in active_date else "-"
+                    parts = active_date.split(sep)
+                    if len(parts) == 3:
+                        months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                        if len(parts[0]) == 4:
+                            nice_active_date = f"{months[int(parts[1])]} {int(parts[2])}, {parts[0]}"
+                        else:
+                            nice_active_date = f"{months[int(parts[0])]} {int(parts[1])}, {parts[2]}"
+                except Exception:
+                    pass
+                
+                st.markdown(f"<div style='font-size: 1.15rem; color: #10b981; font-weight: bold; margin-bottom: 15px;'>Fixtures for {nice_active_date}</div>", unsafe_allow_html=True)
+                
+                # Filter matches to only show this active date
+                for m in matches_details:
+                    if m["date"] == active_date:
+                        label = f"{m['time']} - {m['team1']} vs {m['team2']}"
+                        preview_matches[label] = m["folder"]
+                        
             if preview_matches:
-                # Sort matches by date/label
+                # Sort matches by kickoff time
                 sorted_labels = sorted(list(preview_matches.keys()))
                 selected_match = st.selectbox(
                     "Select 2026 Fixture Preview",
@@ -1200,7 +1250,7 @@ def main():
                 )
                 match_key = preview_matches[selected_match]
             else:
-                st.warning("No live fixture previews found.")
+                st.warning("No live fixture previews found for today.")
                 match_key = None
                 
             if match_key:

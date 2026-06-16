@@ -19,11 +19,7 @@ Ensure correct group standings sorting, dynamic knockout bracket updates from AP
 - **Tournament Board Standing Update Fix**: Installed `curl` inside the slim Docker container image to resolve the silent failure of runtime standings API calls, and updated the local `grid_state.json` fallback.
 - **Portfolio Website Integration**: Synchronized the React routing changes and whitelisted the CSP `frame-src` in `.htaccess` on the remote server via SSH.
 
-### Open Risks
-
-- None.
-
 ### Next Sprint Priorities
 
-- Connect local group standings data to Nestor PostgreSQL/NestJS backend standings (Phase 3).
+- None. Project is complete and in maintenance mode.
 
