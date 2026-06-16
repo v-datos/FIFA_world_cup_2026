@@ -33,8 +33,15 @@ from bigquery_helpers import get_bigquery_client, execute_query
 
 from bracket_ui import render_painters_tape_bracket
 from entity_resolution import PlayerEntityResolver
+import importlib
+import soccerdata_client
+importlib.reload(soccerdata_client)
 from soccerdata_client import SoccerDataClient
+
+import translation_helper
+importlib.reload(translation_helper)
 from translation_helper import get_translation
+
 
 ROSTERS_2026 = {
     "Netherlands": [
@@ -1535,21 +1542,21 @@ def main():
                 sd_client = SoccerDataClient()
                 t1_stats = sd_client.fetch_fbref_team_tactical_stats(team1)
                 t2_stats = sd_client.fetch_fbref_team_tactical_stats(team2)
-                elo_t1 = sd_client.fetch_club_elo_ratings(team1)["elo_rating"]
-                elo_t2 = sd_client.fetch_club_elo_ratings(team2)["elo_rating"]
+                elo_t1 = sd_client.fetch_club_elo_ratings(team1).get("elo_rating") if sd_client.fetch_club_elo_ratings(team1) else None
+                elo_t2 = sd_client.fetch_club_elo_ratings(team2).get("elo_rating") if sd_client.fetch_club_elo_ratings(team2) else None
 
                 # Match Predictions & Forecast (Recalculated using mathematically correct Dixon-Coles model)
                 from soccerdata_client import get_dixon_coles_prediction
                 
                 if elo_t1 is not None and elo_t2 is not None:
-                    dc_res = get_dixon_coles_prediction(elo_t1, elo_t2)
+                    dc_res = get_dixon_coles_prediction(elo_t1, elo_t2) or {}
                     forecast = {
-                        "team1_win": dc_res["team1_win"],
-                        "draw": dc_res["draw"],
-                        "team2_win": dc_res["team2_win"],
-                        "confidence": dc_res["confidence"]
+                        "team1_win": dc_res.get("team1_win"),
+                        "draw": dc_res.get("draw"),
+                        "team2_win": dc_res.get("team2_win"),
+                        "confidence": dc_res.get("confidence")
                     }
-                    score_probs = dc_res["score_probabilities"]
+                    score_probs = dc_res.get("score_probabilities", [])
                 else:
                     forecast = metrics_data.get("dixon_coles_forecast", {"team1_win": None, "draw": None, "team2_win": None, "confidence": None})
                     score_probs = metrics_data.get("score_probabilities", [])
