@@ -15,6 +15,7 @@ COPY requirements.txt .
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libgomp1 \
+    curl \
     && pip install --no-cache-dir -r requirements.txt \
     && apt-get purge -y --auto-remove build-essential \
     && rm -rf /var/lib/apt/lists/*

@@ -300,25 +300,25 @@
       "standings": [
         {
           "team": "Belgium",
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 0,
-          "gf": 0,
-          "ga": 0,
+          "gf": 1,
+          "ga": 1,
           "gd": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "team": "Egypt",
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 0,
-          "gf": 0,
-          "ga": 0,
+          "gf": 1,
+          "ga": 1,
           "gd": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "team": "Iran",
@@ -349,25 +349,25 @@
       "standings": [
         {
           "team": "Spain",
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "team": "Cape Verde",
-          "p": 0,
+          "p": 1,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 0,
           "gf": 0,
           "ga": 0,
           "gd": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "team": "Saudi Arabia",
