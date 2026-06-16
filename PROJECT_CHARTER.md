@@ -58,6 +58,7 @@ Roles are defined in AGENTS.md.
 | Date | Decision | Owner | File |
 |---|---|---|---|
 | 2026-06-14 | Project initialized from AI Workflow Framework | Orchestrator | docs/decisions/20260614_DEC001_charter_v1.md |
+| 2026-06-15 | Deployed Streamlit App to Cloud Run & Configured AI Previews | Orchestrator | docs/decisions/20260615_DEC002_deployment_and_previews.md |
 
 ## Risks
 
