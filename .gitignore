@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+node_modules/
+dist/
+src/api/static/
+src/frontend/node_modules/
+src/frontend/dist/
+src/frontend/.cache/
+venv/
+.venv/
+.project_env/

@@ -1,0 +1,480 @@
+import React, { useState, useEffect } from 'react';
+import { InteractivePitch } from './InteractivePitch';
+import { MatchPredictionGraph } from './MatchPredictionGraph';
+import { TeamRadarComparison } from './TeamRadarComparison';
+import { ShieldAlert, Award, FileText, BarChart3, Image as ImageIcon } from 'lucide-react';
+
+interface Match {
+  id: string;
+  team1: string;
+  team2: string;
+  date: string;
+  time: string;
+  venue: string;
+  stage: string;
+}
+
+interface MatchAnalysisTabProps {
+  matches: Match[];
+  selectedMatchId: string | null;
+  setSelectedMatchId: (matchId: string) => void;
+  lang: string;
+  serverUrl: string;
+}
+
+export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
+  matches,
+  selectedMatchId,
+  setSelectedMatchId,
+  lang,
+  serverUrl,
+}) => {
+  const [summaryData, setSummaryData] = useState<any>(null);
+  const [metricsData, setMetricsData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [activeVizTab, setActiveVizTab] = useState<string>('momentum');
+
+  // Roster listing from app.py
+  const ROSTERS: Record<string, string[]> = {
+    "Netherlands": ["Bart Verbruggen", "Denzel Dumfries", "Virgil van Dijk", "Stefan de Vrij", "Nathan Ake", "Jerdy Schouten", "Tijjani Reijnders", "Joey Veerman", "Xavi Simons", "Memphis Depay", "Cody Gakpo"],
+    "Japan": ["Zion Suzuki", "Yukinari Sugawara", "Ko Itakura", "Koki Machida", "Keito Nakamura", "Wataru Endo", "Hidemasa Morita", "Ritsu Doan", "Takumi Minamino", "Takefusa Kubo", "Ayase Ueda"],
+    "France": ["Mike Maignan", "Jules Kounde", "Dayot Upamecano", "William Saliba", "Theo Hernandez", "N'Golo Kante", "Aurelien Tchouameni", "Antoine Griezmann", "Ousmane Dembele", "Kylian Mbappe", "Marcus Thuram"],
+    "Senegal": ["Edouard Mendy", "Formose Mendy", "Kalidou Koulibaly", "Abdou Diallo", "Ismail Jakobs", "Idrissa Gueye", "Lamine Camara", "Pape Sarr", "Ismaila Sarr", "Sadio Mane", "Nicolas Jackson"],
+    "Argentina": ["Emiliano Martinez", "Gonzalo Montiel", "Cristian Romero", "Lisandro Martinez", "Nicolas Tagliafico", "Rodrigo De Paul", "Enzo Fernandez", "Alexis Mac Allister", "Lionel Messi", "Lautaro Martinez", "Julian Alvarez"],
+    "Algeria": ["Anthony Mandrea", "Youcef Atal", "Aissa Mandi", "Ramy Bensebaini", "Rayan Ait-Nouri", "Nabil Bentaleb", "Ismael Bennacer", "Riyad Mahrez", "Fares Chaibi", "Said Benrahma", "Baghdad Bounedjah"],
+    "Austria": ["Patrick Pentz", "Stefan Posch", "Kevin Danso", "Maximilian Wober", "Phillipp Mwene", "Nicolas Seiwald", "Marcel Sabitzer", "Konrad Laimer", "Christoph Baumgartner", "Patrick Wimmer", "Michael Gregoritsch"],
+    "Norway": ["Orjan Nyland", "Julian Ryerson", "Andreas Hanche-Olsen", "Leo Ostigard", "David Wolfe", "Martin Odegaard", "Sander Berge", "Kristoffer Ajer", "Oscar Bobb", "Erling Haaland", "Alexander Sorloth"],
+    "Iraq": ["Jalal Hassan", "Hussein Ali", "Saad Natiq", "Rebin Sulaka", "Merchas Doski", "Osama Rashid", "Amir Al-Ammari", "Ibrahim Bayesh", "Ali Jasim", "Youssef Amyn", "Aymen Hussein"],
+    "Jordan": ["Yazeed Abulaila", "Ehsan Haddad", "Yazan Al-Arab", "Abdallah Nasib", "Salem Al-Ajalin", "Nizar Al-Rashdan", "Noor Al-Rawabdeh", "Musa Al-Taamari", "Ali Olwan", "Mahmoud Al-Mardi", "Yazan Al-Naimat"],
+    "Portugal": ["Diogo Costa", "Joao Cancelo", "Ruben Dias", "Pepe", "Nuno Mendes", "Joao Palhinha", "Vitinha", "Bruno Fernandes", "Bernardo Silva", "Cristiano Ronaldo", "Rafael Leao"],
+    "DR Congo": ["Lionel Mpasi", "Gedeon Kalulu", "Chancel Mbemba", "Dylan Batubinsika", "Arthur Masuaku", "Samuel Moutoussamy", "Charles Pickel", "Theo Bongonda", "Gael Kakuta", "Yoane Wissa", "Cedric Bakambu"],
+    "Uzbekistan": ["Utkir Yusupov", "Abdukodir Khusanov", "Rustam Ashurmatov", "Umar Eshmurodov", "Sherzod Nasrullaev", "Otabek Shukurov", "Odiljon Hamrobekov", "Abbosbek Fayzullaev", "Jaloliddin Masharipov", "Eldor Shomurodov", "Igor Sergeev"],
+    "Colombia": ["Camilo Vargas", "Daniel Munoz", "Davinson Sanchez", "Carlos Cuesta", "Johan Mojica", "Richard Rios", "Jefferson Lerma", "Jhon Arias", "James Rodriguez", "Luis Diaz", "Jhon Cordoba"],
+    "Spain": ["Unai Simon", "Dani Carvajal", "Robin Le Normand", "Aymeric Laporte", "Marc Cucurella", "Rodri", "Fabian Ruiz", "Dani Olmo", "Lamine Yamal", "Nico Williams", "Alvaro Morata"],
+    "Cape Verde": ["Vozinha", "Steven Moreira", "Logan Costa", "Roberto Lopes", "Joao Paulo", "Kevin Pina", "Jamiro Monteiro", "Deroy Duarte", "Ryan Mendes", "Bebé", "Jovane Cabral"],
+    "Belgium": ["Koen Casteels", "Timothy Castagne", "Wout Faes", "Jan Vertonghen", "Arthur Theate", "Amadou Onana", "Orel Mangala", "Kevin De Bruyne", "Jeremy Doku", "Leandro Trossard", "Romelu Lukaku"],
+    "Egypt": ["Mohamed El Shenawy", "Mohamed Hany", "Mohamed Abdelmonem", "Ahmed Hegazi", "Mohamed Hamdy", "Marwan Attia", "Hamdi Fathi", "Mohamed Elneny", "Mohamed Salah", "Mostafa Mohamed", "Trezeguet"],
+    "Saudi Arabia": ["Mohammed Al-Owais", "Saud Abdulhamid", "Ali Lajami", "Ali Al-Bulaihi", "Yasser Al-Shahrani", "Faisal Al-Ghamdi", "Abdulelah Al-Malki", "Mohamed Kanno", "Salem Al-Dawsari", "Firas Al-Buraikan", "Saleh Al-Shehri"],
+    "Uruguay": ["Sergio Rochet", "Nahitan Nandez", "Ronald Araujo", "Mathias Olivera", "Matias Vina", "Federico Valverde", "Manuel Ugarte", "Nicolas De La Cruz", "Facundo Pellistri", "Darwin Nunez", "Maximiliano Araujo"],
+    "Iran": ["Alireza Beiranvand", "Ramin Rezaeian", "Hossein Kanaanizadegan", "Shojae Khalilzadeh", "Milad Mohammadi", "Saman Ghoddos", "Saeid Ezatolahi", "Alireza Jahanbakhsh", "Mehdi Taremi", "Sardar Azmoun", "Mehdi Torabi"],
+    "New Zealand": ["Alex Paulsen", "Bill Tuiloma", "Michael Boxall", "Nando Pijnaker", "Liberato Cacace", "Joe Bell", "Matthew Garbett", "Sarpreet Singh", "Kosta Barbarouses", "Chris Wood", "Elijah Just"],
+    "England": ["Jordan Pickford", "Kyle Walker", "John Stones", "Marc Guehi", "Kieran Trippier", "Declan Rice", "Kobbie Mainoo", "Jude Bellingham", "Bukayo Saka", "Phil Foden", "Harry Kane"],
+    "Croatia": ["Dominik Livakovic", "Josip Stanisic", "Josip Sutalo", "Marin Pongracic", "Josko Gvardiol", "Luka Modric", "Marcelo Brozovic", "Mateo Kovacic", "Lovro Majer", "Andrej Kramaric", "Ivan Perisic"],
+    "Ghana": ["Lawrence Ati-Zigi", "Alidu Seidu", "Alexander Djiku", "Mohammed Salisu", "Gideon Mensah", "Salis Abdul Samed", "Thomas Partey", "Ernest Nuamah", "Mohammed Kudus", "Jordan Ayew", "Inaki Williams"],
+    "Panama": ["Orlando Mosquera", "Michael Murillo", "Jose Cordoba", "Edgardo Farina", "Eric Davis", "Adalberto Carrasquilla", "Cristian Martinez", "Edgar Barcenas", "Abdiel Ayarza", "Jose Luis Rodriguez", "Jose Fajardo"]
+  };
+
+  const PLAYER_CLUBS: Record<string, Record<string, string>> = {
+    "Netherlands": {"Virgil van Dijk": "Liverpool", "Memphis Depay": "Corinthians", "Cody Gakpo": "Liverpool", "Nathan Ake": "Manchester City", "Stefan de Vrij": "Inter Milan", "Jerdy Schouten": "PSV Eindhoven", "Tijjani Reijnders": "AC Milan", "Xavi Simons": "RB Leipzig"},
+    "France": {"Kylian Mbappe": "Real Madrid", "Antoine Griezmann": "Atletico Madrid", "N'Golo Kante": "Al-Ittihad", "Aurelien Tchouameni": "Real Madrid", "William Saliba": "Arsenal", "Theo Hernandez": "AC Milan"},
+    "Argentina": {"Lionel Messi": "Inter Miami", "Lautaro Martinez": "Inter Milan", "Julian Alvarez": "Atletico Madrid", "Alexis Mac Allister": "Liverpool", "Enzo Fernandez": "Chelsea", "Cristian Romero": "Tottenham Hotspur"},
+    "Spain": {"Rodri": "Manchester City", "Lamine Yamal": "Barcelona", "Nico Williams": "Athletic Bilbao", "Dani Olmo": "Barcelona", "Fabian Ruiz": "PSG", "Dani Carvajal": "Real Madrid"}
+  };
+
+  useEffect(() => {
+    if (!selectedMatchId) return;
+    
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const [sumRes, metRes] = await Promise.all([
+          fetch(`${serverUrl}/api/match/${selectedMatchId}/summary`),
+          fetch(`${serverUrl}/api/match/${selectedMatchId}/metrics`),
+        ]);
+        
+        if (sumRes.ok && metRes.ok) {
+          const sumJson = await sumRes.json();
+          const metJson = await metRes.json();
+          setSummaryData(sumJson);
+          setMetricsData(metJson);
+        }
+      } catch (err) {
+        console.error("Failed to load match analytics data", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, [selectedMatchId, serverUrl]);
+
+  if (!selectedMatchId) {
+    return (
+      <div className="glass-panel p-8 text-center text-slate-400">
+        {lang === 'Español' ? 'Por favor seleccione un partido de la Vista General.' : 'Please select a match to analyze from the Overview tab.'}
+      </div>
+    );
+  }
+
+  if (loading || !summaryData || !metricsData) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[300px] gap-3">
+        <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+        <span className="text-sm font-medium text-slate-400">
+          {lang === 'Español' ? 'Cargando análisis táctico...' : 'Compiling tactical analysis...'}
+        </span>
+      </div>
+    );
+  }
+
+  const { team1, team2, date, time, venue, stage } = summaryData.metadata;
+  const { key_headline, injuries, confirmed_tactics, tactical_insights } = summaryData.ai_summary;
+  const forecast = metricsData.dixon_coles_forecast || {};
+  const scoreProbs = metricsData.score_probabilities || [];
+  const teamMetrics = metricsData.team_metrics || {};
+
+  const cleanT1 = team1.toLowerCase().replace(' ', '_').replace("'", "");
+  const cleanT2 = team2.toLowerCase().replace(' ', '_').replace("'", "");
+
+  // Fetch player list from local fallback or fallback to default names list
+  const t1Roster = ROSTERS[team1] || ROSTERS[cleanT1] || [];
+  const t2Roster = ROSTERS[team2] || ROSTERS[cleanT2] || [];
+  
+  const t1Clubs = PLAYER_CLUBS[team1] || {};
+  const t2Clubs = PLAYER_CLUBS[team2] || {};
+
+  const translateText = (text: string) => {
+    // Basic translation helper for headers
+    if (lang === 'English') return text;
+    const map: Record<string, string> = {
+      "Match Forecast": "Pronóstico de Partido",
+      "Win Probability": "Probabilidades de Victoria",
+      "Model Confidence": "Confianza del Modelo",
+      "Top Exact Scores": "Marcadores Exactos Principales",
+      "Key Match Insights": "Ideas Clave del Partido",
+      "Injury Updates": "Actualización de Lesiones",
+      "Team Tactics": "Tácticas de Equipos",
+      "Squad Lineups": "Formaciones de Plantilla",
+      "Formation": "Formación",
+      "Philosophy": "Filosofía",
+      "Manager": "Director Técnico",
+    };
+    return map[text] || text;
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Selector Dropdown Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900/40 p-4 rounded-xl border border-slate-800/40">
+        <div>
+          <h2 className="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <span>{team1}</span>
+            <span className="text-xs text-slate-500 font-mono">VS</span>
+            <span>{team2}</span>
+          </h2>
+          <p className="text-xs text-slate-400 font-mono mt-0.5">
+            {stage} | {date} {time} | {venue}
+          </p>
+        </div>
+        
+        <select
+          value={selectedMatchId}
+          onChange={(e) => setSelectedMatchId(e.target.value)}
+          className="bg-slate-950 text-slate-200 text-sm font-medium border border-slate-800 rounded-lg px-3.5 py-2 cursor-pointer focus:outline-none focus:border-emerald-500"
+        >
+          {matches.map((m) => (
+            <option key={m.id} value={m.id}>
+              {m.team1} vs {m.team2}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Match Preview Headline */}
+      <div className="glass-panel p-5 bg-gradient-to-r from-emerald-500/5 to-slate-950/20 border-l-4 border-l-emerald-500">
+        <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest font-mono">
+          AI Tactical Headline
+        </span>
+        <h3 className="text-lg font-bold text-slate-100 mt-1">
+          {lang === 'Español' && key_headline ? 'Análisis: ' + key_headline : key_headline}
+        </h3>
+      </div>
+
+      {/* Forecast & Predictions Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* Dixon Coles Probabilities */}
+        <div className="glass-panel p-5 flex flex-col justify-between">
+          <div>
+            <h3 className="text-base font-bold text-slate-100 flex items-center gap-2 mb-4">
+              <BarChart3 className="w-5 h-5 text-emerald-400" />
+              <span>{translateText("Match Forecast")}</span>
+            </h3>
+            
+            {/* Probability Bars */}
+            <div className="space-y-4">
+              <div>
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                  <span>{team1}</span>
+                  <span className="font-mono text-emerald-400">{Math.round((forecast.team1_win || 0.4) * 100)}%</span>
+                </div>
+                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
+                  <div className="h-full bg-emerald-500" style={{ width: `${(forecast.team1_win || 0.4) * 100}%` }} />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                  <span>{lang === 'Español' ? 'Empate' : 'Draw'}</span>
+                  <span className="font-mono text-slate-400">{Math.round((forecast.draw || 0.3) * 100)}%</span>
+                </div>
+                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
+                  <div className="h-full bg-slate-500" style={{ width: `${(forecast.draw || 0.3) * 100}%` }} />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                  <span>{team2}</span>
+                  <span className="font-mono text-rose-400">{Math.round((forecast.team2_win || 0.3) * 100)}%</span>
+                </div>
+                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
+                  <div className="h-full bg-rose-500" style={{ width: `${(forecast.team2_win || 0.3) * 100}%` }} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-slate-800/60 flex justify-between items-center text-xs font-medium">
+            <span className="text-slate-400">{translateText("Model Confidence")}</span>
+            <span className="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+              {Math.round((forecast.confidence || 0.7) * 100)}%
+            </span>
+          </div>
+        </div>
+
+        {/* Top Scorelines */}
+        <div className="glass-panel p-5">
+          <h3 className="text-base font-bold text-slate-100 flex items-center gap-2 mb-4">
+            <Award className="w-5 h-5 text-emerald-400" />
+            <span>{translateText("Top Exact Scores")}</span>
+          </h3>
+
+          <div className="grid grid-cols-2 gap-3.5">
+            {scoreProbs.map((item: any, idx: number) => (
+              <div key={idx} className="bg-slate-900/60 border border-slate-800/40 rounded-xl p-3 flex justify-between items-center">
+                <span className="font-bold text-sm text-slate-200 font-mono">{item.score}</span>
+                <span className="text-xs text-emerald-400 font-mono font-semibold">
+                  {Math.round(item.probability * 100)}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Key Insights & Injuries */}
+        <div className="glass-panel p-5 space-y-4">
+          <div>
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <FileText className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Key Match Insights")}</span>
+            </h4>
+            <ul className="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+              {tactical_insights.map((insight: string, idx: number) => (
+                <li key={idx} className="leading-relaxed">
+                  {insight}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="pt-3 border-t border-slate-800/60">
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <ShieldAlert className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Injury Updates")}</span>
+            </h4>
+            <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
+              <div className="text-emerald-400 font-semibold">{team1}:</div>
+              {injuries[cleanT1]?.map((inj: string, idx: number) => (
+                <div key={idx}>• {inj}</div>
+              )) || <div>No major injuries reported.</div>}
+
+              <div className="text-rose-400 font-semibold mt-1">{team2}:</div>
+              {injuries[cleanT2]?.map((inj: string, idx: number) => (
+                <div key={idx}>• {inj}</div>
+              )) || <div>No major injuries reported.</div>}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Radar Compare & Win Probability Curve */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <TeamRadarComparison
+          team1={team1}
+          team2={team2}
+          metrics1={teamMetrics[team1]}
+          metrics2={teamMetrics[team2]}
+          lang={lang}
+        />
+        
+        <MatchPredictionGraph
+          team1={team1}
+          team2={team2}
+          probabilities={forecast}
+          lang={lang}
+        />
+      </div>
+
+      {/* Formation Pitch Lineup Selection */}
+      <div className="glass-panel p-6">
+        <h3 className="text-lg font-bold text-slate-100 mb-5 flex items-center gap-2">
+          <span>{translateText("Squad Lineups")}</span>
+        </h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <InteractivePitch
+            teamName={team1}
+            players={t1Roster}
+            formation={confirmed_tactics[cleanT1]?.formation || "4-3-3"}
+            playerClubs={t1Clubs}
+            lang={lang}
+          />
+          <InteractivePitch
+            teamName={team2}
+            players={t2Roster}
+            formation={confirmed_tactics[cleanT2]?.formation || "4-3-3"}
+            playerClubs={t2Clubs}
+            lang={lang}
+          />
+        </div>
+      </div>
+
+      {/* StatsBomb Bespoke Visualizations Section */}
+      <div className="glass-panel p-6">
+        <h3 className="text-lg font-bold text-slate-100 mb-4 flex items-center gap-2">
+          <ImageIcon className="w-5 h-5 text-emerald-400" />
+          <span>{lang === 'Español' ? 'Visualizaciones de Eventos del Partido (StatsBomb)' : 'Bespoke Match Event Visualizations (StatsBomb)'}</span>
+        </h3>
+
+        {/* Tab selection */}
+        <div className="flex flex-wrap gap-2 mb-6 border-b border-slate-800/60 pb-3">
+          {[
+            { id: 'momentum', label: lang === 'Español' ? 'Línea de Tiempo xG' : 'xG Momentum Timeline' },
+            { id: 'passing', label: lang === 'Español' ? 'Red de Pases' : 'Passing Networks' },
+            { id: 'shots', label: lang === 'Español' ? 'Mapa de Tiros' : 'Shot Maps' },
+            { id: 'heatmaps', label: lang === 'Español' ? 'Mapa de Calor de Toques' : 'Touch Heatmaps' },
+            { id: 'progressive', label: lang === 'Español' ? 'Acciones Progresivas' : 'Progressive Actions' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveVizTab(tab.id)}
+              className={`px-4 py-2 text-xs font-semibold rounded-lg border transition-all duration-150 ${
+                activeVizTab === tab.id
+                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                  : 'text-slate-400 border-transparent hover:bg-slate-900/40 hover:text-slate-200'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Dynamic Image display */}
+        <div className="w-full flex flex-col md:flex-row gap-5 items-center justify-center p-4 bg-slate-950/20 border border-slate-800/40 rounded-2xl min-h-[300px]">
+          {activeVizTab === 'momentum' && (
+            <div className="w-full text-center">
+              <span className="text-sm font-semibold text-slate-300 block mb-2">{team1} vs {team2}</span>
+              <img 
+                src={`${serverUrl}/api/visualizations/${selectedMatchId}/radar_chart?team=${team1}`}
+                alt="xG Momentum"
+                className="max-h-[360px] mx-auto rounded-xl shadow-lg border border-slate-800/50"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+              <p className="text-xs text-slate-500 mt-2 font-mono">
+                {lang === 'Español' ? 'Historial de partido simulado' : 'Simulated historical match momentum timeline proxy'}
+              </p>
+            </div>
+          )}
+
+          {activeVizTab === 'passing' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/passing_network?team=${team1}`}
+                  alt={`${team1} Passing Network`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/passing_network?team=${team2}`}
+                  alt={`${team2} Passing Network`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+            </div>
+          )}
+
+          {activeVizTab === 'shots' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/shot_map?team=${team1}`}
+                  alt={`${team1} Shot Map`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/shot_map?team=${team2}`}
+                  alt={`${team2} Shot Map`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+            </div>
+          )}
+
+          {activeVizTab === 'heatmaps' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/touch_heatmap?team=${team1}`}
+                  alt={`${team1} Touch Heatmap`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/touch_heatmap?team=${team2}`}
+                  alt={`${team2} Touch Heatmap`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+            </div>
+          )}
+
+          {activeVizTab === 'progressive' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/progressive_actions?team=${team1}`}
+                  alt={`${team1} Progressive Actions`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+              <div className="text-center">
+                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <img 
+                  src={`${serverUrl}/api/visualizations/${selectedMatchId}/progressive_actions?team=${team2}`}
+                  alt={`${team2} Progressive Actions`}
+                  className="max-h-[320px] mx-auto rounded-xl border border-slate-800/50 shadow-lg"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

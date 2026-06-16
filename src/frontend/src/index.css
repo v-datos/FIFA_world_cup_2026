@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #0b0f19;
+    --panel-dark: rgba(17, 24, 39, 0.7);
+    --panel-border: rgba(55, 65, 81, 0.5);
+    --accent-green: #10b981;
+    --accent-blue: #00c6ff;
+    --accent-rose: #ff007f;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom glassmorphism utilities */
+  .glass-panel {
+    background: var(--panel-dark);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    border-radius: 1rem;
+  }
+
+  .glass-panel-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-panel-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 20px -10px rgba(16, 185, 129, 0.2);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.5);
+  }
+}

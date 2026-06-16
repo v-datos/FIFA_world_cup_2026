@@ -10,3 +10,5 @@ google-auth
 db-dtypes
 pyarrow
 soccerdata
+fastapi
+uvicorn

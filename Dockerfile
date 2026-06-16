@@ -1,34 +1,37 @@
-# Use the official Python image
-FROM python:3.11-slim
+# Stage 1: Build the React frontend
+FROM node:20 AS frontend-builder
+WORKDIR /build
+COPY src/frontend/package*.json ./
+RUN npm install
+COPY src/frontend/ ./
+RUN npm run build
 
-# Set environment variables
+# Stage 2: Build the Python backend and assemble
+FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-
-# Set working directory
 WORKDIR /app
 
-# Copy requirements first to leverage Docker cache
-COPY requirements.txt .
-
-# Install system dependencies, install Python packages, and clean up in one layer
+# Install system dependencies, including curl for healthchecks/live API requests
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libgomp1 \
     curl \
-    && pip install --no-cache-dir -r requirements.txt \
-    && apt-get purge -y --auto-remove build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the rest of the application
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy Python backend code
 COPY . .
 
-# Create a non-root user and switch to it
+# Copy built React frontend files to FastAPI static folder
+COPY --from=frontend-builder /build/dist /app/src/api/static
+
+# Create non-root user for security
 RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
-# Expose Streamlit port
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["streamlit", "run", "src/app/app.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.headless=true"]
+ENTRYPOINT ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8080"]
