@@ -1,5 +1,41 @@
 # STATUS
 
+## 2026-06-16 - Bracket Wood-Board Port, Full-Screen & StatsBomb Viz Fixes
+
+Prepared by: Orchestrator
+
+### Current Objective
+
+Make the React Standings & Bracket tab render the full Streamlit-style painter's-tape
+board, add a full-screen option, and fix the broken Bespoke Match Event (StatsBomb)
+visualizations.
+
+### Completed This Update
+
+- **Bracket renders fully**: `StandingsTab` now falls back to the seed nested
+  `rounds[]` / `third_place` shape (and uses `data.tournament` for the title), so the
+  whole knockout bracket renders even when the live API has no knockout games. Verbose
+  seed labels (`Winner Group A`, `Runner-up …`, `3rd Group …`, `Winner Match …`,
+  `Loser Match …`) restored in `grid_state.json`.
+- **No longer clipped + full-screen**: the board is wrapped in a horizontally
+  scrollable container (was `overflow-hidden`, which cut off the right half), plus a
+  Full Screen toggle that prefers the native Fullscreen API and falls back to a CSS
+  overlay (for iframe embeds without `allowfullscreen`); Esc exits.
+- **StatsBomb visualizations fixed**: forced matplotlib's non-interactive `Agg`
+  backend (GUI backend crashed in FastAPI worker threads — broke every viz locally),
+  and renamed `get_cached_xg_timeline(client → _client)` so Streamlit's cache stops
+  failing to hash the BigQuery client (this was the live `momentum` 500). All five viz
+  endpoints verified returning PNGs locally.
+
+### Live Site Status (accionar.xyz/dashboards/fifa-2026) — NOT up to date
+
+- Cloud Run `metrics` is missing `elo_ratings` / `monte_carlo_projections` (T-018 not deployed).
+- Cloud Run `momentum` viz returns HTTP 500; other viz types work.
+- None of the changes above are deployed. Requires: rebuild + deploy Docker to Cloud
+  Run, and upload `src/frontend/dist` to the accionar.xyz folder.
+
+---
+
 ## 2026-06-16 - Interactive Analytics Sprint Finished & Build Restored
 
 Prepared by: Orchestrator

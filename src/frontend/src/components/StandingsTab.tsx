@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Maximize2, Minimize2 } from 'lucide-react';
 
 interface StandingsTabProps {
   serverUrl: string;
@@ -31,14 +32,24 @@ interface BracketMatch {
   winner: string | null;
 }
 
+interface BracketRound {
+  name: string;
+  matches: BracketMatch[];
+}
+
 interface BracketData {
+  tournament?: string;
   groups: Group[];
-  r32: BracketMatch[];
-  r16: BracketMatch[];
-  qf: BracketMatch[];
-  sf: BracketMatch[];
-  final: BracketMatch[];
-  third: BracketMatch[];
+  // Live API shape: flat keys, populated only when knockout games exist.
+  r32?: BracketMatch[];
+  r16?: BracketMatch[];
+  qf?: BracketMatch[];
+  sf?: BracketMatch[];
+  final?: BracketMatch[];
+  third?: BracketMatch[];
+  // Seed / fallback shape: the same structure the Streamlit board consumes.
+  rounds?: BracketRound[];
+  third_place?: BracketMatch | null;
 }
 
 export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) => {
@@ -63,6 +74,38 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
     fetchStandings();
   }, [serverUrl]);
 
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [nativeFs, setNativeFs] = useState(false);
+  const [overlay, setOverlay] = useState(false);
+  const isFullscreen = nativeFs || overlay;
+
+  useEffect(() => {
+    const onFsChange = () => setNativeFs(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange', onFsChange);
+    return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
+  // CSS-overlay fallback (used when the native Fullscreen API is unavailable,
+  // e.g. inside an iframe without allowfullscreen). Esc exits it.
+  useEffect(() => {
+    if (!overlay) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOverlay(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [overlay]);
+
+  const toggleFullscreen = () => {
+    const el = wrapRef.current;
+    if (!el) return;
+    if (document.fullscreenElement) { document.exitFullscreen?.(); return; }
+    if (overlay) { setOverlay(false); return; }
+    if (el.requestFullscreen) {
+      Promise.resolve(el.requestFullscreen()).catch(() => setOverlay(true));
+    } else {
+      setOverlay(true);
+    }
+  };
+
   if (loading || !data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[300px] gap-3">
@@ -74,13 +117,19 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
     );
   }
 
-  // Helper to slice lists safely
-  const r32 = data.r32 || [];
-  const r16 = data.r16 || [];
-  const qf = data.qf || [];
-  const sf = data.sf || [];
-  const finalMatch = data.final?.[0] || { id: 'f_104', team1: '???', team2: '???', score1: null, score2: null, winner: null };
-  const thirdPlaceMatch = data.third?.[0] || null;
+  // Prefer the live flat keys; fall back to the seed nested `rounds[]` shape
+  // (the same structure the Streamlit painter's-tape board consumes) so the
+  // full bracket always renders even before knockout games are seeded live.
+  const rounds = data.rounds || [];
+  const roundMatches = (i: number) => rounds[i]?.matches || [];
+  const r32 = data.r32 || roundMatches(0);
+  const r16 = data.r16 || roundMatches(1);
+  const qf = data.qf || roundMatches(2);
+  const sf = data.sf || roundMatches(3);
+  const finalMatch =
+    data.final?.[0] ||
+    roundMatches(4)[0] || { id: 'f_104', team1: '???', team2: '???', score1: null, score2: null, winner: null };
+  const thirdPlaceMatch = data.third?.[0] || data.third_place || null;
 
   const translateGroup = (gName: string) => {
     if (lang === 'English') return gName;
@@ -245,10 +294,42 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
   };
 
   return (
-    <div className="w-full overflow-hidden select-none">
+    <div className="w-full select-none relative">
       {/* CSS Injected Styles for the Wood Panel and Tape Effect */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+        .board-wrap {
+          width: 100%;
+        }
+
+        .board-wrap:fullscreen,
+        .board-wrap.overlay {
+          background-color: #11161f;
+          padding: 16px;
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .board-wrap.overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 60;
+        }
+
+        .board-wrap:fullscreen .bracket-scroll,
+        .board-wrap.overlay .bracket-scroll {
+          flex: 1 1 auto;
+          overflow: auto;
+        }
+
+        .bracket-scroll {
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          border-radius: 1rem;
+        }
 
         .bracket-board {
           background-color: #b1814a;
@@ -581,11 +662,30 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
         }
       `}</style>
 
-      {/* Symmetrical Wood Board Bracket Component */}
-      <div className="bracket-board">
+      {/* Board wrapper — target for native fullscreen / overlay fallback */}
+      <div ref={wrapRef} className={`board-wrap${overlay ? ' overlay' : ''}`}>
+        {/* Toolbar: full-screen toggle + scroll hint */}
+        <div className="flex items-center justify-end gap-3 mb-3">
+          <span className="text-[11px] text-slate-500 font-mono hidden md:inline">
+            {lang === 'Español' ? 'Desplázate para ver toda la llave' : 'Scroll horizontally to see the full bracket'}
+          </span>
+          <button
+            onClick={toggleFullscreen}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all"
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            {isFullscreen
+              ? (lang === 'Español' ? 'Salir' : 'Exit Full Screen')
+              : (lang === 'Español' ? 'Pantalla Completa' : 'Full Screen')}
+          </button>
+        </div>
+
+        {/* Symmetrical Wood Board Bracket (horizontally scrollable / full-screen) */}
+        <div className="bracket-scroll">
+          <div className="bracket-board">
         {/* Title */}
         <div className="board-title">
-          {lang === 'Español' ? 'COPA MUNDIAL 2026' : 'WORLD CUP 2026'}
+          {lang === 'Español' ? 'COPA MUNDIAL 2026' : (data.tournament || 'World Cup 2026')}
         </div>
 
         {/* Left Side Groups (A to F) */}
@@ -731,7 +831,9 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
         <div className="right-groups">
           {data.groups.slice(6, 12).map((g, idx) => renderGroupCard(g, idx + 6))}
         </div>
-      </div>
+        </div>{/* .bracket-board */}
+      </div>{/* .bracket-scroll */}
+      </div>{/* .board-wrap */}
     </div>
   );
 };

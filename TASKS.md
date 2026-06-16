@@ -27,6 +27,15 @@ Last updated: 2026-06-16
 
 ## Done
 
+- [x] **T-020 - Bracket Wood-Board Port, Full-Screen & StatsBomb Viz Fixes**
+  Owner: Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-06-16
+  Notes: StandingsTab renders the full painter's-tape bracket from the seed `rounds[]`
+  fallback (verbose labels restored); fixed right-half clipping with a scroll container
+  and added a native/overlay Full Screen toggle. Fixed StatsBomb visualizations:
+  matplotlib `Agg` backend + `get_cached_xg_timeline(_client)` cache-hash fix. Live
+  site still pending redeploy (Cloud Run + accionar.xyz upload).
+
 - [x] **T-018 - Interactive Analytics Sprint (Elo / Monte Carlo Projections & xG Momentum)**
   Owner: Football Data Scientist / Frontend Engineer
   Completed: 2026-06-16

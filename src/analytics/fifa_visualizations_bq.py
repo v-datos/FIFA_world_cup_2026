@@ -3,6 +3,8 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # non-interactive backend: safe to render off the main thread (FastAPI workers)
 import matplotlib.pyplot as plt
 import streamlit as st
 from pathlib import Path
@@ -1213,13 +1215,13 @@ def get_cached_attacking_passes(_client: bigquery.Client, team: str, competition
 
 
 @st.cache_data(ttl=600)
-def get_cached_xg_timeline(client: bigquery.Client, match_id: int, team1: str, team2: str) -> bytes:
+def get_cached_xg_timeline(_client: bigquery.Client, match_id: int, team1: str, team2: str) -> bytes:
     from fifa_metrics_bq import get_match_momentum_timeline
     import matplotlib.pyplot as plt
     import io
     import pandas as pd
 
-    df = get_match_momentum_timeline(client, match_id)
+    df = get_match_momentum_timeline(_client, match_id)
 
     fig, ax = plt.subplots(figsize=(10, 5), facecolor='#0b0f19')
     ax.set_facecolor('#0b0f19')

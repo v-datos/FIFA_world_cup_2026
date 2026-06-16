@@ -11,3 +11,4 @@ src/frontend/.cache/
 venv/
 .venv/
 .project_env/
+.claude/settings.local.json
