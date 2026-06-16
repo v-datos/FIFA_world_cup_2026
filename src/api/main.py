@@ -285,6 +285,10 @@ MATCH_VISUALIZATION_PROXIES = {
 
 # --- REST ENDPOINTS ---
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.get("/api/schedule")
 def get_schedule():
     matches_dir = DATA_DIR / "matches"
