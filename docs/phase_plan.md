@@ -15,6 +15,8 @@ Current phase: Phase 3 - Complete & Maintenance
 - [x] Streamlit dashboard successfully deployed to Google Cloud Run.
 - [x] Match previews and tournament board dynamic sorting and bracket completed.
 - [x] Preview dropdown filtered to show only the active matches of the day.
+- [x] Spanish translation button implemented on Match Analysis tab.
+- [x] Curated, high-quality pre-researched tactical insights implemented for scheduled matches.
 
 ## Recent Decisions
 
@@ -23,8 +25,8 @@ Current phase: Phase 3 - Complete & Maintenance
 | 2026-06-14 | Project initialized from AI Workflow Framework | docs/decisions/20260614_DEC001_charter_v1.md |
 | 2026-06-15 | Standings Corrections, Dynamic Bracket, and Previews Automation | docs/decisions/20260615_DEC002_deployment_and_previews.md |
 | 2026-06-16 | Dismissed Phase 3 Standings Sync & Restricted Match Previews to Active Date | docs/decisions/20260616_DEC003_dismiss_phase3_and_limit_previews.md |
+| 2026-06-16 | Archived Stale Team Tab, Implemented Researched Previews & Spanish Translation | docs/decisions/20260616_DEC004_archive_team_tab_and_customize_insights.md |
 
 ## Open Blockers
 
 - None. Project is complete.
-

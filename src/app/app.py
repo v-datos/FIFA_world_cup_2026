@@ -34,6 +34,7 @@ from bigquery_helpers import get_bigquery_client, execute_query
 from bracket_ui import render_painters_tape_bracket
 from entity_resolution import PlayerEntityResolver
 from soccerdata_client import SoccerDataClient
+from translation_helper import get_translation
 
 ROSTERS_2026 = {
     "Netherlands": [
@@ -627,7 +628,7 @@ def render_score_probabilities_html(score_probs):
     html += "</div>"
     return html.replace('\n', ' ')
 
-def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, left_color="#00c6ff", right_color="#ff007f"):
+def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, left_color="#00c6ff", right_color="#ff007f", lang="English"):
     if not isinstance(neth, dict):
         neth = {}
     if not isinstance(jap, dict):
@@ -639,31 +640,34 @@ def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, 
             return "N/A"
         try:
             formatted = ("{:" + fmt_spec + "}").format(val)
+            if lang == "Español":
+                if suffix == " yrs":
+                    suffix = " años"
             return f"{formatted}{suffix}"
         except Exception:
             return "N/A"
 
     metrics = [
-        {"label": "Squad Market Value", "val1": fmt(neth, "squad_market_value_m", ".1f", "M") if neth.get("squad_market_value_m") is not None else "N/A", "val2": fmt(jap, "squad_market_value_m", ".1f", "M") if jap.get("squad_market_value_m") is not None else "N/A"},
-        {"label": "Average Age", "val1": fmt(neth, "average_age", ".1f", " yrs"), "val2": fmt(jap, "average_age", ".1f", " yrs")},
-        {"label": "Club Elo Rating", "val1": f"{elo1}" if elo1 is not None else "N/A", "val2": f"{elo2}" if elo2 is not None else "N/A"},
-        {"label": "Goals / 90", "val1": fmt(neth, "goals_per_90", ".2f"), "val2": fmt(jap, "goals_per_90", ".2f")},
-        {"label": "Goals Conceded / 90", "val1": fmt(neth, "goals_conceded_per_90", ".2f"), "val2": fmt(jap, "goals_conceded_per_90", ".2f")},
-        {"label": "Expected Goals (xG) / 90", "val1": fmt(neth, "expected_goals_per_90", ".2f"), "val2": fmt(jap, "expected_goals_per_90", ".2f")},
-        {"label": "xG Conceded (xGC) / 90", "val1": fmt(neth, "expected_goals_conceded_per_90", ".2f"), "val2": fmt(jap, "expected_goals_conceded_per_90", ".2f")},
-        {"label": "Shots / 90", "val1": fmt(neth, "shots_per_90", ".1f"), "val2": fmt(jap, "shots_per_90", ".1f")},
-        {"label": "Shots on Target %", "val1": fmt(neth, "shots_on_target_pct", ".1f", "%"), "val2": fmt(jap, "shots_on_target_pct", ".1f", "%")},
-        {"label": "xG / Shot", "val1": fmt(neth, "xg_per_shot", ".3f"), "val2": fmt(jap, "xg_per_shot", ".3f")},
-        {"label": "Shots Against / 90", "val1": fmt(neth, "shots_against_per_90", ".1f"), "val2": fmt(jap, "shots_against_per_90", ".1f")},
-        {"label": "Passes / 90", "val1": fmt(neth, "passes_per_90", ".0f"), "val2": fmt(jap, "passes_per_90", ".0f")},
-        {"label": "Pass Completion %", "val1": fmt(neth, "pass_completion_pct", ".1f", "%"), "val2": fmt(jap, "pass_completion_pct", ".1f", "%")},
-        {"label": "PPDA (Pressing Intensity)", "val1": fmt(neth, "ppda", ".1f"), "val2": fmt(jap, "ppda", ".1f")},
-        {"label": "Field Tilt %", "val1": fmt(neth, "field_tilt_pct", ".1f", "%"), "val2": fmt(jap, "field_tilt_pct", ".1f", "%")}
+        {"label": get_translation("Squad Market Value", lang), "val1": fmt(neth, "squad_market_value_m", ".1f", "M") if neth.get("squad_market_value_m") is not None else "N/A", "val2": fmt(jap, "squad_market_value_m", ".1f", "M") if jap.get("squad_market_value_m") is not None else "N/A"},
+        {"label": get_translation("Average Age", lang), "val1": fmt(neth, "average_age", ".1f", " yrs"), "val2": fmt(jap, "average_age", ".1f", " yrs")},
+        {"label": get_translation("Club Elo Rating", lang), "val1": f"{elo1}" if elo1 is not None else "N/A", "val2": f"{elo2}" if elo2 is not None else "N/A"},
+        {"label": get_translation("Goals / 90", lang), "val1": fmt(neth, "goals_per_90", ".2f"), "val2": fmt(jap, "goals_per_90", ".2f")},
+        {"label": get_translation("Goals Conceded / 90", lang), "val1": fmt(neth, "goals_conceded_per_90", ".2f"), "val2": fmt(jap, "goals_conceded_per_90", ".2f")},
+        {"label": get_translation("Expected Goals (xG) / 90", lang), "val1": fmt(neth, "expected_goals_per_90", ".2f"), "val2": fmt(jap, "expected_goals_per_90", ".2f")},
+        {"label": get_translation("xG Conceded (xGC) / 90", lang), "val1": fmt(neth, "expected_goals_conceded_per_90", ".2f"), "val2": fmt(jap, "expected_goals_conceded_per_90", ".2f")},
+        {"label": get_translation("Shots / 90", lang), "val1": fmt(neth, "shots_per_90", ".1f"), "val2": fmt(jap, "shots_per_90", ".1f")},
+        {"label": get_translation("Shots on Target %", lang), "val1": fmt(neth, "shots_on_target_pct", ".1f", "%"), "val2": fmt(jap, "shots_on_target_pct", ".1f", "%")},
+        {"label": get_translation("xG / Shot", lang), "val1": fmt(neth, "xg_per_shot", ".3f"), "val2": fmt(jap, "xg_per_shot", ".3f")},
+        {"label": get_translation("Shots Against / 90", lang), "val1": fmt(neth, "shots_against_per_90", ".1f"), "val2": fmt(jap, "shots_against_per_90", ".1f")},
+        {"label": get_translation("Passes / 90", lang), "val1": fmt(neth, "passes_per_90", ".0f"), "val2": fmt(jap, "passes_per_90", ".0f")},
+        {"label": get_translation("Pass Completion %", lang), "val1": fmt(neth, "pass_completion_pct", ".1f", "%"), "val2": fmt(jap, "pass_completion_pct", ".1f", "%")},
+        {"label": get_translation("PPDA (Pressing Intensity)", lang), "val1": fmt(neth, "ppda", ".1f"), "val2": fmt(jap, "ppda", ".1f")},
+        {"label": get_translation("Field Tilt %", lang), "val1": fmt(neth, "field_tilt_pct", ".1f", "%"), "val2": fmt(jap, "field_tilt_pct", ".1f", "%")}
     ]
     
     # Prefix Euro symbol for market value manually if not N/A
     for m in metrics:
-        if m["label"] == "Squad Market Value":
+        if m["label"] in ["Squad Market Value", "Valor de Mercado de la Plantilla"]:
             if m["val1"] != "N/A":
                 m["val1"] = "€" + m["val1"]
             if m["val2"] != "N/A":
@@ -691,6 +695,7 @@ def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, 
         total_poss = possession_neth + possession_jap
         poss_pct = (possession_neth / total_poss) * 100 if total_poss > 0 else 50
         
+    avg_poss_text = get_translation("Average Possession", lang)
     html = f"""
     <div style="
         background: linear-gradient(145deg, #111827, #1f2937);
@@ -702,7 +707,7 @@ def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, 
     ">
         <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: bold; font-size: 1.1rem; color: #fff;">
             <span style="color: {left_color};">{team1_name.upper()} ({poss_neth_label})</span>
-            <span style="color: #a8b2c1; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Average Possession</span>
+            <span style="color: #a8b2c1; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">{avg_poss_text}</span>
             <span style="color: {right_color};">{poss_jap_label} {team2_name.upper()}</span>
         </div>
         <div style="background-color: #374151; border-radius: 6px; height: 12px; display: flex; overflow: hidden; margin-bottom: 24px;">
@@ -727,11 +732,11 @@ def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, 
     html += "</div>"
     return html.replace('\n', ' ')
 
-def render_standings_comparison_html(team1_name, team2_name, info1, info2, left_color="#00c6ff", right_color="#ff007f"):
+def render_standings_comparison_html(team1_name, team2_name, info1, info2, left_color="#00c6ff", right_color="#ff007f", lang="English"):
     def get_row(label, key, default):
         val1 = info1.get(key, default) if info1 else default
         val2 = info2.get(key, default) if info2 else default
-        return {"label": label, "val1": val1, "val2": val2}
+        return {"label": get_translation(label, lang), "val1": val1, "val2": val2}
         
     metrics = [
         get_row("Group", "group", "N/A"),
@@ -741,12 +746,12 @@ def render_standings_comparison_html(team1_name, team2_name, info1, info2, left_
     ]
     
     for row in metrics:
-        if row["label"] == "Goal Difference":
+        if row["label"] in ["Goal Difference", "Diferencia de Goles"]:
             if isinstance(row["val1"], (int, float)):
                 row["val1"] = f"+{row['val1']}" if row["val1"] > 0 else f"{row['val1']}"
             if isinstance(row["val2"], (int, float)):
                 row["val2"] = f"+{row['val2']}" if row["val2"] > 0 else f"{row['val2']}"
-        elif row["label"] == "Group Standing":
+        elif row["label"] in ["Group Standing", "Posición en el Grupo"]:
             if row["val1"] != "N/A":
                 row["val1"] = f"#{row['val1']}"
             if row["val2"] != "N/A":
@@ -779,7 +784,7 @@ def render_standings_comparison_html(team1_name, team2_name, info1, info2, left_
     html += "</div>"
     return html.replace('\n', ' ')
 
-def render_projections_comparison_html(team1_name, team2_name, probs1, probs2, left_color="#00c6ff", right_color="#ff007f"):
+def render_projections_comparison_html(team1_name, team2_name, probs1, probs2, left_color="#00c6ff", right_color="#ff007f", lang="English"):
     def fmt_prob(p):
         if p is None or p == "N/A":
             return "N/A"
@@ -789,11 +794,11 @@ def render_projections_comparison_html(team1_name, team2_name, probs1, probs2, l
             return "N/A"
             
     metrics = [
-        {"label": "Reach Round of 16", "val1": fmt_prob(probs1.get('r16')), "val2": fmt_prob(probs2.get('r16'))},
-        {"label": "Reach Quarterfinals", "val1": fmt_prob(probs1.get('qf')), "val2": fmt_prob(probs2.get('qf'))},
-        {"label": "Reach Semifinals", "val1": fmt_prob(probs1.get('sf')), "val2": fmt_prob(probs2.get('sf'))},
-        {"label": "Reach Final", "val1": fmt_prob(probs1.get('final')), "val2": fmt_prob(probs2.get('final'))},
-        {"label": "Win World Cup", "val1": fmt_prob(probs1.get('win')), "val2": fmt_prob(probs2.get('win'))}
+        {"label": get_translation("Reach Round of 16", lang), "val1": fmt_prob(probs1.get('r16')), "val2": fmt_prob(probs2.get('r16'))},
+        {"label": get_translation("Reach Quarterfinals", lang), "val1": fmt_prob(probs1.get('qf')), "val2": fmt_prob(probs2.get('qf'))},
+        {"label": get_translation("Reach Semifinals", lang), "val1": fmt_prob(probs1.get('sf')), "val2": fmt_prob(probs2.get('sf'))},
+        {"label": get_translation("Reach Final", lang), "val1": fmt_prob(probs1.get('final')), "val2": fmt_prob(probs2.get('final'))},
+        {"label": get_translation("Win World Cup", lang), "val1": fmt_prob(probs1.get('win')), "val2": fmt_prob(probs2.get('win'))}
     ]
     
     html = f"""
@@ -1218,18 +1223,26 @@ def main():
         
     with tab2:
         # Match Analysis Section
-        st.header("Match Analysis Panel")
+        lang = st.radio(
+            "Language / Idioma",
+            ["English", "Español"],
+            horizontal=True,
+            key="lang_selector"
+        )
+        
+        st.header(get_translation("Match Analysis Panel", lang))
         
         mode = st.radio(
             "Select Mode",
             ["2026 World Cup Fixtures (Live Previews)", "Historical Tournament Database (Classic Matches)"],
             horizontal=True,
             label_visibility="collapsed",
-            key="match_analysis_mode_selector"
+            key="match_analysis_mode_selector",
+            format_func=lambda x: get_translation(x, lang)
         )
         
         if mode == "2026 World Cup Fixtures (Live Previews)":
-            st.subheader("Match of the Day Tactical Preview")
+            st.subheader(get_translation("Match of the Day Tactical Preview", lang))
             
             # Scan data/matches for 2026 previews dynamically
             from pathlib import Path
@@ -1307,7 +1320,9 @@ def main():
                 except Exception:
                     pass
                 
-                st.markdown(f"<div style='font-size: 1.15rem; color: #10b981; font-weight: bold; margin-bottom: 15px;'>Fixtures for {nice_active_date}</div>", unsafe_allow_html=True)
+                fixtures_title = get_translation("Fixtures for", lang)
+                translated_date = get_translation(nice_active_date, lang)
+                st.markdown(f"<div style='font-size: 1.15rem; color: #10b981; font-weight: bold; margin-bottom: 15px;'>{fixtures_title} {translated_date}</div>", unsafe_allow_html=True)
                 
                 # Filter matches to only show this active date
                 for m in matches_details:
@@ -1319,12 +1334,12 @@ def main():
                 # Sort matches by kickoff time
                 sorted_labels = sorted(list(preview_matches.keys()))
                 selected_match = st.selectbox(
-                    "Select 2026 Fixture Preview",
+                    get_translation("Select 2026 Fixture Preview", lang),
                     sorted_labels
                 )
                 match_key = preview_matches[selected_match]
             else:
-                st.warning("No live fixture previews found for today.")
+                st.warning(get_translation("No live fixture previews found for today.", lang))
                 match_key = None
                 
             if match_key:
@@ -1332,7 +1347,7 @@ def main():
                 metrics_path = f"data/matches/{match_key}/metrics.json"
                 
                 if not os.path.exists(summary_path) or not os.path.exists(metrics_path):
-                    st.error("Preview data files not found. Please verify that data folders exist.")
+                    st.error(get_translation("Preview data files not found. Please verify that data folders exist.", lang))
                     st.stop()
                     
                 with open(summary_path, "r") as f:
@@ -1386,9 +1401,9 @@ def main():
                 flag1 = team_flags.get(team1, "🏳️")
                 flag2 = team_flags.get(team2, "🏳️")
                 
-                inj_t1_html = "".join([f"<li style='margin-bottom:6px;'>{inj}</li>" for inj in inj_t1])
-                inj_t2_html = "".join([f"<li style='margin-bottom:6px;'>{inj}</li>" for inj in inj_t2])
-                insights_html = "".join([f"<li style='margin-bottom:8px;'>{ins}</li>" for ins in ai_sum["tactical_insights"]])
+                inj_t1_html = "".join([f"<li style='margin-bottom:6px;'>{get_translation(inj, lang)}</li>" for inj in inj_t1])
+                inj_t2_html = "".join([f"<li style='margin-bottom:6px;'>{get_translation(inj, lang)}</li>" for inj in inj_t2])
+                insights_html = "".join([f"<li style='margin-bottom:8px;'>{get_translation(ins, lang)}</li>" for ins in ai_sum["tactical_insights"]])
                 
                 standing1 = LAST_TOURNAMENT_STANDINGS_2026.get(team1, "N/A")
                 standing2 = LAST_TOURNAMENT_STANDINGS_2026.get(team2, "N/A")
@@ -1403,30 +1418,30 @@ def main():
                     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
                     font-family: 'Play', sans-serif;
                 ">
-                    <h3 style="color: #10b981; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">📰 AI Tactical Summary</h3>
+                    <h3 style="color: #10b981; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">{get_translation("📰 AI Tactical Summary", lang)}</h3>
                     <p style="font-size: 1.15rem; font-weight: bold; color: #fff; line-height: 1.5; margin-bottom: 16px;">
-                        <em>"{key_headline}"</em>
+                        <em>"{get_translation(key_headline, lang)}"</em>
                     </p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 20px;">
                         <div style="background: rgba(0, 198, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.2); border-radius: 8px; padding: 16px;">
-                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag1} {team1} Injury Update</h4>
+                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag1} {team1} {get_translation("Injury Update", lang)}</h4>
                             <ul style="margin: 0; padding-left: 20px; color: #d1d5db;">{inj_t1_html}</ul>
                         </div>
                         <div style="background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.2); border-radius: 8px; padding: 16px;">
-                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} Injury Update</h4>
+                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} {get_translation("Injury Update", lang)}</h4>
                             <ul style="margin: 0; padding-left: 20px; color: #d1d5db;">{inj_t2_html}</ul>
                         </div>
                         
                         <div style="background: rgba(0, 198, 255, 0.05); border: 1px solid rgba(0, 198, 255, 0.2); border-radius: 8px; padding: 16px;">
-                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag1} {team1} Last Major Standing</h4>
-                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{standing1}</div>
+                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag1} {team1} {get_translation("Last Major Standing", lang)}</h4>
+                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{get_translation(standing1, lang)}</div>
                         </div>
                         <div style="background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.2); border-radius: 8px; padding: 16px;">
-                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} Last Major Standing</h4>
-                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{standing2}</div>
+                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">{flag2} {team2} {get_translation("Last Major Standing", lang)}</h4>
+                            <div style="color: #fff; font-weight: bold; font-size: 1.05rem; margin-top: 4px;">{get_translation(standing2, lang)}</div>
                         </div>
                     </div>
-                    <h4 style="color: #fff; margin-bottom: 8px; font-weight: bold;">⚽ Key Match Insights</h4>
+                    <h4 style="color: #fff; margin-bottom: 8px; font-weight: bold;">{get_translation("⚽ Key Match Insights", lang)}</h4>
                     <ul style="color: #d1d5db; line-height: 1.6; margin-top: 0; padding-left: 20px;">
                         {insights_html}
                     </ul>
@@ -1451,17 +1466,17 @@ def main():
                     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
                     font-family: 'Play', sans-serif;
                 ">
-                    <h3 style="color: #f5c518; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">📋 Coaching & Tactical Philosophies</h3>
+                    <h3 style="color: #f5c518; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">{get_translation("📋 Coaching & Tactical Philosophies", lang)}</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
                         <div>
                             <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 4px; font-weight: bold;">{team1}</h4>
-                            <div style="font-weight: bold; color: #fff; margin-bottom: 8px;">{t1_manager} ({t1_tactics.get('formation', 'N/A')})</div>
-                            <p style="color: #d1d5db; line-height: 1.5; font-size: 0.95rem; margin: 0;">{t1_tactics.get('philosophy', '')}</p>
+                            <div style="font-weight: bold; color: #fff; margin-bottom: 8px;">{get_translation(t1_manager, lang)} ({t1_tactics.get('formation', 'N/A')})</div>
+                            <p style="color: #d1d5db; line-height: 1.5; font-size: 0.95rem; margin: 0;">{get_translation(t1_tactics.get('philosophy', ''), lang)}</p>
                         </div>
                         <div>
                             <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 4px; font-weight: bold;">{team2}</h4>
-                            <div style="font-weight: bold; color: #fff; margin-bottom: 8px;">{t2_manager} ({t2_tactics.get('formation', 'N/A')})</div>
-                            <p style="color: #d1d5db; line-height: 1.5; font-size: 0.95rem; margin: 0;">{t2_tactics.get('philosophy', '')}</p>
+                            <div style="font-weight: bold; color: #fff; margin-bottom: 8px;">{get_translation(t2_manager, lang)} ({t2_tactics.get('formation', 'N/A')})</div>
+                            <p style="color: #d1d5db; line-height: 1.5; font-size: 0.95rem; margin: 0;">{get_translation(t2_tactics.get('philosophy', ''), lang)}</p>
                         </div>
                     </div>
                 </div>
@@ -1476,13 +1491,17 @@ def main():
                 r1_items_html = ""
                 for p in roster1:
                     club = PLAYER_CLUBS_2026.get(p, "Unknown Club")
-                    r1_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#00c6ff; opacity:0.85;'>({club})</span></li>"
+                    translated_club = get_translation(club, lang)
+                    r1_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#00c6ff; opacity:0.85;'>({translated_club})</span></li>"
                     
                 r2_items_html = ""
                 for p in roster2:
                     club = PLAYER_CLUBS_2026.get(p, "Unknown Club")
-                    r2_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#ff007f; opacity:0.85;'>({club})</span></li>"
+                    translated_club = get_translation(club, lang)
+                    r2_items_html += f"<li style='margin-bottom:6px; color:#d1d5db;'><strong style='color:#fff;'>{p}</strong> <span style='color:#ff007f; opacity:0.85;'>({translated_club})</span></li>"
                 
+                squad1_title = f"Plantilla de {team1}" if lang == "Español" else f"{team1} Squad"
+                squad2_title = f"Plantilla de {team2}" if lang == "Español" else f"{team2} Squad"
                 squads_html = f"""
                 <div style="
                     background: linear-gradient(145deg, #111827, #1f2937);
@@ -1493,16 +1512,16 @@ def main():
                     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
                     font-family: 'Play', sans-serif;
                 ">
-                    <h3 style="color: #60a5fa; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">📋 2026 Squad Lists & Club Affiliations</h3>
+                    <h3 style="color: #60a5fa; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">{get_translation("📋 2026 Squad Lists & Club Affiliations", lang)}</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
                         <div>
-                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag1} {team1} Squad</h4>
+                            <h4 style="color: #00c6ff; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag1} {squad1_title}</h4>
                             <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-size: 0.95rem;">
                                 {r1_items_html}
                             </ul>
                         </div>
                         <div>
-                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag2} {team2} Squad</h4>
+                            <h4 style="color: #ff007f; margin-top: 0; margin-bottom: 12px; font-weight: bold;">{flag2} {squad2_title}</h4>
                             <ul style="margin: 0; padding-left: 20px; line-height: 1.5; font-size: 0.95rem;">
                                 {r2_items_html}
                             </ul>
@@ -1542,6 +1561,9 @@ def main():
                 
                 score_probs_html = render_score_probabilities_html(score_probs)
                 
+                t1_outcome_label = f"Victoria de {team1}" if lang == "Español" else f"{team1} Win"
+                t2_outcome_label = f"Victoria de {team2}" if lang == "Español" else f"{team2} Win"
+                
                 predictions_html = f"""
                 <div style="
                     background: linear-gradient(145deg, #111827, #1f2937);
@@ -1552,14 +1574,14 @@ def main():
                     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
                     font-family: 'Play', sans-serif;
                 ">
-                    <h3 style="color: #a78bfa; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">🔮 Match Forecast (Dixon-Coles Poisson Model)</h3>
+                    <h3 style="color: #a78bfa; margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid #374151; padding-bottom: 8px; font-weight: bold;">{get_translation("🔮 Match Forecast (Dixon-Coles Poisson Model)", lang)}</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
                         <div>
-                            <h4 style="color: #fff; margin-top: 0; margin-bottom: 16px; font-weight: bold;">Match Outcome Probabilities</h4>
+                            <h4 style="color: #fff; margin-top: 0; margin-bottom: 16px; font-weight: bold;">{get_translation("Match Outcome Probabilities", lang)}</h4>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold;">
-                                <span style="color: #00c6ff;">{team1} Win</span>
-                                <span style="color: #a8b2c1;">Draw</span>
-                                <span style="color: #ff007f;">{team2} Win</span>
+                                <span style="color: #00c6ff;">{t1_outcome_label}</span>
+                                <span style="color: #a8b2c1;">{get_translation("Draw", lang)}</span>
+                                <span style="color: #ff007f;">{t2_outcome_label}</span>
                             </div>
                             <div style="background-color: #374151; border-radius: 6px; height: 16px; display: flex; overflow: hidden; margin-bottom: 16px;">
                                 <div style="background: #00c6ff; width: {t1_win_pct}%; height: 100%;"></div>
@@ -1572,11 +1594,11 @@ def main():
                                 <span style="color: #ff007f;">{"N/A" if forecast.get("team2_win") is None else f"{t2_win_pct:.1f}%"}</span>
                             </div>
                             <div style="margin-top: 24px; font-size: 0.95rem; color: #9ca3af;">
-                                <strong>Model Confidence:</strong> <span style="color: #fff;">{"N/A" if forecast.get("confidence") is None else f"{confidence_pct:.1f}%"}</span>
+                                <strong>{get_translation("Model Confidence", lang)}:</strong> <span style="color: #fff;">{"N/A" if forecast.get("confidence") is None else f"{confidence_pct:.1f}%"}</span>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #fff; margin-top: 0; margin-bottom: 16px; font-weight: bold;">Top Exact Score Probabilities</h4>
+                            <h4 style="color: #fff; margin-top: 0; margin-bottom: 16px; font-weight: bold;">{get_translation("Top Exact Score Probabilities", lang)}</h4>
                             {score_probs_html}
                         </div>
                     </div>
@@ -1585,10 +1607,10 @@ def main():
                 st.markdown(predictions_html, unsafe_allow_html=True)
                 
                 squad_comp_html = render_squad_comparison_html(
-                    team1, team2, t1_stats, t2_stats, elo_t1, elo_t2
+                    team1, team2, t1_stats, t2_stats, elo_t1, elo_t2, lang=lang
                 )
                 
-                st.markdown('<div class="preview-header">📊 Squad & Style Comparison (FBref & Club Elo)</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="preview-header">{get_translation("Squad & Style Comparison (FBref & Club Elo)", lang)}</div>', unsafe_allow_html=True)
                 st.markdown(squad_comp_html, unsafe_allow_html=True)
                 st.write("")
                 
@@ -1598,15 +1620,15 @@ def main():
                 sim_probs_t1 = compute_monte_carlo_probs(elo_t1)
                 sim_probs_t2 = compute_monte_carlo_probs(elo_t2)
                 
-                standings_comp_html = render_standings_comparison_html(team1, team2, group_info_t1, group_info_t2)
-                projections_comp_html = render_projections_comparison_html(team1, team2, sim_probs_t1, sim_probs_t2)
+                standings_comp_html = render_standings_comparison_html(team1, team2, group_info_t1, group_info_t2, lang=lang)
+                projections_comp_html = render_projections_comparison_html(team1, team2, sim_probs_t1, sim_probs_t2, lang=lang)
                 
                 col_standings, col_projections = st.columns(2)
                 with col_standings:
-                    st.markdown(f'<div class="preview-header">🏆 Live 2026 Group Stage Standing Comparison</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="preview-header">{get_translation("Live 2026 Group Stage Standing Comparison", lang)}</div>', unsafe_allow_html=True)
                     st.markdown(standings_comp_html, unsafe_allow_html=True)
                 with col_projections:
-                    st.markdown('<div class="preview-header">🔮 Monte Carlo Simulation Projections</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="preview-header">{get_translation("Monte Carlo Simulation Projections", lang)}</div>', unsafe_allow_html=True)
                     st.markdown(projections_comp_html, unsafe_allow_html=True)
                 st.write("")
                 
@@ -1615,19 +1637,19 @@ def main():
                 roster2 = ROSTERS_2026.get(team2, ["Moisés Caicedo", "Enner Valencia", "Ellyes Skhiri", "Hannibal Mejbri"])
                 
                 # Symmetrical Bespoke Tactical Visualizations
-                st.markdown('<div class="preview-header">🎯 Bespoke Tactical Visualizations</div>', unsafe_allow_html=True)
-                st.markdown(f"*Inspect simulated match dynamics and recent tactical footprints from major tournaments:*")
+                st.markdown(f'<div class="preview-header">{get_translation("🎯 Bespoke Tactical Visualizations", lang)}</div>', unsafe_allow_html=True)
+                st.markdown(get_translation("*Inspect simulated match dynamics and recent tactical footprints from major tournaments:*", lang))
                 
                 proxy1 = MATCH_VISUALIZATION_PROXIES.get(team1)
                 proxy2 = MATCH_VISUALIZATION_PROXIES.get(team2)
                 
                 if proxy1 and proxy2:
                     viz_tabs = st.tabs([
-                        "📈 xG Momentum Timeline",
-                        "🕸️ Passing Networks",
-                        "🎯 Shot Maps",
-                        "🔥 Touch Heatmaps",
-                        "🛡️ Radar Charts"
+                        get_translation("📈 xG Momentum Timeline", lang),
+                        get_translation("🕸️ Passing Networks", lang),
+                        get_translation("🎯 Shot Maps", lang),
+                        get_translation("🔥 Touch Heatmaps", lang),
+                        get_translation("🛡️ Radar Charts", lang)
                     ])
                     
                     with viz_tabs[0]:
@@ -1693,19 +1715,21 @@ def main():
                     with viz_tabs[4]:
                         create_historical_radar_comparison(client, team1, team2, proxy1, proxy2)
                 else:
-                    st.warning("Visualization proxies not found for this match combination.")
+                    st.warning(get_translation("Visualization proxies not found for this match combination.", lang))
                 
                 st.write("")
                 
                 # Symmetrical Player ID Entity Crosswalk Search
-                st.markdown('<div class="preview-header">🔗 Player ID Entity Crosswalk Search</div>', unsafe_allow_html=True)
-                st.markdown(f"*Select a player from either squad to view their resolved crosswalk IDs across data providers:*")
+                st.markdown(f'<div class="preview-header">{get_translation("Player ID Entity Crosswalk Search", lang)}</div>', unsafe_allow_html=True)
+                st.markdown(get_translation("*Select a player from either squad to view their resolved crosswalk IDs across data providers:*", lang))
                 
                 p_col1, p_col2 = st.columns(2)
                 with p_col1:
-                    p1_choice = st.selectbox(f"Select {team1} Player", options=["Select Player..."] + roster1, key=f"t1_crosswalk_select_{match_key}")
+                    p1_label = f"Seleccionar Jugador de {team1}" if lang == "Español" else f"Select {team1} Player"
+                    p1_choice = st.selectbox(p1_label, options=["Select Player..."] + roster1, format_func=lambda x: get_translation(x, lang), key=f"t1_crosswalk_select_{match_key}")
                 with p_col2:
-                    p2_choice = st.selectbox(f"Select {team2} Player", options=["Select Player..."] + roster2, key=f"t2_crosswalk_select_{match_key}")
+                    p2_label = f"Seleccionar Jugador de {team2}" if lang == "Español" else f"Select {team2} Player"
+                    p2_choice = st.selectbox(p2_label, options=["Select Player..."] + roster2, format_func=lambda x: get_translation(x, lang), key=f"t2_crosswalk_select_{match_key}")
                 
                 card_col1, card_col2 = st.columns(2)
                 resolver = PlayerEntityResolver()
@@ -1727,10 +1751,10 @@ def main():
                         if stats and stats.get("matches_played", 0) > 0:
                             st.markdown(render_player_stats_summary_html(stats), unsafe_allow_html=True)
             else:
-                st.info("No preview found for this selection.")
+                st.info(get_translation("No preview found for this selection.", lang))
                 
         elif mode == "Historical Tournament Database (Classic Matches)":
-            st.subheader("Historical Match Analytics Search")
+            st.subheader(get_translation("Historical Match Analytics Search", lang))
             
             db_col1, db_col2 = st.columns(2)
             
@@ -1741,11 +1765,11 @@ def main():
                     match_comp_options = [c for c in competitions_df['competition_name'].dropna().tolist() if str(c).strip()]
 
                 if not match_comp_options:
-                    st.warning("No competitions available in the historical database.")
+                    st.warning(get_translation("No competitions available in the historical database.", lang))
                     st.stop()
 
                 match_competition = st.selectbox(
-                    "Select Competition",
+                    get_translation("Select Competition", lang),
                     options=match_comp_options,
                     format_func=format_competition_name,
                     key="match_competition_selector"
@@ -1758,7 +1782,7 @@ def main():
                     with db_col2:
                         match_labels = [format_match_label(row) for _, row in matches_df.iterrows()]
                         selected_match_idx = st.selectbox(
-                            "Select Match",
+                            get_translation("Select Match", lang),
                             options=range(len(match_labels)),
                             format_func=lambda x: match_labels[x],
                             key="match_selector"
@@ -1790,7 +1814,7 @@ def main():
                         stats_col1, stats_col2 = st.columns(2)
 
                         with stats_col1:
-                            st.markdown("### 📊 Match Statistics")
+                            st.markdown(f"### {get_translation('📊 Match Statistics', lang)}")
                             display_match_statistics(team1_stats, team2_stats, team1, team2)
 
                             st.markdown("---")
@@ -1799,7 +1823,7 @@ def main():
 
                         with stats_col2:
                             st.markdown("---")
-                            st.markdown("### xG Distribution Comparison")
+                            st.markdown(f"### {get_translation('xG Distribution Comparison', lang)}")
                             with st.spinner("Generating xG distribution comparison..."):
                                 fig_xg_comp = create_xg_distribution_comparison(client, team1, team2, match_id=selected_match_id)
                                 st.plotly_chart(fig_xg_comp, use_container_width=True, key="xg_comparison")

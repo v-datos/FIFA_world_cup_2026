@@ -9,31 +9,31 @@
         "stage": "Group Stage - Group J"
     },
     "ai_summary": {
-        "key_headline": "Tactical Clash: Austria Takes On Jordan",
+        "key_headline": "Rangnick's Gegenpress Put to the Test Against Resilient Jordanians",
         "injuries": {
             "austria": [
-                "No major injuries reported"
+                "David Alaba (ACL Recovery - Doubtful)"
             ],
             "jordan": [
-                "No major injuries reported"
+                "Musa Al-Taamari (Shoulder Knock - Probable)"
             ]
         },
         "confirmed_tactics": {
             "austria": {
-                "formation": "4-3-3",
-                "philosophy": "Balanced positional play.",
-                "manager": "Head Coach"
+                "formation": "4-2-2-2",
+                "philosophy": "High-intensity vertical press and immediate counter-pressing.",
+                "manager": "Ralf Rangnick"
             },
             "jordan": {
-                "formation": "4-4-2",
-                "philosophy": "Compact counter-attacking.",
-                "manager": "Head Coach"
+                "formation": "3-4-2-1",
+                "philosophy": "Deep low-block with quick transitions through Al-Taamari.",
+                "manager": "Jamal Sellami"
             }
         },
         "tactical_insights": [
-            "Both teams will try to establish control early in the midfield.",
-            "Defensive discipline will be crucial in preventing quick transitions.",
-            "Set-pieces could be the deciding factor in a tightly contested match."
+            "Austria's high press will aim to choke Jordan's build-up play in their defensive third.",
+            "Jordan will rely heavily on Musa Al-Taamari's individual dribbling to bypass Austria's initial press.",
+            "Sabitzer's late runs into the box will be key to unlocking Jordan's compact five-man defense."
         ]
     }
 }

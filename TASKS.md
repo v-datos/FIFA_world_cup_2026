@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-06-15
+Last updated: 2026-06-16
 
 ## In Progress
 
@@ -18,6 +18,14 @@ Last updated: 2026-06-15
   Notes: Cancelled on 2026-06-16. Local fallback and direct API polling satisfy all requirements; Postgres standings sync dismissed.
 
 ## Done
+
+- [x] **T-016 - Curate High-Quality Tactical Previews & Archive team_tab.py**
+  Owner: Football Data Scientist / Frontend Engineer
+  Completed: 2026-06-16
+
+- [x] **T-015 - Match Analysis Tab Spanish Translation Toggle**
+  Owner: Frontend Engineer
+  Completed: 2026-06-16
 
 - [x] **T-014 - Portfolio Website Integration & Deploy**
   Owner: Frontend Engineer
@@ -79,4 +87,3 @@ Last updated: 2026-06-15
 ## Blockers
 
 - No blockers currently filed.
-

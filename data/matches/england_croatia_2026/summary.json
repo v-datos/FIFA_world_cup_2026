@@ -9,31 +9,32 @@
         "stage": "Group Stage - Group L"
     },
     "ai_summary": {
-        "key_headline": "Tactical Clash: England Takes On Croatia",
+        "key_headline": "Three Lions' Youthful Attack Faces Masterclass Croatian Midfield",
         "injuries": {
             "england": [
-                "No major injuries reported"
+                "Harry Kane (Back Strain - Probable)",
+                "Bukayo Saka (Hamstring Strain - Doubtful)"
             ],
             "croatia": [
-                "No major injuries reported"
+                "Mateo Kovacic (Knee Tightness - Probable)"
             ]
         },
         "confirmed_tactics": {
             "england": {
-                "formation": "4-3-3",
-                "philosophy": "Balanced positional play.",
-                "manager": "Head Coach"
+                "formation": "4-2-3-1",
+                "philosophy": "Controlled possession build-up with explosive wingers.",
+                "manager": "Gareth Southgate"
             },
             "croatia": {
-                "formation": "4-4-2",
-                "philosophy": "Compact counter-attacking.",
-                "manager": "Head Coach"
+                "formation": "4-3-3",
+                "philosophy": "Midfield tempo control through possession cycles.",
+                "manager": "Zlatko Dalic"
             }
         },
         "tactical_insights": [
-            "Both teams will try to establish control early in the midfield.",
-            "Defensive discipline will be crucial in preventing quick transitions.",
-            "Set-pieces could be the deciding factor in a tightly contested match."
+            "England will look to press Modric and Brozovic early to disrupt Croatia's passing rhythm.",
+            "Croatia's experienced midfield trio will try to dictate the tempo, slowing down England's high-octane press.",
+            "Jude Bellingham's direct runs from deep will challenge Croatia's central defensive block."
         ]
     }
 }

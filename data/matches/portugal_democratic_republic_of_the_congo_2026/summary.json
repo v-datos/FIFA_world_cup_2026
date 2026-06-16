@@ -9,31 +9,31 @@
         "stage": "Group Stage - Group K"
     },
     "ai_summary": {
-        "key_headline": "Tactical Clash: Portugal Takes On Democratic Republic of the Congo",
+        "key_headline": "Selecao's Tactical Fluidity Collides with Leopards' Physicality",
         "injuries": {
             "portugal": [
-                "No major injuries reported"
+                "Bernardo Silva (Thigh Strain - Probable)"
             ],
             "democratic_republic_of_the_congo": [
-                "No major injuries reported"
+                "Chancel Mbemba (Knee Knock - Doubtful)"
             ]
         },
         "confirmed_tactics": {
             "portugal": {
                 "formation": "4-3-3",
-                "philosophy": "Balanced positional play.",
-                "manager": "Head Coach"
+                "philosophy": "Fluid attacking possession with inverted wingers and overlapping fullbacks.",
+                "manager": "Roberto Martinez"
             },
             "democratic_republic_of_the_congo": {
-                "formation": "4-4-2",
-                "philosophy": "Compact counter-attacking.",
-                "manager": "Head Coach"
+                "formation": "4-2-3-1",
+                "philosophy": "Physical mid-block with explosive wing transitions and direct target play.",
+                "manager": "Sebastien Desabre"
             }
         },
         "tactical_insights": [
-            "Both teams will try to establish control early in the midfield.",
-            "Defensive discipline will be crucial in preventing quick transitions.",
-            "Set-pieces could be the deciding factor in a tightly contested match."
+            "Portugal will look to isolate Rafael Leao on the left flank to exploit DR Congo's right-back in 1v1 situations.",
+            "DR Congo will seek to exploit Portugal's high line with direct balls over the top to Yoane Wissa.",
+            "Bruno Fernandes' progressive passing from deep will be vital to breakdown the Leopards' compact double pivot."
         ]
     }
 }

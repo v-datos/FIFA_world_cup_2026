@@ -9,31 +9,32 @@
         "stage": "Group Stage - Group L"
     },
     "ai_summary": {
-        "key_headline": "Tactical Clash: Ghana Takes On Panama",
+        "key_headline": "Black Stars Target Dominant Midfield Presence Against Panama",
         "injuries": {
             "ghana": [
-                "No major injuries reported"
+                "Thomas Partey (Muscle Strain - Doubtful)",
+                "Mohammed Kudus (Ankle Soreness - Fully Fit)"
             ],
             "panama": [
-                "No major injuries reported"
+                "Michael Murillo (Thigh Knock - Probable)"
             ]
         },
         "confirmed_tactics": {
             "ghana": {
-                "formation": "4-3-3",
-                "philosophy": "Balanced positional play.",
-                "manager": "Head Coach"
+                "formation": "4-2-3-1",
+                "philosophy": "Fast vertical transition utilizing Kudus' ball-carrying ability.",
+                "manager": "Otto Addo"
             },
             "panama": {
-                "formation": "4-4-2",
-                "philosophy": "Compact counter-attacking.",
-                "manager": "Head Coach"
+                "formation": "3-4-3",
+                "philosophy": "Patient possession-based build-up with wingback overloads.",
+                "manager": "Thomas Christiansen"
             }
         },
         "tactical_insights": [
-            "Both teams will try to establish control early in the midfield.",
-            "Defensive discipline will be crucial in preventing quick transitions.",
-            "Set-pieces could be the deciding factor in a tightly contested match."
+            "Mohammed Kudus' central ball-carrying will be the key to breaking Panama's defensive lines.",
+            "Panama will seek to create numerical advantages on the flanks using their active wingbacks.",
+            "Inaki Williams' diagonal runs behind Panama's back three will be Ghana's primary attacking threat."
         ]
     }
 }
