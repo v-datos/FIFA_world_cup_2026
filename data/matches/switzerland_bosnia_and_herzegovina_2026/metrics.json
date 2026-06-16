@@ -1,0 +1,38 @@
+{
+    "dixon_coles_forecast": {
+        "team1_win": 0.4804,
+        "draw": 0.2695,
+        "team2_win": 0.25,
+        "confidence": 0.7461
+    },
+    "score_probabilities": [
+        {
+            "score": "1-1",
+            "probability": 0.1285
+        },
+        {
+            "score": "2-1",
+            "probability": 0.0951
+        },
+        {
+            "score": "1-0",
+            "probability": 0.0927
+        },
+        {
+            "score": "2-0",
+            "probability": 0.085
+        },
+        {
+            "score": "0-0",
+            "probability": 0.0758
+        },
+        {
+            "score": "1-2",
+            "probability": 0.0654
+        }
+    ],
+    "team_metrics": {
+        "Switzerland": {},
+        "Bosnia and Herzegovina": {}
+    }
+}

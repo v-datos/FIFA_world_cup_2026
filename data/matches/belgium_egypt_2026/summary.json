@@ -9,31 +9,31 @@
         "stage": "Group Stage - Group G"
     },
     "ai_summary": {
-        "key_headline": "Tactical Clash: Belgium Takes On Egypt",
+        "key_headline": "De Bruyne's Creative Masterclass Collides with Pharaohs' Compact Block",
         "injuries": {
             "belgium": [
-                "No major injuries reported"
+                "Romelu Lukaku (Thigh Strain - Doubtful)"
             ],
             "egypt": [
-                "No major injuries reported"
+                "Mohamed Salah (Hamstring Strain - Doubtful)"
             ]
         },
         "confirmed_tactics": {
             "belgium": {
-                "formation": "4-3-3",
-                "philosophy": "Balanced positional play.",
-                "manager": "Head Coach"
+                "formation": "4-2-3-1",
+                "philosophy": "Dynamic vertical transitions and fluid attacking combinations.",
+                "manager": "Domenico Tedesco"
             },
             "egypt": {
-                "formation": "4-4-2",
-                "philosophy": "Compact counter-attacking.",
-                "manager": "Head Coach"
+                "formation": "4-3-3",
+                "philosophy": "Highly organized defensive mid-block with quick direct plays to wingers.",
+                "manager": "Hossam Hassan"
             }
         },
         "tactical_insights": [
-            "Both teams will try to establish control early in the midfield.",
-            "Defensive discipline will be crucial in preventing quick transitions.",
-            "Set-pieces could be the deciding factor in a tightly contested match."
+            "Kevin De Bruyne will try to find spaces behind Egypt's midfield line to feed Belgium's fast wingers.",
+            "Egypt will focus on defensive compactness, relying on Salah's individual brilliance if he plays, or Trezeguet on the counter.",
+            "Belgium's high defensive line must be wary of Egypt's speed on quick transitions."
         ]
     }
 }

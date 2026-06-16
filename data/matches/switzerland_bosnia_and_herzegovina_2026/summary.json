@@ -1,0 +1,41 @@
+{
+    "metadata": {
+        "match_id": "switzerland_bosnia_and_herzegovina_2026",
+        "team1": "Switzerland",
+        "team2": "Bosnia and Herzegovina",
+        "date": "06/18/2026",
+        "time": "12:00",
+        "venue": "Stadium 16",
+        "stage": "Group Stage - Group B"
+    },
+    "ai_summary": {
+        "key_headline": "Nati's Possession Control Tested by Compact Bosnia Block",
+        "injuries": {
+            "switzerland": [
+                "Granit Xhaka (Adductor Tightness - Probable)",
+                "Breel Embolo (Knee Knock - Fully Fit)"
+            ],
+            "bosnia_and_herzegovina": [
+                "Edin Dzeko (Muscle Fatigue - Probable)",
+                "Sead Kolasinac (Thigh Strain - Doubtful)"
+            ]
+        },
+        "confirmed_tactics": {
+            "switzerland": {
+                "formation": "3-4-2-1",
+                "philosophy": "Compact mid-block with aggressive counter-pressing and wing-back progression.",
+                "manager": "Murat Yakin"
+            },
+            "bosnia_and_herzegovina": {
+                "formation": "4-2-3-1",
+                "philosophy": "Direct attacking transitions focused on Edin Dzeko's aerial target play.",
+                "manager": "Sergej Barbarez"
+            }
+        },
+        "tactical_insights": [
+            "Granit Xhaka will dictate the pace from deep, attempting to pull Bosnia's double pivot out of position.",
+            "Bosnia will defend deep and seek to launch direct long balls to exploit Edin Dzeko's physical presence.",
+            "Switzerland's wide center-backs must stay vigilant against Bosnia's quick wing counter-attacks."
+        ]
+    }
+}

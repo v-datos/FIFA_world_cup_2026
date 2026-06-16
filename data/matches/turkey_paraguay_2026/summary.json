@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "match_id": "turkey_paraguay_2026",
+        "team1": "Turkey",
+        "team2": "Paraguay",
+        "date": "06/19/2026",
+        "time": "20:00",
+        "venue": "Stadium 15",
+        "stage": "Group Stage - Group D"
+    },
+    "ai_summary": {
+        "key_headline": "Crescent-Stars' Creative Talents Face La Albirroja's Intense Counter-Press",
+        "injuries": {
+            "turkey": [
+                "Hakan Calhanoglu (Knee Knock - Fully Fit)",
+                "Arda Guler (Thigh Tightness - Probable)"
+            ],
+            "paraguay": [
+                "Julio Enciso (Minor Ankle Knock - Probable)"
+            ]
+        },
+        "confirmed_tactics": {
+            "turkey": {
+                "formation": "4-2-3-1",
+                "philosophy": "Technical fluid possession focusing on half-space combinations and creative playmakers.",
+                "manager": "Vincenzo Montella"
+            },
+            "paraguay": {
+                "formation": "4-3-3",
+                "philosophy": "Aggressive high-intensity defensive press and direct vertical counter-attacks.",
+                "manager": "Gustavo Alfaro"
+            }
+        },
+        "tactical_insights": [
+            "Arda Guler will look to occupy the right half-space, drifting inside to create numerical overloads.",
+            "Paraguay's Almiron will try to exploit Turkey's left side in transition using his raw pace.",
+            "Hakan Calhanoglu's distribution from deep will be key to bypass Paraguay's intense frontline press."
+        ]
+    }
+}

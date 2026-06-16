@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "match_id": "mexico_south_korea_2026",
+        "team1": "Mexico",
+        "team2": "South Korea",
+        "date": "06/18/2026",
+        "time": "19:00",
+        "venue": "Stadium 2",
+        "stage": "Group Stage - Group A"
+    },
+    "ai_summary": {
+        "key_headline": "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash",
+        "injuries": {
+            "mexico": [
+                "Edson Alvarez (Knee Bruise - Fully Fit)",
+                "Santiago Gimenez (Ankle Soreness - Probable)"
+            ],
+            "south_korea": [
+                "Kim Min-jae (Thigh Tightness - Probable)"
+            ]
+        },
+        "confirmed_tactics": {
+            "mexico": {
+                "formation": "4-3-3",
+                "philosophy": "High-possession positional play utilizing inverted wingers and overlapping fullbacks.",
+                "manager": "Jaime Lozano"
+            },
+            "south_korea": {
+                "formation": "4-2-3-1",
+                "philosophy": "Highly disciplined mid-block with rapid direct counter-attacking transitions.",
+                "manager": "Hong Myung-bo"
+            }
+        },
+        "tactical_insights": [
+            "Luis Chavez will try to unlock South Korea's defense with deep diagonal switches to the wingers.",
+            "Son Heung-min's inside runs from the left will target Mexico's right fullback in isolated transitions.",
+            "Edson Alvarez's presence in the pivot will be crucial to halt South Korea's direct central counters."
+        ]
+    }
+}

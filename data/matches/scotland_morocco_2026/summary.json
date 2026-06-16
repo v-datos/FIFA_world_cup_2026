@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "match_id": "scotland_morocco_2026",
+        "team1": "Scotland",
+        "team2": "Morocco",
+        "date": "06/19/2026",
+        "time": "18:00",
+        "venue": "Stadium 9",
+        "stage": "Group Stage - Group C"
+    },
+    "ai_summary": {
+        "key_headline": "Tartan Army's Midfield Runners Encounter Atlas Lions' Technical Precision",
+        "injuries": {
+            "scotland": [
+                "Scott McTominay (Ankle Knock - Probable)",
+                "Andrew Robertson (Muscle Fatigue - Fully Fit)"
+            ],
+            "morocco": [
+                "Hakim Ziyech (Hamstring Tightness - Doubtful)"
+            ]
+        },
+        "confirmed_tactics": {
+            "scotland": {
+                "formation": "3-4-2-1",
+                "philosophy": "Disciplined low-block, rapid flank transitions, and late midfield runs into the box.",
+                "manager": "Steve Clarke"
+            },
+            "morocco": {
+                "formation": "4-3-3",
+                "philosophy": "Technical possession, high-speed flank combinations, and structured defensive mid-block.",
+                "manager": "Walid Regragui"
+            }
+        },
+        "tactical_insights": [
+            "Scott McTominay's late runs into the box will be Scotland's main weapon to challenge Morocco's center-backs.",
+            "Achraf Hakimi's overlaps on the right wing will test Andrew Robertson's defensive positioning.",
+            "Sofyan Amrabat will lock down the central areas, stopping Scotland's quick transitions from deep."
+        ]
+    }
+}

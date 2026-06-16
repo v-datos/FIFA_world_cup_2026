@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "match_id": "czech_republic_south_africa_2026",
+        "team1": "Czech Republic",
+        "team2": "South Africa",
+        "date": "06/18/2026",
+        "time": "12:00",
+        "venue": "Stadium 7",
+        "stage": "Group Stage - Group A"
+    },
+    "ai_summary": {
+        "key_headline": "Czech Physicality and Crossing Power Faces Technical Bafana Bafana",
+        "injuries": {
+            "czech_republic": [
+                "Patrik Schick (Calf Soreness - Probable)",
+                "Tomas Soucek (Minor Bruise - Fully Fit)"
+            ],
+            "south_africa": [
+                "Percy Tau (Hamstring Tightness - Doubtful)"
+            ]
+        },
+        "confirmed_tactics": {
+            "czech_republic": {
+                "formation": "3-4-1-2",
+                "philosophy": "Direct vertical play focusing on aerial duels and high volume crossing.",
+                "manager": "Ivan Hasek"
+            },
+            "south_africa": {
+                "formation": "4-2-3-1",
+                "philosophy": "High-tempo technical passing with a low-block transition focus.",
+                "manager": "Hugo Broos"
+            }
+        },
+        "tactical_insights": [
+            "Tomas Soucek's late runs into the box will test South Africa's central defensive communication.",
+            "South Africa will rely on Mokoena's progressive passing to bypass the aggressive Czech mid-block.",
+            "Czech Republic's height advantage on set-pieces will be a primary avenue for goalscoring opportunities."
+        ]
+    }
+}

@@ -253,6 +253,118 @@ MATCH_TACTICAL_PROFILES = {
             "New Zealand will prioritize set-pieces and crosses, hoping Chris Wood can exploit aerial duels against Iran's defense.",
             "The speed of Iran's wingers will challenge New Zealand's defensive transitions."
         ]
+    },
+    "switzerland_bosnia_and_herzegovina": {
+        "key_headline": "Nati's Possession Control Tested by Compact Bosnia Block",
+        "injuries": {
+            "switzerland": ["Granit Xhaka (Adductor Tightness - Probable)", "Breel Embolo (Knee Knock - Fully Fit)"],
+            "bosnia_and_herzegovina": ["Edin Dzeko (Muscle Fatigue - Probable)", "Sead Kolasinac (Thigh Strain - Doubtful)"]
+        },
+        "confirmed_tactics": {
+            "switzerland": {"formation": "3-4-2-1", "philosophy": "Compact mid-block with aggressive counter-pressing and wing-back progression.", "manager": "Murat Yakin"},
+            "bosnia_and_herzegovina": {"formation": "4-2-3-1", "philosophy": "Direct attacking transitions focused on Edin Dzeko's aerial target play.", "manager": "Sergej Barbarez"}
+        },
+        "tactical_insights": [
+            "Granit Xhaka will dictate the pace from deep, attempting to pull Bosnia's double pivot out of position.",
+            "Bosnia will defend deep and seek to launch direct long balls to exploit Edin Dzeko's physical presence.",
+            "Switzerland's wide center-backs must stay vigilant against Bosnia's quick wing counter-attacks."
+        ]
+    },
+    "czech_republic_south_africa": {
+        "key_headline": "Czech Physicality and Crossing Power Faces Technical Bafana Bafana",
+        "injuries": {
+            "czech_republic": ["Patrik Schick (Calf Soreness - Probable)", "Tomas Soucek (Minor Bruise - Fully Fit)"],
+            "south_africa": ["Percy Tau (Hamstring Tightness - Doubtful)"]
+        },
+        "confirmed_tactics": {
+            "czech_republic": {"formation": "3-4-1-2", "philosophy": "Direct vertical play focusing on aerial duels and high volume crossing.", "manager": "Ivan Hasek"},
+            "south_africa": {"formation": "4-2-3-1", "philosophy": "High-tempo technical passing with a low-block transition focus.", "manager": "Hugo Broos"}
+        },
+        "tactical_insights": [
+            "Tomas Soucek's late runs into the box will test South Africa's central defensive communication.",
+            "South Africa will rely on Mokoena's progressive passing to bypass the aggressive Czech mid-block.",
+            "Czech Republic's height advantage on set-pieces will be a primary avenue for goalscoring opportunities."
+        ]
+    },
+    "canada_qatar": {
+        "key_headline": "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block",
+        "injuries": {
+            "canada": ["Alphonso Davies (Hamstring Tightness - Fully Fit)", "Alistair Johnston (Ankle Soreness - Probable)"],
+            "qatar": ["Akram Afif (Groin Strain - Probable)"]
+        },
+        "confirmed_tactics": {
+            "canada": {"formation": "4-4-2", "philosophy": "Aggressive high press and direct vertical attacking transitions.", "manager": "Jesse Marsch"},
+            "qatar": {"formation": "5-3-2", "philosophy": "Deep defensive block focusing on direct counters to the Afif-Ali partnership.", "manager": "Tintin Marquez"}
+        },
+        "tactical_insights": [
+            "Canada's high defensive line will be vulnerable to Akram Afif's quick runs into space on the counter.",
+            "Jonathan David's clever movement will be vital to unlock Qatar's compact five-man defensive line.",
+            "Canada's wingers will look to overload Qatar's outside center-backs in transition moments."
+        ]
+    },
+    "mexico_south_korea": {
+        "key_headline": "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash",
+        "injuries": {
+            "mexico": ["Edson Alvarez (Knee Bruise - Fully Fit)", "Santiago Gimenez (Ankle Soreness - Probable)"],
+            "south_korea": ["Kim Min-jae (Thigh Tightness - Probable)"]
+        },
+        "confirmed_tactics": {
+            "mexico": {"formation": "4-3-3", "philosophy": "High-possession positional play utilizing inverted wingers and overlapping fullbacks.", "manager": "Jaime Lozano"},
+            "south_korea": {"formation": "4-2-3-1", "philosophy": "Highly disciplined mid-block with rapid direct counter-attacking transitions.", "manager": "Hong Myung-bo"}
+        },
+        "tactical_insights": [
+            "Luis Chavez will try to unlock South Korea's defense with deep diagonal switches to the wingers.",
+            "Son Heung-min's inside runs from the left will target Mexico's right fullback in isolated transitions.",
+            "Edson Alvarez's presence in the pivot will be crucial to halt South Korea's direct central counters."
+        ]
+    },
+    "united_states_australia": {
+        "key_headline": "USA's Dynamic Wing Combinations Face Direct Australian Physicality",
+        "injuries": {
+            "united_states": ["Christian Pulisic (Calf Tightness - Fully Fit)", "Weston McKennie (Ankle Knock - Probable)"],
+            "australia": ["Harry Souttar (Knee Bruise - Fully Fit)"]
+        },
+        "confirmed_tactics": {
+            "united_states": {"formation": "4-3-3", "philosophy": "High intensity pressing, vertical transitions, and dynamic flank overloads.", "manager": "Mauricio Pochettino"},
+            "australia": {"formation": "4-4-2", "philosophy": "Compact defensive organization, direct flank crosses, and set-piece targeting.", "manager": "Tony Popovic"}
+        },
+        "tactical_insights": [
+            "Pulisic and Robinson will look to double-team Australia's right-back to create crossing opportunities.",
+            "Australia will rely on Harry Souttar's aerial presence to threaten on corners and set-piece opportunities.",
+            "The athletic battle between McKennie and Irvine will dictate who controls the second balls in midfield."
+        ]
+    },
+    "scotland_morocco": {
+        "key_headline": "Tartan Army's Midfield Runners Encounter Atlas Lions' Technical Precision",
+        "injuries": {
+            "scotland": ["Scott McTominay (Ankle Knock - Probable)", "Andrew Robertson (Muscle Fatigue - Fully Fit)"],
+            "morocco": ["Hakim Ziyech (Hamstring Tightness - Doubtful)"]
+        },
+        "confirmed_tactics": {
+            "scotland": {"formation": "3-4-2-1", "philosophy": "Disciplined low-block, rapid flank transitions, and late midfield runs into the box.", "manager": "Steve Clarke"},
+            "morocco": {"formation": "4-3-3", "philosophy": "Technical possession, high-speed flank combinations, and structured defensive mid-block.", "manager": "Walid Regragui"}
+        },
+        "tactical_insights": [
+            "Scott McTominay's late runs into the box will be Scotland's main weapon to challenge Morocco's center-backs.",
+            "Achraf Hakimi's overlaps on the right wing will test Andrew Robertson's defensive positioning.",
+            "Sofyan Amrabat will lock down the central areas, stopping Scotland's quick transitions from deep."
+        ]
+    },
+    "turkey_paraguay": {
+        "key_headline": "Crescent-Stars' Creative Talents Face La Albirroja's Intense Counter-Press",
+        "injuries": {
+            "turkey": ["Hakan Calhanoglu (Knee Knock - Fully Fit)", "Arda Guler (Thigh Tightness - Probable)"],
+            "paraguay": ["Julio Enciso (Minor Ankle Knock - Probable)"]
+        },
+        "confirmed_tactics": {
+            "turkey": {"formation": "4-2-3-1", "philosophy": "Technical fluid possession focusing on half-space combinations and creative playmakers.", "manager": "Vincenzo Montella"},
+            "paraguay": {"formation": "4-3-3", "philosophy": "Aggressive high-intensity defensive press and direct vertical counter-attacks.", "manager": "Gustavo Alfaro"}
+        },
+        "tactical_insights": [
+            "Arda Guler will look to occupy the right half-space, drifting inside to create numerical overloads.",
+            "Paraguay's Almiron will try to exploit Turkey's left side in transition using his raw pace.",
+            "Hakan Calhanoglu's distribution from deep will be key to bypass Paraguay's intense frontline press."
+        ]
     }
 }
 
@@ -362,14 +474,7 @@ def generate_upcoming_previews():
             print("❌ No games found in API response.")
             return
             
-        # Filter upcoming games
-        upcoming_games = []
-        for g in games_list:
-            if g.get("finished") == "FALSE" or g.get("finished") is False:
-                upcoming_games.append(g)
-                
-        # Sort games by date/time
-        # Format of local_date: "06/15/2026 12:00"
+        # Define sorting function for date/time
         def parse_date(g_dict):
             d_str = g_dict.get("local_date", "")
             try:
@@ -379,13 +484,53 @@ def generate_upcoming_previews():
                 return f"{date_parts[2]}-{date_parts[0]}-{date_parts[1]}T{time_parts[0]}:{time_parts[1]}:00"
             except Exception:
                 return g_dict.get("date", "9999-12-31") + "T" + g_dict.get("time", "23:59:00")
-                
-        upcoming_games.sort(key=parse_date)
-        
+
+        # Sort all games by date/time
+        games_list.sort(key=parse_date)
+
+        # Filter upcoming games
+        upcoming_games = []
+        for g in games_list:
+            if g.get("finished") == "FALSE" or g.get("finished") is False:
+                upcoming_games.append(g)
+
         print(f"Found {len(upcoming_games)} upcoming matches in schedule.")
-        
-        # We generate previews for the next 8 matches
-        for g in upcoming_games[:8]:
+
+        # Determine which games to process:
+        # 1. Any game in the entire list that has a curated tactical profile (finished or not)
+        # 2. Plus any of the next 15 upcoming games
+        games_to_process = []
+        processed_keys = set()
+
+        # Add the next 15 upcoming games
+        for g in upcoming_games[:15]:
+            t1 = g.get("home_team_name_en") or g.get("home_team_label")
+            t2 = g.get("away_team_name_en") or g.get("away_team_label")
+            if t1 and t2:
+                t1_key = clean_team_name(t1)
+                t2_key = clean_team_name(t2)
+                processed_keys.add(f"{t1_key}_{t2_key}")
+                processed_keys.add(f"{t2_key}_{t1_key}")
+                games_to_process.append(g)
+
+        # Now add any other game in games_list that has a curated profile
+        for g in games_list:
+            t1 = g.get("home_team_name_en") or g.get("home_team_label")
+            t2 = g.get("away_team_name_en") or g.get("away_team_label")
+            if t1 and t2:
+                t1_key = clean_team_name(t1)
+                t2_key = clean_team_name(t2)
+                match_key = f"{t1_key}_{t2_key}"
+                match_key_rev = f"{t2_key}_{t1_key}"
+                if match_key not in processed_keys and match_key_rev not in processed_keys:
+                    if match_key in MATCH_TACTICAL_PROFILES or match_key_rev in MATCH_TACTICAL_PROFILES:
+                        processed_keys.add(match_key)
+                        processed_keys.add(match_key_rev)
+                        games_to_process.append(g)
+
+        print(f"Processing a total of {len(games_to_process)} matches (curated + upcoming 15).")
+
+        for g in games_to_process:
             t1 = g.get("home_team_name_en") or g.get("home_team_label")
             t2 = g.get("away_team_name_en") or g.get("away_team_label")
             

@@ -239,7 +239,84 @@ def get_translation(text: Any, lang: str = "English") -> Any:
         "Defensive discipline will be crucial in preventing quick transitions.": "La disciplina defensiva será crucial para evitar transiciones rápidas.",
         "Set-pieces could be the deciding factor in a tightly contested match.": "Las jugadas a balón parado podrían ser el factor decisivo en un partido muy disputado.",
         "No major injuries reported.": "No se reportan lesiones importantes.",
-        "N/A (Forecast data unavailable)": "N/A (Datos de pronóstico no disponibles)"
+        "N/A (Forecast data unavailable)": "N/A (Datos de pronóstico no disponibles)",
+        # Switzerland vs Bosnia & Herzegovina
+        "Nati's Possession Control Tested by Compact Bosnia Block": "El control de posesión de la Nati a prueba ante el compacto bloque bosnio",
+        "Granit Xhaka (Adductor Tightness - Probable)": "Granit Xhaka (Tensión en el aductor - Probable)",
+        "Breel Embolo (Knee Knock - Fully Fit)": "Breel Embolo (Golpe en la rodilla - Completamente apto)",
+        "Edin Dzeko (Muscle Fatigue - Probable)": "Edin Dzeko (Fatiga muscular - Probable)",
+        "Sead Kolasinac (Thigh Strain - Doubtful)": "Sead Kolasinac (Distensión de muslo - Dudoso)",
+        "Compact mid-block with aggressive counter-pressing and wing-back progression.": "Bloque medio compacto con contrapresión agresiva y progresión por los carrileros.",
+        "Direct attacking transitions focused on Edin Dzeko's aerial target play.": "Transiciones de ataque directo centradas en el juego aéreo de Edin Dzeko.",
+        "Granit Xhaka will dictate the pace from deep, attempting to pull Bosnia's double pivot out of position.": "Granit Xhaka dictará el ritmo desde atrás, intentando sacar de posición al doble pivote de Bosnia.",
+        "Bosnia will defend deep and seek to launch direct long balls to exploit Edin Dzeko's physical presence.": "Bosnia defenderá profundo y buscará lanzar balones largos directos para explotar la presencia física de Edin Dzeko.",
+        "Switzerland's wide center-backs must stay vigilant against Bosnia's quick wing counter-attacks.": "Los centrales abiertos de Suiza deben mantenerse alerta ante los rápidos contraataques por las bandas de Bosnia.",
+
+        # Czech Republic vs South Africa
+        "Czech Physicality and Crossing Power Faces Technical Bafana Bafana": "La fisicidad y potencia de centros checa frente a la técnica Bafana Bafana",
+        "Patrik Schick (Calf Soreness - Probable)": "Patrik Schick (Dolor de pantorrilla - Probable)",
+        "Tomas Soucek (Minor Bruise - Fully Fit)": "Tomas Soucek (Moretón leve - Completamente apto)",
+        "Percy Tau (Hamstring Tightness - Doubtful)": "Percy Tau (Tensión en el isquiotibial - Dudoso)",
+        "Direct vertical play focusing on aerial duels and high volume crossing.": "Juego vertical directo centrado en duelos aéreos y un alto volumen de centros.",
+        "High-tempo technical passing with a low-block transition focus.": "Pases técnicos de ritmo alto con un enfoque de transición desde bloque bajo.",
+        "Tomas Soucek's late runs into the box will test South Africa's central defensive communication.": "Las llegadas tardías al área de Tomas Soucek pondrán a prueba la comunicación de los centrales de Sudáfrica.",
+        "South Africa will rely on Mokoena's progressive passing to bypass the aggressive Czech mid-block.": "Sudáfrica confiará en el pase progresivo de Mokoena para superar el agresivo bloque medio checo.",
+        "Czech Republic's height advantage on set-pieces will be a primary avenue for goalscoring opportunities.": "La ventaja de altura de la República Checa a balón parado será una vía principal para generar oportunidades de gol.",
+
+        # Canada vs Qatar
+        "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block": "La contrapresión vertical de Marsch se encuentra con el compacto bloque bajo qatarí",
+        "Alphonso Davies (Hamstring Tightness - Fully Fit)": "Alphonso Davies (Tensión muscular - Completamente apto)",
+        "Alistair Johnston (Ankle Soreness - Probable)": "Alistair Johnston (Dolor de tobillo - Probable)",
+        "Akram Afif (Groin Strain - Probable)": "Akram Afif (Distensión de ingle - Probable)",
+        "Aggressive high press and direct vertical attacking transitions.": "Presión alta agresiva y transiciones de ataque verticales directas.",
+        "Deep defensive block focusing on direct counters to the Afif-Ali partnership.": "Bloque defensivo profundo centrado en contras directas para la asociación Afif-Ali.",
+        "Canada's high defensive line will be vulnerable to Akram Afif's quick runs into space on the counter.": "La línea defensiva alta de Canadá será vulnerable a las rápidas carreras de Akram Afif al espacio en el contraataque.",
+        "Jonathan David's clever movement will be vital to unlock Qatar's compact five-man defensive line.": "El movimiento inteligente de Jonathan David será vital para abrir la compacta línea defensiva de cinco hombres de Qatar.",
+        "Canada's wingers will look to overload Qatar's outside center-backs in transition moments.": "Los extremos de Canadá buscarán sobrecargar a los centrales exteriores de Qatar en los momentos de transición.",
+
+        # Mexico vs South Korea
+        "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash": "Los ataques por las bandas de El Tri chocan con la velocidad de Son en un duelo de alto octanaje",
+        "Edson Alvarez (Knee Bruise - Fully Fit)": "Edson Alvarez (Golpe en la rodilla - Completamente apto)",
+        "Santiago Gimenez (Ankle Soreness - Probable)": "Santiago Gimenez (Dolor de tobillo - Probable)",
+        "Kim Min-jae (Thigh Tightness - Probable)": "Kim Min-jae (Tensión en el muslo - Probable)",
+        "High-possession positional play utilizing inverted wingers and overlapping fullbacks.": "Juego de posición de alta posesión utilizando extremos cambiados y carrileros doblados.",
+        "Highly disciplined mid-block with rapid direct counter-attacking transitions.": "Bloque medio muy disciplinado con transiciones rápidas y directas de contraataque.",
+        "Luis Chavez will try to unlock South Korea's defense with deep diagonal switches to the wingers.": "Luis Chávez intentará abrir la defensa de Corea del Sur con cambios diagonales profundos hacia los extremos.",
+        "Son Heung-min's inside runs from the left will target Mexico's right fullback in isolated transitions.": "Las diagonales hacia adentro de Son Heung-min desde la izquierda apuntarán al lateral derecho de México en transiciones aisladas.",
+        "Edson Alvarez's presence in the pivot will be crucial to halt South Korea's direct central counters.": "La presencia de Edson Álvarez en el pivote será crucial para frenar las contras centrales directas de Corea del Sur.",
+
+        # USA vs Australia
+        "USA's Dynamic Wing Combinations Face Direct Australian Physicality": "Las combinaciones dinámicas en las bandas de EE. UU. frente a la fisicidad directa de Australia",
+        "Christian Pulisic (Calf Tightness - Fully Fit)": "Christian Pulisic (Tensión en la pantorrilla - Completamente apto)",
+        "Weston McKennie (Ankle Knock - Probable)": "Weston McKennie (Golpe en el tobillo - Probable)",
+        "Harry Souttar (Knee Bruise - Fully Fit)": "Harry Souttar (Golpe en la rodilla - Completamente apto)",
+        "High intensity pressing, vertical transitions, and dynamic flank overloads.": "Presión de alta intensidad, transiciones verticales y sobrecargas dinámicas en las bandas.",
+        "Compact defensive organization, direct flank crosses, and set-piece targeting.": "Organización defensiva compacta, centros directos por las bandas y fijación en balón parado.",
+        "Pulisic and Robinson will look to double-team Australia's right-back to create crossing opportunities.": "Pulisic y Robinson buscarán doblar la marca al lateral derecho de Australia para generar oportunidades de centros.",
+        "Australia will rely on Harry Souttar's aerial presence to threaten on corners and set-piece opportunities.": "Australia confiará en la presencia aérea de Harry Souttar para amenazar en tiros de esquina y jugadas a balón parado.",
+        "The athletic battle between McKennie and Irvine will dictate who controls the second balls in midfield.": "La batalla atlética entre McKennie e Irvine dictará quién controla las segundas pelotas en el mediocampo.",
+
+        # Scotland vs Morocco
+        "Tartan Army's Midfield Runners Encounter Atlas Lions' Technical Precision": "Los volantes de la Tartan Army se topan con la precisión técnica de los Leones del Atlas",
+        "Scott McTominay (Ankle Knock - Probable)": "Scott McTominay (Golpe en el tobillo - Probable)",
+        "Andrew Robertson (Muscle Fatigue - Fully Fit)": "Andrew Robertson (Fatiga muscular - Completamente apto)",
+        "Hakim Ziyech (Hamstring Tightness - Doubtful)": "Hakim Ziyech (Tensión en el isquiotibial - Dudoso)",
+        "Disciplined low-block, rapid flank transitions, and late midfield runs into the box.": "Bloque bajo disciplinado, transiciones rápidas por banda y llegadas tardías de mediocampistas al área.",
+        "Technical possession, high-speed flank combinations, and structured defensive mid-block.": "Posesión técnica, combinaciones de alta velocidad por las bandas y bloque medio defensivo estructurado.",
+        "Scott McTominay's late runs into the box will be Scotland's main weapon to challenge Morocco's center-backs.": "Las llegadas tardías de Scott McTominay al área serán el arma principal de Escocia para desafiar a los centrales de Marruecos.",
+        "Achraf Hakimi's overlaps on the right wing will test Andrew Robertson's defensive positioning.": "Los desdoblamientos de Achraf Hakimi por la banda derecha pondrán a prueba el posicionamiento defensivo de Andrew Robertson.",
+        "Sofyan Amrabat will lock down the central areas, stopping Scotland's quick transitions from deep.": "Sofyan Amrabat cerrará las zonas centrales, deteniendo las transiciones rápidas de Escocia desde el fondo.",
+
+        # Turkey vs Paraguay
+        "Crescent-Stars' Creative Talents Face La Albirroja's Intense Counter-Press": "Los talentos creativos de las Estrellas de la Media Luna ante la intensa contrapresión de La Albirroja",
+        "Hakan Calhanoglu (Knee Knock - Fully Fit)": "Hakan Calhanoglu (Golpe en la rodilla - Completamente apto)",
+        "Arda Guler (Thigh Tightness - Probable)": "Arda Guler (Tensión en el muslo - Probable)",
+        "Julio Enciso (Minor Ankle Knock - Probable)": "Julio Enciso (Golpe leve en el tobillo - Probable)",
+        "Technical fluid possession focusing on half-space combinations and creative playmakers.": "Posesión técnica y fluida centrada en combinaciones en el medio espacio y creadores creativos.",
+        "Aggressive high-intensity defensive press and direct vertical counter-attacks.": "Presión defensiva agresiva de alta intensidad y contraataques verticales directos.",
+        "Arda Guler will look to occupy the right half-space, drifting inside to create numerical overloads.": "Arda Guler buscará ocupar el medio espacio derecho, moviéndose hacia adentro para crear sobrecargas numéricas.",
+        "Paraguay's Almiron will try to exploit Turkey's left side in transition using his raw pace.": "Almirón de Paraguay intentará explotar el lado izquierdo de Turquía en transición usando su velocidad pura.",
+        "Hakan Calhanoglu's distribution from deep will be key to bypass Paraguay's intense frontline press.": "La distribución de Hakan Calhanoglu desde el fondo será clave para superar la intensa presión de la línea delantera de Paraguay."
     }
     
     # Check if text is exactly in translations

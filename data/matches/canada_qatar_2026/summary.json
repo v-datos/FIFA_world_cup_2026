@@ -1,0 +1,40 @@
+{
+    "metadata": {
+        "match_id": "canada_qatar_2026",
+        "team1": "Canada",
+        "team2": "Qatar",
+        "date": "06/18/2026",
+        "time": "15:00",
+        "venue": "Stadium 13",
+        "stage": "Group Stage - Group B"
+    },
+    "ai_summary": {
+        "key_headline": "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block",
+        "injuries": {
+            "canada": [
+                "Alphonso Davies (Hamstring Tightness - Fully Fit)",
+                "Alistair Johnston (Ankle Soreness - Probable)"
+            ],
+            "qatar": [
+                "Akram Afif (Groin Strain - Probable)"
+            ]
+        },
+        "confirmed_tactics": {
+            "canada": {
+                "formation": "4-4-2",
+                "philosophy": "Aggressive high press and direct vertical attacking transitions.",
+                "manager": "Jesse Marsch"
+            },
+            "qatar": {
+                "formation": "5-3-2",
+                "philosophy": "Deep defensive block focusing on direct counters to the Afif-Ali partnership.",
+                "manager": "Tintin Marquez"
+            }
+        },
+        "tactical_insights": [
+            "Canada's high defensive line will be vulnerable to Akram Afif's quick runs into space on the counter.",
+            "Jonathan David's clever movement will be vital to unlock Qatar's compact five-man defensive line.",
+            "Canada's wingers will look to overload Qatar's outside center-backs in transition moments."
+        ]
+    }
+}
