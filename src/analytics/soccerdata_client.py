@@ -63,7 +63,13 @@ class SoccerDataClient:
             "Belgium": 1960,
             "Iran": 1780,
             "New Zealand": 1550,
-            "Cape Verde": 1610
+            "Cape Verde": 1610,
+            "Iraq": 1650,
+            "Jordan": 1620,
+            "Ghana": 1630,
+            "Panama": 1680,
+            "DR Congo": 1640,
+            "Democratic Republic of the Congo": 1640
         }
         
         # Try to import soccerdata dynamically to fetch live club stats if available
@@ -76,11 +82,11 @@ class SoccerDataClient:
         except Exception:
             pass
 
-        rating = default_elo_ratings.get(team_name, 1600)
+        rating = default_elo_ratings.get(team_name)
         return {
             "team": team_name,
             "elo_rating": rating,
-            "confidence": 0.95
+            "confidence": 0.95 if rating is not None else None
         }
 
     def fetch_fbref_team_tactical_stats(self, team_name: str) -> Dict[str, Any]:
@@ -463,55 +469,202 @@ class SoccerDataClient:
                 "passes_per_90": 350.0,
                 "xg_per_shot": 0.097,
                 "shots_against_per_90": 14.2
+            },
+            "England": {
+                "squad_market_value_m": 1360.0,
+                "average_age": 27.2,
+                "possession_avg": 59.0,
+                "pass_completion_pct": 87.5,
+                "expected_goals_per_90": 1.80,
+                "expected_goals_conceded_per_90": 0.90,
+                "shots_per_90": 14.5,
+                "ppda": 9.2,
+                "field_tilt_pct": 57.5,
+                "goals_per_90": 1.85,
+                "goals_conceded_per_90": 0.85,
+                "shots_on_target_pct": 37.0,
+                "passes_per_90": 560.0,
+                "xg_per_shot": 0.124,
+                "shots_against_per_90": 9.5
+            },
+            "Croatia": {
+                "squad_market_value_m": 387.3,
+                "average_age": 28.4,
+                "possession_avg": 54.5,
+                "pass_completion_pct": 84.8,
+                "expected_goals_per_90": 1.45,
+                "expected_goals_conceded_per_90": 1.10,
+                "shots_per_90": 12.8,
+                "ppda": 10.5,
+                "field_tilt_pct": 53.5,
+                "goals_per_90": 1.40,
+                "goals_conceded_per_90": 1.05,
+                "shots_on_target_pct": 34.5,
+                "passes_per_90": 480.0,
+                "xg_per_shot": 0.113,
+                "shots_against_per_90": 10.8
+            },
+            "Ghana": {
+                "squad_market_value_m": 234.35,
+                "average_age": 26.8,
+                "possession_avg": 49.0,
+                "pass_completion_pct": 79.2,
+                "expected_goals_per_90": 1.25,
+                "expected_goals_conceded_per_90": 1.25,
+                "shots_per_90": 11.2,
+                "ppda": 11.5,
+                "field_tilt_pct": 48.8,
+                "goals_per_90": 1.30,
+                "goals_conceded_per_90": 1.20,
+                "shots_on_target_pct": 32.2,
+                "passes_per_90": 385.0,
+                "xg_per_shot": 0.111,
+                "shots_against_per_90": 12.0
+            },
+            "Panama": {
+                "squad_market_value_m": 34.55,
+                "average_age": 30.5,
+                "possession_avg": 46.5,
+                "pass_completion_pct": 77.8,
+                "expected_goals_per_90": 1.12,
+                "expected_goals_conceded_per_90": 1.38,
+                "shots_per_90": 10.4,
+                "ppda": 12.8,
+                "field_tilt_pct": 45.2,
+                "goals_per_90": 1.08,
+                "goals_conceded_per_90": 1.32,
+                "shots_on_target_pct": 31.0,
+                "passes_per_90": 365.0,
+                "xg_per_shot": 0.108,
+                "shots_against_per_90": 12.8
+            },
+            "Portugal": {
+                "squad_market_value_m": 1010.0,
+                "average_age": 28.1,
+                "possession_avg": 58.0,
+                "pass_completion_pct": 86.8,
+                "expected_goals_per_90": 1.82,
+                "expected_goals_conceded_per_90": 0.92,
+                "shots_per_90": 14.5,
+                "ppda": 9.5,
+                "field_tilt_pct": 57.2,
+                "goals_per_90": 1.88,
+                "goals_conceded_per_90": 0.88,
+                "shots_on_target_pct": 37.2,
+                "passes_per_90": 550.0,
+                "xg_per_shot": 0.125,
+                "shots_against_per_90": 9.2
+            },
+            "Democratic Republic of the Congo": {
+                "squad_market_value_m": 143.9,
+                "average_age": 29.1,
+                "possession_avg": 48.2,
+                "pass_completion_pct": 78.5,
+                "expected_goals_per_90": 1.22,
+                "expected_goals_conceded_per_90": 1.28,
+                "shots_per_90": 11.0,
+                "ppda": 12.0,
+                "field_tilt_pct": 48.0,
+                "goals_per_90": 1.25,
+                "goals_conceded_per_90": 1.22,
+                "shots_on_target_pct": 32.0,
+                "passes_per_90": 380.0,
+                "xg_per_shot": 0.111,
+                "shots_against_per_90": 12.2
+            },
+            "DR Congo": {
+                "squad_market_value_m": 143.9,
+                "average_age": 29.1,
+                "possession_avg": 48.2,
+                "pass_completion_pct": 78.5,
+                "expected_goals_per_90": 1.22,
+                "expected_goals_conceded_per_90": 1.28,
+                "shots_per_90": 11.0,
+                "ppda": 12.0,
+                "field_tilt_pct": 48.0,
+                "goals_per_90": 1.25,
+                "goals_conceded_per_90": 1.22,
+                "shots_on_target_pct": 32.0,
+                "passes_per_90": 380.0,
+                "xg_per_shot": 0.111,
+                "shots_against_per_90": 12.2
             }
         }
 
         try:
             import soccerdata as sd
-            # Example of how soccerdata FBref scraper is initialized
-            # fbref = sd.FBref(leagues="ENG-Premier League", seasons="2023-24")
-            # df = fbref.read_team_match_stats()
         except Exception:
             pass
 
-        return fbref_fallback_profiles.get(
-            team_name, 
-            {
-                "squad_market_value_m": 150.0,
-                "average_age": 26.5,
-                "possession_avg": 50.0,
-                "pass_completion_pct": 80.0,
-                "expected_goals_per_90": 1.20,
-                "expected_goals_conceded_per_90": 1.20,
-                "shots_per_90": 11.5,
-                "ppda": 12.0,
-                "field_tilt_pct": 50.0,
-                "goals_per_90": 1.25,
-                "goals_conceded_per_90": 1.25,
-                "shots_on_target_pct": 32.0,
-                "passes_per_90": 400.0,
-                "xg_per_shot": 0.104,
-                "shots_against_per_90": 12.0
-            }
-        )
+        return fbref_fallback_profiles.get(team_name)
 
-def get_dixon_coles_prediction(team1_elo: float, team2_elo: float) -> Dict[str, float]:
+def get_dixon_coles_prediction(team1_elo: float, team2_elo: float, rho: float = -0.10) -> Dict[str, Any]:
     """
-    Simulates a Dixon-Coles Poisson forecasting model based on Elo ratings.
+    Simulates a mathematically correct Dixon-Coles Poisson forecasting model based on Elo ratings.
     """
-    diff = team1_elo - team2_elo
-    # Convert Elo difference to win probabilities
-    prob_team1 = 1 / (1 + 10 ** (-diff / 400))
+    import math
+    if team1_elo is None or team2_elo is None:
+        return {
+            "team1_win": None,
+            "draw": None,
+            "team2_win": None,
+            "confidence": None,
+            "score_probabilities": []
+        }
     
-    # Scale to sum to 1.0 including a Draw probability (typically 25%-30% in football)
-    draw_prob = 0.28
-    remaining = 1.0 - draw_prob
+    lambda1 = 1.35 * math.exp(0.0015 * (team1_elo - team2_elo))
+    lambda2 = 1.35 * math.exp(0.0015 * (team2_elo - team1_elo))
     
-    t1_win_scaled = prob_team1 * remaining
-    t2_win_scaled = (1.0 - prob_team1) * remaining
+    def poisson_pmf(k, lam):
+        return (lam ** k * math.exp(-lam)) / math.factorial(k)
+        
+    grid = {}
+    total_p = 0.0
+    for x in range(11):
+        for y in range(11):
+            p1 = poisson_pmf(x, lambda1)
+            p2 = poisson_pmf(y, lambda2)
+            p_ind = p1 * p2
+            
+            # Dixon-Coles adjustment
+            tau = 1.0
+            if x == 0 and y == 0:
+                tau = 1.0 - lambda1 * lambda2 * rho
+            elif x == 1 and y == 0:
+                tau = 1.0 + lambda2 * rho
+            elif x == 0 and y == 1:
+                tau = 1.0 + lambda1 * rho
+            elif x == 1 and y == 1:
+                tau = 1.0 - rho
+                
+            tau = max(0.0, tau)
+            p_adj = tau * p_ind
+            grid[(x, y)] = p_adj
+            total_p += p_adj
+            
+    if total_p > 0:
+        for key in grid:
+            grid[key] /= total_p
+            
+    t1_win = sum(grid[(x, y)] for x in range(11) for y in range(11) if x > y)
+    draw = sum(grid[(x, y)] for x in range(11) for y in range(11) if x == y)
+    t2_win = sum(grid[(x, y)] for x in range(11) for y in range(11) if x < y)
+    
+    score_probs = []
+    for (x, y), prob in grid.items():
+        score_probs.append({
+            "score": f"{x}-{y}",
+            "probability": round(prob, 4)
+        })
+    score_probs.sort(key=lambda item: item["probability"], reverse=True)
+    top_scores = score_probs[:6]
+    
+    confidence = 0.70 + 0.20 * abs(t1_win - t2_win)
     
     return {
-        "team1_win": round(t1_win_scaled, 3),
-        "draw": draw_prob,
-        "team2_win": round(t2_win_scaled, 3)
+        "team1_win": round(t1_win, 4),
+        "draw": round(draw, 4),
+        "team2_win": round(t2_win, 4),
+        "confidence": round(confidence, 4),
+        "score_probabilities": top_scores
     }

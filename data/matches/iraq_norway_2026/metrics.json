@@ -1,34 +1,34 @@
 {
     "dixon_coles_forecast": {
-        "team1_win": 0.4,
-        "draw": 0.3,
-        "team2_win": 0.3,
-        "confidence": 0.7
+        "team1_win": 0.3,
+        "draw": 0.2791,
+        "team2_win": 0.4209,
+        "confidence": 0.7242
     },
     "score_probabilities": [
         {
-            "score": "1-0",
-            "probability": 0.15
-        },
-        {
             "score": "1-1",
-            "probability": 0.14
-        },
-        {
-            "score": "0-1",
-            "probability": 0.13
-        },
-        {
-            "score": "2-1",
-            "probability": 0.1
-        },
-        {
-            "score": "0-0",
-            "probability": 0.09
+            "probability": 0.133
         },
         {
             "score": "1-2",
-            "probability": 0.08
+            "probability": 0.09
+        },
+        {
+            "score": "0-1",
+            "probability": 0.0867
+        },
+        {
+            "score": "0-0",
+            "probability": 0.0784
+        },
+        {
+            "score": "2-1",
+            "probability": 0.074
+        },
+        {
+            "score": "0-2",
+            "probability": 0.0735
         }
     ],
     "team_metrics": {

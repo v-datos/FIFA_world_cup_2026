@@ -294,20 +294,49 @@ def generate_upcoming_previews():
             print(f"⚙️ Generating AI Tactical Preview for {t1} vs {t2}...")
             preview_data = generate_ai_preview(t1, t2, date_val, time_val, venue, stage)
             
-            # Fetch team metrics from SoccerDataClient fallback profiles
+            # Fetch team metrics from SoccerDataClient fallback profiles and calculate Dixon-Coles forecast
             import sys
             parent_dir = str(Path(__file__).resolve().parents[2])
             if parent_dir not in sys.path:
                 sys.path.append(parent_dir)
+            
+            t1_stats_dict = {}
+            t2_stats_dict = {}
+            dc_forecast = {
+                "team1_win": 0.40,
+                "draw": 0.30,
+                "team2_win": 0.30,
+                "confidence": 0.70
+            }
+            dc_scores = [
+                {"score": "1-0", "probability": 0.15},
+                {"score": "1-1", "probability": 0.14},
+                {"score": "0-1", "probability": 0.13},
+                {"score": "2-1", "probability": 0.10},
+                {"score": "0-0", "probability": 0.09},
+                {"score": "1-2", "probability": 0.08}
+            ]
+            
             try:
-                from src.analytics.soccerdata_client import SoccerDataClient
+                from src.analytics.soccerdata_client import SoccerDataClient, get_dixon_coles_prediction
                 sd_client = SoccerDataClient()
-                t1_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t1)
-                t2_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t2)
+                t1_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t1) or {}
+                t2_stats_dict = sd_client.fetch_fbref_team_tactical_stats(t2) or {}
+                
+                elo_t1 = sd_client.fetch_club_elo_ratings(t1).get("elo_rating")
+                elo_t2 = sd_client.fetch_club_elo_ratings(t2).get("elo_rating")
+                
+                if elo_t1 is not None and elo_t2 is not None:
+                    dc_res = get_dixon_coles_prediction(elo_t1, elo_t2)
+                    dc_forecast = {
+                        "team1_win": dc_res["team1_win"],
+                        "draw": dc_res["draw"],
+                        "team2_win": dc_res["team2_win"],
+                        "confidence": dc_res["confidence"]
+                    }
+                    dc_scores = dc_res["score_probabilities"]
             except Exception as e:
-                print(f"⚠️ Failed to load SoccerDataClient for team metrics: {e}")
-                t1_stats_dict = {}
-                t2_stats_dict = {}
+                print(f"⚠️ Failed to load SoccerDataClient / Dixon-Coles prediction: {e}")
             
             # Write to files
             match_folder.mkdir(parents=True, exist_ok=True)
@@ -317,8 +346,8 @@ def generate_upcoming_previews():
                 "ai_summary": preview_data.get("ai_summary")
             }
             metrics_payload = {
-                "dixon_coles_forecast": preview_data.get("dixon_coles_forecast"),
-                "score_probabilities": preview_data.get("score_probabilities"),
+                "dixon_coles_forecast": dc_forecast,
+                "score_probabilities": dc_scores,
                 "team_metrics": {
                     t1: t1_stats_dict,
                     t2: t2_stats_dict

@@ -567,6 +567,23 @@ def render_player_cards_html(players):
     return html.replace('\n', ' ')
 
 def render_score_probabilities_html(score_probs):
+    if not score_probs:
+        return """
+        <div style="
+            background: linear-gradient(145deg, #111827, #1f2937);
+            border: 1px solid #374151;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-family: 'Play', sans-serif;
+            text-align: center;
+            color: #9ca3af;
+            font-weight: bold;
+        ">
+            N/A (Forecast data unavailable)
+        </div>
+        """.replace('\n', ' ')
+
     max_prob = max(item["probability"] for item in score_probs) if score_probs else 1.0
     html = """
     <div style="
@@ -611,28 +628,69 @@ def render_score_probabilities_html(score_probs):
     return html.replace('\n', ' ')
 
 def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, left_color="#00c6ff", right_color="#ff007f"):
+    if not isinstance(neth, dict):
+        neth = {}
+    if not isinstance(jap, dict):
+        jap = {}
+        
+    def fmt(d, key, fmt_spec, suffix=""):
+        val = d.get(key)
+        if val is None or val == "N/A" or val == "":
+            return "N/A"
+        try:
+            formatted = ("{:" + fmt_spec + "}").format(val)
+            return f"{formatted}{suffix}"
+        except Exception:
+            return "N/A"
+
     metrics = [
-        {"label": "Squad Market Value", "val1": f"€{neth.get('squad_market_value_m', 0):.1f}M", "val2": f"€{jap.get('squad_market_value_m', 0):.1f}M"},
-        {"label": "Average Age", "val1": f"{neth.get('average_age', 0):.1f} yrs", "val2": f"{jap.get('average_age', 0):.1f} yrs"},
-        {"label": "Club Elo Rating", "val1": f"{elo1}", "val2": f"{elo2}"},
-        {"label": "Goals / 90", "val1": f"{neth.get('goals_per_90', 0.0):.2f}", "val2": f"{jap.get('goals_per_90', 0.0):.2f}"},
-        {"label": "Goals Conceded / 90", "val1": f"{neth.get('goals_conceded_per_90', 0.0):.2f}", "val2": f"{jap.get('goals_conceded_per_90', 0.0):.2f}"},
-        {"label": "Expected Goals (xG) / 90", "val1": f"{neth.get('expected_goals_per_90', 0.0):.2f}", "val2": f"{jap.get('expected_goals_per_90', 0.0):.2f}"},
-        {"label": "xG Conceded (xGC) / 90", "val1": f"{neth.get('expected_goals_conceded_per_90', 0.0):.2f}", "val2": f"{jap.get('expected_goals_conceded_per_90', 0.0):.2f}"},
-        {"label": "Shots / 90", "val1": f"{neth.get('shots_per_90', 0.0):.1f}", "val2": f"{jap.get('shots_per_90', 0.0):.1f}"},
-        {"label": "Shots on Target %", "val1": f"{neth.get('shots_on_target_pct', 0.0):.1f}%", "val2": f"{jap.get('shots_on_target_pct', 0.0):.1f}%"},
-        {"label": "xG / Shot", "val1": f"{neth.get('xg_per_shot', 0.0):.3f}", "val2": f"{jap.get('xg_per_shot', 0.0):.3f}"},
-        {"label": "Shots Against / 90", "val1": f"{neth.get('shots_against_per_90', 0.0):.1f}", "val2": f"{jap.get('shots_against_per_90', 0.0):.1f}"},
-        {"label": "Passes / 90", "val1": f"{neth.get('passes_per_90', 0.0):.0f}", "val2": f"{jap.get('passes_per_90', 0.0):.0f}"},
-        {"label": "Pass Completion %", "val1": f"{neth.get('pass_completion_pct', 0.0):.1f}%", "val2": f"{jap.get('pass_completion_pct', 0.0):.1f}%"},
-        {"label": "PPDA (Pressing Intensity)", "val1": f"{neth.get('ppda', 0.0):.1f}", "val2": f"{jap.get('ppda', 0.0):.1f}"},
-        {"label": "Field Tilt %", "val1": f"{neth.get('field_tilt_pct', 0.0):.1f}%", "val2": f"{jap.get('field_tilt_pct', 0.0):.1f}%"}
+        {"label": "Squad Market Value", "val1": fmt(neth, "squad_market_value_m", ".1f", "M") if neth.get("squad_market_value_m") is not None else "N/A", "val2": fmt(jap, "squad_market_value_m", ".1f", "M") if jap.get("squad_market_value_m") is not None else "N/A"},
+        {"label": "Average Age", "val1": fmt(neth, "average_age", ".1f", " yrs"), "val2": fmt(jap, "average_age", ".1f", " yrs")},
+        {"label": "Club Elo Rating", "val1": f"{elo1}" if elo1 is not None else "N/A", "val2": f"{elo2}" if elo2 is not None else "N/A"},
+        {"label": "Goals / 90", "val1": fmt(neth, "goals_per_90", ".2f"), "val2": fmt(jap, "goals_per_90", ".2f")},
+        {"label": "Goals Conceded / 90", "val1": fmt(neth, "goals_conceded_per_90", ".2f"), "val2": fmt(jap, "goals_conceded_per_90", ".2f")},
+        {"label": "Expected Goals (xG) / 90", "val1": fmt(neth, "expected_goals_per_90", ".2f"), "val2": fmt(jap, "expected_goals_per_90", ".2f")},
+        {"label": "xG Conceded (xGC) / 90", "val1": fmt(neth, "expected_goals_conceded_per_90", ".2f"), "val2": fmt(jap, "expected_goals_conceded_per_90", ".2f")},
+        {"label": "Shots / 90", "val1": fmt(neth, "shots_per_90", ".1f"), "val2": fmt(jap, "shots_per_90", ".1f")},
+        {"label": "Shots on Target %", "val1": fmt(neth, "shots_on_target_pct", ".1f", "%"), "val2": fmt(jap, "shots_on_target_pct", ".1f", "%")},
+        {"label": "xG / Shot", "val1": fmt(neth, "xg_per_shot", ".3f"), "val2": fmt(jap, "xg_per_shot", ".3f")},
+        {"label": "Shots Against / 90", "val1": fmt(neth, "shots_against_per_90", ".1f"), "val2": fmt(jap, "shots_against_per_90", ".1f")},
+        {"label": "Passes / 90", "val1": fmt(neth, "passes_per_90", ".0f"), "val2": fmt(jap, "passes_per_90", ".0f")},
+        {"label": "Pass Completion %", "val1": fmt(neth, "pass_completion_pct", ".1f", "%"), "val2": fmt(jap, "pass_completion_pct", ".1f", "%")},
+        {"label": "PPDA (Pressing Intensity)", "val1": fmt(neth, "ppda", ".1f"), "val2": fmt(jap, "ppda", ".1f")},
+        {"label": "Field Tilt %", "val1": fmt(neth, "field_tilt_pct", ".1f", "%"), "val2": fmt(jap, "field_tilt_pct", ".1f", "%")}
     ]
-    possession_neth = neth.get("possession_avg", 50.0)
-    possession_jap = jap.get("possession_avg", 50.0)
-    total_poss = possession_neth + possession_jap
-    poss_pct = (possession_neth / total_poss) * 100 if total_poss > 0 else 50
     
+    # Prefix Euro symbol for market value manually if not N/A
+    for m in metrics:
+        if m["label"] == "Squad Market Value":
+            if m["val1"] != "N/A":
+                m["val1"] = "€" + m["val1"]
+            if m["val2"] != "N/A":
+                m["val2"] = "€" + m["val2"]
+
+    possession_neth = neth.get("possession_avg")
+    possession_jap = jap.get("possession_avg")
+    
+    # Calculate possession bar percentages safely
+    if possession_neth is None and possession_jap is None:
+        poss_neth_label = "N/A"
+        poss_jap_label = "N/A"
+        poss_pct = 50
+    elif possession_neth is None:
+        poss_neth_label = "N/A"
+        poss_jap_label = f"{possession_jap:.1f}%"
+        poss_pct = 0
+    elif possession_jap is None:
+        poss_neth_label = f"{possession_neth:.1f}%"
+        poss_jap_label = "N/A"
+        poss_pct = 100
+    else:
+        poss_neth_label = f"{possession_neth:.1f}%"
+        poss_jap_label = f"{possession_jap:.1f}%"
+        total_poss = possession_neth + possession_jap
+        poss_pct = (possession_neth / total_poss) * 100 if total_poss > 0 else 50
+        
     html = f"""
     <div style="
         background: linear-gradient(145deg, #111827, #1f2937);
@@ -643,9 +701,9 @@ def render_squad_comparison_html(team1_name, team2_name, neth, jap, elo1, elo2, 
         font-family: 'Play', sans-serif;
     ">
         <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: bold; font-size: 1.1rem; color: #fff;">
-            <span style="color: {left_color};">{team1_name.upper()} ({possession_neth:.1f}%)</span>
+            <span style="color: {left_color};">{team1_name.upper()} ({poss_neth_label})</span>
             <span style="color: #a8b2c1; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Average Possession</span>
-            <span style="color: {right_color};">{possession_jap:.1f}% {team2_name.upper()}</span>
+            <span style="color: {right_color};">{poss_jap_label} {team2_name.upper()}</span>
         </div>
         <div style="background-color: #374151; border-radius: 6px; height: 12px; display: flex; overflow: hidden; margin-bottom: 24px;">
             <div style="background: linear-gradient(90deg, {left_color} 0%, {left_color}dd 100%); width: {poss_pct}%; height: 100%;"></div>
@@ -722,12 +780,20 @@ def render_standings_comparison_html(team1_name, team2_name, info1, info2, left_
     return html.replace('\n', ' ')
 
 def render_projections_comparison_html(team1_name, team2_name, probs1, probs2, left_color="#00c6ff", right_color="#ff007f"):
+    def fmt_prob(p):
+        if p is None or p == "N/A":
+            return "N/A"
+        try:
+            return f"{p*100:.1f}%"
+        except Exception:
+            return "N/A"
+            
     metrics = [
-        {"label": "Reach Round of 16", "val1": f"{probs1['r16']*100:.1f}%", "val2": f"{probs2['r16']*100:.1f}%"},
-        {"label": "Reach Quarterfinals", "val1": f"{probs1['qf']*100:.1f}%", "val2": f"{probs2['qf']*100:.1f}%"},
-        {"label": "Reach Semifinals", "val1": f"{probs1['sf']*100:.1f}%", "val2": f"{probs2['sf']*100:.1f}%"},
-        {"label": "Reach Final", "val1": f"{probs1['final']*100:.1f}%", "val2": f"{probs2['final']*100:.1f}%"},
-        {"label": "Win World Cup", "val1": f"{probs1['win']*100:.1f}%", "val2": f"{probs2['win']*100:.1f}%"}
+        {"label": "Reach Round of 16", "val1": fmt_prob(probs1.get('r16')), "val2": fmt_prob(probs2.get('r16'))},
+        {"label": "Reach Quarterfinals", "val1": fmt_prob(probs1.get('qf')), "val2": fmt_prob(probs2.get('qf'))},
+        {"label": "Reach Semifinals", "val1": fmt_prob(probs1.get('sf')), "val2": fmt_prob(probs2.get('sf'))},
+        {"label": "Reach Final", "val1": fmt_prob(probs1.get('final')), "val2": fmt_prob(probs2.get('final'))},
+        {"label": "Win World Cup", "val1": fmt_prob(probs1.get('win')), "val2": fmt_prob(probs2.get('win'))}
     ]
     
     html = f"""
@@ -778,6 +844,14 @@ def get_team_group_standings_2026(team_name: str):
     return None
 
 def compute_monte_carlo_probs(elo: float):
+    if elo is None:
+        return {
+            "r16": "N/A",
+            "qf": "N/A",
+            "sf": "N/A",
+            "final": "N/A",
+            "win": "N/A"
+        }
     base = 1400.0
     diff = max(0.0, elo - base)
     scale = 730.0
@@ -1438,14 +1512,33 @@ def main():
                 """.replace('\n', ' ')
                 st.markdown(squads_html, unsafe_allow_html=True)
                 
-                # Match Predictions & Forecast
-                forecast = metrics_data["dixon_coles_forecast"]
-                score_probs = metrics_data["score_probabilities"]
+                # Squad & Style Comparison with Fallback Scraped KPIs
+                sd_client = SoccerDataClient()
+                t1_stats = sd_client.fetch_fbref_team_tactical_stats(team1)
+                t2_stats = sd_client.fetch_fbref_team_tactical_stats(team2)
+                elo_t1 = sd_client.fetch_club_elo_ratings(team1)["elo_rating"]
+                elo_t2 = sd_client.fetch_club_elo_ratings(team2)["elo_rating"]
+
+                # Match Predictions & Forecast (Recalculated using mathematically correct Dixon-Coles model)
+                from soccerdata_client import get_dixon_coles_prediction
                 
-                t1_win_pct = forecast['team1_win'] * 100
-                draw_pct = forecast['draw'] * 100
-                t2_win_pct = forecast['team2_win'] * 100
-                confidence_pct = forecast['confidence'] * 100
+                if elo_t1 is not None and elo_t2 is not None:
+                    dc_res = get_dixon_coles_prediction(elo_t1, elo_t2)
+                    forecast = {
+                        "team1_win": dc_res["team1_win"],
+                        "draw": dc_res["draw"],
+                        "team2_win": dc_res["team2_win"],
+                        "confidence": dc_res["confidence"]
+                    }
+                    score_probs = dc_res["score_probabilities"]
+                else:
+                    forecast = metrics_data.get("dixon_coles_forecast", {"team1_win": None, "draw": None, "team2_win": None, "confidence": None})
+                    score_probs = metrics_data.get("score_probabilities", [])
+                
+                t1_win_pct = (forecast.get('team1_win') or 0.0) * 100
+                draw_pct = (forecast.get('draw') or 0.0) * 100
+                t2_win_pct = (forecast.get('team2_win') or 0.0) * 100
+                confidence_pct = (forecast.get('confidence') or 0.0) * 100
                 
                 score_probs_html = render_score_probabilities_html(score_probs)
                 
@@ -1474,12 +1567,12 @@ def main():
                                 <div style="background: #ff007f; width: {t2_win_pct}%; height: 100%;"></div>
                             </div>
                             <div style="display: flex; justify-content: space-between; color: #fff; font-weight: bold; font-size: 1.1rem;">
-                                <span style="color: #00c6ff;">{t1_win_pct:.1f}%</span>
-                                <span style="color: #a8b2c1;">{draw_pct:.1f}%</span>
-                                <span style="color: #ff007f;">{t2_win_pct:.1f}%</span>
+                                <span style="color: #00c6ff;">{"N/A" if forecast.get("team1_win") is None else f"{t1_win_pct:.1f}%"}</span>
+                                <span style="color: #a8b2c1;">{"N/A" if forecast.get("draw") is None else f"{draw_pct:.1f}%"}</span>
+                                <span style="color: #ff007f;">{"N/A" if forecast.get("team2_win") is None else f"{t2_win_pct:.1f}%"}</span>
                             </div>
                             <div style="margin-top: 24px; font-size: 0.95rem; color: #9ca3af;">
-                                <strong>Model Confidence:</strong> <span style="color: #fff;">{confidence_pct:.1f}%</span>
+                                <strong>Model Confidence:</strong> <span style="color: #fff;">{"N/A" if forecast.get("confidence") is None else f"{confidence_pct:.1f}%"}</span>
                             </div>
                         </div>
                         <div>
@@ -1490,13 +1583,6 @@ def main():
                 </div>
                 """.replace('\n', ' ')
                 st.markdown(predictions_html, unsafe_allow_html=True)
-                
-                # Squad & Style Comparison with Fallback Scraped KPIs
-                sd_client = SoccerDataClient()
-                t1_stats = sd_client.fetch_fbref_team_tactical_stats(team1)
-                t2_stats = sd_client.fetch_fbref_team_tactical_stats(team2)
-                elo_t1 = sd_client.fetch_club_elo_ratings(team1)["elo_rating"]
-                elo_t2 = sd_client.fetch_club_elo_ratings(team2)["elo_rating"]
                 
                 squad_comp_html = render_squad_comparison_html(
                     team1, team2, t1_stats, t2_stats, elo_t1, elo_t2
