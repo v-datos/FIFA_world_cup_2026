@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "match_id": "portugal_democratic_republic_of_the_congo_2026",
+        "team1": "Portugal",
+        "team2": "Democratic Republic of the Congo",
+        "date": "06/17/2026",
+        "time": "12:00",
+        "venue": "Stadium 5",
+        "stage": "Group Stage - Group K"
+    },
+    "ai_summary": {
+        "key_headline": "Tactical Clash: Portugal Takes On Democratic Republic of the Congo",
+        "injuries": {
+            "portugal": [
+                "No major injuries reported"
+            ],
+            "democratic_republic_of_the_congo": [
+                "No major injuries reported"
+            ]
+        },
+        "confirmed_tactics": {
+            "portugal": {
+                "formation": "4-3-3",
+                "philosophy": "Balanced positional play.",
+                "manager": "Head Coach"
+            },
+            "democratic_republic_of_the_congo": {
+                "formation": "4-4-2",
+                "philosophy": "Compact counter-attacking.",
+                "manager": "Head Coach"
+            }
+        },
+        "tactical_insights": [
+            "Both teams will try to establish control early in the midfield.",
+            "Defensive discipline will be crucial in preventing quick transitions.",
+            "Set-pieces could be the deciding factor in a tightly contested match."
+        ]
+    }
+}
