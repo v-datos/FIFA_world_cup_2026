@@ -299,6 +299,28 @@
       "name": "Group G",
       "standings": [
         {
+          "team": "Iran",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "pts": 1
+        },
+        {
+          "team": "New Zealand",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "pts": 1
+        },
+        {
           "team": "Belgium",
           "p": 1,
           "w": 0,
@@ -319,34 +341,34 @@
           "ga": 1,
           "gd": 0,
           "pts": 1
-        },
-        {
-          "team": "Iran",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0
-        },
-        {
-          "team": "New Zealand",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0
         }
       ]
     },
     {
       "name": "Group H",
       "standings": [
+        {
+          "team": "Saudi Arabia",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1
+        },
+        {
+          "team": "Uruguay",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1
+        },
         {
           "team": "Spain",
           "p": 1,
@@ -368,28 +390,6 @@
           "ga": 0,
           "gd": 0,
           "pts": 1
-        },
-        {
-          "team": "Saudi Arabia",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0
-        },
-        {
-          "team": "Uruguay",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0
         }
       ]
     },

@@ -197,6 +197,104 @@ def update_live_standings():
     state = load_grid_state()
     live_groups = fetch_live_group_standings()
     state["groups"] = live_groups
+    
+    # Fetch live games to apply corrections
+    import subprocess
+    try:
+        url = "https://worldcup26.ir/get/games"
+        result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=20)
+        if result.returncode == 0:
+            api_games_data = json.loads(result.stdout)
+            games_list = api_games_data.get("games", []) if isinstance(api_games_data, dict) else api_games_data
+            
+            if games_list:
+                print("🔄 Correcting standings using finished games list...")
+                MAP_TEAMS = {
+                    "Turkey": "Turkiye",
+                    "Czech Republic": "Czechia",
+                    "Curaçao": "Curacao",
+                    "Democratic Republic of the Congo": "DR Congo",
+                    "Côte d'Ivoire": "Ivory Coast",
+                    "Cote d'Ivoire": "Ivory Coast"
+                }
+                
+                team_stats = {}
+                for group_obj in state.get("groups", []):
+                    for team_obj in group_obj.get("standings", []):
+                        t_name = team_obj["team"]
+                        team_stats[t_name] = {
+                            "p": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "gd": 0, "pts": 0
+                        }
+                
+                for game in games_list:
+                    if game.get("type") == "group" and (game.get("finished") == "TRUE" or game.get("finished") is True):
+                        h = game.get("home_team_name_en") or game.get("home_team_label") or ""
+                        a = game.get("away_team_name_en") or game.get("away_team_label") or ""
+                        
+                        h = MAP_TEAMS.get(h, h)
+                        a = MAP_TEAMS.get(a, a)
+                        
+                        if h in team_stats and a in team_stats:
+                            try:
+                                h_score = int(game.get("home_score", 0))
+                                a_score = int(game.get("away_score", 0))
+                            except Exception:
+                                continue
+                                
+                            team_stats[h]["p"] += 1
+                            team_stats[h]["gf"] += h_score
+                            team_stats[h]["ga"] += a_score
+                            team_stats[h]["gd"] += (h_score - a_score)
+                            
+                            team_stats[a]["p"] += 1
+                            team_stats[a]["gf"] += a_score
+                            team_stats[a]["ga"] += h_score
+                            team_stats[a]["gd"] += (a_score - h_score)
+                            
+                            if h_score > a_score:
+                                team_stats[h]["w"] += 1
+                                team_stats[h]["pts"] += 3
+                                team_stats[a]["l"] += 1
+                            elif a_score > h_score:
+                                team_stats[a]["w"] += 1
+                                team_stats[a]["pts"] += 3
+                                team_stats[h]["l"] += 1
+                            else:
+                                team_stats[h]["d"] += 1
+                                team_stats[h]["pts"] += 1
+                                team_stats[a]["d"] += 1
+                                team_stats[a]["pts"] += 1
+                                
+                corrected_groups = []
+                for group_obj in state.get("groups", []):
+                    corrected_standings = []
+                    for team_obj in group_obj.get("standings", []):
+                        t_name = team_obj["team"]
+                        stats = team_stats.get(t_name)
+                        if stats:
+                            corrected_standings.append({
+                                "team": t_name,
+                                "p": stats["p"],
+                                "w": stats["w"],
+                                "d": stats["d"],
+                                "l": stats["l"],
+                                "gf": stats["gf"],
+                                "ga": stats["ga"],
+                                "gd": stats["gd"],
+                                "pts": stats["pts"]
+                            })
+                        else:
+                            corrected_standings.append(team_obj)
+                    
+                    corrected_standings.sort(key=lambda x: (x.get("pts", 0), x.get("gd", 0), x.get("gf", 0)), reverse=True)
+                    corrected_groups.append({
+                        "name": group_obj["name"],
+                        "standings": corrected_standings
+                    })
+                state["groups"] = corrected_groups
+    except Exception as e:
+        print(f"⚠️ Standings correction failed: {e}")
+        
     save_grid_state(state)
     print("✅ Live Standings successfully updated inside grid_state.json!")
 
