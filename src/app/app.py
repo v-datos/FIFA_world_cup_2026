@@ -102,6 +102,46 @@ ROSTERS_2026 = {
     "New Zealand": [
         "Chris Wood", "Sarpreet Singh", "Liberato Cacace", "Joe Bell", 
         "Marko Stamenic", "Tyler Bindon", "Michael Boxall", "Alex Paulsen"
+    ],
+    "France": [
+        "Kylian Mbappé", "Antoine Griezmann", "Ousmane Dembélé", "Marcus Thuram", 
+        "Bradley Barcola", "Aurélien Tchouaméni", "Eduardo Camavinga", "N'Golo Kanté", 
+        "William Saliba", "Dayot Upamecano", "Theo Hernández", "Jules Koundé", "Mike Maignan"
+    ],
+    "Senegal": [
+        "Sadio Mané", "Nicolas Jackson", "Ismaïla Sarr", "Iliman Ndiaye", 
+        "Lamine Camara", "Pape Matar Sarr", "Kalidou Koulibaly", "Abdou Diallo", 
+        "Moussa Niakhaté", "Édouard Mendy"
+    ],
+    "Iraq": [
+        "Aymen Hussein", "Ali Jasim", "Mohanad Ali", "Ibrahim Bayesh", 
+        "Youssef Amyn", "Amir Al-Ammari", "Osama Rashid", "Saad Natiq", 
+        "Rebin Sulaka", "Jalal Hassan"
+    ],
+    "Norway": [
+        "Erling Haaland", "Martin Ødegaard", "Alexander Sørloth", "Antonio Nusa", 
+        "Oscar Bobb", "Sander Berge", "Patrick Berg", "Julian Ryerson", 
+        "Leo Østigård", "Andreas Hanche-Olsen", "Ørjan Nyland"
+    ],
+    "Argentina": [
+        "Lionel Messi", "Julián Álvarez", "Lautaro Martínez", "Ángel Di María", 
+        "Rodrigo De Paul", "Alexis Mac Allister", "Enzo Fernández", "Leandro Paredes", 
+        "Cristian Romero", "Lisandro Martínez", "Nicolás Otamendi", "Nahuel Molina", "Emiliano Martínez"
+    ],
+    "Algeria": [
+        "Riyad Mahrez", "Baghdad Bounedjah", "Amine Gouiri", "Said Benrahma", 
+        "Houssem Aouar", "Ismaël Bennacer", "Nabil Bentaleb", "Ramy Bensebaini", 
+        "Aïssa Mandi", "Rayan Aït-Nouri", "Anthony Mandrea"
+    ],
+    "Austria": [
+        "Marcel Sabitzer", "Konrad Laimer", "Christoph Baumgartner", "Romano Schmid", 
+        "Michael Gregoritsch", "Florian Grillitsch", "Nicolas Seiwald", "Stefan Posch", 
+        "Kevin Danso", "Maximilian Wöber", "Patrick Pentz"
+    ],
+    "Jordan": [
+        "Musa Al-Taamari", "Yazan Al-Naimat", "Ali Olwan", "Mahmoud Al-Mardi", 
+        "Nizar Al-Rashdan", "Noor Al-Rawabdeh", "Yazan Al-Arab", "Abdallah Nasib", 
+        "Salem Al-Ajalin", "Yazid Abu Layla"
     ]
 }
 
@@ -275,7 +315,112 @@ PLAYER_CLUBS_2026 = {
     "Marko Stamenic": "Olympiacos",
     "Tyler Bindon": "Reading",
     "Michael Boxall": "Minnesota United",
-    "Alex Paulsen": "Auckland FC"
+    "Alex Paulsen": "Auckland FC",
+
+    # France
+    "Kylian Mbappé": "Real Madrid",
+    "Antoine Griezmann": "Atlético Madrid",
+    "Ousmane Dembélé": "Paris Saint-Germain",
+    "Marcus Thuram": "Inter Milan",
+    "Bradley Barcola": "Paris Saint-Germain",
+    "Aurélien Tchouaméni": "Real Madrid",
+    "Eduardo Camavinga": "Real Madrid",
+    "N'Golo Kanté": "Al-Ittihad",
+    "William Saliba": "Arsenal",
+    "Dayot Upamecano": "Bayern Munich",
+    "Theo Hernández": "AC Milan",
+    "Jules Koundé": "Barcelona",
+    "Mike Maignan": "AC Milan",
+
+    # Senegal
+    "Sadio Mané": "Al-Nassr",
+    "Nicolas Jackson": "Chelsea",
+    "Ismaïla Sarr": "Crystal Palace",
+    "Iliman Ndiaye": "Everton",
+    "Lamine Camara": "Monaco",
+    "Pape Matar Sarr": "Tottenham Hotspur",
+    "Kalidou Koulibaly": "Al-Hilal",
+    "Abdou Diallo": "Al-Arabi",
+    "Moussa Niakhaté": "Lyon",
+    "Édouard Mendy": "Al-Ahli",
+
+    # Iraq
+    "Aymen Hussein": "Al-Khor",
+    "Ali Jasim": "Como",
+    "Mohanad Ali": "Al-Shorta",
+    "Ibrahim Bayesh": "Al-Riyadh",
+    "Youssef Amyn": "Al-Wehda",
+    "Amir Al-Ammari": "Cracovia",
+    "Osama Rashid": "Free Agent",
+    "Saad Natiq": "Al-Shorta",
+    "Rebin Sulaka": "FC Seoul",
+    "Jalal Hassan": "Al-Zawraa",
+
+    # Norway
+    "Erling Haaland": "Manchester City",
+    "Martin Ødegaard": "Arsenal",
+    "Alexander Sørloth": "Atlético Madrid",
+    "Antonio Nusa": "RB Leipzig",
+    "Oscar Bobb": "Manchester City",
+    "Sander Berge": "Fulham",
+    "Patrick Berg": "Bodø/Glimt",
+    "Julian Ryerson": "Borussia Dortmund",
+    "Leo Østigård": "Rennes",
+    "Andreas Hanche-Olsen": "Mainz 05",
+    "Ørjan Nyland": "Sevilla",
+
+    # Argentina
+    "Lionel Messi": "Inter Miami",
+    "Julián Álvarez": "Atlético Madrid",
+    "Lautaro Martínez": "Inter Milan",
+    "Ángel Di María": "Benfica",
+    "Rodrigo De Paul": "Atlético Madrid",
+    "Alexis Mac Allister": "Liverpool",
+    "Enzo Fernández": "Chelsea",
+    "Leandro Paredes": "AS Roma",
+    "Cristian Romero": "Tottenham Hotspur",
+    "Lisandro Martínez": "Manchester United",
+    "Nicolás Otamendi": "Benfica",
+    "Nahuel Molina": "Atlético Madrid",
+    "Emiliano Martínez": "Aston Villa",
+
+    # Algeria
+    "Riyad Mahrez": "Al-Ahli",
+    "Baghdad Bounedjah": "Al-Shamal",
+    "Amine Gouiri": "Rennes",
+    "Said Benrahma": "Lyon",
+    "Houssem Aouar": "Al-Ittihad",
+    "Ismaël Bennacer": "AC Milan",
+    "Nabil Bentaleb": "Lille",
+    "Ramy Bensebaini": "Borussia Dortmund",
+    "Aïssa Mandi": "Lille",
+    "Rayan Aït-Nouri": "Wolverhampton Wanderers",
+    "Anthony Mandrea": "Caen",
+
+    # Austria
+    "Marcel Sabitzer": "Borussia Dortmund",
+    "Konrad Laimer": "Bayern Munich",
+    "Christoph Baumgartner": "RB Leipzig",
+    "Romano Schmid": "Werder Bremen",
+    "Michael Gregoritsch": "SC Freiburg",
+    "Florian Grillitsch": "TSG Hoffenheim",
+    "Nicolas Seiwald": "RB Leipzig",
+    "Stefan Posch": "Bologna",
+    "Kevin Danso": "Lens",
+    "Maximilian Wöber": "Leeds United",
+    "Patrick Pentz": "Brøndby",
+
+    # Jordan
+    "Musa Al-Taamari": "Montpellier",
+    "Yazan Al-Naimat": "Al-Ahli SC",
+    "Ali Olwan": "Selangor",
+    "Mahmoud Al-Mardi": "Al-Hussein Irbid",
+    "Nizar Al-Rashdan": "Emirates Club",
+    "Noor Al-Rawabdeh": "Selangor",
+    "Yazan Al-Arab": "FC Seoul",
+    "Abdallah Nasib": "Al-Hussein Irbid",
+    "Salem Al-Ajalin": "Al-Faisaly",
+    "Yazid Abu Layla": "Al-Jabalain"
 }
 
 LAST_TOURNAMENT_STANDINGS_2026 = {
@@ -292,7 +437,15 @@ LAST_TOURNAMENT_STANDINGS_2026 = {
     "Saudi Arabia": "Round of 16 (AFC Asian Cup 2023)",
     "Uruguay": "Third Place (Copa América 2024)",
     "Iran": "Semi-finals (AFC Asian Cup 2023)",
-    "New Zealand": "Champions (OFC Nations Cup 2024)"
+    "New Zealand": "Champions (OFC Nations Cup 2024)",
+    "France": "Runners-up (FIFA World Cup 2022)",
+    "Senegal": "Round of 16 (Africa Cup of Nations 2023)",
+    "Iraq": "Round of 16 (AFC Asian Cup 2023)",
+    "Norway": "Group Stage (UEFA Nations League A 2024)",
+    "Argentina": "Champions (FIFA World Cup 2022) / Champions (Copa América 2024)",
+    "Algeria": "Group Stage (Africa Cup of Nations 2023)",
+    "Austria": "Round of 16 (UEFA Euro 2024)",
+    "Jordan": "Runners-up (AFC Asian Cup 2023)"
 }
 
 MATCH_VISUALIZATION_PROXIES = {
@@ -301,7 +454,15 @@ MATCH_VISUALIZATION_PROXIES = {
     "Ivory Coast": {"match_id": 3922838, "team": "Côte d'Ivoire", "label": "Africa Cup of Nations 2023"},
     "Ecuador": {"match_id": 3939980, "team": "Ecuador", "label": "Copa América 2024"},
     "Sweden": {"match_id": 3788750, "team": "Sweden", "label": "UEFA Euro 2020"},
-    "Tunisia": {"match_id": 3920404, "team": "Tunisia", "label": "Africa Cup of Nations 2023"}
+    "Tunisia": {"match_id": 3920404, "team": "Tunisia", "label": "Africa Cup of Nations 2023"},
+    "France": {"match_id": 3930173, "team": "France", "label": "UEFA Euro 2024"},
+    "Senegal": {"match_id": 3920412, "team": "Senegal", "label": "Africa Cup of Nations 2023"},
+    "Argentina": {"match_id": 3942785, "team": "Argentina", "label": "Copa América 2024"},
+    "Algeria": {"match_id": 3920390, "team": "Algeria", "label": "Africa Cup of Nations 2023"},
+    "Austria": {"match_id": 3930180, "team": "Austria", "label": "UEFA Euro 2024"},
+    "Norway": {"match_id": 3788750, "team": "Sweden", "label": "UEFA Euro 2020 (Proxy)"},
+    "Iraq": {"match_id": 3920404, "team": "Tunisia", "label": "Arab Cup 2021 (Proxy)"},
+    "Jordan": {"match_id": 3920404, "team": "Tunisia", "label": "Arab Cup 2021 (Proxy)"}
 }
 
 
