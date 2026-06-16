@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Maximize2, Minimize2 } from 'lucide-react';
 
 interface StandingsTabProps {
@@ -105,6 +105,35 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
       setOverlay(true);
     }
   };
+
+  // Scale the fixed-size board down to fit the available area so the ENTIRE
+  // bracket is always visible (never cut off). In fullscreen we also fit height.
+  const fitRef = useRef<HTMLDivElement>(null);
+  const boardRef = useRef<HTMLDivElement>(null);
+  const [fit, setFit] = useState({ scale: 1, w: 0, h: 0 });
+
+  useLayoutEffect(() => {
+    const recompute = () => {
+      const board = boardRef.current;
+      const area = fitRef.current;
+      if (!board || !area) return;
+      const bw = board.offsetWidth || 1720;
+      const bh = board.offsetHeight || 980;
+      const availW = area.clientWidth;
+      const availH = isFullscreen ? area.clientHeight : Infinity;
+      const scale = Math.min(1, availW / bw, availH / bh);
+      setFit((prev) =>
+        prev.scale === scale && prev.w === bw * scale && prev.h === bh * scale
+          ? prev
+          : { scale, w: bw * scale, h: bh * scale }
+      );
+    };
+    recompute();
+    const ro = new ResizeObserver(recompute);
+    if (fitRef.current) ro.observe(fitRef.current);
+    window.addEventListener('resize', recompute);
+    return () => { ro.disconnect(); window.removeEventListener('resize', recompute); };
+  }, [isFullscreen, data, lang]);
 
   if (loading || !data) {
     return (
@@ -318,17 +347,22 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           z-index: 60;
         }
 
-        .board-wrap:fullscreen .bracket-scroll,
-        .board-wrap.overlay .bracket-scroll {
-          flex: 1 1 auto;
-          overflow: auto;
+        .bracket-fit-area {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
         }
 
-        .bracket-scroll {
-          width: 100%;
-          overflow-x: auto;
-          overflow-y: hidden;
-          border-radius: 1rem;
+        .board-wrap:fullscreen .bracket-fit-area,
+        .board-wrap.overlay .bracket-fit-area {
+          flex: 1 1 auto;
+          align-items: center;
+        }
+
+        .bracket-fit-inner {
+          position: relative;
+          overflow: hidden;
         }
 
         .bracket-board {
@@ -345,8 +379,11 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           align-items: center;
           box-shadow: inset 0 0 80px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.3);
           font-family: 'Permanent Marker', cursive;
-          position: relative;
-          overflow-x: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform-origin: top left;
+          overflow: visible;
           box-sizing: border-box;
           min-width: 1720px;
         }
@@ -667,7 +704,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
         {/* Toolbar: full-screen toggle + scroll hint */}
         <div className="flex items-center justify-end gap-3 mb-3">
           <span className="text-[11px] text-slate-500 font-mono hidden md:inline">
-            {lang === 'Español' ? 'Desplázate para ver toda la llave' : 'Scroll horizontally to see the full bracket'}
+            {lang === 'Español' ? 'Pantalla completa para ampliar' : 'Use Full Screen for a larger view'}
           </span>
           <button
             onClick={toggleFullscreen}
@@ -680,9 +717,10 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           </button>
         </div>
 
-        {/* Symmetrical Wood Board Bracket (horizontally scrollable / full-screen) */}
-        <div className="bracket-scroll">
-          <div className="bracket-board">
+        {/* Wood-board bracket — scaled to fit so the whole thing is always visible */}
+        <div ref={fitRef} className="bracket-fit-area">
+          <div className="bracket-fit-inner" style={{ width: fit.w || undefined, height: fit.h || undefined }}>
+            <div ref={boardRef} className="bracket-board" style={{ transform: `scale(${fit.scale})` }}>
         {/* Title */}
         <div className="board-title">
           {lang === 'Español' ? 'COPA MUNDIAL 2026' : (data.tournament || 'World Cup 2026')}
@@ -832,7 +870,8 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           {data.groups.slice(6, 12).map((g, idx) => renderGroupCard(g, idx + 6))}
         </div>
         </div>{/* .bracket-board */}
-      </div>{/* .bracket-scroll */}
+          </div>{/* .bracket-fit-inner */}
+        </div>{/* .bracket-fit-area */}
       </div>{/* .board-wrap */}
     </div>
   );

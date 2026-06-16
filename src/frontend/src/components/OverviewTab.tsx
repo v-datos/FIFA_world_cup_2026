@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { getFlag, TODAY_DATE } from '../lib/teamData';
 
 interface Match {
   id: string;
@@ -17,32 +18,13 @@ interface OverviewTabProps {
   lang: string;
 }
 
-const TEAM_FLAGS: Record<string, string> = {
-  "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴",
-  "Belgium": "🇧🇪", "Egypt": "🇪🇬", "Canada": "🇨🇦", "Qatar": "🇶🇦",
-  "Czechia": "🇨🇿", "Czech Republic": "🇨🇿", "South Africa": "🇿🇦", "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-  "Croatia": "🇭🇷", "France": "🇫🇷", "Senegal": "🇸🇳", "Ghana": "🇬🇭",
-  "Panama": "🇵🇦", "Iran": "🇮🇷", "New Zealand": "🇳🇿", "Iraq": "🇮🇶",
-  "Norway": "🇳🇴", "Mexico": "🇲🇽", "South Korea": "🇰🇷", "Portugal": "🇵🇹",
-  "DR Congo": "🇨🇩", "Saudi Arabia": "🇸🇦", "Uruguay": "🇺🇾", "Spain": "🇪🇸",
-  "Cape Verde": "🇨🇻", "Switzerland": "🇨🇭", "Bosnia and Herzegovina": "🇧🇦",
-  "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Haiti": "🇭🇹", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-  "United States": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkiye": "🇹🇷",
-  "Turkey": "🇹🇷", "Germany": "🇩🇪", "Curacao": "🇨🇼", "Ivory Coast": "🇨🇮",
-  "Ecuador": "🇪🇨", "Japan": "🇯🇵", "Sweden": "🇸🇪", "Tunisia": "🇹🇳",
-  "Uzbekistan": "🇺🇿", "Colombia": "🇨🇴", "Bosnia": "🇧🇦"
-};
-
 export const OverviewTab: React.FC<OverviewTabProps> = ({
   matches,
   onSelectMatch,
   lang,
 }) => {
-  const getFlag = (team: string) => TEAM_FLAGS[team] || "🏳️";
-
-  // Filter for today's matches (June 16, 2026)
-  const todayDate = "06/16/2026";
-  const todayMatches = matches.filter(m => m.date === todayDate);
+  // Filter for today's matches
+  const todayMatches = matches.filter(m => m.date === TODAY_DATE);
   const filteredMatches = todayMatches.length > 0 ? todayMatches : matches;
 
   // Actual World Cup 2026 stats as of June 16 (after US 4-1, ES-CV 0-0, BE-EG 1-1, SA-UR 1-1, IR-NZ 2-2)
@@ -104,9 +86,9 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
         <h3 className="text-lg font-bold text-slate-100 mb-4 flex items-center gap-2">
           <Calendar className="w-5 h-5 text-emerald-400" />
           <span>
-            {lang === 'Español' 
-              ? `Partidos del Día (${todayDate})` 
-              : `Fixtures of the Day (${todayDate})`}
+            {lang === 'Español'
+              ? `Partidos del Día (${TODAY_DATE})`
+              : `Fixtures of the Day (${TODAY_DATE})`}
           </span>
         </h3>
 

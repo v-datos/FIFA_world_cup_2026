@@ -3,6 +3,7 @@ import { InteractivePitch } from './InteractivePitch';
 import { MatchPredictionGraph } from './MatchPredictionGraph';
 import { TeamRadarComparison } from './TeamRadarComparison';
 import { ShieldAlert, Award, FileText, BarChart3, Image as ImageIcon } from 'lucide-react';
+import { getFlag, TODAY_DATE } from '../lib/teamData';
 
 interface Match {
   id: string;
@@ -33,6 +34,19 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const [metricsData, setMetricsData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [activeVizTab, setActiveVizTab] = useState<string>('momentum');
+
+  // Only the current day's fixtures appear in the selector (de-clutter).
+  const todaysMatches = matches.filter((m) => m.date === TODAY_DATE);
+  const dropdownMatches = todaysMatches.length > 0 ? todaysMatches : matches;
+
+  // If the active selection isn't one of today's fixtures, snap to the first one.
+  useEffect(() => {
+    if (todaysMatches.length === 0) return;
+    if (!todaysMatches.some((m) => m.id === selectedMatchId)) {
+      setSelectedMatchId(todaysMatches[0].id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matches, selectedMatchId]);
 
   // Roster listing from app.py
   const ROSTERS: Record<string, string[]> = {
@@ -148,9 +162,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900/40 p-4 rounded-xl border border-slate-800/40">
         <div>
           <h2 className="text-xl font-bold text-slate-100 flex items-center gap-2">
-            <span>{team1}</span>
+            <span>{getFlag(team1)} {team1}</span>
             <span className="text-xs text-slate-500 font-mono">VS</span>
-            <span>{team2}</span>
+            <span>{getFlag(team2)} {team2}</span>
           </h2>
           <p className="text-xs text-slate-400 font-mono mt-0.5">
             {stage} | {date} {time} | {venue}
@@ -162,9 +176,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           onChange={(e) => setSelectedMatchId(e.target.value)}
           className="bg-slate-950 text-slate-200 text-sm font-medium border border-slate-800 rounded-lg px-3.5 py-2 cursor-pointer focus:outline-none focus:border-emerald-500"
         >
-          {matches.map((m) => (
+          {dropdownMatches.map((m) => (
             <option key={m.id} value={m.id}>
-              {m.team1} vs {m.team2}
+              {getFlag(m.team1)} {m.team1} vs {getFlag(m.team2)} {m.team2}
             </option>
           ))}
         </select>
@@ -195,7 +209,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>{team1}</span>
+                  <span>{getFlag(team1)} {team1}</span>
                   <span className="font-mono text-emerald-400">{Math.round((forecast.team1_win || 0.4) * 100)}%</span>
                 </div>
                 <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
@@ -215,7 +229,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
 
               <div>
                 <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>{team2}</span>
+                  <span>{getFlag(team2)} {team2}</span>
                   <span className="font-mono text-rose-400">{Math.round((forecast.team2_win || 0.3) * 100)}%</span>
                 </div>
                 <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
@@ -274,12 +288,12 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
               <span>{translateText("Injury Updates")}</span>
             </h4>
             <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
-              <div className="text-emerald-400 font-semibold">{team1}:</div>
+              <div className="text-emerald-400 font-semibold">{getFlag(team1)} {team1}:</div>
               {injuries[cleanT1]?.map((inj: string, idx: number) => (
                 <div key={idx}>• {inj}</div>
               )) || <div>No major injuries reported.</div>}
 
-              <div className="text-rose-400 font-semibold mt-1">{team2}:</div>
+              <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {team2}:</div>
               {injuries[cleanT2]?.map((inj: string, idx: number) => (
                 <div key={idx}>• {inj}</div>
               )) || <div>No major injuries reported.</div>}
@@ -316,6 +330,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InteractivePitch
             teamName={team1}
+            flag={getFlag(team1)}
             players={t1Roster}
             formation={confirmed_tactics[cleanT1]?.formation || "4-3-3"}
             serverUrl={serverUrl}
@@ -323,6 +338,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           />
           <InteractivePitch
             teamName={team2}
+            flag={getFlag(team2)}
             players={t2Roster}
             formation={confirmed_tactics[cleanT2]?.formation || "4-3-3"}
             serverUrl={serverUrl}
@@ -365,7 +381,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <div className="w-full flex flex-col md:flex-row gap-5 items-center justify-center p-4 bg-slate-950/20 border border-slate-800/40 rounded-2xl min-h-[300px]">
           {activeVizTab === 'momentum' && (
             <div className="w-full text-center">
-              <span className="text-sm font-semibold text-slate-300 block mb-2">{team1} vs {team2}</span>
+              <span className="text-sm font-semibold text-slate-300 block mb-2">{getFlag(team1)} {team1} vs {getFlag(team2)} {team2}</span>
               <img 
                 src={`${serverUrl}/api/visualizations/${selectedMatchId}/momentum?team=${team1}`}
                 alt="xG Momentum"
@@ -383,7 +399,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           {activeVizTab === 'passing' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team1)} {team1}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/passing_network?team=${team1}`}
                   alt={`${team1} Passing Network`}
@@ -391,7 +407,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
                 />
               </div>
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team2)} {team2}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/passing_network?team=${team2}`}
                   alt={`${team2} Passing Network`}
@@ -404,7 +420,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           {activeVizTab === 'shots' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team1)} {team1}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/shot_map?team=${team1}`}
                   alt={`${team1} Shot Map`}
@@ -412,7 +428,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
                 />
               </div>
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team2)} {team2}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/shot_map?team=${team2}`}
                   alt={`${team2} Shot Map`}
@@ -425,7 +441,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           {activeVizTab === 'heatmaps' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team1)} {team1}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/touch_heatmap?team=${team1}`}
                   alt={`${team1} Touch Heatmap`}
@@ -433,7 +449,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
                 />
               </div>
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team2)} {team2}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/touch_heatmap?team=${team2}`}
                   alt={`${team2} Touch Heatmap`}
@@ -446,7 +462,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           {activeVizTab === 'progressive' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team1}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team1)} {team1}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/progressive_actions?team=${team1}`}
                   alt={`${team1} Progressive Actions`}
@@ -454,7 +470,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
                 />
               </div>
               <div className="text-center">
-                <span className="text-xs font-bold text-slate-400 block mb-2">{team2}</span>
+                <span className="text-xs font-bold text-slate-400 block mb-2">{getFlag(team2)} {team2}</span>
                 <img 
                   src={`${serverUrl}/api/visualizations/${selectedMatchId}/progressive_actions?team=${team2}`}
                   alt={`${team2} Progressive Actions`}

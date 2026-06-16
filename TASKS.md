@@ -27,6 +27,14 @@ Last updated: 2026-06-16
 
 ## Done
 
+- [x] **T-021 - UI Polish: Bracket Fit-to-Screen, Flags, Today Selector, Sidebar/Ball Logo**
+  Owner: Frontend Engineer
+  Completed: 2026-06-16
+  Notes: Bracket scales to fit the viewport (full bracket always visible); Match
+  Analysis selector filtered to today's games with national flags on team names
+  (shared `lib/teamData.ts`); sidebar retitled "FIFA 2026 / World Cup", collapsible,
+  with the official match-ball logo. Pending Cloud Run redeploy.
+
 - [x] **T-020 - Bracket Wood-Board Port, Full-Screen & StatsBomb Viz Fixes**
   Owner: Frontend Engineer / Data Pipeline Engineer
   Completed: 2026-06-16

@@ -9,6 +9,7 @@ interface Player {
 
 interface InteractivePitchProps {
   teamName: string;
+  flag?: string;
   players: string[];
   formation: string;
   lang: string;
@@ -127,6 +128,7 @@ const PLAYER_CLUBS_ALL: Record<string, string> = {
 
 export const InteractivePitch: React.FC<InteractivePitchProps> = ({
   teamName,
+  flag,
   players,
   formation,
   lang,
@@ -220,7 +222,7 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
   return (
     <div className="w-full flex flex-col items-center">
       <div className="text-center mb-4">
-        <h4 className="text-lg font-semibold text-slate-100">{teamName}</h4>
+        <h4 className="text-lg font-semibold text-slate-100">{flag ? `${flag} ` : ''}{teamName}</h4>
         <span className="text-sm text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 font-mono">
           {formation}
         </span>

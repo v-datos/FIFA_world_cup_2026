@@ -1,5 +1,29 @@
 # STATUS
 
+## 2026-06-16 - UI Polish: Bracket Fit-to-Screen, Flags, Today-Only Selector, Sidebar/Ball Logo
+
+Prepared by: Orchestrator
+
+### Completed This Update
+
+- **Bracket fits the screen**: `StandingsTab` scales the fixed-width board via a
+  `ResizeObserver` so the entire bracket is always visible (no clipping/scroll);
+  full-size in Full Screen.
+- **Match Analysis selector decluttered**: dropdown shows only the current day's
+  fixtures and auto-selects a today's match.
+- **National flags** added to team names across Match Analysis (header, selector,
+  forecast, injuries, squad lineups, StatsBomb labels). Flags + `TODAY_DATE`
+  centralized in `src/frontend/src/lib/teamData.ts` (OverviewTab refactored to use it).
+- **Sidebar**: title → "FIFA 2026 / World Cup"; collapsible toggle; brand icon →
+  official FIFA World Cup 26 match-ball logo (`ball-logo.png`, resized 7.7MB → 45KB,
+  moved to `src/frontend/src/assets/`). Added `vite-env.d.ts` for typed image imports.
+
+### Live Site
+
+- Not yet redeployed with this round (Cloud Run rebuild pending after merge).
+
+---
+
 ## 2026-06-16 - Bracket Wood-Board Port, Full-Screen & StatsBomb Viz Fixes
 
 Prepared by: Orchestrator
