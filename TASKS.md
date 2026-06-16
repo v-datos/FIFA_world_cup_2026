@@ -19,6 +19,10 @@ Last updated: 2026-06-16
 
 ## Done
 
+- [x] **T-017 - Decoupled React Client & FastAPI REST Backend Migration**
+  Owner: Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-06-16
+
 - [x] **T-016 - Curate High-Quality Tactical Previews & Archive team_tab.py**
   Owner: Football Data Scientist / Frontend Engineer
   Completed: 2026-06-16

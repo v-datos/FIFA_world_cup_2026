@@ -1,23 +1,27 @@
 # STATUS
 
-## 2026-06-16 - Match Analysis Tab Spanish Translation & Curated Match Previews Completed
+## 2026-06-16 - Vite + React Client & FastAPI Decoupled Migration Completed
 
 Prepared by: Orchestrator
 
 ### Current Objective
 
-Implement toggleable Spanish translation on the Match Analysis tab, remove the stale `team_tab.py` file, and replace unreliable Vertex AI match previews with curated, high-quality pre-researched tactical insights.
+Migrate the dashboard from Streamlit to a decoupled architecture consisting of a FastAPI REST backend and a modern React client built with Vite and TailwindCSS, incorporating interactive vector charts and a dynamic lineup pitch.
 
 ### Completed This Update
 
-- **Spanish Translation Toggle**: Integrated a language radio toggle at the top of the Match Analysis panel in `app.py`. Wrapped all static UI labels, selectbox placeholders, warnings, comparisons, and dynamic AI summary fields in translation helper functions.
-- **Removed Unused File**: Deleted `src/app/team_tab.py` as it was a stale, inactive file.
-- **Curated Tactical Profiles**: Removed failing Vertex AI calls and populated `src/pipeline/generate_match_previews.py` with custom-researched tactical profiles (headlines, injuries, formations, philosophies, insights) for all 19 scheduled matches (including past games on June 15 and the next 15 upcoming games).
-- **Payload Regeneration**: Regenerated and overwrote all match summaries under `data/matches/` with high-quality tactical data and complete Spanish translations.
+- **REST API Backend**: Created `/src/api/main.py` using FastAPI, exposing REST endpoints for schedule, match summary, metrics, live standings, and dynamic StatsBomb matplotlib base64 visualizations.
+- **Root Asset Serving**: Integrated FastAPI's `StaticFiles` mount at `/` to serve the compiled frontend single-page application directly from the unified python container.
+- **Vite React Client**: Initialized client under `/src/frontend/` using Vite, React 19, TypeScript, and TailwindCSS v4.
+- **Interactive Pitch Lineup**: Implemented the HTML5/CSS canvas pitch model in `InteractivePitch.tsx` that dynamically maps players based on formation (`4-3-3`, `4-1-4-1`, `3-5-2`) and displays player metadata and entity crosswalk IDs on hover.
+- **Animated Charting**: Wired win probability shift curves and team radar comparisons utilizing interactive, responsive vector SVG components via **Recharts**.
+- **Live standings & Bracket**: Built the live tournament center (`StandingsTab.tsx`) rendering standings for all 12 groups (A to L) and the live knockout tree (Round of 32 to Final).
+- **Static Base Portability**: Set `base: './'` in Vite config to ensure compiled static bundles can be hosted seamlessly in a subfolder on `accionar.xyz/dashboards/fifa-2026/` or at the root path on Cloud Run.
 
 ### Next Sprint Priorities
 
-- Verify deployment on live site and monitor the tournament.
+- Verify Cloud Run deployment.
+- Upload compiled React static assets to `accionar.xyz` folder structure.
 
 ---
 
