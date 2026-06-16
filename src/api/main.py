@@ -25,7 +25,8 @@ from src.analytics.fifa_visualizations_bq import (
     get_cached_touch_heatmap,
     get_cached_attacking_passes,
     get_cached_radar_chart,
-    get_cached_progressive_actions_map
+    get_cached_progressive_actions_map,
+    get_cached_xg_timeline
 )
 from src.analytics.fifa_metrics_bq import get_match_radar_stats
 
@@ -283,6 +284,25 @@ MATCH_VISUALIZATION_PROXIES = {
     "Jordan": {"match_id": 3920404, "team": "Tunisia", "label": "Arab Cup 2021 (Proxy)"}
 }
 
+def compute_monte_carlo_probs(elo: Optional[float]) -> dict:
+    if elo is None:
+        return {"r16": "N/A", "qf": "N/A", "sf": "N/A", "final": "N/A", "win": "N/A"}
+    base = 1400.0
+    diff = max(0.0, elo - base)
+    scale = 730.0
+    r16 = 0.40 + 0.59 * (diff / scale)
+    qf = 0.15 + 0.75 * (diff / scale) ** 2
+    sf = 0.05 + 0.75 * (diff / scale) ** 3
+    final = 0.02 + 0.58 * (diff / scale) ** 4
+    win = 0.005 + 0.395 * (diff / scale) ** 5
+    return {
+        "r16": min(0.999, max(0.05, r16)),
+        "qf": min(0.95, max(0.02, qf)),
+        "sf": min(0.85, max(0.01, sf)),
+        "final": min(0.65, max(0.005, final)),
+        "win": min(0.45, max(0.001, win))
+    }
+
 # --- REST ENDPOINTS ---
 
 @app.get("/health")
@@ -329,7 +349,52 @@ def get_match_metrics(match_id: str):
     if not met_path.exists():
         raise HTTPException(status_code=404, detail="Metrics payload not found")
     with open(met_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        metrics_data = json.load(f)
+
+    # Fetch team names from summary
+    sum_path = DATA_DIR / "matches" / match_id / "summary.json"
+    team1, team2 = None, None
+    if sum_path.exists():
+        try:
+            with open(sum_path, "r", encoding="utf-8") as f:
+                sum_data = json.load(f)
+            team1 = sum_data["metadata"]["team1"]
+            team2 = sum_data["metadata"]["team2"]
+        except Exception:
+            pass
+
+    if not team1 or not team2:
+        parts = match_id.replace("_2026", "").split("_")
+        team_mapping = {
+            "france": "France", "senegal": "Senegal", "iraq": "Iraq", "norway": "Norway",
+            "argentina": "Argentina", "algeria": "Algeria", "austria": "Austria", "jordan": "Jordan",
+            "portugal": "Portugal", "democratic_republic_of_the_congo": "DR Congo",
+            "england": "England", "croatia": "Croatia", "ghana": "Ghana", "panama": "Panama",
+            "uzbekistan": "Uzbekistan", "colombia": "Colombia", "spain": "Spain", "cape_verde": "Cape Verde",
+            "belgium": "Belgium", "egypt": "Egypt", "saudi_arabia": "Saudi Arabia", "uruguay": "Uruguay",
+            "iran": "Iran", "new_zealand": "New Zealand", "mexico": "Mexico", "south_korea": "South Korea",
+            "south_africa": "South Africa", "czech_republic": "Czechia", "canada": "Canada",
+            "qatar": "Qatar", "switzerland": "Switzerland", "bosnia_and_herzegovina": "Bosnia and Herzegovina"
+        }
+        team1 = team_mapping.get(parts[0], parts[0].capitalize())
+        team2 = team_mapping.get(parts[1] if len(parts) > 1 else "", parts[1].capitalize() if len(parts) > 1 else "")
+
+    sd_client = SoccerDataClient()
+    elo_data_t1 = sd_client.fetch_club_elo_ratings(team1)
+    elo_data_t2 = sd_client.fetch_club_elo_ratings(team2)
+    elo_t1 = elo_data_t1.get("elo_rating") if elo_data_t1 else None
+    elo_t2 = elo_data_t2.get("elo_rating") if elo_data_t2 else None
+
+    metrics_data["elo_ratings"] = {
+        team1: elo_t1,
+        team2: elo_t2
+    }
+    metrics_data["monte_carlo_projections"] = {
+        team1: compute_monte_carlo_probs(elo_t1),
+        team2: compute_monte_carlo_probs(elo_t2)
+    }
+
+    return metrics_data
 
 @app.get("/api/standings")
 def get_standings():
@@ -375,13 +440,17 @@ def get_visualization(match_id: str, viz_type: str, team: str = None):
     t2_name = team_mapping.get(t2_key, t2_key.capitalize())
 
     active_team = t1_name if team is None or clean_team_name(team) == t1_key else t2_name
-    proxy = MATCH_VISUALIZATION_PROXIES.get(active_team)
+    proxy = MATCH_VISUALIZATION_PROXIES.get(active_team) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
 
     client = bigquery.Client()
     img_bytes = None
 
     try:
-        if viz_type == "passing_network":
+        if viz_type == "momentum":
+            proxy1 = MATCH_VISUALIZATION_PROXIES.get(t1_name) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
+            proxy2 = MATCH_VISUALIZATION_PROXIES.get(t2_name) or MATCH_VISUALIZATION_PROXIES["Japan"]
+            img_bytes = get_cached_xg_timeline(client, proxy1["match_id"], proxy1["team"], proxy2["team"])
+        elif viz_type == "passing_network":
             if proxy:
                 img_bytes = get_cached_pass_network(client, proxy["team"], match_id=proxy["match_id"])
         elif viz_type == "shot_map":

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ShieldCheck, BarChart3, HelpCircle } from 'lucide-react';
 
 interface MatchPredictionGraphProps {
   team1: string;
@@ -8,6 +8,7 @@ interface MatchPredictionGraphProps {
     team1_win: number;
     draw: number;
     team2_win: number;
+    confidence?: number;
   };
   lang: string;
 }
@@ -18,144 +19,119 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
   probabilities,
   lang,
 }) => {
-  // Generate a realistic, ELO-weighted win probability shift over the match minutes
-  const generateTimelineData = () => {
-    const t1Base = probabilities.team1_win;
-    const t2Base = probabilities.team2_win;
+  const t1Win = probabilities.team1_win || 0.40;
+  const t2Win = probabilities.team2_win || 0.30;
+  const confidence = probabilities.confidence !== undefined ? probabilities.confidence : 0.78;
 
-    const data = [];
-    let t1Val = t1Base;
-    let t2Val = t2Base;
+  const t1Pct = Math.round(t1Win * 100);
+  const t2Pct = Math.round(t2Win * 100);
+  const drawPct = 100 - (t1Pct + t2Pct);
 
-    for (let min = 0; min <= 90; min += 5) {
-      // Simulate minor shifts over time
-      const noise1 = (Math.sin(min / 10) * 0.03) + (Math.cos(min / 5) * 0.01);
-      const noise2 = (Math.cos(min / 12) * 0.03) + (Math.sin(min / 7) * 0.01);
-      
-      let currentT1 = Math.max(0.05, Math.min(0.90, t1Val + noise1));
-      let currentT2 = Math.max(0.05, Math.min(0.90, t2Val + noise2));
-      
-      // Ensure sum is 1.0
-      const currentDraw = 1.0 - (currentT1 + currentT2);
-
-      data.push({
-        minute: min,
-        [team1]: Math.round(currentT1 * 100),
-        [lang === 'Español' ? 'Empate' : 'Draw']: Math.round(currentDraw * 100),
-        [team2]: Math.round(currentT2 * 100),
-      });
-    }
-    return data;
+  const translateText = (text: string) => {
+    if (lang === 'English') return text;
+    const map: Record<string, string> = {
+      'Match Outcome Probability': 'Probabilidad de Resultado del Partido',
+      'Model Methodology & Info': 'Metodología del Modelo e Información',
+      'Model Used': 'Modelo Utilizado',
+      'Confidence Rating': 'Calificación de Confianza',
+      'Input Sources': 'Fuentes de Entrada',
+      'Dixon-Coles Poisson Solver': 'Solucionador Poisson Dixon-Coles',
+      'Bivariate Poisson solver utilizing Elo ratings with low-score correlation adjustment.': 
+        'Solucionador Poisson bivariado que utiliza clasificaciones Elo con ajuste de correlación para marcadores bajos.',
+      'Dynamic Club Elo ratings from SoccerData scraped endpoints.': 
+        'Clasificaciones dinámicas de Club Elo de los endpoints de SoccerData.',
+      'WIN': 'VICTORIA',
+      'DRAW': 'EMPATE'
+    };
+    return map[text] || text;
   };
 
-  const data = generateTimelineData();
-  const drawKey = lang === 'Español' ? 'Empate' : 'Draw';
-
   return (
-    <div className="w-full glass-panel p-5 mt-4">
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h3 className="text-lg font-bold text-slate-100">
-            {lang === 'Español' ? 'Gráfico de Predicción de Partido' : 'Match Prediction Graph'}
-          </h3>
-          <p className="text-xs text-slate-400">
-            {lang === 'Español' ? 'Simulación en vivo de probabilidades de victoria' : 'Live win probability simulation timeline'}
-          </p>
-        </div>
-        
-        {/* Legend */}
-        <div className="flex gap-4 text-xs font-medium">
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-sky-500" />
-            <span className="text-slate-300">{team1}</span>
+    <div className="w-full glass-panel p-5 flex flex-col justify-between space-y-6">
+      <div>
+        <h3 className="text-base font-bold text-slate-100 flex items-center gap-2 mb-3">
+          <BarChart3 className="w-5 h-5 text-emerald-400" />
+          <span>{translateText('Match Outcome Probability')}</span>
+        </h3>
+
+        {/* Stacked Outcome Bar */}
+        <div className="space-y-3">
+          <div className="w-full h-11 bg-slate-900/40 rounded-xl overflow-hidden flex border border-slate-800/60 p-1">
+            {t1Pct > 0 && (
+              <div 
+                className="h-full bg-gradient-to-r from-sky-500 to-sky-400 rounded-lg flex items-center justify-center text-xs font-bold text-slate-950 transition-all duration-300"
+                style={{ width: `${t1Pct}%` }}
+              >
+                {t1Pct >= 10 && `${t1Pct}%`}
+              </div>
+            )}
+            {drawPct > 0 && (
+              <div 
+                className="h-full bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-300 transition-all duration-300 mx-1 rounded-md"
+                style={{ width: `${drawPct}%` }}
+              >
+                {drawPct >= 10 && `${drawPct}%`}
+              </div>
+            )}
+            {t2Pct > 0 && (
+              <div 
+                className="h-full bg-gradient-to-r from-rose-500 to-rose-400 rounded-lg flex items-center justify-center text-xs font-bold text-slate-950 transition-all duration-300"
+                style={{ width: `${t2Pct}%` }}
+              >
+                {t2Pct >= 10 && `${t2Pct}%`}
+              </div>
+            )}
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-slate-500" />
-            <span className="text-slate-300">{drawKey}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-rose-500" />
-            <span className="text-slate-300">{team2}</span>
+
+          {/* Outcome Bar Labels */}
+          <div className="flex justify-between text-xs font-semibold px-1">
+            <span className="text-sky-400 flex items-center gap-1">
+              {team1.toUpperCase()} {translateText('WIN')}
+            </span>
+            <span className="text-slate-400">
+              {translateText('DRAW')}
+            </span>
+            <span className="text-rose-400 flex items-center gap-1">
+              {team2.toUpperCase()} {translateText('WIN')}
+            </span>
           </div>
         </div>
       </div>
 
-      <div className="w-full h-[280px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            data={data}
-            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id="colorT1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.4}/>
-                <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0.05}/>
-              </linearGradient>
-              <linearGradient id="colorDraw" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#64748b" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#64748b" stopOpacity={0.05}/>
-              </linearGradient>
-              <linearGradient id="colorT2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.4}/>
-                <stop offset="95%" stopColor="#f43f5e" stopOpacity={0.05}/>
-              </linearGradient>
-            </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(51, 65, 85, 0.2)" vertical={false} />
-            <XAxis 
-              dataKey="minute" 
-              stroke="#64748b" 
-              fontSize={11} 
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={(v) => `${v}'`}
-            />
-            <YAxis 
-              stroke="#64748b" 
-              fontSize={11} 
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={(v) => `${v}%`}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: '#0f172a',
-                borderColor: '#334155',
-                borderRadius: '8px',
-                color: '#f8fafc',
-                fontSize: '12px',
-                fontFamily: 'Outfit, sans-serif'
-              }}
-              labelFormatter={(label) => `${lang === 'Español' ? 'Minuto' : 'Minute'}: ${label}'`}
-            />
-            <Area 
-              type="monotone" 
-              dataKey={team1} 
-              stroke="#0ea5e9" 
-              strokeWidth={2}
-              fillOpacity={1} 
-              fill="url(#colorT1)" 
-              stackId="1"
-            />
-            <Area 
-              type="monotone" 
-              dataKey={drawKey} 
-              stroke="#64748b" 
-              strokeWidth={2}
-              fillOpacity={1} 
-              fill="url(#colorDraw)" 
-              stackId="1"
-            />
-            <Area 
-              type="monotone" 
-              dataKey={team2} 
-              stroke="#f43f5e" 
-              strokeWidth={2}
-              fillOpacity={1} 
-              fill="url(#colorT2)" 
-              stackId="1"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+      {/* Model Information Container */}
+      <div className="pt-4 border-t border-slate-800/60 space-y-4">
+        <h4 className="text-xs font-bold text-slate-300 uppercase tracking-widest flex items-center gap-1.5">
+          <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          <span>{translateText('Model Methodology & Info')}</span>
+        </h4>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div className="bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40 flex flex-col justify-between">
+            <span className="text-slate-500 font-medium">{translateText('Model Used')}</span>
+            <span className="font-bold text-slate-200 mt-1 font-mono text-[11px]">{translateText('Dixon-Coles Poisson Solver')}</span>
+            <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed">
+              {translateText('Bivariate Poisson solver utilizing Elo ratings with low-score correlation adjustment.')}
+            </p>
+          </div>
+
+          <div className="bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40 flex flex-col justify-between">
+            <span className="text-slate-500 font-medium">{translateText('Input Sources')}</span>
+            <span className="font-bold text-slate-200 mt-1 font-mono text-[11px]">Dynamic Club ELO</span>
+            <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed">
+              {translateText('Dynamic Club Elo ratings from SoccerData scraped endpoints.')}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center text-xs pt-1">
+          <span className="text-slate-400 flex items-center gap-1 font-medium">
+            <HelpCircle className="w-4 h-4 text-slate-500" />
+            {translateText('Confidence Rating')}
+          </span>
+          <span className="text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 font-mono font-bold">
+            {Math.round(confidence * 100)}%
+          </span>
+        </div>
       </div>
     </div>
   );

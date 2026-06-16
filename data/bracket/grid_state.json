@@ -596,128 +596,128 @@
       "matches": [
         {
           "id": "r32_1",
-          "team1": "2A",
-          "team2": "2B",
+          "team1": "Runner-up Group A",
+          "team2": "Runner-up Group B",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_2",
-          "team1": "1C",
-          "team2": "2F",
+          "team1": "Winner Group C",
+          "team2": "Runner-up Group F",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_3",
-          "team1": "1E",
-          "team2": "3A/B/C/D/F",
+          "team1": "Winner Group E",
+          "team2": "3rd Group A/B/C/D/F",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_4",
-          "team1": "1F",
-          "team2": "2C",
+          "team1": "Winner Group F",
+          "team2": "Runner-up Group C",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_5",
-          "team1": "2E",
-          "team2": "2I",
+          "team1": "Runner-up Group E",
+          "team2": "Runner-up Group I",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_6",
-          "team1": "1I",
-          "team2": "3C/D/F/G/H",
+          "team1": "Winner Group I",
+          "team2": "3rd Group C/D/F/G/H",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_7",
-          "team1": "1A",
-          "team2": "3C/E/F/H/I",
+          "team1": "Winner Group A",
+          "team2": "3rd Group C/E/F/H/I",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_8",
-          "team1": "1L",
-          "team2": "3E/H/I/J/K",
+          "team1": "Winner Group L",
+          "team2": "3rd Group E/H/I/J/K",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_9",
-          "team1": "1G",
-          "team2": "3A/E/H/I/J",
+          "team1": "Winner Group G",
+          "team2": "3rd Group A/E/H/I/J",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_10",
-          "team1": "1D",
-          "team2": "3B/E/F/I/J",
+          "team1": "Winner Group D",
+          "team2": "3rd Group B/E/F/I/J",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_11",
-          "team1": "1H",
-          "team2": "2J",
+          "team1": "Winner Group H",
+          "team2": "Runner-up Group J",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_12",
-          "team1": "2K",
-          "team2": "2L",
+          "team1": "Runner-up Group K",
+          "team2": "Runner-up Group L",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_13",
-          "team1": "1B",
-          "team2": "3E/F/G/I/J",
+          "team1": "Winner Group B",
+          "team2": "3rd Group E/F/G/I/J",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_14",
-          "team1": "2D",
-          "team2": "2G",
+          "team1": "Runner-up Group D",
+          "team2": "Runner-up Group G",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_15",
-          "team1": "1J",
-          "team2": "2H",
+          "team1": "Winner Group J",
+          "team2": "Runner-up Group H",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_16",
-          "team1": "1K",
-          "team2": "3D/E/I/J/L",
+          "team1": "Winner Group K",
+          "team2": "3rd Group D/E/I/J/L",
           "score1": null,
           "score2": null,
           "winner": null
@@ -729,64 +729,64 @@
       "matches": [
         {
           "id": "r16_1",
-          "team1": "Winner R32_1",
-          "team2": "Winner R32_2",
+          "team1": "Winner Match R32-1",
+          "team2": "Winner Match R32-2",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_2",
-          "team1": "Winner R32_3",
-          "team2": "Winner R32_4",
+          "team1": "Winner Match R32-3",
+          "team2": "Winner Match R32-4",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_3",
-          "team1": "Winner R32_5",
-          "team2": "Winner R32_6",
+          "team1": "Winner Match R32-5",
+          "team2": "Winner Match R32-6",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_4",
-          "team1": "Winner R32_7",
-          "team2": "Winner R32_8",
+          "team1": "Winner Match R32-7",
+          "team2": "Winner Match R32-8",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_5",
-          "team1": "Winner R32_9",
-          "team2": "Winner R32_10",
+          "team1": "Winner Match R32-9",
+          "team2": "Winner Match R32-10",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_6",
-          "team1": "Winner R32_11",
-          "team2": "Winner R32_12",
+          "team1": "Winner Match R32-11",
+          "team2": "Winner Match R32-12",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_7",
-          "team1": "Winner R32_13",
-          "team2": "Winner R32_14",
+          "team1": "Winner Match R32-13",
+          "team2": "Winner Match R32-14",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_8",
-          "team1": "Winner R32_15",
-          "team2": "Winner R32_16",
+          "team1": "Winner Match R32-15",
+          "team2": "Winner Match R32-16",
           "score1": null,
           "score2": null,
           "winner": null
@@ -798,32 +798,32 @@
       "matches": [
         {
           "id": "qf_1",
-          "team1": "Winner R16_1",
-          "team2": "Winner R16_2",
+          "team1": "Winner Match R16-1",
+          "team2": "Winner Match R16-2",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "qf_2",
-          "team1": "Winner R16_3",
-          "team2": "Winner R16_4",
+          "team1": "Winner Match R16-3",
+          "team2": "Winner Match R16-4",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "qf_3",
-          "team1": "Winner R16_5",
-          "team2": "Winner R16_6",
+          "team1": "Winner Match R16-5",
+          "team2": "Winner Match R16-6",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "qf_4",
-          "team1": "Winner R16_7",
-          "team2": "Winner R16_8",
+          "team1": "Winner Match R16-7",
+          "team2": "Winner Match R16-8",
           "score1": null,
           "score2": null,
           "winner": null
@@ -835,16 +835,16 @@
       "matches": [
         {
           "id": "sf_1",
-          "team1": "Winner QF_1",
-          "team2": "Winner QF_2",
+          "team1": "Winner Match QF-1",
+          "team2": "Winner Match QF-2",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "sf_2",
-          "team1": "Winner QF_3",
-          "team2": "Winner QF_4",
+          "team1": "Winner Match QF-3",
+          "team2": "Winner Match QF-4",
           "score1": null,
           "score2": null,
           "winner": null
@@ -856,8 +856,8 @@
       "matches": [
         {
           "id": "f_1",
-          "team1": "Winner SF_1",
-          "team2": "Winner SF_2",
+          "team1": "Winner Match SF-1",
+          "team2": "Winner Match SF-2",
           "score1": null,
           "score2": null,
           "winner": null
@@ -867,8 +867,8 @@
   ],
   "third_place": {
     "id": "tp_1",
-    "team1": "Loser SF_1",
-    "team2": "Loser SF_2",
+    "team1": "Loser Match SF-1",
+    "team2": "Loser Match SF-2",
     "score1": null,
     "score2": null,
     "winner": null
