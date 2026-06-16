@@ -12,12 +12,12 @@ Implement toggleable Spanish translation on the Match Analysis tab, remove the s
 
 - **Spanish Translation Toggle**: Integrated a language radio toggle at the top of the Match Analysis panel in `app.py`. Wrapped all static UI labels, selectbox placeholders, warnings, comparisons, and dynamic AI summary fields in translation helper functions.
 - **Removed Unused File**: Deleted `src/app/team_tab.py` as it was a stale, inactive file.
-- **Curated Tactical Profiles**: Removed failing Vertex AI calls and populated `src/pipeline/generate_match_previews.py` with custom-researched tactical profiles (headlines, injuries, formations, philosophies, insights) for all 12 scheduled matches.
-- **Payload Regeneration**: Regenerated and overwrote all match summaries under `data/matches/` with high-quality tactical data.
+- **Curated Tactical Profiles**: Removed failing Vertex AI calls and populated `src/pipeline/generate_match_previews.py` with custom-researched tactical profiles (headlines, injuries, formations, philosophies, insights) for all 19 scheduled matches (including past games on June 15 and the next 15 upcoming games).
+- **Payload Regeneration**: Regenerated and overwrote all match summaries under `data/matches/` with high-quality tactical data and complete Spanish translations.
 
 ### Next Sprint Priorities
 
-- None. Project is complete and in maintenance mode.
+- Verify deployment on live site and monitor the tournament.
 
 ---
 
