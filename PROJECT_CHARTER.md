@@ -2,7 +2,7 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-14
+Last updated: 2026-06-16
 Profile: software-app
 
 ## Stack
@@ -64,6 +64,7 @@ Roles are defined in AGENTS.md.
 | 2026-06-15 | Deployed Streamlit App to Cloud Run & Configured AI Previews | Orchestrator | docs/decisions/20260615_DEC002_deployment_and_previews.md |
 | 2026-06-16 | Dismissed Phase 3 Standings Sync & Restricted Match Previews to Active Date | Orchestrator | docs/decisions/20260616_DEC003_dismiss_phase3_and_limit_previews.md |
 | 2026-06-16 | Decoupled React & FastAPI Migration with Interactive Visualizations | Orchestrator | docs/decisions/20260616_DEC005_decoupled_react_migration.md |
+| 2026-06-16 | Interactive Analytics Sprint (Elo / Monte Carlo Projections & xG Momentum) | Orchestrator | docs/decisions/20260616_DEC006_interactive_analytics_sprint.md |
 
 ## Risks
 

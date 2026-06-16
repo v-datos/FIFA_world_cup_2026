@@ -1211,3 +1211,82 @@ def get_cached_attacking_passes(_client: bigquery.Client, team: str, competition
     plt.close(fig)
     return png_bytes
 
+
+@st.cache_data(ttl=600)
+def get_cached_xg_timeline(client: bigquery.Client, match_id: int, team1: str, team2: str) -> bytes:
+    from fifa_metrics_bq import get_match_momentum_timeline
+    import matplotlib.pyplot as plt
+    import io
+    import pandas as pd
+
+    df = get_match_momentum_timeline(client, match_id)
+
+    fig, ax = plt.subplots(figsize=(10, 5), facecolor='#0b0f19')
+    ax.set_facecolor('#0b0f19')
+
+    t1_minutes = [0]
+    t1_xg = [0.0]
+    t2_minutes = [0]
+    t2_xg = [0.0]
+
+    curr_t1_xg = 0.0
+    curr_t2_xg = 0.0
+    goals = []
+
+    if not df.empty:
+        df = df.sort_values(by=['minute'])
+        for _, row in df.iterrows():
+            min_val = int(row['minute'])
+            event_type = str(row['event_type'])
+            player = str(row['player'])
+            cum_xg = float(row['cumulative_xg'] or 0.0)
+            team = str(row['team'])
+
+            if team == team1:
+                curr_t1_xg = cum_xg
+                t1_minutes.append(min_val)
+                t1_xg.append(curr_t1_xg)
+                if event_type == 'Goal':
+                    goals.append((min_val, curr_t1_xg, team1, player))
+            else:
+                curr_t2_xg = cum_xg
+                t2_minutes.append(min_val)
+                t2_xg.append(curr_t2_xg)
+                if event_type == 'Goal':
+                    goals.append((min_val, curr_t2_xg, team2, player))
+
+    t1_minutes.append(90)
+    t1_xg.append(curr_t1_xg)
+    t2_minutes.append(90)
+    t2_xg.append(curr_t2_xg)
+
+    ax.step(t1_minutes, t1_xg, label=team1, color='#00c6ff', where='post', linewidth=2.5)
+    ax.step(t2_minutes, t2_xg, label=team2, color='#ff007f', where='post', linewidth=2.5)
+
+    for min_val, xg_val, team, player in goals:
+        color = '#00c6ff' if team == team1 else '#ff007f'
+        ax.plot(min_val, xg_val, marker='o', markersize=9, color=color, markeredgecolor='white', markeredgewidth=1.5)
+        clean_player = player.split(' ').pop()
+        ax.text(min_val, xg_val + 0.08, f"⚽ {clean_player} ({min_val}')", color='white', fontsize=8, ha='center',
+                 bbox=dict(boxstyle='round,pad=0.2', facecolor='#111827', edgecolor=color, alpha=0.85))
+
+    ax.set_xlim(0, 95)
+    ax.set_ylim(0, max(curr_t1_xg, curr_t2_xg, 1.0) + 0.4)
+    ax.set_xlabel('Match Minute', color='#94a3b8', fontsize=10)
+    ax.set_ylabel('Cumulative Expected Goals (xG)', color='#94a3b8', fontsize=10)
+    ax.tick_params(colors='#94a3b8', labelsize=9)
+    ax.grid(True, color='#1f2937', linestyle='--', alpha=0.4)
+    
+    ax.legend(facecolor='#0b0f19', edgecolor='#374151', labelcolor='white', loc='upper left')
+    
+    for spine in ax.spines.values():
+        spine.set_color('#374151')
+
+    plt.tight_layout()
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', dpi=150, facecolor=fig.get_facecolor(), edgecolor='none')
+    plt.close(fig)
+    return buf.getvalue()
+
+

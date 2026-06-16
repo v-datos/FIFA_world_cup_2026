@@ -64,13 +64,6 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
     "Panama": ["Orlando Mosquera", "Michael Murillo", "Jose Cordoba", "Edgardo Farina", "Eric Davis", "Adalberto Carrasquilla", "Cristian Martinez", "Edgar Barcenas", "Abdiel Ayarza", "Jose Luis Rodriguez", "Jose Fajardo"]
   };
 
-  const PLAYER_CLUBS: Record<string, Record<string, string>> = {
-    "Netherlands": {"Virgil van Dijk": "Liverpool", "Memphis Depay": "Corinthians", "Cody Gakpo": "Liverpool", "Nathan Ake": "Manchester City", "Stefan de Vrij": "Inter Milan", "Jerdy Schouten": "PSV Eindhoven", "Tijjani Reijnders": "AC Milan", "Xavi Simons": "RB Leipzig"},
-    "France": {"Kylian Mbappe": "Real Madrid", "Antoine Griezmann": "Atletico Madrid", "N'Golo Kante": "Al-Ittihad", "Aurelien Tchouameni": "Real Madrid", "William Saliba": "Arsenal", "Theo Hernandez": "AC Milan"},
-    "Argentina": {"Lionel Messi": "Inter Miami", "Lautaro Martinez": "Inter Milan", "Julian Alvarez": "Atletico Madrid", "Alexis Mac Allister": "Liverpool", "Enzo Fernandez": "Chelsea", "Cristian Romero": "Tottenham Hotspur"},
-    "Spain": {"Rodri": "Manchester City", "Lamine Yamal": "Barcelona", "Nico Williams": "Athletic Bilbao", "Dani Olmo": "Barcelona", "Fabian Ruiz": "PSG", "Dani Carvajal": "Real Madrid"}
-  };
-
   useEffect(() => {
     if (!selectedMatchId) return;
     
@@ -129,9 +122,6 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   // Fetch player list from local fallback or fallback to default names list
   const t1Roster = ROSTERS[team1] || ROSTERS[cleanT1] || [];
   const t2Roster = ROSTERS[team2] || ROSTERS[cleanT2] || [];
-  
-  const t1Clubs = PLAYER_CLUBS[team1] || {};
-  const t2Clubs = PLAYER_CLUBS[team2] || {};
 
   const translateText = (text: string) => {
     // Basic translation helper for headers
@@ -328,14 +318,14 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             teamName={team1}
             players={t1Roster}
             formation={confirmed_tactics[cleanT1]?.formation || "4-3-3"}
-            playerClubs={t1Clubs}
+            serverUrl={serverUrl}
             lang={lang}
           />
           <InteractivePitch
             teamName={team2}
             players={t2Roster}
             formation={confirmed_tactics[cleanT2]?.formation || "4-3-3"}
-            playerClubs={t2Clubs}
+            serverUrl={serverUrl}
             lang={lang}
           />
         </div>
@@ -377,7 +367,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             <div className="w-full text-center">
               <span className="text-sm font-semibold text-slate-300 block mb-2">{team1} vs {team2}</span>
               <img 
-                src={`${serverUrl}/api/visualizations/${selectedMatchId}/radar_chart?team=${team1}`}
+                src={`${serverUrl}/api/visualizations/${selectedMatchId}/momentum?team=${team1}`}
                 alt="xG Momentum"
                 className="max-h-[360px] mx-auto rounded-xl shadow-lg border border-slate-800/50"
                 onError={(e) => {

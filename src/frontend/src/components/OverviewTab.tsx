@@ -17,16 +17,39 @@ interface OverviewTabProps {
   lang: string;
 }
 
+const TEAM_FLAGS: Record<string, string> = {
+  "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴",
+  "Belgium": "🇧🇪", "Egypt": "🇪🇬", "Canada": "🇨🇦", "Qatar": "🇶🇦",
+  "Czechia": "🇨🇿", "Czech Republic": "🇨🇿", "South Africa": "🇿🇦", "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "Croatia": "🇭🇷", "France": "🇫🇷", "Senegal": "🇸🇳", "Ghana": "🇬🇭",
+  "Panama": "🇵🇦", "Iran": "🇮🇷", "New Zealand": "🇳🇿", "Iraq": "🇮🇶",
+  "Norway": "🇳🇴", "Mexico": "🇲🇽", "South Korea": "🇰🇷", "Portugal": "🇵🇹",
+  "DR Congo": "🇨🇩", "Saudi Arabia": "🇸🇦", "Uruguay": "🇺🇾", "Spain": "🇪🇸",
+  "Cape Verde": "🇨🇻", "Switzerland": "🇨🇭", "Bosnia and Herzegovina": "🇧🇦",
+  "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Haiti": "🇭🇹", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+  "United States": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkiye": "🇹🇷",
+  "Turkey": "🇹🇷", "Germany": "🇩🇪", "Curacao": "🇨🇼", "Ivory Coast": "🇨🇮",
+  "Ecuador": "🇪🇨", "Japan": "🇯🇵", "Sweden": "🇸🇪", "Tunisia": "🇹🇳",
+  "Uzbekistan": "🇺🇿", "Colombia": "🇨🇴", "Bosnia": "🇧🇦"
+};
+
 export const OverviewTab: React.FC<OverviewTabProps> = ({
   matches,
   onSelectMatch,
   lang,
 }) => {
-  const tMatches = matches.length;
-  // Compute some realistic tournament stats
-  const totalGoals = 148;
-  const topScorer = "Mbappé: 6 Goals";
-  const topScorerES = "Mbappé: 6 Goles";
+  const getFlag = (team: string) => TEAM_FLAGS[team] || "🏳️";
+
+  // Filter for today's matches (June 16, 2026)
+  const todayDate = "06/16/2026";
+  const todayMatches = matches.filter(m => m.date === todayDate);
+  const filteredMatches = todayMatches.length > 0 ? todayMatches : matches;
+
+  // Actual World Cup 2026 stats as of June 16 (after US 4-1, ES-CV 0-0, BE-EG 1-1, SA-UR 1-1, IR-NZ 2-2)
+  const matchesPlayed = 5;
+  const totalGoals = 13;
+  const topScorer = "F. Balogun, E. Just: 2 Goals";
+  const topScorerES = "F. Balogun, E. Just: 2 Goles";
 
   return (
     <div className="space-y-6">
@@ -44,10 +67,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div className="glass-panel p-5 flex flex-col justify-between">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-            {lang === 'Español' ? 'Partidos Totales' : 'Total Matches'}
+            {lang === 'Español' ? 'Partidos Jugados' : 'Matches Played'}
           </span>
           <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-3xl font-bold text-slate-100">{tMatches}</span>
+            <span className="text-3xl font-bold text-slate-100">{matchesPlayed}</span>
             <span className="text-xs text-slate-500">/ 104</span>
           </div>
         </div>
@@ -58,16 +81,18 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           </span>
           <div className="flex items-baseline gap-2 mt-2">
             <span className="text-3xl font-bold text-slate-100">{totalGoals}</span>
-            <span className="text-xs text-emerald-400 font-mono">avg 2.8 / game</span>
+            <span className="text-xs text-emerald-400 font-mono">
+              avg {(totalGoals / matchesPlayed).toFixed(1)} / game
+            </span>
           </div>
         </div>
 
         <div className="glass-panel p-5 flex flex-col justify-between">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-            {lang === 'Español' ? 'Goleador Principal' : 'Top Scorer'}
+            {lang === 'Español' ? 'Goleadores Líderes' : 'Top Scorers'}
           </span>
           <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-2xl font-bold text-slate-100">
+            <span className="text-lg font-bold text-slate-100">
               {lang === 'Español' ? topScorerES : topScorer}
             </span>
           </div>
@@ -78,11 +103,15 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
       <div className="glass-panel p-6">
         <h3 className="text-lg font-bold text-slate-100 mb-4 flex items-center gap-2">
           <Calendar className="w-5 h-5 text-emerald-400" />
-          <span>{lang === 'Español' ? 'Próximos Partidos & Avances' : 'Upcoming Fixtures & Previews'}</span>
+          <span>
+            {lang === 'Español' 
+              ? `Partidos del Día (${todayDate})` 
+              : `Fixtures of the Day (${todayDate})`}
+          </span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {matches.map((match) => (
+          {filteredMatches.map((match) => (
             <div 
               key={match.id}
               onClick={() => onSelectMatch(match.id)}
@@ -100,14 +129,20 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
               </div>
 
               {/* Matchup */}
-              <div className="flex justify-between items-center my-2">
-                <span className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors duration-150">
-                  {match.team1}
-                </span>
+              <div className="flex justify-between items-center my-2 px-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">{getFlag(match.team1)}</span>
+                  <span className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors duration-150">
+                    {match.team1}
+                  </span>
+                </div>
                 <span className="text-xs font-mono text-slate-500">VS</span>
-                <span className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors duration-150 text-right">
-                  {match.team2}
-                </span>
+                <div className="flex items-center gap-2 flex-row-reverse">
+                  <span className="text-xl">{getFlag(match.team2)}</span>
+                  <span className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors duration-150 text-right">
+                    {match.team2}
+                  </span>
+                </div>
               </div>
 
               {/* Venue / Footer */}

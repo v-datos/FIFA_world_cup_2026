@@ -1,5 +1,46 @@
 # STATUS
 
+## 2026-06-16 - Interactive Analytics Sprint Finished & Build Restored
+
+Prepared by: Orchestrator
+
+### Current Objective
+
+Finish, verify, and commit the uncommitted interactive-analytics feature batch
+that had accumulated after the React/FastAPI migration and was breaking the
+frontend build.
+
+### Completed This Update
+
+- **Elo & Monte Carlo projections**: `/api/match/{match_id}/metrics` now returns
+  per-team Elo ratings and Monte Carlo tournament-progression probabilities
+  (`compute_monte_carlo_probs`).
+- **xG Momentum visualization**: Added `get_cached_xg_timeline` and a `momentum`
+  `viz_type`; wired the frontend momentum tab to it (it had been requesting
+  `radar_chart`).
+- **Build restored (exit 0)**: Removed unused imports and reconciled the
+  `InteractivePitch` prop contract — the refactor to an internal `PLAYER_CLUBS_ALL`
+  map dropped `playerClubs` and now requires `serverUrl`, but the committed
+  `MatchAnalysisTab` caller still passed `playerClubs`. Updated the caller and
+  removed the orphaned map.
+- **Runtime bug fixed**: `get_cached_xg_timeline` read columns the momentum query
+  never returns (`second`, `shot_statsbomb_xg`); now consumes `cumulative_xg`.
+- **Efficiency**: Deduplicated a double Elo scrape in the metrics endpoint.
+
+### Deferred
+
+- **`/api/player/stats`** (T-019): `InteractivePitch` hover stats call an endpoint
+  that was never built; tooltip degrades gracefully. Net-new BigQuery work with
+  open data-model questions. See DEC006.
+
+### Next Sprint Priorities
+
+- Verify Cloud Run deployment and redeploy the rebuilt container.
+- Upload compiled React static assets to the `accionar.xyz` folder structure.
+- Decide on / implement T-019 if per-player hover stats are wanted.
+
+---
+
 ## 2026-06-16 - Vite + React Client & FastAPI Decoupled Migration Completed
 
 Prepared by: Orchestrator
