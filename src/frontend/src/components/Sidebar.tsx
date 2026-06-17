@@ -28,7 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Brand Header */}
       <div className={`border-b border-slate-800/60 ${collapsed ? 'p-3 flex flex-col items-center gap-2' : 'p-4 flex items-center justify-between gap-3'}`}>
         <div className={`flex items-center min-w-0 ${collapsed ? '' : 'gap-3'}`}>
-          <img src={ballLogo} alt="FIFA World Cup 26 official match ball" className="w-10 h-10 object-contain shrink-0" />
+          <img src={ballLogo} alt="FIFA World Cup 26 official match ball" className="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-700/60" />
           {!collapsed && (
             <div className="min-w-0">
               <h1 className="text-sm font-bold text-slate-100 uppercase tracking-wider leading-tight truncate">

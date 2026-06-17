@@ -1293,16 +1293,19 @@ def get_cached_xg_timeline(_client: bigquery.Client, match_id: int, team1: str, 
 
 
 @st.cache_data(ttl=600)
-def get_cached_xg_distribution(_client: bigquery.Client, match_id: int, team1: str, team2: str) -> bytes:
-    """Non-penalty xG distribution comparison: filled KDE curves per team + a shot strip plot."""
+def get_cached_xg_distribution(_client: bigquery.Client, match_id1: int, team1: str, display1: str,
+                               match_id2: int, team2: str, display2: str) -> bytes:
+    """Non-penalty xG distribution comparison. Each team's shots come from its OWN
+    proxy match, so both distributions render even when the two proxies differ."""
     from fifa_metrics_bq import get_match_shot_xg
     import matplotlib.pyplot as plt
     import numpy as np
     import io
 
-    df = get_match_shot_xg(_client, match_id)
-    t1 = df[df['team'] == team1]['xg'].dropna().astype(float).values if not df.empty else np.array([])
-    t2 = df[df['team'] == team2]['xg'].dropna().astype(float).values if not df.empty else np.array([])
+    df1 = get_match_shot_xg(_client, match_id1)
+    df2 = get_match_shot_xg(_client, match_id2) if match_id2 != match_id1 else df1
+    t1 = df1[df1['team'] == team1]['xg'].dropna().astype(float).values if not df1.empty else np.array([])
+    t2 = df2[df2['team'] == team2]['xg'].dropna().astype(float).values if not df2.empty else np.array([])
 
     c1, c2 = '#5468d6', '#d6566a'
     bg = '#0b0f19'
@@ -1328,7 +1331,7 @@ def get_cached_xg_distribution(_client: bigquery.Client, match_id: int, team1: s
         dens /= (vals.size * bw * np.sqrt(2 * np.pi))
         return xs, dens
 
-    for vals, color, label in ((t1, c1, team1), (t2, c2, team2)):
+    for vals, color, label in ((t1, c1, display1), (t2, c2, display2)):
         k = kde(vals)
         if k is not None:
             xs, dens = k

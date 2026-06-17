@@ -455,7 +455,7 @@ def get_visualization(match_id: str, viz_type: str, team: str = None):
         if viz_type == "momentum":
             proxy1 = MATCH_VISUALIZATION_PROXIES.get(t1_name) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
             proxy2 = MATCH_VISUALIZATION_PROXIES.get(t2_name) or MATCH_VISUALIZATION_PROXIES["Japan"]
-            img_bytes = get_cached_xg_distribution(client, proxy1["match_id"], proxy1["team"], proxy2["team"])
+            img_bytes = get_cached_xg_distribution(client, proxy1["match_id"], proxy1["team"], t1_name, proxy2["match_id"], proxy2["team"], t2_name)
         elif viz_type == "passing_network":
             if proxy:
                 img_bytes = get_cached_pass_network(client, proxy["team"], match_id=proxy["match_id"])
