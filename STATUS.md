@@ -1,5 +1,56 @@
 # STATUS
 
+## 2026-06-17 - Match Analysis Deep Update, xG Distribution, Live Results Refresh
+
+Prepared by: Orchestrator
+
+### Completed This Update
+
+- **Match Analysis restructure**: removed the redundant "Match Forecast" card; "Match
+  Outcome Probability" moved up with **Top Exact Scores integrated**; radar fixed to
+  read the real `team_metrics` fields (was always showing hardcoded defaults).
+- **New sections** (real data): **Squad & Style Comparison (FBref & Club Elo)** beside
+  the radar, **Monte Carlo Simulation Projections** (half-width, below the radar),
+  **Coaching & Tactical Philosophies** and **Last Major Standing**.
+- **xG Distribution Comparison** replaces the xG momentum timeline in the StatsBomb
+  section (`get_cached_xg_distribution` — non-penalty KDE curves + shot strip plot).
+- **Player tooltip** fixed (no longer clipped/behind; name tag sits below the dot;
+  BigQuery cruft removed → clean name/position/club).
+- **Language toggle** moved to the top-right corner; event plots labeled as proxy.
+- **Live results refresh** (worldcup26.ir): group standings in `grid_state.json` and
+  Overview totals updated — 19 matches played, 58 goals, top scorer L. Messi (3).
+
+### Still pending
+
+- Per-player stats/photos in the squad tooltips (large web curation) — not yet done.
+- Cloud Run redeploy after merge.
+
+---
+
+## 2026-06-16 - UI Polish: Bracket Fit-to-Screen, Flags, Today-Only Selector, Sidebar/Ball Logo
+
+Prepared by: Orchestrator
+
+### Completed This Update
+
+- **Bracket fits the screen**: `StandingsTab` scales the fixed-width board via a
+  `ResizeObserver` so the entire bracket is always visible (no clipping/scroll);
+  full-size in Full Screen.
+- **Match Analysis selector decluttered**: dropdown shows only the current day's
+  fixtures and auto-selects a today's match.
+- **National flags** added to team names across Match Analysis (header, selector,
+  forecast, injuries, squad lineups, StatsBomb labels). Flags + `TODAY_DATE`
+  centralized in `src/frontend/src/lib/teamData.ts` (OverviewTab refactored to use it).
+- **Sidebar**: title → "FIFA 2026 / World Cup"; collapsible toggle; brand icon →
+  official FIFA World Cup 26 match-ball logo (`ball-logo.png`, resized 7.7MB → 45KB,
+  moved to `src/frontend/src/assets/`). Added `vite-env.d.ts` for typed image imports.
+
+### Live Site
+
+- Not yet redeployed with this round (Cloud Run rebuild pending after merge).
+
+---
+
 ## 2026-06-16 - Bracket Wood-Board Port, Full-Screen & StatsBomb Viz Fixes
 
 Prepared by: Orchestrator

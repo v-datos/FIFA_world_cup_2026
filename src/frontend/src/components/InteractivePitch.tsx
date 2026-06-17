@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Activity } from 'lucide-react';
 
 interface Player {
   name: string;
@@ -9,10 +8,10 @@ interface Player {
 
 interface InteractivePitchProps {
   teamName: string;
+  flag?: string;
   players: string[];
   formation: string;
   lang: string;
-  serverUrl: string;
 }
 
 const PLAYER_CLUBS_ALL: Record<string, string> = {
@@ -127,42 +126,17 @@ const PLAYER_CLUBS_ALL: Record<string, string> = {
 
 export const InteractivePitch: React.FC<InteractivePitchProps> = ({
   teamName,
+  flag,
   players,
   formation,
   lang,
-  serverUrl,
 }) => {
   const [hoveredPlayer, setHoveredPlayer] = useState<string | null>(null);
-  const [statsCache, setStatsCache] = useState<Record<string, any>>({});
-  const [loadingPlayer, setLoadingPlayer] = useState<string | null>(null);
 
   const getCoordinates = (index: number, total: number, lineIndex: number, totalLines: number) => {
     const y = 10 + (lineIndex / (totalLines - 1)) * 80;
     const x = 10 + ((index + 1) / (total + 1)) * 80;
     return { x, y };
-  };
-
-  const handlePlayerHover = async (pName: string) => {
-    setHoveredPlayer(pName);
-    if (statsCache[pName] || loadingPlayer === pName) return;
-
-    setLoadingPlayer(pName);
-    try {
-      const res = await fetch(
-        `${serverUrl}/api/player/stats?player_name=${encodeURIComponent(pName)}&team_name=${encodeURIComponent(teamName)}`
-      );
-      if (res.ok) {
-        const json = await res.json();
-        setStatsCache((prev) => ({ ...prev, [pName]: json }));
-      } else {
-        setStatsCache((prev) => ({ ...prev, [pName]: { error: true } }));
-      }
-    } catch (err) {
-      console.error('Failed to fetch player stats', err);
-      setStatsCache((prev) => ({ ...prev, [pName]: { error: true } }));
-    } finally {
-      setLoadingPlayer(null);
-    }
   };
 
   const categorizePlayers = () => {
@@ -206,13 +180,7 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
     if (lang === 'English') return text;
     const map: Record<string, string> = {
       'Club': 'Club',
-      'Goals': 'Goles',
-      'Assists': 'Asistencias',
-      'Pass Acc %': 'Prec. Pases %',
-      'SOT %': 'Tiros Arco %',
-      'Dribbles': 'Regates',
-      'Loading stats...': 'Cargando estadísticas...',
-      'No data available in BigQuery': 'Sin datos en BigQuery',
+      'Position': 'Posición',
     };
     return map[text] || text;
   };
@@ -220,14 +188,14 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
   return (
     <div className="w-full flex flex-col items-center">
       <div className="text-center mb-4">
-        <h4 className="text-lg font-semibold text-slate-100">{teamName}</h4>
+        <h4 className="text-lg font-semibold text-slate-100">{flag ? `${flag} ` : ''}{teamName}</h4>
         <span className="text-sm text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 font-mono">
           {formation}
         </span>
       </div>
 
       {/* Styled Tactical Football Pitch */}
-      <div className="relative w-full max-w-[420px] aspect-[3/4] bg-emerald-950/20 border-2 border-emerald-500/30 rounded-xl overflow-hidden shadow-2xl backdrop-blur-md">
+      <div className="relative w-full max-w-[420px] aspect-[3/4] bg-emerald-950/20 border-2 border-emerald-500/30 rounded-xl shadow-2xl">
         {/* Pitch markings */}
         <div className="absolute inset-x-0 top-0 h-1/2 border-b border-emerald-500/20" />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-emerald-500/20 rounded-full" />
@@ -243,15 +211,13 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
             {linePlayers.map((player, pIdx) => {
               const { x, y } = getCoordinates(pIdx, linePlayers.length, lineIdx, totalLines);
               const isHovered = hoveredPlayer === player.name;
-              const pStats = statsCache[player.name];
-              const isLoading = loadingPlayer === player.name;
 
               return (
                 <div
                   key={player.name}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10"
+                  className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer ${isHovered ? 'z-50' : 'z-10'}`}
                   style={{ left: `${x}%`, bottom: `${y}%` }}
-                  onMouseEnter={() => handlePlayerHover(player.name)}
+                  onMouseEnter={() => setHoveredPlayer(player.name)}
                   onMouseLeave={() => setHoveredPlayer(null)}
                 >
                   {/* Player Dot */}
@@ -265,102 +231,19 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
                     {player.name.substring(0, 2).toUpperCase()}
                   </div>
 
-                  {/* Player Name Tag */}
-                  <div className="absolute left-1/2 -translate-x-1/2 mt-1 whitespace-nowrap bg-slate-950/80 text-[10px] text-slate-300 px-1.5 py-0.5 rounded border border-slate-800/40">
+                  {/* Player Name Tag (sits BELOW the dot so it never overlaps) */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 whitespace-nowrap bg-slate-950/85 text-[10px] text-slate-200 px-1.5 py-0.5 rounded border border-slate-800/50">
                     {player.name.split(' ').pop()}
                   </div>
 
-                  {/* Player Career Stats Tooltip */}
+                  {/* Player Info Card */}
                   {isHovered && (
-                    <div className="absolute left-10 top-0 -translate-y-1/3 w-64 bg-slate-950/95 border border-slate-800 rounded-lg p-3 shadow-2xl z-30 pointer-events-none backdrop-blur-md">
+                    <div className="absolute left-10 top-0 -translate-y-1/3 w-52 bg-slate-950/98 border border-slate-700 rounded-lg p-3 shadow-2xl z-50 pointer-events-none">
                       <div className="font-bold text-sm text-slate-100">{player.name}</div>
                       <div className="text-xs text-emerald-400 font-medium mb-1.5">{player.position}</div>
-                      <div className="text-[11px] text-slate-400 mb-2.5">
+                      <div className="text-[11px] text-slate-400">
                         <strong className="text-slate-300 font-medium">{translateLabel('Club')}:</strong>{' '}
                         {player.club}
-                      </div>
-
-                      <div className="pt-2 border-t border-slate-800/60 font-sans">
-                        <div className="text-slate-500 uppercase tracking-wider mb-2 text-[9px] font-semibold flex items-center gap-1">
-                          <Activity className="w-3 h-3 text-emerald-400" />
-                          <span>BigQuery Career Statistics</span>
-                        </div>
-
-                        {isLoading && (
-                          <div className="text-[10px] text-slate-400 italic py-2">
-                            {translateLabel('Loading stats...')}
-                          </div>
-                        )}
-
-                        {!isLoading && pStats && (pStats.error || !pStats.matches_played) && (
-                          <div className="text-[10px] text-slate-500 italic py-2">
-                            {translateLabel('No data available in BigQuery')}
-                          </div>
-                        )}
-
-                        {!isLoading && pStats && pStats.matches_played > 0 && (
-                          <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">Games</span>
-                              <strong className="text-slate-200">{pStats.matches_played}</strong>
-                            </div>
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">
-                                {translateLabel('Goals')}
-                              </span>
-                              <strong className="text-rose-400">{pStats.goals}</strong>
-                            </div>
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">
-                                {translateLabel('Assists')}
-                              </span>
-                              <strong className="text-sky-400">{pStats.assists}</strong>
-                            </div>
-
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">Total xG</span>
-                              <strong className="text-slate-200">{pStats.total_xg.toFixed(2)}</strong>
-                            </div>
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">
-                                {translateLabel('Pass Acc %')}
-                              </span>
-                              <strong className="text-slate-200">
-                                {pStats.total_passes > 0
-                                  ? ((pStats.successful_passes / pStats.total_passes) * 100).toFixed(0)
-                                  : 0}
-                                %
-                              </strong>
-                            </div>
-                            <div className="bg-slate-900 p-1.5 rounded border border-slate-800/40">
-                              <span className="block text-[8px] text-slate-500 uppercase">
-                                {translateLabel('SOT %')}
-                              </span>
-                              <strong className="text-slate-200">
-                                {pStats.total_shots > 0
-                                  ? ((pStats.shots_on_target / pStats.total_shots) * 100).toFixed(0)
-                                  : 0}
-                                %
-                              </strong>
-                            </div>
-
-                            <div className="bg-slate-900/60 p-1.5 rounded border border-slate-800/30 col-span-3 flex justify-around items-center text-[9px] text-slate-400 font-mono mt-1">
-                              <div>
-                                Defensive:{' '}
-                                <span className="text-emerald-400 font-bold">{pStats.tackles} Tkl</span>{' '}
-                                /{' '}
-                                <span className="text-emerald-400 font-bold">
-                                  {pStats.interceptions} Int
-                                </span>
-                              </div>
-                              <div>
-                                Cards:{' '}
-                                <span className="text-amber-400">{pStats.yellow_cards} 🟨</span> /{' '}
-                                <span className="text-rose-500">{pStats.red_cards} 🟥</span>
-                              </div>
-                            </div>
-                          </div>
-                        )}
                       </div>
                     </div>
                   )}

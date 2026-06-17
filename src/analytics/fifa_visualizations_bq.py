@@ -1292,3 +1292,79 @@ def get_cached_xg_timeline(_client: bigquery.Client, match_id: int, team1: str, 
     return buf.getvalue()
 
 
+@st.cache_data(ttl=600)
+def get_cached_xg_distribution(_client: bigquery.Client, match_id: int, team1: str, team2: str) -> bytes:
+    """Non-penalty xG distribution comparison: filled KDE curves per team + a shot strip plot."""
+    from fifa_metrics_bq import get_match_shot_xg
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import io
+
+    df = get_match_shot_xg(_client, match_id)
+    t1 = df[df['team'] == team1]['xg'].dropna().astype(float).values if not df.empty else np.array([])
+    t2 = df[df['team'] == team2]['xg'].dropna().astype(float).values if not df.empty else np.array([])
+
+    c1, c2 = '#5468d6', '#d6566a'
+    bg = '#0b0f19'
+
+    fig, (ax_kde, ax_strip) = plt.subplots(
+        2, 1, figsize=(10, 5), sharex=True,
+        gridspec_kw={'height_ratios': [3, 1], 'hspace': 0.08}, facecolor=bg)
+    for ax in (ax_kde, ax_strip):
+        ax.set_facecolor(bg)
+
+    def kde(vals):
+        vals = np.asarray(vals, dtype=float)
+        if vals.size < 2:
+            return None
+        lo = min(vals.min(), 0.0) - 0.05
+        hi = max(vals.max(), 0.3) + 0.05
+        xs = np.linspace(lo, hi, 240)
+        std = vals.std(ddof=1)
+        bw = max(0.02, 1.06 * std * vals.size ** (-1 / 5)) if std > 0 else 0.03
+        dens = np.zeros_like(xs)
+        for v in vals:
+            dens += np.exp(-0.5 * ((xs - v) / bw) ** 2)
+        dens /= (vals.size * bw * np.sqrt(2 * np.pi))
+        return xs, dens
+
+    for vals, color, label in ((t1, c1, team1), (t2, c2, team2)):
+        k = kde(vals)
+        if k is not None:
+            xs, dens = k
+            ax_kde.fill_between(xs, dens, color=color, alpha=0.45, linewidth=0)
+            ax_kde.plot(xs, dens, color=color, linewidth=2.2, label=label)
+        else:
+            ax_kde.plot([], [], color=color, linewidth=2.2, label=label)
+
+    rng = np.random.default_rng(7)
+    if t1.size:
+        ax_strip.scatter(t1, rng.uniform(0.55, 0.95, t1.size), color=c1, s=22, alpha=0.85, edgecolors='none')
+    if t2.size:
+        ax_strip.scatter(t2, rng.uniform(0.05, 0.45, t2.size), color=c2, s=22, alpha=0.85, edgecolors='none')
+
+    ax_kde.set_title('Non-Penalty xG Distribution Comparison', color='#e5e7eb', fontsize=13,
+                     fontweight='bold', loc='left', pad=12)
+    ax_kde.legend(facecolor=bg, edgecolor='#374151', labelcolor='white', loc='upper right', fontsize=9)
+    ax_kde.set_yticks([])
+    ax_kde.set_ylabel('Density', color='#94a3b8', fontsize=10)
+    ax_kde.set_ylim(bottom=0)
+
+    ax_strip.set_yticks([])
+    ax_strip.set_ylim(0, 1)
+    ax_strip.set_xlabel('xG', color='#94a3b8', fontsize=11)
+    ax_strip.tick_params(colors='#94a3b8', labelsize=9)
+
+    for ax in (ax_kde, ax_strip):
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        ax.spines['bottom'].set_visible(True)
+        ax.spines['bottom'].set_color('#374151')
+
+    plt.tight_layout()
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', dpi=150, facecolor=fig.get_facecolor(), edgecolor='none')
+    plt.close(fig)
+    return buf.getvalue()
+
+

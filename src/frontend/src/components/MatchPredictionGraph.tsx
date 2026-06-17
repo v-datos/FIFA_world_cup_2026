@@ -10,6 +10,7 @@ interface MatchPredictionGraphProps {
     team2_win: number;
     confidence?: number;
   };
+  scoreProbs?: Array<{ score: string; probability: number }>;
   lang: string;
 }
 
@@ -17,6 +18,7 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
   team1,
   team2,
   probabilities,
+  scoreProbs = [],
   lang,
 }) => {
   const t1Win = probabilities.team1_win || 0.40;
@@ -41,7 +43,8 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
       'Dynamic Club Elo ratings from SoccerData scraped endpoints.': 
         'Clasificaciones dinámicas de Club Elo de los endpoints de SoccerData.',
       'WIN': 'VICTORIA',
-      'DRAW': 'EMPATE'
+      'DRAW': 'EMPATE',
+      'Top Exact Scores': 'Marcadores Exactos Principales'
     };
     return map[text] || text;
   };
@@ -96,6 +99,23 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
             </span>
           </div>
         </div>
+
+        {/* Top Exact Scores (integrated) */}
+        {scoreProbs.length > 0 && (
+          <div className="mt-4">
+            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+              {translateText('Top Exact Scores')}
+            </h4>
+            <div className="grid grid-cols-3 gap-2">
+              {scoreProbs.slice(0, 6).map((item, idx) => (
+                <div key={idx} className="bg-slate-900/60 border border-slate-800/40 rounded-lg px-2 py-1.5 flex justify-between items-center">
+                  <span className="font-bold text-xs text-slate-200 font-mono">{item.score}</span>
+                  <span className="text-[11px] text-emerald-400 font-mono font-semibold">{Math.round(item.probability * 100)}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Model Information Container */}
