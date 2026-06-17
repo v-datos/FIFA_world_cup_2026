@@ -26,7 +26,7 @@ from src.analytics.fifa_visualizations_bq import (
     get_cached_attacking_passes,
     get_cached_radar_chart,
     get_cached_progressive_actions_map,
-    get_cached_xg_timeline
+    get_cached_xg_distribution
 )
 from src.analytics.fifa_metrics_bq import get_match_radar_stats
 
@@ -393,6 +393,12 @@ def get_match_metrics(match_id: str):
         team1: compute_monte_carlo_probs(elo_t1),
         team2: compute_monte_carlo_probs(elo_t2)
     }
+    # Source of the StatsBomb event visualizations (proxy historical matches —
+    # no real 2026 event data exists yet), surfaced so the UI can label them honestly.
+    metrics_data["viz_proxies"] = {
+        team1: MATCH_VISUALIZATION_PROXIES.get(team1, {}).get("label", "Historical proxy match"),
+        team2: MATCH_VISUALIZATION_PROXIES.get(team2, {}).get("label", "Historical proxy match"),
+    }
 
     return metrics_data
 
@@ -449,7 +455,7 @@ def get_visualization(match_id: str, viz_type: str, team: str = None):
         if viz_type == "momentum":
             proxy1 = MATCH_VISUALIZATION_PROXIES.get(t1_name) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
             proxy2 = MATCH_VISUALIZATION_PROXIES.get(t2_name) or MATCH_VISUALIZATION_PROXIES["Japan"]
-            img_bytes = get_cached_xg_timeline(client, proxy1["match_id"], proxy1["team"], proxy2["team"])
+            img_bytes = get_cached_xg_distribution(client, proxy1["match_id"], proxy1["team"], proxy2["team"])
         elif viz_type == "passing_network":
             if proxy:
                 img_bytes = get_cached_pass_network(client, proxy["team"], match_id=proxy["match_id"])

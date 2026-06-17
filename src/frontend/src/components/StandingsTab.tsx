@@ -397,6 +397,11 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           z-index: 5;
         }
 
+        /* Mirror the right-hand group cards (stat strips face the centre) */
+        .right-groups .group-card {
+          flex-direction: row-reverse;
+        }
+
         .left-bracket, .right-bracket {
           display: flex;
           justify-content: space-around;

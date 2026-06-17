@@ -1,5 +1,32 @@
 # STATUS
 
+## 2026-06-17 - Match Analysis Deep Update, xG Distribution, Live Results Refresh
+
+Prepared by: Orchestrator
+
+### Completed This Update
+
+- **Match Analysis restructure**: removed the redundant "Match Forecast" card; "Match
+  Outcome Probability" moved up with **Top Exact Scores integrated**; radar fixed to
+  read the real `team_metrics` fields (was always showing hardcoded defaults).
+- **New sections** (real data): **Squad & Style Comparison (FBref & Club Elo)** beside
+  the radar, **Monte Carlo Simulation Projections** (half-width, below the radar),
+  **Coaching & Tactical Philosophies** and **Last Major Standing**.
+- **xG Distribution Comparison** replaces the xG momentum timeline in the StatsBomb
+  section (`get_cached_xg_distribution` — non-penalty KDE curves + shot strip plot).
+- **Player tooltip** fixed (no longer clipped/behind; name tag sits below the dot;
+  BigQuery cruft removed → clean name/position/club).
+- **Language toggle** moved to the top-right corner; event plots labeled as proxy.
+- **Live results refresh** (worldcup26.ir): group standings in `grid_state.json` and
+  Overview totals updated — 19 matches played, 58 goals, top scorer L. Messi (3).
+
+### Still pending
+
+- Per-player stats/photos in the squad tooltips (large web curation) — not yet done.
+- Cloud Run redeploy after merge.
+
+---
+
 ## 2026-06-16 - UI Polish: Bracket Fit-to-Screen, Flags, Today-Only Selector, Sidebar/Ball Logo
 
 Prepared by: Orchestrator

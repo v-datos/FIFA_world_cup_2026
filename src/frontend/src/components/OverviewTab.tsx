@@ -27,11 +27,11 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   const todayMatches = matches.filter(m => m.date === TODAY_DATE);
   const filteredMatches = todayMatches.length > 0 ? todayMatches : matches;
 
-  // Actual World Cup 2026 stats as of June 16 (after US 4-1, ES-CV 0-0, BE-EG 1-1, SA-UR 1-1, IR-NZ 2-2)
-  const matchesPlayed = 5;
-  const totalGoals = 13;
-  const topScorer = "F. Balogun, E. Just: 2 Goals";
-  const topScorerES = "F. Balogun, E. Just: 2 Goles";
+  // World Cup 2026 group-stage totals as of June 17 (live worldcup26.ir feed: 19 matches played)
+  const matchesPlayed = 19;
+  const totalGoals = 58;
+  const topScorer = "L. Messi: 3 Goals";
+  const topScorerES = "L. Messi: 3 Goles";
 
   return (
     <div className="space-y-6">

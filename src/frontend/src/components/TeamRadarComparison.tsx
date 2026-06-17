@@ -23,15 +23,22 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
       xg: lang === 'Español' ? 'Goles Esperados (xG)' : 'Expected Goals (xG)',
       shots: lang === 'Español' ? 'Tiros/90' : 'Shots/90',
       passing: lang === 'Español' ? 'Precisión Pases %' : 'Pass Accuracy %',
-      tackles: lang === 'Español' ? 'Tackles/90' : 'Tackles/90',
-      pressure: lang === 'Español' ? 'Intensidad Presión %' : 'Press Intensity %',
       possession: lang === 'Español' ? 'Posesión %' : 'Possession %',
+      press: lang === 'Español' ? 'Presión (PPDA)' : 'Press (PPDA)',
+      defense: lang === 'Español' ? 'Defensa (xGA)' : 'Defense (xGA)',
     };
 
-    // Scaled metrics (mapping real-world values to a 0-100 range)
-    const scale = (val: number, min: number, max: number) => {
-      if (val === undefined || val === null || isNaN(val)) return 50;
-      return Math.round(Math.max(10, Math.min(100, ((val - min) / (max - min)) * 90 + 10)));
+    // Map a real-world value into the 0-100 radar range (higher = better/more).
+    const scale = (val: any, min: number, max: number) => {
+      const v = parseFloat(val);
+      if (v === undefined || v === null || isNaN(v)) return 50;
+      return Math.round(Math.max(10, Math.min(100, ((v - min) / (max - min)) * 90 + 10)));
+    };
+    // Inverted scale for "lower is better" metrics (PPDA, xG conceded).
+    const scaleInv = (val: any, min: number, max: number) => {
+      const v = parseFloat(val);
+      if (v === undefined || v === null || isNaN(v)) return 50;
+      return Math.round(Math.max(10, Math.min(100, ((max - v) / (max - min)) * 90 + 10)));
     };
 
     const t1 = metrics1 || {};
@@ -40,33 +47,33 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
     return [
       {
         subject: labels.xg,
-        [team1]: scale(parseFloat(t1.xg_90 || t1.avg_xg || 1.2), 0.5, 2.5),
-        [team2]: scale(parseFloat(t2.xg_90 || t2.avg_xg || 1.0), 0.5, 2.5),
+        [team1]: scale(t1.expected_goals_per_90, 0.5, 2.5),
+        [team2]: scale(t2.expected_goals_per_90, 0.5, 2.5),
       },
       {
         subject: labels.shots,
-        [team1]: scale(parseFloat(t1.shots_90 || t1.avg_shots || 10.0), 5.0, 20.0),
-        [team2]: scale(parseFloat(t2.shots_90 || t2.avg_shots || 8.0), 5.0, 20.0),
+        [team1]: scale(t1.shots_per_90, 5.0, 20.0),
+        [team2]: scale(t2.shots_per_90, 5.0, 20.0),
       },
       {
         subject: labels.passing,
-        [team1]: scale(parseFloat(t1.pass_completion || t1.pass_accuracy || 80.0), 60.0, 95.0),
-        [team2]: scale(parseFloat(t2.pass_completion || t2.pass_accuracy || 78.0), 60.0, 95.0),
-      },
-      {
-        subject: labels.tackles,
-        [team1]: scale(parseFloat(t1.tackles_90 || t1.avg_tackles || 14.0), 5.0, 25.0),
-        [team2]: scale(parseFloat(t2.tackles_90 || t2.avg_tackles || 16.0), 5.0, 25.0),
-      },
-      {
-        subject: labels.pressure,
-        [team1]: scale(parseFloat(t1.pressure_regain_pct || 22.0), 10.0, 45.0),
-        [team2]: scale(parseFloat(t2.pressure_regain_pct || 25.0), 10.0, 45.0),
+        [team1]: scale(t1.pass_completion_pct, 60.0, 95.0),
+        [team2]: scale(t2.pass_completion_pct, 60.0, 95.0),
       },
       {
         subject: labels.possession,
-        [team1]: scale(parseFloat(t1.possession || t1.average_possession || 50.0), 35.0, 65.0),
-        [team2]: scale(parseFloat(t2.possession || t2.average_possession || 48.0), 35.0, 65.0),
+        [team1]: scale(t1.possession_avg, 35.0, 65.0),
+        [team2]: scale(t2.possession_avg, 35.0, 65.0),
+      },
+      {
+        subject: labels.press,
+        [team1]: scaleInv(t1.ppda, 7.0, 14.0),
+        [team2]: scaleInv(t2.ppda, 7.0, 14.0),
+      },
+      {
+        subject: labels.defense,
+        [team1]: scaleInv(t1.expected_goals_conceded_per_90, 0.6, 1.8),
+        [team2]: scaleInv(t2.expected_goals_conceded_per_90, 0.6, 1.8),
       },
     ];
   };

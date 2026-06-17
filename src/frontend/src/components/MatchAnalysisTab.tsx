@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { InteractivePitch } from './InteractivePitch';
 import { MatchPredictionGraph } from './MatchPredictionGraph';
 import { TeamRadarComparison } from './TeamRadarComparison';
-import { ShieldAlert, Award, FileText, BarChart3, Image as ImageIcon } from 'lucide-react';
-import { getFlag, TODAY_DATE } from '../lib/teamData';
+import { SquadStyleComparison } from './SquadStyleComparison';
+import { MonteCarloProjections } from './MonteCarloProjections';
+import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
+import { getFlag, getLastStanding, TODAY_DATE } from '../lib/teamData';
 
 interface Match {
   id: string;
@@ -129,6 +131,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const forecast = metricsData.dixon_coles_forecast || {};
   const scoreProbs = metricsData.score_probabilities || [];
   const teamMetrics = metricsData.team_metrics || {};
+  const vizProxies = metricsData.viz_proxies || {};
+  const eloRatings = metricsData.elo_ratings || {};
+  const monteCarlo = metricsData.monte_carlo_projections || {};
 
   const cleanT1 = team1.toLowerCase().replace(' ', '_').replace("'", "");
   const cleanT2 = team2.toLowerCase().replace(' ', '_').replace("'", "");
@@ -152,6 +157,8 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
       "Formation": "Formación",
       "Philosophy": "Filosofía",
       "Manager": "Director Técnico",
+      "Last Major Standing": "Última Participación Importante",
+      "Coaching & Tactical Philosophies": "Cuerpo Técnico y Filosofías Tácticas",
     };
     return map[text] || text;
   };
@@ -194,79 +201,17 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         </h3>
       </div>
 
-      {/* Forecast & Predictions Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        {/* Dixon Coles Probabilities */}
-        <div className="glass-panel p-5 flex flex-col justify-between">
-          <div>
-            <h3 className="text-base font-bold text-slate-100 flex items-center gap-2 mb-4">
-              <BarChart3 className="w-5 h-5 text-emerald-400" />
-              <span>{translateText("Match Forecast")}</span>
-            </h3>
-            
-            {/* Probability Bars */}
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>{getFlag(team1)} {team1}</span>
-                  <span className="font-mono text-emerald-400">{Math.round((forecast.team1_win || 0.4) * 100)}%</span>
-                </div>
-                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
-                  <div className="h-full bg-emerald-500" style={{ width: `${(forecast.team1_win || 0.4) * 100}%` }} />
-                </div>
-              </div>
+      {/* Match Outcome Probability (with integrated top exact scores) + Insights */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <MatchPredictionGraph
+          team1={team1}
+          team2={team2}
+          probabilities={forecast}
+          scoreProbs={scoreProbs}
+          lang={lang}
+        />
 
-              <div>
-                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>{lang === 'Español' ? 'Empate' : 'Draw'}</span>
-                  <span className="font-mono text-slate-400">{Math.round((forecast.draw || 0.3) * 100)}%</span>
-                </div>
-                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
-                  <div className="h-full bg-slate-500" style={{ width: `${(forecast.draw || 0.3) * 100}%` }} />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
-                  <span>{getFlag(team2)} {team2}</span>
-                  <span className="font-mono text-rose-400">{Math.round((forecast.team2_win || 0.3) * 100)}%</span>
-                </div>
-                <div className="w-full h-2.5 bg-slate-800/80 rounded-full overflow-hidden">
-                  <div className="h-full bg-rose-500" style={{ width: `${(forecast.team2_win || 0.3) * 100}%` }} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-4 border-t border-slate-800/60 flex justify-between items-center text-xs font-medium">
-            <span className="text-slate-400">{translateText("Model Confidence")}</span>
-            <span className="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
-              {Math.round((forecast.confidence || 0.7) * 100)}%
-            </span>
-          </div>
-        </div>
-
-        {/* Top Scorelines */}
-        <div className="glass-panel p-5">
-          <h3 className="text-base font-bold text-slate-100 flex items-center gap-2 mb-4">
-            <Award className="w-5 h-5 text-emerald-400" />
-            <span>{translateText("Top Exact Scores")}</span>
-          </h3>
-
-          <div className="grid grid-cols-2 gap-3.5">
-            {scoreProbs.map((item: any, idx: number) => (
-              <div key={idx} className="bg-slate-900/60 border border-slate-800/40 rounded-xl p-3 flex justify-between items-center">
-                <span className="font-bold text-sm text-slate-200 font-mono">{item.score}</span>
-                <span className="text-xs text-emerald-400 font-mono font-semibold">
-                  {Math.round(item.probability * 100)}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Key Insights & Injuries */}
+        {/* Key Insights, Injuries & Last Major Standing */}
         <div className="glass-panel p-5 space-y-4">
           <div>
             <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
@@ -299,24 +244,51 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
               )) || <div>No major injuries reported.</div>}
             </div>
           </div>
-        </div>
 
+          <div className="pt-3 border-t border-slate-800/60">
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <Award className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Last Major Standing")}</span>
+            </h4>
+            <div className="space-y-1.5 text-[11px] leading-relaxed">
+              <div>
+                <span className="text-emerald-400 font-semibold">{getFlag(team1)} {team1}:</span>{' '}
+                <span className="text-slate-300">{getLastStanding(team1) || 'N/A'}</span>
+              </div>
+              <div>
+                <span className="text-rose-400 font-semibold">{getFlag(team2)} {team2}:</span>{' '}
+                <span className="text-slate-300">{getLastStanding(team2) || 'N/A'}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Radar Compare & Win Probability Curve */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <TeamRadarComparison
+      {/* Radar + Monte Carlo stacked (left) · Squad & Style comparison (right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <div className="space-y-6">
+          <TeamRadarComparison
+            team1={team1}
+            team2={team2}
+            metrics1={teamMetrics[team1]}
+            metrics2={teamMetrics[team2]}
+            lang={lang}
+          />
+          <MonteCarloProjections
+            team1={team1}
+            team2={team2}
+            proj1={monteCarlo[team1]}
+            proj2={monteCarlo[team2]}
+            lang={lang}
+          />
+        </div>
+        <SquadStyleComparison
           team1={team1}
           team2={team2}
           metrics1={teamMetrics[team1]}
           metrics2={teamMetrics[team2]}
-          lang={lang}
-        />
-        
-        <MatchPredictionGraph
-          team1={team1}
-          team2={team2}
-          probabilities={forecast}
+          elo1={eloRatings[team1]}
+          elo2={eloRatings[team2]}
           lang={lang}
         />
       </div>
@@ -326,14 +298,35 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <h3 className="text-lg font-bold text-slate-100 mb-5 flex items-center gap-2">
           <span>{translateText("Squad Lineups")}</span>
         </h3>
-        
+
+        {/* Coaching & Tactical Philosophies */}
+        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+          {translateText("Coaching & Tactical Philosophies")}
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          {[{ team: team1, key: cleanT1 }, { team: team2, key: cleanT2 }].map(({ team, key }) => {
+            const tac = confirmed_tactics[key] || {};
+            return (
+              <div key={key} className="bg-slate-900/40 border border-slate-800/40 rounded-xl p-4">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-sm font-bold text-slate-100">{getFlag(team)} {team}</span>
+                  <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    {tac.formation || 'N/A'}
+                  </span>
+                </div>
+                <div className="text-xs text-slate-300 font-medium mb-1">{tac.manager || '—'}</div>
+                <p className="text-[11px] text-slate-400 leading-relaxed italic">{tac.philosophy || ''}</p>
+              </div>
+            );
+          })}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InteractivePitch
             teamName={team1}
             flag={getFlag(team1)}
             players={t1Roster}
             formation={confirmed_tactics[cleanT1]?.formation || "4-3-3"}
-            serverUrl={serverUrl}
             lang={lang}
           />
           <InteractivePitch
@@ -341,7 +334,6 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             flag={getFlag(team2)}
             players={t2Roster}
             formation={confirmed_tactics[cleanT2]?.formation || "4-3-3"}
-            serverUrl={serverUrl}
             lang={lang}
           />
         </div>
@@ -354,10 +346,18 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           <span>{lang === 'Español' ? 'Visualizaciones de Eventos del Partido (StatsBomb)' : 'Bespoke Match Event Visualizations (StatsBomb)'}</span>
         </h3>
 
+        {/* Proxy-source disclosure: these plots use real StatsBomb data from historical proxy matches */}
+        <p className="text-[11px] text-amber-400/80 font-mono mb-4 bg-amber-500/5 border border-amber-500/15 rounded-lg px-3 py-2 leading-relaxed">
+          {lang === 'Español' ? 'Datos reales de StatsBomb de partidos históricos de referencia (proxy) — no hay datos de eventos del Mundial 2026 disponibles aún. ' : 'Real StatsBomb data from historical proxy matches — no World Cup 2026 event data is available yet. '}
+          <span className="text-emerald-400">{getFlag(team1)} {team1}: {vizProxies[team1] || 'Proxy'}</span>
+          {' · '}
+          <span className="text-rose-400">{getFlag(team2)} {team2}: {vizProxies[team2] || 'Proxy'}</span>
+        </p>
+
         {/* Tab selection */}
         <div className="flex flex-wrap gap-2 mb-6 border-b border-slate-800/60 pb-3">
           {[
-            { id: 'momentum', label: lang === 'Español' ? 'Línea de Tiempo xG' : 'xG Momentum Timeline' },
+            { id: 'momentum', label: lang === 'Español' ? 'Distribución de xG' : 'xG Distribution Comparison' },
             { id: 'passing', label: lang === 'Español' ? 'Red de Pases' : 'Passing Networks' },
             { id: 'shots', label: lang === 'Español' ? 'Mapa de Tiros' : 'Shot Maps' },
             { id: 'heatmaps', label: lang === 'Español' ? 'Mapa de Calor de Toques' : 'Touch Heatmaps' },
@@ -391,7 +391,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
                 }}
               />
               <p className="text-xs text-slate-500 mt-2 font-mono">
-                {lang === 'Español' ? 'Historial de partido simulado' : 'Simulated historical match momentum timeline proxy'}
+                {lang === 'Español' ? 'Distribución de xG sin penaltis (datos proxy)' : 'Non-penalty xG distribution (proxy match data)'}
               </p>
             </div>
           )}

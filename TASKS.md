@@ -27,6 +27,15 @@ Last updated: 2026-06-16
 
 ## Done
 
+- [x] **T-022 - Match Analysis Deep Update, xG Distribution, Live Results Refresh**
+  Owner: Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-06-17
+  Notes: Restructured Match Analysis (removed redundant forecast card, integrated top
+  scores, fixed radar to real fields); added Squad & Style Comparison, Monte Carlo
+  Projections, tactics & last-standing sections; replaced xG momentum with an xG
+  Distribution Comparison chart; fixed the player tooltip; moved language toggle
+  top-right; refreshed live standings + Overview totals from worldcup26.ir.
+
 - [x] **T-021 - UI Polish: Bracket Fit-to-Screen, Flags, Today Selector, Sidebar/Ball Logo**
   Owner: Frontend Engineer
   Completed: 2026-06-16

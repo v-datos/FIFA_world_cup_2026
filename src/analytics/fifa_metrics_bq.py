@@ -145,6 +145,20 @@ def get_match_momentum_timeline(client: bigquery.Client, match_id: int) -> pd.Da
     return execute_query(client, query, params)
 
 
+def get_match_shot_xg(client: bigquery.Client, match_id: int) -> pd.DataFrame:
+    """Per-shot non-penalty xG values for both teams (for the xG distribution chart)."""
+    query = """
+    SELECT team, shot_statsbomb_xg AS xg
+    FROM events
+    WHERE match_id = @match_id
+      AND type = 'Shot'
+      AND (shot_type IS NULL OR shot_type != 'Penalty')
+      AND shot_statsbomb_xg IS NOT NULL
+    """
+    params = [bigquery.ScalarQueryParameter("match_id", "INT64", int(match_id))]
+    return execute_query(client, query, params)
+
+
 def get_match_playing_styles(client: bigquery.Client, match_id: int) -> pd.DataFrame:
     query = """
     WITH

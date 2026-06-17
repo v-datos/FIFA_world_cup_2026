@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { LayoutDashboard, Swords, Trophy, Languages, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, Swords, Trophy, ChevronLeft, ChevronRight } from 'lucide-react';
 import ballLogo from '../assets/ball-logo.png';
 
 interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   lang: string;
-  setLang: (lang: string) => void;
 }
 
 // Sidebar brand icon uses the official FIFA World Cup 26 match-ball logo asset.
@@ -15,7 +14,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activeTab,
   setActiveTab,
   lang,
-  setLang,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -77,56 +75,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
       </nav>
 
-      {/* Language Switcher Footer */}
-      <div className={`border-t border-slate-800/60 ${collapsed ? 'p-2' : 'p-4'}`}>
-        {collapsed ? (
-          <div className="flex flex-col gap-1.5">
-            {[{ id: 'English', label: 'EN' }, { id: 'Español', label: 'ES' }].map((l) => (
-              <button
-                key={l.id}
-                onClick={() => setLang(l.id)}
-                title={l.id}
-                className={`py-1.5 text-xs font-semibold rounded-md transition-all duration-150 ${
-                  lang === l.id
-                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
-                }`}
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
-        ) : (
-          <div className="glass-panel p-3.5 flex flex-col gap-2.5">
-            <div className="flex items-center gap-2 text-[11px] text-slate-400 uppercase tracking-widest font-mono">
-              <Languages className="w-4 h-4 text-emerald-400" />
-              <span>Language / Idioma</span>
-            </div>
-            <div className="grid grid-cols-2 gap-1.5 p-1 bg-slate-900/60 rounded-lg border border-slate-800/40">
-              <button
-                onClick={() => setLang('English')}
-                className={`py-1.5 text-xs font-semibold rounded-md transition-all duration-150 ${
-                  lang === 'English'
-                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang('Español')}
-                className={`py-1.5 text-xs font-semibold rounded-md transition-all duration-150 ${
-                  lang === 'Español'
-                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                ES
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
     </aside>
   );
 };
