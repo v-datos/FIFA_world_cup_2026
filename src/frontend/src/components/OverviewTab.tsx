@@ -27,9 +27,9 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   const todayMatches = matches.filter(m => m.date === TODAY_DATE);
   const filteredMatches = todayMatches.length > 0 ? todayMatches : matches;
 
-  // World Cup 2026 group-stage totals as of June 17 (live worldcup26.ir feed: 19 matches played)
-  const matchesPlayed = 19;
-  const totalGoals = 58;
+  // World Cup 2026 group-stage totals as of June 17 (live worldcup26.ir feed: 20 matches played)
+  const matchesPlayed = 20;
+  const totalGoals = 62;
   const topScorer = "L. Messi: 3 Goals";
   const topScorerES = "L. Messi: 3 Goles";
 
