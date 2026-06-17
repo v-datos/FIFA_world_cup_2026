@@ -64,7 +64,7 @@ export const SquadStyleComparison: React.FC<Props> = ({
   };
 
   return (
-    <div className="w-full glass-panel p-5">
+    <div className="w-full h-full glass-panel p-5 flex flex-col">
       <h3 className="text-lg font-bold text-slate-100">
         {es ? 'Comparación de Plantilla y Estilo' : 'Squad & Style Comparison'}
       </h3>
@@ -75,7 +75,7 @@ export const SquadStyleComparison: React.FC<Props> = ({
         <span className="text-rose-400">{team2} {getFlag(team2)}</span>
       </div>
 
-      <div className="space-y-0.5">
+      <div className="flex-1 flex flex-col justify-between mt-1">
         {rows.map((row) => {
           const n1 = num(row, metrics1, elo1);
           const n2 = num(row, metrics2, elo2);
