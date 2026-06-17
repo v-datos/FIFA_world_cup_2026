@@ -12,18 +12,17 @@
         "key_headline": "Green Falcons Face Tactical Test Against Bielsa's High-Pressing Uruguay",
         "injuries": {
             "saudi_arabia": [
-                "Salem Al-Dawsari (Calf Soreness - Probable)"
+                "No major injuries reported."
             ],
             "uruguay": [
-                "Darwin Nunez (Muscle Tightness - Fully Fit)",
-                "Federico Valverde (Minor Knock - Fully Fit)"
+                "Luis Suarez (Omitted from Squad)"
             ]
         },
         "confirmed_tactics": {
             "saudi_arabia": {
-                "formation": "3-5-2",
-                "philosophy": "Possession-oriented build-up with defensive compactness.",
-                "manager": "Roberto Mancini"
+                "formation": "4-2-3-1",
+                "philosophy": "Defensively compact block springing direct counters through Al-Dawsari.",
+                "manager": "Georgios Donis"
             },
             "uruguay": {
                 "formation": "4-3-3",
@@ -32,8 +31,8 @@
             }
         },
         "tactical_insights": [
-            "Uruguay's relentless pressing will attempt to disrupt Saudi Arabia's patient build-up from the back.",
-            "Saudi Arabia will look to exploit the space behind Uruguay's high line with direct balls to their wing-backs.",
+            "Uruguay's relentless pressing will attempt to disrupt Saudi Arabia's build-up from the back.",
+            "Saudi Arabia will look to exploit the space behind Uruguay's high line with direct balls to Al-Dawsari.",
             "Valverde's box-to-box presence will be key in winning second balls and sustaining Uruguay's attacking pressure."
         ]
     }

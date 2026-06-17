@@ -9,32 +9,34 @@
         "stage": "Group Stage - Group L"
     },
     "ai_summary": {
-        "key_headline": "Three Lions' Youthful Attack Faces Masterclass Croatian Midfield",
+        "key_headline": "Tuchel's Reshaped England Meets Modric's Farewell-Tour Croatia",
         "injuries": {
             "england": [
-                "Harry Kane (Back Strain - Probable)",
-                "Bukayo Saka (Hamstring Strain - Doubtful)"
+                "Bukayo Saka (Fitness Concern - Probable)",
+                "Tino Livramento (Late Withdrawal - Out)",
+                "John Stones (Fitness Monitored - Probable)"
             ],
             "croatia": [
-                "Mateo Kovacic (Knee Tightness - Probable)"
+                "Luka Modric (Cheekbone Fracture Recovery - Doubtful)",
+                "Mateo Kovacic (Match Fitness - Probable)"
             ]
         },
         "confirmed_tactics": {
             "england": {
                 "formation": "4-2-3-1",
-                "philosophy": "Controlled possession build-up with explosive wingers.",
-                "manager": "Gareth Southgate"
+                "philosophy": "Tuchel's structured possession with positional fullbacks and direct wide threats.",
+                "manager": "Thomas Tuchel"
             },
             "croatia": {
-                "formation": "4-3-3",
-                "philosophy": "Midfield tempo control through possession cycles.",
+                "formation": "4-2-3-1",
+                "philosophy": "Veteran midfield tempo control built around Modric and Kovacic possession cycles.",
                 "manager": "Zlatko Dalic"
             }
         },
         "tactical_insights": [
-            "England will look to press Modric and Brozovic early to disrupt Croatia's passing rhythm.",
-            "Croatia's experienced midfield trio will try to dictate the tempo, slowing down England's high-octane press.",
-            "Jude Bellingham's direct runs from deep will challenge Croatia's central defensive block."
+            "England's Declan Rice and Elliot Anderson will look to press Modric and Kovacic early to disrupt Croatia's passing rhythm.",
+            "Croatia's ageing midfield core will try to slow the tempo against the legs of England's Bellingham and Eze.",
+            "Jude Bellingham's direct runs from deep will challenge Croatia's central defensive block in Modric's last World Cup."
         ]
     }
 }

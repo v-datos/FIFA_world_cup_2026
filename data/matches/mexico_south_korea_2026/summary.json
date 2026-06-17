@@ -12,18 +12,17 @@
         "key_headline": "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash",
         "injuries": {
             "mexico": [
-                "Edson Alvarez (Knee Bruise - Fully Fit)",
-                "Santiago Gimenez (Ankle Soreness - Probable)"
+                "No major injuries reported."
             ],
             "south_korea": [
-                "Kim Min-jae (Thigh Tightness - Probable)"
+                "Hwang In-beom (Ankle Injury - Doubtful)"
             ]
         },
         "confirmed_tactics": {
             "mexico": {
                 "formation": "4-3-3",
-                "philosophy": "High-possession positional play utilizing inverted wingers and overlapping fullbacks.",
-                "manager": "Jaime Lozano"
+                "philosophy": "High-possession positional play with inverted wingers and overlapping fullbacks.",
+                "manager": "Javier Aguirre"
             },
             "south_korea": {
                 "formation": "4-2-3-1",
@@ -32,9 +31,9 @@
             }
         },
         "tactical_insights": [
-            "Luis Chavez will try to unlock South Korea's defense with deep diagonal switches to the wingers.",
-            "Son Heung-min's inside runs from the left will target Mexico's right fullback in isolated transitions.",
-            "Edson Alvarez's presence in the pivot will be crucial to halt South Korea's direct central counters."
+            "Edson Alvarez will anchor Aguirre's midfield, screening against South Korea's direct central counters.",
+            "Captain Son Heung-min's inside runs from the left will target Mexico's right fullback in transition.",
+            "Raul Jimenez's hold-up play will be key for El Tri to sustain pressure on the Korean back line."
         ]
     }
 }

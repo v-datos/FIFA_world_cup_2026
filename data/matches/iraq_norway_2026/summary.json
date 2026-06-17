@@ -9,30 +9,30 @@
         "stage": "Group Stage - Group I"
     },
     "ai_summary": {
-        "key_headline": "Lions of Mesopotamia Target Haaland Containment Strategy",
+        "key_headline": "Arnold's Lions of Mesopotamia Target a Haaland Containment Plan",
         "injuries": {
             "iraq": [
-                "Aymen Hussein (Minor Ankle Knock - Probable)"
+                "No major injuries reported."
             ],
             "norway": [
-                "Martin Odegaard (Calf Strain - Doubtful)"
+                "Martin Odegaard (Fitness Concern - Probable)"
             ]
         },
         "confirmed_tactics": {
             "iraq": {
                 "formation": "4-2-3-1",
-                "philosophy": "Disciplined mid-block with a focal point target man.",
-                "manager": "Jesus Casas"
+                "philosophy": "Disciplined, defensively organized mid-block with a focal-point target man.",
+                "manager": "Graham Arnold"
             },
             "norway": {
                 "formation": "4-3-3",
-                "philosophy": "Direct possession targeting Haaland's central runs.",
+                "philosophy": "Aggressive high press with direct vertical balls into Haaland's central runs.",
                 "manager": "Stale Solbakken"
             }
         },
         "tactical_insights": [
-            "Iraq will deploy a double-pivot screen to restrict service to Erling Haaland in the penalty area.",
-            "Norway's wings will try to overlap and cross frequently to exploit Iraq's height disadvantage in defense.",
+            "On their first World Cup since 1986, Iraq will use a double-pivot screen to restrict service to Erling Haaland.",
+            "Norway's wings will overlap and cross frequently to exploit Iraq's height disadvantage in defense.",
             "Ali Jasim's pace on the counter will be Iraq's primary outlet to bypass Norway's high defensive line."
         ]
     }

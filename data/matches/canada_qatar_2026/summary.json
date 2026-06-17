@@ -12,11 +12,10 @@
         "key_headline": "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block",
         "injuries": {
             "canada": [
-                "Alphonso Davies (Hamstring Tightness - Fully Fit)",
-                "Alistair Johnston (Ankle Soreness - Probable)"
+                "Alphonso Davies (Hamstring Recovery - Doubtful)"
             ],
             "qatar": [
-                "Akram Afif (Groin Strain - Probable)"
+                "No major injuries reported."
             ]
         },
         "confirmed_tactics": {
@@ -26,15 +25,15 @@
                 "manager": "Jesse Marsch"
             },
             "qatar": {
-                "formation": "5-3-2",
-                "philosophy": "Deep defensive block focusing on direct counters to the Afif-Ali partnership.",
-                "manager": "Tintin Marquez"
+                "formation": "4-3-3",
+                "philosophy": "Compact defensive block springing direct counters through Akram Afif.",
+                "manager": "Julen Lopetegui"
             }
         },
         "tactical_insights": [
-            "Canada's high defensive line will be vulnerable to Akram Afif's quick runs into space on the counter.",
-            "Jonathan David's clever movement will be vital to unlock Qatar's compact five-man defensive line.",
-            "Canada's wingers will look to overload Qatar's outside center-backs in transition moments."
+            "With Alphonso Davies racing back from a hamstring injury, Tajon Buchanan carries Canada's main wide threat.",
+            "Juventus striker Jonathan David's clever movement will be vital to unlock Qatar's compact defensive block.",
+            "Lopetegui's Qatar will look to spring Akram Afif into the space behind Canada's aggressive high line."
         ]
     }
 }

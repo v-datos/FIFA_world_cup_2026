@@ -12,28 +12,28 @@
         "key_headline": "Team Melli's Attacking Firepower Tested by Physical All Whites Defense",
         "injuries": {
             "iran": [
-                "Sardar Azmoun (Knee Knock - Doubtful)"
+                "Sardar Azmoun (Omitted from Squad)"
             ],
             "new_zealand": [
-                "Chris Wood (Hamstring Strain - Doubtful)"
+                "No major injuries reported."
             ]
         },
         "confirmed_tactics": {
             "iran": {
                 "formation": "4-2-3-1",
-                "philosophy": "Pragmatic defensive setup with reliance on Taremi and Azmoun's quality.",
+                "philosophy": "Pragmatic defensive setup with reliance on captain Mehdi Taremi's link-up quality.",
                 "manager": "Amir Ghalenoei"
             },
             "new_zealand": {
                 "formation": "4-3-3",
-                "philosophy": "Direct attacking focusing on crossing and aerial dominance in the box.",
+                "philosophy": "Direct attacking focusing on crossing and aerial dominance through Chris Wood.",
                 "manager": "Darren Bazeley"
             }
         },
         "tactical_insights": [
             "Iran's Mehdi Taremi will drop deep to link play and drag New Zealand's center-backs out of position.",
-            "New Zealand will prioritize set-pieces and crosses, hoping Chris Wood can exploit aerial duels against Iran's defense.",
-            "The speed of Iran's wingers will challenge New Zealand's defensive transitions."
+            "New Zealand will prioritize set-pieces and crosses, hoping captain Chris Wood can exploit aerial duels against Iran's defense.",
+            "With Azmoun left out, the speed of Iran's wingers and Jahanbakhsh will challenge New Zealand's defensive transitions."
         ]
     }
 }
