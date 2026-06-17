@@ -12,28 +12,28 @@
         "key_headline": "Selecao's Tactical Fluidity Collides with Leopards' Physicality",
         "injuries": {
             "portugal": [
-                "Bernardo Silva (Thigh Strain - Probable)"
+                "No major injuries reported."
             ],
             "democratic_republic_of_the_congo": [
-                "Chancel Mbemba (Knee Knock - Doubtful)"
+                "No major injuries reported."
             ]
         },
         "confirmed_tactics": {
             "portugal": {
-                "formation": "4-3-3",
-                "philosophy": "Fluid attacking possession with inverted wingers and overlapping fullbacks.",
+                "formation": "4-2-3-1",
+                "philosophy": "Fluid possession with the Vitinha-Neves double pivot feeding Ronaldo and the wingers.",
                 "manager": "Roberto Martinez"
             },
             "democratic_republic_of_the_congo": {
                 "formation": "4-2-3-1",
-                "philosophy": "Physical mid-block with explosive wing transitions and direct target play.",
+                "philosophy": "Physical mid-block with explosive wing transitions and direct play to Wissa.",
                 "manager": "Sebastien Desabre"
             }
         },
         "tactical_insights": [
-            "Portugal will look to isolate Rafael Leao on the left flank to exploit DR Congo's right-back in 1v1 situations.",
-            "DR Congo will seek to exploit Portugal's high line with direct balls over the top to Yoane Wissa.",
-            "Bruno Fernandes' progressive passing from deep will be vital to breakdown the Leopards' compact double pivot."
+            "Portugal will look to isolate Rafael Leao on the left flank to exploit DR Congo's full-backs in 1v1 situations.",
+            "DR Congo will seek to exploit Portugal's high line with direct balls over the top to Newcastle's Yoane Wissa.",
+            "Bruno Fernandes' progressive passing and the Vitinha-Neves pivot will be vital to break down the Leopards' compact block."
         ]
     }
 }

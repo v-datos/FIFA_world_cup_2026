@@ -12,11 +12,11 @@
         "key_headline": "Messi-led Albiceleste Brace for Desert Foxes' Aggressive Counter",
         "injuries": {
             "argentina": [
-                "Enzo Fernandez (Groin Strain - Doubtful)"
+                "Lionel Messi (Hamstring - Probable)",
+                "Nicolas Tagliafico (Soleus Tear - Out)"
             ],
             "algeria": [
-                "Riyad Mahrez (Hamstring Tightness - Probable)",
-                "Ramy Bensebaini (Knee Injury - Out)"
+                "Ramy Bensebaini (Ankle Injury - Out)"
             ]
         },
         "confirmed_tactics": {
@@ -26,14 +26,14 @@
                 "manager": "Lionel Scaloni"
             },
             "algeria": {
-                "formation": "4-1-4-1",
-                "philosophy": "Compact defensive block with quick direct play through the channels.",
+                "formation": "4-3-3",
+                "philosophy": "Compact defensive block with quick direct counters through Amoura and Gouiri.",
                 "manager": "Vladimir Petkovic"
             }
         },
         "tactical_insights": [
-            "Argentina's possession will focus on creating overloads on the right wing to free up Messi in the half-spaces.",
-            "Algeria will look to exploit spaces left behind Argentina's attacking fullbacks via Bennacer's long-range distribution.",
+            "Argentina's possession will focus on overloads to free Messi in the half-spaces on his record sixth World Cup.",
+            "Algeria will look to exploit spaces behind Argentina's attacking fullbacks via Amoura's pace on the counter.",
             "Mac Allister's ball recovery rate will be critical in stopping Algeria's central counter-attacking transitions."
         ]
     }

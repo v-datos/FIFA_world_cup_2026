@@ -9,33 +9,33 @@
         "stage": "Group Stage - Group I"
     },
     "ai_summary": {
-        "key_headline": "Les Bleus' Midfield Core Faces Physical Senegal Press",
+        "key_headline": "Deschamps' Final-Tournament Bleus Face Thiaw's Resurgent Lions",
         "injuries": {
             "france": [
-                "Aurelien Tchouameni (Foot Injury - Doubtful)",
-                "Theo Hernandez (Thigh Strain - Probable)"
+                "Hugo Ekitike (Season-Ending Injury - Out)",
+                "William Saliba (Back Issue - Probable)",
+                "Eduardo Camavinga (Omitted from Squad)"
             ],
             "senegal": [
-                "Sadio Mane (Muscle Fatigue - Fully Fit)",
-                "Nicolas Jackson (Ankle Knock - Doubtful)"
+                "No major injuries reported."
             ]
         },
         "confirmed_tactics": {
             "france": {
                 "formation": "4-2-3-1",
-                "philosophy": "High-transition direct attacking with fluid front-four positioning.",
+                "philosophy": "High-transition direct attacking built around Mbappe and a fluid front line.",
                 "manager": "Didier Deschamps"
             },
             "senegal": {
                 "formation": "4-3-3",
-                "philosophy": "High-intensity defensive press with rapid wing transitions.",
-                "manager": "Aliou Cisse"
+                "philosophy": "High-intensity pressing with rapid wing transitions through Mane and Diatta.",
+                "manager": "Pape Thiaw"
             }
         },
         "tactical_insights": [
-            "France will look to break Senegal's low block through Griezmann's progressive passing between the lines.",
-            "Senegal's wingers Jackson and Sarr will target France's advanced fullbacks on counter-attacks.",
-            "The midfield battle between Camavinga and Pape Sarr will dictate the tempo and possession share."
+            "France will look to break Senegal's block through Tchouameni and Rabiot's progression to feed Dembele, Olise and Mbappe.",
+            "Senegal's Nicolas Jackson and Sadio Mane will target France's advanced fullbacks on counter-attacks.",
+            "The midfield battle between Tchouameni and Pape Gueye will dictate the tempo and possession share."
         ]
     }
 }

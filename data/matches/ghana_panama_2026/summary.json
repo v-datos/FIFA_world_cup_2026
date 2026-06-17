@@ -12,29 +12,30 @@
         "key_headline": "Black Stars Target Dominant Midfield Presence Against Panama",
         "injuries": {
             "ghana": [
-                "Thomas Partey (Muscle Strain - Doubtful)",
-                "Mohammed Kudus (Ankle Soreness - Fully Fit)"
+                "Mohammed Salisu (ACL Injury - Out)",
+                "Alexander Djiku (Hamstring Injury - Out)",
+                "Mohammed Kudus (Fitness Concern - Probable)"
             ],
             "panama": [
-                "Michael Murillo (Thigh Knock - Probable)"
+                "Adalberto Carrasquilla (Groin Issue - Probable)"
             ]
         },
         "confirmed_tactics": {
             "ghana": {
                 "formation": "4-2-3-1",
                 "philosophy": "Fast vertical transition utilizing Kudus' ball-carrying ability.",
-                "manager": "Otto Addo"
+                "manager": "Carlos Queiroz"
             },
             "panama": {
-                "formation": "3-4-3",
-                "philosophy": "Patient possession-based build-up with wingback overloads.",
+                "formation": "4-4-2",
+                "philosophy": "Direct, physical CONCACAF football with an organized low block and set-piece focus.",
                 "manager": "Thomas Christiansen"
             }
         },
         "tactical_insights": [
-            "Mohammed Kudus' central ball-carrying will be the key to breaking Panama's defensive lines.",
-            "Panama will seek to create numerical advantages on the flanks using their active wingbacks.",
-            "Inaki Williams' diagonal runs behind Panama's back three will be Ghana's primary attacking threat."
+            "Mohammed Kudus' central ball-carrying will be the key to breaking Panama's organized defensive lines.",
+            "Panama will sit in a compact block and look to spring direct counters and set-pieces against the Black Stars.",
+            "Inaki Williams' diagonal runs in behind will be Ghana's primary attacking threat under Carlos Queiroz."
         ]
     }
 }
