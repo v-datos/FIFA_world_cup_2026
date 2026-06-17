@@ -8,7 +8,7 @@ export const TEAM_FLAGS: Record<string, string> = {
   "Croatia": "🇭🇷", "France": "🇫🇷", "Senegal": "🇸🇳", "Ghana": "🇬🇭",
   "Panama": "🇵🇦", "Iran": "🇮🇷", "New Zealand": "🇳🇿", "Iraq": "🇮🇶",
   "Norway": "🇳🇴", "Mexico": "🇲🇽", "South Korea": "🇰🇷", "Portugal": "🇵🇹",
-  "DR Congo": "🇨🇩", "Saudi Arabia": "🇸🇦", "Uruguay": "🇺🇾", "Spain": "🇪🇸",
+  "DR Congo": "🇨🇩", "Democratic Republic of the Congo": "🇨🇩", "Saudi Arabia": "🇸🇦", "Uruguay": "🇺🇾", "Spain": "🇪🇸",
   "Cape Verde": "🇨🇻", "Switzerland": "🇨🇭", "Bosnia and Herzegovina": "🇧🇦",
   "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Haiti": "🇭🇹", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
   "United States": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkiye": "🇹🇷",
@@ -48,4 +48,4 @@ export const LAST_MAJOR_STANDING: Record<string, string> = {
 export const getLastStanding = (team: string): string | null => LAST_MAJOR_STANDING[team] || null;
 
 // Current active tournament date (MM/DD/YYYY) used to filter "games of the day".
-export const TODAY_DATE = "06/16/2026";
+export const TODAY_DATE = "06/17/2026";
