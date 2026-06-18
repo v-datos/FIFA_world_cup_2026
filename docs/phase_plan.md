@@ -7,9 +7,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-040 complete; assign T-032 next | None |
+| Orchestrator | Routing | T-032 complete; assign T-036 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Last-minute briefing pipeline, source-backed research collector, real simulation support | None for T-032 start |
+| Data Pipeline Engineer | Queued | Source-backed research collector, real simulation support, source-backed metrics | None for T-036 start |
 | Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
 | Frontend Engineer | Queued | Real Monte Carlo UI and later source-backed metric states | T-037 assignment |
 
@@ -56,6 +56,8 @@ agent roster, data contracts, task list, and deployment runbook.
   new tournament games can enter the Match Analysis workflow.
 - [x] Fixture lifecycle filtering excludes finished games from default
   last-minute analysis and briefing scope.
+- [x] Last-minute `briefing.json` generation is implemented with dry-run/write
+  safety and source-status validation.
 - [x] Local verification passes:
   `python3 -m compileall -q src && npm --prefix src/frontend run build`.
 
@@ -263,6 +265,33 @@ Exit criteria:
 - [x] Discovery dry-run/write scope skips finished fixtures.
 - [x] T-032 has a documented `source_status=not_finished` generation gate.
 
+## Completed Batch - Batch 11: Last-Minute Briefing Pipeline Implementation
+
+Owner: Data Pipeline Engineer
+
+Scope:
+
+- Add `generate_match_briefings.py`.
+- Emit dry-run manifests by default.
+- Write only `briefing.json` when `--write` is explicit.
+- Preserve existing fresh briefings unless forced.
+- Skip finished fixtures and require `source_status=not_finished`.
+- Surface empty metrics/default forecasts as warnings and blocked reasons.
+
+Outputs:
+
+- `src/pipeline/generate_match_briefings.py`
+- `/api/match/{id}/summary` compatibility for generated briefing freshness
+- `docs/handoffs/2026-06-18_data_pipeline_t032_briefing_pipeline.md`
+
+Exit criteria:
+
+- [x] Dry-run writes no fixture files.
+- [x] Temp write mode creates only `briefing.json`.
+- [x] `summary.json` and `metrics.json` remain unchanged.
+- [x] Finished fixtures return skipped rows.
+- [x] Fresh existing briefings are preserved unless forced.
+
 ## Later Planned Batches
 
 ### Batch 9 - Source-Backed Research Collector Prototype
@@ -286,17 +315,6 @@ Outputs:
 - T-038 field-source mapping implemented for at least one fixture.
 - Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
 - Frontend display of sourced, missing, or approximate metric states.
-
-### Batch 11 - Last-Minute Briefing Pipeline Implementation
-
-Owner: Data Pipeline Engineer
-
-Outputs:
-
-- `generate_match_briefings.py`.
-- `briefing.json` schema validation.
-- Dry-run manifest and explicit write mode.
-- Active-date / next-24-hour generation controls.
 
 ### Batch 12 - Frontend/API Robustness
 

@@ -176,8 +176,8 @@ data/matches/{match_id}/summary.json
 data/matches/{match_id}/metrics.json
 ```
 
-For games that are not already in `data/matches/`, use the planned active
-fixture discovery flow:
+For games that are not already in `data/matches/`, use the active fixture
+discovery flow:
 
 ```bash
 python3 src/pipeline/discover_active_fixtures.py --dry-run --window-hours 24
@@ -224,23 +224,24 @@ Before using `generate_match_previews.py` again, Phase 5 requires:
 - explicit overwrite/preserve rules for curated `summary.json`
 - validation output for missing Elo, empty `team_metrics`, and default forecasts
 
-Last-minute matchday updates are planned as a separate artifact:
+Last-minute matchday updates use a separate artifact:
 
 ```text
 data/matches/{match_id}/briefing.json
 ```
 
-The T-025 plan is documented in:
+The T-025/T-032 plan and implementation notes are documented in:
 
 ```bash
 docs/last_minute_briefing_plan.md
 ```
 
-Future implementation should use a separate command similar to:
+Use the T-032 generator:
 
 ```bash
 python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
-python3 src/pipeline/generate_match_briefings.py --write --match-id england_croatia_2026
+python3 src/pipeline/generate_match_briefings.py --write --window-hours 3
+python3 src/pipeline/generate_match_briefings.py --match-id england_croatia_2026 --dry-run
 ```
 
 Required behavior:
@@ -250,9 +251,14 @@ Required behavior:
 - write only `briefing.json`
 - preserve `summary.json` and `metrics.json`
 - emit source/freshness/data-quality validation before writes
-- use the T-035 source policy for web/news collection
+- skip finished fixtures and require `source_status=not_finished`
 - treat fresh last-minute analysis as the 3-hour window before the first match of
   the daily `jornada`
+- preserve existing fresh briefings unless `--force-refresh` is supplied
+
+Current T-032 caution: this generator creates safe draft baseline-support
+briefing artifacts and validation manifests. It does not yet collect fresh
+web/news sources. T-036 owns source-backed research collection.
 
 ### Source-Backed Research Intake
 

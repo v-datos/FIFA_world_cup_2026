@@ -21,7 +21,7 @@ is planned under the approved T-035 source policy.
 - **Tournament Progression Estimates**: Currently deterministic Elo-based round progression estimates. T-037 will replace this with a real Monte Carlo simulation.
 - **Squad Style & Metric Comparison**: Visualizes team-by-team tactical KPIs from local metric profiles and hardcoded references today; T-038 will move this to source-backed metrics where provider coverage allows.
 - **Bespoke Visualizations**: Renders historical StatsBomb proxy plots including xG distribution comparisons, passing networks, shot maps, touch heatmaps, and progressive action maps using `mplsoccer`.
-- **Planned AI Research Layer**: Future `briefing.json` matchday updates should collect source-backed injuries, lineups, roster changes, and tactical news without overwriting baseline previews.
+- **Last-Minute Briefing Pipeline**: `briefing.json` matchday artifacts are generated separately from baseline previews, with source/freshness validation and blocked states for incomplete data. Source-backed injuries, lineups, roster changes, and tactical news remain routed to T-036.
 - **Spanish Translation Toggle**: Seamless switcher at the top of the Match Analysis panel to translate labels and Match Analysis content between English and Español.
 
 ## Running Locally
@@ -61,14 +61,18 @@ python src/pipeline/generate_match_previews.py
 ```
 
 Current caution: this script can overwrite curated `summary.json` files.
-Baseline previews and last-minute match briefings are now separate concepts.
-The planned matchday briefing artifact is
-`data/matches/{match_id}/briefing.json`; see
-`docs/last_minute_briefing_plan.md` before changing generation behavior.
+Baseline previews and last-minute match briefings are separate concepts. The
+matchday briefing artifact is `data/matches/{match_id}/briefing.json`, generated
+by:
+
+```bash
+python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
+```
+
+See `docs/last_minute_briefing_plan.md` before changing generation behavior.
 
 For tournament progression, missing fixture folders should be created through
-the planned active fixture discovery workflow in
-`docs/active_fixture_discovery_plan.md`, not by manually copying old match
+`src/pipeline/discover_active_fixtures.py`, not by manually copying old match
 folders.
 
 Model and source-provenance truth is documented in

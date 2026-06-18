@@ -1,9 +1,27 @@
 # Last-Minute Match Briefing Generation Plan
 
 Last updated: 2026-06-18  
-Task: T-025 - Safe Last-Minute Match Briefing Generation Plan  
+Task: T-025 - Safe Last-Minute Match Briefing Generation Plan; T-032 implementation addendum  
 Owner: Data Pipeline Engineer  
 Reviewers: Football Data Scientist, Frontend Engineer, QA / Reproducibility Engineer
+
+## Implementation Status
+
+T-032 implemented the safe briefing artifact generator:
+
+```bash
+python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
+python3 src/pipeline/generate_match_briefings.py --write --window-hours 3
+python3 src/pipeline/generate_match_briefings.py --match-id canada_qatar_2026 --dry-run
+```
+
+The script defaults to dry-run, writes only `briefing.json` when `--write` is
+explicit, skips finished fixtures, requires `source_status=not_finished`, and
+preserves existing fresh briefings unless `--force-refresh` is supplied.
+
+T-032 does not perform web/news collection. It creates draft local baseline
+briefing artifacts and validation manifests. Source-backed current research is
+still routed to T-036.
 
 ## Objective
 
@@ -39,7 +57,7 @@ If a tournament match is not already represented by local files, T-034 must
 discover the fixture and create baseline stubs before this briefing plan can run.
 The briefing generator should not create baseline summary/metrics stubs itself.
 
-## Planned `briefing.json` Contract
+## `briefing.json` Contract
 
 Path:
 
@@ -150,7 +168,7 @@ Default generation scope:
 - Exclude fixtures whose `/api/schedule` lifecycle is `finished` or whose
   source status is not `not_finished`.
 
-Configurable arguments for the future generator:
+Implemented generator examples:
 
 ```bash
 python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
@@ -229,7 +247,7 @@ Planned UI behavior:
 Recommended follow-up tasks:
 
 1. Build `generate_match_briefings.py` with dry-run validation and no default
-   writes.
+   writes. Complete in T-032.
 2. Add `briefing.json` schema validation.
 3. Add `/api/match/{match_id}/briefing`.
 4. Add Match Analysis UI freshness states.
@@ -242,7 +260,7 @@ Recommended follow-up tasks:
 T-025 is complete when this plan is documented and routed. Implementation tasks
 are separate.
 
-Future implementation is complete only when:
+T-032 implementation is complete when:
 
 - Dry-run lists the intended `briefing.json` changes without writing files.
 - Write mode creates or updates only `briefing.json`.
@@ -253,3 +271,7 @@ Future implementation is complete only when:
 - Fresh/stale/baseline-only/blocked states are testable with sample fixtures.
 - Frontend build and Python compile pass.
 - QA can inspect generated source/freshness metadata without reading logs.
+
+T-032 verification passed on 2026-06-18. No production `briefing.json` files
+were written during closeout; write-mode safety was verified against a temporary
+copy of `data/matches/`.

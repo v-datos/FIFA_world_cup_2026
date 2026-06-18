@@ -1,5 +1,81 @@
 # STATUS
 
+## 2026-06-18 - T-032 Last-Minute Briefing Pipeline Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-032 is complete as an implementation task.
+- Added `src/pipeline/generate_match_briefings.py`.
+- The generator creates only `data/matches/{match_id}/briefing.json` when
+  `--write` is explicit.
+- Default mode is dry-run and writes nothing.
+- The pipeline uses current fixture lifecycle/source status and skips finished
+  fixtures.
+- No production `briefing.json` files were written during closeout; write-mode
+  verification used a temporary copy of `data/matches/`.
+
+### What Changed
+
+- Added dry-run/write support for the active `jornada` briefing window.
+- Added `--window-hours`, `--match-id`, `--active-date`, `--force-refresh`,
+  `--data-dir`, `--cache-path`, and `--now` controls.
+- Added a machine-readable manifest with target path, source status, freshness,
+  action, warnings, blocked reasons, and validation state.
+- Added draft `briefing.json` payload construction with:
+  - `metadata`
+  - `fixture`
+  - `team_keys`
+  - `briefing`
+  - `forecast_snapshot`
+  - `data_quality`
+  - `sources`
+  - `review`
+- Preserves existing fresh briefings unless `--force-refresh` is passed.
+- Updated `/api/match/{id}/summary` compatibility so it reads
+  `metadata.freshness` and source labels from generated briefing artifacts.
+
+### Current Briefing Scope
+
+As of the T-032 dry-run, the active day contains four not-finished fixtures:
+
+- `czech_republic_south_africa_2026`
+- `switzerland_bosnia_and_herzegovina_2026`
+- `canada_qatar_2026`
+- `mexico_south_korea_2026`
+
+All four were reported as `would_create` but `freshness=blocked` because the
+current stored team metrics are empty, and three also use the default
+`40/30/30` forecast. This is expected: T-032 implements the safe briefing
+artifact pipeline, while T-036 must add source-backed research content.
+
+### Verification
+
+- `python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3`
+  reported four current-day targets and wrote no files.
+- Finished fixture dry-run for `england_croatia_2026` reported `skipped`.
+- Future fixture dry-run for `brazil_haiti_2026` used the fixture's own
+  `2026-06-19` jornada window.
+- Temp write-mode verification for `canada_qatar_2026` created only
+  `briefing.json`; copied `summary.json` and `metrics.json` remained
+  byte-identical.
+- Fresh-preservation verification reported `preserved` without
+  `--force-refresh`.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build` passed with the existing chunk-size
+  warning only.
+
+### Routing
+
+- Next Orchestrator assignment should be **T-036 - Source-Backed Research
+  Collector Prototype** so `briefing.json` can move beyond local baseline draft
+  content into auditable source-backed matchday intelligence.
+- T-033 remains the dedicated API/UI task for a full
+  `/api/match/{match_id}/briefing` route and richer Match Analysis freshness UI.
+
+---
+
 ## 2026-06-18 - T-040 Fixture Lifecycle Filter Completed
 
 Prepared by: Orchestrator
@@ -110,8 +186,8 @@ Prepared by: Orchestrator
 
 ### Routing
 
-- T-032 is now unblocked and should be the next Orchestrator assignment: build
-  the separate last-minute `briefing.json` generation flow.
+- T-032 is now complete. T-036 should add source-backed research content to the
+  safe `briefing.json` pipeline.
 - T-031/T-038 still need to replace empty stub metrics with source-backed values
   where coverage allows.
 
@@ -204,7 +280,8 @@ Prepared by: Orchestrator
 
 - T-034, T-036, T-038, and T-039 should use the shared identity contract before
   writing any source-collected payloads.
-- T-034 is now complete; next Orchestrator assignment should be T-032.
+- T-034 and T-032 are now complete; next Orchestrator assignment should be
+  T-036.
 
 ---
 
@@ -256,7 +333,8 @@ Prepared by: Orchestrator
 - Moved **T-036 - Source-Backed Research Collector Prototype** into the queued
   implementation path.
 - T-028 is now complete and renders default forecasts as "forecast unavailable."
-- T-032/T-033 should use the 3-hour `jornada` freshness rule.
+- T-032 now uses the 3-hour `jornada` freshness rule; T-033 should preserve it
+  in the dedicated briefing API/UI.
 
 ### Review Comment Disposition
 

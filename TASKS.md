@@ -9,23 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-032 - Last-Minute Briefing Pipeline Implementation**
-  Owner: Data Pipeline Engineer
-  Phase: Phase 5
-  Notes: Implement the T-025 plan by creating a separate
-  `generate_match_briefings.py` flow that writes only
-  `data/matches/{match_id}/briefing.json`. Default to dry-run, require
-  explicit `--write`, support `--window-hours` and `--match-id`, preserve
-  existing fresh briefings unless forced, and emit machine-readable validation
-  for source freshness, empty metrics, and default forecasts. It must use the
-  `/api/schedule` lifecycle contract and generate research only for
-  `source_status=not_finished` fixtures in scope; finished games are skipped.
-  T-034 is complete, so every in-scope fixture can now have a baseline folder
-  before briefing runs.
-  Verify: Dry-run writes nothing; write mode creates/updates only
-  `briefing.json`; finished fixtures are skipped; `summary.json` and
-  `metrics.json` stay unchanged.
-
 - [ ] **T-036 - Source-Backed Research Collector Prototype**
   Owner: Data Pipeline Engineer / Football Data Scientist
   Phase: Phase 5
@@ -123,6 +106,21 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-032 - Last-Minute Briefing Pipeline Implementation**
+  Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
+  Completed: 2026-06-18
+  Notes: Added `src/pipeline/generate_match_briefings.py` as a separate
+  `briefing.json` generator. It defaults to dry-run, requires explicit
+  `--write`, supports `--window-hours`, `--match-id`, `--active-date`,
+  `--force-refresh`, temp `--data-dir`, and QA `--now`, preserves existing
+  fresh briefings unless forced, skips finished fixtures, and requires
+  live/cache `source_status=not_finished` for in-scope generation. The manifest
+  reports target paths, source status, freshness, validation, warnings,
+  blocked reasons, and create/update/preserve/skip actions. T-032 intentionally
+  does not perform web/news collection; T-036 remains responsible for
+  source-backed research content.
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_t032_briefing_pipeline.md
 
 - [x] **T-034 - Active Fixture Discovery and Baseline Stub Generation**
   Owner: Data Pipeline Engineer / QA / Reproducibility Engineer

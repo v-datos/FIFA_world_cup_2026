@@ -713,12 +713,27 @@ def get_match_summary(match_id: str):
                 briefing_data = json.load(f)
             freshness = (
                 briefing_data.get("data_quality", {}).get("freshness_state")
+                or briefing_data.get("metadata", {}).get("freshness")
                 or briefing_data.get("metadata", {}).get("freshness_state")
                 or "stale"
             )
+            sources = briefing_data.get("sources", [])
+            source_labels = [
+                source.get("label")
+                for source in sources
+                if isinstance(source, dict) and source.get("label")
+            ]
+            if freshness in {"blocked", "skipped"}:
+                source_label = "blocked"
+            elif "web_researched" in source_labels:
+                source_label = "web_researched"
+            elif source_labels:
+                source_label = source_labels[0]
+            else:
+                source_label = "static_curated"
             summary_data["briefing_status"] = {
                 "freshness_state": freshness,
-                "source_label": briefing_data.get("source_label", "web_researched"),
+                "source_label": source_label,
                 "message": "Last-minute briefing artifact is available.",
             }
         except Exception:

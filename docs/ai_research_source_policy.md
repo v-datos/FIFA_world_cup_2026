@@ -214,8 +214,9 @@ Future derived claim record:
   integration, including PPDA and field-tilt proxy feasibility.
 - T-027 is complete; all source-backed writes should normalize provider team
   names through `data/reference/team_identity.json`.
-- T-032/T-033: wire source-backed `briefing.json` generation/API/UI after the
-  source collector is proven.
+- T-032 is complete as the safe `briefing.json` artifact generator.
+- T-033 should expose the dedicated briefing API/UI states after source
+  collector output is proven.
 
 ## References Checked
 
