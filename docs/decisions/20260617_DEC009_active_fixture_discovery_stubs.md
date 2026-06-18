@@ -62,6 +62,8 @@ Do not invent unavailable football intelligence during stub generation.
 - T-027 is complete and centralizes team slugs/display names.
 - T-028 is complete and renders stubbed metrics and missing forecasts as
   incomplete.
+- T-040 adds lifecycle filtering: finished fixtures are skipped and must not
+  receive last-minute briefing research.
 - The app can eventually progress through the tournament without pre-creating
   every future match folder manually.
 

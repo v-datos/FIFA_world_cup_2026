@@ -43,8 +43,8 @@ provider-specific variant.
 
 - `python3 -m json.tool data/reference/team_identity.json`
 - `python3 -m compileall -q src`
-- Custom identity audit: all 19 active fixtures resolved by folder ID, metadata
-  display names, injury slugs, and tactics slugs.
+- Current identity audit after T-034: all 20 active fixtures resolve by folder
+  ID, metadata display names, injury slugs, and tactics slugs.
 - `npm --prefix src/frontend run build`
 
 The frontend build passed with the existing chunk-size warning only.

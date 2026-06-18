@@ -46,14 +46,16 @@ with:
 
 ### Active Fixture Discovery
 
-- Planned source: `worldcup26.ir/get/games`, with `/tmp/games.json` cache
+- Implemented source: `worldcup26.ir/get/games`, with `/tmp/games.json` cache
   fallback.
-- Plan: `docs/active_fixture_discovery_plan.md`.
+- Script: `src/pipeline/discover_active_fixtures.py`.
 - Product role: make sure matches entering the active date or next-24-hour
   window have local baseline folders before briefing generation.
 - Stub rule: if a fixture is missing locally, create explicit `baseline_stub`
   `summary.json` and `metrics.json` files using schedule facts only; do not
   invent tactical analysis, forecast probabilities, or team metrics.
+- Lifecycle rule: finished fixtures stay available as historical records but
+  are skipped by last-minute research and hidden from the default day view.
 
 ### Last-Minute Match Briefing
 
@@ -73,8 +75,8 @@ with:
   `team_metrics`.
 - Runtime augmentation: Elo ratings, progression estimates, and visualization
   proxy labels.
-- Known caveat: the Phase 5 data contract audit found eight fixtures with empty
-  team metric profiles and seven fixtures with default stored forecasts.
+- Known caveat: after T-034, nine fixtures have empty team metric profiles and
+  eight fixtures have default stored forecasts.
 - Current caveat from T-026: Elo ratings are local hardcoded defaults, and the
   progression panel is deterministic even though the UI currently labels it
   Monte Carlo.

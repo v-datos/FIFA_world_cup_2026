@@ -7,9 +7,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-028 complete; assign T-034 next | None |
+| Orchestrator | Routing | T-040 complete; assign T-032 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Active fixture discovery, source-backed research collector, real simulation support | None for T-034 start |
+| Data Pipeline Engineer | Queued | Last-minute briefing pipeline, source-backed research collector, real simulation support | None for T-032 start |
 | Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
 | Frontend Engineer | Queued | Real Monte Carlo UI and later source-backed metric states | T-037 assignment |
 
@@ -38,7 +38,7 @@ agent roster, data contracts, task list, and deployment runbook.
   - `/api/schedule`
   - `/api/match/{id}/summary`
   - `/api/match/{id}/metrics`
-- [x] All 19 active match folders are audited for missing fields, empty metrics,
+- [x] All 20 active match folders are audited for missing fields, empty metrics,
   default forecasts, and source provenance.
 - [x] Legacy folders `1001`, `1002`, and `1003` are classified.
 - [x] Last-minute briefing generation has a documented safety plan before
@@ -52,8 +52,10 @@ agent roster, data contracts, task list, and deployment runbook.
   automation, or source-backed matchday collection is implemented.
 - [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
 - [ ] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
-- [ ] Active fixture discovery and baseline stub generation are implemented so
+- [x] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
+- [x] Fixture lifecycle filtering excludes finished games from default
+  last-minute analysis and briefing scope.
 - [x] Local verification passes:
   `python3 -m compileall -q src && npm --prefix src/frontend run build`.
 
@@ -85,7 +87,7 @@ Owners: QA / Reproducibility Engineer, Data Pipeline Engineer
 Scope:
 
 - Document active JSON/API payload contracts.
-- Audit all 19 active fixtures.
+- Audit the original 19 active fixtures.
 - Classify legacy numeric folders.
 - Route missing/default/fallback fields to follow-up tasks.
 
@@ -97,7 +99,7 @@ Output:
 Exit criteria:
 
 - [x] Active JSON/API payload contracts are documented.
-- [x] All 19 active fixtures are audited.
+- [x] The original 19 active fixtures are audited.
 - [x] Legacy numeric folders are classified.
 - [x] Missing/default/fallback fields are routed to follow-up tasks.
 
@@ -209,13 +211,11 @@ Exit criteria:
 - [ ] Real Monte Carlo implementation path is unblocked.
 - [ ] Free-source feasibility is known before T-038 relies on paid APIs.
 
-## Later Planned Batches
-
-### Batch 7 - Active Fixture Discovery & Baseline Stub Generation
+## Completed Batch - Batch 7: Active Fixture Discovery & Baseline Stub Generation
 
 Owner: Data Pipeline Engineer
 
-Outputs:
+Scope:
 
 - `discover_active_fixtures.py` or equivalent pipeline entrypoint.
 - Dry-run manifest for active-date / next-24-hour fixture discovery.
@@ -223,7 +223,49 @@ Outputs:
   `metrics.json`.
 - No-overwrite validation for existing curated folders.
 
-### Batch 8 - Source-Backed Research Collector Prototype
+Outputs:
+
+- `src/pipeline/discover_active_fixtures.py`
+- `data/matches/brazil_haiti_2026/summary.json`
+- `data/matches/brazil_haiti_2026/metrics.json`
+- `docs/handoffs/2026-06-18_data_pipeline_t034_active_fixture_discovery.md`
+
+Exit criteria:
+
+- [x] Dry-run writes no fixture files.
+- [x] Write mode creates only missing baseline files.
+- [x] Existing curated folders are not overwritten.
+- [x] Stub forecast and team metrics are labeled as fallback/incomplete.
+- [x] `/api/schedule` sees the generated baseline folder.
+
+## Completed Batch - Batch 8: Fixture Lifecycle Filter
+
+Owners: Data Pipeline Engineer, Frontend Engineer
+
+Scope:
+
+- Add lifecycle/source-status fields to `/api/schedule`.
+- Exclude finished fixtures from discovery/briefing scope.
+- Remove hardcoded frontend date filtering.
+- Show only current-day not-finished fixtures in Overview and Match Analysis.
+
+Outputs:
+
+- `/api/schedule` lifecycle contract.
+- React day-view lifecycle filter.
+- `docs/decisions/20260618_DEC014_fixture_lifecycle_filter.md`
+- `docs/handoffs/2026-06-18_data_pipeline_frontend_t040_fixture_lifecycle.md`
+
+Exit criteria:
+
+- [x] Finished fixtures remain available as historical records.
+- [x] Finished fixtures are excluded from default Match Analysis selection.
+- [x] Discovery dry-run/write scope skips finished fixtures.
+- [x] T-032 has a documented `source_status=not_finished` generation gate.
+
+## Later Planned Batches
+
+### Batch 9 - Source-Backed Research Collector Prototype
 
 Owner: Data Pipeline Engineer
 
@@ -234,7 +276,7 @@ Outputs:
 - Proposed `briefing.json` or research-cache output.
 - No writes to `summary.json`.
 
-### Batch 9 - Source-Backed Squad & Style Integration
+### Batch 10 - Source-Backed Squad & Style Integration
 
 Owners: Data Pipeline Engineer, Football Data Scientist, Frontend Engineer
 
@@ -245,7 +287,7 @@ Outputs:
 - Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
 - Frontend display of sourced, missing, or approximate metric states.
 
-### Batch 10 - Last-Minute Briefing Pipeline Implementation
+### Batch 11 - Last-Minute Briefing Pipeline Implementation
 
 Owner: Data Pipeline Engineer
 
@@ -256,7 +298,7 @@ Outputs:
 - Dry-run manifest and explicit write mode.
 - Active-date / next-24-hour generation controls.
 
-### Batch 11 - Frontend/API Robustness
+### Batch 12 - Frontend/API Robustness
 
 Owners: Frontend Engineer, Data Pipeline Engineer
 
@@ -303,6 +345,8 @@ Outputs:
 | 2026-06-18 | Approve AI Research Source Policy | docs/decisions/20260618_DEC011_ai_research_source_policy.md |
 | 2026-06-18 | Adopt Shared Team Identity Contract | docs/decisions/20260618_DEC012_team_identity_contract.md |
 | 2026-06-18 | Render Fallback and Missing Data as Unavailable | docs/decisions/20260618_DEC013_fallback_rendering_contract.md |
+| 2026-06-18 | Add Fixture Lifecycle Filter for Last-Minute Analysis | docs/decisions/20260618_DEC014_fixture_lifecycle_filter.md |
+| 2026-06-18 | Adopt Task Completion Commit and Push Closeout | docs/decisions/20260618_DEC015_task_completion_closeout.md |
 
 ## Open Blockers
 

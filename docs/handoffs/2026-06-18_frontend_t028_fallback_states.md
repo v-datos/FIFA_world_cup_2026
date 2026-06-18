@@ -67,9 +67,8 @@ The frontend build passed with the existing chunk-size warning only.
 
 ## Next Routing
 
-Recommended next Orchestrator task: T-034 - Active Fixture Discovery and
-Baseline Stub Generation.
+Recommended next Orchestrator task: T-032 - Last-Minute Briefing Pipeline
+Implementation.
 
-Reason: T-027 identity and T-028 fallback rendering are now complete, so
-baseline stubs can be generated without new fixtures breaking identity or
-misleading the public UI.
+Reason: T-034 is now complete, so in-scope fixtures can have baseline folders
+before `briefing.json` generation runs.

@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import subprocess
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 from fastapi import FastAPI, HTTPException, Query
@@ -55,6 +56,138 @@ _standings_cache = {}
 
 def clean_team_name(name: str) -> str:
     return canonical_team_slug(name)
+
+
+def parse_schedule_datetime(date_value: str | None, time_value: str | None) -> Optional[datetime]:
+    if not date_value:
+        return None
+    time_text = (time_value or "00:00").strip()
+    for fmt in ("%m/%d/%Y %H:%M", "%m/%d/%Y %H:%M:%S", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(f"{date_value.strip()} {time_text}", fmt)
+        except ValueError:
+            pass
+    return None
+
+
+def parse_live_game_datetime(game: dict) -> Optional[datetime]:
+    local_date = str(game.get("local_date") or "").strip()
+    if local_date:
+        for fmt in ("%m/%d/%Y %H:%M", "%m/%d/%Y %H:%M:%S"):
+            try:
+                return datetime.strptime(local_date, fmt)
+            except ValueError:
+                pass
+    return parse_schedule_datetime(game.get("date"), game.get("time"))
+
+
+def is_finished_game(game: dict | None) -> bool:
+    if not game:
+        return False
+    value = game.get("finished")
+    return value is True or str(value).upper() == "TRUE"
+
+
+def fetch_live_games_for_schedule() -> tuple[dict[str, dict], str]:
+    errors = []
+    payload = None
+    source = "live_schedule"
+
+    try:
+        result = subprocess.run(
+            ["curl", "-s", "-k", "--max-time", "10", "https://worldcup26.ir/get/games"],
+            capture_output=True,
+            text=True,
+            timeout=12,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            payload = json.loads(result.stdout)
+        else:
+            errors.append(f"live API curl exit {result.returncode}")
+    except Exception as exc:
+        errors.append(f"live API failed: {exc}")
+
+    if payload is None:
+        cache_path = Path("/tmp/games.json")
+        try:
+            if cache_path.exists():
+                with open(cache_path, "r", encoding="utf-8") as f:
+                    payload = json.load(f)
+                source = "cache"
+        except Exception as exc:
+            errors.append(f"cache failed: {exc}")
+
+    games = []
+    if isinstance(payload, dict):
+        games = payload.get("games", [])
+    elif isinstance(payload, list):
+        games = payload
+
+    index = {}
+    for game in games:
+        if not isinstance(game, dict):
+            continue
+        team1 = normalize_team_name(
+            game.get("home_team_name_en")
+            or game.get("home_team_label")
+            or team_id_to_name(game.get("home_team_id"))
+            or ""
+        )
+        team2 = normalize_team_name(
+            game.get("away_team_name_en")
+            or game.get("away_team_label")
+            or team_id_to_name(game.get("away_team_id"))
+            or ""
+        )
+        if not team1 or not team2:
+            continue
+        match_id = f"{canonical_team_slug(team1)}_{canonical_team_slug(team2)}_2026"
+        index[match_id] = game
+
+    return index, source if index else ("unavailable" if errors else source)
+
+
+def schedule_lifecycle(
+    meta: dict,
+    live_game: dict | None,
+    now_value: datetime,
+    next_24h_end: datetime,
+) -> dict:
+    kickoff = parse_live_game_datetime(live_game) if live_game else parse_schedule_datetime(meta.get("date"), meta.get("time"))
+    kickoff_date = kickoff.date() if kickoff else None
+    today = now_value.date()
+    is_finished = is_finished_game(live_game)
+    if not is_finished and kickoff_date and kickoff_date < today:
+        is_finished = True
+    live_team1 = live_game.get("home_team_name_en") or live_game.get("home_team_label") if live_game else ""
+    live_team2 = live_game.get("away_team_name_en") or live_game.get("away_team_label") if live_game else ""
+    unresolved = any(
+        token in str(value).lower()
+        for value in (live_team1, live_team2)
+        for token in ("winner", "runner-up", "runner up", "loser", "???", "tbd")
+    )
+
+    if unresolved:
+        lifecycle = "unresolved"
+    elif is_finished:
+        lifecycle = "finished"
+    elif kickoff_date == today:
+        lifecycle = "today"
+    elif kickoff and kickoff > now_value:
+        lifecycle = "upcoming"
+    else:
+        lifecycle = "archived"
+
+    is_upcoming_24h = bool(kickoff and not is_finished and now_value <= kickoff <= next_24h_end)
+    return {
+        "lifecycle": lifecycle,
+        "source_status": "finished" if is_finished else "not_finished" if live_game else "unknown",
+        "source_game_id": str(live_game.get("id")) if live_game else None,
+        "is_finished": is_finished,
+        "is_today": lifecycle == "today",
+        "is_upcoming_24h": is_upcoming_24h,
+        "is_briefing_candidate": lifecycle == "today" or is_upcoming_24h,
+    }
 
 def load_live_bracket_state() -> dict:
     bracket_path = DATA_DIR / "bracket" / "grid_state.json"
@@ -490,6 +623,10 @@ def health():
 def get_schedule():
     matches_dir = DATA_DIR / "matches"
     matches_details = []
+    now_value = datetime.now().replace(microsecond=0)
+    next_24h_end = now_value + timedelta(hours=24)
+    live_game_index, schedule_source = fetch_live_games_for_schedule()
+
     if matches_dir.exists():
         for folder in sorted(matches_dir.iterdir()):
             if folder.is_dir() and folder.name.endswith("_2026"):
@@ -499,6 +636,12 @@ def get_schedule():
                         with open(sum_path, "r", encoding="utf-8") as f:
                             data = json.load(f)
                         meta = data.get("metadata", {})
+                        lifecycle = schedule_lifecycle(
+                            meta,
+                            live_game_index.get(folder.name),
+                            now_value,
+                            next_24h_end,
+                        )
                         matches_details.append({
                             "id": folder.name,
                             "team1": meta.get("team1"),
@@ -506,11 +649,54 @@ def get_schedule():
                             "date": meta.get("date"),
                             "time": meta.get("time"),
                             "venue": meta.get("venue"),
-                            "stage": meta.get("stage")
+                            "stage": meta.get("stage"),
+                            **lifecycle,
                         })
                     except Exception:
                         pass
-    return {"matches": matches_details}
+
+    matches_details.sort(
+        key=lambda item: (
+            parse_schedule_datetime(item.get("date"), item.get("time")) or datetime.max,
+            item.get("id") or "",
+        )
+    )
+
+    day_matches = [item for item in matches_details if item.get("lifecycle") == "today"]
+    first_kickoff = None
+    if day_matches:
+        day_kickoffs = [
+            kickoff for kickoff in (
+                parse_schedule_datetime(item.get("date"), item.get("time"))
+                for item in day_matches
+            )
+            if kickoff
+        ]
+        first_kickoff = min(day_kickoffs) if day_kickoffs else None
+    briefing_window_start = first_kickoff - timedelta(hours=3) if first_kickoff else None
+
+    lifecycle_counts: dict[str, int] = {}
+    for item in matches_details:
+        state = item.get("lifecycle") or "unknown"
+        lifecycle_counts[state] = lifecycle_counts.get(state, 0) + 1
+
+    return {
+        "matches": matches_details,
+        "schedule_source": schedule_source,
+        "active_date": now_value.strftime("%m/%d/%Y"),
+        "default_match_id": day_matches[0]["id"] if day_matches else None,
+        "lifecycle_counts": lifecycle_counts,
+        "briefing_window": {
+            "first_kickoff": first_kickoff.isoformat(timespec="minutes") if first_kickoff else None,
+            "window_start": briefing_window_start.isoformat(timespec="minutes") if briefing_window_start else None,
+            "window_hours": 3,
+            "is_open": bool(
+                first_kickoff
+                and briefing_window_start
+                and briefing_window_start <= now_value <= first_kickoff
+            ),
+        },
+    }
 
 @app.get("/api/match/{match_id}/summary")
 def get_match_summary(match_id: str):

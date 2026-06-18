@@ -57,6 +57,3 @@ export const LAST_MAJOR_STANDING: Record<string, string> = {
 export const getLastStanding = (team: string): string | null => (
   LAST_MAJOR_STANDING[normalizeTeamName(team)] || LAST_MAJOR_STANDING[team] || null
 );
-
-// Current active tournament date (MM/DD/YYYY) used to filter "games of the day".
-export const TODAY_DATE = "06/17/2026";

@@ -30,6 +30,9 @@ The frontend consumes these backend routes:
 
 Current frontend rules:
 
+- Overview and Match Analysis default to `/api/schedule` entries with
+  `lifecycle: "today"` only. Finished and future fixtures stay out of the
+  default day view.
 - Team names, flags, and slugs must flow through `src/lib/teamIdentity.ts`,
   backed by `data/reference/team_identity.json`.
 - `metrics.data_quality.forecast` controls whether forecast probabilities render

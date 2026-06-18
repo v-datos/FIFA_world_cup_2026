@@ -1,7 +1,7 @@
 # Data Contracts and Audit - Active JSON and API Payloads
 
 Last updated: 2026-06-18  
-Task: T-024 - Data Contract Audit for Active JSON and API Payloads; T-026/T-028 provenance addenda
+Task: T-024 - Data Contract Audit for Active JSON and API Payloads; T-026/T-028/T-034/T-040 provenance addenda
 Owners: QA / Reproducibility Engineer, Football Data Scientist, with Data Pipeline Engineer support
 
 ## Scope
@@ -45,6 +45,11 @@ T-026 provenance labels:
 | `baseline_only` | Static baseline content exists, but no last-minute briefing exists. |
 | `missing` | Required source or data point does not exist. |
 | `blocked` | Collection was attempted but failed because access, credentials, or policy blocked it. |
+| `finished` | Fixture is completed and must not receive last-minute research. |
+| `today` | Fixture is scheduled for the active local date and is not finished. |
+| `upcoming` | Fixture is not finished but is beyond the active day. |
+| `unresolved` | Fixture has placeholder teams such as `Winner Match 95`. |
+| `archived` | Local historical fixture without current live schedule confirmation. |
 
 ## Active Folder Rule
 
@@ -52,17 +57,17 @@ The active match list is not manually enumerated. `/api/schedule` scans
 `data/matches/`, includes folders whose names end with `_2026`, reads each
 `summary.json`, and returns a `matches` array.
 
-Active folders found on 2026-06-17: 19.
+Active folders found after T-034 on 2026-06-18: 20.
 
 Legacy folders found on 2026-06-17: `1001`, `1002`, `1003`.
 
-Planned tournament progression rule:
+Active fixture discovery rule:
 
-- T-034 will discover active-date or next-24-hour fixtures from the live games
-  API and create missing baseline folders before briefing generation.
-- Missing folders should receive explicit `baseline_stub` `summary.json` and
+- T-034 discovers active-date or next-24-hour fixtures from the live games API
+  and creates missing baseline folders before briefing generation.
+- Missing folders receive explicit `baseline_stub` `summary.json` and
   `metrics.json` files.
-- Stub `metrics.json` files should preserve the current numeric forecast and
+- Stub `metrics.json` files preserve the current numeric forecast and
   six-score shape for compatibility, but the generation manifest must label
   them `default_forecast`, `empty_team_metrics`, and `baseline_stub`.
 - Existing curated folders must not be overwritten by stub generation.
@@ -113,13 +118,15 @@ Required `confirmed_tactics` per-team fields:
 
 Audit result:
 
-- 19 of 19 active fixtures have required top-level keys.
-- 19 of 19 active fixtures have required `metadata` fields.
-- 19 of 19 active fixtures have required `ai_summary` fields.
-- 19 of 19 active fixtures have 3 tactical insight bullets.
-- 19 of 19 active fixtures have `injuries` and `confirmed_tactics` keys matching the normalized team slugs used inside the JSON.
-- 19 of 19 active fixtures now resolve those editorial keys through the shared
+- 20 of 20 active fixtures have required top-level keys.
+- 20 of 20 active fixtures have required `metadata` fields.
+- 20 of 20 active fixtures have required `ai_summary` fields.
+- 20 of 20 active fixtures have 3 tactical insight bullets.
+- 20 of 20 active fixtures have `injuries` and `confirmed_tactics` keys matching the normalized team slugs used inside the JSON.
+- 20 of 20 active fixtures now resolve those editorial keys through the shared
   React identity helper added in T-027.
+- 1 of 20 active fixtures is an explicit `baseline_stub` from T-034:
+  `brazil_haiti_2026`.
 
 Identity contract:
 
@@ -207,11 +214,11 @@ API-added `metrics` fields:
 
 Audit result:
 
-- 19 of 19 active fixtures have the stored top-level keys.
-- 19 of 19 active fixtures have 6 exact-score probabilities.
-- 11 of 19 active fixtures have full 15-field team profiles for both teams.
-- 8 of 19 active fixtures have empty `team_metrics` objects for both teams.
-- 7 of 19 active fixtures use the default stored forecast
+- 20 of 20 active fixtures have the stored top-level keys.
+- 20 of 20 active fixtures have 6 exact-score probabilities.
+- 11 of 20 active fixtures have full 15-field team profiles for both teams.
+- 9 of 20 active fixtures have empty `team_metrics` objects for both teams.
+- 8 of 20 active fixtures use the default stored forecast
   `team1_win=0.40`, `draw=0.30`, `team2_win=0.30`, `confidence=0.70`.
 - 1 fixture, `switzerland_bosnia_and_herzegovina_2026`, has empty
   `team_metrics` but a non-default forecast because both Elo names resolve.
@@ -382,9 +389,30 @@ Returns:
       "date": "06/16/2026",
       "time": "21:00",
       "venue": "Stadium ...",
-      "stage": "Group Stage - Group ..."
+      "stage": "Group Stage - Group ...",
+      "lifecycle": "finished",
+      "source_status": "finished",
+      "source_game_id": "19",
+      "is_finished": true,
+      "is_today": false,
+      "is_upcoming_24h": false,
+      "is_briefing_candidate": false
     }
-  ]
+  ],
+  "schedule_source": "live_schedule",
+  "active_date": "06/18/2026",
+  "default_match_id": "czech_republic_south_africa_2026",
+  "lifecycle_counts": {
+    "finished": 12,
+    "today": 4,
+    "upcoming": 4
+  },
+  "briefing_window": {
+    "first_kickoff": "2026-06-18T12:00",
+    "window_start": "2026-06-18T09:00",
+    "window_hours": 3,
+    "is_open": true
+  }
 }
 ```
 
@@ -393,6 +421,12 @@ Contract notes:
 - Includes only folders ending in `_2026`.
 - Does not include legacy folders `1001`, `1002`, `1003`.
 - Depends on `summary.json` existing and having `metadata`.
+- `lifecycle=finished` fixtures remain available through direct summary/metrics
+  routes but must be excluded from last-minute briefing/research generation.
+- React Overview and Match Analysis use `lifecycle=today` for the default day
+  view to avoid future/past clutter.
+- T-032 must generate `briefing.json` only for `source_status=not_finished`
+  fixtures in scope.
 
 ### `GET /api/match/{match_id}/summary`
 
@@ -492,7 +526,7 @@ Resolved follow-up: T-027.
 
 | UI surface | Source fields |
 |---|---|
-| Overview "Fixtures of the Day" | `/api/schedule`: `id`, `team1`, `team2`, `date`, `time`, `venue`, `stage`. |
+| Overview "Fixtures of the Day" | `/api/schedule`: `id`, `team1`, `team2`, `date`, `time`, `venue`, `stage`, `lifecycle=today`. |
 | Overview tournament stat cards | Hardcoded in `OverviewTab.tsx`; not currently sourced from API or JSON. |
 | Match Analysis header/dropdown | `summary.metadata` plus `/api/schedule`. |
 | AI Tactical Headline | `summary.ai_summary.key_headline`. |
@@ -523,6 +557,7 @@ Legend:
 | `argentina_algeria_2026` | 06/16/2026 | Argentina vs Algeria | PASS | FULL | MODEL | None from T-024. |
 | `austria_jordan_2026` | 06/16/2026 | Austria vs Jordan | PASS | FULL | MODEL | None from T-024. |
 | `belgium_egypt_2026` | 06/15/2026 | Belgium vs Egypt | PASS | FULL | MODEL | None from T-024. |
+| `brazil_haiti_2026` | 06/19/2026 | Brazil vs Haiti | PASS | EMPTY | DEFAULT | T-034 baseline stub; T-032/T-031/T-038. |
 | `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-031/T-038. T-028 fallback state complete. |
 | `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-031/T-038. T-027/T-028 complete. |
 | `england_croatia_2026` | 06/17/2026 | England vs Croatia | PASS | FULL | MODEL | None from T-024. |
@@ -544,9 +579,9 @@ Legend:
 
 | ID | Finding | Severity | Routed task |
 |---|---|---:|---|
-| F-024-1 | Active `summary.json` schemas pass for all 19 active fixtures. | 0 | No follow-up. |
-| F-024-2 | Eight active fixtures have empty per-team metric profiles. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
-| F-024-3 | Seven active fixtures use the default 40/30/30 stored forecast. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
+| F-024-1 | Active `summary.json` schemas pass for all 20 active fixtures. | 0 | No follow-up. |
+| F-024-2 | Nine active fixtures have empty per-team metric profiles. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
+| F-024-3 | Eight active fixtures use the default 40/30/30 stored forecast. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
 | F-024-4 | Multi-word team normalization was fragile in frontend and API fallback parsing. | 0 | Resolved by T-027. |
 | F-024-5 | The preview generator can overwrite curated `summary.json` editorial copy; last-minute analysis must use separate `briefing.json` artifacts. | 2 | T-025, T-032. |
 | F-024-6 | Overview tournament totals are hardcoded in the frontend, not sourced from schedule or standings payloads. | 2 | Deployment/ops data-source follow-up. |
@@ -558,18 +593,17 @@ Legend:
 For T-024, completion means:
 
 - Active JSON/API contracts are documented in this file.
-- All 19 active fixtures are listed with summary, metrics, and forecast status.
+- The original 19 active fixtures are listed with summary, metrics, and
+  forecast status, plus the T-034 `brazil_haiti_2026` baseline stub addendum.
 - Legacy numeric folders are classified.
 - Runtime augmentation fields are separated from stored JSON fields.
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after T-028:
+Suggested next Orchestrator assignments after T-034:
 
-1. T-034 - Active Fixture Discovery and Baseline Stub Generation.
+1. T-032 - Last-Minute Briefing Pipeline Implementation.
 2. T-037 - Real Monte Carlo Tournament Simulation.
 3. T-039 - No-Cost Football Data Source Spike.
 4. T-036 - Source-Backed Research Collector Prototype.
 5. T-038 - Source-Backed Squad & Style Metrics Integration.
-6. T-038 - Source-Backed Squad & Style Metrics Integration.
-7. T-032 - Last-Minute Briefing Pipeline Implementation.

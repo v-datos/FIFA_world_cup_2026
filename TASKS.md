@@ -9,18 +9,22 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-034 - Active Fixture Discovery and Baseline Stub Generation**
-  Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
+- [ ] **T-032 - Last-Minute Briefing Pipeline Implementation**
+  Owner: Data Pipeline Engineer
   Phase: Phase 5
-  Notes: Build the procedure in `docs/active_fixture_discovery_plan.md`:
-  discover active-date or next-24-hour fixtures from `worldcup26.ir/get/games`,
-  fall back to `/tmp/games.json`, and create missing
-  `data/matches/{match_id}/summary.json` and `metrics.json` baseline stubs only
-  with explicit `--write`. Existing curated folders must not be overwritten.
-  This should run before T-032. T-027 team identity rules and T-028 public
-  fallback/incomplete states are now available.
-  Verify: Dry-run writes nothing; write mode creates only missing baseline
-  folders; stubs are labeled `baseline_stub`; existing 19 folders are unchanged.
+  Notes: Implement the T-025 plan by creating a separate
+  `generate_match_briefings.py` flow that writes only
+  `data/matches/{match_id}/briefing.json`. Default to dry-run, require
+  explicit `--write`, support `--window-hours` and `--match-id`, preserve
+  existing fresh briefings unless forced, and emit machine-readable validation
+  for source freshness, empty metrics, and default forecasts. It must use the
+  `/api/schedule` lifecycle contract and generate research only for
+  `source_status=not_finished` fixtures in scope; finished games are skipped.
+  T-034 is complete, so every in-scope fixture can now have a baseline folder
+  before briefing runs.
+  Verify: Dry-run writes nothing; write mode creates/updates only
+  `briefing.json`; finished fixtures are skipped; `summary.json` and
+  `metrics.json` stay unchanged.
 
 - [ ] **T-036 - Source-Backed Research Collector Prototype**
   Owner: Data Pipeline Engineer / Football Data Scientist
@@ -99,27 +103,16 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 - [ ] **T-031 - Active Match Metrics Completion**
   Owner: Data Pipeline Engineer / Football Data Scientist
   Notes: Fill or explicitly mark missing `team_metrics` and Elo entries for
-  active fixtures. T-024 identified empty team profiles for
+  active fixtures. The current empty/default set includes the T-034 baseline
+  stub `brazil_haiti_2026` plus
   `canada_qatar_2026`, `czech_republic_south_africa_2026`,
   `mexico_south_korea_2026`, `scotland_morocco_2026`,
   `switzerland_bosnia_and_herzegovina_2026`, `turkey_paraguay_2026`,
-  `united_states_australia_2026`, and `uzbekistan_colombia_2026`. It also
-  identified default 40/30/30 forecasts for all of those except
+  `united_states_australia_2026`, and `uzbekistan_colombia_2026`. The default
+  40/30/30 forecast applies to all of those except
   `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
   replacing values with researched metrics should follow T-035 policy and T-038,
   while explicit fallback labeling is now handled by T-028.
-
-- [ ] **T-032 - Last-Minute Briefing Pipeline Implementation**
-  Owner: Data Pipeline Engineer
-  Notes: Implement the T-025 plan by creating a separate
-  `generate_match_briefings.py` flow that writes only
-  `data/matches/{match_id}/briefing.json`. Default to dry-run, require
-  explicit `--write`, support `--window-hours` and `--match-id`, preserve
-  existing fresh briefings unless forced, and emit machine-readable validation
-  for source freshness, empty metrics, and default forecasts. Depends on T-034
-  so every in-scope fixture has a baseline folder.
-  Verify: Dry-run writes nothing; write mode creates/updates only
-  `briefing.json`; `summary.json` and `metrics.json` stay unchanged.
 
 - [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
   Owner: Data Pipeline Engineer / Frontend Engineer
@@ -130,6 +123,32 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-034 - Active Fixture Discovery and Baseline Stub Generation**
+  Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
+  Completed: 2026-06-18
+  Notes: Added `src/pipeline/discover_active_fixtures.py` with default dry-run,
+  explicit `--write`, active-date, next-window, and match-id selection. The
+  script fetches `worldcup26.ir/get/games`, falls back to `/tmp/games.json`,
+  normalizes teams through T-027 identity helpers, emits a machine-readable
+  manifest, skips unresolved knockout placeholders, and never overwrites
+  existing curated `summary.json` or `metrics.json` files. Ran write mode for
+  `--active-date 2026-06-19`, creating only
+  `data/matches/brazil_haiti_2026/summary.json` and `metrics.json` as
+  `baseline_stub` payloads.
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_t034_active_fixture_discovery.md
+
+- [x] **T-040 - Fixture Lifecycle Filter for Analysis and Briefing Scope**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-18
+  Notes: Added lifecycle/source-status fields to `/api/schedule`, including
+  `finished`, `today`, `upcoming`, `unresolved`, and `archived`; default
+  selection now targets the current day's not-finished fixtures. Updated
+  `discover_active_fixtures.py` to skip finished fixtures so downstream
+  research does not waste time on completed games. Updated React Overview and
+  Match Analysis to show only `lifecycle=today` fixtures by default; past games
+  remain available through stored folders/API routes for historical use.
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_frontend_t040_fixture_lifecycle.md
 
 - [x] **T-028 - Incomplete Data and Fallback UI/API States**
   Owner: Frontend Engineer / Data Pipeline Engineer
@@ -151,7 +170,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Python and TypeScript helpers. Replaced duplicated API/team-ID alias maps,
   unsafe FastAPI match-ID splitting, preview-generator slugging, React
   editorial key derivation, frontend flag lookup, and bracket fallback variants
-  with shared identity normalization. All 19 active fixtures now resolve by
+  with shared identity normalization. All 20 active fixtures now resolve by
   match ID, display name, alias, and `ai_summary` slug.
   Contract: data/reference/team_identity.json
   Handoff: docs/handoffs/2026-06-18_data_pipeline_t027_team_identity.md
@@ -198,8 +217,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Notes: Added `docs/data_contracts.md` documenting `summary.json`,
   `metrics.json`, `grid_state.json`, `/api/schedule`,
   `/api/match/{id}/summary`, `/api/match/{id}/metrics`, runtime metrics
-  augmentation, visualization payloads, all 19 active fixture statuses, and
-  the legacy numeric folders `1001`, `1002`, and `1003`.
+  augmentation, visualization payloads, the original 19 active fixture
+  statuses, and the legacy numeric folders `1001`, `1002`, and `1003`. T-034
+  later added the `brazil_haiti_2026` baseline stub addendum.
   Handoff: docs/handoffs/2026-06-17_qa_data_contract_audit.md
 
 - [x] **T-023 - Framework Rebaseline Batch 1**

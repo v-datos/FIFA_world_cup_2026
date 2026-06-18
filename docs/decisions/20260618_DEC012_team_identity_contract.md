@@ -48,7 +48,8 @@ Python code must use `src/common/team_identity.py`. React code must use
 
 ## Consequences
 
-- Active fixture slugs now resolve for all 19 current match folders.
+- Active fixture slugs now resolve for all current match folders, including the
+  T-034 `brazil_haiti_2026` baseline stub.
 - The project display names align with current active `summary.json` metadata,
   including `Czech Republic`, `Turkey`, and
   `Democratic Republic of the Congo`.
@@ -60,5 +61,5 @@ Python code must use `src/common/team_identity.py`. React code must use
 
 - `python3 -m json.tool data/reference/team_identity.json`
 - `python3 -m compileall -q src`
-- Custom identity audit for all 19 active fixtures.
+- Custom identity audit for all active fixtures.
 - `npm --prefix src/frontend run build`

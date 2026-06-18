@@ -6,9 +6,10 @@ Status: Accepted
 
 ## Context
 
-The project currently has 19 active `data/matches/*_2026` folders. That count
-is an artifact of static generated folders and the existing generator behavior,
-not a product rule.
+At decision time the project had 19 active `data/matches/*_2026` folders. That
+count was an artifact of static generated folders and the existing generator
+behavior, not a product rule. T-034 later added a 20th active baseline folder
+for `brazil_haiti_2026`.
 
 The existing `summary.json` files are useful baseline tactical previews, but
 they may be created days or weeks before kickoff. Presenting that content as
@@ -53,4 +54,3 @@ The planned briefing pipeline must:
 - `docs/data_contracts.md`
 - `TASKS.md`
 - `docs/phase_plan.md`
-

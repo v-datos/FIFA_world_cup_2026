@@ -102,6 +102,9 @@ credentials, live Cloud Run state, external API freshness, or remote
 - Add a decision file for changes to architecture, schema, model methodology,
   deployment path, or shared conventions.
 - Add a handoff note when a phase boundary or specialist deliverable completes.
+- When a task is completed, the Orchestrator closeout must update relevant docs,
+  run the verification gates, commit the completed work, and push it to
+  `origin/main` unless the user explicitly asks not to commit or push.
 
 ## 1. Orchestrator
 
@@ -199,7 +202,7 @@ Owns verification, reproducibility, and release readiness.
 Responsibilities:
 
 - Maintain local verification commands.
-- Audit all 19 active fixture folders for schema and fallback issues.
+- Audit active fixture folders for schema and fallback issues.
 - Create or run smoke checks for API routes and frontend build.
 - Verify deployment state separately from local build state.
 - Verify source metadata and review status before source-backed claims are

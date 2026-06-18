@@ -136,6 +136,7 @@ Required freshness values:
 | `stale` | Existing briefing is outside the freshness window. |
 | `baseline_only` | No briefing exists; use `summary.json` with explicit baseline labeling. |
 | `blocked` | Briefing generation was attempted but required source access failed. |
+| `skipped` | Fixture is finished and must not receive last-minute research. |
 
 ## Generation Window
 
@@ -146,6 +147,8 @@ Default generation scope:
 - Generate fresh briefings only inside the 3-hour window before that first
   kickoff.
 - Do not generate fresh briefings for all future static folders by default.
+- Exclude fixtures whose `/api/schedule` lifecycle is `finished` or whose
+  source status is not `not_finished`.
 
 Configurable arguments for the future generator:
 
@@ -169,6 +172,10 @@ The implementation must obey these rules:
 - Existing fresh `briefing.json` files must be preserved unless
   `--force-refresh` is provided.
 - Existing stale `briefing.json` files may be regenerated only with `--write`.
+- Finished fixtures must be skipped. They may remain available as historical or
+  post-match records, but last-minute research must not run for them.
+- In-scope fixtures must have `source_status=not_finished` from `/api/schedule`
+  or equivalent live schedule validation.
 - Approved status is blocked when team metrics are empty, the forecast is the
   default 40/30/30 split, or Football Data Scientist review is missing.
 - Failed source retrieval must produce a blocked/stale status, not invented
@@ -241,6 +248,8 @@ Future implementation is complete only when:
 - Write mode creates or updates only `briefing.json`.
 - `summary.json` and `metrics.json` remain unchanged during briefing
   generation.
+- Finished fixtures produce skipped/finished manifest rows and no source
+  research.
 - Fresh/stale/baseline-only/blocked states are testable with sample fixtures.
 - Frontend build and Python compile pass.
 - QA can inspect generated source/freshness metadata without reading logs.

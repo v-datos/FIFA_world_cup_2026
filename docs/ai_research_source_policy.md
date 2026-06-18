@@ -156,9 +156,12 @@ or renamed as an internal fallback once this is implemented.
 Default briefing generation should target the daily `jornada`:
 
 - Determine the first kickoff of the active match day.
+- Include only fixtures whose schedule lifecycle is not finished and whose
+  source status is `not_finished`.
 - Treat briefings as fresh only if generated inside the 3-hour window before
   that first kickoff.
 - Do not pre-generate all future fixtures as fresh briefings.
+- Do not research completed games; keep them as historical/post-match records.
 - If a briefing is outside that window, show `stale` or `baseline_only`.
 
 Example:

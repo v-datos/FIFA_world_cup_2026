@@ -35,12 +35,12 @@ copy or hidden browser scraping.
 
 | Data family | Current source | Current behavior | Truth label |
 |---|---|---|---|
-| Fixture metadata | `data/matches/{match_id}/summary.json`, surfaced by `/api/schedule` | Local folders ending `_2026` define the analyzable match list. Missing folders are invisible to the Match Analysis workflow. | `static_curated` |
+| Fixture metadata | `data/matches/{match_id}/summary.json`, surfaced by `/api/schedule` | Local folders ending `_2026` define available match records. `/api/schedule` now adds lifecycle state so finished games are excluded from default last-minute analysis. | `static_curated` plus `live_schedule` lifecycle |
 | Baseline tactical preview | `summary.json.ai_summary` | Long-lived editorial preview content. It can exist days or weeks before kickoff. | `static_curated` |
 | Last-minute briefing | Not implemented yet | Planned as separate `briefing.json`. | `missing` until implemented |
 | Stored forecast | `metrics.json.dixon_coles_forecast` | Either generated from local Elo defaults or stored as a default `40/30/30` compatibility fallback. | `generated_model` or `default_forecast` |
 | Exact scores | `metrics.json.score_probabilities` | Either generated from the Poisson score grid or stored as default score fallbacks. | `generated_model` or `default_forecast` |
-| Team metric profiles | `metrics.json.team_metrics` | Some fixtures have local profile values; eight active fixtures have empty objects. | `hardcoded_reference`, `missing`, or future `web_researched` |
+| Team metric profiles | `metrics.json.team_metrics` | Some fixtures have local profile values; after T-034, nine active fixtures have empty objects. | `hardcoded_reference`, `missing`, or future `web_researched` |
 | Elo ratings | `SoccerDataClient.fetch_club_elo_ratings()` | Uses a local hardcoded national-team rating map. The `soccerdata` import exists, but ratings are not populated from a live scrape. | `hardcoded_reference` |
 | Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses a deterministic Elo curve in `compute_monte_carlo_probs()`. | `generated_model`, deterministic |
 | StatsBomb visualizations | `/api/visualizations/{match_id}/{viz_type}` | Uses hand-selected historical BigQuery proxy matches. These are not 2026 event feeds. | `proxy_historical` |

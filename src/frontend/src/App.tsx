@@ -13,12 +13,17 @@ interface Match {
   time: string;
   venue: string;
   stage: string;
+  lifecycle?: 'finished' | 'today' | 'upcoming' | 'unresolved' | 'archived';
+  source_status?: string;
+  is_finished?: boolean;
+  is_briefing_candidate?: boolean;
 }
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [lang, setLang] = useState<string>('English');
   const [matches, setMatches] = useState<Match[]>([]);
+  const [activeDate, setActiveDate] = useState<string>('');
   const [selectedMatchId, setSelectedMatchId] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -35,10 +40,11 @@ function App() {
         const res = await fetch(`${serverUrl}/api/schedule`);
         if (res.ok) {
           const data = await res.json();
-          setMatches(data.matches || []);
-          if (data.matches && data.matches.length > 0) {
-            setSelectedMatchId(data.matches[0].id);
-          }
+          const scheduleMatches = data.matches || [];
+          const dayMatches = scheduleMatches.filter((match: Match) => match.lifecycle === 'today');
+          setMatches(scheduleMatches);
+          setActiveDate(data.active_date || dayMatches[0]?.date || '');
+          setSelectedMatchId(data.default_match_id || dayMatches[0]?.id || null);
         }
       } catch (err) {
         console.error('Failed to load schedule from API server', err);
@@ -98,6 +104,7 @@ function App() {
               <OverviewTab 
                 matches={matches} 
                 onSelectMatch={handleSelectMatch} 
+                activeDate={activeDate}
                 lang={lang} 
               />
             )}
@@ -107,6 +114,7 @@ function App() {
                 matches={matches}
                 selectedMatchId={selectedMatchId}
                 setSelectedMatchId={setSelectedMatchId}
+                activeDate={activeDate}
                 lang={lang}
                 serverUrl={serverUrl}
               />

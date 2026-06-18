@@ -76,6 +76,19 @@ The React app resolves `localhost` and `127.0.0.1` to
 Each active fixture folder ends in `_2026`. Numeric folders such as `1001`,
 `1002`, and `1003` are legacy/stub data and are not included in `/api/schedule`.
 
+`/api/schedule` augments local folders with live/cache lifecycle state:
+
+- `finished`
+- `today`
+- `upcoming`
+- `unresolved`
+- `archived`
+
+The default React Overview and Match Analysis views show only
+`lifecycle=today` fixtures. Finished fixtures remain available as historical
+records through direct summary/metrics routes, but they must not be used for
+last-minute briefing research.
+
 ### Match Editorial Content
 
 - Source files: `data/matches/{match_id}/summary.json`.
@@ -170,6 +183,8 @@ fixture discovery flow:
 python3 src/pipeline/discover_active_fixtures.py --dry-run --window-hours 24
 python3 src/pipeline/discover_active_fixtures.py --write --window-hours 24
 ```
+
+The discovery flow skips finished fixtures in both dry-run and write mode.
 
 Source order for baseline stubs:
 

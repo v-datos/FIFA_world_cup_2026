@@ -5,7 +5,7 @@ import { TeamRadarComparison } from './TeamRadarComparison';
 import { SquadStyleComparison } from './SquadStyleComparison';
 import { MonteCarloProjections } from './MonteCarloProjections';
 import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
-import { getFlag, getLastStanding, TODAY_DATE } from '../lib/teamData';
+import { getFlag, getLastStanding } from '../lib/teamData';
 import { normalizeTeamName, teamSlug } from '../lib/teamIdentity';
 
 interface Match {
@@ -16,12 +16,14 @@ interface Match {
   time: string;
   venue: string;
   stage: string;
+  lifecycle?: 'finished' | 'today' | 'upcoming' | 'unresolved' | 'archived';
 }
 
 interface MatchAnalysisTabProps {
   matches: Match[];
   selectedMatchId: string | null;
-  setSelectedMatchId: (matchId: string) => void;
+  setSelectedMatchId: (matchId: string | null) => void;
+  activeDate: string;
   lang: string;
   serverUrl: string;
 }
@@ -85,6 +87,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   matches,
   selectedMatchId,
   setSelectedMatchId,
+  activeDate,
   lang,
   serverUrl,
 }) => {
@@ -93,15 +96,16 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [activeVizTab, setActiveVizTab] = useState<string>('momentum');
 
-  // Only the current day's fixtures appear in the selector (de-clutter).
-  const todaysMatches = matches.filter((m) => m.date === TODAY_DATE);
-  const dropdownMatches = todaysMatches.length > 0 ? todaysMatches : matches;
+  const dropdownMatches = matches.filter((match) => match.lifecycle === 'today');
 
-  // If the active selection isn't one of today's fixtures, snap to the first one.
+  // If the active selection is finished/future, snap back to the current day.
   useEffect(() => {
-    if (todaysMatches.length === 0) return;
-    if (!todaysMatches.some((m) => m.id === selectedMatchId)) {
-      setSelectedMatchId(todaysMatches[0].id);
+    if (dropdownMatches.length === 0) {
+      if (selectedMatchId) setSelectedMatchId(null);
+      return;
+    }
+    if (!dropdownMatches.some((m) => m.id === selectedMatchId)) {
+      setSelectedMatchId(dropdownMatches[0].id);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matches, selectedMatchId]);
@@ -166,7 +170,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   if (!selectedMatchId) {
     return (
       <div className="glass-panel p-8 text-center text-slate-400">
-        {lang === 'Español' ? 'Por favor seleccione un partido de la Vista General.' : 'Please select a match to analyze from the Overview tab.'}
+        {lang === 'Español'
+          ? `No hay partidos activos pendientes para ${activeDate || 'hoy'}.`
+          : `No active unfinished fixtures for ${activeDate || 'today'}.`}
       </div>
     );
   }

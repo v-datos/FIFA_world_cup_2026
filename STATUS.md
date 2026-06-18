@@ -1,5 +1,122 @@
 # STATUS
 
+## 2026-06-18 - T-040 Fixture Lifecycle Filter Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-040 is complete as an implementation task.
+- `/api/schedule` now exposes fixture lifecycle and source status.
+- React Overview and Match Analysis default to the current day's not-finished
+  fixtures only.
+- Finished fixtures remain stored as historical/post-match records, but they are
+  no longer part of default Match Analysis selection or briefing/research scope.
+
+### Current Fixture Lifecycle Counts
+
+As of 2026-06-18 local runtime:
+
+- `finished`: 12
+- `today`: 4
+- `upcoming`: 4
+
+The visible day view contains only the 4 `today` fixtures:
+
+- `czech_republic_south_africa_2026`
+- `switzerland_bosnia_and_herzegovina_2026`
+- `canada_qatar_2026`
+- `mexico_south_korea_2026`
+
+### What Changed
+
+- Added lifecycle fields to `/api/schedule`:
+  - `lifecycle`
+  - `source_status`
+  - `source_game_id`
+  - `is_finished`
+  - `is_today`
+  - `is_upcoming_24h`
+  - `is_briefing_candidate`
+- Added schedule-level fields:
+  - `active_date`
+  - `default_match_id`
+  - `lifecycle_counts`
+  - `briefing_window`
+- Past schedule dates are classified as `finished` even if the live/cache source
+  is missing or stale.
+- `discover_active_fixtures.py` now skips finished fixtures in dry-run and write
+  mode.
+- Overview no longer falls back to all matches when no hardcoded date matches.
+- Match Analysis selector no longer shows finished or future fixtures by
+  default.
+
+### Routing
+
+- T-032 must use the lifecycle contract and generate `briefing.json` only for
+  `source_status=not_finished` fixtures in scope.
+- Future historical/post-match UX should be a separate archive/results view, not
+  part of the default last-minute analysis workflow.
+
+---
+
+## 2026-06-18 - T-034 Active Fixture Discovery Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-034 is complete as an implementation task.
+- Added `src/pipeline/discover_active_fixtures.py`.
+- Active fixture folders increased from 19 to 20 after creating
+  `data/matches/brazil_haiti_2026`.
+- The discovery command defaults to dry-run and requires explicit `--write` to
+  create baseline files.
+
+### What Changed
+
+- The fixture discovery script fetches `worldcup26.ir/get/games` and falls back
+  to `/tmp/games.json` when the live API is unavailable.
+- Team names and match IDs are normalized through the T-027 identity helpers.
+- The script emits a machine-readable JSON manifest for dry-run and write mode.
+- Existing curated `summary.json` and `metrics.json` files are not overwritten.
+- Unresolved fixtures such as knockout placeholders are blocked until the live
+  schedule exposes real teams.
+- Write mode for `--active-date 2026-06-19` created only:
+  - `data/matches/brazil_haiti_2026/summary.json`
+  - `data/matches/brazil_haiti_2026/metrics.json`
+
+### Generated Stub State
+
+- `summary.json` is labeled `baseline_stub` and contains fixture metadata plus
+  explicit placeholder editorial copy.
+- `metrics.json` preserves the current compatibility shape, including six exact
+  scores and the default `40/30/30` forecast, but labels the payload as
+  `baseline_stub`, `default_forecast`, and `empty_team_metrics`.
+- T-028 runtime labels make the Brazil vs Haiti forecast and radar unavailable
+  in the API/UI instead of presenting them as model-backed analysis.
+
+### Verification
+
+- Dry-run for June 18 wrote no files and reported four existing fixtures.
+- Dry-run for June 19 reported three existing fixtures and one would-create
+  fixture: `brazil_haiti_2026`.
+- Re-running write mode for June 19 was idempotent and reported all four
+  fixtures as existing.
+- Stub schema assertions passed for `summary.json` and `metrics.json`.
+- API smoke check passed: `/api/schedule` now returns 20 fixtures, and
+  `/api/match/brazil_haiti_2026/metrics` marks forecast/radar output
+  unavailable.
+
+### Routing
+
+- T-032 is now unblocked and should be the next Orchestrator assignment: build
+  the separate last-minute `briefing.json` generation flow.
+- T-031/T-038 still need to replace empty stub metrics with source-backed values
+  where coverage allows.
+
+---
+
 ## 2026-06-18 - T-028 Incomplete Data and Fallback UI/API States Completed
 
 Prepared by: Orchestrator
@@ -78,7 +195,7 @@ Prepared by: Orchestrator
 
 - `python3 -m json.tool data/reference/team_identity.json`
 - `python3 -m compileall -q src`
-- Custom identity audit: all 19 active fixtures resolved by folder ID, metadata
+- Custom identity audit: all 20 active fixtures resolve by folder ID, metadata
   display names, injury slugs, and tactics slugs.
 - `npm --prefix src/frontend run build` passed with the existing chunk-size
   warning only.
@@ -87,7 +204,7 @@ Prepared by: Orchestrator
 
 - T-034, T-036, T-038, and T-039 should use the shared identity contract before
   writing any source-collected payloads.
-- T-028 is now complete; next Orchestrator assignment should be T-034.
+- T-034 is now complete; next Orchestrator assignment should be T-032.
 
 ---
 
@@ -361,6 +478,9 @@ Prepared by: Orchestrator
 - Default stored forecast: 7 fixtures use the generator fallback
   `40/30/30` split: all empty-metrics fixtures except
   `switzerland_bosnia_and_herzegovina_2026`.
+- T-034 addendum: active fixtures now total 20 after adding the
+  `brazil_haiti_2026` baseline stub. Current empty metric profiles total 9 and
+  current default forecasts total 8.
 - At audit time, multi-word team names were a contract risk in frontend
   normalization and API fallback parsing. This is now resolved by T-027.
 - Overview tournament totals are hardcoded in `OverviewTab.tsx`, not sourced
@@ -485,8 +605,9 @@ Prepared by: Orchestrator
 - **Match Analysis selector decluttered**: dropdown shows only the current day's
   fixtures and auto-selects a today's match.
 - **National flags** added to team names across Match Analysis (header, selector,
-  forecast, injuries, squad lineups, StatsBomb labels). Flags + `TODAY_DATE`
-  centralized in `src/frontend/src/lib/teamData.ts` (OverviewTab refactored to use it).
+  forecast, injuries, squad lineups, StatsBomb labels). Flags were centralized
+  in `src/frontend/src/lib/teamData.ts`; the later T-040 lifecycle contract
+  removed the stale hardcoded `TODAY_DATE` filter.
 - **Sidebar**: title → "FIFA 2026 / World Cup"; collapsible toggle; brand icon →
   official FIFA World Cup 26 match-ball logo (`ball-logo.png`, resized 7.7MB → 45KB,
   moved to `src/frontend/src/assets/`). Added `vite-env.d.ts` for typed image imports.

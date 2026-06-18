@@ -4,18 +4,27 @@ Last updated: 2026-06-18
 Task: T-034 - Active Fixture Discovery and Baseline Stub Generation  
 Owner: Data Pipeline Engineer  
 Reviewers: QA / Reproducibility Engineer, Frontend Engineer, Football Data Scientist
+Status: Implemented 2026-06-18
 
 ## Objective
 
 Make the tournament workflow resilient when a match is not already present in
-the 19 existing `data/matches/*_2026` folders.
+the existing `data/matches/*_2026` folders.
 
 The app currently lists analyzable matches by scanning local folders. If a
 future fixture has no folder, `/api/schedule` will not list it and the Match
 Analysis routes will not have `summary.json` or `metrics.json` to return.
 
-The fix is an active fixture discovery step that can create a minimal baseline
-folder before last-minute briefing generation runs.
+The fix is implemented in `src/pipeline/discover_active_fixtures.py`. It can
+create a minimal baseline folder before last-minute briefing generation runs.
+
+Implementation result on 2026-06-18:
+
+- The script found the missing resolved June 19 fixture from the schedule:
+  Brazil vs Haiti.
+- Explicit write mode created `data/matches/brazil_haiti_2026/summary.json`
+  and `data/matches/brazil_haiti_2026/metrics.json`.
+- Active schedule folders increased from 19 to 20.
 
 ## Dependencies
 
@@ -184,8 +193,8 @@ Example:
   },
   "data_quality": {
     "status": "baseline_stub",
-    "forecast_status": "missing",
-    "team_metrics_status": "empty_stub",
+    "forecast_status": "default_forecast",
+    "team_metrics_status": "empty_team_metrics",
     "warnings": [
       "Forecast not generated.",
       "Team metrics not populated."
@@ -221,6 +230,9 @@ Daily or pre-match workflow:
 3. Normalize team display names and slugs through the T-027 registry.
 4. For each fixture in scope:
    - If folder exists, validate `summary.json` and `metrics.json`.
+   - If the fixture is already finished, skip it. Finished games stay available
+     as historical/post-match records but are not candidates for last-minute
+     research.
    - If the fixture still contains unresolved placeholders such as `Winner`,
      `Runner-up`, or `???`, skip it until the live schedule has real teams.
    - If folder is missing, dry-run a baseline stub creation manifest.
@@ -239,6 +251,7 @@ Suggested command shape:
 python3 src/pipeline/discover_active_fixtures.py --dry-run --window-hours 24
 python3 src/pipeline/discover_active_fixtures.py --write --window-hours 24
 python3 src/pipeline/discover_active_fixtures.py --dry-run --match-id team1_team2_2026
+python3 src/pipeline/discover_active_fixtures.py --write --active-date 2026-06-19
 ```
 
 ## Safety Rules
@@ -248,6 +261,7 @@ python3 src/pipeline/discover_active_fixtures.py --dry-run --match-id team1_team
 - Existing curated `summary.json` must never be overwritten by stub generation.
 - Existing `metrics.json` must not be replaced unless a later explicit repair
   task allows it.
+- Finished fixtures must be skipped in dry-run and write mode.
 - Newly generated stubs must label themselves as `baseline_stub`.
 - Stub generation must emit a machine-readable manifest with create/skip/block
   status and source provenance.
@@ -263,7 +277,7 @@ Implementation is complete when:
 
 - Dry-run writes no files.
 - Write mode creates only missing fixture folders and their two baseline files.
-- Existing 19 active folders are not overwritten.
+- Existing curated active folders are not overwritten.
 - Newly created `summary.json` files satisfy required metadata and
   `ai_summary` fields.
 - Newly created `metrics.json` files satisfy required top-level shape and label
@@ -273,3 +287,20 @@ Implementation is complete when:
   output.
 - `python3 -m compileall -q src` passes.
 - `npm --prefix src/frontend run build` passes.
+
+## Completion Record
+
+Completed on 2026-06-18.
+
+Verified behavior:
+
+- Default dry-run wrote no fixture files.
+- June 19 dry-run reported three existing folders and one would-create folder:
+  `brazil_haiti_2026`.
+- June 19 write mode created exactly that folder and its two baseline files.
+- A second June 19 write run was idempotent and reported all four June 19
+  fixtures as existing.
+- `/api/schedule` now returns 20 fixture folders.
+- `/api/match/brazil_haiti_2026/metrics` reports the default forecast,
+  exact-score list, team metrics, and radar as unavailable/missing through the
+  T-028 runtime `data_quality` contract.
