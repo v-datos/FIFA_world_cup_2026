@@ -26,6 +26,19 @@ Use two distinct editorial layers:
 The UI must label these separately. If no fresh briefing exists, the app should
 say baseline preview only instead of implying the content is current.
 
+## Prerequisite: Baseline Fixture Folder
+
+Last-minute briefing generation requires a fixture folder to exist first:
+
+```text
+data/matches/{match_id}/summary.json
+data/matches/{match_id}/metrics.json
+```
+
+If a tournament match is not already represented by local files, T-034 must
+discover the fixture and create baseline stubs before this briefing plan can run.
+The briefing generator should not create baseline summary/metrics stubs itself.
+
 ## Planned `briefing.json` Contract
 
 Path:

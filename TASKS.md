@@ -41,6 +41,19 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Verify: Fixtures with empty metrics and default forecasts render visibly as
   incomplete/fallback, not as authoritative model output.
 
+- [ ] **T-034 - Active Fixture Discovery and Baseline Stub Generation**
+  Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
+  Phase: Phase 5
+  Notes: Build the procedure in `docs/active_fixture_discovery_plan.md`:
+  discover active-date or next-24-hour fixtures from `worldcup26.ir/get/games`,
+  fall back to `/tmp/games.json`, and create missing
+  `data/matches/{match_id}/summary.json` and `metrics.json` baseline stubs only
+  with explicit `--write`. Existing curated folders must not be overwritten.
+  This should run before T-032. Hard dependency: T-027 team identity rules.
+  Public UI gate: T-028 fallback/incomplete states.
+  Verify: Dry-run writes nothing; write mode creates only missing baseline
+  folders; stubs are labeled `baseline_stub`; existing 19 folders are unchanged.
+
 - [ ] **T-029 - Deployment and Operations Runbook Refresh**
   Owner: Orchestrator / QA / Reproducibility Engineer
   Phase: Phase 5
@@ -83,7 +96,8 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   `data/matches/{match_id}/briefing.json`. Default to dry-run, require
   explicit `--write`, support `--window-hours` and `--match-id`, preserve
   existing fresh briefings unless forced, and emit machine-readable validation
-  for source freshness, empty metrics, and default forecasts.
+  for source freshness, empty metrics, and default forecasts. Depends on T-034
+  so every in-scope fixture has a baseline folder.
   Verify: Dry-run writes nothing; write mode creates/updates only
   `briefing.json`; `summary.json` and `metrics.json` stay unchanged.
 

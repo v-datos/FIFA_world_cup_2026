@@ -148,6 +148,9 @@ Roles are defined in `AGENTS.md`.
   defaults.
 - Last-minute matchday analysis is generated as a separate freshness-labeled
   briefing, not by overwriting baseline previews.
+- New tournament fixtures can enter the Match Analysis workflow through active
+  fixture discovery and explicit baseline stubs, without manually pre-creating
+  every match folder.
 - The forecast/model methodology is understandable from docs and labels.
 - The data pipeline can be run safely with preview/diff behavior before writes.
 - The Orchestrator can assign work from `TASKS.md` without re-auditing the repo.
@@ -176,6 +179,7 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-16 | Interactive Analytics Sprint (Elo / Monte Carlo Projections & xG Momentum) | Orchestrator | docs/decisions/20260616_DEC006_interactive_analytics_sprint.md |
 | 2026-06-17 | Framework Rebaseline & Pipeline Hardening | Orchestrator | docs/decisions/20260617_DEC007_framework_rebaseline.md |
 | 2026-06-17 | Separate Baseline Previews from Last-Minute Match Briefings | Orchestrator | docs/decisions/20260617_DEC008_last_minute_briefing_scope.md |
+| 2026-06-17 | Add Active Fixture Discovery and Baseline Stubs | Orchestrator | docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md |
 
 ## Risks
 

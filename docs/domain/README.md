@@ -42,6 +42,17 @@ with:
 - Product role: baseline preview. This can exist well before matchday and must
   not be described as fresh last-minute analysis.
 
+### Active Fixture Discovery
+
+- Planned source: `worldcup26.ir/get/games`, with `/tmp/games.json` cache
+  fallback.
+- Plan: `docs/active_fixture_discovery_plan.md`.
+- Product role: make sure matches entering the active date or next-24-hour
+  window have local baseline folders before briefing generation.
+- Stub rule: if a fixture is missing locally, create explicit `baseline_stub`
+  `summary.json` and `metrics.json` files using schedule facts only; do not
+  invent tactical analysis, forecast probabilities, or team metrics.
+
 ### Last-Minute Match Briefing
 
 - Planned source: `data/matches/{match_id}/briefing.json`.

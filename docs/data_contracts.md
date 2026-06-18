@@ -39,6 +39,17 @@ Active folders found on 2026-06-17: 19.
 
 Legacy folders found on 2026-06-17: `1001`, `1002`, `1003`.
 
+Planned tournament progression rule:
+
+- T-034 will discover active-date or next-24-hour fixtures from the live games
+  API and create missing baseline folders before briefing generation.
+- Missing folders should receive explicit `baseline_stub` `summary.json` and
+  `metrics.json` files.
+- Stub `metrics.json` files should preserve the current numeric forecast and
+  six-score shape for compatibility, but the generation manifest must label
+  them `default_forecast`, `empty_team_metrics`, and `baseline_stub`.
+- Existing curated folders must not be overwritten by stub generation.
+
 ## `summary.json` Contract
 
 Path: `data/matches/{match_id}/summary.json`  
@@ -488,4 +499,5 @@ Suggested next Orchestrator assignment:
 
 1. T-026 - Model and Provenance Truth Review.
 2. T-027 - Team Identity and Multi-Word Name Normalization Plan.
-3. T-032 - Last-Minute Briefing Pipeline Implementation.
+3. T-034 - Active Fixture Discovery and Baseline Stub Generation.
+4. T-032 - Last-Minute Briefing Pipeline Implementation.

@@ -1,5 +1,56 @@
 # STATUS
 
+## 2026-06-17 - Active Fixture Discovery Gap Routed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- The tournament progression gap is now explicitly tracked.
+- Owner: Data Pipeline Engineer, with QA / Reproducibility Engineer review.
+- Deliverable added: `docs/active_fixture_discovery_plan.md`.
+- Runtime behavior was not changed.
+
+### Why This Matters
+
+- The app currently lists analyzable matches from local
+  `data/matches/*_2026` folders.
+- If a future tournament game has no local folder, `/api/schedule` will not list
+  it and `/api/match/{id}/summary` or `/metrics` will return 404.
+- Last-minute `briefing.json` generation depends on a baseline fixture folder
+  existing first.
+
+### Planned Procedure
+
+- Discover active-date or next-24-hour fixtures from
+  `https://worldcup26.ir/get/games`.
+- Fall back to `/tmp/games.json` if the live games API fails.
+- Create missing baseline folders only with explicit `--write`.
+- Generate minimal `summary.json` and `metrics.json` stubs labeled
+  `baseline_stub`.
+- Preserve all existing curated `summary.json` and `metrics.json` files.
+- Run last-minute briefing generation only after the baseline folder exists.
+
+### Routing
+
+- Added queued task **T-034 - Active Fixture Discovery and Baseline Stub
+  Generation**.
+- Added decision record
+  `docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md`.
+- T-034 should run before T-032.
+- T-027 remains important because fixture discovery must use canonical team
+  names and slugs, not fragile match ID parsing.
+- T-028 must stop stub metrics from rendering as authoritative forecasts or
+  radar charts.
+
+### Verification Scope
+
+- `python3 -m compileall -q src` passed.
+- `npm --prefix src/frontend run build` passed with the existing Vite
+  chunk-size warning only.
+
+---
+
 ## 2026-06-17 - T-025 Re-scoped to Last-Minute Briefing Generation
 
 Prepared by: Orchestrator

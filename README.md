@@ -63,3 +63,8 @@ Baseline previews and last-minute match briefings are now separate concepts.
 The planned matchday briefing artifact is
 `data/matches/{match_id}/briefing.json`; see
 `docs/last_minute_briefing_plan.md` before changing generation behavior.
+
+For tournament progression, missing fixture folders should be created through
+the planned active fixture discovery workflow in
+`docs/active_fixture_discovery_plan.md`, not by manually copying old match
+folders.

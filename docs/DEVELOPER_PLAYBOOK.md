@@ -146,6 +146,42 @@ data/bracket/grid_state.json
 
 ### Baseline Preview and Last-Minute Briefing Generation
 
+Before a match can receive a briefing, it needs a baseline fixture folder:
+
+```text
+data/matches/{match_id}/summary.json
+data/matches/{match_id}/metrics.json
+```
+
+For games that are not already in `data/matches/`, use the planned active
+fixture discovery flow:
+
+```bash
+python3 src/pipeline/discover_active_fixtures.py --dry-run --window-hours 24
+python3 src/pipeline/discover_active_fixtures.py --write --window-hours 24
+```
+
+Source order for baseline stubs:
+
+- primary: `https://worldcup26.ir/get/games`
+- fallback: `/tmp/games.json`
+- existing local files: preserve existing `summary.json` and `metrics.json`
+- team identity: shared registry from T-027 once implemented
+
+Stub data rules:
+
+- `summary.metadata` comes from the schedule source: teams, date, time, venue,
+  and stage.
+- `summary.ai_summary` uses explicit "preview pending" placeholders; it must
+  not invent tactical news.
+- `metrics.dixon_coles_forecast` uses the current-compatible default 40/30/30
+  shape and must be labeled `default_forecast` in the manifest.
+- `metrics.score_probabilities` uses the current-compatible six fallback
+  scorelines and must be labeled fallback in the manifest.
+- `metrics.team_metrics` contains the two team keys with empty objects until
+  T-031 fills or labels them.
+- Stubs must be labeled `baseline_stub`.
+
 Current caution: do not run baseline preview generation blindly.
 
 ```bash
