@@ -2,59 +2,167 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-16
+Last updated: 2026-06-17
 Profile: software-app
-
-## Stack
-
-How this project is built and verified. The verify command is this project's definition of "reproducible" (it varies by profile — see profiles/ in the framework).
-
-- Language / runtime: Python 3.11+ / Node.js 20+
-- Package / environment manager: pip / uv / npm
-- Build command: python -m py_compile src/**/*.py && npm --prefix src/frontend run build
-- Test command: python compile_static_fixtures.py --dry-run
-- Verify command: python -m py_compile src/**/*.py && npm --prefix src/frontend run build
 
 ## Mission
 
-Build a high-performance web application tracking the live FIFA World Cup 2026. The application filters out media noise by combining advanced data science metrics with programmatic NLP news summaries. It serves a targeted user base (friends and family).
+Build a reliable FIFA World Cup 2026 dashboard that combines live tournament
+state, curated match previews, transparent forecast models, and historical
+StatsBomb proxy visualizations. The project should stay low-cost, reproducible,
+and understandable enough that future updates can be delegated through the
+agent workflow without rediscovering the system from scratch.
 
-## Non-goals
+## Current Objective
+
+Rebaseline the project around the actual React/FastAPI architecture and harden
+the fragile data pipeline before adding new product features.
+
+The immediate objective is **Phase 5 - Framework Rebaseline & Pipeline
+Hardening**. This phase exists because the project evolved faster than its
+operating documents, data contracts, and task routing.
+
+## Canonical Architecture
+
+- Active frontend: React/Vite app in `src/frontend/`.
+- Active backend: FastAPI app in `src/api/main.py`.
+- Active deployment unit: Docker image that builds the React app and serves the
+  compiled assets from FastAPI on Cloud Run.
+- Legacy/reference frontend: Streamlit code in `src/app/`. It is not the
+  canonical runtime unless a future decision explicitly restores it.
+- Static match data: `data/matches/{match_id}/summary.json` and
+  `data/matches/{match_id}/metrics.json`.
+- Static tournament fallback: `data/bracket/grid_state.json`.
+- Live tournament source: `https://worldcup26.ir/get/groups` and
+  `https://worldcup26.ir/get/games`, queried with `curl -s -k` because the API
+  rejects normal Python SSL handling.
+- Historical event visualizations: BigQuery-backed StatsBomb proxy matches.
+  These are not 2026 live event feeds.
+
+## Data Source Rules
+
+Every user-visible data point should be classifiable as one of:
+
+- live: pulled from an external API at runtime.
+- static: checked into this repository.
+- curated: manually written or reviewed editorial content.
+- generated: produced by a local script.
+- fallback: default data used because a source is missing.
+- proxy: historical data used as a stand-in for unavailable 2026 event data.
+
+No UI text, documentation, or chart label should imply a stronger source than
+the implementation actually uses.
+
+## Operating Principles
 
 - Do not let decisions live only in chat.
-- Do not duplicate living-document sections.
-- Do not rebuild a complex full-stack Next.js/FastAPI application if Streamlit covers the requirements. (Obsolete: streamlit replaced due to layout limitations and user approval)
+- Do not silently overwrite curated editorial JSON with generated content.
+- Keep team identity, aliases, flags, and display names centralized.
+- Treat multi-word team names as a first-class data-contract requirement.
+- Make fallback behavior visible to operators and, where needed, users.
+- Keep `PROJECT_CHARTER.md`, `AGENTS.md`, `docs/phase_plan.md`, `TASKS.md`,
+  and `STATUS.md` aligned after every meaningful batch.
+- Record schema, architecture, deployment, and model-provenance changes in
+  `docs/decisions/`.
+- Record completed phase or handoff work in `docs/handoffs/`.
 
-## Questions
+## Stack & Verification
 
-- Q1. How will we combine NLP summaries from Google AI Studio with BigQuery stats?
-- Q2. How exactly will the custom CSS rendering work for the bracket?
+- Runtime: Python 3.11+ / Node.js 20+.
+- Backend: FastAPI, Uvicorn, google-cloud-bigquery, matplotlib, mplsoccer.
+- Frontend: React, TypeScript, Vite, TailwindCSS, Recharts.
+- Package managers: pip / npm.
+- Build command: `npm --prefix src/frontend run build`.
+- Python syntax check: `python3 -m compileall -q src`.
+- Current verify command: `python3 -m compileall -q src && npm --prefix src/frontend run build`.
 
-## Phases
+The verify command proves the local code compiles. It does not prove BigQuery
+credentials, live Cloud Run state, external API freshness, or remote
+`accionar.xyz` deployment.
 
-### Phase 0 - Initialization (Completed)
-- Exit criteria met. Consolidated legacy codebases, and framework compliance check passes.
+## Non-Goals
 
-### Phase 1 - Static Pre-calculation Engine (Completed)
-- Exit criteria met. Static pre-calculation data compiling to `data/matches/` via model integrations.
+- Do not rebuild from scratch while the current React/FastAPI architecture can
+  be stabilized.
+- Do not expand features before the data contracts, task routing, and pipeline
+  safety rules are current.
+- Do not treat Streamlit as the production app without a new decision.
+- Do not present hardcoded, fallback, or formulaic data as live, scraped,
+  simulated, or fully model-backed.
 
-### Phase 2 - Streamlit Dashboard UI (Completed)
-- Exit criteria met. Streamlit UI with the wood board symmetrical bracket wall, team analysis panel, and match tactical previews complete.
+## Current Phase
 
-### Phase 3 - Ingestion & Sync (Dismissed)
-- Connect local group standings data to live Nestor PostgreSQL standings. (Dismissed on 2026-06-16).
+### Phase 5 - Framework Rebaseline & Pipeline Hardening (Active)
 
-### Phase 4 - Decoupled React Client & FastAPI REST Backend Migration (Completed)
-- Exit criteria met. FastAPI REST backend implements data routes and serves compiled frontend assets. React Vite client replaces Streamlit with high-performance interactive Recharts and coordinate-based lineup pitches.
+Exit criteria:
+
+- [x] Charter, agent roster, phase plan, tasks, status, and playbook describe
+  the current React/FastAPI project.
+- [x] Active data contracts are documented for match summaries, match metrics,
+  bracket state, and API payloads.
+- [x] All 19 active match folders are audited for schema, model fallbacks,
+  missing team metrics, and source provenance.
+- [x] Legacy numeric match folders `1001`, `1002`, and `1003` are classified.
+- [x] Last-minute briefing generation has a documented safety plan before
+  implementation.
+- [x] Team-name normalization and multi-word team handling are tracked as
+  implementation tasks.
+- [x] Deployment documentation distinguishes local, Cloud Run, and
+  `accionar.xyz` state.
+
+## Completed Phases
+
+### Phase 0 - Initialization
+
+Framework scaffolding, charter, task list, decisions, and handoff structure
+created.
+
+### Phase 1 - Static Previews and Forecast Data
+
+Initial match preview JSON generation and forecast payloads were introduced.
+The current implementation now needs a contract audit before further generation.
+
+### Phase 2 - Streamlit Dashboard UI
+
+Streamlit UI was built and then superseded by the React/FastAPI migration.
+
+### Phase 3 - Ingestion & Sync
+
+The proposed PostgreSQL standings sync was dismissed. The project uses direct
+API polling plus a local static fallback.
+
+### Phase 4 - React/FastAPI Migration
+
+React/Vite frontend and FastAPI backend became the canonical runtime. Interactive
+charts, standings, bracket rendering, and proxy visualizations were added.
 
 ## Team
 
-Roles are defined in AGENTS.md.
+Roles are defined in `AGENTS.md`.
 
 ## Success Criteria
 
-- App successfully displays brackets, standings, and deep analytics.
-- Execution costs are kept low by pre-calculating fixtures.
+- The dashboard clearly displays tournament overview, standings/bracket, and
+  match analysis from known sources.
+- The Match Analysis tab never hides missing or fallback data behind misleading
+  defaults.
+- Last-minute matchday analysis is generated as a separate freshness-labeled
+  briefing, not by overwriting baseline previews.
+- The forecast/model methodology is understandable from docs and labels.
+- The data pipeline can be run safely with preview/diff behavior before writes.
+- The Orchestrator can assign work from `TASKS.md` without re-auditing the repo.
+- Local verification and deployment verification are separate and documented.
+
+## Open Questions
+
+- Should Streamlit remain only as reference code, or should it be deleted or
+  archived after the React app is fully verified live?
+- What sources should be allowed for approved last-minute briefings beyond local
+  static data and live tournament schedule context?
+- Should "Monte Carlo" be renamed to "Elo progression estimate" or replaced
+  with an actual tournament simulation?
+- Should `accionar.xyz` host static React assets directly, embed Cloud Run, or
+  keep both paths?
 
 ## Decision Log
 
@@ -63,12 +171,21 @@ Roles are defined in AGENTS.md.
 | 2026-06-14 | Project initialized from AI Workflow Framework | Orchestrator | docs/decisions/20260614_DEC001_charter_v1.md |
 | 2026-06-15 | Deployed Streamlit App to Cloud Run & Configured AI Previews | Orchestrator | docs/decisions/20260615_DEC002_deployment_and_previews.md |
 | 2026-06-16 | Dismissed Phase 3 Standings Sync & Restricted Match Previews to Active Date | Orchestrator | docs/decisions/20260616_DEC003_dismiss_phase3_and_limit_previews.md |
+| 2026-06-16 | Archived Stale Team Tab, Implemented Researched Previews & Spanish Translation | Orchestrator | docs/decisions/20260616_DEC004_archive_team_tab_and_customize_insights.md |
 | 2026-06-16 | Decoupled React & FastAPI Migration with Interactive Visualizations | Orchestrator | docs/decisions/20260616_DEC005_decoupled_react_migration.md |
 | 2026-06-16 | Interactive Analytics Sprint (Elo / Monte Carlo Projections & xG Momentum) | Orchestrator | docs/decisions/20260616_DEC006_interactive_analytics_sprint.md |
+| 2026-06-17 | Framework Rebaseline & Pipeline Hardening | Orchestrator | docs/decisions/20260617_DEC007_framework_rebaseline.md |
+| 2026-06-17 | Separate Baseline Previews from Last-Minute Match Briefings | Orchestrator | docs/decisions/20260617_DEC008_last_minute_briefing_scope.md |
 
 ## Risks
 
 | Risk | Impact | Mitigation | Owner |
 |---|---|---|---|
-| Scope remains too vague | High | Orchestrator updates this charter before dispatching | Orchestrator |
-| BigQuery Costs | Medium | Pre-calculate outputs via static compilation | Data Pipeline Engineer |
+| Generated previews overwrite curated summaries | High | Add dry-run/diff and preserve rules before running generator again | Data Pipeline Engineer |
+| Docs describe Streamlit or BigQuery contracts that no longer match runtime | High | Rebaseline charter, agents, playbook, phase plan, tasks, and contracts | Orchestrator |
+| Team-name parsing breaks multi-word countries | High | Centralize aliases and normalize identity across API, generator, and frontend | Data Pipeline Engineer |
+| Forecasts fall back to 40/30/30 without operator visibility | Medium | Add validation and source/provenance labels | Football Data Scientist |
+| Empty `team_metrics` render misleading neutral charts | Medium | Add schema validation and incomplete-data UI states | QA / Frontend Engineer |
+| "Monte Carlo" wording overstates current deterministic formula | Medium | Rename or replace with actual simulation after model review | Football Data Scientist |
+| Live deployment status diverges from local code | Medium | Add deployment verification and status snapshot checklist | QA / Orchestrator |
+| BigQuery-backed visualizations fail without credentials | Medium | Keep proxy disclosure and add credential-aware error handling | Data Pipeline Engineer |

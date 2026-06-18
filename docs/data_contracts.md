@@ -1,0 +1,491 @@
+# Data Contracts and Audit - Active JSON and API Payloads
+
+Last updated: 2026-06-17  
+Task: T-024 - Data Contract Audit for Active JSON and API Payloads  
+Owners: QA / Reproducibility Engineer, with Data Pipeline Engineer support
+
+## Scope
+
+This document defines the current data contracts that the React/FastAPI
+application actually consumes. It covers:
+
+- Active fixture folders: `data/matches/*_2026`.
+- Legacy fixture folders: `data/matches/1001`, `1002`, `1003`.
+- Tournament fallback: `data/bracket/grid_state.json`.
+- API payloads served by `src/api/main.py`.
+- Frontend consumers in `src/frontend/src/components/`.
+
+This is an audit document only. It does not change JSON data, generator scripts,
+API code, frontend code, or deployed behavior.
+
+## Source Classification
+
+| Source | Status | Notes |
+|---|---|---|
+| `data/matches/{match_id}/summary.json` | Active | Static curated fixture metadata and editorial/tactical preview copy. |
+| `data/matches/{match_id}/metrics.json` | Active | Static forecast, exact scores, and team profile metrics. |
+| `data/bracket/grid_state.json` | Active fallback | Local standings/bracket state. The API may augment standings at runtime from `worldcup26.ir`. |
+| Runtime API augmentation | Active derived payload | `/api/match/{id}/metrics` adds `elo_ratings`, `monte_carlo_projections`, and `viz_proxies` at request time. |
+| StatsBomb visualization routes | Active proxy/event payload | `/api/visualizations/{match_id}/{viz_type}` returns PNG images from historical proxy matches and requires BigQuery credentials. |
+| `data/matches/1001`, `1002`, `1003` | Legacy/stub | Numeric fixture folders with older BigQuery-style metric payloads; they are not returned by `/api/schedule`. |
+
+## Active Folder Rule
+
+The active match list is not manually enumerated. `/api/schedule` scans
+`data/matches/`, includes folders whose names end with `_2026`, reads each
+`summary.json`, and returns a `matches` array.
+
+Active folders found on 2026-06-17: 19.
+
+Legacy folders found on 2026-06-17: `1001`, `1002`, `1003`.
+
+## `summary.json` Contract
+
+Path: `data/matches/{match_id}/summary.json`  
+API route: `/api/match/{match_id}/summary`  
+Primary frontend consumer: `MatchAnalysisTab.tsx`
+
+Top-level shape:
+
+```json
+{
+  "metadata": {},
+  "ai_summary": {}
+}
+```
+
+Required `metadata` fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `match_id` | string | Identity check and provenance. Should match folder name. |
+| `team1` | string | Schedule cards, match header, forecast labels, roster lookup, metric lookup. |
+| `team2` | string | Schedule cards, match header, forecast labels, roster lookup, metric lookup. |
+| `date` | string, `MM/DD/YYYY` currently | `/api/schedule`, Overview day filter, Match Analysis header. |
+| `time` | string | Schedule tile and Match Analysis header. |
+| `venue` | string | Schedule tile and Match Analysis header. |
+| `stage` | string | Schedule tile and Match Analysis header. |
+
+Required `ai_summary` fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `key_headline` | string | "AI Tactical Headline" banner. |
+| `injuries` | object keyed by normalized team slug | Injury Updates. |
+| `confirmed_tactics` | object keyed by normalized team slug | Coaching card and pitch formation. |
+| `tactical_insights` | array of strings | Key Match Insights list. Current expectation: 3 bullets. |
+
+Required `confirmed_tactics` per-team fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `formation` | string | Coaching card and `InteractivePitch` formation. |
+| `philosophy` | string | Coaching card. |
+| `manager` | string | Coaching card. |
+
+Audit result:
+
+- 19 of 19 active fixtures have required top-level keys.
+- 19 of 19 active fixtures have required `metadata` fields.
+- 19 of 19 active fixtures have required `ai_summary` fields.
+- 19 of 19 active fixtures have 3 tactical insight bullets.
+- 19 of 19 active fixtures have `injuries` and `confirmed_tactics` keys matching the normalized team slugs used inside the JSON.
+- 17 of 19 active fixtures currently resolve those editorial keys through the
+  React consumer logic. The two known consumer failures are
+  `portugal_democratic_republic_of_the_congo_2026` and
+  `switzerland_bosnia_and_herzegovina_2026`.
+
+Known risk:
+
+- `MatchAnalysisTab.tsx` derives `cleanT1` and `cleanT2` with
+  `team.toLowerCase().replace(' ', '_')`, which replaces only the first space.
+  This currently misses the `democratic_republic_of_the_congo` and
+  `bosnia_and_herzegovina` keys. The JSON keys themselves are correct; the
+  frontend normalization is not contract-safe.
+
+Routed follow-up: T-027.
+
+## `metrics.json` Contract
+
+Path: `data/matches/{match_id}/metrics.json`  
+API route: `/api/match/{match_id}/metrics`  
+Primary frontend consumers: `MatchPredictionGraph.tsx`,
+`TeamRadarComparison.tsx`, `SquadStyleComparison.tsx`,
+`MonteCarloProjections.tsx`, and the StatsBomb proxy disclosure in
+`MatchAnalysisTab.tsx`.
+
+Stored top-level shape:
+
+```json
+{
+  "dixon_coles_forecast": {},
+  "score_probabilities": [],
+  "team_metrics": {}
+}
+```
+
+Stored `dixon_coles_forecast` fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `team1_win` | number, 0 to 1 | Match outcome bar. |
+| `draw` | number, 0 to 1 | Match outcome bar. |
+| `team2_win` | number, 0 to 1 | Match outcome bar. |
+| `confidence` | number, 0 to 1 | Model confidence display. |
+
+Stored `score_probabilities` fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `score` | string such as `1-0` | Top Exact Scores. |
+| `probability` | number, 0 to 1 | Top Exact Scores. |
+
+Stored `team_metrics` contract:
+
+- Object keyed by the exact display names from `summary.metadata.team1` and
+  `summary.metadata.team2`.
+- Each team should contain the 15 profile fields below.
+- Empty objects are structurally valid JSON but are product-quality failures
+  because the radar and style panels render neutral or blank fallback values.
+
+Expected per-team metric fields:
+
+| Field | Type | Consumer |
+|---|---|---|
+| `squad_market_value_m` | number | Squad & Style Comparison. |
+| `average_age` | number | Squad & Style Comparison. |
+| `possession_avg` | number | Radar, Squad & Style Comparison. |
+| `pass_completion_pct` | number | Radar, Squad & Style Comparison. |
+| `expected_goals_per_90` | number | Radar, Squad & Style Comparison. |
+| `expected_goals_conceded_per_90` | number | Radar, Squad & Style Comparison. |
+| `shots_per_90` | number | Radar, Squad & Style Comparison. |
+| `ppda` | number | Radar, Squad & Style Comparison. |
+| `field_tilt_pct` | number | Squad & Style Comparison. |
+| `goals_per_90` | number | Squad & Style Comparison. |
+| `goals_conceded_per_90` | number | Squad & Style Comparison. |
+| `shots_on_target_pct` | number | Squad & Style Comparison. |
+| `passes_per_90` | number | Squad & Style Comparison. |
+| `xg_per_shot` | number | Squad & Style Comparison. |
+| `shots_against_per_90` | number | Squad & Style Comparison. |
+
+API-added `metrics` fields:
+
+| Field | Type | Source | Consumer |
+|---|---|---|---|
+| `elo_ratings` | object keyed by display team name | `SoccerDataClient.fetch_club_elo_ratings()` local default map | Squad & Style Comparison. |
+| `monte_carlo_projections` | object keyed by display team name | `compute_monte_carlo_probs()` runtime calculation | Monte Carlo Projections panel. |
+| `viz_proxies` | object keyed by display team name | `MATCH_VISUALIZATION_PROXIES` in `src/api/main.py` | StatsBomb proxy-source disclosure. |
+
+Audit result:
+
+- 19 of 19 active fixtures have the stored top-level keys.
+- 19 of 19 active fixtures have 6 exact-score probabilities.
+- 11 of 19 active fixtures have full 15-field team profiles for both teams.
+- 8 of 19 active fixtures have empty `team_metrics` objects for both teams.
+- 7 of 19 active fixtures use the default stored forecast
+  `team1_win=0.40`, `draw=0.30`, `team2_win=0.30`, `confidence=0.70`.
+- 1 fixture, `switzerland_bosnia_and_herzegovina_2026`, has empty
+  `team_metrics` but a non-default forecast because both Elo names resolve.
+
+Routed follow-ups: T-026, T-028, T-031.
+
+## Calculation Contracts
+
+### Stored Dixon-Coles Forecast
+
+Generation path: `src/pipeline/generate_match_previews.py`  
+Model helper: `src/analytics/soccerdata_client.py`
+
+The generator initializes a fallback forecast:
+
+```json
+{
+  "team1_win": 0.40,
+  "draw": 0.30,
+  "team2_win": 0.30,
+  "confidence": 0.70
+}
+```
+
+If both teams resolve to Elo ratings, it calls
+`get_dixon_coles_prediction(team1_elo, team2_elo)`.
+
+Current implementation:
+
+- `lambda1 = 1.35 * exp(0.0015 * (team1_elo - team2_elo))`
+- `lambda2 = 1.35 * exp(0.0015 * (team2_elo - team1_elo))`
+- Score grid covers 0 through 10 goals for each team.
+- Independent Poisson probabilities are adjusted with Dixon-Coles `rho=-0.10`
+  for 0-0, 1-0, 0-1, and 1-1 outcomes.
+- The grid is normalized.
+- `team1_win`, `draw`, and `team2_win` are sums over the score grid.
+- `score_probabilities` is the top 6 scorelines by probability.
+- `confidence = 0.70 + 0.20 * abs(team1_win - team2_win)`.
+
+Important provenance note:
+
+- The current Elo client uses a local hardcoded default rating map. The
+  `soccerdata` import path exists, but the active runtime result is the local
+  fallback map.
+
+### Runtime Projection Payload
+
+Route: `/api/match/{match_id}/metrics`  
+Function: `compute_monte_carlo_probs(elo)`
+
+Despite the UI label, this is not currently a random Monte Carlo simulation. It
+is a deterministic Elo-derived curve.
+
+Current formula:
+
+- If Elo is missing: return `N/A` for `r16`, `qf`, `sf`, `final`, and `win`.
+- `diff = max(0, elo - 1400)`.
+- `scale = 730`.
+- `r16 = 0.40 + 0.59 * (diff / scale)`.
+- `qf = 0.15 + 0.75 * (diff / scale)^2`.
+- `sf = 0.05 + 0.75 * (diff / scale)^3`.
+- `final = 0.02 + 0.58 * (diff / scale)^4`.
+- `win = 0.005 + 0.395 * (diff / scale)^5`.
+- Each value is clipped to a configured min/max range.
+
+Routed follow-up: T-026 should decide whether the UI keeps the Monte Carlo
+label, renames this to deterministic Elo projections, or replaces it with a real
+simulation.
+
+## `grid_state.json` Contract
+
+Path: `data/bracket/grid_state.json`  
+API route: `/api/standings`  
+Primary frontend consumer: `StandingsTab.tsx`
+
+Top-level fields found:
+
+| Field | Type | Status |
+|---|---|---|
+| `tournament` | string | Active. Current value: `FIFA World Cup 2026`. |
+| `groups` | array | Active. Current count: 12. |
+| `rounds` | array | Active fallback bracket. Current count: 5. |
+| `third_place` | object | Active fallback match. |
+
+Group shape:
+
+```json
+{
+  "name": "Group A",
+  "standings": [
+    {
+      "team": "Mexico",
+      "p": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "gf": 2,
+      "ga": 0,
+      "gd": 2,
+      "pts": 3
+    }
+  ]
+}
+```
+
+Knockout match shape:
+
+```json
+{
+  "id": "r32_1",
+  "team1": "Runner-up Group A",
+  "team2": "Runner-up Group B",
+  "score1": null,
+  "score2": null,
+  "winner": null
+}
+```
+
+Runtime caveat:
+
+- `/api/standings` calls `load_live_bracket_state()`.
+- That function reads `grid_state.json`, then may attempt to fetch live groups
+  and games from `worldcup26.ir` and mutate the returned payload.
+- If the live fetch fails, the local static fallback remains the payload.
+
+## API Payload Contracts
+
+### `GET /api/schedule`
+
+Returns:
+
+```json
+{
+  "matches": [
+    {
+      "id": "argentina_algeria_2026",
+      "team1": "Argentina",
+      "team2": "Algeria",
+      "date": "06/16/2026",
+      "time": "21:00",
+      "venue": "Stadium ...",
+      "stage": "Group Stage - Group ..."
+    }
+  ]
+}
+```
+
+Contract notes:
+
+- Includes only folders ending in `_2026`.
+- Does not include legacy folders `1001`, `1002`, `1003`.
+- Depends on `summary.json` existing and having `metadata`.
+
+### `GET /api/match/{match_id}/summary`
+
+Returns the stored `summary.json` exactly.
+
+Failure behavior:
+
+- Returns 404 with `Summary payload not found` if the file is missing.
+
+### `GET /api/match/{match_id}/metrics`
+
+Returns the stored `metrics.json` plus runtime-added fields:
+
+- `elo_ratings`
+- `monte_carlo_projections`
+- `viz_proxies`
+
+Failure behavior:
+
+- Returns 404 with `Metrics payload not found` if the file is missing.
+
+Contract notes:
+
+- The route reads team display names from `summary.json` when possible.
+- If summary team names cannot be read, it falls back to splitting the match ID.
+  That fallback is unsafe for multi-word teams because it splits on every
+  underscore and uses positional fragments.
+
+### `GET /api/standings`
+
+Returns the local bracket state, possibly mutated by live `worldcup26.ir`
+responses.
+
+Contract notes:
+
+- Local fallback must remain complete enough for the frontend to render all
+  groups and bracket rounds without live network access.
+- Live mutation currently maps selected names such as `Turkey`, `Czech Republic`,
+  `Curaçao`, and `Democratic Republic of the Congo` to local display names.
+
+### `GET /api/forecast?team1={team1}&team2={team2}`
+
+Returns a live runtime Dixon-Coles forecast if both names resolve to local Elo
+ratings. Returns null forecast values otherwise.
+
+Contract status:
+
+- Active route, but not part of the main Match Analysis data flow. The main tab
+  reads stored forecast values from `/api/match/{id}/metrics`.
+
+### `GET /api/visualizations/{match_id}/{viz_type}?team={team}`
+
+Returns a PNG image for:
+
+- `momentum`
+- `passing_network`
+- `shot_map`
+- `touch_heatmap`
+- `attacking_passes`
+- `progressive_actions`
+- `radar_chart`
+
+Contract notes:
+
+- Uses historical StatsBomb proxy matches, not real 2026 event data.
+- Requires BigQuery credentials.
+- Falls back to Netherlands/Japan proxy data for missing proxy mappings in some
+  paths.
+- Match ID parsing is unsafe for multi-word teams and should be replaced by
+  summary metadata lookup.
+
+Routed follow-up: T-027.
+
+## Frontend Consumer Map
+
+| UI surface | Source fields |
+|---|---|
+| Overview "Fixtures of the Day" | `/api/schedule`: `id`, `team1`, `team2`, `date`, `time`, `venue`, `stage`. |
+| Overview tournament stat cards | Hardcoded in `OverviewTab.tsx`; not currently sourced from API or JSON. |
+| Match Analysis header/dropdown | `summary.metadata` plus `/api/schedule`. |
+| AI Tactical Headline | `summary.ai_summary.key_headline`. |
+| Injury Updates | `summary.ai_summary.injuries[cleanTeamKey]`. |
+| Key Match Insights | `summary.ai_summary.tactical_insights`. |
+| Coaching & Tactical Philosophies | `summary.ai_summary.confirmed_tactics[cleanTeamKey]`. |
+| InteractivePitch formation | `summary.ai_summary.confirmed_tactics[cleanTeamKey].formation`. |
+| Match Outcome Probability | `metrics.dixon_coles_forecast`. |
+| Top Exact Scores | `metrics.score_probabilities`. |
+| Team Performance Metrics radar | `metrics.team_metrics[team].expected_goals_per_90`, `shots_per_90`, `pass_completion_pct`, `possession_avg`, `ppda`, `expected_goals_conceded_per_90`. Missing values render as neutral 50. |
+| Squad & Style Comparison | 15 `team_metrics` fields plus `metrics.elo_ratings[team]`. Missing values render as `-`. |
+| Monte Carlo Simulation Projections | `metrics.monte_carlo_projections[team]`. |
+| StatsBomb proxy disclosure | `metrics.viz_proxies[team]`. |
+| StatsBomb images | `/api/visualizations/{match_id}/{viz_type}?team={team}` PNG responses. |
+
+## Fixture Audit
+
+Legend:
+
+- Summary: `PASS` means required schema and editorial fields exist.
+- Team metrics: `FULL` means both teams have 15 fields; `EMPTY` means both team
+  keys exist but their objects have zero fields.
+- Forecast: `MODEL` means not the default 40/30/30 split; `DEFAULT` means the
+  generator fallback split is stored.
+
+| Match ID | Date | Fixture | Summary | Team metrics | Forecast | Follow-up |
+|---|---:|---|---|---|---|---|
+| `argentina_algeria_2026` | 06/16/2026 | Argentina vs Algeria | PASS | FULL | MODEL | None from T-024. |
+| `austria_jordan_2026` | 06/16/2026 | Austria vs Jordan | PASS | FULL | MODEL | None from T-024. |
+| `belgium_egypt_2026` | 06/15/2026 | Belgium vs Egypt | PASS | FULL | MODEL | None from T-024. |
+| `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-026, T-028, T-031. |
+| `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-026, T-027, T-028, T-031. |
+| `england_croatia_2026` | 06/17/2026 | England vs Croatia | PASS | FULL | MODEL | None from T-024. |
+| `france_senegal_2026` | 06/16/2026 | France vs Senegal | PASS | FULL | MODEL | None from T-024. |
+| `ghana_panama_2026` | 06/17/2026 | Ghana vs Panama | PASS | FULL | MODEL | None from T-024. |
+| `iran_new_zealand_2026` | 06/15/2026 | Iran vs New Zealand | PASS | FULL | MODEL | None from T-024. |
+| `iraq_norway_2026` | 06/16/2026 | Iraq vs Norway | PASS | FULL | MODEL | None from T-024. |
+| `mexico_south_korea_2026` | 06/18/2026 | Mexico vs South Korea | PASS | EMPTY | DEFAULT | T-026, T-027, T-028, T-031. |
+| `portugal_democratic_republic_of_the_congo_2026` | 06/17/2026 | Portugal vs Democratic Republic of the Congo | PASS | FULL | MODEL | T-027 for multi-word/alias safety. |
+| `saudi_arabia_uruguay_2026` | 06/15/2026 | Saudi Arabia vs Uruguay | PASS | FULL | MODEL | T-027 for multi-word safety. |
+| `scotland_morocco_2026` | 06/19/2026 | Scotland vs Morocco | PASS | EMPTY | DEFAULT | T-026, T-028, T-031. |
+| `spain_cape_verde_2026` | 06/15/2026 | Spain vs Cape Verde | PASS | FULL | MODEL | T-027 for multi-word safety. |
+| `switzerland_bosnia_and_herzegovina_2026` | 06/18/2026 | Switzerland vs Bosnia and Herzegovina | PASS | EMPTY | MODEL | T-027, T-028, T-031. |
+| `turkey_paraguay_2026` | 06/19/2026 | Turkey vs Paraguay | PASS | EMPTY | DEFAULT | T-026, T-027, T-028, T-031. |
+| `united_states_australia_2026` | 06/19/2026 | United States vs Australia | PASS | EMPTY | DEFAULT | T-026, T-027, T-028, T-031. |
+| `uzbekistan_colombia_2026` | 06/17/2026 | Uzbekistan vs Colombia | PASS | EMPTY | DEFAULT | T-026, T-028, T-031. |
+
+## Findings and Routing
+
+| ID | Finding | Severity | Routed task |
+|---|---|---:|---|
+| F-024-1 | Active `summary.json` schemas pass for all 19 active fixtures. | 0 | No follow-up. |
+| F-024-2 | Eight active fixtures have empty per-team metric profiles. | 2 | T-031, T-028. |
+| F-024-3 | Seven active fixtures use the default 40/30/30 stored forecast. | 2 | T-026, T-031. |
+| F-024-4 | Multi-word team normalization is fragile in frontend and API fallback parsing; React currently misses the two longest summary keys. | 2 | T-027. |
+| F-024-5 | The preview generator can overwrite curated `summary.json` editorial copy; last-minute analysis must use separate `briefing.json` artifacts. | 2 | T-025, T-032. |
+| F-024-6 | Overview tournament totals are hardcoded in the frontend, not sourced from schedule or standings payloads. | 2 | T-028 or a deployment/ops data-source follow-up. |
+| F-024-7 | Legacy numeric folders remain in `data/matches/` with incompatible schemas. | 1 | T-030 or a future cleanup task. |
+| F-024-8 | Stored JSON and API payloads differ because metrics are augmented at runtime. | 1 | This document; future schema tests should enforce both layers. |
+
+## Verification Checklist
+
+For T-024, completion means:
+
+- Active JSON/API contracts are documented in this file.
+- All 19 active fixtures are listed with summary, metrics, and forecast status.
+- Legacy numeric folders are classified.
+- Runtime augmentation fields are separated from stored JSON fields.
+- Follow-up work is routed to existing tasks instead of being silently bundled
+  into this audit.
+
+Suggested next Orchestrator assignment:
+
+1. T-026 - Model and Provenance Truth Review.
+2. T-027 - Team Identity and Multi-Word Name Normalization Plan.
+3. T-032 - Last-Minute Briefing Pipeline Implementation.

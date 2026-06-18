@@ -1,5 +1,177 @@
 # STATUS
 
+## 2026-06-17 - T-025 Re-scoped to Last-Minute Briefing Generation
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-025 is complete as a planning task.
+- Owner: Data Pipeline Engineer.
+- Deliverable: `docs/last_minute_briefing_plan.md`.
+- Runtime behavior was not changed.
+
+### Completed This Update
+
+- Re-scoped T-025 from generic safe preview regeneration into safe
+  last-minute match briefing generation.
+- Defined the product split between:
+  - baseline preview: `summary.json`
+  - matchday briefing: planned `briefing.json`
+- Defined planned `briefing.json` fields for metadata, fixture copy, normalized
+  team keys, briefing content, forecast snapshot, data quality, sources, and
+  review status.
+- Required generator safety rules:
+  dry-run by default, explicit write mode, no `summary.json` or `metrics.json`
+  overwrites, source/freshness validation, and review gates.
+- Added implementation follow-ups:
+  T-032 for the briefing pipeline and T-033 for API/UI freshness states.
+- Added decision record
+  `docs/decisions/20260617_DEC008_last_minute_briefing_scope.md`.
+
+### Next Routing
+
+- Next recommended Orchestrator assignment: **T-026 - Model and Provenance Truth
+  Review**.
+- T-032 should wait until T-026 and T-027 clarify model wording and team
+  identity normalization.
+- T-033 should coordinate with T-028 so briefing freshness and incomplete-data
+  states are implemented consistently.
+
+### Verification Scope
+
+- `python3 -m compileall -q src` passed.
+- `npm --prefix src/frontend run build` passed with the existing Vite
+  chunk-size warning only.
+
+---
+
+## 2026-06-17 - Data Contract Audit Completed (T-024)
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-024 is complete.
+- QA / Reproducibility Engineer owned the audit, with Data Pipeline Engineer
+  support for generator/API provenance.
+- Deliverable: `docs/data_contracts.md`.
+- No runtime code, JSON payloads, generation scripts, or deployment assets were
+  changed.
+
+### Completed This Update
+
+- Documented the active contracts for `summary.json`, `metrics.json`,
+  `grid_state.json`, `/api/schedule`, `/api/match/{id}/summary`,
+  `/api/match/{id}/metrics`, `/api/standings`, `/api/forecast`, and
+  `/api/visualizations/{match_id}/{viz_type}`.
+- Separated stored JSON fields from runtime API augmentation:
+  `elo_ratings`, `monte_carlo_projections`, and `viz_proxies`.
+- Audited all 19 active `data/matches/*_2026` fixture folders.
+- Classified legacy numeric folders `1001`, `1002`, and `1003` as old
+  BigQuery-style stubs outside `/api/schedule`.
+- Added a QA handoff at
+  `docs/handoffs/2026-06-17_qa_data_contract_audit.md`.
+
+### Audit Findings
+
+- `summary.json`: all 19 active fixtures pass the required metadata/editorial
+  schema checks.
+- `metrics.json`: all 19 active fixtures have the required stored top-level
+  keys and 6 exact-score probabilities.
+- Empty `team_metrics`: 8 fixtures need completion or explicit fallback states:
+  `canada_qatar_2026`, `czech_republic_south_africa_2026`,
+  `mexico_south_korea_2026`, `scotland_morocco_2026`,
+  `switzerland_bosnia_and_herzegovina_2026`, `turkey_paraguay_2026`,
+  `united_states_australia_2026`, and `uzbekistan_colombia_2026`.
+- Default stored forecast: 7 fixtures use the generator fallback
+  `40/30/30` split: all empty-metrics fixtures except
+  `switzerland_bosnia_and_herzegovina_2026`.
+- Multi-word team names remain a contract risk in frontend normalization and
+  API fallback parsing. React currently misses two long-name editorial keys:
+  `democratic_republic_of_the_congo` and `bosnia_and_herzegovina`.
+- Overview tournament totals are hardcoded in `OverviewTab.tsx`, not sourced
+  from schedule or standings payloads.
+
+### Next Routing
+
+- T-025 was completed after this audit as the safe last-minute match briefing
+  generation plan.
+- Current recommended Orchestrator assignment: **T-026 - Model and Provenance
+  Truth Review**.
+- T-026 should resolve model/provenance wording, especially the deterministic
+  Elo projection currently labeled as Monte Carlo.
+- T-027 should centralize team identity and fix multi-word/alias handling.
+- T-028 should make empty/default/fallback states visible in the UI/API.
+- T-031 should complete or explicitly label the eight empty team metric
+  profiles.
+
+### Verification Scope
+
+- `python3 -m compileall -q src` passed.
+- `npm --prefix src/frontend run build` passed with the existing Vite
+  chunk-size warning only.
+
+---
+
+## 2026-06-17 - Framework Rebaseline Batch 1
+
+Prepared by: Orchestrator
+
+### Current State
+
+- The project is now treated as a **React/Vite + FastAPI** application.
+- `src/app/` Streamlit code is legacy/reference unless a later decision says
+  otherwise.
+- Phase 5 is active: **Framework Rebaseline & Pipeline Hardening**.
+- Batch 1 is docs-only and does not change runtime behavior.
+
+### Completed This Update
+
+- Rewrote `PROJECT_CHARTER.md` as the current operating contract.
+- Updated `AGENTS.md` so the five framework agents map to the current
+  React/FastAPI/static-data project.
+- Replaced `docs/phase_plan.md` with Phase 5 batches and exit criteria.
+- Rebuilt `TASKS.md` around the real current deficiencies:
+  data contracts, last-minute briefing generation, model provenance, team
+  identity, incomplete-data UI states, and deployment runbook refresh.
+- Refreshed `docs/DEVELOPER_PLAYBOOK.md` for the current architecture.
+- Refreshed `README.md` and `docs/domain/README.md` to stop pointing new
+  readers at stale Streamlit/Antigravity assumptions.
+- Added decision record `docs/decisions/20260617_DEC007_framework_rebaseline.md`.
+
+### Known Local Findings Feeding Phase 5
+
+- Active match folders: 19 `*_2026` fixture folders with `summary.json` and
+  `metrics.json`.
+- Legacy numeric folders: `1001`, `1002`, `1003` still contain old
+  BigQuery-style metrics and are not part of `/api/schedule`.
+- Several active fixtures have empty `team_metrics`.
+- Several forecasts fall back to the default `40/30/30` outcome split because
+  Elo/team profiles are missing for the exact team names in use.
+- Current `summary.json` files may contain newer curated editorial copy than
+  `generate_match_previews.py`; the generator must not be run again without a
+  dry-run/diff/preserve plan.
+- Multi-word team names and aliases are a known fragile path across generator,
+  API, and frontend code.
+- Some UI/model wording overstates current implementation details, especially
+  static Elo defaults and deterministic "Monte Carlo" projections.
+
+### Next Batch
+
+- Completed after this entry: **T-024 - Data Contract Audit for Active JSON and
+  API Payloads**.
+
+### Verification Scope
+
+- Local docs were updated only.
+- Runtime behavior and live deployment were not changed in this batch.
+- `python3 -m compileall -q src` passed.
+- `npm --prefix src/frontend run build` passed with the existing Vite chunk-size
+  warning only.
+
+---
+
 ## 2026-06-17 - Match Analysis Deep Update, xG Distribution, Live Results Refresh
 
 Prepared by: Orchestrator
