@@ -38,7 +38,7 @@ The recommended source stack is:
 ## Consequences
 
 - T-035 is complete as a policy/planning task.
-- T-028 should show "forecast unavailable" for default forecasts.
+- T-028 is complete and shows "forecast unavailable" for default forecasts.
 - T-037 should replace the deterministic progression formula with a real Monte
   Carlo simulation.
 - T-036 should prototype source-backed research collection for one fixture.

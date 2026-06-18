@@ -9,31 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-027 - Team Identity and Multi-Word Name Normalization Plan**
-  Owner: Data Pipeline Engineer / Frontend Engineer
-  Phase: Phase 5
-  Notes: Centralize team aliases/display names and fix fragile parsing across
-  `generate_match_previews.py`, FastAPI routes, React components, flags, rosters,
-  and JSON keys. Known risk: multi-word teams such as `United States`,
-  `South Korea`, `Bosnia and Herzegovina`, and
-  `Democratic Republic of the Congo`. T-024 confirmed the React editorial lookup
-  currently misses the two longest summary keys:
-  `democratic_republic_of_the_congo` and `bosnia_and_herzegovina`.
-  Verify: All 19 active fixtures can be resolved by ID and display name without
-  first-space-only replacement or positional string splitting.
-
-- [ ] **T-028 - Incomplete Data and Fallback UI/API States**
-  Owner: Frontend Engineer / Data Pipeline Engineer
-  Phase: Phase 5
-  Notes: Prevent empty `team_metrics` or default forecasts from rendering as
-  misleading neutral charts. Add explicit degraded states and API/source labels
-  for `default_forecast`, `proxy_historical`, `hardcoded_reference`, and
-  `static_curated` data. Include briefing freshness states:
-  fresh, stale, baseline-only, and blocked. Per T-035, default `40/30/30`
-  forecasts must render as "forecast unavailable."
-  Verify: Fixtures with empty metrics and default forecasts render visibly as
-  incomplete/fallback, not as authoritative model output.
-
 - [ ] **T-034 - Active Fixture Discovery and Baseline Stub Generation**
   Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
   Phase: Phase 5
@@ -42,8 +17,8 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   fall back to `/tmp/games.json`, and create missing
   `data/matches/{match_id}/summary.json` and `metrics.json` baseline stubs only
   with explicit `--write`. Existing curated folders must not be overwritten.
-  This should run before T-032. Hard dependency: T-027 team identity rules.
-  Public UI gate: T-028 fallback/incomplete states.
+  This should run before T-032. T-027 team identity rules and T-028 public
+  fallback/incomplete states are now available.
   Verify: Dry-run writes nothing; write mode creates only missing baseline
   folders; stubs are labeled `baseline_stub`; existing 19 folders are unchanged.
 
@@ -74,12 +49,28 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Owner: Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
   Phase: Phase 5
   Notes: Replace empty/hardcoded Squad & Style values with sourced metrics where
-  provider coverage allows. Use Transfermarkt for squad value, FIFA/provider
-  squads for average age, Sportmonks/API-Football for match/team stats, and paid
-  event-level data for PPDA/field tilt if available. Unsupported fields must
-  render unavailable or explicitly approximate; do not invent values.
+  provider coverage allows. Start with the no-cost path from T-039, use
+  Transfermarkt for squad value, FIFA/provider squads for average age,
+  Sportmonks/API-Football for match/team stats if needed, and paid event-level
+  data for true PPDA/field tilt if available. Unsupported fields must render
+  unavailable or explicitly approximate; do not invent values.
   Verify: For one fixture, every displayed Squad & Style metric has source,
   status, checked time, and missing/approximate handling.
+
+- [ ] **T-039 - No-Cost Football Data Source Spike**
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Phase: Phase 5
+  Notes: Evaluate the free/open-source path suggested in review comments before
+  buying or wiring commercial APIs. Test `soccerdata` against FBref, Sofascore,
+  WhoScored, and related supported sources for World Cup/international coverage;
+  use `worldfootballR` as a reference only unless an R workflow is explicitly
+  approved. Assess whether field-tilt and PPDA proxies can be computed from
+  available aggregate columns. Do not use ClubElo as the national-team rating
+  source; reserve it only for a later player-club-strength blend.
+  Verify: Produce a short feasibility report and sample cached DataFrames for
+  one fixture/team pair, with source coverage, rate-limit/access notes, metric
+  columns found, proxy formulas tested, and fields that still require paid data
+  or must remain unavailable.
 
 - [ ] **T-029 - Deployment and Operations Runbook Refresh**
   Owner: Orchestrator / QA / Reproducibility Engineer
@@ -116,7 +107,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   identified default 40/30/30 forecasts for all of those except
   `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
   replacing values with researched metrics should follow T-035 policy and T-038,
-  while explicitly labeling them can proceed through T-028.
+  while explicit fallback labeling is now handled by T-028.
 
 - [ ] **T-032 - Last-Minute Briefing Pipeline Implementation**
   Owner: Data Pipeline Engineer
@@ -133,12 +124,37 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 - [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
   Owner: Data Pipeline Engineer / Frontend Engineer
   Notes: Add `/api/match/{match_id}/briefing` and render briefing freshness in
-  Match Analysis. Missing briefing data should return/render a baseline-only
-  state instead of failing the tab.
+  Match Analysis. T-028 already exposes baseline-only status through the summary
+  payload; T-033 should add the dedicated briefing route and full freshness UI.
   Verify: Fresh, stale, baseline-only, and blocked briefing states are visible
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-028 - Incomplete Data and Fallback UI/API States**
+  Owner: Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-06-18
+  Notes: Added runtime `data_quality` labels to `/api/match/{id}/metrics` for
+  default forecasts, score probabilities, team metrics, radar metrics, Elo
+  references, deterministic progression estimates, and historical visualization
+  proxies. Added `briefing_status` to `/api/match/{id}/summary` so missing
+  `briefing.json` renders as `baseline_only`. Updated Match Analysis so default
+  `40/30/30` forecasts render as "forecast unavailable," empty radar metrics do
+  not draw neutral charts, Squad & Style shows unavailable/missing states, and
+  deterministic progression is no longer labeled as true Monte Carlo.
+  Handoff: docs/handoffs/2026-06-18_frontend_t028_fallback_states.md
+
+- [x] **T-027 - Team Identity and Multi-Word Name Normalization**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-18
+  Notes: Added the canonical `data/reference/team_identity.json` contract plus
+  Python and TypeScript helpers. Replaced duplicated API/team-ID alias maps,
+  unsafe FastAPI match-ID splitting, preview-generator slugging, React
+  editorial key derivation, frontend flag lookup, and bracket fallback variants
+  with shared identity normalization. All 19 active fixtures now resolve by
+  match ID, display name, alias, and `ai_summary` slug.
+  Contract: data/reference/team_identity.json
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_t027_team_identity.md
 
 - [x] **T-035 - AI Research Source Policy and Data Intake Architecture**
   Owner: Orchestrator / Football Data Scientist / Data Pipeline Engineer
@@ -147,8 +163,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   policy accepts browser automation/scraping, sets the last-minute window to 3
   hours before the day's first match, requires default forecasts to render as
   unavailable, selects World Football Elo/FIFA/Sportmonks/API-Football/
-  Transfermarkt as the first implementation stack, and routes real Monte Carlo
-  to T-037 plus Squad & Style sourcing to T-038.
+  Transfermarkt as the first implementation stack, routes real Monte Carlo to
+  T-037, routes Squad & Style sourcing to T-038, and adds T-039 for the no-cost
+  football-data spike.
   Plan: docs/ai_research_source_policy.md
   Handoff: docs/handoffs/2026-06-18_orchestrator_t035_ai_research_source_policy.md
 

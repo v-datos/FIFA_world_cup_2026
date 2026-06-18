@@ -51,7 +51,7 @@ Use explicit placeholders for:
 For current compatibility, stub `metrics.json` should keep the existing
 numeric default forecast and six-score fallback shape, but the discovery
 manifest must label those values as `default_forecast`, `empty_team_metrics`,
-and `baseline_stub`. T-028 must make those labels visible before this reaches
+and `baseline_stub`. T-028 now makes fallback labels visible before this reaches
 public UI as authoritative analysis.
 
 Do not invent unavailable football intelligence during stub generation.
@@ -59,9 +59,9 @@ Do not invent unavailable football intelligence during stub generation.
 ## Consequences
 
 - T-034 becomes a prerequisite for T-032.
-- T-027 remains important because team slugs and display names must be
-  centralized before discovery/generation is robust.
-- T-028 must render stubbed metrics and missing forecasts as incomplete.
+- T-027 is complete and centralizes team slugs/display names.
+- T-028 is complete and renders stubbed metrics and missing forecasts as
+  incomplete.
 - The app can eventually progress through the tournament without pre-creating
   every future match folder manually.
 

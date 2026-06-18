@@ -1,5 +1,96 @@
 # STATUS
 
+## 2026-06-18 - T-028 Incomplete Data and Fallback UI/API States Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-028 is complete as an implementation task.
+- `/api/match/{id}/metrics` now adds a runtime `data_quality` block.
+- `/api/match/{id}/summary` now adds `briefing_status`.
+- Match Analysis now renders incomplete/default states visibly instead of
+  presenting fallback values as model output.
+
+### What Changed
+
+- Default `40/30/30` forecasts are marked `default_forecast` and render as
+  "forecast unavailable."
+- Exact-score probabilities are hidden when the stored forecast is only the
+  default fallback.
+- Empty `team_metrics` are marked `missing`; complete static values are marked
+  `static_curated`.
+- Radar charts do not render missing values as neutral 50 scores.
+- Squad & Style renders a missing-state panel when both teams lack metrics and a
+  warning when fields are partial.
+- Current progression values are labeled as deterministic fallback estimates,
+  not true Monte Carlo simulations.
+- StatsBomb visualization provenance is exposed as `proxy_historical`.
+- Missing `briefing.json` now surfaces as `baseline_only` instead of silently
+  implying a fresh last-minute briefing exists.
+
+### Verification
+
+- API data-quality check passed for `canada_qatar_2026` and
+  `france_senegal_2026`.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run lint`
+- `npm --prefix src/frontend run build` passed with the existing chunk-size
+  warning only.
+
+### Routing
+
+- T-034 can now generate baseline stubs without the public UI presenting stub
+  forecasts or empty metrics as authoritative.
+- T-037 still needs to replace deterministic progression with real Monte Carlo.
+- T-038/T-039 should populate real source-backed metrics where available; T-028
+  only makes missing and static fallback states honest.
+
+---
+
+## 2026-06-18 - T-027 Team Identity Normalization Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-027 is complete as an implementation task.
+- Canonical team identity now lives in `data/reference/team_identity.json`.
+- Python consumers use `src/common/team_identity.py`.
+- React consumers use `src/frontend/src/lib/teamIdentity.ts`.
+- Runtime behavior changed for identity resolution only: provider aliases such
+  as `Czechia`, `Turkiye` / `Türkiye`, `DR Congo`, `Curaçao`, and
+  `Côte d'Ivoire` now normalize to the project display names and slugs.
+
+### What Changed
+
+- FastAPI metrics and visualization routes no longer split match IDs on every
+  underscore to infer teams.
+- Match Analysis no longer derives editorial keys with first-space-only string
+  replacement.
+- Live standings/bracket mutation and the offline bracket artifact use shared
+  identity names.
+- Preview generation now writes `summary.json` slugs with the shared helper.
+- Existing local Elo fallback lookup now normalizes team aliases before reading
+  defaults.
+
+### Verification
+
+- `python3 -m json.tool data/reference/team_identity.json`
+- `python3 -m compileall -q src`
+- Custom identity audit: all 19 active fixtures resolved by folder ID, metadata
+  display names, injury slugs, and tactics slugs.
+- `npm --prefix src/frontend run build` passed with the existing chunk-size
+  warning only.
+
+### Routing
+
+- T-034, T-036, T-038, and T-039 should use the shared identity contract before
+  writing any source-collected payloads.
+- T-028 is now complete; next Orchestrator assignment should be T-034.
+
+---
+
 ## 2026-06-18 - T-035 AI Research Source Policy Completed
 
 Prepared by: Orchestrator
@@ -42,10 +133,25 @@ Prepared by: Orchestrator
 
 - Added **T-037 - Real Monte Carlo Tournament Simulation**.
 - Added **T-038 - Source-Backed Squad & Style Metrics Integration**.
+- Added **T-039 - No-Cost Football Data Source Spike** after review comments
+  identified a useful free/open-source path through `soccerdata`, FBref,
+  Sofascore, WhoScored, Transfermarkt, and proxy formulas.
 - Moved **T-036 - Source-Backed Research Collector Prototype** into the queued
   implementation path.
-- T-028 must render default forecasts as "forecast unavailable."
+- T-028 is now complete and renders default forecasts as "forecast unavailable."
 - T-032/T-033 should use the 3-hour `jornada` freshness rule.
+
+### Review Comment Disposition
+
+- Accepted: use `soccerdata` as the first Python no-cost extraction layer before
+  paid APIs where coverage is adequate.
+- Accepted: consider FBref/Sofascore/WhoScored-derived aggregate metrics for
+  Squad & Style fields.
+- Accepted with caveat: field tilt and PPDA can be approximated from aggregate
+  columns only when the source columns exist, and must display as proxies.
+- Rejected as primary model source: ClubElo should not replace World Football
+  Elo for national teams. It may be useful later as a player-club-strength
+  feature once roster and starting-XI club mapping exists.
 
 ### Verification Scope
 
@@ -94,8 +200,8 @@ Prepared by: Orchestrator
 - Added backlog task **T-036 - Source-Backed Research Collector Prototype**.
 - T-032 source-backed briefing generation now depends on T-035 for any
   web-research collection.
-- T-028 must update UI/API wording and degraded states so default forecasts,
-  local ratings, hardcoded references, and proxy visuals are visible.
+- T-028 is now complete and exposes UI/API degraded states for default
+  forecasts, local ratings, hardcoded references, and proxy visuals.
 
 ### Policy Questions Before Implementation
 
@@ -154,10 +260,10 @@ Prepared by: Orchestrator
 - Added decision record
   `docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md`.
 - T-034 should run before T-032.
-- T-027 remains important because fixture discovery must use canonical team
-  names and slugs, not fragile match ID parsing.
-- T-028 must stop stub metrics from rendering as authoritative forecasts or
-  radar charts.
+- T-027 is now complete; fixture discovery must use the shared team identity
+  contract rather than fragile match ID parsing.
+- T-028 is now complete and stops stub/default metrics from rendering as
+  authoritative forecasts or radar charts.
 
 ### Verification Scope
 
@@ -201,8 +307,8 @@ Prepared by: Orchestrator
 - At the time, the next recommended Orchestrator assignment was **T-026 - Model
   and Provenance Truth Review**. T-026 is now complete; current routing is in the
   2026-06-18 entry above.
-- T-032 should wait until T-027 clarifies team identity normalization and T-035
-  clarifies source policy for web-researched inputs.
+- T-032 should use the completed T-027 identity contract and the T-035 source
+  policy for web-researched inputs.
 - T-033 should coordinate with T-028 so briefing freshness and incomplete-data
   states are implemented consistently.
 
@@ -255,9 +361,8 @@ Prepared by: Orchestrator
 - Default stored forecast: 7 fixtures use the generator fallback
   `40/30/30` split: all empty-metrics fixtures except
   `switzerland_bosnia_and_herzegovina_2026`.
-- Multi-word team names remain a contract risk in frontend normalization and
-  API fallback parsing. React currently misses two long-name editorial keys:
-  `democratic_republic_of_the_congo` and `bosnia_and_herzegovina`.
+- At audit time, multi-word team names were a contract risk in frontend
+  normalization and API fallback parsing. This is now resolved by T-027.
 - Overview tournament totals are hardcoded in `OverviewTab.tsx`, not sourced
   from schedule or standings payloads.
 
@@ -268,8 +373,10 @@ Prepared by: Orchestrator
 - At the time, the recommended Orchestrator assignment was **T-026 - Model and
   Provenance Truth Review**. T-026 is now complete; current routing is in the
   2026-06-18 entry above.
-- T-027 should centralize team identity and fix multi-word/alias handling.
-- T-028 should make empty/default/fallback states visible in the UI/API.
+- T-027 is now complete and centralizes team identity plus multi-word/alias
+  handling.
+- T-028 is now complete and makes empty/default/fallback states visible in the
+  UI/API.
 - T-031 should complete or explicitly label the eight empty team metric
   profiles.
 

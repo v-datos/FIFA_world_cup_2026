@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 from typing import Dict, List, Any
 
+from src.common.team_identity import normalize_team_name, team_id_to_name
+
 GRID_STATE_PATH = Path("./data/bracket/grid_state.json")
 
 def load_grid_state() -> Dict[str, Any]:
@@ -23,21 +25,6 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
     """
     import subprocess
 
-    TEAM_ID_TO_NAME = {
-        "1": "Mexico", "2": "South Africa", "3": "South Korea", "4": "Czechia",
-        "5": "Canada", "6": "Bosnia and Herzegovina", "7": "Qatar", "8": "Switzerland",
-        "9": "Brazil", "10": "Morocco", "11": "Haiti", "12": "Scotland",
-        "13": "United States", "14": "Paraguay", "15": "Australia", "16": "Turkiye",
-        "17": "Germany", "18": "Curacao", "19": "Ivory Coast", "20": "Ecuador",
-        "21": "Netherlands", "22": "Japan", "23": "Sweden", "24": "Tunisia",
-        "25": "Belgium", "26": "Egypt", "27": "Iran", "28": "New Zealand",
-        "29": "Spain", "30": "Cape Verde", "31": "Saudi Arabia", "32": "Uruguay",
-        "33": "France", "34": "Senegal", "35": "Iraq", "36": "Norway",
-        "37": "Argentina", "38": "Algeria", "39": "Austria", "40": "Jordan",
-        "41": "Portugal", "42": "DR Congo", "43": "Uzbekistan", "44": "Colombia",
-        "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
-    }
-
     try:
         url = "https://worldcup26.ir/get/groups"
         result = subprocess.run(['curl', '-s', '-k', url], capture_output=True, text=True, timeout=15)
@@ -56,7 +43,7 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
                     standings = []
                     for t in group.get("teams", []):
                         team_id = str(t.get("team_id", ""))
-                        team_name = TEAM_ID_TO_NAME.get(team_id)
+                        team_name = team_id_to_name(team_id)
                         if team_name:
                             standings.append({
                                 "team": team_name,
@@ -87,7 +74,7 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
             "standings": [
                 {"team": "Mexico", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
                 {"team": "South Korea", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 1, "pts": 3},
-                {"team": "Czechia", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
+                {"team": "Czech Republic", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -1, "pts": 0},
                 {"team": "South Africa", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0}
             ]
         },
@@ -114,7 +101,7 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
             "standings": [
                 {"team": "United States", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 3, "pts": 3},
                 {"team": "Australia", "p": 1, "w": 1, "d": 0, "l": 0, "gd": 2, "pts": 3},
-                {"team": "Turkiye", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0},
+                {"team": "Turkey", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -2, "pts": 0},
                 {"team": "Paraguay", "p": 1, "w": 0, "d": 0, "l": 1, "gd": -3, "pts": 0}
             ]
         },
@@ -176,7 +163,7 @@ def fetch_live_group_standings() -> List[Dict[str, Any]]:
             "name": "Group K",
             "standings": [
                 {"team": "Colombia", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
-                {"team": "DR Congo", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
+                {"team": "Democratic Republic of the Congo", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
                 {"team": "Portugal", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0},
                 {"team": "Uzbekistan", "p": 0, "w": 0, "d": 0, "l": 0, "gd": 0, "pts": 0}
             ]
@@ -209,15 +196,6 @@ def update_live_standings():
             
             if games_list:
                 print("🔄 Correcting standings using finished games list...")
-                MAP_TEAMS = {
-                    "Turkey": "Turkiye",
-                    "Czech Republic": "Czechia",
-                    "Curaçao": "Curacao",
-                    "Democratic Republic of the Congo": "DR Congo",
-                    "Côte d'Ivoire": "Ivory Coast",
-                    "Cote d'Ivoire": "Ivory Coast"
-                }
-                
                 team_stats = {}
                 for group_obj in state.get("groups", []):
                     for team_obj in group_obj.get("standings", []):
@@ -231,8 +209,8 @@ def update_live_standings():
                         h = game.get("home_team_name_en") or game.get("home_team_label") or ""
                         a = game.get("away_team_name_en") or game.get("away_team_label") or ""
                         
-                        h = MAP_TEAMS.get(h, h)
-                        a = MAP_TEAMS.get(a, a)
+                        h = normalize_team_name(h)
+                        a = normalize_team_name(a)
                         
                         if h in team_stats and a in team_stats:
                             try:

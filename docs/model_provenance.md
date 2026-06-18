@@ -126,9 +126,8 @@ Truth wording:
 Use: "default forecast fallback" or "forecast unavailable; compatibility values
 shown."
 
-Avoid presenting `40/30/30` as a model forecast. T-028 must decide whether these
-values remain visible with a warning or are replaced by a forecast-unavailable
-state.
+Avoid presenting `40/30/30` as a model forecast. T-028 now renders these as a
+forecast-unavailable state.
 
 ### Deterministic Progression Projection
 

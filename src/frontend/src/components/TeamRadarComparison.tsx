@@ -1,11 +1,20 @@
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
+type MetricValue = number | string | null | undefined;
+type MetricRecord = Record<string, MetricValue>;
+
 interface TeamRadarComparisonProps {
   team1: string;
   team2: string;
-  metrics1?: Record<string, any>;
-  metrics2?: Record<string, any>;
+  metrics1?: MetricRecord;
+  metrics2?: MetricRecord;
+  quality?: {
+    status?: string;
+    source_label?: string;
+    message?: string;
+    missing_fields?: Record<string, string[]>;
+  };
   lang: string;
 }
 
@@ -14,8 +23,35 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   team2,
   metrics1 = {},
   metrics2 = {},
+  quality,
   lang,
 }) => {
+  const requiredFields = [
+    'expected_goals_per_90',
+    'shots_per_90',
+    'pass_completion_pct',
+    'possession_avg',
+    'ppda',
+    'expected_goals_conceded_per_90',
+  ];
+
+  const toNumber = (value: MetricValue): number => {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'string') return Number.parseFloat(value);
+    return Number.NaN;
+  };
+
+  const missingFields = (metrics: MetricRecord) => (
+    requiredFields.filter((field) => {
+      const value = toNumber(metrics[field]);
+      return metrics[field] === undefined || metrics[field] === null || isNaN(value);
+    })
+  );
+
+  const t1Missing = missingFields(metrics1);
+  const t2Missing = missingFields(metrics2);
+  const unavailable = quality?.status === 'unavailable' || t1Missing.length > 0 || t2Missing.length > 0;
+
   // Map raw data/fallbacks to standardized scale [0 - 100] for visual uniformity
   const prepareRadarData = () => {
     // Labels mapping
@@ -29,15 +65,13 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
     };
 
     // Map a real-world value into the 0-100 radar range (higher = better/more).
-    const scale = (val: any, min: number, max: number) => {
-      const v = parseFloat(val);
-      if (v === undefined || v === null || isNaN(v)) return 50;
+    const scale = (val: MetricValue, min: number, max: number) => {
+      const v = toNumber(val);
       return Math.round(Math.max(10, Math.min(100, ((v - min) / (max - min)) * 90 + 10)));
     };
     // Inverted scale for "lower is better" metrics (PPDA, xG conceded).
-    const scaleInv = (val: any, min: number, max: number) => {
-      const v = parseFloat(val);
-      if (v === undefined || v === null || isNaN(v)) return 50;
+    const scaleInv = (val: MetricValue, min: number, max: number) => {
+      const v = toNumber(val);
       return Math.round(Math.max(10, Math.min(100, ((max - v) / (max - min)) * 90 + 10)));
     };
 
@@ -78,7 +112,8 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
     ];
   };
 
-  const data = prepareRadarData();
+  const data = unavailable ? [] : prepareRadarData();
+  const sourceLabel = quality?.source_label?.replace(/_/g, ' ') || 'static curated';
 
   return (
     <div className="w-full glass-panel p-5">
@@ -88,7 +123,9 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
             {lang === 'Español' ? 'Comparación de Rendimiento' : 'Team Performance Metrics'}
           </h3>
           <p className="text-xs text-slate-400">
-            {lang === 'Español' ? 'Comparación estadística normalizada' : 'Normalized tactical style comparison'}
+            {unavailable
+              ? (lang === 'Español' ? 'Métricas insuficientes para graficar' : 'Insufficient metrics to chart')
+              : (lang === 'Español' ? 'Comparación estadística normalizada' : 'Normalized tactical style comparison')}
           </p>
         </div>
         
@@ -106,6 +143,21 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
       </div>
 
       <div className="w-full h-[280px] flex items-center justify-center">
+        {unavailable ? (
+          <div className="w-full rounded-xl border border-amber-500/25 bg-amber-500/10 p-4 text-center">
+            <div className="text-sm font-bold text-amber-300">
+              {lang === 'Español' ? 'Radar no disponible' : 'Radar unavailable'}
+            </div>
+            <p className="text-xs text-amber-100/75 mt-2 leading-relaxed">
+              {quality?.message || (lang === 'Español'
+                ? 'Faltan métricas requeridas para uno o ambos equipos.'
+                : 'Required metrics are missing for one or both teams.')}
+            </p>
+            <div className="mt-3 text-[10px] uppercase tracking-wide text-amber-200/70 font-mono">
+              {sourceLabel}
+            </div>
+          </div>
+        ) : (
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart cx="50%" cy="50%" outerRadius="75%" data={data}>
             <PolarGrid stroke="rgba(71, 85, 105, 0.4)" />
@@ -135,6 +187,7 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
             />
           </RadarChart>
         </ResponsiveContainer>
+        )}
       </div>
     </div>
   );

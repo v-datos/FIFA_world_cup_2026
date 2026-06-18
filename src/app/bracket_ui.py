@@ -2,6 +2,8 @@ import json
 import streamlit as st
 import os
 
+from src.common.team_identity import normalize_team_name, team_id_to_name
+
 @st.cache_data(ttl=600)
 def load_live_bracket_state() -> dict:
     bracket_path = "data/bracket/grid_state.json"
@@ -12,21 +14,6 @@ def load_live_bracket_state() -> dict:
         data = json.load(f)
 
     import subprocess
-    TEAM_ID_TO_NAME = {
-        "1": "Mexico", "2": "South Africa", "3": "South Korea", "4": "Czechia",
-        "5": "Canada", "6": "Bosnia and Herzegovina", "7": "Qatar", "8": "Switzerland",
-        "9": "Brazil", "10": "Morocco", "11": "Haiti", "12": "Scotland",
-        "13": "United States", "14": "Paraguay", "15": "Australia", "16": "Turkiye",
-        "17": "Germany", "18": "Curacao", "19": "Ivory Coast", "20": "Ecuador",
-        "21": "Netherlands", "22": "Japan", "23": "Sweden", "24": "Tunisia",
-        "25": "Belgium", "26": "Egypt", "27": "Iran", "28": "New Zealand",
-        "29": "Spain", "30": "Cape Verde", "31": "Saudi Arabia", "32": "Uruguay",
-        "33": "France", "34": "Senegal", "35": "Iraq", "36": "Norway",
-        "37": "Argentina", "38": "Algeria", "39": "Austria", "40": "Jordan",
-        "41": "Portugal", "42": "DR Congo", "43": "Uzbekistan", "44": "Colombia",
-        "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
-    }
-
     # 1. Fetch live group standings
     try:
         url_groups = "https://worldcup26.ir/get/groups"
@@ -46,7 +33,7 @@ def load_live_bracket_state() -> dict:
                     standings = []
                     for t in group.get("teams", []):
                         team_id = str(t.get("team_id", ""))
-                        team_name = TEAM_ID_TO_NAME.get(team_id)
+                        team_name = team_id_to_name(team_id)
                         if team_name:
                             standings.append({
                                 "team": team_name,
@@ -84,15 +71,6 @@ def load_live_bracket_state() -> dict:
             if games_list:
                 # Dynamic standings correction: Recalculate standings from games list to fix delays in groups API
                 try:
-                    MAP_TEAMS = {
-                        "Turkey": "Turkiye",
-                        "Czech Republic": "Czechia",
-                        "Curaçao": "Curacao",
-                        "Democratic Republic of the Congo": "DR Congo",
-                        "Côte d'Ivoire": "Ivory Coast",
-                        "Cote d'Ivoire": "Ivory Coast"
-                    }
-                    
                     team_stats = {}
                     for group_obj in data.get("groups", []):
                         for team_obj in group_obj.get("standings", []):
@@ -106,8 +84,8 @@ def load_live_bracket_state() -> dict:
                             h = game.get("home_team_name_en") or game.get("home_team_label") or ""
                             a = game.get("away_team_name_en") or game.get("away_team_label") or ""
                             
-                            h = MAP_TEAMS.get(h, h)
-                            a = MAP_TEAMS.get(a, a)
+                            h = normalize_team_name(h)
+                            a = normalize_team_name(a)
                             
                             if h in team_stats and a in team_stats:
                                 try:
@@ -188,14 +166,8 @@ def load_live_bracket_state() -> dict:
                     t1 = g.get("home_team_name_en") or g.get("home_team_label") or "???"
                     t2 = g.get("away_team_name_en") or g.get("away_team_label") or "???"
                     
-                    TEAM_NAME_MAP = {
-                        "Turkey": "Turkiye",
-                        "Czech Republic": "Czechia",
-                        "Curaçao": "Curacao",
-                        "Democratic Republic of the Congo": "DR Congo"
-                    }
-                    t1 = TEAM_NAME_MAP.get(t1, t1)
-                    t2 = TEAM_NAME_MAP.get(t2, t2)
+                    t1 = normalize_team_name(t1)
+                    t2 = normalize_team_name(t2)
                     
                     s1 = g.get("home_score")
                     s2 = g.get("away_score")

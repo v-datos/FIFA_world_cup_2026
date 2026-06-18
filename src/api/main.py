@@ -29,6 +29,12 @@ from src.analytics.fifa_visualizations_bq import (
     get_cached_xg_distribution
 )
 from src.analytics.fifa_metrics_bq import get_match_radar_stats
+from src.common.team_identity import (
+    canonical_team_slug,
+    normalize_team_name,
+    team_id_to_name,
+    teams_from_match_id,
+)
 
 # Initialize FastAPI App
 app = FastAPI(title="FIFA World Cup 2026 Analytics API", description="REST API for match forecasts, team comparisons, and event visualizations.")
@@ -48,17 +54,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 _standings_cache = {}
 
 def clean_team_name(name: str) -> str:
-    return (name.lower()
-            .strip()
-            .replace(" ", "_")
-            .replace("'", "")
-            .replace("ô", "o")
-            .replace("é", "e")
-            .replace("ö", "o")
-            .replace("ç", "c")
-            .replace("í", "i")
-            .replace("á", "a")
-            .replace("ú", "u"))
+    return canonical_team_slug(name)
 
 def load_live_bracket_state() -> dict:
     bracket_path = DATA_DIR / "bracket" / "grid_state.json"
@@ -67,21 +63,6 @@ def load_live_bracket_state() -> dict:
 
     with open(bracket_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
-    TEAM_ID_TO_NAME = {
-        "1": "Mexico", "2": "South Africa", "3": "South Korea", "4": "Czechia",
-        "5": "Canada", "6": "Bosnia and Herzegovina", "7": "Qatar", "8": "Switzerland",
-        "9": "Brazil", "10": "Morocco", "11": "Haiti", "12": "Scotland",
-        "13": "United States", "14": "Paraguay", "15": "Australia", "16": "Turkiye",
-        "17": "Germany", "18": "Curacao", "19": "Ivory Coast", "20": "Ecuador",
-        "21": "Netherlands", "22": "Japan", "23": "Sweden", "24": "Tunisia",
-        "25": "Belgium", "26": "Egypt", "27": "Iran", "28": "New Zealand",
-        "29": "Spain", "30": "Cape Verde", "31": "Saudi Arabia", "32": "Uruguay",
-        "33": "France", "34": "Senegal", "35": "Iraq", "36": "Norway",
-        "37": "Argentina", "38": "Algeria", "39": "Austria", "40": "Jordan",
-        "41": "Portugal", "42": "DR Congo", "43": "Uzbekistan", "44": "Colombia",
-        "45": "England", "46": "Croatia", "47": "Ghana", "48": "Panama"
-    }
 
     # 1. Fetch live group standings
     try:
@@ -98,7 +79,7 @@ def load_live_bracket_state() -> dict:
                     standings = []
                     for t in group.get("teams", []):
                         team_id = str(t.get("team_id", ""))
-                        team_name = TEAM_ID_TO_NAME.get(team_id)
+                        team_name = team_id_to_name(team_id)
                         if team_name:
                             standings.append({
                                 "team": team_name,
@@ -131,15 +112,6 @@ def load_live_bracket_state() -> dict:
             if games_list:
                 # Standings corrections
                 try:
-                    MAP_TEAMS = {
-                        "Turkey": "Turkiye",
-                        "Czech Republic": "Czechia",
-                        "Curaçao": "Curacao",
-                        "Democratic Republic of the Congo": "DR Congo",
-                        "Côte d'Ivoire": "Ivory Coast",
-                        "Cote d'Ivoire": "Ivory Coast"
-                    }
-                    
                     team_stats = {}
                     for group_obj in data.get("groups", []):
                         for team_obj in group_obj.get("standings", []):
@@ -152,8 +124,8 @@ def load_live_bracket_state() -> dict:
                         if game.get("type") == "group" and (game.get("finished") == "TRUE" or game.get("finished") is True):
                             h = game.get("home_team_name_en") or game.get("home_team_label") or ""
                             a = game.get("away_team_name_en") or game.get("away_team_label") or ""
-                            h = MAP_TEAMS.get(h, h)
-                            a = MAP_TEAMS.get(a, a)
+                            h = normalize_team_name(h)
+                            a = normalize_team_name(a)
                             
                             if h in team_stats and a in team_stats:
                                 try:
@@ -231,21 +203,15 @@ def load_live_bracket_state() -> dict:
                     
                     t1 = g.get("home_team_name_en") or g.get("home_team_label") or "???"
                     t2 = g.get("away_team_name_en") or g.get("away_team_label") or "???"
-                    TEAM_NAME_MAP = {
-                        "Turkey": "Turkiye",
-                        "Czech Republic": "Czechia",
-                        "Curaçao": "Curacao",
-                        "Democratic Republic of the Congo": "DR Congo"
-                    }
-                    t1 = TEAM_NAME_MAP.get(t1, t1)
-                    t2 = TEAM_NAME_MAP.get(t2, t2)
+                    t1 = normalize_team_name(t1)
+                    t2 = normalize_team_name(t2)
                     
                     s1 = g.get("home_score")
                     s2 = g.get("away_score")
                     winner_id = g.get("winner")
                     winner_name = None
                     if winner_id:
-                        winner_name = TEAM_ID_TO_NAME.get(str(winner_id))
+                        winner_name = team_id_to_name(winner_id)
                         
                     return {
                         "id": f"{prefix}_{match_id}",
@@ -283,6 +249,217 @@ MATCH_VISUALIZATION_PROXIES = {
     "Iraq": {"match_id": 3920404, "team": "Tunisia", "label": "Arab Cup 2021 (Proxy)"},
     "Jordan": {"match_id": 3920404, "team": "Tunisia", "label": "Arab Cup 2021 (Proxy)"}
 }
+
+DEFAULT_FORECAST = {
+    "team1_win": 0.40,
+    "draw": 0.30,
+    "team2_win": 0.30,
+    "confidence": 0.70,
+}
+
+REQUIRED_TEAM_METRIC_FIELDS = [
+    "squad_market_value_m",
+    "average_age",
+    "possession_avg",
+    "pass_completion_pct",
+    "expected_goals_per_90",
+    "expected_goals_conceded_per_90",
+    "shots_per_90",
+    "ppda",
+    "field_tilt_pct",
+    "goals_per_90",
+    "goals_conceded_per_90",
+    "shots_on_target_pct",
+    "passes_per_90",
+    "xg_per_shot",
+    "shots_against_per_90",
+]
+
+RADAR_METRIC_FIELDS = [
+    "expected_goals_per_90",
+    "shots_per_90",
+    "pass_completion_pct",
+    "possession_avg",
+    "ppda",
+    "expected_goals_conceded_per_90",
+]
+
+
+def load_match_team_names(match_id: str) -> tuple[Optional[str], Optional[str]]:
+    sum_path = DATA_DIR / "matches" / match_id / "summary.json"
+    if sum_path.exists():
+        try:
+            with open(sum_path, "r", encoding="utf-8") as f:
+                sum_data = json.load(f)
+            return (
+                normalize_team_name(sum_data["metadata"]["team1"]),
+                normalize_team_name(sum_data["metadata"]["team2"]),
+            )
+        except Exception:
+            pass
+    return teams_from_match_id(match_id)
+
+
+def get_visualization_proxy(team_name: str) -> Optional[dict]:
+    return MATCH_VISUALIZATION_PROXIES.get(normalize_team_name(team_name))
+
+
+def _number_or_none(value: Any) -> Optional[float]:
+    try:
+        if value is None:
+            return None
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def is_default_forecast(forecast: dict) -> bool:
+    if not forecast:
+        return True
+    for key, expected in DEFAULT_FORECAST.items():
+        actual = _number_or_none(forecast.get(key))
+        if actual is None or abs(actual - expected) > 0.0001:
+            return False
+    return True
+
+
+def build_team_metric_quality(metrics: dict, team: str) -> dict:
+    team_metrics = metrics.get(team) or {}
+    present_fields = [
+        field for field in REQUIRED_TEAM_METRIC_FIELDS
+        if _number_or_none(team_metrics.get(field)) is not None
+    ]
+    missing_fields = [
+        field for field in REQUIRED_TEAM_METRIC_FIELDS
+        if _number_or_none(team_metrics.get(field)) is None
+    ]
+
+    if not present_fields:
+        return {
+            "status": "missing",
+            "source_label": "missing",
+            "field_count": 0,
+            "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
+            "missing_fields": missing_fields,
+            "message": "Team metrics are unavailable for this fixture.",
+        }
+
+    if missing_fields:
+        return {
+            "status": "partial",
+            "source_label": "static_curated",
+            "field_count": len(present_fields),
+            "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
+            "missing_fields": missing_fields,
+            "message": "Team metrics are partially available from static curated references.",
+        }
+
+    return {
+        "status": "complete",
+        "source_label": "static_curated",
+        "field_count": len(present_fields),
+        "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
+        "missing_fields": [],
+        "message": "Team metrics are static curated reference values, not live matchday research.",
+    }
+
+
+def build_radar_quality(metrics: dict, team1: str, team2: str) -> dict:
+    missing_by_team = {}
+    for team in (team1, team2):
+        team_metrics = metrics.get(team) or {}
+        missing = [
+            field for field in RADAR_METRIC_FIELDS
+            if _number_or_none(team_metrics.get(field)) is None
+        ]
+        if missing:
+            missing_by_team[team] = missing
+
+    if missing_by_team:
+        return {
+            "status": "unavailable",
+            "source_label": "missing",
+            "missing_fields": missing_by_team,
+            "message": "Radar chart is unavailable because required team metrics are missing.",
+        }
+
+    return {
+        "status": "available",
+        "source_label": "static_curated",
+        "missing_fields": {},
+        "message": "Radar chart uses static curated team metrics.",
+    }
+
+
+def build_metrics_data_quality(
+    metrics_data: dict,
+    team1: str,
+    team2: str,
+    elo_t1: Optional[float],
+    elo_t2: Optional[float],
+) -> dict:
+    forecast = metrics_data.get("dixon_coles_forecast") or {}
+    default_forecast = is_default_forecast(forecast)
+    forecast_quality = {
+        "status": "unavailable" if default_forecast else "available",
+        "source_label": "default_forecast" if default_forecast else "hardcoded_reference",
+        "message": (
+            "Stored forecast is the default 40/30/30 fallback and should not be displayed as a model probability."
+            if default_forecast
+            else "Stored forecast is an Elo-derived Dixon-Coles calculation using local reference ratings."
+        ),
+    }
+
+    team_metrics = metrics_data.get("team_metrics") or {}
+    team_quality = {
+        team1: build_team_metric_quality(team_metrics, team1),
+        team2: build_team_metric_quality(team_metrics, team2),
+    }
+
+    viz_team1 = get_visualization_proxy(team1)
+    viz_team2 = get_visualization_proxy(team2)
+
+    return {
+        "forecast": forecast_quality,
+        "score_probabilities": {
+            "status": "unavailable" if default_forecast else "available",
+            "source_label": "default_forecast" if default_forecast else "hardcoded_reference",
+            "message": (
+                "Exact-score probabilities are hidden because the fixture only has the default forecast fallback."
+                if default_forecast
+                else "Exact-score probabilities come from the stored Dixon-Coles score grid."
+            ),
+        },
+        "team_metrics": team_quality,
+        "radar_metrics": build_radar_quality(team_metrics, team1, team2),
+        "elo_ratings": {
+            team1: {
+                "status": "available" if elo_t1 is not None else "missing",
+                "source_label": "hardcoded_reference" if elo_t1 is not None else "missing",
+                "message": "Local fallback Elo-style reference, not a live rating feed.",
+            },
+            team2: {
+                "status": "available" if elo_t2 is not None else "missing",
+                "source_label": "hardcoded_reference" if elo_t2 is not None else "missing",
+                "message": "Local fallback Elo-style reference, not a live rating feed.",
+            },
+        },
+        "monte_carlo_projections": {
+            "status": "deterministic_fallback" if elo_t1 is not None and elo_t2 is not None else "unavailable",
+            "source_label": "hardcoded_reference",
+            "message": "Current progression values are deterministic Elo curves, not random-trial Monte Carlo simulation.",
+        },
+        "visualizations": {
+            "status": "proxy_historical",
+            "source_label": "proxy_historical",
+            "teams": {
+                team1: (viz_team1 or {}).get("label", "Historical proxy match"),
+                team2: (viz_team2 or {}).get("label", "Historical proxy match"),
+            },
+            "message": "Event visualizations use historical StatsBomb proxy matches, not World Cup 2026 event data.",
+        },
+    }
+
 
 def compute_monte_carlo_probs(elo: Optional[float]) -> dict:
     if elo is None:
@@ -341,7 +518,37 @@ def get_match_summary(match_id: str):
     if not sum_path.exists():
         raise HTTPException(status_code=404, detail="Summary payload not found")
     with open(sum_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        summary_data = json.load(f)
+
+    briefing_path = DATA_DIR / "matches" / match_id / "briefing.json"
+    if briefing_path.exists():
+        try:
+            with open(briefing_path, "r", encoding="utf-8") as f:
+                briefing_data = json.load(f)
+            freshness = (
+                briefing_data.get("data_quality", {}).get("freshness_state")
+                or briefing_data.get("metadata", {}).get("freshness_state")
+                or "stale"
+            )
+            summary_data["briefing_status"] = {
+                "freshness_state": freshness,
+                "source_label": briefing_data.get("source_label", "web_researched"),
+                "message": "Last-minute briefing artifact is available.",
+            }
+        except Exception:
+            summary_data["briefing_status"] = {
+                "freshness_state": "blocked",
+                "source_label": "blocked",
+                "message": "Briefing artifact exists but could not be read.",
+            }
+    else:
+        summary_data["briefing_status"] = {
+            "freshness_state": "baseline_only",
+            "source_label": "static_curated",
+            "message": "Static baseline preview only; no last-minute briefing has been generated.",
+        }
+
+    return summary_data
 
 @app.get("/api/match/{match_id}/metrics")
 def get_match_metrics(match_id: str):
@@ -351,33 +558,9 @@ def get_match_metrics(match_id: str):
     with open(met_path, "r", encoding="utf-8") as f:
         metrics_data = json.load(f)
 
-    # Fetch team names from summary
-    sum_path = DATA_DIR / "matches" / match_id / "summary.json"
-    team1, team2 = None, None
-    if sum_path.exists():
-        try:
-            with open(sum_path, "r", encoding="utf-8") as f:
-                sum_data = json.load(f)
-            team1 = sum_data["metadata"]["team1"]
-            team2 = sum_data["metadata"]["team2"]
-        except Exception:
-            pass
-
+    team1, team2 = load_match_team_names(match_id)
     if not team1 or not team2:
-        parts = match_id.replace("_2026", "").split("_")
-        team_mapping = {
-            "france": "France", "senegal": "Senegal", "iraq": "Iraq", "norway": "Norway",
-            "argentina": "Argentina", "algeria": "Algeria", "austria": "Austria", "jordan": "Jordan",
-            "portugal": "Portugal", "democratic_republic_of_the_congo": "DR Congo",
-            "england": "England", "croatia": "Croatia", "ghana": "Ghana", "panama": "Panama",
-            "uzbekistan": "Uzbekistan", "colombia": "Colombia", "spain": "Spain", "cape_verde": "Cape Verde",
-            "belgium": "Belgium", "egypt": "Egypt", "saudi_arabia": "Saudi Arabia", "uruguay": "Uruguay",
-            "iran": "Iran", "new_zealand": "New Zealand", "mexico": "Mexico", "south_korea": "South Korea",
-            "south_africa": "South Africa", "czech_republic": "Czechia", "canada": "Canada",
-            "qatar": "Qatar", "switzerland": "Switzerland", "bosnia_and_herzegovina": "Bosnia and Herzegovina"
-        }
-        team1 = team_mapping.get(parts[0], parts[0].capitalize())
-        team2 = team_mapping.get(parts[1] if len(parts) > 1 else "", parts[1].capitalize() if len(parts) > 1 else "")
+        raise HTTPException(status_code=422, detail="Match teams could not be resolved")
 
     sd_client = SoccerDataClient()
     elo_data_t1 = sd_client.fetch_club_elo_ratings(team1)
@@ -396,9 +579,10 @@ def get_match_metrics(match_id: str):
     # Source of the StatsBomb event visualizations (proxy historical matches —
     # no real 2026 event data exists yet), surfaced so the UI can label them honestly.
     metrics_data["viz_proxies"] = {
-        team1: MATCH_VISUALIZATION_PROXIES.get(team1, {}).get("label", "Historical proxy match"),
-        team2: MATCH_VISUALIZATION_PROXIES.get(team2, {}).get("label", "Historical proxy match"),
+        team1: (get_visualization_proxy(team1) or {}).get("label", "Historical proxy match"),
+        team2: (get_visualization_proxy(team2) or {}).get("label", "Historical proxy match"),
     }
+    metrics_data["data_quality"] = build_metrics_data_quality(metrics_data, team1, team2, elo_t1, elo_t2)
 
     return metrics_data
 
@@ -423,38 +607,20 @@ def get_forecast(team1: str, team2: str):
 
 @app.get("/api/visualizations/{match_id}/{viz_type}")
 def get_visualization(match_id: str, viz_type: str, team: str = None):
-    parts = match_id.replace("_2026", "").split("_")
-    t1_key = parts[0]
-    t2_key = parts[1] if len(parts) > 1 else ""
+    t1_name, t2_name = load_match_team_names(match_id)
+    if not t1_name or not t2_name:
+        raise HTTPException(status_code=422, detail="Match teams could not be resolved")
 
-    team_mapping = {
-        "france": "France", "senegal": "Senegal",
-        "iraq": "Iraq", "norway": "Norway",
-        "argentina": "Argentina", "algeria": "Algeria",
-        "austria": "Austria", "jordan": "Jordan",
-        "portugal": "Portugal", "democratic_republic_of_the_congo": "DR Congo",
-        "england": "England", "croatia": "Croatia",
-        "ghana": "Ghana", "panama": "Panama",
-        "uzbekistan": "Uzbekistan", "colombia": "Colombia",
-        "spain": "Spain", "cape_verde": "Cape Verde",
-        "belgium": "Belgium", "egypt": "Egypt",
-        "saudi_arabia": "Saudi Arabia", "uruguay": "Uruguay",
-        "iran": "Iran", "new_zealand": "New Zealand"
-    }
-
-    t1_name = team_mapping.get(t1_key, t1_key.capitalize())
-    t2_name = team_mapping.get(t2_key, t2_key.capitalize())
-
-    active_team = t1_name if team is None or clean_team_name(team) == t1_key else t2_name
-    proxy = MATCH_VISUALIZATION_PROXIES.get(active_team) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
+    active_team = t1_name if team is None or clean_team_name(team) == clean_team_name(t1_name) else t2_name
+    proxy = get_visualization_proxy(active_team) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
 
     client = bigquery.Client()
     img_bytes = None
 
     try:
         if viz_type == "momentum":
-            proxy1 = MATCH_VISUALIZATION_PROXIES.get(t1_name) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
-            proxy2 = MATCH_VISUALIZATION_PROXIES.get(t2_name) or MATCH_VISUALIZATION_PROXIES["Japan"]
+            proxy1 = get_visualization_proxy(t1_name) or MATCH_VISUALIZATION_PROXIES["Netherlands"]
+            proxy2 = get_visualization_proxy(t2_name) or MATCH_VISUALIZATION_PROXIES["Japan"]
             img_bytes = get_cached_xg_distribution(client, proxy1["match_id"], proxy1["team"], t1_name, proxy2["match_id"], proxy2["team"], t2_name)
         elif viz_type == "passing_network":
             if proxy:
@@ -473,8 +639,8 @@ def get_visualization(match_id: str, viz_type: str, team: str = None):
                 color = '#00c6ff' if active_team == t1_name else '#ff007f'
                 img_bytes = get_cached_progressive_actions_map(client, proxy["match_id"], proxy["team"], color, '#ffffff')
         elif viz_type == "radar_chart":
-            proxy1 = MATCH_VISUALIZATION_PROXIES.get(t1_name)
-            proxy2 = MATCH_VISUALIZATION_PROXIES.get(t2_name)
+            proxy1 = get_visualization_proxy(t1_name)
+            proxy2 = get_visualization_proxy(t2_name)
             if proxy1 and proxy2:
                 t1_vals = get_match_radar_stats(client, proxy1["match_id"], proxy1["team"])
                 t2_vals = get_match_radar_stats(client, proxy2["match_id"], proxy2["team"])

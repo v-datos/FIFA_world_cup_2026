@@ -1,7 +1,7 @@
 # Data Contracts and Audit - Active JSON and API Payloads
 
 Last updated: 2026-06-18  
-Task: T-024 - Data Contract Audit for Active JSON and API Payloads; T-026 provenance addendum  
+Task: T-024 - Data Contract Audit for Active JSON and API Payloads; T-026/T-028 provenance addenda
 Owners: QA / Reproducibility Engineer, Football Data Scientist, with Data Pipeline Engineer support
 
 ## Scope
@@ -25,7 +25,7 @@ API code, frontend code, or deployed behavior.
 | `data/matches/{match_id}/summary.json` | Active | Static curated fixture metadata and editorial/tactical preview copy. |
 | `data/matches/{match_id}/metrics.json` | Active | Static forecast, exact scores, and team profile metrics. |
 | `data/bracket/grid_state.json` | Active fallback | Local standings/bracket state. The API may augment standings at runtime from `worldcup26.ir`. |
-| Runtime API augmentation | Active derived payload | `/api/match/{id}/metrics` adds `elo_ratings`, `monte_carlo_projections`, and `viz_proxies` at request time. |
+| Runtime API augmentation | Active derived payload | `/api/match/{id}/metrics` adds `elo_ratings`, `monte_carlo_projections`, `viz_proxies`, and `data_quality` at request time. `/api/match/{id}/summary` adds `briefing_status` at request time. |
 | StatsBomb visualization routes | Active proxy/event payload | `/api/visualizations/{match_id}/{viz_type}` returns PNG images from historical proxy matches and requires BigQuery credentials. |
 | Frontend hardcoded references | Active reference payload | Rosters, club affiliations, flags, and last major standing values are local TypeScript maps unless a later task replaces them. |
 | Planned `briefing.json` | Planned matchday payload | Future source-backed last-minute briefing artifact. Not implemented yet. |
@@ -42,6 +42,7 @@ T-026 provenance labels:
 | `hardcoded_reference` | Local maps for rosters, clubs, standings, ratings, or profile values. |
 | `proxy_historical` | Historical data used as a stand-in for unavailable 2026 data. |
 | `web_researched` | Source-collected web fact with URL/path, retrieval time, and review metadata. |
+| `baseline_only` | Static baseline content exists, but no last-minute briefing exists. |
 | `missing` | Required source or data point does not exist. |
 | `blocked` | Collection was attempted but failed because access, credentials, or policy blocked it. |
 
@@ -117,20 +118,20 @@ Audit result:
 - 19 of 19 active fixtures have required `ai_summary` fields.
 - 19 of 19 active fixtures have 3 tactical insight bullets.
 - 19 of 19 active fixtures have `injuries` and `confirmed_tactics` keys matching the normalized team slugs used inside the JSON.
-- 17 of 19 active fixtures currently resolve those editorial keys through the
-  React consumer logic. The two known consumer failures are
-  `portugal_democratic_republic_of_the_congo_2026` and
-  `switzerland_bosnia_and_herzegovina_2026`.
+- 19 of 19 active fixtures now resolve those editorial keys through the shared
+  React identity helper added in T-027.
 
-Known risk:
+Identity contract:
 
-- `MatchAnalysisTab.tsx` derives `cleanT1` and `cleanT2` with
-  `team.toLowerCase().replace(' ', '_')`, which replaces only the first space.
-  This currently misses the `democratic_republic_of_the_congo` and
-  `bosnia_and_herzegovina` keys. The JSON keys themselves are correct; the
-  frontend normalization is not contract-safe.
+- Canonical display names, team IDs, aliases, flags, and slugs live in
+  `data/reference/team_identity.json`.
+- Python consumers should use `src/common/team_identity.py`.
+- React consumers should use `src/frontend/src/lib/teamIdentity.ts`.
+- Source collectors must normalize provider variants through this contract
+  before writing `summary.json`, `metrics.json`, `briefing.json`, or cache
+  records.
 
-Routed follow-up: T-027.
+Resolved follow-up: T-027.
 
 ## `metrics.json` Contract
 
@@ -202,6 +203,7 @@ API-added `metrics` fields:
 | `elo_ratings` | object keyed by display team name | `SoccerDataClient.fetch_club_elo_ratings()` local default map | Squad & Style Comparison. |
 | `monte_carlo_projections` | object keyed by display team name | `compute_monte_carlo_probs()` runtime calculation | Monte Carlo Projections panel. |
 | `viz_proxies` | object keyed by display team name | `MATCH_VISUALIZATION_PROXIES` in `src/api/main.py` | StatsBomb proxy-source disclosure. |
+| `data_quality` | object | Runtime data-quality classifier in `src/api/main.py` | Forecast unavailable, missing metric, deterministic fallback, and proxy labels. |
 
 Audit result:
 
@@ -214,8 +216,9 @@ Audit result:
 - 1 fixture, `switzerland_bosnia_and_herzegovina_2026`, has empty
   `team_metrics` but a non-default forecast because both Elo names resolve.
 
-Routed follow-ups: T-028 and T-031. T-026 completed the model/provenance review
-and routed source-policy decisions to T-035.
+Routed follow-ups: T-028 and T-031. T-028 is now complete for UI/API fallback
+states; T-031/T-038 remain for value completion. T-026 completed the
+model/provenance review and routed source-policy decisions to T-035.
 
 ## Calculation Contracts
 
@@ -280,9 +283,9 @@ Current formula:
 - `win = 0.005 + 0.395 * (diff / scale)^5`.
 - Each value is clipped to a configured min/max range.
 
-T-026 result: the current implementation should be described as a deterministic
-Elo progression estimate. The UI should not call it Monte Carlo unless T-028 or
-a later task replaces the formula with a real simulation.
+T-026/T-028 result: the current implementation is now described in the UI as a
+deterministic Elo progression estimate. The UI should not call it Monte Carlo
+unless T-037 replaces the formula with a real simulation.
 
 ### Provenance Metadata Requirements
 
@@ -303,9 +306,9 @@ Recommended fields:
 | `warnings` | Human-readable caveats for default, missing, stale, or proxy data. |
 | `blocked_reasons` | Machine-readable reasons a source-backed payload cannot be approved. |
 
-These fields can be added incrementally by T-028, T-031, T-032, T-033, T-035,
-and T-036. Existing JSON remains valid until those tasks update schemas and
-consumers.
+Some runtime labels are now added by T-028. Remaining source-backed fields can
+be added incrementally by T-031, T-032, T-033, T-035, and T-036. Existing JSON
+remains valid until those tasks update stored schemas and consumers.
 
 ## `grid_state.json` Contract
 
@@ -393,7 +396,15 @@ Contract notes:
 
 ### `GET /api/match/{match_id}/summary`
 
-Returns the stored `summary.json` exactly.
+Returns the stored `summary.json` plus runtime-added `briefing_status`.
+
+Runtime-added `briefing_status` fields:
+
+| Field | Meaning |
+|---|---|
+| `freshness_state` | `fresh`, `stale`, `baseline_only`, or `blocked`. Currently missing `briefing.json` renders as `baseline_only`. |
+| `source_label` | `static_curated`, `web_researched`, or `blocked`. |
+| `message` | Reader-facing status message. |
 
 Failure behavior:
 
@@ -406,6 +417,19 @@ Returns the stored `metrics.json` plus runtime-added fields:
 - `elo_ratings`
 - `monte_carlo_projections`
 - `viz_proxies`
+- `data_quality`
+
+Runtime-added `data_quality` fields:
+
+| Field | Purpose |
+|---|---|
+| `forecast` | Marks stored forecasts as `available` or `unavailable`; default `40/30/30` is `default_forecast` and should not render as probability. |
+| `score_probabilities` | Hides exact scores when the stored forecast is default fallback. |
+| `team_metrics` | Per-team `missing`, `partial`, or `complete` status and missing-field list. |
+| `radar_metrics` | Marks radar as unavailable when required team metric fields are missing. |
+| `elo_ratings` | Labels local fallback Elo-style ratings as `hardcoded_reference` or `missing`. |
+| `monte_carlo_projections` | Labels current progression values as `deterministic_fallback`, not true Monte Carlo. |
+| `visualizations` | Labels StatsBomb plots as `proxy_historical`. |
 
 Failure behavior:
 
@@ -414,9 +438,9 @@ Failure behavior:
 Contract notes:
 
 - The route reads team display names from `summary.json` when possible.
-- If summary team names cannot be read, it falls back to splitting the match ID.
-  That fallback is unsafe for multi-word teams because it splits on every
-  underscore and uses positional fragments.
+- If summary team names cannot be read, it falls back to
+  `teams_from_match_id()` from the shared identity contract. It no longer uses
+  positional underscore splitting for multi-word teams.
 
 ### `GET /api/standings`
 
@@ -427,8 +451,9 @@ Contract notes:
 
 - Local fallback must remain complete enough for the frontend to render all
   groups and bracket rounds without live network access.
-- Live mutation currently maps selected names such as `Turkey`, `Czech Republic`,
-  `Curaçao`, and `Democratic Republic of the Congo` to local display names.
+- Live mutation maps provider variants such as `Turkiye` / `Türkiye`,
+  `Czechia`, `Curaçao`, `DR Congo`, and `Côte d'Ivoire` through the shared
+  identity contract.
 
 ### `GET /api/forecast?team1={team1}&team2={team2}`
 
@@ -458,10 +483,10 @@ Contract notes:
 - Requires BigQuery credentials.
 - Falls back to Netherlands/Japan proxy data for missing proxy mappings in some
   paths.
-- Match ID parsing is unsafe for multi-word teams and should be replaced by
-  summary metadata lookup.
+- Match teams are resolved from summary metadata first, then the shared
+  identity contract's match-ID resolver.
 
-Routed follow-up: T-027.
+Resolved follow-up: T-027.
 
 ## Frontend Consumer Map
 
@@ -475,11 +500,11 @@ Routed follow-up: T-027.
 | Key Match Insights | `summary.ai_summary.tactical_insights`. |
 | Coaching & Tactical Philosophies | `summary.ai_summary.confirmed_tactics[cleanTeamKey]`. |
 | InteractivePitch formation | `summary.ai_summary.confirmed_tactics[cleanTeamKey].formation`. |
-| Match Outcome Probability | `metrics.dixon_coles_forecast`. |
-| Top Exact Scores | `metrics.score_probabilities`. |
-| Team Performance Metrics radar | `metrics.team_metrics[team].expected_goals_per_90`, `shots_per_90`, `pass_completion_pct`, `possession_avg`, `ppda`, `expected_goals_conceded_per_90`. Missing values render as neutral 50. |
-| Squad & Style Comparison | 15 `team_metrics` fields plus `metrics.elo_ratings[team]`. Missing values render as `-`. |
-| Deterministic progression estimate, currently labeled Monte Carlo in UI | `metrics.monte_carlo_projections[team]`. |
+| Match Outcome Probability | `metrics.dixon_coles_forecast` plus `metrics.data_quality.forecast`; default forecasts render as unavailable. |
+| Top Exact Scores | `metrics.score_probabilities` plus `metrics.data_quality.score_probabilities`; hidden for default forecasts. |
+| Team Performance Metrics radar | `metrics.team_metrics[team]` plus `metrics.data_quality.radar_metrics`; missing values no longer render as neutral 50. |
+| Squad & Style Comparison | 15 `team_metrics` fields plus `metrics.elo_ratings[team]` and `metrics.data_quality.team_metrics`; missing/partial states are visible. |
+| Deterministic progression estimate | `metrics.monte_carlo_projections[team]` plus `metrics.data_quality.monte_carlo_projections`; not labeled as true Monte Carlo until T-037. |
 | StatsBomb proxy disclosure | `metrics.viz_proxies[team]`. |
 | StatsBomb images | `/api/visualizations/{match_id}/{viz_type}?team={team}` PNG responses. |
 
@@ -498,33 +523,33 @@ Legend:
 | `argentina_algeria_2026` | 06/16/2026 | Argentina vs Algeria | PASS | FULL | MODEL | None from T-024. |
 | `austria_jordan_2026` | 06/16/2026 | Austria vs Jordan | PASS | FULL | MODEL | None from T-024. |
 | `belgium_egypt_2026` | 06/15/2026 | Belgium vs Egypt | PASS | FULL | MODEL | None from T-024. |
-| `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-028, T-031. |
-| `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-027, T-028, T-031. |
+| `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-031/T-038. T-028 fallback state complete. |
+| `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-031/T-038. T-027/T-028 complete. |
 | `england_croatia_2026` | 06/17/2026 | England vs Croatia | PASS | FULL | MODEL | None from T-024. |
 | `france_senegal_2026` | 06/16/2026 | France vs Senegal | PASS | FULL | MODEL | None from T-024. |
 | `ghana_panama_2026` | 06/17/2026 | Ghana vs Panama | PASS | FULL | MODEL | None from T-024. |
 | `iran_new_zealand_2026` | 06/15/2026 | Iran vs New Zealand | PASS | FULL | MODEL | None from T-024. |
 | `iraq_norway_2026` | 06/16/2026 | Iraq vs Norway | PASS | FULL | MODEL | None from T-024. |
-| `mexico_south_korea_2026` | 06/18/2026 | Mexico vs South Korea | PASS | EMPTY | DEFAULT | T-027, T-028, T-031. |
-| `portugal_democratic_republic_of_the_congo_2026` | 06/17/2026 | Portugal vs Democratic Republic of the Congo | PASS | FULL | MODEL | T-027 for multi-word/alias safety. |
-| `saudi_arabia_uruguay_2026` | 06/15/2026 | Saudi Arabia vs Uruguay | PASS | FULL | MODEL | T-027 for multi-word safety. |
-| `scotland_morocco_2026` | 06/19/2026 | Scotland vs Morocco | PASS | EMPTY | DEFAULT | T-028, T-031. |
-| `spain_cape_verde_2026` | 06/15/2026 | Spain vs Cape Verde | PASS | FULL | MODEL | T-027 for multi-word safety. |
-| `switzerland_bosnia_and_herzegovina_2026` | 06/18/2026 | Switzerland vs Bosnia and Herzegovina | PASS | EMPTY | MODEL | T-027, T-028, T-031. |
-| `turkey_paraguay_2026` | 06/19/2026 | Turkey vs Paraguay | PASS | EMPTY | DEFAULT | T-027, T-028, T-031. |
-| `united_states_australia_2026` | 06/19/2026 | United States vs Australia | PASS | EMPTY | DEFAULT | T-027, T-028, T-031. |
-| `uzbekistan_colombia_2026` | 06/17/2026 | Uzbekistan vs Colombia | PASS | EMPTY | DEFAULT | T-028, T-031. |
+| `mexico_south_korea_2026` | 06/18/2026 | Mexico vs South Korea | PASS | EMPTY | DEFAULT | T-031/T-038. T-027/T-028 complete. |
+| `portugal_democratic_republic_of_the_congo_2026` | 06/17/2026 | Portugal vs Democratic Republic of the Congo | PASS | FULL | MODEL | T-027 complete. |
+| `saudi_arabia_uruguay_2026` | 06/15/2026 | Saudi Arabia vs Uruguay | PASS | FULL | MODEL | T-027 complete. |
+| `scotland_morocco_2026` | 06/19/2026 | Scotland vs Morocco | PASS | EMPTY | DEFAULT | T-031/T-038. T-028 fallback state complete. |
+| `spain_cape_verde_2026` | 06/15/2026 | Spain vs Cape Verde | PASS | FULL | MODEL | T-027 complete. |
+| `switzerland_bosnia_and_herzegovina_2026` | 06/18/2026 | Switzerland vs Bosnia and Herzegovina | PASS | EMPTY | MODEL | T-031/T-038. T-027/T-028 complete. |
+| `turkey_paraguay_2026` | 06/19/2026 | Turkey vs Paraguay | PASS | EMPTY | DEFAULT | T-031/T-038. T-027/T-028 complete. |
+| `united_states_australia_2026` | 06/19/2026 | United States vs Australia | PASS | EMPTY | DEFAULT | T-031/T-038. T-027/T-028 complete. |
+| `uzbekistan_colombia_2026` | 06/17/2026 | Uzbekistan vs Colombia | PASS | EMPTY | DEFAULT | T-031/T-038. T-028 fallback state complete. |
 
 ## Findings and Routing
 
 | ID | Finding | Severity | Routed task |
 |---|---|---:|---|
 | F-024-1 | Active `summary.json` schemas pass for all 19 active fixtures. | 0 | No follow-up. |
-| F-024-2 | Eight active fixtures have empty per-team metric profiles. | 2 | T-031, T-028. |
-| F-024-3 | Seven active fixtures use the default 40/30/30 stored forecast. | 2 | T-028, T-031. T-026 completed the truth review. |
-| F-024-4 | Multi-word team normalization is fragile in frontend and API fallback parsing; React currently misses the two longest summary keys. | 2 | T-027. |
+| F-024-2 | Eight active fixtures have empty per-team metric profiles. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
+| F-024-3 | Seven active fixtures use the default 40/30/30 stored forecast. | 1 | UI/API fallback state resolved by T-028; value completion remains T-031/T-038. |
+| F-024-4 | Multi-word team normalization was fragile in frontend and API fallback parsing. | 0 | Resolved by T-027. |
 | F-024-5 | The preview generator can overwrite curated `summary.json` editorial copy; last-minute analysis must use separate `briefing.json` artifacts. | 2 | T-025, T-032. |
-| F-024-6 | Overview tournament totals are hardcoded in the frontend, not sourced from schedule or standings payloads. | 2 | T-028 or a deployment/ops data-source follow-up. |
+| F-024-6 | Overview tournament totals are hardcoded in the frontend, not sourced from schedule or standings payloads. | 2 | Deployment/ops data-source follow-up. |
 | F-024-7 | Legacy numeric folders remain in `data/matches/` with incompatible schemas. | 1 | T-030 or a future cleanup task. |
 | F-024-8 | Stored JSON and API payloads differ because metrics are augmented at runtime. | 1 | This document; future schema tests should enforce both layers. |
 
@@ -539,12 +564,12 @@ For T-024, completion means:
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after T-035:
+Suggested next Orchestrator assignments after T-028:
 
-1. T-027 - Team Identity and Multi-Word Name Normalization Plan.
-2. T-028 - Incomplete Data and Fallback UI/API States.
-3. T-037 - Real Monte Carlo Tournament Simulation.
+1. T-034 - Active Fixture Discovery and Baseline Stub Generation.
+2. T-037 - Real Monte Carlo Tournament Simulation.
+3. T-039 - No-Cost Football Data Source Spike.
 4. T-036 - Source-Backed Research Collector Prototype.
 5. T-038 - Source-Backed Squad & Style Metrics Integration.
-6. T-034 - Active Fixture Discovery and Baseline Stub Generation.
+6. T-038 - Source-Backed Squad & Style Metrics Integration.
 7. T-032 - Last-Minute Briefing Pipeline Implementation.

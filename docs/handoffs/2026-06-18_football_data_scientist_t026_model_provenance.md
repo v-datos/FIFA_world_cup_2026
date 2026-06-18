@@ -55,7 +55,7 @@ When source-backed intake is approved:
 
 ## Handoff to Frontend Engineer
 
-T-028 should update UI/API states so users can tell the difference between:
+T-028 is complete and updates UI/API states so users can tell the difference between:
 
 - model forecast,
 - default forecast,

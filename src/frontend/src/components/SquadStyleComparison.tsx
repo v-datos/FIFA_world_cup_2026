@@ -1,13 +1,22 @@
 import React from 'react';
 import { getFlag } from '../lib/teamData';
 
+type MetricValue = number | string | null | undefined;
+type MetricRecord = Record<string, MetricValue>;
+
 interface Props {
   team1: string;
   team2: string;
-  metrics1?: Record<string, any>;
-  metrics2?: Record<string, any>;
+  metrics1?: MetricRecord;
+  metrics2?: MetricRecord;
   elo1?: number | null;
   elo2?: number | null;
+  metricQuality?: Record<string, {
+    status?: string;
+    source_label?: string;
+    message?: string;
+    missing_fields?: string[];
+  }>;
   lang: string;
 }
 
@@ -29,9 +38,17 @@ export const SquadStyleComparison: React.FC<Props> = ({
   metrics2 = {},
   elo1,
   elo2,
+  metricQuality = {},
   lang,
 }) => {
   const es = lang === 'Español';
+  const q1 = metricQuality[team1];
+  const q2 = metricQuality[team2];
+  const bothMissing = q1?.status === 'missing' && q2?.status === 'missing';
+  const anyMissing = q1?.status === 'missing' || q2?.status === 'missing' || q1?.status === 'partial' || q2?.status === 'partial';
+  const sourceLabel = bothMissing
+    ? (es ? 'Métricas no disponibles' : 'Metrics unavailable')
+    : ((q1?.source_label || q2?.source_label || 'static_curated').replace(/_/g, ' '));
 
   const rows: Row[] = [
     { label: es ? 'Posesión Media' : 'Average Possession', key: 'possession_avg', suffix: '%', dec: 1 },
@@ -52,9 +69,15 @@ export const SquadStyleComparison: React.FC<Props> = ({
     { label: es ? 'Inclinación de Campo %' : 'Field Tilt %', key: 'field_tilt_pct', suffix: '%', dec: 1 },
   ];
 
-  const num = (row: Row, m: Record<string, any>, elo?: number | null): number | null => {
+  const toNumber = (value: MetricValue): number => {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'string') return Number.parseFloat(value);
+    return Number.NaN;
+  };
+
+  const num = (row: Row, m: MetricRecord, elo?: number | null): number | null => {
     if (row.elo) return elo ?? null;
-    const v = parseFloat(m[row.key as string]);
+    const v = toNumber(m[row.key as string]);
     return isNaN(v) ? null : v;
   };
 
@@ -68,15 +91,34 @@ export const SquadStyleComparison: React.FC<Props> = ({
       <h3 className="text-lg font-bold text-slate-100">
         {es ? 'Comparación de Plantilla y Estilo' : 'Squad & Style Comparison'}
       </h3>
-      <p className="text-xs text-slate-400 mb-4">(FBref &amp; Club Elo)</p>
+      <p className="text-xs text-slate-400 mb-4">{sourceLabel}</p>
 
       <div className="flex justify-between items-center text-sm font-bold mb-2 pb-2 border-b border-slate-800/60">
         <span className="text-emerald-400">{getFlag(team1)} {team1}</span>
         <span className="text-rose-400">{team2} {getFlag(team2)}</span>
       </div>
 
+      {anyMissing && !bothMissing && (
+        <div className="mb-3 rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-100/75 leading-relaxed">
+          {es
+            ? 'Algunas métricas no están disponibles; los campos faltantes se muestran como —.'
+            : 'Some metrics are unavailable; missing fields are shown as —.'}
+        </div>
+      )}
+
       <div className="flex-1 flex flex-col justify-between mt-1">
-        {rows.map((row) => {
+        {bothMissing ? (
+          <div className="flex-1 rounded-xl border border-amber-500/25 bg-amber-500/10 p-4 flex flex-col items-center justify-center text-center">
+            <div className="text-sm font-bold text-amber-300">
+              {es ? 'Comparación no disponible' : 'Comparison unavailable'}
+            </div>
+            <p className="text-xs text-amber-100/75 mt-2 leading-relaxed">
+              {q1?.message || q2?.message || (es
+                ? 'No hay métricas de plantilla o estilo para este partido.'
+                : 'No squad or style metrics are available for this fixture.')}
+            </p>
+          </div>
+        ) : rows.map((row) => {
           const n1 = num(row, metrics1, elo1);
           const n2 = num(row, metrics2, elo2);
           let better: 1 | 2 | 0 = 0;

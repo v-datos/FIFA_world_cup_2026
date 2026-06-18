@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 import pandas as pd
 from google.cloud import bigquery
+from src.common.team_identity import canonical_team_slug, normalize_team_name
 
 # 1. Setup paths
 DATA_DIR = Path("./data/matches")
@@ -11,17 +12,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # 2. Clean team name function (matching app.py key generation)
 def clean_team_name(name: str) -> str:
-    return (name.lower()
-            .strip()
-            .replace(" ", "_")
-            .replace("'", "")
-            .replace("ô", "o")
-            .replace("é", "e")
-            .replace("ö", "o")
-            .replace("ç", "c")
-            .replace("í", "i")
-            .replace("á", "a")
-            .replace("ú", "u"))
+    return canonical_team_slug(name)
 
 # 3. Query BigQuery for team historical stats
 def get_historical_stats(team_name: str) -> str:
@@ -370,6 +361,8 @@ MATCH_TACTICAL_PROFILES = {
 
 # 4. Generate preview content using curated tactical profiles
 def generate_ai_preview(team1: str, team2: str, date_str: str, time_str: str, venue: str, stage: str):
+    team1 = normalize_team_name(team1)
+    team2 = normalize_team_name(team2)
     t1_key = clean_team_name(team1)
     t2_key = clean_team_name(team2)
     
@@ -507,6 +500,8 @@ def generate_upcoming_previews():
             t1 = g.get("home_team_name_en") or g.get("home_team_label")
             t2 = g.get("away_team_name_en") or g.get("away_team_label")
             if t1 and t2:
+                t1 = normalize_team_name(t1)
+                t2 = normalize_team_name(t2)
                 t1_key = clean_team_name(t1)
                 t2_key = clean_team_name(t2)
                 processed_keys.add(f"{t1_key}_{t2_key}")
@@ -518,6 +513,8 @@ def generate_upcoming_previews():
             t1 = g.get("home_team_name_en") or g.get("home_team_label")
             t2 = g.get("away_team_name_en") or g.get("away_team_label")
             if t1 and t2:
+                t1 = normalize_team_name(t1)
+                t2 = normalize_team_name(t2)
                 t1_key = clean_team_name(t1)
                 t2_key = clean_team_name(t2)
                 match_key = f"{t1_key}_{t2_key}"
@@ -533,6 +530,8 @@ def generate_upcoming_previews():
         for g in games_to_process:
             t1 = g.get("home_team_name_en") or g.get("home_team_label")
             t2 = g.get("away_team_name_en") or g.get("away_team_label")
+            t1 = normalize_team_name(t1)
+            t2 = normalize_team_name(t2)
             
             if not t1 or not t2 or "Winner" in t1 or "Winner" in t2 or "Runner-up" in t1 or "Runner-up" in t2:
                 print(f"Skipping match ID {g.get('id')} - teams not fully resolved yet ({t1} vs {t2}).")

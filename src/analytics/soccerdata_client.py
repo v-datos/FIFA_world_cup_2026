@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import pandas as pd
 from typing import Dict, Any, Optional
+from src.common.team_identity import normalize_team_name
 
 # Set up local cache directories for soccerdata scrapers
 CACHE_DIR = Path("./data/soccerdata_cache")
@@ -28,6 +29,8 @@ class SoccerDataClient:
         If the team is a national team (like Netherlands, Japan), it maps 
         to equivalent Elo rating matrices or uses general stats.
         """
+        team_name = normalize_team_name(team_name)
+
         # Mapping national teams to default international Elo values if club ELO is unavailable
         default_elo_ratings = {
             "Argentina": 2130,
@@ -52,13 +55,13 @@ class SoccerDataClient:
             "Senegal": 1740,
             "Switzerland": 1735,
             "Austria": 1730,
-            "Türkiye": 1720,
+            "Turkey": 1720,
             "Norway": 1715,
             "Egypt": 1690,
             "Algeria": 1680,
             "Bosnia and Herzegovina": 1610,
             "Saudi Arabia": 1590,
-            "Curaçao": 1450,
+            "Curacao": 1450,
             "South Africa": 1650,
             "Belgium": 1960,
             "Iran": 1780,
@@ -94,6 +97,8 @@ class SoccerDataClient:
         Scrapes advanced squad stats (possession, passing, defense) from FBref
         to supplement StatsBomb database profiles.
         """
+        team_name = normalize_team_name(team_name)
+
         # Realistic fallback profiles gathered from FBref averages and historical datasets
         fbref_fallback_profiles = {
             "France": {

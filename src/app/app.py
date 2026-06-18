@@ -7,6 +7,7 @@ import json
 
 # Add src/analytics to sys.path so we can import those modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'analytics')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 # Import custom modules for BigQuery
 from fifa_metrics_bq import (
@@ -32,6 +33,7 @@ from fifa_visualizations_bq import (
 from bigquery_helpers import get_bigquery_client, execute_query
 
 from bracket_ui import render_painters_tape_bracket
+from src.common.team_identity import canonical_team_slug, normalize_team_name
 from entity_resolution import PlayerEntityResolver
 import importlib
 import soccerdata_client
@@ -1364,12 +1366,8 @@ def main():
                 
                 team1 = summary_data["metadata"]["team1"]
                 team2 = summary_data["metadata"]["team2"]
-                
-                # Normalize spelling for Ivory Coast
-                if team1 == "Côte d'Ivoire":
-                    team1 = "Ivory Coast"
-                if team2 == "Côte d'Ivoire":
-                    team2 = "Ivory Coast"
+                team1 = normalize_team_name(team1)
+                team2 = normalize_team_name(team2)
                 
                 st.markdown(f"""
                     <div style="
@@ -1390,8 +1388,8 @@ def main():
                 key_headline = ai_sum['key_headline']
                 
                 # Dynamic keys for injuries and tactics
-                t1_key = team1.lower().replace(" ", "_").replace("'", "").replace("ô", "o").replace("é", "e").replace("ö", "o")
-                t2_key = team2.lower().replace(" ", "_").replace("'", "").replace("ô", "o").replace("é", "e").replace("ö", "o")
+                t1_key = canonical_team_slug(team1)
+                t2_key = canonical_team_slug(team2)
                 
                 inj_t1 = ai_sum["injuries"].get(t1_key, ai_sum["injuries"].get("team1", []))
                 inj_t2 = ai_sum["injuries"].get(t2_key, ai_sum["injuries"].get("team2", []))

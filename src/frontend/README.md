@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# FIFA World Cup 2026 Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React/Vite client for the FIFA World Cup 2026 analytics dashboard.
 
-Currently, two official plugins are available:
+## Runtime Shape
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Canonical frontend source lives in `src/frontend/src/`.
+- The client talks to the FastAPI backend in `src/api/main.py`.
+- Built assets are emitted to `src/frontend/dist/`; the Docker build copies that
+  output into `src/api/static/` for the deployed FastAPI app.
+- `src/app/` is legacy Streamlit reference code, not the production frontend.
 
-## React Compiler
+## Main Views
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Overview and fixtures of the day.
+- Match Analysis, including tactical baseline summaries, forecast states,
+  Squad & Style Comparison, radar metrics, progression estimates, and
+  StatsBomb proxy visualizations.
+- Tournament standings and bracket board.
 
-## Expanding the ESLint configuration
+## Data Contracts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The frontend consumes these backend routes:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `/api/schedule`
+- `/api/match/{match_id}/summary`
+- `/api/match/{match_id}/metrics`
+- `/api/standings`
+- `/api/visualizations/{match_id}/{viz_type}`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Current frontend rules:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Team names, flags, and slugs must flow through `src/lib/teamIdentity.ts`,
+  backed by `data/reference/team_identity.json`.
+- `metrics.data_quality.forecast` controls whether forecast probabilities render
+  or show "forecast unavailable."
+- `metrics.data_quality.team_metrics` controls missing and partial Squad &
+  Style states.
+- `metrics.data_quality.radar_metrics` controls radar availability.
+- `metrics.data_quality.monte_carlo_projections` controls whether progression
+  output is labeled as deterministic estimate or true Monte Carlo.
+- `summary.briefing_status` controls baseline-only, stale, blocked, or fresh
+  briefing messaging.
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run the Vite dev server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Verify frontend health:
+
+```bash
+npm run lint
+npm run build
+```
+
+The build may warn about large chunks. That warning is currently accepted; it is
+not a T-027/T-028 regression.

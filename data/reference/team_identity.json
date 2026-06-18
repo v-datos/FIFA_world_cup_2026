@@ -1,0 +1,338 @@
+[
+  {
+    "team_id": "1",
+    "display_name": "Mexico",
+    "slug": "mexico",
+    "flag": "🇲🇽",
+    "aliases": ["México"]
+  },
+  {
+    "team_id": "2",
+    "display_name": "South Africa",
+    "slug": "south_africa",
+    "flag": "🇿🇦",
+    "aliases": []
+  },
+  {
+    "team_id": "3",
+    "display_name": "South Korea",
+    "slug": "south_korea",
+    "flag": "🇰🇷",
+    "aliases": ["Korea Republic", "Republic of Korea", "Korea, Republic of"]
+  },
+  {
+    "team_id": "4",
+    "display_name": "Czech Republic",
+    "slug": "czech_republic",
+    "flag": "🇨🇿",
+    "aliases": ["Czechia"]
+  },
+  {
+    "team_id": "5",
+    "display_name": "Canada",
+    "slug": "canada",
+    "flag": "🇨🇦",
+    "aliases": []
+  },
+  {
+    "team_id": "6",
+    "display_name": "Bosnia and Herzegovina",
+    "slug": "bosnia_and_herzegovina",
+    "flag": "🇧🇦",
+    "aliases": ["Bosnia", "Bosnia-Herzegovina", "Bosnia & Herzegovina"]
+  },
+  {
+    "team_id": "7",
+    "display_name": "Qatar",
+    "slug": "qatar",
+    "flag": "🇶🇦",
+    "aliases": []
+  },
+  {
+    "team_id": "8",
+    "display_name": "Switzerland",
+    "slug": "switzerland",
+    "flag": "🇨🇭",
+    "aliases": []
+  },
+  {
+    "team_id": "9",
+    "display_name": "Brazil",
+    "slug": "brazil",
+    "flag": "🇧🇷",
+    "aliases": ["Brasil"]
+  },
+  {
+    "team_id": "10",
+    "display_name": "Morocco",
+    "slug": "morocco",
+    "flag": "🇲🇦",
+    "aliases": ["Maroc"]
+  },
+  {
+    "team_id": "11",
+    "display_name": "Haiti",
+    "slug": "haiti",
+    "flag": "🇭🇹",
+    "aliases": ["Haïti"]
+  },
+  {
+    "team_id": "12",
+    "display_name": "Scotland",
+    "slug": "scotland",
+    "flag": "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f",
+    "aliases": []
+  },
+  {
+    "team_id": "13",
+    "display_name": "United States",
+    "slug": "united_states",
+    "flag": "🇺🇸",
+    "aliases": ["USA", "U.S.A.", "United States of America", "USMNT"]
+  },
+  {
+    "team_id": "14",
+    "display_name": "Paraguay",
+    "slug": "paraguay",
+    "flag": "🇵🇾",
+    "aliases": []
+  },
+  {
+    "team_id": "15",
+    "display_name": "Australia",
+    "slug": "australia",
+    "flag": "🇦🇺",
+    "aliases": ["Socceroos"]
+  },
+  {
+    "team_id": "16",
+    "display_name": "Turkey",
+    "slug": "turkey",
+    "flag": "🇹🇷",
+    "aliases": ["Turkiye", "Türkiye"]
+  },
+  {
+    "team_id": "17",
+    "display_name": "Germany",
+    "slug": "germany",
+    "flag": "🇩🇪",
+    "aliases": ["Deutschland"]
+  },
+  {
+    "team_id": "18",
+    "display_name": "Curacao",
+    "slug": "curacao",
+    "flag": "🇨🇼",
+    "aliases": ["Curaçao"]
+  },
+  {
+    "team_id": "19",
+    "display_name": "Ivory Coast",
+    "slug": "ivory_coast",
+    "flag": "🇨🇮",
+    "aliases": ["Cote d'Ivoire", "Côte d'Ivoire", "Cote dIvoire"]
+  },
+  {
+    "team_id": "20",
+    "display_name": "Ecuador",
+    "slug": "ecuador",
+    "flag": "🇪🇨",
+    "aliases": []
+  },
+  {
+    "team_id": "21",
+    "display_name": "Netherlands",
+    "slug": "netherlands",
+    "flag": "🇳🇱",
+    "aliases": ["Holland"]
+  },
+  {
+    "team_id": "22",
+    "display_name": "Japan",
+    "slug": "japan",
+    "flag": "🇯🇵",
+    "aliases": []
+  },
+  {
+    "team_id": "23",
+    "display_name": "Sweden",
+    "slug": "sweden",
+    "flag": "🇸🇪",
+    "aliases": []
+  },
+  {
+    "team_id": "24",
+    "display_name": "Tunisia",
+    "slug": "tunisia",
+    "flag": "🇹🇳",
+    "aliases": []
+  },
+  {
+    "team_id": "25",
+    "display_name": "Belgium",
+    "slug": "belgium",
+    "flag": "🇧🇪",
+    "aliases": []
+  },
+  {
+    "team_id": "26",
+    "display_name": "Egypt",
+    "slug": "egypt",
+    "flag": "🇪🇬",
+    "aliases": []
+  },
+  {
+    "team_id": "27",
+    "display_name": "Iran",
+    "slug": "iran",
+    "flag": "🇮🇷",
+    "aliases": ["IR Iran", "Islamic Republic of Iran"]
+  },
+  {
+    "team_id": "28",
+    "display_name": "New Zealand",
+    "slug": "new_zealand",
+    "flag": "🇳🇿",
+    "aliases": ["Aotearoa New Zealand"]
+  },
+  {
+    "team_id": "29",
+    "display_name": "Spain",
+    "slug": "spain",
+    "flag": "🇪🇸",
+    "aliases": ["España"]
+  },
+  {
+    "team_id": "30",
+    "display_name": "Cape Verde",
+    "slug": "cape_verde",
+    "flag": "🇨🇻",
+    "aliases": ["Cabo Verde"]
+  },
+  {
+    "team_id": "31",
+    "display_name": "Saudi Arabia",
+    "slug": "saudi_arabia",
+    "flag": "🇸🇦",
+    "aliases": ["Saudi"]
+  },
+  {
+    "team_id": "32",
+    "display_name": "Uruguay",
+    "slug": "uruguay",
+    "flag": "🇺🇾",
+    "aliases": []
+  },
+  {
+    "team_id": "33",
+    "display_name": "France",
+    "slug": "france",
+    "flag": "🇫🇷",
+    "aliases": []
+  },
+  {
+    "team_id": "34",
+    "display_name": "Senegal",
+    "slug": "senegal",
+    "flag": "🇸🇳",
+    "aliases": ["Sénégal"]
+  },
+  {
+    "team_id": "35",
+    "display_name": "Iraq",
+    "slug": "iraq",
+    "flag": "🇮🇶",
+    "aliases": []
+  },
+  {
+    "team_id": "36",
+    "display_name": "Norway",
+    "slug": "norway",
+    "flag": "🇳🇴",
+    "aliases": []
+  },
+  {
+    "team_id": "37",
+    "display_name": "Argentina",
+    "slug": "argentina",
+    "flag": "🇦🇷",
+    "aliases": []
+  },
+  {
+    "team_id": "38",
+    "display_name": "Algeria",
+    "slug": "algeria",
+    "flag": "🇩🇿",
+    "aliases": ["Algérie"]
+  },
+  {
+    "team_id": "39",
+    "display_name": "Austria",
+    "slug": "austria",
+    "flag": "🇦🇹",
+    "aliases": []
+  },
+  {
+    "team_id": "40",
+    "display_name": "Jordan",
+    "slug": "jordan",
+    "flag": "🇯🇴",
+    "aliases": []
+  },
+  {
+    "team_id": "41",
+    "display_name": "Portugal",
+    "slug": "portugal",
+    "flag": "🇵🇹",
+    "aliases": []
+  },
+  {
+    "team_id": "42",
+    "display_name": "Democratic Republic of the Congo",
+    "slug": "democratic_republic_of_the_congo",
+    "flag": "🇨🇩",
+    "aliases": ["DR Congo", "DRC", "Congo DR", "Congo Democratic Republic"]
+  },
+  {
+    "team_id": "43",
+    "display_name": "Uzbekistan",
+    "slug": "uzbekistan",
+    "flag": "🇺🇿",
+    "aliases": []
+  },
+  {
+    "team_id": "44",
+    "display_name": "Colombia",
+    "slug": "colombia",
+    "flag": "🇨🇴",
+    "aliases": []
+  },
+  {
+    "team_id": "45",
+    "display_name": "England",
+    "slug": "england",
+    "flag": "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
+    "aliases": []
+  },
+  {
+    "team_id": "46",
+    "display_name": "Croatia",
+    "slug": "croatia",
+    "flag": "🇭🇷",
+    "aliases": ["Hrvatska"]
+  },
+  {
+    "team_id": "47",
+    "display_name": "Ghana",
+    "slug": "ghana",
+    "flag": "🇬🇭",
+    "aliases": []
+  },
+  {
+    "team_id": "48",
+    "display_name": "Panama",
+    "slug": "panama",
+    "flag": "🇵🇦",
+    "aliases": ["Panamá"]
+  }
+]

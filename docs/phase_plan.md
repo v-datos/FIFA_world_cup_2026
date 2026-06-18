@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-035 complete; assign next implementation batch | None |
+| Orchestrator | Routing | T-028 complete; assign T-034 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Source-backed research collector, active fixture discovery, real simulation support | T-027 team identity contract |
+| Data Pipeline Engineer | Queued | Active fixture discovery, source-backed research collector, real simulation support | None for T-034 start |
 | Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
-| Frontend Engineer | Queued | Forecast unavailable state and real Monte Carlo UI | T-027/T-028/T-037 assignment |
+| Frontend Engineer | Queued | Real Monte Carlo UI and later source-backed metric states | T-037 assignment |
 
 ## Phase 5 Objective
 
@@ -45,8 +45,9 @@ agent roster, data contracts, task list, and deployment runbook.
   implementation.
 - [x] Model/provenance truth is documented for Dixon-Coles, Elo defaults,
   default forecasts, deterministic progression, and proxy/hardcoded data.
-- [ ] Team alias and multi-word country handling are tracked as implementation
-  tasks.
+- [x] Team alias and multi-word country handling are implemented through T-027.
+- [x] Default forecasts and missing metrics render with explicit fallback states
+  through T-028.
 - [x] AI research source policy is approved before web scraping, browser
   automation, or source-backed matchday collection is implemented.
 - [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
@@ -195,15 +196,18 @@ Start condition:
 
 Outputs:
 
-- T-027 centralized team identity contract.
-- T-028 UI/API states for "forecast unavailable" and missing Squad & Style fields.
+- T-027 centralized team identity contract. Complete 2026-06-18.
+- T-028 UI/API states for "forecast unavailable" and missing Squad & Style
+  fields. Complete 2026-06-18.
 - T-037 implementation plan or first slice for real Monte Carlo simulation.
+- T-039 no-cost source spike before paid provider integration.
 
 Exit criteria:
 
-- [ ] Default `40/30/30` no longer renders as authoritative probability.
-- [ ] Team IDs and aliases are safe enough for source-backed collectors.
+- [x] Default `40/30/30` no longer renders as authoritative probability.
+- [x] Team IDs and aliases are safe enough for source-backed collectors.
 - [ ] Real Monte Carlo implementation path is unblocked.
+- [ ] Free-source feasibility is known before T-038 relies on paid APIs.
 
 ## Later Planned Batches
 
@@ -236,6 +240,7 @@ Owners: Data Pipeline Engineer, Football Data Scientist, Frontend Engineer
 
 Outputs:
 
+- T-039 no-cost source feasibility report.
 - T-038 field-source mapping implemented for at least one fixture.
 - Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
 - Frontend display of sourced, missing, or approximate metric states.
@@ -296,6 +301,8 @@ Outputs:
 | 2026-06-17 | Add Active Fixture Discovery and Baseline Stubs | docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md |
 | 2026-06-18 | Adopt Model and Provenance Truth Labels | docs/decisions/20260618_DEC010_model_provenance_truth_labels.md |
 | 2026-06-18 | Approve AI Research Source Policy | docs/decisions/20260618_DEC011_ai_research_source_policy.md |
+| 2026-06-18 | Adopt Shared Team Identity Contract | docs/decisions/20260618_DEC012_team_identity_contract.md |
+| 2026-06-18 | Render Fallback and Missing Data as Unavailable | docs/decisions/20260618_DEC013_fallback_rendering_contract.md |
 
 ## Open Blockers
 

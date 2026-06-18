@@ -39,7 +39,7 @@ policy.
 
 ## Consequences
 
-- T-028 must update UI/API degraded states and misleading labels.
+- T-028 is complete and updates UI/API degraded states and misleading labels.
 - T-031 must either fill or explicitly label missing metrics and rating gaps.
 - T-032/T-033 must treat `briefing.json` as the source-backed matchday layer.
 - Source collection must follow the T-035 allowed sources, scraping/browser

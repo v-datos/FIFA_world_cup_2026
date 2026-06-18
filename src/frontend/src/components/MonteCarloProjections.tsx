@@ -2,11 +2,18 @@ import React from 'react';
 import { Dices } from 'lucide-react';
 import { getFlag } from '../lib/teamData';
 
+type ProjectionValue = number | string | null | undefined;
+
 interface Props {
   team1: string;
   team2: string;
-  proj1?: Record<string, any>;
-  proj2?: Record<string, any>;
+  proj1?: Record<string, ProjectionValue>;
+  proj2?: Record<string, ProjectionValue>;
+  quality?: {
+    status?: string;
+    source_label?: string;
+    message?: string;
+  };
   lang: string;
 }
 
@@ -15,9 +22,12 @@ export const MonteCarloProjections: React.FC<Props> = ({
   team2,
   proj1 = {},
   proj2 = {},
+  quality,
   lang,
 }) => {
   const es = lang === 'Español';
+  const deterministicFallback = quality?.status === 'deterministic_fallback';
+  const sourceLabel = quality?.source_label?.replace(/_/g, ' ') || 'hardcoded reference';
 
   const stages: { key: string; label: string }[] = [
     { key: 'r16', label: es ? 'Alcanzar Octavos' : 'Reach Round of 16' },
@@ -27,15 +37,27 @@ export const MonteCarloProjections: React.FC<Props> = ({
     { key: 'win', label: es ? 'Ganar el Mundial' : 'Win World Cup' },
   ];
 
-  const pct = (v: any): string => (typeof v === 'number' ? `${Math.round(v * 100)}%` : 'N/A');
-  const width = (v: any): number => (typeof v === 'number' ? Math.max(2, Math.round(v * 100)) : 0);
+  const pct = (v: ProjectionValue): string => (typeof v === 'number' ? `${Math.round(v * 100)}%` : 'N/A');
+  const width = (v: ProjectionValue): number => (typeof v === 'number' ? Math.max(2, Math.round(v * 100)) : 0);
 
   return (
     <div className="w-full glass-panel p-5">
       <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2 mb-1">
         <Dices className="w-5 h-5 text-emerald-400" />
-        <span>{es ? 'Proyecciones de Simulación Monte Carlo' : 'Monte Carlo Simulation Projections'}</span>
+        <span>
+          {deterministicFallback
+            ? (es ? 'Estimación de Progresión del Torneo' : 'Tournament Progression Estimate')
+            : (es ? 'Proyecciones de Simulación Monte Carlo' : 'Monte Carlo Simulation Projections')}
+        </span>
       </h3>
+      {deterministicFallback && (
+        <div className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-3 py-2 text-[11px] text-amber-100/75 leading-relaxed">
+          {quality?.message || (es
+            ? 'Estimación determinística; no es una simulación Monte Carlo con ensayos aleatorios.'
+            : 'Deterministic estimate; not a random-trial Monte Carlo simulation.')}
+          <span className="block mt-1 uppercase tracking-wide text-amber-200/70 font-mono">{sourceLabel}</span>
+        </div>
+      )}
       <div className="flex justify-between items-center text-sm font-bold mt-3 mb-3">
         <span className="text-emerald-400">{getFlag(team1)} {team1}</span>
         <span className="text-rose-400">{team2} {getFlag(team2)}</span>

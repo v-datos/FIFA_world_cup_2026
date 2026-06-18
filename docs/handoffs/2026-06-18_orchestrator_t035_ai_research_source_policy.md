@@ -26,6 +26,9 @@ accepted direction.
 
 - World Football Elo for national-team ratings.
 - FIFA official sources for squads, rankings, and tournament facts.
+- `soccerdata` as the first no-cost Python extraction layer for FBref,
+  Sofascore, WhoScored, ClubElo, and related public sources where coverage is
+  adequate.
 - Sportmonks as preferred structured provider.
 - API-Football as structured fallback.
 - Transfermarkt for market values.
@@ -36,22 +39,30 @@ accepted direction.
 
 ## Handoff to Data Pipeline Engineer
 
-Next implementation should be T-036 or T-037:
+Next implementation should be T-028/T-039 before full collector wiring because
+T-027 is now complete:
 
+- T-039: evaluate the no-cost football-data path and PPDA/field-tilt proxy
+  feasibility.
 - T-036: prototype source-backed research collection for one fixture.
 - T-037: replace deterministic progression with a real Monte Carlo simulation.
 
 Do not overwrite `summary.json`. Use `briefing.json` or a documented cache for
 source-backed research.
 
+Do not use ClubElo as the national-team rating source. If ClubElo is used later,
+limit it to a player-club-strength blend after player-to-club and starting-XI
+mapping are reliable.
+
 ## Handoff to Frontend Engineer
 
-T-028 should render:
+T-028 is complete and now renders:
 
 - `forecast unavailable` when the default forecast is the only data,
 - missing Squad & Style fields as unavailable,
 - true Monte Carlo only after T-037 produces random-trial results,
-- source/freshness status for briefings when T-033 is implemented.
+- baseline-only briefing status through the summary payload. T-033 should add
+  the dedicated briefing route and full freshness UI.
 
 ## Handoff to QA
 

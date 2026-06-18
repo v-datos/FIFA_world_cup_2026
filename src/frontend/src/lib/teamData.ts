@@ -1,5 +1,6 @@
-// Shared team metadata: national flags + the current tournament date.
-// Single source of truth used across the Overview and Match Analysis tabs.
+// Frontend tournament metadata. Team identity and primary flags come from
+// teamIdentity.ts; TEAM_FLAGS remains as a legacy fallback for old labels.
+import { getTeamFlag, normalizeTeamName } from './teamIdentity';
 
 export const TEAM_FLAGS: Record<string, string> = {
   "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴",
@@ -17,7 +18,7 @@ export const TEAM_FLAGS: Record<string, string> = {
   "Uzbekistan": "🇺🇿", "Colombia": "🇨🇴", "Bosnia": "🇧🇦"
 };
 
-export const getFlag = (team: string): string => TEAM_FLAGS[team] || "🏳️";
+export const getFlag = (team: string): string => getTeamFlag(team) || TEAM_FLAGS[team] || "🏳️";
 
 // Each team's most recent major-tournament finish (curated).
 export const LAST_MAJOR_STANDING: Record<string, string> = {
@@ -53,7 +54,9 @@ export const LAST_MAJOR_STANDING: Record<string, string> = {
   "Ghana": "Group Stage (Africa Cup of Nations 2023)",
 };
 
-export const getLastStanding = (team: string): string | null => LAST_MAJOR_STANDING[team] || null;
+export const getLastStanding = (team: string): string | null => (
+  LAST_MAJOR_STANDING[normalizeTeamName(team)] || LAST_MAJOR_STANDING[team] || null
+);
 
 // Current active tournament date (MM/DD/YYYY) used to filter "games of the day".
 export const TODAY_DATE = "06/17/2026";

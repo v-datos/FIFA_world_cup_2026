@@ -19,10 +19,10 @@ folder before last-minute briefing generation runs.
 
 ## Dependencies
 
-- Hard dependency: T-027, because team display names, aliases, slugs, and
-  multi-word countries must be centralized before generated folders are robust.
-- Public UI gate: T-028, because default forecasts and empty metrics must render
-  as fallback/incomplete.
+- Completed dependency: T-027 provides shared team display names, aliases,
+  slugs, and multi-word country handling.
+- Completed public UI gate: T-028 renders default forecasts and empty metrics as
+  fallback/incomplete.
 - Informed by: T-026, for model/default/provenance wording.
 - Feeds: T-032 last-minute briefing generation, T-031 metrics completion, and
   T-033 briefing API/UI.
@@ -60,8 +60,7 @@ schedule payload or existing `summary.json`.
 
 ## Match ID Rule
 
-Until T-027 provides a shared registry, derive IDs with the existing
-normalization style:
+Derive IDs with the shared T-027 slug helper:
 
 ```text
 {team1_slug}_{team2_slug}_2026
@@ -73,8 +72,7 @@ Example:
 england_croatia_2026
 ```
 
-This is a temporary compatibility rule. T-027 should centralize the slug
-function and aliases so multi-word countries do not break API or UI lookup.
+Do not reimplement slug logic in the discovery script.
 
 ## Minimal Baseline Folder
 
@@ -95,7 +93,7 @@ Data sources:
 
 - `metadata.match_id`: generated from canonical team slugs.
 - `metadata.team1`, `metadata.team2`: live games API display names, normalized
-  through T-027 registry when available.
+  through the T-027 registry.
 - `metadata.date`, `metadata.time`: live games API `date`/`time`, or parsed
   from `local_date`.
 - `metadata.venue`: live games API stadium name when available; otherwise
@@ -200,16 +198,16 @@ Current contract note:
 
 - Existing active `metrics.json` files use numeric forecast fields and six score
   probabilities.
-- The stub should preserve that shape until T-028 updates UI fallback handling.
+- The stub should preserve that shape because T-028 now handles fallback
+  rendering through runtime `data_quality` labels.
 - The generator manifest must label these values as `default_forecast`,
   `empty_team_metrics`, and `baseline_stub`.
 
-Important frontend caveat:
+Frontend behavior:
 
-- Current `MatchPredictionGraph` falls back to 40/30/30 when probability values
-  are missing.
-- T-028 must change the UI so missing/stub forecasts render as incomplete
-  instead of authoritative probabilities.
+- T-028 prevents missing/stub forecasts from rendering as authoritative
+  probabilities.
+- T-028 prevents empty team metrics from rendering as neutral radar values.
 
 ## Procedure as Tournament Progresses
 

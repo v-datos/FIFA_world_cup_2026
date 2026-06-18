@@ -6,6 +6,7 @@ import { SquadStyleComparison } from './SquadStyleComparison';
 import { MonteCarloProjections } from './MonteCarloProjections';
 import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
 import { getFlag, getLastStanding, TODAY_DATE } from '../lib/teamData';
+import { normalizeTeamName, teamSlug } from '../lib/teamIdentity';
 
 interface Match {
   id: string;
@@ -25,6 +26,61 @@ interface MatchAnalysisTabProps {
   serverUrl: string;
 }
 
+type MetricValue = number | string | null | undefined;
+type TeamMetricRecord = Record<string, MetricValue>;
+type QualityRecord = {
+  status?: string;
+  source_label?: string;
+  message?: string;
+  freshness_state?: string;
+};
+
+interface SummaryMetadata {
+  match_id: string;
+  team1: string;
+  team2: string;
+  date: string;
+  time: string;
+  venue: string;
+  stage: string;
+}
+
+interface SummaryPayload {
+  metadata: SummaryMetadata;
+  ai_summary: {
+    key_headline: string;
+    injuries: Record<string, string[]>;
+    confirmed_tactics: Record<string, {
+      formation?: string;
+      philosophy?: string;
+      manager?: string;
+    }>;
+    tactical_insights: string[];
+  };
+  briefing_status?: QualityRecord;
+}
+
+interface MetricsPayload {
+  dixon_coles_forecast?: {
+    team1_win?: number | null;
+    draw?: number | null;
+    team2_win?: number | null;
+    confidence?: number | null;
+  };
+  score_probabilities?: Array<{ score: string; probability: number }>;
+  team_metrics?: Record<string, TeamMetricRecord>;
+  viz_proxies?: Record<string, string>;
+  elo_ratings?: Record<string, number | null>;
+  monte_carlo_projections?: Record<string, Record<string, MetricValue>>;
+  data_quality?: {
+    forecast?: QualityRecord;
+    score_probabilities?: QualityRecord;
+    radar_metrics?: QualityRecord;
+    monte_carlo_projections?: QualityRecord;
+    team_metrics?: Record<string, QualityRecord>;
+  };
+}
+
 export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   matches,
   selectedMatchId,
@@ -32,8 +88,8 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   lang,
   serverUrl,
 }) => {
-  const [summaryData, setSummaryData] = useState<any>(null);
-  const [metricsData, setMetricsData] = useState<any>(null);
+  const [summaryData, setSummaryData] = useState<SummaryPayload | null>(null);
+  const [metricsData, setMetricsData] = useState<MetricsPayload | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [activeVizTab, setActiveVizTab] = useState<string>('momentum');
 
@@ -134,13 +190,17 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const vizProxies = metricsData.viz_proxies || {};
   const eloRatings = metricsData.elo_ratings || {};
   const monteCarlo = metricsData.monte_carlo_projections || {};
+  const dataQuality = metricsData.data_quality || {};
+  const briefingStatus = summaryData.briefing_status;
 
-  const cleanT1 = team1.toLowerCase().replace(' ', '_').replace("'", "");
-  const cleanT2 = team2.toLowerCase().replace(' ', '_').replace("'", "");
+  const normalizedTeam1 = normalizeTeamName(team1);
+  const normalizedTeam2 = normalizeTeamName(team2);
+  const cleanT1 = teamSlug(team1);
+  const cleanT2 = teamSlug(team2);
 
   // Fetch player list from local fallback or fallback to default names list
-  const t1Roster = ROSTERS[team1] || ROSTERS[cleanT1] || [];
-  const t2Roster = ROSTERS[team2] || ROSTERS[cleanT2] || [];
+  const t1Roster = ROSTERS[normalizedTeam1] || ROSTERS[team1] || ROSTERS[cleanT1] || [];
+  const t2Roster = ROSTERS[normalizedTeam2] || ROSTERS[team2] || ROSTERS[cleanT2] || [];
 
   const translateText = (text: string) => {
     // Basic translation helper for headers
@@ -199,6 +259,15 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <h3 className="text-lg font-bold text-slate-100 mt-1">
           {lang === 'Español' && key_headline ? 'Análisis: ' + key_headline : key_headline}
         </h3>
+        {briefingStatus?.freshness_state && (
+          <div className="mt-3 inline-flex items-center rounded-full border border-slate-700/70 bg-slate-950/35 px-3 py-1 text-[10px] uppercase tracking-wide text-slate-300 font-mono">
+            {briefingStatus.freshness_state.replace('_', ' ')}
+            <span className="mx-2 text-slate-600">|</span>
+            <span className="text-slate-400 normal-case tracking-normal">
+              {briefingStatus.message}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Match Outcome Probability (with integrated top exact scores) + Insights */}
@@ -208,6 +277,8 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           team2={team2}
           probabilities={forecast}
           scoreProbs={scoreProbs}
+          quality={dataQuality.forecast}
+          scoreQuality={dataQuality.score_probabilities}
           lang={lang}
         />
 
@@ -272,6 +343,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             team2={team2}
             metrics1={teamMetrics[team1]}
             metrics2={teamMetrics[team2]}
+            quality={dataQuality.radar_metrics}
             lang={lang}
           />
           <MonteCarloProjections
@@ -279,6 +351,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             team2={team2}
             proj1={monteCarlo[team1]}
             proj2={monteCarlo[team2]}
+            quality={dataQuality.monte_carlo_projections}
             lang={lang}
           />
         </div>
@@ -289,6 +362,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           metrics2={teamMetrics[team2]}
           elo1={eloRatings[team1]}
           elo2={eloRatings[team2]}
+          metricQuality={dataQuality.team_metrics}
           lang={lang}
         />
       </div>
