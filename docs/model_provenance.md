@@ -1,0 +1,258 @@
+# Model and Data Provenance Truth Review
+
+Last updated: 2026-06-18  
+Task: T-026 - Model and Provenance Truth Review  
+Owner: Football Data Scientist  
+Orchestrator disposition: Review complete; implementation choices routed to follow-up tasks.
+
+## Scope
+
+This review documents what the Match Analysis tab actually uses today, where the
+current labels overstate the implementation, and what must be true before the
+project can move toward AI-researched matchday data.
+
+This is a truth and routing document. It does not change runtime behavior,
+source collection, generated JSON, or UI labels by itself.
+
+## Executive Finding
+
+The app is not currently an AI-research-first system. The current Match Analysis
+experience is mostly:
+
+- static checked-in `summary.json` baseline previews,
+- static checked-in `metrics.json` forecasts and team profiles,
+- local hardcoded Elo defaults,
+- local hardcoded roster/reference maps,
+- deterministic formulas,
+- historical StatsBomb/BigQuery proxy visualizations,
+- and planned but not yet implemented last-minute `briefing.json` updates.
+
+The project can move toward AI-assisted source collection, but that should be
+implemented as a source-backed data intake pipeline, not as unsourced generated
+copy or hidden browser scraping.
+
+## Current Match Analysis Intake
+
+| Data family | Current source | Current behavior | Truth label |
+|---|---|---|---|
+| Fixture metadata | `data/matches/{match_id}/summary.json`, surfaced by `/api/schedule` | Local folders ending `_2026` define the analyzable match list. Missing folders are invisible to the Match Analysis workflow. | `static_curated` |
+| Baseline tactical preview | `summary.json.ai_summary` | Long-lived editorial preview content. It can exist days or weeks before kickoff. | `static_curated` |
+| Last-minute briefing | Not implemented yet | Planned as separate `briefing.json`. | `missing` until implemented |
+| Stored forecast | `metrics.json.dixon_coles_forecast` | Either generated from local Elo defaults or stored as a default `40/30/30` compatibility fallback. | `generated_model` or `default_forecast` |
+| Exact scores | `metrics.json.score_probabilities` | Either generated from the Poisson score grid or stored as default score fallbacks. | `generated_model` or `default_forecast` |
+| Team metric profiles | `metrics.json.team_metrics` | Some fixtures have local profile values; eight active fixtures have empty objects. | `hardcoded_reference`, `missing`, or future `web_researched` |
+| Elo ratings | `SoccerDataClient.fetch_club_elo_ratings()` | Uses a local hardcoded national-team rating map. The `soccerdata` import exists, but ratings are not populated from a live scrape. | `hardcoded_reference` |
+| Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses a deterministic Elo curve in `compute_monte_carlo_probs()`. | `generated_model`, deterministic |
+| StatsBomb visualizations | `/api/visualizations/{match_id}/{viz_type}` | Uses hand-selected historical BigQuery proxy matches. These are not 2026 event feeds. | `proxy_historical` |
+| Rosters, clubs, last major standing | Frontend TypeScript maps | Local hardcoded reference data, not fresh sourced data. | `hardcoded_reference` |
+
+## Model Truth
+
+### Dixon-Coles Forecast
+
+Implementation:
+
+- Generator: `src/pipeline/generate_match_previews.py`
+- Helper: `src/analytics/soccerdata_client.py:get_dixon_coles_prediction()`
+- Stored output: `data/matches/{match_id}/metrics.json`
+
+Current formula:
+
+- `lambda1 = 1.35 * exp(0.0015 * (team1_elo - team2_elo))`
+- `lambda2 = 1.35 * exp(0.0015 * (team2_elo - team1_elo))`
+- Score grid covers 0 through 10 goals for each team.
+- Independent Poisson probabilities are adjusted with Dixon-Coles `rho=-0.10`
+  for 0-0, 1-0, 0-1, and 1-1 outcomes.
+- The grid is normalized.
+- Win/draw/loss probabilities are sums over the normalized grid.
+- The top six scorelines become `score_probabilities`.
+- `confidence = 0.70 + 0.20 * abs(team1_win - team2_win)`.
+
+Truth wording:
+
+Use: "Elo-derived Poisson forecast with Dixon-Coles low-score adjustment."
+
+Avoid: "fitted Dixon-Coles model", "live model", "fully data-backed model", or
+any wording implying the model was trained or calibrated from a broad match
+dataset. The current implementation is formulaic and depends on local Elo
+defaults.
+
+### Elo Ratings
+
+Implementation:
+
+- `src/analytics/soccerdata_client.py:fetch_club_elo_ratings()`
+
+Current behavior:
+
+- Returns values from a local hardcoded national-team map.
+- Attempts to import `soccerdata`, but does not read live ClubElo data into the
+  returned rating.
+- Returns confidence `0.95` when a local rating exists.
+
+Truth wording:
+
+Use: "local Elo default rating" or "local rating input."
+
+Avoid: "Dynamic Club ELO", "SoccerData scraped endpoints", or "live ClubElo"
+until the code actually retrieves ratings from an approved live source.
+
+### Default 40/30/30 Forecast
+
+Implementation:
+
+- `src/pipeline/generate_match_previews.py`
+- `src/frontend/src/components/MatchPredictionGraph.tsx`
+
+Current generator fallback:
+
+```json
+{
+  "team1_win": 0.40,
+  "draw": 0.30,
+  "team2_win": 0.30,
+  "confidence": 0.70
+}
+```
+
+Current frontend fallback:
+
+- Missing `team1_win` renders as `0.40`.
+- Missing `team2_win` renders as `0.30`.
+- Missing confidence renders as `0.78`.
+
+Truth wording:
+
+Use: "default forecast fallback" or "forecast unavailable; compatibility values
+shown."
+
+Avoid presenting `40/30/30` as a model forecast. T-028 must decide whether these
+values remain visible with a warning or are replaced by a forecast-unavailable
+state.
+
+### Deterministic Progression Projection
+
+Implementation:
+
+- `src/api/main.py:compute_monte_carlo_probs()`
+- UI: `src/frontend/src/components/MonteCarloProjections.tsx`
+
+Current behavior:
+
+- No random draws.
+- No tournament path simulation.
+- No opponent draw or bracket simulation.
+- Values are clipped deterministic functions of `elo - 1400`.
+
+Truth wording:
+
+Use: "Deterministic Elo progression estimate."
+
+Avoid: "Monte Carlo Simulation Projections" unless a real simulation is added.
+
+## StatsBomb and BigQuery Limits
+
+The BigQuery integration is useful for historical event visualizations, but it
+does not solve current match intelligence:
+
+- It is not a live 2026 event feed.
+- It uses selected historical proxy matches.
+- It depends on BigQuery credentials.
+- It does not guarantee coverage for every relevant confederation, competition,
+  or team context.
+- Missing proxy mappings can fall back to unrelated Netherlands/Japan proxy data
+  in some paths.
+
+This matches the product concern that relying on available StatsBomb/BigQuery
+data leaves major gaps, including competitions and teams outside the covered
+sample. The app needs a separate source-backed research layer for current
+injuries, lineups, rosters, tactical news, and match context.
+
+## Provenance Taxonomy
+
+Use these labels across docs, future JSON, API payloads, manifests, and UI:
+
+| Label | Meaning |
+|---|---|
+| `live_schedule` | Runtime tournament schedule or standings source, currently `worldcup26.ir`. |
+| `static_curated` | Checked-in content written or reviewed as a baseline preview. |
+| `generated_model` | Output from a documented deterministic or statistical calculation. |
+| `default_forecast` | Compatibility fallback such as `40/30/30`; not a real forecast. |
+| `hardcoded_reference` | Local maps for rosters, clubs, standings, ratings, or profile values. |
+| `proxy_historical` | Historical data used as a stand-in for unavailable 2026 data. |
+| `web_researched` | Source-collected web fact with URL, retrieval time, and review metadata. |
+| `missing` | Required source or data point does not exist. |
+| `blocked` | Collection was attempted but failed because access, credentials, or policy blocked it. |
+
+Recommended future metadata fields:
+
+- `forecast_status`
+- `elo_source`
+- `elo_checked_at_utc`
+- `team_metrics_status`
+- `projection_method`
+- `source_checked_at_utc`
+- `source_label`
+- `review_status`
+- `warnings`
+- `blocked_reasons`
+
+## Match Analysis Population Direction
+
+The current static `summary.json` files should remain baseline previews. They
+should not be regenerated as the last-minute layer and should not be treated as
+fresh news.
+
+The AI-researched matchday layer should be implemented through
+`briefing.json` or a future research cache, with this contract:
+
+- Every claim has a source record.
+- Every source record has a URL or local path, source name, retrieval time,
+  status, and label.
+- Every injury, lineup, roster, manager, tactical, or metric update records
+  whether it is confirmed, reported, inferred, or unavailable.
+- AI may summarize and normalize facts, but it must not invent missing facts.
+- Browser automation or scraping is a collection mechanism, not a provenance
+  label. The source still needs to be named and stored.
+- Publication requires Football Data Scientist review or an explicit future
+  decision that allows automated publish for specific low-risk fields.
+
+## Resolved User Policy Decisions
+
+T-035 resolved the policy questions raised by this review:
+
+1. Default `40/30/30` should render as "forecast unavailable."
+2. The deterministic progression panel should be replaced with a real Monte
+   Carlo simulation.
+3. World Football Elo is the preferred rating source, with FIFA ranking as
+   fallback/sanity check.
+4. AI-generated tactical, injury, and lineup copy does not require one-to-one URL
+   citations in the UI, but the collection run should retain source metadata.
+5. Browser automation and scraping are allowed under the T-035 source policy.
+6. Recommended source stack: FIFA official sources, World Football Elo,
+   Sportmonks, API-Football, Transfermarkt, and paid event sources such as
+   Wyscout, Opta/Stats Perform, or StatsBomb where needed.
+7. Last-minute freshness is the 3-hour window before the first game of the daily
+   `jornada`.
+
+## Routed Follow-Ups
+
+- T-027: centralize team identity before any source collector writes data.
+- T-028: add UI/API degraded states and rename misleading labels.
+- T-031: fill or explicitly label empty team metrics and rating gaps.
+- T-032: implement `briefing.json` generation using the approved source policy.
+- T-033: expose briefing freshness and source states in API/UI.
+- T-036: prototype source-backed research collection.
+- T-037: replace deterministic progression with a real Monte Carlo simulation.
+- T-038: integrate source-backed Squad & Style metrics.
+
+## T-026 Completion Criteria
+
+T-026 is complete as a review when:
+
+- model formulas and fallbacks are documented,
+- misleading labels are identified,
+- current data intake is classified,
+- the web-research direction is documented as policy-pending,
+- follow-up tasks are routed,
+- and no implementation assumes unapproved source policy.

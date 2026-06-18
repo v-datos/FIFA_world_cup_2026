@@ -1,6 +1,6 @@
 # Last-Minute Match Briefing Generation Plan
 
-Last updated: 2026-06-17  
+Last updated: 2026-06-18  
 Task: T-025 - Safe Last-Minute Match Briefing Generation Plan  
 Owner: Data Pipeline Engineer  
 Reviewers: Football Data Scientist, Frontend Engineer, QA / Reproducibility Engineer
@@ -59,7 +59,7 @@ Proposed shape:
     "mode": "last_minute_briefing",
     "freshness": "fresh",
     "valid_until_utc": "2026-06-17T18:00:00Z",
-    "briefing_window_hours": 24
+    "briefing_window_hours": 3
   },
   "fixture": {
     "team1": "England",
@@ -96,7 +96,7 @@ Proposed shape:
     {
       "name": "summary.json",
       "path_or_url": "data/matches/england_croatia_2026/summary.json",
-      "label": "curated",
+      "label": "static_curated",
       "status": "used",
       "checked_at_utc": "2026-06-17T12:00:00Z"
     }
@@ -122,8 +122,10 @@ Field requirements:
   `model`, `default`, or `missing`.
 - `data_quality` records missing metrics, Elo gaps, default forecasts, blocked
   source checks, and other warnings.
-- `sources` uses the project source labels: `live`, `static`, `curated`,
-  `generated`, `fallback`, and `proxy`.
+- `sources` uses the project source labels documented in
+  `docs/model_provenance.md`, including `live_schedule`, `static_curated`,
+  `generated_model`, `default_forecast`, `hardcoded_reference`,
+  `proxy_historical`, `web_researched`, `missing`, and `blocked`.
 - `review` gates whether the briefing is draft, football-reviewed, or approved.
 
 Required freshness values:
@@ -139,15 +141,17 @@ Required freshness values:
 
 Default generation scope:
 
-- Include matches on the active match date.
-- Include matches kicking off in the next 24 hours.
-- Do not generate briefings for all future static folders by default.
+- Identify the active match date's `jornada`.
+- Determine the first kickoff of that `jornada`.
+- Generate fresh briefings only inside the 3-hour window before that first
+  kickoff.
+- Do not generate fresh briefings for all future static folders by default.
 
 Configurable arguments for the future generator:
 
 ```bash
-python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 24
-python3 src/pipeline/generate_match_briefings.py --write --window-hours 24
+python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
+python3 src/pipeline/generate_match_briefings.py --write --window-hours 3
 python3 src/pipeline/generate_match_briefings.py --match-id england_croatia_2026 --dry-run
 ```
 
@@ -184,8 +188,13 @@ First implementation should be conservative:
 - Use live tournament API only for match status and schedule freshness.
 - Do not claim lineup, injury, or news freshness unless a source was actually
   checked.
-- If web/news source collection is added later, every source must be listed in
-  `sources[]` with retrieval time and status.
+- Web/news source collection is approved under T-035.
+- Every collection run must list sources in `sources[]` with URL/path, source
+  name, retrieval time, status, and review metadata where available.
+- Individual displayed AI claims do not require one-to-one URL citations, but the
+  source set used by the run must be auditable.
+- Browser automation or scraping is a collection mechanism, not a source label;
+  the collected fact still needs source metadata.
 
 ## API and UI Follow-Up
 
@@ -217,7 +226,9 @@ Recommended follow-up tasks:
 2. Add `briefing.json` schema validation.
 3. Add `/api/match/{match_id}/briefing`.
 4. Add Match Analysis UI freshness states.
-5. Add an operator command to refresh only active-date or next-24-hour matches.
+5. Add an operator command to refresh the active `jornada` inside the 3-hour
+   freshness window.
+6. Add approved source-backed web research collection.
 
 ## Verification Criteria
 

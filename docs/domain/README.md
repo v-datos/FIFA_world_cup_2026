@@ -1,6 +1,6 @@
 # Domain Knowledge - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 
 This document summarizes the current product/domain model. Detailed JSON/API
 contracts are documented in `docs/data_contracts.md`.
@@ -16,6 +16,8 @@ with:
 - tactical match previews
 - transparent outcome forecasts
 - historical StatsBomb proxy visualizations
+- source-backed AI-researched matchday briefings, once the approved source policy
+  is implemented
 
 ## Canonical Runtime
 
@@ -59,6 +61,8 @@ with:
 - Plan: `docs/last_minute_briefing_plan.md`.
 - Product role: same-day or near-kickoff update layer with freshness, source,
   validation, and review metadata.
+- Web/news collection is approved under T-035. Browser automation and scraping
+  are allowed with retained source metadata and source-policy guardrails.
 - UI expectation: show fresh/stale/baseline-only/blocked states instead of
   implying old baseline copy is current.
 
@@ -71,6 +75,9 @@ with:
   proxy labels.
 - Known caveat: the Phase 5 data contract audit found eight fixtures with empty
   team metric profiles and seven fixtures with default stored forecasts.
+- Current caveat from T-026: Elo ratings are local hardcoded defaults, and the
+  progression panel is deterministic even though the UI currently labels it
+  Monte Carlo.
 
 ### Historical Event Visualizations
 
@@ -78,11 +85,30 @@ with:
 - Use: proxy plots only, because live 2026 event data is not available.
 - UI: xG distribution comparison, passing networks, shot maps, heatmaps,
   progressive action maps.
+- Known limitation: BigQuery/StatsBomb proxy coverage is not broad enough to
+  supply every current team, competition, or confederation context the Match
+  Analysis tab needs.
+
+### AI-Researched Matchday Data
+
+- Policy: `docs/ai_research_source_policy.md`.
+- Planned implementation: T-036 collector prototype.
+- Intended use: current injuries, lineups, suspensions, roster changes, manager
+  updates, tactical news, and team context that static files and BigQuery proxies
+  do not cover.
+- Product rule: AI may collect, normalize, and summarize source-backed facts.
+  Individual displayed claims do not require one-to-one URL citations, but the
+  run must retain source URL/path, retrieval time, status, and review metadata
+  for audit.
 
 ## Domain Principles
 
-- Label live, static, curated, generated, fallback, and proxy data honestly.
+- Label `live_schedule`, `static_curated`, `generated_model`,
+  `default_forecast`, `hardcoded_reference`, `proxy_historical`,
+  `web_researched`, `missing`, and `blocked` data honestly.
 - Do not overwrite curated editorial previews without review.
 - Do not hide missing model inputs behind neutral-looking charts.
 - Treat team aliases and multi-word country names as explicit data contracts.
 - Keep football claims reviewable by the Football Data Scientist role.
+- Do not call hardcoded defaults, deterministic formulas, or proxy data live,
+  scraped, simulated, or fully researched.

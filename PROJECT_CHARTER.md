@@ -2,16 +2,17 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 Profile: software-app
 
 ## Mission
 
 Build a reliable FIFA World Cup 2026 dashboard that combines live tournament
-state, curated match previews, transparent forecast models, and historical
-StatsBomb proxy visualizations. The project should stay low-cost, reproducible,
-and understandable enough that future updates can be delegated through the
-agent workflow without rediscovering the system from scratch.
+state, curated match previews, transparent forecast models, historical
+StatsBomb proxy visualizations, and eventually source-backed AI-researched
+matchday briefings. The project should stay low-cost, reproducible, and
+understandable enough that future updates can be delegated through the agent
+workflow without rediscovering the system from scratch.
 
 ## Current Objective
 
@@ -38,17 +39,28 @@ operating documents, data contracts, and task routing.
   rejects normal Python SSL handling.
 - Historical event visualizations: BigQuery-backed StatsBomb proxy matches.
   These are not 2026 live event feeds.
+- Planned matchday research layer: source-backed `briefing.json` or a future
+  research cache. This is not implemented yet and must follow T-035
+  source-policy decisions for scraping, browser automation, or provider
+  integration.
 
 ## Data Source Rules
 
 Every user-visible data point should be classifiable as one of:
 
-- live: pulled from an external API at runtime.
-- static: checked into this repository.
-- curated: manually written or reviewed editorial content.
-- generated: produced by a local script.
-- fallback: default data used because a source is missing.
-- proxy: historical data used as a stand-in for unavailable 2026 event data.
+- live_schedule: runtime tournament schedule or standings source.
+- static_curated: checked-in content written or reviewed as a baseline preview.
+- generated_model: output from a documented deterministic or statistical
+  calculation.
+- default_forecast: compatibility fallback such as `40/30/30`; not a real
+  forecast.
+- hardcoded_reference: local code maps used as reference data.
+- proxy_historical: historical data used as a stand-in for unavailable 2026
+  event data.
+- web_researched: source-collected data with URL/path, retrieval time, status,
+  and review metadata.
+- missing: required source or data point does not exist.
+- blocked: unavailable, failed, or policy-forbidden source access.
 
 No UI text, documentation, or chart label should imply a stronger source than
 the implementation actually uses.
@@ -65,6 +77,8 @@ the implementation actually uses.
 - Record schema, architecture, deployment, and model-provenance changes in
   `docs/decisions/`.
 - Record completed phase or handoff work in `docs/handoffs/`.
+- Do not publish AI-generated current claims as fresh match intelligence unless
+  the source policy allows it and source metadata is stored.
 
 ## Stack & Verification
 
@@ -89,6 +103,8 @@ credentials, live Cloud Run state, external API freshness, or remote
 - Do not treat Streamlit as the production app without a new decision.
 - Do not present hardcoded, fallback, or formulaic data as live, scraped,
   simulated, or fully model-backed.
+- Do not implement scraping, browser automation, or paid-provider ingestion until
+  the source policy, source metadata contract, and review gate are documented.
 
 ## Current Phase
 
@@ -105,8 +121,15 @@ Exit criteria:
 - [x] Legacy numeric match folders `1001`, `1002`, and `1003` are classified.
 - [x] Last-minute briefing generation has a documented safety plan before
   implementation.
+- [x] Model/provenance truth is documented for current forecasts, Elo defaults,
+  deterministic progression projections, hardcoded references, and proxy data.
 - [x] Team-name normalization and multi-word team handling are tracked as
   implementation tasks.
+- [x] AI research source policy is approved before web-researched Match Analysis
+  data collection is implemented.
+- [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [ ] Source-backed Squad & Style metrics replace or label hardcoded/missing
+  fields.
 - [x] Deployment documentation distinguishes local, Cloud Run, and
   `accionar.xyz` state.
 
@@ -148,6 +171,8 @@ Roles are defined in `AGENTS.md`.
   defaults.
 - Last-minute matchday analysis is generated as a separate freshness-labeled
   briefing, not by overwriting baseline previews.
+- AI-researched matchday analysis is source-backed, timestamped, and reviewed
+  according to the approved source policy.
 - New tournament fixtures can enter the Match Analysis workflow through active
   fixture discovery and explicit baseline stubs, without manually pre-creating
   every match folder.
@@ -160,10 +185,9 @@ Roles are defined in `AGENTS.md`.
 
 - Should Streamlit remain only as reference code, or should it be deleted or
   archived after the React app is fully verified live?
-- What sources should be allowed for approved last-minute briefings beyond local
-  static data and live tournament schedule context?
-- Should "Monte Carlo" be renamed to "Elo progression estimate" or replaced
-  with an actual tournament simulation?
+- Which provider credentials or budget are available for Sportmonks,
+  API-Football, Wyscout, Opta/Stats Perform, paid StatsBomb, or equivalent
+  sources?
 - Should `accionar.xyz` host static React assets directly, embed Cloud Run, or
   keep both paths?
 
@@ -180,6 +204,8 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-17 | Framework Rebaseline & Pipeline Hardening | Orchestrator | docs/decisions/20260617_DEC007_framework_rebaseline.md |
 | 2026-06-17 | Separate Baseline Previews from Last-Minute Match Briefings | Orchestrator | docs/decisions/20260617_DEC008_last_minute_briefing_scope.md |
 | 2026-06-17 | Add Active Fixture Discovery and Baseline Stubs | Orchestrator | docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md |
+| 2026-06-18 | Adopt Model and Provenance Truth Labels | Orchestrator | docs/decisions/20260618_DEC010_model_provenance_truth_labels.md |
+| 2026-06-18 | Approve AI Research Source Policy | Orchestrator | docs/decisions/20260618_DEC011_ai_research_source_policy.md |
 
 ## Risks
 
@@ -188,8 +214,9 @@ Roles are defined in `AGENTS.md`.
 | Generated previews overwrite curated summaries | High | Add dry-run/diff and preserve rules before running generator again | Data Pipeline Engineer |
 | Docs describe Streamlit or BigQuery contracts that no longer match runtime | High | Rebaseline charter, agents, playbook, phase plan, tasks, and contracts | Orchestrator |
 | Team-name parsing breaks multi-word countries | High | Centralize aliases and normalize identity across API, generator, and frontend | Data Pipeline Engineer |
-| Forecasts fall back to 40/30/30 without operator visibility | Medium | Add validation and source/provenance labels | Football Data Scientist |
+| Forecasts fall back to 40/30/30 without operator visibility | Medium | Render as "forecast unavailable" per T-035 and add source labels | Frontend Engineer |
 | Empty `team_metrics` render misleading neutral charts | Medium | Add schema validation and incomplete-data UI states | QA / Frontend Engineer |
-| "Monte Carlo" wording overstates current deterministic formula | Medium | Rename or replace with actual simulation after model review | Football Data Scientist |
+| "Monte Carlo" wording overstates current deterministic formula | Medium | Replace with real Monte Carlo simulation in T-037 | Football Data Scientist / Data Pipeline Engineer |
+| AI research collector scrapes or publishes without retained source metadata | High | Follow T-035 source policy and retain source records/snapshots | Orchestrator |
 | Live deployment status diverges from local code | Medium | Add deployment verification and status snapshot checklist | QA / Orchestrator |
 | BigQuery-backed visualizations fail without credentials | Medium | Keep proxy disclosure and add credential-aware error handling | Data Pipeline Engineer |

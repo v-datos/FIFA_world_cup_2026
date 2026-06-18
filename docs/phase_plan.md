@@ -1,17 +1,17 @@
 # Phase Plan - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Active Agents
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-025 plan complete; assign T-026 next | None |
+| Orchestrator | Routing | T-035 complete; assign next implementation batch | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Active fixture discovery and baseline stub generation | T-027 team identity contract |
-| Football Data Scientist | Queued | Review model/provenance wording and forecast fallbacks | T-026 assignment |
-| Frontend Engineer | Queued | Plan incomplete-data states and multi-word team UI fixes | T-027/T-028 assignment |
+| Data Pipeline Engineer | Queued | Source-backed research collector, active fixture discovery, real simulation support | T-027 team identity contract |
+| Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
+| Frontend Engineer | Queued | Forecast unavailable state and real Monte Carlo UI | T-027/T-028/T-037 assignment |
 
 ## Phase 5 Objective
 
@@ -43,8 +43,14 @@ agent roster, data contracts, task list, and deployment runbook.
 - [x] Legacy folders `1001`, `1002`, and `1003` are classified.
 - [x] Last-minute briefing generation has a documented safety plan before
   implementation.
+- [x] Model/provenance truth is documented for Dixon-Coles, Elo defaults,
+  default forecasts, deterministic progression, and proxy/hardcoded data.
 - [ ] Team alias and multi-word country handling are tracked as implementation
   tasks.
+- [x] AI research source policy is approved before web scraping, browser
+  automation, or source-backed matchday collection is implemented.
+- [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [ ] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
 - [ ] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
 - [x] Local verification passes:
@@ -120,24 +126,88 @@ Exit criteria:
 - [x] Dry-run/write behavior and validation output are specified.
 - [x] Implementation is routed to T-032 and API/UI consumption to T-033.
 
-## Next Batch - Batch 4: Model & Provenance Review
+## Completed Batch - Batch 4: Model & Provenance Review
 
 Owner: Football Data Scientist
 
-Start condition:
+Scope:
 
-- T-025 briefing plan complete.
+- Document the actual Dixon-Coles/Elo formula and model caveats.
+- Document local Elo defaults and default `40/30/30` forecast behavior.
+- Classify deterministic progression projections.
+- Classify hardcoded rosters, static team metrics, and StatsBomb/BigQuery
+  historical proxies.
+- Define source/provenance labels for future UI/API/JSON work.
+- Route AI web research and browser automation decisions to a source-policy task
+  instead of assuming them.
+
+Output:
+
+- `docs/model_provenance.md`
+- `docs/handoffs/2026-06-18_football_data_scientist_t026_model_provenance.md`
+- `docs/decisions/20260618_DEC010_model_provenance_truth_labels.md`
 
 Exit criteria:
 
-- Dixon-Coles/Elo methodology note is current.
-- Default forecast behavior is explicitly labeled.
-- Deterministic progression wording is resolved.
-- Briefing review rules are compatible with model/source truth.
+- [x] Dixon-Coles/Elo methodology note is current.
+- [x] Default forecast behavior is explicitly labeled.
+- [x] Deterministic progression wording is classified as not Monte Carlo.
+- [x] Briefing review rules are compatible with model/source truth.
+- [x] Web-research implementation choices are routed to T-035.
+
+## Completed Batch - Batch 5: AI Research Source Policy & Intake Architecture
+
+Owners: Orchestrator, Football Data Scientist, Data Pipeline Engineer
+
+Scope:
+
+- Capture user decisions after T-026.
+- Research and shortlist source options for ratings, Squad & Style metrics,
+  lineups, injuries, rosters, and tactical news.
+- Approve browser automation and scraping with source metadata retained.
+- Define the 3-hour `jornada` freshness window.
+- Route implementation to collector, real simulation, UI states, and Squad &
+  Style integration tasks.
+
+Outputs:
+
+- `docs/ai_research_source_policy.md`
+- `docs/handoffs/2026-06-18_orchestrator_t035_ai_research_source_policy.md`
+- `docs/decisions/20260618_DEC011_ai_research_source_policy.md`
+
+Exit criteria:
+
+- [x] The project knows which sources can be collected.
+- [x] Browser automation and scraping are approved with guardrails.
+- [x] The project knows that individual AI claims do not need one-to-one
+  URL-backed UI citations, while collection runs retain source metadata.
+- [x] Data Pipeline Engineer can implement T-036 without source-policy ambiguity.
+- [x] Real Monte Carlo is routed to T-037.
+- [x] Source-backed Squad & Style metrics are routed to T-038.
+
+## Next Batch - Batch 6: Team Identity, Unavailable Forecasts, and Real Simulation Foundation
+
+Owners: Data Pipeline Engineer, Frontend Engineer, Football Data Scientist
+
+Start condition:
+
+- T-035 source policy complete.
+
+Outputs:
+
+- T-027 centralized team identity contract.
+- T-028 UI/API states for "forecast unavailable" and missing Squad & Style fields.
+- T-037 implementation plan or first slice for real Monte Carlo simulation.
+
+Exit criteria:
+
+- [ ] Default `40/30/30` no longer renders as authoritative probability.
+- [ ] Team IDs and aliases are safe enough for source-backed collectors.
+- [ ] Real Monte Carlo implementation path is unblocked.
 
 ## Later Planned Batches
 
-### Batch 5 - Active Fixture Discovery & Baseline Stub Generation
+### Batch 7 - Active Fixture Discovery & Baseline Stub Generation
 
 Owner: Data Pipeline Engineer
 
@@ -149,7 +219,28 @@ Outputs:
   `metrics.json`.
 - No-overwrite validation for existing curated folders.
 
-### Batch 6 - Last-Minute Briefing Pipeline Implementation
+### Batch 8 - Source-Backed Research Collector Prototype
+
+Owner: Data Pipeline Engineer
+
+Outputs:
+
+- T-036 dry-run collector for one fixture.
+- Source records from the approved stack.
+- Proposed `briefing.json` or research-cache output.
+- No writes to `summary.json`.
+
+### Batch 9 - Source-Backed Squad & Style Integration
+
+Owners: Data Pipeline Engineer, Football Data Scientist, Frontend Engineer
+
+Outputs:
+
+- T-038 field-source mapping implemented for at least one fixture.
+- Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
+- Frontend display of sourced, missing, or approximate metric states.
+
+### Batch 10 - Last-Minute Briefing Pipeline Implementation
 
 Owner: Data Pipeline Engineer
 
@@ -160,7 +251,7 @@ Outputs:
 - Dry-run manifest and explicit write mode.
 - Active-date / next-24-hour generation controls.
 
-### Batch 7 - Frontend/API Robustness
+### Batch 11 - Frontend/API Robustness
 
 Owners: Frontend Engineer, Data Pipeline Engineer
 
@@ -172,7 +263,7 @@ Outputs:
 - Briefing API and Match Analysis freshness states.
 - Overview source/date handling.
 
-### Batch 8 - Deployment & Ops Runbook
+### Batch 12 - Deployment & Ops Runbook
 
 Owners: Orchestrator, QA / Reproducibility Engineer
 
@@ -203,6 +294,8 @@ Outputs:
 | 2026-06-17 | Framework Rebaseline & Pipeline Hardening | docs/decisions/20260617_DEC007_framework_rebaseline.md |
 | 2026-06-17 | Separate Baseline Previews from Last-Minute Match Briefings | docs/decisions/20260617_DEC008_last_minute_briefing_scope.md |
 | 2026-06-17 | Add Active Fixture Discovery and Baseline Stubs | docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md |
+| 2026-06-18 | Adopt Model and Provenance Truth Labels | docs/decisions/20260618_DEC010_model_provenance_truth_labels.md |
+| 2026-06-18 | Approve AI Research Source Policy | docs/decisions/20260618_DEC011_ai_research_source_policy.md |
 
 ## Open Blockers
 

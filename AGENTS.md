@@ -48,6 +48,8 @@ Legacy/reference runtime:
   editorial content.
 - `data/matches/{match_id}/metrics.json` - forecast/profile payload consumed by
   Match Analysis.
+- `data/matches/{match_id}/briefing.json` - planned source-backed matchday
+  briefing artifact; not implemented yet.
 - `data/bracket/grid_state.json` - local bracket and standings fallback.
 - `docs/decisions/*.md` - durable architecture, schema, model, and deployment
   decisions.
@@ -59,12 +61,20 @@ Legacy/reference runtime:
 
 Use these labels consistently in docs, code comments, and UI copy:
 
-- live: pulled from an external API at runtime.
-- static: checked into this repository.
-- curated: manually written or reviewed editorial content.
-- generated: produced by a local script.
-- fallback: default data used because a source is missing.
-- proxy: historical data used as a stand-in for unavailable 2026 event data.
+- live_schedule: runtime tournament schedule or standings source.
+- static_curated: checked-in content written or reviewed as a baseline preview.
+- generated_model: output from a documented deterministic or statistical
+  calculation.
+- default_forecast: compatibility fallback such as `40/30/30`; not a real
+  forecast.
+- hardcoded_reference: local maps for rosters, clubs, standings, ratings, or
+  profile values.
+- proxy_historical: historical data used as a stand-in for unavailable 2026 data.
+- web_researched: source-collected web fact with URL/path, retrieval time, and
+  review metadata.
+- missing: required source or data point does not exist.
+- blocked: collection was attempted but failed because access, credentials, or
+  policy blocked it.
 
 ### Reproducibility Contract
 
@@ -82,7 +92,10 @@ credentials, live Cloud Run state, external API freshness, or remote
 
 - Do not let decisions live only in chat.
 - Do not silently overwrite curated JSON with generated content.
-- Do not present fallback/static/proxy data as live or fully model-backed.
+- Do not present `default_forecast`, `hardcoded_reference`, or
+  `proxy_historical` data as live, scraped, simulated, or fully model-backed.
+- Implement scraping, browser automation, or paid-provider ingestion only under
+  the T-035 source policy, metadata, and review gates.
 - Centralize team identity and aliases before changing team-name parsing.
 - Update `TASKS.md`, `STATUS.md`, and `docs/phase_plan.md` when a batch changes
   project state.
@@ -120,8 +133,9 @@ Responsibilities:
   provenance wording.
 - Document Dixon-Coles, Elo inputs, confidence scores, and fallback forecast
   behavior.
-- Decide whether current "Monte Carlo" wording is acceptable or should be
-  renamed/replaced.
+- Define whether current deterministic progression wording should be renamed or
+  replaced by a real simulation.
+- Define source and review standards for AI-researched matchday facts.
 - Review curated `ai_summary` content before generated scripts overwrite it.
 - Define what is football-plausible versus placeholder or fallback content.
 
@@ -148,6 +162,8 @@ Responsibilities:
 - Maintain FastAPI routes that load static data and runtime standings.
 - Keep BigQuery-backed proxy visualization routes honest about credential and
   source limitations.
+- Implement source-backed research collection under the T-035 source policy,
+  including allowed sources, collection methods, metadata, and review gates.
 
 Handoff outputs:
 
@@ -186,6 +202,8 @@ Responsibilities:
 - Audit all 19 active fixture folders for schema and fallback issues.
 - Create or run smoke checks for API routes and frontend build.
 - Verify deployment state separately from local build state.
+- Verify source metadata and review status before source-backed claims are
+  treated as fresh.
 - Confirm phase exit criteria before the Orchestrator marks work complete.
 - Track residual risks, skipped checks, and credential-dependent tests.
 

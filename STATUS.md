@@ -1,5 +1,121 @@
 # STATUS
 
+## 2026-06-18 - T-035 AI Research Source Policy Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-035 is complete as a policy and intake-architecture task.
+- Deliverable added: `docs/ai_research_source_policy.md`.
+- Handoff added:
+  `docs/handoffs/2026-06-18_orchestrator_t035_ai_research_source_policy.md`.
+- Decision added:
+  `docs/decisions/20260618_DEC011_ai_research_source_policy.md`.
+- Runtime behavior was not changed.
+
+### Accepted User Decisions
+
+- Default `40/30/30` forecasts should render as "forecast unavailable."
+- The progression panel should become a real Monte Carlo simulation.
+- Online research should feed ratings, Squad & Style metrics, lineups, injuries,
+  rosters, managers, and tactical news.
+- Browser automation and scraping are allowed.
+- Individual displayed AI claims do not require one-to-one URL citations, but the
+  collection run should retain source metadata for audit.
+- Fresh last-minute analysis uses a 3-hour window before the first game of the
+  daily `jornada`.
+
+### Recommended Source Stack
+
+- Ratings: World Football Elo, with FIFA ranking as fallback/sanity check.
+- Official facts: FIFA squad/ranking/tournament pages.
+- Structured live/team data: Sportmonks as preferred provider, API-Football as
+  fallback.
+- Market value: Transfermarkt.
+- Deep style metrics such as PPDA and field tilt: Wyscout, Opta/Stats Perform,
+  or paid StatsBomb/event data if available.
+- Last-minute injuries/tactical news: browser automation over official/team/news
+  pages, with source snapshots or source records retained.
+
+### Routing
+
+- Added **T-037 - Real Monte Carlo Tournament Simulation**.
+- Added **T-038 - Source-Backed Squad & Style Metrics Integration**.
+- Moved **T-036 - Source-Backed Research Collector Prototype** into the queued
+  implementation path.
+- T-028 must render default forecasts as "forecast unavailable."
+- T-032/T-033 should use the 3-hour `jornada` freshness rule.
+
+### Verification Scope
+
+- Documentation-only change. Local compile/build verification is run after the
+  full documentation batch.
+
+---
+
+## 2026-06-18 - T-026 Model and Provenance Truth Review Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-026 is complete as a truth/provenance review.
+- Owner: Football Data Scientist.
+- Deliverable added: `docs/model_provenance.md`.
+- Handoff added:
+  `docs/handoffs/2026-06-18_football_data_scientist_t026_model_provenance.md`.
+- Decision added:
+  `docs/decisions/20260618_DEC010_model_provenance_truth_labels.md`.
+- Runtime behavior was not changed.
+
+### Key Findings
+
+- Current Match Analysis is not yet an AI-research-first system. It is mostly
+  static `summary.json`, static `metrics.json`, local hardcoded references,
+  deterministic formulas, and historical proxy visualizations.
+- The Dixon-Coles forecast is an Elo-derived Poisson score-grid calculation with
+  a low-score adjustment, not a fitted broad-data model.
+- Current Elo ratings are local hardcoded defaults, not live SoccerData or
+  ClubElo reads.
+- The default `40/30/30` forecast must be labeled as fallback, not as a model
+  result.
+- The current "Monte Carlo" panel is deterministic and should be renamed unless
+  a real simulation is implemented.
+- StatsBomb/BigQuery charts are historical proxies and do not cover the full
+  match-intelligence problem, including missing competitions and teams outside
+  the available sample.
+- Rosters, clubs, and last major standings are hardcoded frontend references.
+
+### Routing
+
+- Added queued task **T-035 - AI Research Source Policy and Data Intake
+  Architecture**.
+- Added backlog task **T-036 - Source-Backed Research Collector Prototype**.
+- T-032 source-backed briefing generation now depends on T-035 for any
+  web-research collection.
+- T-028 must update UI/API wording and degraded states so default forecasts,
+  local ratings, hardcoded references, and proxy visuals are visible.
+
+### Policy Questions Before Implementation
+
+- Should default `40/30/30` ever be public, or should it render as forecast
+  unavailable?
+- Should the deterministic progression panel be renamed now, or replaced with a
+  real tournament simulation?
+- Which rating source should forecasts use?
+- Which web sources and collection methods are allowed for injuries, lineups,
+  rosters, managers, suspensions, tactical news, and team metrics?
+- Must every AI-generated current claim have URL-backed source metadata?
+- Should proxy charts fail closed instead of falling back to unrelated teams?
+
+### Verification Scope
+
+- Documentation-only change. Local compile/build verification is still run after
+  the full documentation batch.
+
+---
+
 ## 2026-06-17 - Active Fixture Discovery Gap Routed
 
 Prepared by: Orchestrator
@@ -82,10 +198,11 @@ Prepared by: Orchestrator
 
 ### Next Routing
 
-- Next recommended Orchestrator assignment: **T-026 - Model and Provenance Truth
-  Review**.
-- T-032 should wait until T-026 and T-027 clarify model wording and team
-  identity normalization.
+- At the time, the next recommended Orchestrator assignment was **T-026 - Model
+  and Provenance Truth Review**. T-026 is now complete; current routing is in the
+  2026-06-18 entry above.
+- T-032 should wait until T-027 clarifies team identity normalization and T-035
+  clarifies source policy for web-researched inputs.
 - T-033 should coordinate with T-028 so briefing freshness and incomplete-data
   states are implemented consistently.
 
@@ -148,10 +265,9 @@ Prepared by: Orchestrator
 
 - T-025 was completed after this audit as the safe last-minute match briefing
   generation plan.
-- Current recommended Orchestrator assignment: **T-026 - Model and Provenance
-  Truth Review**.
-- T-026 should resolve model/provenance wording, especially the deterministic
-  Elo projection currently labeled as Monte Carlo.
+- At the time, the recommended Orchestrator assignment was **T-026 - Model and
+  Provenance Truth Review**. T-026 is now complete; current routing is in the
+  2026-06-18 entry above.
 - T-027 should centralize team identity and fix multi-word/alias handling.
 - T-028 should make empty/default/fallback states visible in the UI/API.
 - T-031 should complete or explicitly label the eight empty team metric

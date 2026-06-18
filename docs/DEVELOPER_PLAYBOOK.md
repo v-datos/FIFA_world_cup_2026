@@ -2,7 +2,7 @@
 
 ## FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 
 This playbook describes the current local architecture and operating workflow.
 Older Streamlit instructions are legacy/reference unless explicitly called out.
@@ -108,6 +108,16 @@ Runtime API augmentation adds:
 Important: active `metrics.json` files are not the older BigQuery event-frame
 payloads. The old BigQuery-style schema appears in legacy numeric folders.
 
+T-026 provenance truth:
+
+- Current Elo ratings are local hardcoded defaults.
+- Current Dixon-Coles output is an Elo-derived Poisson forecast with low-score
+  adjustment.
+- Current `40/30/30` values are default fallback values.
+- Current progression projections are deterministic Elo estimates, not Monte
+  Carlo simulations.
+- See `docs/model_provenance.md` before changing labels or model claims.
+
 ### Standings and Bracket
 
 - Static fallback: `data/bracket/grid_state.json`.
@@ -164,7 +174,7 @@ python3 src/pipeline/discover_active_fixtures.py --write --window-hours 24
 Source order for baseline stubs:
 
 - primary: `https://worldcup26.ir/get/games`
-- fallback: `/tmp/games.json`
+- fallback cache: `/tmp/games.json`
 - existing local files: preserve existing `summary.json` and `metrics.json`
 - team identity: shared registry from T-027 once implemented
 
@@ -177,7 +187,7 @@ Stub data rules:
 - `metrics.dixon_coles_forecast` uses the current-compatible default 40/30/30
   shape and must be labeled `default_forecast` in the manifest.
 - `metrics.score_probabilities` uses the current-compatible six fallback
-  scorelines and must be labeled fallback in the manifest.
+  scorelines and must be labeled `default_forecast` in the manifest.
 - `metrics.team_metrics` contains the two team keys with empty objects until
   T-031 fills or labels them.
 - Stubs must be labeled `baseline_stub`.
@@ -214,7 +224,7 @@ docs/last_minute_briefing_plan.md
 Future implementation should use a separate command similar to:
 
 ```bash
-python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 24
+python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
 python3 src/pipeline/generate_match_briefings.py --write --match-id england_croatia_2026
 ```
 
@@ -225,6 +235,27 @@ Required behavior:
 - write only `briefing.json`
 - preserve `summary.json` and `metrics.json`
 - emit source/freshness/data-quality validation before writes
+- use the T-035 source policy for web/news collection
+- treat fresh last-minute analysis as the 3-hour window before the first match of
+  the daily `jornada`
+
+### Source-Backed Research Intake
+
+The intended direction is AI-assisted source-backed matchday research. T-035 is
+complete and approves browser automation/scraping with source metadata retained.
+
+Before building scraping, browser automation, official API integration, or
+paid-provider ingestion, follow:
+
+- `docs/ai_research_source_policy.md`
+- the 3-hour `jornada` freshness window
+- source metadata fields and source-set retention rules
+- review/publication gates
+- the storage target for `web_researched` facts
+
+Every current injury, lineup, roster, suspension, manager, tactical, or metric
+claim produced by the future collector should carry a URL/path, source name,
+retrieval time, status, and review state.
 
 ### Legacy BigQuery Static Compilation
 
@@ -284,6 +315,8 @@ Until that decision is updated, distinguish:
 - Current "Monte Carlo" projections are deterministic Elo-based estimates, not
   a verified tournament-path simulation.
 - BigQuery visualizations need credentials and use historical proxy matches.
+- The project should move toward source-backed AI research under the approved
+  T-035 source policy.
 
 ## 8. Documentation Update Rule
 

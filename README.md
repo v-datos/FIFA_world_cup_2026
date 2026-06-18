@@ -6,21 +6,23 @@
 
 An interactive web analytics dashboard for monitoring, forecasting, and reviewing matches in the FIFA World Cup 2026.
 
-The dashboard integrates live tournament APIs, curated per-match preview JSON,
-Elo-based forecasting, and historical BigQuery/StatsBomb proxy visualizations
-into a responsive React/FastAPI application.
+The dashboard integrates live tournament APIs, curated per-match baseline JSON,
+Elo-derived forecasting, and historical BigQuery/StatsBomb proxy visualizations
+into a responsive React/FastAPI application. Source-backed AI matchday research
+is planned under the approved T-035 source policy.
 
 **Live Dashboard:** [https://accionar.xyz/dashboards/fifa-2026/](https://accionar.xyz/dashboards/fifa-2026/)
 
 ## Key Features
 
 - **Tournament Board & Painters-Tape Bracket**: Fully interactive knockout stage bracket rendering real-time results directly from the tournament API, alongside live Group Stage standings sorted dynamically by points, goal difference, and goals scored.
-- **Match of the Day Tactical Previews**: High-quality pre-researched tactical summaries (headlines, formations, systems, injuries, and 3 match-specific insights) for all active calendar games, eliminating generic fallback placeholders.
-- **Mathematical Forecaster**: Dixon-Coles Poisson model using Elo inputs to calculate expected goals ($\lambda_1, \lambda_2$), win/draw probabilities, and top 6 exact scorelines.
-- **Tournament Progression Estimates**: Elo-based round progression estimates for Round of 16, Quarterfinals, Semifinals, Final, and Champion. The current implementation is deterministic and is queued for model/provenance review.
-- **Squad Style & Metric Comparison**: Visualizes team-by-team tactical KPIs from historical tournaments, player rosters, and club affiliations.
+- **Match of the Day Tactical Previews**: Static curated baseline summaries (headlines, formations, systems, injuries, and 3 match-specific insights) for active local fixture folders.
+- **Mathematical Forecaster**: Elo-derived Poisson forecast with Dixon-Coles low-score adjustment, using local rating inputs when available and explicit default fallback handling where missing.
+- **Tournament Progression Estimates**: Currently deterministic Elo-based round progression estimates. T-037 will replace this with a real Monte Carlo simulation.
+- **Squad Style & Metric Comparison**: Visualizes team-by-team tactical KPIs from local metric profiles and hardcoded references today; T-038 will move this to source-backed metrics where provider coverage allows.
 - **Bespoke Visualizations**: Renders historical StatsBomb proxy plots including xG distribution comparisons, passing networks, shot maps, touch heatmaps, and progressive action maps using `mplsoccer`.
-- **Spanish Translation Toggle**: Seamless switcher at the top of the Match Analysis panel to translate both static labels and dynamic AI tactical text between English and Español.
+- **Planned AI Research Layer**: Future `briefing.json` matchday updates should collect source-backed injuries, lineups, roster changes, and tactical news without overwriting baseline previews.
+- **Spanish Translation Toggle**: Seamless switcher at the top of the Match Analysis panel to translate labels and Match Analysis content between English and Español.
 
 ## Running Locally
 
@@ -68,3 +70,11 @@ For tournament progression, missing fixture folders should be created through
 the planned active fixture discovery workflow in
 `docs/active_fixture_discovery_plan.md`, not by manually copying old match
 folders.
+
+Model and source-provenance truth is documented in
+`docs/model_provenance.md`. Do not describe hardcoded defaults, deterministic
+formulas, or historical proxies as live, scraped, simulated, or fully
+AI-researched data.
+
+The approved source policy for future online research is documented in
+`docs/ai_research_source_policy.md`.

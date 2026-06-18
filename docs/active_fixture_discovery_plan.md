@@ -1,6 +1,6 @@
 # Active Fixture Discovery and Baseline Stub Generation Plan
 
-Last updated: 2026-06-17  
+Last updated: 2026-06-18  
 Task: T-034 - Active Fixture Discovery and Baseline Stub Generation  
 Owner: Data Pipeline Engineer  
 Reviewers: QA / Reproducibility Engineer, Frontend Engineer, Football Data Scientist
@@ -253,8 +253,9 @@ python3 src/pipeline/discover_active_fixtures.py --dry-run --match-id team1_team
 - Newly generated stubs must label themselves as `baseline_stub`.
 - Stub generation must emit a machine-readable manifest with create/skip/block
   status and source provenance.
-- The manifest should use labels including `live`, `generated`, `fallback`,
-  `default_forecast`, `empty_team_metrics`, and `baseline_stub`.
+- The manifest should use labels including `live_schedule`, `generated_model`,
+  `default_forecast`, `missing`, `blocked`, `empty_team_metrics`, and
+  `baseline_stub`.
 - If live API and cache both fail, block generation rather than guessing the
   fixture.
 
