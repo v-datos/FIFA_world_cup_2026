@@ -278,6 +278,17 @@ Every current injury, lineup, roster, suspension, manager, tactical, or metric
 claim produced by the future collector should carry a URL/path, source name,
 retrieval time, status, and review state.
 
+Use the T-036 prototype collector for one-fixture research-cache drafts:
+
+```bash
+python3 src/pipeline/collect_match_research.py --match-id canada_qatar_2026 --source-file /path/to/source.json --dry-run
+python3 src/pipeline/collect_match_research.py --match-id canada_qatar_2026 --source-file /path/to/source.json --write
+```
+
+The collector writes only `data/matches/{match_id}/research_cache.json` by
+default. It refuses `summary.json`, `metrics.json`, and production
+`briefing.json` as output targets.
+
 ### Legacy BigQuery Static Compilation
 
 `src/pipeline/compile_static_fixtures.py` writes the older BigQuery-heavy

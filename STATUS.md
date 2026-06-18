@@ -1,5 +1,51 @@
 # STATUS
 
+## 2026-06-18 - T-036 Source-Backed Research Collector Prototype Completed
+
+Prepared by: Data Pipeline Engineer
+
+### Current State
+
+- T-036 is complete as a prototype implementation.
+- Added `src/pipeline/collect_match_research.py`.
+- Default mode is dry-run; write mode requires `--write`.
+- The collector reads fixture context from `summary.json` and `metrics.json`,
+  but refuses to write `summary.json`, `metrics.json`, or production
+  `briefing.json`.
+- Default write target is `data/matches/{match_id}/research_cache.json`.
+- Source-backed claims remain draft/review-gated; no production
+  `research_cache.json` files were written during closeout.
+
+### What Changed
+
+- Added one-fixture CLI controls for `--match-id`, repeatable `--source-file`,
+  repeatable `--source-url`, `--output-path`, `--window-hours`, `--now`,
+  `--http-timeout`, and `--data-dir`.
+- Offline source files can be structured JSON claims or HTML/text scanned with
+  conservative matchday keywords.
+- Every source record carries source id/name, URL/path, collection method,
+  checked time, status, source label, warnings, blocked reasons, and claim
+  scope.
+- Every generated claim carries claim type, text, basis, source ids,
+  confidence, and draft review status.
+- The cache embeds a proposed briefing draft for Football Data Scientist review
+  instead of mutating `briefing.json`.
+
+### Verification
+
+- Offline dry-run for `canada_qatar_2026` produced a valid manifest with two
+  draft source-backed claims.
+- Live URL dry-run against a public Canada vs Qatar match-news source succeeded
+  after network approval and retained the URL as a `web_researched` source.
+- Temp write-mode verification created only `research_cache.json` in a copied
+  fixture folder.
+- Copied `summary.json` and `metrics.json` remained byte-identical to the
+  originals.
+- Forbidden production `briefing.json` output path returned a blocked manifest.
+- Python compile and frontend build passed.
+
+---
+
 ## 2026-06-18 - T-032 Last-Minute Briefing Pipeline Completed
 
 Prepared by: Orchestrator
@@ -68,9 +114,9 @@ artifact pipeline, while T-036 must add source-backed research content.
 
 ### Routing
 
-- Next Orchestrator assignment should be **T-036 - Source-Backed Research
-  Collector Prototype** so `briefing.json` can move beyond local baseline draft
-  content into auditable source-backed matchday intelligence.
+- T-036 is now complete, so the next Orchestrator assignment should move to
+  **T-037 - Real Monte Carlo Tournament Simulation** unless the project wants
+  to prioritize the no-cost source spike T-039 first.
 - T-033 remains the dedicated API/UI task for a full
   `/api/match/{match_id}/briefing` route and richer Match Analysis freshness UI.
 
@@ -186,8 +232,8 @@ Prepared by: Orchestrator
 
 ### Routing
 
-- T-032 is now complete. T-036 should add source-backed research content to the
-  safe `briefing.json` pipeline.
+- T-032 and T-036 are now complete. Source-backed research can be cached for
+  review, but API/UI consumption still belongs to T-033.
 - T-031/T-038 still need to replace empty stub metrics with source-backed values
   where coverage allows.
 

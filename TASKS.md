@@ -9,17 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-036 - Source-Backed Research Collector Prototype**
-  Owner: Data Pipeline Engineer / Football Data Scientist
-  Phase: Phase 5
-  Notes: Prototype collection for one active fixture using the T-035 source
-  policy. Use World Football Elo/FIFA/Sportmonks or API-Football/Transfermarkt
-  as available, plus browser automation for late news. It must not overwrite
-  `summary.json`.
-  Verify: Dry-run shows collected source records and proposed `briefing.json`
-  or cache output; write mode is explicit; source set metadata is retained;
-  Python compile passes.
-
 - [ ] **T-037 - Real Monte Carlo Tournament Simulation**
   Owner: Football Data Scientist / Data Pipeline Engineer / Frontend Engineer
   Phase: Phase 5
@@ -107,6 +96,19 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-036 - Source-Backed Research Collector Prototype**
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Completed: 2026-06-18
+  Notes: Added `src/pipeline/collect_match_research.py` for one-fixture
+  source-backed research collection. It defaults to dry-run, supports explicit
+  `--write`, accepts offline HTML/text/JSON sources and optional public URLs,
+  normalizes fixture teams through T-027 identity helpers, retains auditable
+  source records and draft claim records, and writes only
+  `data/matches/{match_id}/research_cache.json` by default. Production
+  `summary.json`, `metrics.json`, and `briefing.json` are forbidden write
+  targets.
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_t036_research_collector.md
+
 - [x] **T-032 - Last-Minute Briefing Pipeline Implementation**
   Owner: Data Pipeline Engineer / QA / Reproducibility Engineer
   Completed: 2026-06-18
@@ -118,8 +120,8 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   live/cache `source_status=not_finished` for in-scope generation. The manifest
   reports target paths, source status, freshness, validation, warnings,
   blocked reasons, and create/update/preserve/skip actions. T-032 intentionally
-  does not perform web/news collection; T-036 remains responsible for
-  source-backed research content.
+  does not perform web/news collection; T-036 later added the source-backed
+  research-cache prototype.
   Handoff: docs/handoffs/2026-06-18_data_pipeline_t032_briefing_pipeline.md
 
 - [x] **T-034 - Active Fixture Discovery and Baseline Stub Generation**

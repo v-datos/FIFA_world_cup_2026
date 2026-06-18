@@ -7,9 +7,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-032 complete; assign T-036 next | None |
+| Orchestrator | Routing | T-036 complete; assign T-037 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Source-backed research collector, real simulation support, source-backed metrics | None for T-036 start |
+| Data Pipeline Engineer | Queued | Real simulation support, no-cost source spike, source-backed metrics | None for T-037 start |
 | Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
 | Frontend Engineer | Queued | Real Monte Carlo UI and later source-backed metric states | T-037 assignment |
 
@@ -58,6 +58,8 @@ agent roster, data contracts, task list, and deployment runbook.
   last-minute analysis and briefing scope.
 - [x] Last-minute `briefing.json` generation is implemented with dry-run/write
   safety and source-status validation.
+- [x] Source-backed research collector prototype is implemented as a draft
+  `research_cache.json` flow.
 - [x] Local verification passes:
   `python3 -m compileall -q src && npm --prefix src/frontend run build`.
 
@@ -292,18 +294,33 @@ Exit criteria:
 - [x] Finished fixtures return skipped rows.
 - [x] Fresh existing briefings are preserved unless forced.
 
-## Later Planned Batches
-
-### Batch 9 - Source-Backed Research Collector Prototype
+## Completed Batch - Batch 9: Source-Backed Research Collector Prototype
 
 Owner: Data Pipeline Engineer
 
+Scope:
+
+- Add one-fixture source-backed research collector.
+- Emit dry-run manifests by default.
+- Write only `research_cache.json` when `--write` is explicit.
+- Accept offline HTML/text/JSON source snapshots and public source URLs.
+- Retain auditable source records and draft claim records.
+- Embed a proposed briefing draft for review without mutating `briefing.json`.
+
 Outputs:
 
-- T-036 dry-run collector for one fixture.
-- Source records from the approved stack.
-- Proposed `briefing.json` or research-cache output.
-- No writes to `summary.json`.
+- `src/pipeline/collect_match_research.py`
+- `docs/handoffs/2026-06-18_data_pipeline_t036_research_collector.md`
+
+Exit criteria:
+
+- [x] Dry-run emits a valid research-cache manifest.
+- [x] Temp write mode creates only `research_cache.json`.
+- [x] `summary.json`, `metrics.json`, and `briefing.json` are protected.
+- [x] Live URL failures become blocked source records instead of invented data.
+- [x] Live URL success retains `web_researched` source metadata and draft claims.
+
+## Later Planned Batches
 
 ### Batch 10 - Source-Backed Squad & Style Integration
 

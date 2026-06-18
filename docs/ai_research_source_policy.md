@@ -208,7 +208,9 @@ Future derived claim record:
 - T-028 is complete: default `40/30/30` renders as "forecast unavailable" and
   unavailable Squad & Style fields render with missing states.
 - T-037: build the real Monte Carlo simulation.
-- T-036: prototype source-backed research collection for one fixture.
+- T-036 is complete as a prototype source-backed research collector for one
+  fixture. It writes draft `research_cache.json` payloads only when `--write`
+  is explicit.
 - T-038: integrate source-backed Squad & Style metrics.
 - T-039: evaluate the no-cost `soccerdata`/FBref/Sofascore path before paid API
   integration, including PPDA and field-tilt proxy feasibility.
