@@ -1,5 +1,56 @@
 # STATUS
 
+## 2026-06-18 - T-037 Real Monte Carlo Tournament Simulation Completed
+
+Prepared by: Data Pipeline Engineer
+
+### Current State
+
+- T-037 is complete for the active FastAPI/React runtime.
+- `/api/match/{match_id}/metrics` now runs a seeded random-trial tournament
+  simulation instead of the previous deterministic progression curve.
+- The endpoint defaults to `simulation_count=10000` and `seed=20260618`; callers
+  may pass `simulation_count` and `seed` query parameters.
+- Output keeps the existing frontend keys `r16`, `qf`, `sf`, `final`, and
+  `win`, and adds `group_advancement`/`r32` for 2026 group-stage advancement.
+- Team probabilities are exposed through `monte_carlo_projections`; simulation
+  count, seed, generated time, model version, rating source, and missing-rating
+  caveats are exposed through `monte_carlo_metadata`.
+- Rating inputs remain honest: current Elo values are local
+  `hardcoded_reference` defaults, and missing local ratings use a neutral
+  `1500.0` fallback until T-039/T-038 replace them with source-backed ratings.
+
+### What Changed
+
+- Added `src/analytics/monte_carlo_simulation.py`.
+- Updated `src/api/main.py` to run the seeded fixture-aware simulation from
+  `data/bracket/grid_state.json` plus the live/cached fixture list, and expose
+  simulation quality metadata.
+- Updated `src/frontend/src/components/MonteCarloProjections.tsx` to show
+  simulation count, seed, and hardcoded-reference rating provenance when real
+  trials are present.
+- Updated `TASKS.md`, `docs/phase_plan.md`, `docs/data_contracts.md`,
+  `docs/model_provenance.md`, and T-037 handoff/decision records.
+
+### Verification
+
+- Module reproducibility check passed for fixed `seed`.
+- Direct metrics smoke check returned `status=simulation`, `simulation_count`,
+  `seed`, `rating_source=hardcoded_reference`, and per-team probabilities.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build` passed with the existing chunk-size
+  warning only.
+
+### Routing
+
+- T-039 remains the next rating-source task: replace or validate local Elo
+  defaults against World Football Elo/FIFA-approved sources.
+- T-038 remains the Squad & Style source-backed metric integration task.
+- Legacy Streamlit code in `src/app/` still contains old reference-only
+  progression logic and is not the production runtime.
+
+---
+
 ## 2026-06-18 - T-036 Source-Backed Research Collector Prototype Completed
 
 Prepared by: Data Pipeline Engineer
@@ -281,7 +332,8 @@ Prepared by: Orchestrator
 
 - T-034 can now generate baseline stubs without the public UI presenting stub
   forecasts or empty metrics as authoritative.
-- T-037 still needs to replace deterministic progression with real Monte Carlo.
+- T-037 is now complete and replaced deterministic progression with real Monte
+  Carlo output in the active FastAPI/React runtime.
 - T-038/T-039 should populate real source-backed metrics where available; T-028
   only makes missing and static fallback states honest.
 
@@ -792,7 +844,8 @@ frontend build.
 
 - **Elo & Monte Carlo projections**: `/api/match/{match_id}/metrics` now returns
   per-team Elo ratings and Monte Carlo tournament-progression probabilities
-  (`compute_monte_carlo_probs`).
+  through the then-current deterministic helper. Superseded by T-037 for the
+  active FastAPI/React runtime.
 - **xG Momentum visualization**: Added `get_cached_xg_timeline` and a `momentum`
   `viz_type`; wired the frontend momentum tab to it (it had been requesting
   `radar_chart`).

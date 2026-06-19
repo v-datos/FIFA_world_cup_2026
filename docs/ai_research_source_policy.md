@@ -148,8 +148,9 @@ Minimum simulation contract:
   quarterfinal, semifinal, final, and title.
 - Label output as Monte Carlo only when random trials are actually used.
 
-The current `compute_monte_carlo_probs()` deterministic curve should be removed
-or renamed as an internal fallback once this is implemented.
+T-037 resolved this for the active FastAPI/React runtime. The legacy Streamlit
+reference code still contains its old deterministic helper until T-030 decides
+the disposition of `src/app/`.
 
 ## Last-Minute Briefing Window
 
@@ -207,7 +208,9 @@ Future derived claim record:
 
 - T-028 is complete: default `40/30/30` renders as "forecast unavailable" and
   unavailable Squad & Style fields render with missing states.
-- T-037: build the real Monte Carlo simulation.
+- T-037 is complete: the active API now uses a seeded random-trial Monte Carlo
+  tournament simulation, with current rating inputs still labeled
+  `hardcoded_reference`.
 - T-036 is complete as a prototype source-backed research collector for one
   fixture. It writes draft `research_cache.json` payloads only when `--write`
   is explicit.

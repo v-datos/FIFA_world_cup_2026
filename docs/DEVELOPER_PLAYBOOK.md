@@ -127,8 +127,9 @@ T-026 provenance truth:
 - Current Dixon-Coles output is an Elo-derived Poisson forecast with low-score
   adjustment.
 - Current `40/30/30` values are default fallback values.
-- Current progression projections are deterministic Elo estimates, not Monte
-  Carlo simulations.
+- Current progression projections are seeded random-trial Monte Carlo outputs,
+  but rating inputs are still local `hardcoded_reference` values with neutral
+  fallback for missing teams.
 - See `docs/model_provenance.md` before changing labels or model claims.
 
 ### Standings and Bracket

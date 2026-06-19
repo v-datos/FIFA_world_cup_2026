@@ -116,7 +116,7 @@ Exit criteria:
   the current React/FastAPI project.
 - [x] Active data contracts are documented for match summaries, match metrics,
   bracket state, and API payloads.
-- [x] All 19 active match folders are audited for schema, model fallbacks,
+- [x] All 20 active match folders are audited for schema, model fallbacks,
   missing team metrics, and source provenance.
 - [x] Legacy numeric match folders `1001`, `1002`, and `1003` are classified.
 - [x] Last-minute briefing generation has a documented safety plan before
@@ -124,12 +124,13 @@ Exit criteria:
 - [x] Last-minute `briefing.json` generation is implemented with dry-run/write
   safety and source-status validation.
 - [x] Model/provenance truth is documented for current forecasts, Elo defaults,
-  deterministic progression projections, hardcoded references, and proxy data.
-- [x] Team-name normalization and multi-word team handling are tracked as
-  implementation tasks.
+  seeded Monte Carlo progression simulation, hardcoded references, and proxy
+  data.
+- [x] Team-name normalization and multi-word team handling are implemented
+  through the shared identity contract.
 - [x] AI research source policy is approved before web-researched Match Analysis
   data collection is implemented.
-- [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [x] Real Monte Carlo simulation replaces the deterministic progression curve.
 - [ ] Source-backed Squad & Style metrics replace or label hardcoded/missing
   fields.
 - [x] Deployment documentation distinguishes local, Cloud Run, and

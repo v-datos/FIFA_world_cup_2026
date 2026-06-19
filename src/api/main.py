@@ -5,7 +5,7 @@ import subprocess
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, Dict, Any, List
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
@@ -20,6 +20,11 @@ sys.path.append(str(PROJECT_ROOT / "src" / "analytics"))
 
 from google.cloud import bigquery
 from src.analytics.soccerdata_client import SoccerDataClient, get_dixon_coles_prediction
+from src.analytics.monte_carlo_simulation import (
+    DEFAULT_SIMULATION_COUNT,
+    DEFAULT_SIMULATION_SEED,
+    run_tournament_monte_carlo,
+)
 from src.analytics.fifa_visualizations_bq import (
     get_cached_shot_map,
     get_cached_pass_network,
@@ -53,6 +58,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 # Memory cache for standings
 _standings_cache = {}
+_monte_carlo_cache = {}
 
 def clean_team_name(name: str) -> str:
     return canonical_team_slug(name)
@@ -437,6 +443,16 @@ def get_visualization_proxy(team_name: str) -> Optional[dict]:
     return MATCH_VISUALIZATION_PROXIES.get(normalize_team_name(team_name))
 
 
+def get_monte_carlo_simulation(simulation_count: int, seed: int) -> dict:
+    cache_key = (simulation_count, seed)
+    if cache_key not in _monte_carlo_cache:
+        _monte_carlo_cache[cache_key] = run_tournament_monte_carlo(
+            simulation_count=simulation_count,
+            seed=seed,
+        )
+    return _monte_carlo_cache[cache_key]
+
+
 def _number_or_none(value: Any) -> Optional[float]:
     try:
         if value is None:
@@ -530,6 +546,7 @@ def build_metrics_data_quality(
     team2: str,
     elo_t1: Optional[float],
     elo_t2: Optional[float],
+    simulation_metadata: Optional[dict] = None,
 ) -> dict:
     forecast = metrics_data.get("dixon_coles_forecast") or {}
     default_forecast = is_default_forecast(forecast)
@@ -577,11 +594,7 @@ def build_metrics_data_quality(
                 "message": "Local fallback Elo-style reference, not a live rating feed.",
             },
         },
-        "monte_carlo_projections": {
-            "status": "deterministic_fallback" if elo_t1 is not None and elo_t2 is not None else "unavailable",
-            "source_label": "hardcoded_reference",
-            "message": "Current progression values are deterministic Elo curves, not random-trial Monte Carlo simulation.",
-        },
+        "monte_carlo_projections": build_monte_carlo_quality(simulation_metadata),
         "visualizations": {
             "status": "proxy_historical",
             "source_label": "proxy_historical",
@@ -594,23 +607,32 @@ def build_metrics_data_quality(
     }
 
 
-def compute_monte_carlo_probs(elo: Optional[float]) -> dict:
-    if elo is None:
-        return {"r16": "N/A", "qf": "N/A", "sf": "N/A", "final": "N/A", "win": "N/A"}
-    base = 1400.0
-    diff = max(0.0, elo - base)
-    scale = 730.0
-    r16 = 0.40 + 0.59 * (diff / scale)
-    qf = 0.15 + 0.75 * (diff / scale) ** 2
-    sf = 0.05 + 0.75 * (diff / scale) ** 3
-    final = 0.02 + 0.58 * (diff / scale) ** 4
-    win = 0.005 + 0.395 * (diff / scale) ** 5
+def build_monte_carlo_quality(simulation_metadata: Optional[dict]) -> dict:
+    if not simulation_metadata or simulation_metadata.get("method") != "random_trial_monte_carlo":
+        return {
+            "status": "unavailable",
+            "source_label": "missing",
+            "message": "Tournament simulation is unavailable because bracket data could not be loaded.",
+        }
+
+    simulation_count = simulation_metadata.get("simulation_count")
+    seed = simulation_metadata.get("seed")
+    rating_source = simulation_metadata.get("rating_source", "hardcoded_reference")
     return {
-        "r16": min(0.999, max(0.05, r16)),
-        "qf": min(0.95, max(0.02, qf)),
-        "sf": min(0.85, max(0.01, sf)),
-        "final": min(0.65, max(0.005, final)),
-        "win": min(0.45, max(0.001, win))
+        "status": "simulation",
+        "source_label": rating_source,
+        "projection_method": simulation_metadata.get("method"),
+        "simulation_count": simulation_count,
+        "seed": seed,
+        "generated_at_utc": simulation_metadata.get("generated_at_utc"),
+        "model_version": simulation_metadata.get("model_version"),
+        "rating_source": rating_source,
+        "rating_status": simulation_metadata.get("rating_status"),
+        "missing_rating_teams": simulation_metadata.get("missing_rating_teams", []),
+        "message": (
+            f"Random-trial Monte Carlo simulation with {simulation_count:,} trials and seed {seed}. "
+            f"Ratings use {rating_source}."
+        ),
     }
 
 # --- REST ENDPOINTS ---
@@ -752,7 +774,17 @@ def get_match_summary(match_id: str):
     return summary_data
 
 @app.get("/api/match/{match_id}/metrics")
-def get_match_metrics(match_id: str):
+def get_match_metrics(
+    match_id: str,
+    simulation_count: int = DEFAULT_SIMULATION_COUNT,
+    seed: int = DEFAULT_SIMULATION_SEED,
+):
+    if simulation_count < DEFAULT_SIMULATION_COUNT or simulation_count > 50_000:
+        raise HTTPException(
+            status_code=422,
+            detail="simulation_count must be between 10000 and 50000",
+        )
+
     met_path = DATA_DIR / "matches" / match_id / "metrics.json"
     if not met_path.exists():
         raise HTTPException(status_code=404, detail="Metrics payload not found")
@@ -773,17 +805,25 @@ def get_match_metrics(match_id: str):
         team1: elo_t1,
         team2: elo_t2
     }
-    metrics_data["monte_carlo_projections"] = {
-        team1: compute_monte_carlo_probs(elo_t1),
-        team2: compute_monte_carlo_probs(elo_t2)
-    }
+
+    simulation = get_monte_carlo_simulation(simulation_count, seed)
+    simulation_metadata = simulation.get("metadata")
+    metrics_data["monte_carlo_projections"] = simulation.get("probabilities", {})
+    metrics_data["monte_carlo_metadata"] = simulation_metadata
     # Source of the StatsBomb event visualizations (proxy historical matches —
     # no real 2026 event data exists yet), surfaced so the UI can label them honestly.
     metrics_data["viz_proxies"] = {
         team1: (get_visualization_proxy(team1) or {}).get("label", "Historical proxy match"),
         team2: (get_visualization_proxy(team2) or {}).get("label", "Historical proxy match"),
     }
-    metrics_data["data_quality"] = build_metrics_data_quality(metrics_data, team1, team2, elo_t1, elo_t2)
+    metrics_data["data_quality"] = build_metrics_data_quality(
+        metrics_data,
+        team1,
+        team2,
+        elo_t1,
+        elo_t2,
+        simulation_metadata,
+    )
 
     return metrics_data
 

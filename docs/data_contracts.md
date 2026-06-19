@@ -323,9 +323,10 @@ API-added `metrics` fields:
 | Field | Type | Source | Consumer |
 |---|---|---|---|
 | `elo_ratings` | object keyed by display team name | `SoccerDataClient.fetch_club_elo_ratings()` local default map | Squad & Style Comparison. |
-| `monte_carlo_projections` | object keyed by display team name | `compute_monte_carlo_probs()` runtime calculation | Monte Carlo Projections panel. |
+| `monte_carlo_projections` | object keyed by display team name | `run_tournament_monte_carlo()` seeded random-trial runtime calculation | Monte Carlo Projections panel. |
+| `monte_carlo_metadata` | object | Simulation metadata from `run_tournament_monte_carlo()` | API consumers that need seed/count/source details. |
 | `viz_proxies` | object keyed by display team name | `MATCH_VISUALIZATION_PROXIES` in `src/api/main.py` | StatsBomb proxy-source disclosure. |
-| `data_quality` | object | Runtime data-quality classifier in `src/api/main.py` | Forecast unavailable, missing metric, deterministic fallback, and proxy labels. |
+| `data_quality` | object | Runtime data-quality classifier in `src/api/main.py` | Forecast unavailable, missing metric, simulation provenance, and proxy labels. |
 
 Audit result:
 
@@ -388,26 +389,54 @@ Important provenance note:
 ### Runtime Projection Payload
 
 Route: `/api/match/{match_id}/metrics`  
-Function: `compute_monte_carlo_probs(elo)`
+Function: `run_tournament_monte_carlo(...)`
 
-Despite the UI label, this is not currently a random Monte Carlo simulation. It
-is a deterministic Elo-derived curve.
+T-037 replaced the active FastAPI deterministic progression curve with a seeded
+random-trial tournament simulation.
 
-Current formula:
+Request controls:
 
-- If Elo is missing: return `N/A` for `r16`, `qf`, `sf`, `final`, and `win`.
-- `diff = max(0, elo - 1400)`.
-- `scale = 730`.
-- `r16 = 0.40 + 0.59 * (diff / scale)`.
-- `qf = 0.15 + 0.75 * (diff / scale)^2`.
-- `sf = 0.05 + 0.75 * (diff / scale)^3`.
-- `final = 0.02 + 0.58 * (diff / scale)^4`.
-- `win = 0.005 + 0.395 * (diff / scale)^5`.
-- Each value is clipped to a configured min/max range.
+- `simulation_count`: defaults to `10000`; API validation requires at least
+  `10000` and caps requests at `50000`.
+- `seed`: defaults to `20260618`.
 
-T-026/T-028 result: the current implementation is now described in the UI as a
-deterministic Elo progression estimate. The UI should not call it Monte Carlo
-unless T-037 replaces the formula with a real simulation.
+Current behavior:
+
+- Starts from `data/bracket/grid_state.json` and the live/cached fixture list
+  when available.
+- Derives current group standings from finished fixtures when available, then
+  simulates remaining group-stage fixtures. If the fixture list is unavailable,
+  it infers remaining pairs from the current standings.
+- Advances group winners, runners-up, and the best eight third-place teams into
+  the existing Round-of-32 bracket template.
+- Simulates knockout matches with seeded random score trials and Elo-based
+  tiebreakers.
+- Returns `group_advancement`, `r32`, `r16`, `qf`, `sf`, `final`, and `win`
+  probabilities per team.
+- Returns metadata separately as `monte_carlo_metadata`.
+
+Metadata fields:
+
+- `method`
+- `simulation_count`
+- `seed`
+- `generated_at_utc`
+- `model_version`
+- `rating_source`
+- `rating_status`
+- `neutral_default_elo`
+- `missing_rating_teams`
+- `schedule_source`
+- `group_count`
+- `team_count`
+
+Rating caveat:
+
+- The current rating input is still the local hardcoded Elo-style map from
+  `SoccerDataClient.fetch_club_elo_ratings()`.
+- Teams missing local Elo entries receive a neutral `1500.0` simulation fallback.
+- Truth label remains `hardcoded_reference` until T-039/T-038 replace the input
+  with source-backed World Football Elo or approved alternatives.
 
 ### Provenance Metadata Requirements
 
@@ -574,6 +603,7 @@ Returns the stored `metrics.json` plus runtime-added fields:
 
 - `elo_ratings`
 - `monte_carlo_projections`
+- `monte_carlo_metadata`
 - `viz_proxies`
 - `data_quality`
 
@@ -586,7 +616,7 @@ Runtime-added `data_quality` fields:
 | `team_metrics` | Per-team `missing`, `partial`, or `complete` status and missing-field list. |
 | `radar_metrics` | Marks radar as unavailable when required team metric fields are missing. |
 | `elo_ratings` | Labels local fallback Elo-style ratings as `hardcoded_reference` or `missing`. |
-| `monte_carlo_projections` | Labels current progression values as `deterministic_fallback`, not true Monte Carlo. |
+| `monte_carlo_projections` | Labels seeded random-trial simulation output as `simulation`, with seed/count/model/rating metadata. |
 | `visualizations` | Labels StatsBomb plots as `proxy_historical`. |
 
 Failure behavior:
@@ -662,7 +692,7 @@ Resolved follow-up: T-027.
 | Top Exact Scores | `metrics.score_probabilities` plus `metrics.data_quality.score_probabilities`; hidden for default forecasts. |
 | Team Performance Metrics radar | `metrics.team_metrics[team]` plus `metrics.data_quality.radar_metrics`; missing values no longer render as neutral 50. |
 | Squad & Style Comparison | 15 `team_metrics` fields plus `metrics.elo_ratings[team]` and `metrics.data_quality.team_metrics`; missing/partial states are visible. |
-| Deterministic progression estimate | `metrics.monte_carlo_projections[team]` plus `metrics.data_quality.monte_carlo_projections`; not labeled as true Monte Carlo until T-037. |
+| Monte Carlo tournament simulation | `metrics.monte_carlo_projections[team]`, `metrics.monte_carlo_metadata`, and `metrics.data_quality.monte_carlo_projections`; rating source remains `hardcoded_reference` until source-backed ratings land. |
 | StatsBomb proxy disclosure | `metrics.viz_proxies[team]`. |
 | StatsBomb images | `/api/visualizations/{match_id}/{viz_type}?team={team}` PNG responses. |
 
@@ -727,6 +757,5 @@ For T-024, completion means:
 Suggested next Orchestrator assignments after T-032:
 
 1. T-036 - Source-Backed Research Collector Prototype.
-2. T-037 - Real Monte Carlo Tournament Simulation.
-3. T-039 - No-Cost Football Data Source Spike.
-4. T-038 - Source-Backed Squad & Style Metrics Integration.
+2. T-039 - No-Cost Football Data Source Spike.
+3. T-038 - Source-Backed Squad & Style Metrics Integration.

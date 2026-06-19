@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-036 complete; assign T-037 next | None |
+| Orchestrator | Routing | T-037 complete; route T-039/T-038 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Real simulation support, no-cost source spike, source-backed metrics | None for T-037 start |
+| Data Pipeline Engineer | Queued | No-cost source spike and source-backed metrics | None |
 | Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
-| Frontend Engineer | Queued | Real Monte Carlo UI and later source-backed metric states | T-037 assignment |
+| Frontend Engineer | Queued | Later source-backed metric states | T-038 assignment |
 
 ## Phase 5 Objective
 
@@ -44,13 +44,13 @@ agent roster, data contracts, task list, and deployment runbook.
 - [x] Last-minute briefing generation has a documented safety plan before
   implementation.
 - [x] Model/provenance truth is documented for Dixon-Coles, Elo defaults,
-  default forecasts, deterministic progression, and proxy/hardcoded data.
+  default forecasts, seeded progression simulation, and proxy/hardcoded data.
 - [x] Team alias and multi-word country handling are implemented through T-027.
 - [x] Default forecasts and missing metrics render with explicit fallback states
   through T-028.
 - [x] AI research source policy is approved before web scraping, browser
   automation, or source-backed matchday collection is implemented.
-- [ ] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [x] Real Monte Carlo simulation replaces the deterministic progression curve.
 - [ ] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
 - [x] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
@@ -192,7 +192,7 @@ Exit criteria:
 - [x] Real Monte Carlo is routed to T-037.
 - [x] Source-backed Squad & Style metrics are routed to T-038.
 
-## Next Batch - Batch 6: Team Identity, Unavailable Forecasts, and Real Simulation Foundation
+## Active Batch - Batch 6: Team Identity, Unavailable Forecasts, and Real Simulation Foundation
 
 Owners: Data Pipeline Engineer, Frontend Engineer, Football Data Scientist
 
@@ -205,14 +205,14 @@ Outputs:
 - T-027 centralized team identity contract. Complete 2026-06-18.
 - T-028 UI/API states for "forecast unavailable" and missing Squad & Style
   fields. Complete 2026-06-18.
-- T-037 implementation plan or first slice for real Monte Carlo simulation.
+- T-037 real Monte Carlo simulation. Complete 2026-06-18.
 - T-039 no-cost source spike before paid provider integration.
 
 Exit criteria:
 
 - [x] Default `40/30/30` no longer renders as authoritative probability.
 - [x] Team IDs and aliases are safe enough for source-backed collectors.
-- [ ] Real Monte Carlo implementation path is unblocked.
+- [x] Real Monte Carlo simulation is implemented for the active API/UI runtime.
 - [ ] Free-source feasibility is known before T-038 relies on paid APIs.
 
 ## Completed Batch - Batch 7: Active Fixture Discovery & Baseline Stub Generation

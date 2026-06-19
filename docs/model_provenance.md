@@ -23,7 +23,7 @@ experience is mostly:
 - static checked-in `metrics.json` forecasts and team profiles,
 - local hardcoded Elo defaults,
 - local hardcoded roster/reference maps,
-- deterministic formulas,
+- deterministic and statistical formulas,
 - historical StatsBomb/BigQuery proxy visualizations,
 - and optional T-032 `briefing.json` draft artifacts that do not yet include
   source-backed web/news research.
@@ -43,7 +43,7 @@ copy or hidden browser scraping.
 | Exact scores | `metrics.json.score_probabilities` | Either generated from the Poisson score grid or stored as default score fallbacks. | `generated_model` or `default_forecast` |
 | Team metric profiles | `metrics.json.team_metrics` | Some fixtures have local profile values; after T-034, nine active fixtures have empty objects. | `hardcoded_reference`, `missing`, or future `web_researched` |
 | Elo ratings | `SoccerDataClient.fetch_club_elo_ratings()` | Uses a local hardcoded national-team rating map. The `soccerdata` import exists, but ratings are not populated from a live scrape. | `hardcoded_reference` |
-| Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses a deterministic Elo curve in `compute_monte_carlo_probs()`. | `generated_model`, deterministic |
+| Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses seeded random trials from `run_tournament_monte_carlo()` over the local group/bracket fallback plus live/cached fixture list when available. Current ratings are local hardcoded Elo-style defaults with neutral fallback for missing entries. | `generated_model` plus `hardcoded_reference` rating inputs |
 | StatsBomb visualizations | `/api/visualizations/{match_id}/{viz_type}` | Uses hand-selected historical BigQuery proxy matches. These are not 2026 event feeds. | `proxy_historical` |
 | Rosters, clubs, last major standing | Frontend TypeScript maps | Local hardcoded reference data, not fresh sourced data. | `hardcoded_reference` |
 
@@ -130,25 +130,43 @@ shown."
 Avoid presenting `40/30/30` as a model forecast. T-028 now renders these as a
 forecast-unavailable state.
 
-### Deterministic Progression Projection
+### Monte Carlo Tournament Simulation
 
 Implementation:
 
-- `src/api/main.py:compute_monte_carlo_probs()`
+- `src/analytics/monte_carlo_simulation.py:run_tournament_monte_carlo()`
+- API: `src/api/main.py:/api/match/{match_id}/metrics`
 - UI: `src/frontend/src/components/MonteCarloProjections.tsx`
 
 Current behavior:
 
-- No random draws.
-- No tournament path simulation.
-- No opponent draw or bracket simulation.
-- Values are clipped deterministic functions of `elo - 1400`.
+- Uses a seeded `random.Random` generator.
+- Defaults to `10000` trials through the API.
+- Starts from `data/bracket/grid_state.json` and the live/cached fixture list
+  when available.
+- Derives current group standings from finished fixtures when available, then
+  simulates remaining group fixtures.
+- Advances group winners, runners-up, and the best eight third-place teams into
+  the existing Round-of-32 bracket template.
+- Simulates knockout matches through the final.
+- Returns `group_advancement`, `r32`, `r16`, `qf`, `sf`, `final`, and `win`
+  probabilities per team.
+- Exposes `simulation_count`, `seed`, `generated_at_utc`, `model_version`,
+  `rating_source`, `rating_status`, and missing-rating metadata.
+
+Current limitations:
+
+- Rating inputs are the existing local hardcoded Elo-style defaults, not live
+  World Football Elo.
+- Teams missing local Elo entries use a neutral `1500.0` simulation fallback.
+- Source-backed rating replacement remains routed to T-039/T-038.
 
 Truth wording:
 
-Use: "Deterministic Elo progression estimate."
+Use: "Monte Carlo tournament simulation using local Elo-style reference ratings."
 
-Avoid: "Monte Carlo Simulation Projections" unless a real simulation is added.
+Avoid: "live World Football Elo simulation" or "source-backed ratings" until the
+rating input is replaced and reviewed.
 
 ## StatsBomb and BigQuery Limits
 
@@ -244,7 +262,8 @@ T-035 resolved the policy questions raised by this review:
   web/news collection.
 - T-033: expose briefing freshness and source states in API/UI.
 - T-036: prototype source-backed research collection.
-- T-037: replace deterministic progression with a real Monte Carlo simulation.
+- T-037: complete; active FastAPI progression now uses a seeded random-trial
+  tournament simulation.
 - T-038: integrate source-backed Squad & Style metrics.
 
 ## T-026 Completion Criteria

@@ -13,6 +13,10 @@ interface Props {
     status?: string;
     source_label?: string;
     message?: string;
+    simulation_count?: number;
+    seed?: number;
+    model_version?: string;
+    rating_status?: string;
   };
   lang: string;
 }
@@ -27,7 +31,14 @@ export const MonteCarloProjections: React.FC<Props> = ({
 }) => {
   const es = lang === 'Español';
   const deterministicFallback = quality?.status === 'deterministic_fallback';
+  const simulation = quality?.status === 'simulation';
   const sourceLabel = quality?.source_label?.replace(/_/g, ' ') || 'hardcoded reference';
+  const simulationDetails = [
+    quality?.simulation_count ? `${quality.simulation_count.toLocaleString()} ${es ? 'ensayos' : 'trials'}` : null,
+    quality?.seed !== undefined ? `seed ${quality.seed}` : null,
+    quality?.model_version,
+    quality?.rating_status?.replace(/_/g, ' '),
+  ].filter(Boolean).join(' · ');
 
   const stages: { key: string; label: string }[] = [
     { key: 'r16', label: es ? 'Alcanzar Octavos' : 'Reach Round of 16' },
@@ -56,6 +67,16 @@ export const MonteCarloProjections: React.FC<Props> = ({
             ? 'Estimación determinística; no es una simulación Monte Carlo con ensayos aleatorios.'
             : 'Deterministic estimate; not a random-trial Monte Carlo simulation.')}
           <span className="block mt-1 uppercase tracking-wide text-amber-200/70 font-mono">{sourceLabel}</span>
+        </div>
+      )}
+      {simulation && (
+        <div className="rounded-lg border border-emerald-500/15 bg-emerald-500/5 px-3 py-2 text-[11px] text-slate-300/80 leading-relaxed">
+          {quality?.message || (es
+            ? 'Simulación con ensayos aleatorios basada en referencias Elo locales.'
+            : 'Random-trial simulation based on local Elo-style reference ratings.')}
+          <span className="block mt-1 uppercase tracking-wide text-emerald-200/70 font-mono">
+            {sourceLabel}{simulationDetails ? ` · ${simulationDetails}` : ''}
+          </span>
         </div>
       )}
       <div className="flex justify-between items-center text-sm font-bold mt-3 mb-3">

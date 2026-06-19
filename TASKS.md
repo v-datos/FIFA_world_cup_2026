@@ -9,18 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-037 - Real Monte Carlo Tournament Simulation**
-  Owner: Football Data Scientist / Data Pipeline Engineer / Frontend Engineer
-  Phase: Phase 5
-  Notes: Replace the deterministic `compute_monte_carlo_probs()` curve with a
-  real random-trial tournament simulation. Use World Football Elo as the
-  primary rating source, FIFA ranking as fallback/sanity check, and the current
-  tournament group/bracket structure. Output simulation count, generated time,
-  rating source, model version, and seed. The UI may use "Monte Carlo" only
-  once random trials are actually used.
-  Verify: Simulation output is reproducible by seed, uses at least 10,000 trials,
-  returns team probabilities by tournament stage, and frontend build passes.
-
 - [ ] **T-038 - Source-Backed Squad & Style Metrics Integration**
   Owner: Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
   Phase: Phase 5
@@ -95,6 +83,22 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-037 - Real Monte Carlo Tournament Simulation**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-18
+  Notes: Replaced the active FastAPI deterministic progression curve with
+  `src/analytics/monte_carlo_simulation.py`, a seeded random-trial tournament
+  simulation that starts from `data/bracket/grid_state.json` plus the
+  live/cached fixture list, simulates group advancement into the existing
+  Round-of-32 bracket, and returns `group_advancement`, `r32`, `r16`, `qf`,
+  `sf`, `final`, and `win` probabilities. `/api/match/{match_id}/metrics`
+  defaults to 10,000 trials, accepts `simulation_count` and `seed`, exposes
+  `monte_carlo_metadata`, and labels current rating inputs as
+  `hardcoded_reference` with neutral fallback for teams missing local Elo
+  entries.
+  Verify: `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+  Handoff: docs/handoffs/2026-06-18_data_pipeline_t037_monte_carlo.md
 
 - [x] **T-036 - Source-Backed Research Collector Prototype**
   Owner: Data Pipeline Engineer / Football Data Scientist
