@@ -217,14 +217,14 @@ Future derived claim record:
 - T-036 is complete as a prototype source-backed research collector for one
   fixture. It writes draft `research_cache.json` payloads only when `--write`
   is explicit.
-- T-038: integrate source-backed Squad & Style metrics using the T-039 no-cost
-  findings where coverage exists, with missing/proxy labels for unsupported
+- T-038 is complete for the first source-backed Squad & Style integration pass,
+  with a field-level source cache and missing/proxy labels for unsupported
   fields.
 - T-027 is complete; all source-backed writes should normalize provider team
   names through `data/reference/team_identity.json`.
 - T-032 is complete as the safe `briefing.json` artifact generator.
-- T-033 should expose the dedicated briefing API/UI states after source
-  collector output is proven.
+- T-033 is complete: the dedicated briefing API/UI states are exposed while
+  preserving baseline preview content when no production briefing exists.
 
 ## References Checked
 

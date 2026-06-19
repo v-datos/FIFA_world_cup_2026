@@ -2,7 +2,7 @@ import os
 import sys
 import json
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 from fastapi import FastAPI, HTTPException
@@ -795,6 +795,233 @@ def build_monte_carlo_quality(simulation_metadata: Optional[dict]) -> dict:
         ),
     }
 
+
+BRIEFING_FRESHNESS_STATES = {"fresh", "stale", "baseline_only", "blocked", "skipped"}
+BRIEFING_REQUIRED_BLOCKS = {
+    "metadata",
+    "fixture",
+    "team_keys",
+    "briefing",
+    "forecast_snapshot",
+    "data_quality",
+    "sources",
+    "review",
+}
+
+
+def load_match_summary_payload(match_id: str) -> dict:
+    summary_path = DATA_DIR / "matches" / match_id / "summary.json"
+    if not summary_path.exists():
+        raise HTTPException(status_code=404, detail="Summary payload not found")
+    with open(summary_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def relative_project_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def parse_utc_timestamp(value: Any) -> Optional[datetime]:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def briefing_source_label(sources: Any, freshness_state: str) -> tuple[str, list[str]]:
+    if freshness_state in {"blocked", "skipped"}:
+        return "blocked", ["blocked"]
+
+    source_labels = []
+    if isinstance(sources, list):
+        for source in sources:
+            if not isinstance(source, dict):
+                continue
+            label = source.get("label") or source.get("source_label")
+            if label and label not in source_labels:
+                source_labels.append(label)
+
+    if "web_researched" in source_labels:
+        return "web_researched", source_labels
+    if "live_schedule" in source_labels:
+        return "live_schedule", source_labels
+    if source_labels:
+        return source_labels[0], source_labels
+    return "static_curated", ["static_curated"]
+
+
+def briefing_status_message(freshness_state: str, source_label: str, expired: bool = False) -> str:
+    if freshness_state == "fresh" and source_label == "web_researched":
+        return "Fresh source-backed match briefing is available."
+    if freshness_state == "fresh":
+        return "Fresh briefing artifact is available, but it is not source-backed match research."
+    if freshness_state == "stale" and expired:
+        return "Briefing artifact exists but its validity window has expired."
+    if freshness_state == "stale":
+        return "Briefing artifact exists but is outside the configured last-minute window."
+    if freshness_state == "blocked":
+        return "Briefing generation was blocked; use the static baseline preview until inputs are resolved."
+    if freshness_state == "skipped":
+        return "Briefing generation was skipped for this fixture."
+    if freshness_state == "invalid":
+        return "Briefing artifact exists but is invalid; use the static baseline preview."
+    return "Static baseline preview only; no last-minute briefing has been generated."
+
+
+def baseline_briefing_payload(
+    match_id: str,
+    summary_data: dict,
+    freshness_state: str = "baseline_only",
+    warning: Optional[str] = None,
+) -> dict:
+    summary_path = DATA_DIR / "matches" / match_id / "summary.json"
+    briefing_path = DATA_DIR / "matches" / match_id / "briefing.json"
+    status = {
+        "freshness_state": freshness_state,
+        "source_label": "blocked" if freshness_state == "invalid" else "static_curated",
+        "source_labels": ["blocked"] if freshness_state == "invalid" else ["static_curated"],
+        "generated_at_utc": None,
+        "valid_until_utc": None,
+        "checked_at_utc": None,
+        "review_status": "not_generated" if freshness_state == "baseline_only" else "invalid",
+        "has_artifact": freshness_state == "invalid",
+        "artifact_status": "invalid" if freshness_state == "invalid" else "missing",
+        "artifact_path": relative_project_path(briefing_path),
+        "message": briefing_status_message(freshness_state, "static_curated"),
+    }
+    warnings = [warning] if warning else []
+    return {
+        "metadata": {
+            "schema_version": "1.0",
+            "match_id": match_id,
+            "generated_at_utc": None,
+            "generator": None,
+            "mode": "baseline_preview",
+            "freshness": freshness_state,
+            "valid_until_utc": None,
+            "briefing_window_hours": 3,
+        },
+        "fixture": summary_data.get("metadata", {}),
+        "team_keys": {
+            "team1": canonical_team_slug(summary_data.get("metadata", {}).get("team1", "")),
+            "team2": canonical_team_slug(summary_data.get("metadata", {}).get("team2", "")),
+        },
+        "briefing": None,
+        "forecast_snapshot": {},
+        "data_quality": {
+            "freshness_state": freshness_state,
+            "warnings": warnings,
+            "blocked_reasons": warnings if freshness_state == "invalid" else [],
+        },
+        "sources": [
+            {
+                "name": "summary.json",
+                "path_or_url": relative_project_path(summary_path),
+                "label": "static_curated",
+                "status": "used",
+                "checked_at_utc": None,
+                "collection_method": "local_file",
+            }
+        ],
+        "review": {
+            "status": "not_generated" if freshness_state == "baseline_only" else "invalid",
+            "reviewer": None,
+            "reviewed_at_utc": None,
+            "notes": warning,
+        },
+        "briefing_status": status,
+    }
+
+
+def briefing_status_from_artifact(match_id: str, briefing_data: Any) -> tuple[Optional[dict], Optional[str]]:
+    if not isinstance(briefing_data, dict):
+        return None, "briefing.json root must be an object."
+
+    missing_blocks = sorted(BRIEFING_REQUIRED_BLOCKS - set(briefing_data))
+    if missing_blocks:
+        return None, f"briefing.json is missing required blocks: {', '.join(missing_blocks)}."
+
+    metadata = briefing_data.get("metadata") or {}
+    data_quality = briefing_data.get("data_quality") or {}
+    if not isinstance(metadata, dict) or not isinstance(data_quality, dict):
+        return None, "briefing.json metadata and data_quality must be objects."
+
+    artifact_match_id = metadata.get("match_id")
+    if artifact_match_id and artifact_match_id != match_id:
+        return None, f"briefing.json match_id {artifact_match_id!r} does not match route {match_id!r}."
+
+    freshness_state = (
+        data_quality.get("freshness_state")
+        or metadata.get("freshness")
+        or metadata.get("freshness_state")
+    )
+    if not isinstance(freshness_state, str) or not freshness_state:
+        return None, "briefing.json does not declare a freshness state."
+    freshness_state = freshness_state.strip().lower()
+    if freshness_state not in BRIEFING_FRESHNESS_STATES:
+        return None, f"briefing.json freshness state {freshness_state!r} is unsupported."
+
+    expired = False
+    valid_until = metadata.get("valid_until_utc")
+    valid_until_dt = parse_utc_timestamp(valid_until)
+    if freshness_state == "fresh" and valid_until_dt and valid_until_dt < datetime.now(timezone.utc):
+        freshness_state = "stale"
+        expired = True
+
+    source_label, source_labels = briefing_source_label(briefing_data.get("sources", []), freshness_state)
+    review = briefing_data.get("review") if isinstance(briefing_data.get("review"), dict) else {}
+    generated_at = metadata.get("generated_at_utc")
+    checked_at = generated_at
+    if isinstance(briefing_data.get("sources"), list):
+        for source in briefing_data["sources"]:
+            if isinstance(source, dict) and source.get("checked_at_utc"):
+                checked_at = source.get("checked_at_utc")
+                break
+
+    return {
+        "freshness_state": freshness_state,
+        "source_label": source_label,
+        "source_labels": source_labels,
+        "generated_at_utc": generated_at,
+        "valid_until_utc": valid_until,
+        "checked_at_utc": checked_at,
+        "review_status": review.get("status"),
+        "has_artifact": True,
+        "artifact_status": "available",
+        "artifact_path": relative_project_path(DATA_DIR / "matches" / match_id / "briefing.json"),
+        "message": briefing_status_message(freshness_state, source_label, expired),
+    }, None
+
+
+def build_match_briefing_payload(match_id: str, summary_data: Optional[dict] = None) -> dict:
+    summary_data = summary_data or load_match_summary_payload(match_id)
+    briefing_path = DATA_DIR / "matches" / match_id / "briefing.json"
+
+    if not briefing_path.exists():
+        return baseline_briefing_payload(match_id, summary_data)
+
+    try:
+        with open(briefing_path, "r", encoding="utf-8") as f:
+            briefing_data = json.load(f)
+    except Exception as exc:
+        return baseline_briefing_payload(match_id, summary_data, "invalid", str(exc))
+
+    status, error = briefing_status_from_artifact(match_id, briefing_data)
+    if error:
+        return baseline_briefing_payload(match_id, summary_data, "invalid", error)
+
+    response = dict(briefing_data)
+    response["briefing_status"] = status
+    return response
+
 # --- REST ENDPOINTS ---
 
 @app.get("/health")
@@ -882,56 +1109,19 @@ def get_schedule():
 
 @app.get("/api/match/{match_id}/summary")
 def get_match_summary(match_id: str):
-    sum_path = DATA_DIR / "matches" / match_id / "summary.json"
-    if not sum_path.exists():
-        raise HTTPException(status_code=404, detail="Summary payload not found")
-    with open(sum_path, "r", encoding="utf-8") as f:
-        summary_data = json.load(f)
-
-    briefing_path = DATA_DIR / "matches" / match_id / "briefing.json"
-    if briefing_path.exists():
-        try:
-            with open(briefing_path, "r", encoding="utf-8") as f:
-                briefing_data = json.load(f)
-            freshness = (
-                briefing_data.get("data_quality", {}).get("freshness_state")
-                or briefing_data.get("metadata", {}).get("freshness")
-                or briefing_data.get("metadata", {}).get("freshness_state")
-                or "stale"
-            )
-            sources = briefing_data.get("sources", [])
-            source_labels = [
-                source.get("label")
-                for source in sources
-                if isinstance(source, dict) and source.get("label")
-            ]
-            if freshness in {"blocked", "skipped"}:
-                source_label = "blocked"
-            elif "web_researched" in source_labels:
-                source_label = "web_researched"
-            elif source_labels:
-                source_label = source_labels[0]
-            else:
-                source_label = "static_curated"
-            summary_data["briefing_status"] = {
-                "freshness_state": freshness,
-                "source_label": source_label,
-                "message": "Last-minute briefing artifact is available.",
-            }
-        except Exception:
-            summary_data["briefing_status"] = {
-                "freshness_state": "blocked",
-                "source_label": "blocked",
-                "message": "Briefing artifact exists but could not be read.",
-            }
-    else:
-        summary_data["briefing_status"] = {
-            "freshness_state": "baseline_only",
-            "source_label": "static_curated",
-            "message": "Static baseline preview only; no last-minute briefing has been generated.",
-        }
+    summary_data = load_match_summary_payload(match_id)
+    summary_data["briefing_status"] = build_match_briefing_payload(
+        match_id,
+        summary_data,
+    )["briefing_status"]
 
     return summary_data
+
+
+@app.get("/api/match/{match_id}/briefing")
+def get_match_briefing(match_id: str):
+    return build_match_briefing_payload(match_id)
+
 
 @app.get("/api/match/{match_id}/metrics")
 def get_match_metrics(

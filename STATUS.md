@@ -1,5 +1,56 @@
 # STATUS
 
+## 2026-06-19 - T-033 Briefing API and Match Analysis Freshness UI Completed
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
+
+### Current State
+
+- T-033 is complete.
+- Match Analysis now has a dedicated briefing API contract instead of relying
+  only on the compact `summary.briefing_status` compatibility field.
+- Missing `briefing.json` files are safe: the API returns a `baseline_only`
+  response that points back to `summary.json` as static curated preview content.
+- Invalid briefing artifacts are downgraded to an explicit invalid fallback, and
+  fresh artifacts whose `valid_until_utc` has expired are returned as `stale`.
+- The frontend renders briefing freshness as a compact badge near the tactical
+  headline while preserving the baseline preview content.
+
+### What Changed
+
+- Added `GET /api/match/{match_id}/briefing`.
+- Centralized briefing-status derivation in `src/api/main.py`.
+- Kept `/api/match/{match_id}/summary` compatible by attaching the same
+  `briefing_status` summary.
+- Added `BriefingFreshnessBadge` and wired Match Analysis to fetch the dedicated
+  briefing endpoint with summary fallback behavior.
+- Added DEC021:
+  `docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md`.
+- Added handoff:
+  `docs/handoffs/2026-06-19_data_pipeline_frontend_t033_briefing_api_freshness.md`.
+
+### Verification
+
+- Direct API smoke check for `brazil_haiti_2026` returned
+  `freshness_state=baseline_only`, `artifact_status=missing`, and
+  `source_label=static_curated`.
+- `/api/match/{match_id}/summary` returned matching `briefing_status`.
+- Temp-data API smoke covered missing, fresh, expired-to-stale, and invalid
+  briefing artifact states.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build`
+- `git diff --check`
+
+### Routing
+
+- Next project step: **T-031 - Active Match Metrics Completion**.
+- T-031 should use the T-035 source policy and T-038 source-cache contract to
+  replace or explicitly preserve unavailable states for the remaining active
+  metric gaps.
+- T-030 remains the Streamlit legacy disposition cleanup task.
+
+---
+
 ## 2026-06-19 - T-029 Deployment and Operations Runbook Refresh Completed
 
 Prepared by: Orchestrator / QA / Reproducibility Engineer

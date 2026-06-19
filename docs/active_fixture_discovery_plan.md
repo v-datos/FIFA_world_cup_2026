@@ -34,7 +34,7 @@ Implementation result on 2026-06-18:
   fallback/incomplete.
 - Informed by: T-026, for model/default/provenance wording.
 - Feeds: T-032 last-minute briefing generation, T-031 metrics completion, and
-  T-033 briefing API/UI.
+  the completed T-033 briefing API/UI path.
 
 ## Current Gap
 
@@ -239,7 +239,7 @@ Daily or pre-match workflow:
    - If `--write` is explicit, create `summary.json` and `metrics.json`.
 5. Run last-minute briefing generation from T-032 against fixtures that now
    have baseline folders.
-6. API/UI from T-033 can then show:
+6. The T-033 API/UI path can then show:
    - fresh briefing
    - stale briefing
    - blocked briefing

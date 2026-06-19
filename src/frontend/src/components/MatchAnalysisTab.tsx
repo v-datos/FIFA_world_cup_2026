@@ -4,6 +4,7 @@ import { MatchPredictionGraph } from './MatchPredictionGraph';
 import { TeamRadarComparison } from './TeamRadarComparison';
 import { SquadStyleComparison } from './SquadStyleComparison';
 import { MonteCarloProjections } from './MonteCarloProjections';
+import { BriefingFreshnessBadge, type BriefingFreshnessStatus } from './BriefingFreshnessBadge';
 import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
 import { getFlag, getLastStanding } from '../lib/teamData';
 import { normalizeTeamName, teamSlug } from '../lib/teamIdentity';
@@ -35,6 +36,8 @@ type QualityRecord = {
   source_label?: string;
   message?: string;
   freshness_state?: string;
+  checked_at_utc?: string;
+  generated_at_utc?: string;
 };
 type RadarQualityRecord = QualityRecord & {
   missing_fields?: Record<string, string[]>;
@@ -93,6 +96,116 @@ interface MetricsPayload {
   };
 }
 
+interface BriefingSourceRecord {
+  label?: string;
+  source_label?: string;
+  checked_at_utc?: string;
+}
+
+interface BriefingPayload {
+  freshness_state?: string;
+  source_label?: string;
+  message?: string;
+  generated_at_utc?: string;
+  checked_at_utc?: string;
+  metadata?: {
+    freshness?: string;
+    freshness_state?: string;
+    generated_at_utc?: string;
+    valid_until_utc?: string;
+  };
+  data_quality?: {
+    freshness_state?: string;
+    warnings?: string[];
+    blocked_reasons?: string[];
+  };
+  sources?: BriefingSourceRecord[];
+  briefing_status?: QualityRecord;
+}
+
+type BriefingRouteStatus = BriefingFreshnessStatus & {
+  http_status?: number;
+};
+
+const firstText = (...values: Array<unknown>): string | undefined => (
+  values.find((value): value is string => typeof value === 'string' && value.trim().length > 0)?.trim()
+);
+
+const chooseSourceLabel = (sources?: BriefingSourceRecord[]): string | undefined => {
+  if (!sources || sources.length === 0) return undefined;
+  const labels = sources
+    .map((source) => source.source_label || source.label)
+    .filter((label): label is string => Boolean(label));
+  return labels.includes('web_researched') ? 'web_researched' : labels[0];
+};
+
+const normalizeBriefingStatus = (
+  summaryStatus: QualityRecord | undefined,
+  briefingData: BriefingPayload | null,
+  routeStatus: BriefingRouteStatus | null,
+): BriefingFreshnessStatus => {
+  if (briefingData) {
+    const freshness = firstText(
+      briefingData.freshness_state,
+      briefingData.data_quality?.freshness_state,
+      briefingData.metadata?.freshness,
+      briefingData.metadata?.freshness_state,
+      briefingData.briefing_status?.freshness_state,
+    ) || 'fresh';
+    const generatedAt = firstText(
+      briefingData.generated_at_utc,
+      briefingData.metadata?.generated_at_utc,
+      briefingData.briefing_status?.generated_at_utc,
+    );
+    const checkedAt = firstText(
+      briefingData.checked_at_utc,
+      briefingData.briefing_status?.checked_at_utc,
+      generatedAt,
+      ...(briefingData.sources || []).map((source) => source.checked_at_utc),
+    );
+
+    return {
+      freshness_state: freshness,
+      source_label: chooseSourceLabel(briefingData.sources) || briefingData.source_label || briefingData.briefing_status?.source_label || 'static_curated',
+      message: briefingData.message || briefingData.briefing_status?.message || (
+        freshness === 'fresh'
+          ? 'Last-minute briefing artifact is available.'
+          : 'Briefing artifact is available but not fresh.'
+      ),
+      generated_at_utc: generatedAt,
+      valid_until_utc: briefingData.metadata?.valid_until_utc,
+      checked_at_utc: checkedAt,
+      status_origin: 'briefing_endpoint',
+      source_count: briefingData.sources?.length,
+      warnings: briefingData.data_quality?.warnings,
+      blocked_reasons: briefingData.data_quality?.blocked_reasons,
+    };
+  }
+
+  if (routeStatus?.freshness_state === 'missing' && summaryStatus?.freshness_state) {
+    return {
+      ...summaryStatus,
+      status_origin: 'summary_fallback',
+    };
+  }
+
+  if (routeStatus?.freshness_state) return routeStatus;
+
+  if (summaryStatus?.freshness_state) {
+    return {
+      ...summaryStatus,
+      status_origin: 'summary_fallback',
+    };
+  }
+
+  return {
+    freshness_state: 'missing',
+    source_label: 'missing',
+    message: 'No briefing status is available for this fixture.',
+    status_origin: 'frontend_fallback',
+  };
+};
+
 export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   matches,
   selectedMatchId,
@@ -103,6 +216,8 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
 }) => {
   const [summaryData, setSummaryData] = useState<SummaryPayload | null>(null);
   const [metricsData, setMetricsData] = useState<MetricsPayload | null>(null);
+  const [briefingData, setBriefingData] = useState<BriefingPayload | null>(null);
+  const [briefingRouteStatus, setBriefingRouteStatus] = useState<BriefingRouteStatus | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [activeVizTab, setActiveVizTab] = useState<string>('momentum');
 
@@ -152,29 +267,96 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
 
   useEffect(() => {
     if (!selectedMatchId) return;
-    
+    let cancelled = false;
+
     const fetchData = async () => {
       setLoading(true);
+      setSummaryData(null);
+      setMetricsData(null);
+      setBriefingData(null);
+      setBriefingRouteStatus(null);
       try {
-        const [sumRes, metRes] = await Promise.all([
+        const briefingRequest = fetch(`${serverUrl}/api/match/${selectedMatchId}/briefing`)
+          .catch((err: unknown) => err);
+        const [sumRes, metRes, briefingResult] = await Promise.all([
           fetch(`${serverUrl}/api/match/${selectedMatchId}/summary`),
           fetch(`${serverUrl}/api/match/${selectedMatchId}/metrics`),
+          briefingRequest,
         ]);
-        
-        if (sumRes.ok && metRes.ok) {
-          const sumJson = await sumRes.json();
-          const metJson = await metRes.json();
+
+        if (!sumRes.ok || !metRes.ok) {
+          throw new Error(`Match analysis request failed: summary ${sumRes.status}, metrics ${metRes.status}`);
+        }
+
+        const [sumJson, metJson] = await Promise.all([
+          sumRes.json(),
+          metRes.json(),
+        ]);
+
+        let briefingJson: BriefingPayload | null = null;
+        let routeStatus: BriefingRouteStatus | null = null;
+        if (!(briefingResult instanceof Response)) {
+          routeStatus = {
+            freshness_state: 'blocked',
+            source_label: 'blocked',
+            message: 'Briefing endpoint could not be reached.',
+            status_origin: 'briefing_endpoint',
+          };
+        } else if (briefingResult.ok) {
+          try {
+            briefingJson = await briefingResult.json();
+          } catch (err) {
+            routeStatus = {
+              freshness_state: 'invalid',
+              source_label: 'blocked',
+              message: 'Briefing endpoint returned invalid JSON.',
+              status_origin: 'briefing_endpoint',
+            };
+          }
+        } else if (briefingResult.status === 404) {
+          routeStatus = {
+            freshness_state: 'missing',
+            source_label: 'missing',
+            message: 'No dedicated briefing artifact is available.',
+            status_origin: 'briefing_endpoint',
+            http_status: briefingResult.status,
+          };
+        } else {
+          routeStatus = {
+            freshness_state: 'blocked',
+            source_label: 'blocked',
+            message: `Briefing endpoint returned HTTP ${briefingResult.status}.`,
+            status_origin: 'briefing_endpoint',
+            http_status: briefingResult.status,
+          };
+        }
+
+        if (!cancelled) {
           setSummaryData(sumJson);
           setMetricsData(metJson);
+          setBriefingData(briefingJson);
+          setBriefingRouteStatus(routeStatus);
         }
       } catch (err) {
         console.error("Failed to load match analytics data", err);
+        if (!cancelled) {
+          setBriefingRouteStatus({
+            freshness_state: 'blocked',
+            source_label: 'blocked',
+            message: 'Match analysis data could not be loaded.',
+            status_origin: 'frontend_fetch',
+          });
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
     
     fetchData();
+
+    return () => {
+      cancelled = true;
+    };
   }, [selectedMatchId, serverUrl]);
 
   if (!selectedMatchId) {
@@ -207,7 +389,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const eloRatings = metricsData.elo_ratings || {};
   const monteCarlo = metricsData.monte_carlo_projections || {};
   const dataQuality = metricsData.data_quality || {};
-  const briefingStatus = summaryData.briefing_status;
+  const briefingStatus = normalizeBriefingStatus(summaryData.briefing_status, briefingData, briefingRouteStatus);
 
   const normalizedTeam1 = normalizeTeamName(team1);
   const normalizedTeam2 = normalizeTeamName(team2);
@@ -275,15 +457,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <h3 className="text-lg font-bold text-slate-100 mt-1">
           {lang === 'Español' && key_headline ? 'Análisis: ' + key_headline : key_headline}
         </h3>
-        {briefingStatus?.freshness_state && (
-          <div className="mt-3 inline-flex items-center rounded-full border border-slate-700/70 bg-slate-950/35 px-3 py-1 text-[10px] uppercase tracking-wide text-slate-300 font-mono">
-            {briefingStatus.freshness_state.replace('_', ' ')}
-            <span className="mx-2 text-slate-600">|</span>
-            <span className="text-slate-400 normal-case tracking-normal">
-              {briefingStatus.message}
-            </span>
-          </div>
-        )}
+        <BriefingFreshnessBadge status={briefingStatus} lang={lang} />
       </div>
 
       {/* Match Outcome Probability (with integrated top exact scores) + Insights */}

@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-029 complete; route T-033 next | None |
+| Orchestrator | Routing | T-033 complete; route T-031 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Complete | T-038 source-backed Squad & Style integration delivered | None |
+| Data Pipeline Engineer | Complete | T-033 briefing API delivered | None |
 | Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
-| Frontend Engineer | Queued | T-033 briefing freshness UI | Briefing API contract |
+| Frontend Engineer | Complete | T-033 briefing freshness UI delivered | None |
 
 ## Phase 5 Objective
 
@@ -53,7 +53,7 @@ agent roster, data contracts, task list, and deployment runbook.
 - [x] Real Monte Carlo simulation replaces the deterministic progression curve.
 - [x] No-cost national-team rating source spike is complete and runtime ratings
   can use the World Football Elo cache.
-- [ ] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
+- [x] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
 - [x] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
 - [x] Fixture lifecycle filtering excludes finished games from default
@@ -414,19 +414,41 @@ Exit criteria:
 - [x] Existing unsourced local profiles are labeled `hardcoded_reference`.
 - [x] Squad & Style UI renders per-value provenance states.
 
-## Later Planned Batches
-
-### Batch 12 - Frontend/API Robustness
+## Completed Batch - Batch 12: Frontend/API Robustness
 
 Owners: Frontend Engineer, Data Pipeline Engineer
 
-Outputs:
+Scope:
 
 - Central team metadata/alias contract.
 - Multi-word team route and UI fixes.
 - Incomplete-data rendering states.
 - Briefing API and Match Analysis freshness states.
 - Overview source/date handling.
+
+Outputs:
+
+- `data/reference/team_identity.json`
+- Shared Python/TypeScript identity helpers.
+- Runtime fallback/incomplete `data_quality` fields.
+- `/api/schedule` lifecycle/source-status fields.
+- `/api/match/{id}/summary` compact `briefing_status`.
+- `/api/match/{id}/briefing` full briefing freshness contract.
+- `BriefingFreshnessBadge` in Match Analysis.
+- `docs/decisions/20260618_DEC012_team_identity_contract.md`
+- `docs/decisions/20260618_DEC013_fallback_rendering_contract.md`
+- `docs/decisions/20260618_DEC014_fixture_lifecycle_filter.md`
+- `docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md`
+- `docs/handoffs/2026-06-19_data_pipeline_frontend_t033_briefing_api_freshness.md`
+
+Exit criteria:
+
+- [x] Shared team identity replaces duplicated alias logic.
+- [x] Default forecasts and empty metrics render as unavailable/missing.
+- [x] Finished/future fixtures do not clutter the default Match Analysis view.
+- [x] The dedicated briefing endpoint returns safe fresh, stale, baseline,
+  blocked, skipped, and invalid states.
+- [x] Match Analysis renders briefing freshness without hiding baseline content.
 
 ## Completed Batch - Batch 14: Deployment & Ops Runbook
 
@@ -485,6 +507,7 @@ Outputs:
 | 2026-06-19 | Documentation Clutter Map and Retention Rules | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
 | 2026-06-19 | Squad & Style Field Source Cache | docs/decisions/20260619_DEC019_squad_style_field_source_cache.md |
 | 2026-06-19 | Deployment and Operations Runbook | docs/decisions/20260619_DEC020_deployment_operations_runbook.md |
+| 2026-06-19 | Briefing API Freshness Contract | docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md |
 
 ## Open Blockers
 

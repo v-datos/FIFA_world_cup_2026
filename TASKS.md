@@ -9,13 +9,22 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
-  Owner: Data Pipeline Engineer / Frontend Engineer
-  Notes: Add `/api/match/{match_id}/briefing` and render briefing freshness in
-  Match Analysis. T-028 already exposes baseline-only status through the summary
-  payload; T-033 should add the dedicated briefing route and full freshness UI.
-  Verify: Fresh, stale, baseline-only, and blocked briefing states are visible
-  and do not mask static baseline preview content.
+- [ ] **T-031 - Active Match Metrics Completion**
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Notes: Fill or explicitly mark missing `team_metrics` and Elo entries for
+  active fixtures. The current empty/default set includes the T-034 baseline
+  stub `brazil_haiti_2026` plus
+  `canada_qatar_2026`, `czech_republic_south_africa_2026`,
+  `mexico_south_korea_2026`, `scotland_morocco_2026`,
+  `switzerland_bosnia_and_herzegovina_2026`, `turkey_paraguay_2026`,
+  `united_states_australia_2026`, and `uzbekistan_colombia_2026`. The default
+  40/30/30 forecast applies to all of those except
+  `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
+  T-039 now supplies runtime World Football Elo ratings from an auditable cache.
+  T-038 added the source-cache contract and one partial Squad & Style sample.
+  T-033 now exposes briefing freshness, so T-031 should focus on replacing or
+  explicitly preserving unavailable states for the remaining active match
+  metric gaps under the T-035 source policy.
 
 ## Backlog
 
@@ -32,22 +41,23 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Notes: Decide whether `src/app/` remains reference code, is archived, or is
   deleted after React/FastAPI live deployment is verified.
 
-- [ ] **T-031 - Active Match Metrics Completion**
-  Owner: Data Pipeline Engineer / Football Data Scientist
-  Notes: Fill or explicitly mark missing `team_metrics` and Elo entries for
-  active fixtures. The current empty/default set includes the T-034 baseline
-  stub `brazil_haiti_2026` plus
-  `canada_qatar_2026`, `czech_republic_south_africa_2026`,
-  `mexico_south_korea_2026`, `scotland_morocco_2026`,
-  `switzerland_bosnia_and_herzegovina_2026`, `turkey_paraguay_2026`,
-  `united_states_australia_2026`, and `uzbekistan_colombia_2026`. The default
-  40/30/30 forecast applies to all of those except
-  `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
-  T-039 now supplies runtime World Football Elo ratings from an auditable cache.
-  Replacing remaining team metric values should follow T-035 policy and T-038,
-  while explicit fallback labeling is now handled by T-028.
-
 ## Done
+
+- [x] **T-033 - Briefing API and Match Analysis Freshness UI**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-19
+  Notes: Added `GET /api/match/{match_id}/briefing` with safe baseline,
+  invalid, stale, blocked, skipped, and source-backed freshness handling. Missing
+  `briefing.json` now returns a contract-compliant `baseline_only` payload
+  instead of a 404, and expired fresh artifacts are downgraded to `stale` at
+  response time. Match Analysis now fetches the dedicated briefing endpoint,
+  falls back to summary status when needed, and renders a compact freshness badge
+  without masking static baseline preview content.
+  Verify: Direct API smoke for `brazil_haiti_2026`; temp-data smoke for missing,
+  fresh, expired-to-stale, and invalid briefing states; `python3 -m compileall
+  -q src`; `npm --prefix src/frontend run build`; `git diff --check`.
+  Decision: docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md
+  Handoff: docs/handoffs/2026-06-19_data_pipeline_frontend_t033_briefing_api_freshness.md
 
 - [x] **T-029 - Deployment and Operations Runbook Refresh**
   Owner: Orchestrator / QA / Reproducibility Engineer

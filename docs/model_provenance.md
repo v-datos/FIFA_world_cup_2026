@@ -272,13 +272,14 @@ T-035 resolved the policy questions raised by this review:
 - T-031: fill or explicitly label empty team metrics and rating gaps.
 - T-032: complete; safe `briefing.json` generation exists without source-backed
   web/news collection.
-- T-033: expose briefing freshness and source states in API/UI.
+- T-033: complete; briefing freshness and source states are exposed through the
+  dedicated briefing API/UI path.
 - T-036: prototype source-backed research collection.
 - T-037: complete; active FastAPI progression now uses a seeded random-trial
   tournament simulation.
 - T-039: complete; runtime ratings now use the World Football Elo cache before
   local fallback defaults.
-- T-038: integrate source-backed Squad & Style metrics.
+- T-038: complete for the first source-backed Squad & Style field-cache pass.
 
 ## T-026 Completion Criteria
 

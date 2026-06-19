@@ -273,6 +273,17 @@ Current T-032 caution: this generator creates safe draft baseline-support
 briefing artifacts and validation manifests. It does not yet collect fresh
 web/news sources. T-036 owns source-backed research collection.
 
+API/UI consumption added by T-033:
+
+```text
+GET /api/match/{match_id}/briefing
+```
+
+The route returns a valid `briefing.json` artifact when one exists, or a safe
+`baseline_only` fallback when the artifact is missing. Match Analysis renders
+that freshness status in the tactical headline area and falls back to
+`summary.briefing_status` if the dedicated route is unreachable.
+
 ### Source-Backed Research Intake
 
 The intended direction is AI-assisted source-backed matchday research. T-035 is
