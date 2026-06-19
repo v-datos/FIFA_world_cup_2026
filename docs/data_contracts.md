@@ -146,10 +146,11 @@ Purpose:
 - Adds `/api/match/{id}/metrics.team_metric_sources` as a compact team/field
   source-record map for consumers that do not want to parse data-quality
   summary fields.
-- Starts with a partial no-cost/offline-safe manifest for
+- Contains a partial no-cost/offline-safe source-backed manifest for
   `brazil_haiti_2026`: `squad_market_value_m` and `average_age` for Brazil
-  from Transfermarkt profile headers. Haiti remains missing until an auditable
-  national-team profile source is identified.
+  from Transfermarkt profile headers.
+- After T-031, also contains explicit `missing` rows for active empty
+  `team_metrics` teams where no approved local source-cache record exists.
 
 Top-level fields:
 
@@ -163,12 +164,12 @@ Required `metadata` fields:
 | Field | Type | Notes |
 |---|---|---|
 | `schema_version` | string | Current value: `1.0`. |
-| `task` | string | Current value: `T-038`. |
+| `task` | string | Current value: `T-031` for the active gap-preservation manifest. |
 | `source_label` | string | `web_researched` for the initial manifest. |
 | `source_name` | string | Human-readable source family. |
 | `collection_method` | string | Current value: `static_source_manifest`. |
 | `parser_version` | string | Current value: `squad_style_static_manifest_v1`. |
-| `status` | string | `partial`, `missing_cache`, or future collector status. |
+| `status` | string | `partial`, `missing`, `missing_cache`, or future collector status. |
 | `checked_at_utc` | string | UTC source-check timestamp for the manifest. |
 | `team_count` | number | Teams with records. |
 | `field_record_count` | number | Field records available in the manifest. |
@@ -182,6 +183,17 @@ Required `teams[]` fields:
 | `team` | string | Normalized display name from `team_identity.json`. |
 | `fixture_ids` | array | Optional fixture scope. If present, records only apply to those fixtures. |
 | `fields` | object | Field records keyed by the stored `team_metrics` field name. |
+
+Optional `teams[]` metadata for explicit unavailable rows:
+
+| Field | Type | Notes |
+|---|---|---|
+| `status` | string | `missing` when no approved local source-cache record exists; `partial` when at least one field record exists. |
+| `source_label` | string | `missing` for unavailable rows; `web_researched` for rows with approved source-backed field records. |
+| `source_name` | string | Human-readable source or audit label. |
+| `checked_at_utc` | string | UTC audit/check time for this team row. |
+| `missing_reasons` | array | Machine-readable reasons the row has no usable field record. |
+| `blocked_reasons` | array | Machine-readable collection blocks, only when collection was attempted and blocked. |
 
 Required field-record fields:
 
@@ -842,7 +854,7 @@ Runtime-added `data_quality` fields:
 | `forecast` | Marks stored forecasts as `available` or `unavailable`; default `40/30/30` is `default_forecast` and should not render as probability. |
 | `score_probabilities` | Hides exact scores when the stored forecast is default fallback. |
 | `team_metrics` | Per-team `missing`, `partial`, or `complete` status, missing-field list, source-backed field counts, and per-field source statuses. Per-field records are exposed as both `fields` and `field_sources`. |
-| `team_metric_source_cache` | T-038 squad/style cache status, source label, checked time, teams with matching manifest rows, teams with usable source-backed records, and field-record count. |
+| `team_metric_source_cache` | Squad/style cache status, source label, checked time, teams with matching manifest rows, teams with usable source-backed records, and field-record count. |
 | `radar_metrics` | Marks radar as unavailable when required team metric fields are missing. |
 | `elo_ratings` | Labels cache-backed World Football Elo as `web_researched`, local fallback Elo-style ratings as `hardcoded_reference`, or absent ratings as `missing`. |
 | `monte_carlo_projections` | Labels seeded random-trial simulation output as `simulation`, with seed/count/model/rating metadata. |
@@ -940,31 +952,31 @@ Legend:
 | `argentina_algeria_2026` | 06/16/2026 | Argentina vs Algeria | PASS | FULL | MODEL | None from T-024. |
 | `austria_jordan_2026` | 06/16/2026 | Austria vs Jordan | PASS | FULL | MODEL | None from T-024. |
 | `belgium_egypt_2026` | 06/15/2026 | Belgium vs Egypt | PASS | FULL | MODEL | None from T-024. |
-| `brazil_haiti_2026` | 06/19/2026 | Brazil vs Haiti | PASS | EMPTY | DEFAULT | T-034 baseline stub. T-038 runtime source cache partially covers Brazil squad fields; remaining fields route to T-031. |
-| `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-031. T-028 fallback state complete. |
-| `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-031. T-027/T-028 complete. |
+| `brazil_haiti_2026` | 06/19/2026 | Brazil vs Haiti | PASS | EMPTY | DEFAULT | T-031 complete: Brazil has two source-backed runtime fields; Haiti and unsupported fields remain explicit `missing`. |
+| `canada_qatar_2026` | 06/18/2026 | Canada vs Qatar | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
+| `czech_republic_south_africa_2026` | 06/18/2026 | Czech Republic vs South Africa | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
 | `england_croatia_2026` | 06/17/2026 | England vs Croatia | PASS | FULL | MODEL | None from T-024. |
 | `france_senegal_2026` | 06/16/2026 | France vs Senegal | PASS | FULL | MODEL | None from T-024. |
 | `ghana_panama_2026` | 06/17/2026 | Ghana vs Panama | PASS | FULL | MODEL | None from T-024. |
 | `iran_new_zealand_2026` | 06/15/2026 | Iran vs New Zealand | PASS | FULL | MODEL | None from T-024. |
 | `iraq_norway_2026` | 06/16/2026 | Iraq vs Norway | PASS | FULL | MODEL | None from T-024. |
-| `mexico_south_korea_2026` | 06/18/2026 | Mexico vs South Korea | PASS | EMPTY | DEFAULT | T-031. T-027/T-028 complete. |
+| `mexico_south_korea_2026` | 06/18/2026 | Mexico vs South Korea | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
 | `portugal_democratic_republic_of_the_congo_2026` | 06/17/2026 | Portugal vs Democratic Republic of the Congo | PASS | FULL | MODEL | T-027 complete. |
 | `saudi_arabia_uruguay_2026` | 06/15/2026 | Saudi Arabia vs Uruguay | PASS | FULL | MODEL | T-027 complete. |
-| `scotland_morocco_2026` | 06/19/2026 | Scotland vs Morocco | PASS | EMPTY | DEFAULT | T-031. T-028 fallback state complete. |
+| `scotland_morocco_2026` | 06/19/2026 | Scotland vs Morocco | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
 | `spain_cape_verde_2026` | 06/15/2026 | Spain vs Cape Verde | PASS | FULL | MODEL | T-027 complete. |
-| `switzerland_bosnia_and_herzegovina_2026` | 06/18/2026 | Switzerland vs Bosnia and Herzegovina | PASS | EMPTY | MODEL | T-031. T-027/T-028 complete. |
-| `turkey_paraguay_2026` | 06/19/2026 | Turkey vs Paraguay | PASS | EMPTY | DEFAULT | T-031. T-027/T-028 complete. |
-| `united_states_australia_2026` | 06/19/2026 | United States vs Australia | PASS | EMPTY | DEFAULT | T-031. T-027/T-028 complete. |
-| `uzbekistan_colombia_2026` | 06/17/2026 | Uzbekistan vs Colombia | PASS | EMPTY | DEFAULT | T-031. T-028 fallback state complete. |
+| `switzerland_bosnia_and_herzegovina_2026` | 06/18/2026 | Switzerland vs Bosnia and Herzegovina | PASS | EMPTY | MODEL | T-031 complete: non-default forecast preserved; team metrics explicit source-cache `missing`. |
+| `turkey_paraguay_2026` | 06/19/2026 | Turkey vs Paraguay | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
+| `united_states_australia_2026` | 06/19/2026 | United States vs Australia | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
+| `uzbekistan_colombia_2026` | 06/17/2026 | Uzbekistan vs Colombia | PASS | EMPTY | DEFAULT | T-031 complete: team metrics preserved as explicit source-cache `missing`. |
 
 ## Findings and Routing
 
 | ID | Finding | Severity | Routed task |
 |---|---|---:|---|
 | F-024-1 | Active `summary.json` schemas pass for all 20 active fixtures. | 0 | No follow-up. |
-| F-024-2 | Nine active fixtures have empty per-team metric profiles. | 1 | UI/API fallback state resolved by T-028; T-038 added the source-cache contract and one partial sample; broad value completion remains T-031. |
-| F-024-3 | Eight active fixtures use the default 40/30/30 stored forecast. | 1 | UI/API fallback state resolved by T-028; broad value completion remains T-031. |
+| F-024-2 | Nine active fixtures have empty per-team metric profiles. | 1 | UI/API fallback state resolved by T-028; T-031/T-038 source cache now preserves unavailable active gaps as explicit `missing` rows. Future work needs real reviewed source records to replace them. |
+| F-024-3 | Eight active fixtures use the default 40/30/30 stored forecast. | 1 | UI/API fallback state resolved by T-028; T-031 confirms these remain `default_forecast`, not model probabilities. |
 | F-024-4 | Multi-word team normalization was fragile in frontend and API fallback parsing. | 0 | Resolved by T-027. |
 | F-024-5 | The preview generator can overwrite curated `summary.json` editorial copy; last-minute analysis must use separate `briefing.json` artifacts. | 2 | T-025, T-032. |
 | F-024-6 | Overview tournament totals are hardcoded in the frontend, not sourced from schedule or standings payloads. | 2 | Deployment/ops data-source follow-up. |
@@ -983,8 +995,9 @@ For T-024, completion means:
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after the T-033 closeout:
+Suggested next Orchestrator assignments after the T-031 closeout:
 
-1. T-031 - Active Match Metrics Completion.
-2. T-030 - Streamlit Legacy Disposition.
+1. T-030 - Streamlit Legacy Disposition.
+2. Future reviewed Squad & Style source collectors for replacing explicit
+   T-031 `missing` rows field by field.
 3. T-019 - Player Career-Stats Hover Endpoint.

@@ -7,9 +7,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-033 complete; route T-031 next | None |
+| Orchestrator | Routing | T-031 complete; route T-030 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Complete | T-033 briefing API delivered | None |
+| Data Pipeline Engineer | Complete | T-031 active metric gap preservation delivered | None |
 | Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
 | Frontend Engineer | Complete | T-033 briefing freshness UI delivered | None |
 
@@ -54,6 +54,8 @@ agent roster, data contracts, task list, and deployment runbook.
 - [x] No-cost national-team rating source spike is complete and runtime ratings
   can use the World Football Elo cache.
 - [x] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
+- [x] Active empty Squad & Style metric gaps are explicitly preserved as
+  source-cache `missing` rows when no approved local source record exists.
 - [x] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
 - [x] Fixture lifecycle filtering excludes finished games from default
@@ -414,6 +416,37 @@ Exit criteria:
 - [x] Existing unsourced local profiles are labeled `hardcoded_reference`.
 - [x] Squad & Style UI renders per-value provenance states.
 
+## Completed Batch - Batch 14: Active Match Metric Gap Preservation
+
+Owner: Data Pipeline Engineer
+
+Scope:
+
+- Preserve active empty `team_metrics` gaps explicitly under the T-035 source
+  policy.
+- Keep source-backed Squad & Style values in the T-038 source cache rather than
+  rewriting curated fixture `metrics.json`.
+- Carry negative source-cache rows through API data-quality metadata.
+
+Outputs:
+
+- `data/source_cache/squad_style/latest_metrics.json`
+- `src/analytics/squad_style_sources.py`
+- `src/api/main.py`
+- `docs/decisions/20260619_DEC022_active_metric_gap_preservation.md`
+- `docs/handoffs/2026-06-19_data_pipeline_t031_active_metric_gap_preservation.md`
+
+Exit criteria:
+
+- [x] Remaining active empty team-metric fixtures have explicit source-cache
+  `missing` rows with machine-readable `missing_reasons`.
+- [x] Brazil source-backed fields still merge at runtime without rewriting
+  `data/matches/brazil_haiti_2026/metrics.json`.
+- [x] Default 40/30/30 forecasts remain labeled `default_forecast`.
+- [x] A direct API smoke covers an empty/default fixture, a source-backed sample,
+  a missing-metrics/non-default forecast fixture, and a full local reference
+  fixture.
+
 ## Completed Batch - Batch 12: Frontend/API Robustness
 
 Owners: Frontend Engineer, Data Pipeline Engineer
@@ -508,6 +541,7 @@ Outputs:
 | 2026-06-19 | Squad & Style Field Source Cache | docs/decisions/20260619_DEC019_squad_style_field_source_cache.md |
 | 2026-06-19 | Deployment and Operations Runbook | docs/decisions/20260619_DEC020_deployment_operations_runbook.md |
 | 2026-06-19 | Briefing API Freshness Contract | docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md |
+| 2026-06-19 | Active Metric Gap Preservation | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
 
 ## Open Blockers
 

@@ -80,6 +80,26 @@ def _normalize_source_record(
     }
 
 
+def _normalize_team_manifest_metadata(
+    row: dict[str, Any],
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    fields = row.get("fields") or {}
+    default_status = "partial" if fields else "missing"
+    default_label = metadata.get("source_label", "web_researched") if fields else "missing"
+    return {
+        "status": row.get("status") or default_status,
+        "source_label": row.get("source_label") or default_label,
+        "source_name": row.get("source_name") or metadata.get("source_name"),
+        "source_url": row.get("source_url") or metadata.get("source_url"),
+        "checked_at_utc": row.get("checked_at_utc") or metadata.get("checked_at_utc"),
+        "missing_reasons": row.get("missing_reasons", []),
+        "blocked_reasons": row.get("blocked_reasons", []),
+        "warnings": row.get("warnings", []),
+        "message": row.get("message"),
+    }
+
+
 def apply_squad_style_source_cache(
     metrics_data: dict[str, Any],
     match_id: str,
@@ -110,12 +130,14 @@ def apply_squad_style_source_cache(
     required = set(required_fields)
     team_metrics = metrics_data.setdefault("team_metrics", {})
     source_records: dict[str, dict[str, Any]] = {}
+    team_metadata: dict[str, dict[str, Any]] = {}
 
     for team in teams:
         normalized_team = normalize_team_name(team)
         row = by_team.get(normalized_team)
         if not row:
             continue
+        team_metadata[normalized_team] = _normalize_team_manifest_metadata(row, metadata)
         values = team_metrics.setdefault(normalized_team, {})
         if not isinstance(values, dict):
             values = {}
@@ -151,6 +173,7 @@ def apply_squad_style_source_cache(
             "blocked_reasons": metadata.get("blocked_reasons", []),
         },
         "teams": source_records,
+        "team_metadata": team_metadata,
     }
 
 

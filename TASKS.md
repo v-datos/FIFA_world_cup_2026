@@ -9,22 +9,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-031 - Active Match Metrics Completion**
-  Owner: Data Pipeline Engineer / Football Data Scientist
-  Notes: Fill or explicitly mark missing `team_metrics` and Elo entries for
-  active fixtures. The current empty/default set includes the T-034 baseline
-  stub `brazil_haiti_2026` plus
-  `canada_qatar_2026`, `czech_republic_south_africa_2026`,
-  `mexico_south_korea_2026`, `scotland_morocco_2026`,
-  `switzerland_bosnia_and_herzegovina_2026`, `turkey_paraguay_2026`,
-  `united_states_australia_2026`, and `uzbekistan_colombia_2026`. The default
-  40/30/30 forecast applies to all of those except
-  `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
-  T-039 now supplies runtime World Football Elo ratings from an auditable cache.
-  T-038 added the source-cache contract and one partial Squad & Style sample.
-  T-033 now exposes briefing freshness, so T-031 should focus on replacing or
-  explicitly preserving unavailable states for the remaining active match
-  metric gaps under the T-035 source policy.
+- No tasks currently queued.
 
 ## Backlog
 
@@ -42,6 +27,30 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   deleted after React/FastAPI live deployment is verified.
 
 ## Done
+
+- [x] **T-031 - Active Match Metrics Completion**
+  Owner: Data Pipeline Engineer
+  Completed: 2026-06-19
+  Notes: Preserved unavailable active `team_metrics` gaps under the T-035 source
+  policy without rewriting curated `data/matches/**/metrics.json` files.
+  Extended the T-038 squad/style source-cache pattern with explicit missing rows
+  for the remaining active metric-gap teams, so `/api/match/{id}/metrics`
+  exposes machine-readable `missing_reasons` and per-field `source_cache_status`
+  for unsupported local values. The only source-backed Squad & Style values
+  remain Brazil `squad_market_value_m` and `average_age`; all other active empty
+  team-metric fields are intentionally `missing` until an approved source-cache
+  collector supplies auditable records. Default 40/30/30 forecasts remain
+  `default_forecast`, including `brazil_haiti_2026` and the listed empty/default
+  fixtures except `switzerland_bosnia_and_herzegovina_2026`, which keeps its
+  non-default stored forecast.
+  Verify: `python3 src/pipeline/collect_squad_style_sources.py`;
+  `python3 -m json.tool data/source_cache/squad_style/latest_metrics.json`;
+  direct API smoke for `canada_qatar_2026`, `brazil_haiti_2026`,
+  `switzerland_bosnia_and_herzegovina_2026`, and `argentina_algeria_2026`;
+  `python3 -m compileall -q src`; `npm --prefix src/frontend run build`;
+  `git diff --check`.
+  Decision: docs/decisions/20260619_DEC022_active_metric_gap_preservation.md
+  Handoff: docs/handoffs/2026-06-19_data_pipeline_t031_active_metric_gap_preservation.md
 
 - [x] **T-033 - Briefing API and Match Analysis Freshness UI**
   Owner: Data Pipeline Engineer / Frontend Engineer

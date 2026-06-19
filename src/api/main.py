@@ -537,6 +537,8 @@ def build_team_metric_quality(
                 "source_name": source_metadata.get("source_name"),
                 "checked_at_utc": source_metadata.get("checked_at_utc"),
                 "source_cache_status": source_metadata.get("status"),
+                "missing_reasons": source_metadata.get("missing_reasons", []),
+                "blocked_reasons": source_metadata.get("blocked_reasons", []),
                 "value": None,
                 "message": "No stored or source-backed field value is available from the current squad/style source cache.",
             }
@@ -552,6 +554,9 @@ def build_team_metric_quality(
             "source_backed_field_count": 0,
             "static_field_count": 0,
             "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
+            "source_cache_status": source_metadata.get("status"),
+            "missing_reasons": source_metadata.get("missing_reasons", []),
+            "blocked_reasons": source_metadata.get("blocked_reasons", []),
             "missing_fields": missing_fields,
             "source_backed_fields": [],
             "static_fields": [],
@@ -674,20 +679,21 @@ def build_metrics_data_quality(
 
     team_metrics = metrics_data.get("team_metrics") or {}
     team_metric_sources = (team_metric_source_data or {}).get("teams", {})
+    team_metric_team_metadata = (team_metric_source_data or {}).get("team_metadata", {})
     team_metric_source_metadata = (team_metric_source_data or {}).get("metadata", {})
     teams_with_manifest_rows = set(
         team_metric_source_metadata.get("teams_with_manifest_rows", [])
     )
-    team1_source_metadata = (
-        team_metric_source_metadata
-        if team1 in teams_with_manifest_rows or team1 in team_metric_sources
-        else {}
-    )
-    team2_source_metadata = (
-        team_metric_source_metadata
-        if team2 in teams_with_manifest_rows or team2 in team_metric_sources
-        else {}
-    )
+
+    def source_metadata_for_team(team: str) -> dict:
+        if team_metric_team_metadata.get(team):
+            return team_metric_team_metadata[team]
+        if team in teams_with_manifest_rows or team in team_metric_sources:
+            return team_metric_source_metadata
+        return {}
+
+    team1_source_metadata = source_metadata_for_team(team1)
+    team2_source_metadata = source_metadata_for_team(team2)
     team_quality = {
         team1: build_team_metric_quality(
             team_metrics,

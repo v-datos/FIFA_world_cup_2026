@@ -1,27 +1,38 @@
 {
   "metadata": {
     "schema_version": "1.0",
-    "task": "T-038",
+    "task": "T-031",
     "source_label": "web_researched",
-    "source_name": "Transfermarkt national-team profile headers",
+    "source_name": "Transfermarkt national-team profile headers plus T-031 local source-cache audit",
     "collection_method": "static_source_manifest",
     "parser_version": "squad_style_static_manifest_v1",
     "status": "partial",
-    "checked_at_utc": "2026-06-19T07:56:49Z",
-    "team_count": 2,
+    "checked_at_utc": "2026-06-19T13:57:52Z",
+    "team_count": 18,
     "field_record_count": 2,
     "warnings": [
-      "Initial cache covers only Brazil squad_market_value_m and average_age for brazil_haiti_2026.",
-      "No auditable Haiti national-team Transfermarkt profile was identified during the T-038 check, so Haiti squad/style fields remain missing.",
+      "Only Brazil has source-backed squad_market_value_m and average_age records in this cache.",
+      "T-031 adds explicit missing rows for active empty team_metrics fixtures where no approved local source-cache record exists.",
+      "No data/matches/**/metrics.json files are rewritten by this cache.",
+      "Default 40/30/30 forecasts remain default_forecast and should not be displayed as model probabilities.",
       "Style and performance fields remain hardcoded_reference when stored metrics exist and missing where they do not.",
       "Transfermarkt market values are estimates and should be treated as source-backed reference values, not official squad valuations."
     ],
-    "blocked_reasons": ["haiti_transfermarkt_profile_not_identified"]
+    "blocked_reasons": [],
+    "missing_reasons": [
+      "no_approved_local_squad_style_source_cache_for_remaining_active_metric_gaps"
+    ]
   },
   "teams": [
     {
       "team": "Brazil",
       "fixture_ids": ["brazil_haiti_2026"],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt",
+      "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
+      "checked_at_utc": "2026-06-19T07:56:49Z",
+      "missing_reasons": ["source_cache_only_contains_squad_header_fields"],
       "fields": {
         "squad_market_value_m": {
           "value": 928.2,
@@ -52,6 +63,171 @@
     {
       "team": "Haiti",
       "fixture_ids": ["brazil_haiti_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache", "haiti_transfermarkt_profile_not_identified"],
+      "fields": {}
+    },
+    {
+      "team": "Canada",
+      "fixture_ids": ["canada_qatar_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Qatar",
+      "fixture_ids": ["canada_qatar_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Czech Republic",
+      "fixture_ids": ["czech_republic_south_africa_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "South Africa",
+      "fixture_ids": ["czech_republic_south_africa_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Mexico",
+      "fixture_ids": ["mexico_south_korea_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "South Korea",
+      "fixture_ids": ["mexico_south_korea_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Scotland",
+      "fixture_ids": ["scotland_morocco_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Morocco",
+      "fixture_ids": ["scotland_morocco_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Switzerland",
+      "fixture_ids": ["switzerland_bosnia_and_herzegovina_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "fixture_ids": ["switzerland_bosnia_and_herzegovina_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Turkey",
+      "fixture_ids": ["turkey_paraguay_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Paraguay",
+      "fixture_ids": ["turkey_paraguay_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "United States",
+      "fixture_ids": ["united_states_australia_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Australia",
+      "fixture_ids": ["united_states_australia_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Uzbekistan",
+      "fixture_ids": ["uzbekistan_colombia_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "fields": {}
+    },
+    {
+      "team": "Colombia",
+      "fixture_ids": ["uzbekistan_colombia_2026"],
+      "status": "missing",
+      "source_label": "missing",
+      "source_name": "T-031 local source-cache audit",
+      "checked_at_utc": "2026-06-19T13:57:52Z",
+      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
       "fields": {}
     }
   ]

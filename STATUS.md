@@ -1,5 +1,65 @@
 # STATUS
 
+## 2026-06-19 - T-031 Active Match Metrics Completion Completed
+
+Prepared by: Data Pipeline Engineer
+
+### Current State
+
+- T-031 is complete as an explicit unavailable-state preservation pass.
+- No broad scraping was performed, and no checked-in
+  `data/matches/**/metrics.json` fixture payloads were rewritten.
+- The Squad & Style source cache now includes explicit missing rows for all
+  active empty `team_metrics` gap teams, so API consumers can distinguish
+  "checked locally and unavailable" from "cache missing or unchecked."
+- The only source-backed Squad & Style values remain Brazil
+  `squad_market_value_m` and `average_age` for `brazil_haiti_2026`.
+- Default 40/30/30 forecasts remain `default_forecast` and unavailable; the
+  Switzerland vs Bosnia and Herzegovina fixture keeps its non-default stored
+  forecast while its team metrics remain missing.
+
+### What Changed
+
+- Extended `src.analytics.squad_style_sources` to return per-team manifest
+  metadata for rows that have no source-backed field records.
+- Updated `/api/match/{id}/metrics.data_quality.team_metrics[*]` missing states
+  to include row-level `source_cache_status`, `missing_reasons`, and
+  `blocked_reasons`.
+- Expanded `data/source_cache/squad_style/latest_metrics.json` from the T-038
+  Brazil/Haiti sample into an 18-team T-031 manifest covering the active
+  empty-metric gaps with explicit `missing` rows.
+- Added DEC022:
+  `docs/decisions/20260619_DEC022_active_metric_gap_preservation.md`.
+- Added handoff:
+  `docs/handoffs/2026-06-19_data_pipeline_t031_active_metric_gap_preservation.md`.
+
+### Verification
+
+- `python3 src/pipeline/collect_squad_style_sources.py`
+- `python3 -m json.tool data/source_cache/squad_style/latest_metrics.json`
+- Direct API smoke:
+  - `canada_qatar_2026`: forecast `unavailable/default_forecast`; Canada and
+    Qatar team metrics `missing` with
+    `no_approved_local_squad_style_source_cache`.
+  - `brazil_haiti_2026`: forecast `unavailable/default_forecast`; Brazil
+    partial with 2 source-backed fields; Haiti explicitly missing.
+  - `switzerland_bosnia_and_herzegovina_2026`: forecast
+    `available/hardcoded_reference`; both team metric profiles missing.
+  - `argentina_algeria_2026`: full local profiles remain
+    `hardcoded_reference`.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build`
+- `git diff --check`
+
+### Routing
+
+- Next project step: **T-030 - Streamlit Legacy Disposition**.
+- Future Squad & Style value completion should add reviewed field-level source
+  records to the source cache or a documented collector; unsupported fields
+  should stay `missing` rather than being inferred from local profile defaults.
+
+---
+
 ## 2026-06-19 - T-033 Briefing API and Match Analysis Freshness UI Completed
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
