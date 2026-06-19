@@ -823,8 +823,8 @@ For T-024, completion means:
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after T-032:
+Suggested next Orchestrator assignments after the T-039 rating-source closeout:
 
-1. T-036 - Source-Backed Research Collector Prototype.
-2. T-039 - No-Cost Football Data Source Spike.
-3. T-038 - Source-Backed Squad & Style Metrics Integration.
+1. T-038 - Source-Backed Squad & Style Metrics Integration.
+2. T-033 - Briefing API and Match Analysis Freshness UI.
+3. T-029 - Deployment and Operations Runbook Refresh.

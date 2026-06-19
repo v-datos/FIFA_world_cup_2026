@@ -2,7 +2,7 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 Profile: software-app
 
 ## Mission
@@ -43,6 +43,8 @@ operating documents, data contracts, and task routing.
   T-032 safe briefing pipeline. Source-backed research content or a future
   research cache must follow T-035 source-policy decisions for scraping,
   browser automation, or provider integration.
+- Source-backed rating cache: World Football Elo TSV snapshots and parsed
+  ratings in `data/source_cache/world_football_elo/`, collected by T-039.
 
 ## Data Source Rules
 
@@ -185,6 +187,8 @@ Roles are defined in `AGENTS.md`.
 - The data pipeline can be run safely with preview/diff behavior before writes.
 - The Orchestrator can assign work from `TASKS.md` without re-auditing the repo.
 - Local verification and deployment verification are separate and documented.
+- Documentation has a clutter map so current-facing docs are distinct from
+  historical decisions, handoffs, and initial setup context.
 
 ## Open Questions
 
@@ -211,6 +215,13 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-17 | Add Active Fixture Discovery and Baseline Stubs | Orchestrator | docs/decisions/20260617_DEC009_active_fixture_discovery_stubs.md |
 | 2026-06-18 | Adopt Model and Provenance Truth Labels | Orchestrator | docs/decisions/20260618_DEC010_model_provenance_truth_labels.md |
 | 2026-06-18 | Approve AI Research Source Policy | Orchestrator | docs/decisions/20260618_DEC011_ai_research_source_policy.md |
+| 2026-06-18 | Adopt Shared Team Identity Contract | Orchestrator | docs/decisions/20260618_DEC012_team_identity_contract.md |
+| 2026-06-18 | Render Fallback and Missing Data as Unavailable | Orchestrator | docs/decisions/20260618_DEC013_fallback_rendering_contract.md |
+| 2026-06-18 | Add Fixture Lifecycle Filter for Last-Minute Analysis | Orchestrator | docs/decisions/20260618_DEC014_fixture_lifecycle_filter.md |
+| 2026-06-18 | Adopt Task Completion Commit and Push Closeout | Orchestrator | docs/decisions/20260618_DEC015_task_completion_closeout.md |
+| 2026-06-18 | Seeded Monte Carlo Tournament Simulation | Orchestrator | docs/decisions/20260618_DEC016_real_monte_carlo_simulation.md |
+| 2026-06-19 | World Football Elo Cache for No-Cost Rating Inputs | Orchestrator | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
+| 2026-06-19 | Documentation Clutter Map and Retention Rules | Orchestrator | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
 
 ## Risks
 
@@ -221,7 +232,7 @@ Roles are defined in `AGENTS.md`.
 | Team-name parsing breaks multi-word countries | High | Centralize aliases and normalize identity across API, generator, and frontend | Data Pipeline Engineer |
 | Forecasts fall back to 40/30/30 without operator visibility | Medium | Render as "forecast unavailable" per T-035 and add source labels | Frontend Engineer |
 | Empty `team_metrics` render misleading neutral charts | Medium | Add schema validation and incomplete-data UI states | QA / Frontend Engineer |
-| "Monte Carlo" wording overstates current deterministic formula | Medium | Replace with real Monte Carlo simulation in T-037 | Football Data Scientist / Data Pipeline Engineer |
+| Historical docs/handoffs contain superseded Streamlit, deterministic-projection, or hardcoded-rating wording | Medium | Use current-facing docs first and maintain the T-041 documentation clutter audit | Orchestrator |
 | AI research collector scrapes or publishes without retained source metadata | High | Follow T-035 source policy and retain source records/snapshots | Orchestrator |
 | Live deployment status diverges from local code | Medium | Add deployment verification and status snapshot checklist | QA / Orchestrator |
 | BigQuery-backed visualizations fail without credentials | Medium | Keep proxy disclosure and add credential-aware error handling | Data Pipeline Engineer |

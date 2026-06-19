@@ -1,6 +1,6 @@
 # AI Research Source Policy and Data Intake Architecture
 
-Last updated: 2026-06-18  
+Last updated: 2026-06-19
 Task: T-035 - AI Research Source Policy and Data Intake Architecture  
 Owner: Orchestrator  
 Reviewers: Football Data Scientist, Data Pipeline Engineer, Frontend Engineer, QA / Reproducibility Engineer

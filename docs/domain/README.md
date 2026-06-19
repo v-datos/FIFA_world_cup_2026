@@ -1,6 +1,6 @@
 # Domain Knowledge - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 
 This document summarizes the current product/domain model. Detailed JSON/API
 contracts are documented in `docs/data_contracts.md`.

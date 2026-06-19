@@ -7,9 +7,10 @@
 An interactive web analytics dashboard for monitoring, forecasting, and reviewing matches in the FIFA World Cup 2026.
 
 The dashboard integrates live tournament APIs, curated per-match baseline JSON,
-Elo-derived forecasting, and historical BigQuery/StatsBomb proxy visualizations
-into a responsive React/FastAPI application. Source-backed AI matchday research
-is planned under the approved T-035 source policy.
+cache-backed World Football Elo rating inputs, Elo-derived forecasting, and
+historical BigQuery/StatsBomb proxy visualizations into a responsive
+React/FastAPI application. Source-backed AI matchday research is implemented as
+draft collector/briefing artifacts under the approved T-035 source policy.
 
 **Live Dashboard:** [https://accionar.xyz/dashboards/fifa-2026/](https://accionar.xyz/dashboards/fifa-2026/)
 
@@ -17,11 +18,11 @@ is planned under the approved T-035 source policy.
 
 - **Tournament Board & Painters-Tape Bracket**: Fully interactive knockout stage bracket rendering real-time results directly from the tournament API, alongside live Group Stage standings sorted dynamically by points, goal difference, and goals scored.
 - **Match of the Day Tactical Previews**: Static curated baseline summaries (headlines, formations, systems, injuries, and 3 match-specific insights) for active local fixture folders.
-- **Mathematical Forecaster**: Elo-derived Poisson forecast with Dixon-Coles low-score adjustment, using local rating inputs when available and explicit default fallback handling where missing.
-- **Tournament Progression Estimates**: Currently deterministic Elo-based round progression estimates. T-037 will replace this with a real Monte Carlo simulation.
+- **Mathematical Forecaster**: Elo-derived Poisson forecast with Dixon-Coles low-score adjustment, using cache-backed World Football Elo rating inputs where available and explicit default fallback handling where missing.
+- **Tournament Progression Simulation**: Seeded random-trial Monte Carlo tournament simulation with 10,000 default trials, source metadata, and neutral fallback handling where a team rating is unavailable.
 - **Squad Style & Metric Comparison**: Visualizes team-by-team tactical KPIs from local metric profiles and hardcoded references today; T-038 will move this to source-backed metrics where provider coverage allows.
 - **Bespoke Visualizations**: Renders historical StatsBomb proxy plots including xG distribution comparisons, passing networks, shot maps, touch heatmaps, and progressive action maps using `mplsoccer`.
-- **Last-Minute Briefing Pipeline**: `briefing.json` matchday artifacts are generated separately from baseline previews, with source/freshness validation and blocked states for incomplete data. Source-backed injuries, lineups, roster changes, and tactical news remain routed to T-036.
+- **Last-Minute Briefing Pipeline**: `briefing.json` matchday artifacts are generated separately from baseline previews, with source/freshness validation and blocked states for incomplete data. Source-backed research collection exists as draft `research_cache.json` output; full briefing API/UI display remains routed to T-033.
 - **Spanish Translation Toggle**: Seamless switcher at the top of the Match Analysis panel to translate labels and Match Analysis content between English and Español.
 
 ## Running Locally
@@ -70,6 +71,12 @@ python3 src/pipeline/generate_match_briefings.py --dry-run --window-hours 3
 ```
 
 See `docs/last_minute_briefing_plan.md` before changing generation behavior.
+
+Refresh no-cost national-team ratings through the audited cache collector:
+
+```bash
+python3 src/pipeline/collect_rating_sources.py --write
+```
 
 For tournament progression, missing fixture folders should be created through
 `src/pipeline/discover_active_fixtures.py`, not by manually copying old match

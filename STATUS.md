@@ -1,5 +1,65 @@
 # STATUS
 
+## 2026-06-19 - T-041 Documentation Clutter Audit Completed
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-041 is complete.
+- Added `docs/documentation_clutter_audit.md` as the current documentation map.
+- Added DEC018 to make the documentation retention rule durable.
+- Current-facing docs were corrected where they drifted after T-037/T-039.
+- No decision or handoff records were deleted; they remain historical audit
+  records and may contain facts superseded by newer tasks.
+
+### What Changed
+
+- Updated `README.md` to describe active seeded Monte Carlo and World Football
+  Elo cache-backed ratings.
+- Updated `docs/DEVELOPER_PLAYBOOK.md` to remove stale deterministic
+  progression and multi-word parsing caveats.
+- Updated `docs/data_contracts.md` next-step routing to T-038, T-033, and
+  T-029.
+- Marked `PROJECT_CONTEXT.md` as initial setup context, not current
+  architecture.
+- Updated `PROJECT_CHARTER.md`, `TASKS.md`, and `docs/phase_plan.md` with the
+  documentation clutter audit and DEC018.
+- Added handoff:
+  `docs/handoffs/2026-06-19_orchestrator_t041_documentation_clutter_audit.md`.
+
+### Audit Finding
+
+The documentation set is large but usable if agents follow the current-first
+reading order:
+
+1. `PROJECT_CHARTER.md`
+2. `AGENTS.md`
+3. `TASKS.md`
+4. `STATUS.md`
+5. `docs/phase_plan.md`
+6. `docs/data_contracts.md`
+7. `docs/model_provenance.md`
+8. `docs/DEVELOPER_PLAYBOOK.md`
+
+Historical decisions and handoffs should be treated as dated records, not
+current-state summaries.
+
+### Verification
+
+- `git diff --check`
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build`
+
+### Routing
+
+- Next project step remains **T-038 - Source-Backed Squad & Style Metrics
+  Integration**.
+- Documentation-adjacent queued work remains T-029 deployment/ops runbook
+  refresh and T-030 Streamlit legacy disposition.
+
+---
+
 ## 2026-06-19 - T-039 No-Cost Football Data Source Spike Completed
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist

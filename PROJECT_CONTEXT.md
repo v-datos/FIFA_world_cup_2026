@@ -1,5 +1,10 @@
 # Project Context: FIFA World Cup 2026 Analytical Dashboard
 
+Status: Initial setup context. This file is retained as background only and is
+not the current architecture source of truth. For current runtime, data
+contracts, and task routing, use `PROJECT_CHARTER.md`, `TASKS.md`, `STATUS.md`,
+`docs/phase_plan.md`, and `docs/data_contracts.md`.
+
 ## 1. Overview & Objective
 The goal is to build a high-performance web application tracking the live FIFA World Cup 2026. The application filters out media noise by combining advanced data science metrics with programmatic NLP news summaries. It serves a small, targeted user base (friends and family).
 

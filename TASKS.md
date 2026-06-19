@@ -70,6 +70,18 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-041 - Documentation Clutter Audit and Current-State Alignment**
+  Owner: Orchestrator
+  Completed: 2026-06-19
+  Notes: Added `docs/documentation_clutter_audit.md` as the current
+  documentation map, added DEC018 retention rules, marked `PROJECT_CONTEXT.md`
+  as initial context only, corrected stale README/playbook/data-contract
+  routing, and refreshed current-facing governance docs. No historical decision
+  or handoff files were deleted; they remain append-only audit records.
+  Verify: `git diff --check`; `python3 -m compileall -q src`;
+  `npm --prefix src/frontend run build`.
+  Handoff: docs/handoffs/2026-06-19_orchestrator_t041_documentation_clutter_audit.md
+
 - [x] **T-039 - No-Cost Football Data Source Spike**
   Owner: Data Pipeline Engineer / Football Data Scientist
   Completed: 2026-06-19
@@ -98,9 +110,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Round-of-32 bracket, and returns `group_advancement`, `r32`, `r16`, `qf`,
   `sf`, `final`, and `win` probabilities. `/api/match/{match_id}/metrics`
   defaults to 10,000 trials, accepts `simulation_count` and `seed`, exposes
-  `monte_carlo_metadata`, and labels current rating inputs as
-  `hardcoded_reference` with neutral fallback for teams missing local Elo
-  entries.
+  `monte_carlo_metadata`, and at T-037 closeout labeled rating inputs as
+  `hardcoded_reference`; T-039 later superseded that rating source caveat with
+  the World Football Elo cache.
   Verify: `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
   Handoff: docs/handoffs/2026-06-18_data_pipeline_t037_monte_carlo.md
 

@@ -2,7 +2,7 @@
 
 ## FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 
 This playbook describes the current local architecture and operating workflow.
 Older Streamlit instructions are legacy/reference unless explicitly called out.
@@ -356,10 +356,14 @@ Until that decision is updated, distinguish:
   it if not made safe.
 - Some active fixtures currently have empty `team_metrics`.
 - Some active forecasts currently use default `40/30/30` fallback outputs.
-- Multi-word team names are fragile in current parsing paths.
-- Current "Monte Carlo" projections are deterministic Elo-based estimates, not
-  a verified tournament-path simulation.
+- Do not create new team-name alias maps; use `data/reference/team_identity.json`
+  and the shared helpers.
+- Active FastAPI Monte Carlo projections are seeded random-trial simulations.
+  Legacy Streamlit/reference code may still contain older deterministic helpers.
 - BigQuery visualizations need credentials and use historical proxy matches.
+- Historical decisions, handoffs, and old STATUS entries can contain superseded
+  implementation descriptions. Current routing starts with `TASKS.md`,
+  `STATUS.md`, `docs/phase_plan.md`, and `docs/documentation_clutter_audit.md`.
 - The project should move toward source-backed AI research under the approved
   T-035 source policy.
 

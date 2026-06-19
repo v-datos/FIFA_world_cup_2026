@@ -7,7 +7,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-039 complete; route T-038 next | None |
+| Orchestrator | Routing | T-041 complete; route T-038 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
 | Data Pipeline Engineer | Queued | Source-backed Squad & Style metrics | None |
 | Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
@@ -62,6 +62,8 @@ agent roster, data contracts, task list, and deployment runbook.
   safety and source-status validation.
 - [x] Source-backed research collector prototype is implemented as a draft
   `research_cache.json` flow.
+- [x] Documentation clutter audit identifies current docs, historical records,
+  and initial-context files.
 - [x] Local verification passes:
   `python3 -m compileall -q src && npm --prefix src/frontend run build`.
 
@@ -253,6 +255,30 @@ Exit criteria:
 - [x] Runtime Elo and Monte Carlo metadata prefer source-backed cache values.
 - [x] Local hardcoded ratings remain fallback only when cache values are absent.
 
+## Completed Batch - Batch 14: Documentation Clutter Audit
+
+Owner: Orchestrator
+
+Scope:
+
+- Audit current Markdown/agent docs for stale current-state claims.
+- Separate current operating docs from historical decisions/handoffs.
+- Mark initial setup context as background-only.
+- Add durable retention rules for future documentation closeouts.
+
+Outputs:
+
+- `docs/documentation_clutter_audit.md`
+- `docs/decisions/20260619_DEC018_documentation_clutter_map.md`
+- `docs/handoffs/2026-06-19_orchestrator_t041_documentation_clutter_audit.md`
+
+Exit criteria:
+
+- [x] Current-facing stale claims found in README/playbook/contracts are fixed.
+- [x] Historical decisions and handoffs are retained as append-only records.
+- [x] Current-first reading order is documented.
+- [x] Next project step remains T-038.
+
 ## Completed Batch - Batch 7: Active Fixture Discovery & Baseline Stub Generation
 
 Owner: Data Pipeline Engineer
@@ -421,6 +447,7 @@ Outputs:
 | 2026-06-18 | Adopt Task Completion Commit and Push Closeout | docs/decisions/20260618_DEC015_task_completion_closeout.md |
 | 2026-06-18 | Seeded Monte Carlo Tournament Simulation | docs/decisions/20260618_DEC016_real_monte_carlo_simulation.md |
 | 2026-06-19 | Adopt World Football Elo Cache as No-Cost Rating Source | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
+| 2026-06-19 | Documentation Clutter Map and Retention Rules | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
 
 ## Open Blockers
 
