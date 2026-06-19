@@ -2,7 +2,7 @@
 
 ## 2026-06-19 - T-031 Active Match Metrics Completion Completed
 
-Prepared by: Data Pipeline Engineer
+Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist
 
 ### Current State
 
@@ -17,6 +17,9 @@ Prepared by: Data Pipeline Engineer
 - Default 40/30/30 forecasts remain `default_forecast` and unavailable; the
   Switzerland vs Bosnia and Herzegovina fixture keeps its non-default stored
   forecast while its team metrics remain missing.
+- Football Data Scientist methodology rule: unavailable Squad & Style fields
+  are a valid T-031 outcome when no approved source-cache record exists; they
+  must stay `missing` until replaced field by field by reviewed source records.
 
 ### What Changed
 

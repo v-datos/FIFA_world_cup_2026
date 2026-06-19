@@ -29,7 +29,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 ## Done
 
 - [x] **T-031 - Active Match Metrics Completion**
-  Owner: Data Pipeline Engineer
+  Owner: Data Pipeline Engineer / Football Data Scientist
   Completed: 2026-06-19
   Notes: Preserved unavailable active `team_metrics` gaps under the T-035 source
   policy without rewriting curated `data/matches/**/metrics.json` files.

@@ -10,7 +10,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 | Orchestrator | Routing | T-031 complete; route T-030 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
 | Data Pipeline Engineer | Complete | T-031 active metric gap preservation delivered | None |
-| Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
+| Football Data Scientist | Complete | T-031 missing-metric preservation reviewed | None |
 | Frontend Engineer | Complete | T-033 briefing freshness UI delivered | None |
 
 ## Phase 5 Objective
@@ -115,7 +115,7 @@ Exit criteria:
 
 ## Completed Batch - Batch 3: Last-Minute Briefing Generation Plan
 
-Owner: Data Pipeline Engineer
+Owners: Data Pipeline Engineer, Football Data Scientist
 
 Scope:
 

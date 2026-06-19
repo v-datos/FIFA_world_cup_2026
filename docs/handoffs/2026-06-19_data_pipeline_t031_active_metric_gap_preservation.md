@@ -2,7 +2,7 @@
 
 Date: 2026-06-19
 
-From: Data Pipeline Engineer
+From: Data Pipeline Engineer / Football Data Scientist
 
 To: Orchestrator
 
@@ -13,6 +13,12 @@ active empty Squad & Style metric gaps were not filled with invented values.
 Instead, the T-038 source-cache manifest now carries explicit missing rows for
 the affected active teams, and the API exposes those row-level missing reasons
 in data-quality metadata.
+
+The Football Data Scientist ownership decision is that explicit `missing` is
+the correct football-methodology outcome when no approved source-cache record
+exists under T-035. These fields should be replaced only by reviewed
+field-level source records, not by local profile defaults, historical proxies,
+or AI inference.
 
 ## Files Changed
 
