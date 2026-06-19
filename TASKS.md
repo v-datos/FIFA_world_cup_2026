@@ -5,7 +5,25 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## In Progress
 
-- No tasks currently in progress.
+- [ ] **T-042 - Live Deployment Execution and Docker Build Fix**
+  Owner: Orchestrator / Data Pipeline Engineer
+  Started: 2026-06-19
+  Notes: Executing the deployment the T-029 runbook flagged as a separate task.
+  Pre-flight found Cloud Run frozen at revision `fifa-2026-dashboard-00017-6z7`
+  (2026-06-17), which predates the T-027 identity contract (2026-06-18) -- this
+  is the root cause of the live drift. The first `gcloud builds submit` failed at
+  the Docker `frontend-builder` stage: `src/frontend/src/lib/teamIdentity.ts`
+  imports the repo-canonical `data/reference/team_identity.json` via a
+  `../../../../` path that the Docker stage did not include, so `tsc` raised
+  TS2307. The local `npm run build` gate did not catch it because it runs in the
+  real repo layout. Fixed the Dockerfile to mirror the repo layout inside the
+  `frontend-builder` stage (DEC023); the rebuilt Cloud Build passed the frontend
+  stage. Cloud Run smoke and `accionar.xyz` verification are pending before this
+  task is marked done.
+  Verify: `gcloud builds submit --config cloudbuild.yaml .`; post-deploy Cloud
+  Run smoke per `docs/deployment_verification_checklist.md`; `accionar.xyz`
+  read-only HTTP/browser checks; `git diff --check`.
+  Decision: docs/decisions/20260619_DEC023_docker_frontend_data_context.md
 
 ## Queued
 

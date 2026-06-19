@@ -7,7 +7,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-031 complete; route T-030 next | None |
+| Orchestrator | Deploying | T-042 live deployment execution; Docker build fix (DEC023) | Cloud Run/`accionar.xyz` verification |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
 | Data Pipeline Engineer | Complete | T-031 active metric gap preservation delivered | None |
 | Football Data Scientist | Complete | T-031 missing-metric preservation reviewed | None |
@@ -542,6 +542,7 @@ Outputs:
 | 2026-06-19 | Deployment and Operations Runbook | docs/decisions/20260619_DEC020_deployment_operations_runbook.md |
 | 2026-06-19 | Briefing API Freshness Contract | docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md |
 | 2026-06-19 | Active Metric Gap Preservation | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
+| 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
 
 ## Open Blockers
 

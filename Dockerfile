@@ -1,9 +1,12 @@
 # Stage 1: Build the React frontend
 FROM node:20 AS frontend-builder
-WORKDIR /build
+WORKDIR /build/src/frontend
 COPY src/frontend/package*.json ./
 RUN npm install
 COPY src/frontend/ ./
+# teamIdentity.ts imports the repo-canonical contract via ../../../../data/...,
+# so the data file must keep its position relative to src/frontend in the build.
+COPY data/reference/team_identity.json /build/data/reference/team_identity.json
 RUN npm run build
 
 # Stage 2: Build the Python backend and assemble
@@ -26,7 +29,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Copy built React frontend files to FastAPI static folder
-COPY --from=frontend-builder /build/dist /app/src/api/static
+COPY --from=frontend-builder /build/src/frontend/dist /app/src/api/static
 
 # Create non-root user for security
 RUN useradd -m appuser && chown -R appuser /app

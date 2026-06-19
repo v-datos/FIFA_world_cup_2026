@@ -77,6 +77,21 @@ This does not prove:
 - StatsBomb proxy visualization routes work.
 - External APIs are fresh or reachable.
 - Source-backed research caches were refreshed.
+- The Docker `frontend-builder` stage can build the frontend. The local gate
+  runs in the real repo, where `data/reference/team_identity.json` exists as a
+  sibling of `src/frontend/`. The Docker stage builds from an isolated context,
+  so a cross-boundary import can pass locally but fail the image build (DEC023).
+  Use a local `docker build` or Cloud Build for an authoritative frontend check.
+
+### Docker frontend build context (DEC023)
+
+`src/frontend/src/lib/teamIdentity.ts` imports the repo-canonical contract at
+`data/reference/team_identity.json` via `../../../../data/...`. The
+`frontend-builder` stage therefore sets `WORKDIR /build/src/frontend`, copies
+`data/reference/team_identity.json` to `/build/data/reference/team_identity.json`
+before `npm run build`, and the final stage copies assets from
+`/build/src/frontend/dist`. Any new frontend import that reaches outside
+`src/frontend/` must be mirrored into the Docker build context the same way.
 
 Known local warnings:
 

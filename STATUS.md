@@ -1,5 +1,58 @@
 # STATUS
 
+## 2026-06-19 - T-042 Live Deployment Execution In Progress
+
+Prepared by: Orchestrator
+
+### Current State
+
+- T-042 is in progress: executing the live deployment that the T-029 runbook
+  flagged as a separate operator task.
+- Root cause of the live drift identified: Cloud Run was frozen at revision
+  `fifa-2026-dashboard-00017-6z7` (deployed 2026-06-17), which predates the
+  T-027 team identity contract (2026-06-18). Every deploy since T-027 was
+  un-deployable, and none had been attempted until now.
+- The first Cloud Build failed at the Docker `frontend-builder` stage. The
+  frontend imports the repo-canonical `data/reference/team_identity.json` via
+  `../../../../data/...` in `src/frontend/src/lib/teamIdentity.ts`. The Docker
+  stage only copied `src/frontend/`, so `tsc -b` raised TS2307 and
+  `npm run build` exited non-zero.
+- The local `npm --prefix src/frontend run build` gate did not catch this
+  because it runs in the real repo where `data/` is a sibling of `src/frontend/`.
+- Fixed the Dockerfile to mirror the repo layout inside `frontend-builder`
+  (DEC023). The rebuilt Cloud Build passed the frontend stage and proceeded to
+  backend assembly, image push, and Cloud Run deploy.
+
+### Pending Verification
+
+- Cloud Run post-deploy smoke (expect 20 fixtures, `lifecycle`/source-status
+  fields, `brazil_haiti_2026` routes, and current `data_quality`/Monte
+  Carlo/Elo/Squad-Style provenance).
+- New revision holds 100% traffic.
+- `accionar.xyz/dashboards/fifa-2026/` serves the current dashboard surface.
+- Rollback anchor if smoke fails: route traffic back to
+  `fifa-2026-dashboard-00017-6z7`.
+
+### What Changed
+
+- Fixed `Dockerfile` `frontend-builder` stage to include the team identity
+  contract at its repo-relative path.
+- Added DEC023:
+  `docs/decisions/20260619_DEC023_docker_frontend_data_context.md`.
+- Added a Docker frontend build-context section and a "local gate does not prove
+  the Docker frontend build" caveat to
+  `docs/deployment_operations_runbook.md`.
+- Corrected stale T-033/T-038 future-tense feature notes in `README.md`.
+- Updated `TASKS.md`, `STATUS.md`, and `docs/phase_plan.md` for T-042.
+
+### Routing
+
+- Finish T-042 verification, then close it out with the live smoke results.
+- T-030 - Streamlit Legacy Disposition is unblocked once the live React/FastAPI
+  deployment is verified, since its precondition was a verified live deploy.
+
+---
+
 ## 2026-06-19 - T-031 Active Match Metrics Completion Completed
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist
