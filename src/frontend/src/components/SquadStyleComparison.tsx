@@ -3,6 +3,32 @@ import { getFlag } from '../lib/teamData';
 
 type MetricValue = number | string | null | undefined;
 type MetricRecord = Record<string, MetricValue>;
+type SourceRecord = {
+  status?: string;
+  state?: string;
+  source_status?: string;
+  source_label?: string;
+  source_name?: string;
+  source?: string;
+  label?: string;
+  provenance?: string;
+  provenance_label?: string;
+  message?: string;
+  note?: string;
+  url?: string;
+  source_url?: string;
+  retrieved_at?: string;
+  reviewed_at?: string;
+  updated_at?: string;
+  checked_at_utc?: string;
+  retrieval_method?: string;
+  approximation?: boolean;
+  approximation_note?: string;
+};
+type TeamMetricQuality = SourceRecord & {
+  missing_fields?: unknown;
+  field_sources?: Record<string, unknown>;
+};
 
 interface Props {
   team1: string;
@@ -11,12 +37,8 @@ interface Props {
   metrics2?: MetricRecord;
   elo1?: number | null;
   elo2?: number | null;
-  metricQuality?: Record<string, {
-    status?: string;
-    source_label?: string;
-    message?: string;
-    missing_fields?: string[];
-  }>;
+  metricQuality?: Record<string, TeamMetricQuality>;
+  fieldSourceCandidates?: Array<Record<string, unknown> | undefined>;
   lang: string;
 }
 
@@ -29,6 +51,112 @@ type Row = {
   dec: number;
   lowerIsBetter?: boolean;
   neutral?: boolean;
+  sourceKeys?: string[];
+};
+
+type FieldState = SourceRecord & {
+  unavailable?: boolean;
+  approximate?: boolean;
+};
+
+const isRecord = (value: unknown): value is Record<string, unknown> => (
+  typeof value === 'object' && value !== null && !Array.isArray(value)
+);
+
+const cleanText = (value: unknown): string | undefined => (
+  typeof value === 'string' && value.trim() ? value.trim() : undefined
+);
+
+const sourceFromUnknown = (value: unknown): SourceRecord | undefined => {
+  if (typeof value === 'string') {
+    return { source_label: value };
+  }
+  if (!isRecord(value)) return undefined;
+
+  const source: SourceRecord = {
+    status: cleanText(value.status),
+    state: cleanText(value.state),
+    source_status: cleanText(value.source_status),
+    source_label: cleanText(value.source_label),
+    source_name: cleanText(value.source_name),
+    source: cleanText(value.source),
+    label: cleanText(value.label),
+    provenance: cleanText(value.provenance),
+    provenance_label: cleanText(value.provenance_label),
+    message: cleanText(value.message),
+    note: cleanText(value.note),
+    url: cleanText(value.url),
+    source_url: cleanText(value.source_url),
+    retrieved_at: cleanText(value.retrieved_at),
+    reviewed_at: cleanText(value.reviewed_at),
+    updated_at: cleanText(value.updated_at),
+    checked_at_utc: cleanText(value.checked_at_utc),
+    retrieval_method: cleanText(value.retrieval_method),
+    approximation: typeof value.approximation === 'boolean' ? value.approximation : undefined,
+    approximation_note: cleanText(value.approximation_note),
+  };
+
+  return Object.values(source).some(Boolean) ? source : undefined;
+};
+
+const sourceWords = (source?: SourceRecord): string => (
+  [
+    source?.status,
+    source?.state,
+    source?.source_status,
+    source?.source_label,
+    source?.source,
+    source?.label,
+    source?.provenance,
+    source?.provenance_label,
+  ].filter(Boolean).join(' ').toLowerCase()
+);
+
+const fieldMarkedMissing = (quality: TeamMetricQuality | undefined, fieldKeys: string[]): boolean => {
+  const missing = quality?.missing_fields;
+  if (Array.isArray(missing)) {
+    return fieldKeys.some((field) => missing.includes(field));
+  }
+  if (!isRecord(missing)) return false;
+
+  return fieldKeys.some((field) => {
+    const marker = missing[field];
+    if (typeof marker === 'boolean') return marker;
+    if (typeof marker === 'string') return ['missing', 'unavailable', 'unsupported'].includes(marker.toLowerCase());
+    return false;
+  });
+};
+
+const findFieldSource = (
+  sourceMap: Record<string, unknown> | undefined,
+  team: string,
+  fieldKeys: string[],
+): SourceRecord | undefined => {
+  if (!sourceMap) return undefined;
+
+  const teamRecord = sourceMap[team];
+  if (isRecord(teamRecord)) {
+    for (const field of fieldKeys) {
+      const source = sourceFromUnknown(teamRecord[field]);
+      if (source) return source;
+    }
+  }
+
+  for (const field of fieldKeys) {
+    const fieldRecord = sourceMap[field];
+    if (isRecord(fieldRecord)) {
+      const source = sourceFromUnknown(fieldRecord[team]);
+      if (source) return source;
+    }
+
+    const directSource = sourceFromUnknown(fieldRecord);
+    if (directSource) return directSource;
+
+    const dottedSource = sourceFromUnknown(sourceMap[`${team}.${field}`]);
+    if (dottedSource) return dottedSource;
+  }
+
+  return undefined;
 };
 
 export const SquadStyleComparison: React.FC<Props> = ({
@@ -39,6 +167,7 @@ export const SquadStyleComparison: React.FC<Props> = ({
   elo1,
   elo2,
   metricQuality = {},
+  fieldSourceCandidates = [],
   lang,
 }) => {
   const es = lang === 'Español';
@@ -54,7 +183,7 @@ export const SquadStyleComparison: React.FC<Props> = ({
     { label: es ? 'Posesión Media' : 'Average Possession', key: 'possession_avg', suffix: '%', dec: 1 },
     { label: es ? 'Valor de Plantilla' : 'Squad Market Value', key: 'squad_market_value_m', prefix: '€', suffix: 'M', dec: 1 },
     { label: es ? 'Edad Media' : 'Average Age', key: 'average_age', suffix: ' yrs', dec: 1, neutral: true },
-    { label: es ? 'Clasificación Club Elo' : 'Club Elo Rating', elo: true, dec: 0 },
+    { label: es ? 'World Football Elo' : 'World Football Elo Rating', elo: true, dec: 0, sourceKeys: ['world_football_elo', 'elo_rating', 'club_elo_rating', 'club_elo'] },
     { label: es ? 'Goles / 90' : 'Goals / 90', key: 'goals_per_90', dec: 2 },
     { label: es ? 'Goles Concedidos / 90' : 'Goals Conceded / 90', key: 'goals_conceded_per_90', dec: 2, lowerIsBetter: true },
     { label: es ? 'Goles Esperados (xG) / 90' : 'Expected Goals (xG) / 90', key: 'expected_goals_per_90', dec: 2 },
@@ -86,14 +215,158 @@ export const SquadStyleComparison: React.FC<Props> = ({
     return `${row.prefix ?? ''}${v.toFixed(row.dec)}${row.suffix ?? ''}`;
   };
 
+  const rowSourceKeys = (row: Row): string[] => (
+    row.sourceKeys || (row.key ? [row.key] : [])
+  );
+
+  const resolveFieldState = (team: string, row: Row, value: number | null): FieldState => {
+    const fieldKeys = rowSourceKeys(row);
+    const quality = metricQuality[team];
+    const fieldSource = fieldKeys
+      .map((field) => sourceFromUnknown(quality?.field_sources?.[field]))
+      .find((source): source is SourceRecord => Boolean(source));
+    const candidateSource = fieldSourceCandidates
+      .map((candidate) => findFieldSource(candidate, team, fieldKeys))
+      .find((source): source is SourceRecord => Boolean(source));
+    const source = fieldSource || candidateSource;
+    const words = sourceWords(source);
+    const qualityWords = sourceWords(quality);
+    const unavailable = (
+      value === null ||
+      fieldMarkedMissing(quality, fieldKeys) ||
+      /missing|unavailable|unsupported|blocked/.test(words) ||
+      /missing|unavailable|unsupported|blocked/.test(qualityWords)
+    );
+
+    if (unavailable) {
+      return {
+        ...(source || quality || {}),
+        status: source?.status || quality?.status || 'missing',
+        source_label: source?.source_label || quality?.source_label || 'missing',
+        message: source?.message || quality?.message || (es
+          ? 'Este campo no tiene una métrica disponible para este equipo.'
+          : 'This field has no available metric for this team.'),
+        unavailable: true,
+      };
+    }
+
+    if (source) return source;
+
+    if (row.elo) {
+      return {
+        status: 'reference',
+        source_label: 'hardcoded_reference',
+        message: es
+          ? 'Valor local de referencia Elo; no es una fuente en vivo.'
+          : 'Local Elo reference value; not a live source feed.',
+        approximate: true,
+      };
+    }
+
+    if (quality?.status || quality?.source_label || quality?.message) {
+      return {
+        status: quality.status,
+        source_label: quality.source_label,
+        message: quality.message || (es
+          ? 'Sin fuente de campo específica; se muestra con la calidad general del equipo.'
+          : 'No field-specific source; shown with the team-level quality state.'),
+        approximate: true,
+      };
+    }
+
+    return {
+      status: 'approximate',
+      source_label: 'approximate',
+      message: es
+        ? 'Sin metadatos de fuente a nivel de campo todavía.'
+        : 'No field-level source metadata is available yet.',
+      approximate: true,
+    };
+  };
+
+  const fieldStateKind = (source: FieldState): 'missing' | 'unsupported' | 'blocked' | 'approximate' | 'sourced' | 'reference' => {
+    const words = sourceWords(source);
+    if (/unsupported/.test(words)) return 'unsupported';
+    if (/blocked/.test(words)) return 'blocked';
+    if (source.unavailable || /missing|unavailable/.test(words)) return 'missing';
+    if (/hardcoded_reference|reference/.test(words)) return 'reference';
+    if (source.approximate || source.approximation || /default_forecast|proxy_historical|static_curated|approx|estimate|fallback|curated|partial/.test(words)) return 'approximate';
+    return 'sourced';
+  };
+
+  const badgeText = (source: FieldState): string => {
+    const kind = fieldStateKind(source);
+    if (kind === 'unsupported') return es ? 'sin dato' : 'unsupported';
+    if (kind === 'blocked') return es ? 'bloq.' : 'blocked';
+    if (kind === 'missing') return es ? 'faltante' : 'missing';
+    if (kind === 'reference') return 'ref';
+    if (kind === 'approximate') return es ? 'aprox.' : 'approx';
+
+    const label = source.source_label || source.source || source.label || source.provenance_label;
+    if (!label) return es ? 'fuente' : 'sourced';
+    return label.replace(/_/g, ' ').slice(0, 14);
+  };
+
+  const badgeClass = (source: FieldState): string => {
+    const kind = fieldStateKind(source);
+    if (kind === 'sourced') return 'border-emerald-500/25 bg-emerald-500/10 text-emerald-300';
+    if (kind === 'missing' || kind === 'unsupported' || kind === 'blocked') {
+      return 'border-amber-500/25 bg-amber-500/10 text-amber-200';
+    }
+    return 'border-slate-600/40 bg-slate-800/45 text-slate-300';
+  };
+
+  const sourceTitle = (team: string, row: Row, source: FieldState): string => (
+    [
+      `${team} · ${row.label}`,
+      `State: ${source.status || source.state || source.source_label || 'source'}`,
+      source.source_label && `Source: ${source.source_label.replace(/_/g, ' ')}`,
+      source.source_name && `Source name: ${source.source_name}`,
+      source.message || source.note,
+      source.approximation_note && `Approximation: ${source.approximation_note}`,
+      source.source_url || source.url,
+      source.checked_at_utc && `Checked: ${source.checked_at_utc}`,
+      source.retrieval_method && `Method: ${source.retrieval_method}`,
+      source.retrieved_at && `Retrieved: ${source.retrieved_at}`,
+      source.reviewed_at && `Reviewed: ${source.reviewed_at}`,
+      source.updated_at && `Updated: ${source.updated_at}`,
+    ].filter(Boolean).join('\n')
+  );
+
+  const renderValue = (
+    team: string,
+    row: Row,
+    value: number | null,
+    better: boolean,
+    align: 'left' | 'right',
+  ) => {
+    const fieldState = resolveFieldState(team, row, value);
+    const displayValue = fieldState.unavailable ? '—' : fmt(row, value);
+    const color = better
+      ? (align === 'left' ? 'text-emerald-400' : 'text-rose-400')
+      : (fieldState.unavailable ? 'text-slate-500' : 'text-slate-300');
+
+    return (
+      <span className={`min-w-0 flex items-center gap-1.5 ${align === 'right' ? 'justify-end text-right' : 'justify-start text-left'}`}>
+        <span className={`font-mono text-sm font-bold ${color}`}>{displayValue}</span>
+        <span
+          className={`shrink-0 max-w-20 truncate rounded border px-1 py-0.5 text-[8px] font-bold uppercase tracking-wide ${badgeClass(fieldState)}`}
+          title={sourceTitle(team, row, fieldState)}
+        >
+          {badgeText(fieldState)}
+        </span>
+      </span>
+    );
+  };
+
   return (
     <div className="w-full h-full glass-panel p-5 flex flex-col">
       <h3 className="text-lg font-bold text-slate-100">
         {es ? 'Comparación de Plantilla y Estilo' : 'Squad & Style Comparison'}
       </h3>
-      <p className="text-xs text-slate-400 mb-4">{sourceLabel}</p>
+      <p className="text-xs text-slate-400">{sourceLabel}</p>
 
-      <div className="flex justify-between items-center text-sm font-bold mb-2 pb-2 border-b border-slate-800/60">
+      <div className="flex justify-between items-center text-sm font-bold mt-4 mb-2 pb-2 border-b border-slate-800/60">
         <span className="text-emerald-400">{getFlag(team1)} {team1}</span>
         <span className="text-rose-400">{team2} {getFlag(team2)}</span>
       </div>
@@ -131,15 +404,11 @@ export const SquadStyleComparison: React.FC<Props> = ({
               key={row.label}
               className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 py-1 border-b border-slate-800/30 last:border-0"
             >
-              <span className={`font-mono text-sm font-bold text-left ${better === 1 ? 'text-emerald-400' : 'text-slate-300'}`}>
-                {fmt(row, n1)}
-              </span>
+              {renderValue(team1, row, n1, better === 1, 'left')}
               <span className="text-[10px] text-slate-500 text-center uppercase tracking-wide px-1">
                 {row.label}
               </span>
-              <span className={`font-mono text-sm font-bold text-right ${better === 2 ? 'text-rose-400' : 'text-slate-300'}`}>
-                {fmt(row, n2)}
-              </span>
+              {renderValue(team2, row, n2, better === 2, 'right')}
             </div>
           );
         })}

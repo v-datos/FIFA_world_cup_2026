@@ -1,5 +1,59 @@
 # STATUS
 
+## 2026-06-19 - T-038 Source-Backed Squad & Style Metrics Integration Completed
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
+
+### Current State
+
+- T-038 is complete for the first source-backed Squad & Style integration pass.
+- The API can now merge field-level squad/style source records from
+  `data/source_cache/squad_style/latest_metrics.json` without rewriting
+  checked-in `metrics.json` files.
+- The first active sample is `brazil_haiti_2026`, not a finished fixture.
+- Brazil has source-backed Transfermarkt profile-header values for
+  `squad_market_value_m` and `average_age`.
+- Haiti and unsupported style/performance fields remain explicitly `missing`
+  until auditable sources are found.
+- Existing local profile values without field source records are labeled
+  `hardcoded_reference`, not live research.
+- The Squad & Style UI now tags each displayed value as sourced, reference,
+  approximate, missing, unsupported, or blocked, and uses T-039 World Football
+  Elo provenance for the rating row.
+
+### What Changed
+
+- Added `src/analytics/squad_style_sources.py`.
+- Added `src/pipeline/collect_squad_style_sources.py`.
+- Added `data/source_cache/squad_style/latest_metrics.json`.
+- Added `docs/squad_style_source_methodology.md`.
+- Updated `/api/match/{id}/metrics` with `team_metric_source_cache`,
+  `team_metric_sources`, and per-field quality metadata.
+- Updated `SquadStyleComparison` and `MatchAnalysisTab` to consume field-level
+  provenance and render missing/source/reference badges.
+- Updated `docs/data_contracts.md`, `TASKS.md`, `docs/phase_plan.md`, and T-038
+  decision/handoff records.
+
+### Verification
+
+- `python3 src/pipeline/collect_squad_style_sources.py`
+- `python3 -m json.tool data/source_cache/squad_style/latest_metrics.json`
+- Direct API smoke check for `brazil_haiti_2026`
+- Direct API smoke check for a non-sample fixture
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build`
+
+### Routing
+
+- Next project step: **T-029 - Deployment and Operations Runbook Refresh**.
+- Remaining broad metric coverage is still T-031 territory: more teams and
+  fields need actual source collectors before all Squad & Style values can be
+  source-backed.
+- T-033 remains queued for the dedicated briefing API and fuller Match Analysis
+  freshness UI.
+
+---
+
 ## 2026-06-19 - T-041 Documentation Clutter Audit Completed
 
 Prepared by: Orchestrator
@@ -53,8 +107,8 @@ current-state summaries.
 
 ### Routing
 
-- Next project step remains **T-038 - Source-Backed Squad & Style Metrics
-  Integration**.
+- Superseded 2026-06-19: T-038 is now complete. Next project step is
+  **T-029 - Deployment and Operations Runbook Refresh**.
 - Documentation-adjacent queued work remains T-029 deployment/ops runbook
   refresh and T-030 Streamlit legacy disposition.
 
@@ -114,11 +168,9 @@ Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist
 
 ### Routing
 
-- Next project step: **T-038 - Source-Backed Squad & Style Metrics
-  Integration**. Ratings now have a no-cost source-backed foundation; the
-  remaining Match Analysis weakness is the `team_metrics` payload, especially
-  average age, squad value, possession/passing/shooting, xG, PPDA, and field
-  tilt availability/proxy labeling.
+- Superseded 2026-06-19: T-038 is now complete as a field-level source-cache
+  contract plus one partial active sample. Broad `team_metrics` value
+  completion remains T-031.
 - Do not use ClubElo as the national-team rating source. Reserve it only for a
   later player-club-strength feature if that model is explicitly approved.
 - Refresh the World Football Elo cache once per matchday or before the 3-hour
@@ -172,7 +224,8 @@ Prepared by: Data Pipeline Engineer
 
 - Superseded 2026-06-19: T-039 is complete and runtime ratings now prefer the
   World Football Elo cache.
-- T-038 remains the Squad & Style source-backed metric integration task.
+- Superseded 2026-06-19: T-038 is complete; broad source coverage remains
+  T-031.
 - Legacy Streamlit code in `src/app/` still contains old reference-only
   progression logic and is not the production runtime.
 
@@ -412,7 +465,8 @@ Prepared by: Orchestrator
 
 - T-032 and T-036 are now complete. Source-backed research can be cached for
   review, but API/UI consumption still belongs to T-033.
-- T-031/T-038 still need to replace empty stub metrics with source-backed values
+- T-038 is now complete as the source-cache contract and first partial sample.
+  T-031 still needs to replace empty stub metrics with source-backed values
   where coverage allows.
 
 ---

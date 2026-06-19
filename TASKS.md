@@ -9,18 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-038 - Source-Backed Squad & Style Metrics Integration**
-  Owner: Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
-  Phase: Phase 5
-  Notes: Replace empty/hardcoded Squad & Style values with sourced metrics where
-  provider coverage allows. Start with the no-cost path from T-039, use
-  Transfermarkt for squad value, FIFA/provider squads for average age,
-  Sportmonks/API-Football for match/team stats if needed, and paid event-level
-  data for true PPDA/field tilt if available. Unsupported fields must render
-  unavailable or explicitly approximate; do not invent values.
-  Verify: For one fixture, every displayed Squad & Style metric has source,
-  status, checked time, and missing/approximate handling.
-
 - [ ] **T-029 - Deployment and Operations Runbook Refresh**
   Owner: Orchestrator / QA / Reproducibility Engineer
   Phase: Phase 5
@@ -69,6 +57,26 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-038 - Source-Backed Squad & Style Metrics Integration**
+  Owner: Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
+  Completed: 2026-06-19
+  Notes: Added the T-038 field-level Squad & Style source methodology, a
+  disk-only source cache at `data/source_cache/squad_style/latest_metrics.json`,
+  runtime source-backed field merging, per-field quality records under
+  `/api/match/{id}/metrics.data_quality.team_metrics[team].field_sources`, and
+  compact `team_metric_sources` payloads. The first active sample is
+  `brazil_haiti_2026`: Brazil has source-backed Transfermarkt header values for
+  `squad_market_value_m` and `average_age`; Haiti and unsupported fields remain
+  explicitly missing. Existing unsourced local profiles now render as
+  `hardcoded_reference`, not live research. The Squad & Style UI shows sourced,
+  reference, approximate, missing, unsupported, and blocked states per displayed
+  value and uses the T-039 World Football Elo provenance for the rating row.
+  Verify: `python3 src/pipeline/collect_squad_style_sources.py`;
+  `python3 -m json.tool data/source_cache/squad_style/latest_metrics.json`;
+  direct API smoke checks for `brazil_haiti_2026` and a non-sample fixture;
+  `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+  Handoff: docs/handoffs/2026-06-19_data_pipeline_football_data_scientist_frontend_t038_squad_style.md
 
 - [x] **T-041 - Documentation Clutter Audit and Current-State Alignment**
   Owner: Orchestrator

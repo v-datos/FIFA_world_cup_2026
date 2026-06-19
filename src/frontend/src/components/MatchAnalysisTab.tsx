@@ -36,6 +36,13 @@ type QualityRecord = {
   message?: string;
   freshness_state?: string;
 };
+type RadarQualityRecord = QualityRecord & {
+  missing_fields?: Record<string, string[]>;
+};
+type TeamMetricQualityRecord = QualityRecord & {
+  missing_fields?: unknown;
+  field_sources?: Record<string, unknown>;
+};
 
 interface SummaryMetadata {
   match_id: string;
@@ -71,15 +78,18 @@ interface MetricsPayload {
   };
   score_probabilities?: Array<{ score: string; probability: number }>;
   team_metrics?: Record<string, TeamMetricRecord>;
+  team_metric_sources?: Record<string, unknown>;
+  squad_style_sources?: Record<string, unknown>;
   viz_proxies?: Record<string, string>;
   elo_ratings?: Record<string, number | null>;
   monte_carlo_projections?: Record<string, Record<string, MetricValue>>;
   data_quality?: {
     forecast?: QualityRecord;
     score_probabilities?: QualityRecord;
-    radar_metrics?: QualityRecord;
+    radar_metrics?: RadarQualityRecord;
+    elo_ratings?: Record<string, TeamMetricQualityRecord>;
     monte_carlo_projections?: QualityRecord;
-    team_metrics?: Record<string, QualityRecord>;
+    team_metrics?: Record<string, TeamMetricQualityRecord>;
   };
 }
 
@@ -369,6 +379,14 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           elo1={eloRatings[team1]}
           elo2={eloRatings[team2]}
           metricQuality={dataQuality.team_metrics}
+          fieldSourceCandidates={[
+            metricsData.team_metric_sources,
+            metricsData.squad_style_sources,
+            {
+              [team1]: { elo_rating: dataQuality.elo_ratings?.[team1] },
+              [team2]: { elo_rating: dataQuality.elo_ratings?.[team2] },
+            },
+          ]}
           lang={lang}
         />
       </div>

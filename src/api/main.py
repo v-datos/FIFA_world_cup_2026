@@ -20,6 +20,7 @@ sys.path.append(str(PROJECT_ROOT / "src" / "analytics"))
 
 from google.cloud import bigquery
 from src.analytics.soccerdata_client import SoccerDataClient, get_dixon_coles_prediction
+from src.analytics.squad_style_sources import apply_squad_style_source_cache
 from src.analytics.monte_carlo_simulation import (
     DEFAULT_SIMULATION_COUNT,
     DEFAULT_SIMULATION_SEED,
@@ -472,8 +473,15 @@ def is_default_forecast(forecast: dict) -> bool:
     return True
 
 
-def build_team_metric_quality(metrics: dict, team: str) -> dict:
+def build_team_metric_quality(
+    metrics: dict,
+    team: str,
+    field_sources: Optional[dict[str, dict]] = None,
+    source_metadata: Optional[dict] = None,
+) -> dict:
     team_metrics = metrics.get(team) or {}
+    field_sources = field_sources or {}
+    source_metadata = source_metadata or {}
     present_fields = [
         field for field in REQUIRED_TEAM_METRIC_FIELDS
         if _number_or_none(team_metrics.get(field)) is not None
@@ -482,34 +490,135 @@ def build_team_metric_quality(metrics: dict, team: str) -> dict:
         field for field in REQUIRED_TEAM_METRIC_FIELDS
         if _number_or_none(team_metrics.get(field)) is None
     ]
+    fields = {}
+    source_backed_fields = []
+    static_fields = []
+    approximation_fields = []
+
+    for field in REQUIRED_TEAM_METRIC_FIELDS:
+        value = _number_or_none(team_metrics.get(field))
+        source_record = field_sources.get(field)
+        if value is not None and source_record:
+            source_status = source_record.get("source_status") or "source_backed"
+            source_label = source_record.get("source_label", "web_researched")
+            fields[field] = {
+                "status": "available",
+                "source_status": source_status,
+                "source_label": source_label,
+                "source_name": source_record.get("source_name"),
+                "source_url": source_record.get("source_url"),
+                "checked_at_utc": source_record.get("checked_at_utc"),
+                "unit": source_record.get("unit"),
+                "value": value,
+                "source_value_text": source_record.get("source_value_text"),
+                "approximation": source_record.get("approximation", False),
+                "approximation_note": source_record.get("approximation_note"),
+                "previous_static_value": source_record.get("previous_static_value"),
+                "overrode_static_value": source_record.get("overrode_static_value", False),
+                "message": "Field value comes from the T-038 source cache.",
+            }
+            source_backed_fields.append(field)
+            if source_record.get("approximation"):
+                approximation_fields.append(field)
+        elif value is not None:
+            fields[field] = {
+                "status": "available",
+                "source_status": "hardcoded_reference_unverified",
+                "source_label": "hardcoded_reference",
+                "value": value,
+                "message": "Stored local profile metric; no T-038 field-level source cache record is available.",
+            }
+            static_fields.append(field)
+        else:
+            fields[field] = {
+                "status": "missing",
+                "source_status": "missing",
+                "source_label": "missing",
+                "source_name": source_metadata.get("source_name"),
+                "checked_at_utc": source_metadata.get("checked_at_utc"),
+                "source_cache_status": source_metadata.get("status"),
+                "value": None,
+                "message": "No stored or source-backed field value is available from the current squad/style source cache.",
+            }
 
     if not present_fields:
         return {
             "status": "missing",
+            "source_status": "missing",
             "source_label": "missing",
+            "source_labels": ["missing"],
+            "checked_at_utc": source_metadata.get("checked_at_utc"),
             "field_count": 0,
+            "source_backed_field_count": 0,
+            "static_field_count": 0,
             "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
             "missing_fields": missing_fields,
+            "source_backed_fields": [],
+            "static_fields": [],
+            "approximation_fields": [],
+            "fields": fields,
+            "field_sources": fields,
             "message": "Team metrics are unavailable for this fixture.",
         }
+
+    source_labels = sorted(
+        {
+            fields[field]["source_label"]
+            for field in present_fields
+            if fields.get(field, {}).get("source_label")
+        }
+    )
+    source_status = "hardcoded_reference"
+    if source_backed_fields and (static_fields or missing_fields):
+        source_status = "partial_source_backed"
+    elif source_backed_fields:
+        source_status = "source_backed"
 
     if missing_fields:
         return {
             "status": "partial",
-            "source_label": "static_curated",
+            "source_status": source_status,
+            "source_label": "web_researched" if source_backed_fields else "hardcoded_reference",
+            "source_labels": source_labels,
             "field_count": len(present_fields),
+            "source_backed_field_count": len(source_backed_fields),
+            "static_field_count": len(static_fields),
             "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
             "missing_fields": missing_fields,
-            "message": "Team metrics are partially available from static curated references.",
+            "source_backed_fields": source_backed_fields,
+            "static_fields": static_fields,
+            "approximation_fields": approximation_fields,
+            "fields": fields,
+            "field_sources": fields,
+            "message": (
+                f"{len(source_backed_fields)} team metric fields are source-backed; "
+                f"{len(missing_fields)} required fields remain missing."
+                if source_backed_fields
+                else "Team metrics are partially available from local profile references."
+            ),
         }
 
     return {
         "status": "complete",
-        "source_label": "static_curated",
+        "source_status": source_status,
+        "source_label": "web_researched" if source_backed_fields else "hardcoded_reference",
+        "source_labels": source_labels,
         "field_count": len(present_fields),
+        "source_backed_field_count": len(source_backed_fields),
+        "static_field_count": len(static_fields),
         "required_field_count": len(REQUIRED_TEAM_METRIC_FIELDS),
         "missing_fields": [],
-        "message": "Team metrics are static curated reference values, not live matchday research.",
+        "source_backed_fields": source_backed_fields,
+        "static_fields": static_fields,
+        "approximation_fields": approximation_fields,
+        "fields": fields,
+        "field_sources": fields,
+        "message": (
+            f"{len(source_backed_fields)} team metric fields are source-backed; "
+            "remaining available fields are stored local profile references."
+            if source_backed_fields
+            else "Team metrics are local profile reference values, not live matchday research."
+        ),
     }
 
 
@@ -534,9 +643,9 @@ def build_radar_quality(metrics: dict, team1: str, team2: str) -> dict:
 
     return {
         "status": "available",
-        "source_label": "static_curated",
+        "source_label": "hardcoded_reference",
         "missing_fields": {},
-        "message": "Radar chart uses static curated team metrics.",
+        "message": "Radar chart uses local profile reference metrics.",
     }
 
 
@@ -549,6 +658,7 @@ def build_metrics_data_quality(
     elo_data_t1: Optional[dict] = None,
     elo_data_t2: Optional[dict] = None,
     simulation_metadata: Optional[dict] = None,
+    team_metric_source_data: Optional[dict] = None,
 ) -> dict:
     forecast = metrics_data.get("dixon_coles_forecast") or {}
     default_forecast = is_default_forecast(forecast)
@@ -563,9 +673,34 @@ def build_metrics_data_quality(
     }
 
     team_metrics = metrics_data.get("team_metrics") or {}
+    team_metric_sources = (team_metric_source_data or {}).get("teams", {})
+    team_metric_source_metadata = (team_metric_source_data or {}).get("metadata", {})
+    teams_with_manifest_rows = set(
+        team_metric_source_metadata.get("teams_with_manifest_rows", [])
+    )
+    team1_source_metadata = (
+        team_metric_source_metadata
+        if team1 in teams_with_manifest_rows or team1 in team_metric_sources
+        else {}
+    )
+    team2_source_metadata = (
+        team_metric_source_metadata
+        if team2 in teams_with_manifest_rows or team2 in team_metric_sources
+        else {}
+    )
     team_quality = {
-        team1: build_team_metric_quality(team_metrics, team1),
-        team2: build_team_metric_quality(team_metrics, team2),
+        team1: build_team_metric_quality(
+            team_metrics,
+            team1,
+            team_metric_sources.get(team1),
+            team1_source_metadata,
+        ),
+        team2: build_team_metric_quality(
+            team_metrics,
+            team2,
+            team_metric_sources.get(team2),
+            team2_source_metadata,
+        ),
     }
 
     viz_team1 = get_visualization_proxy(team1)
@@ -583,6 +718,14 @@ def build_metrics_data_quality(
             ),
         },
         "team_metrics": team_quality,
+        "team_metric_source_cache": (team_metric_source_data or {}).get(
+            "metadata",
+            {
+                "status": "missing_cache",
+                "source_label": "missing",
+                "message": "Squad/style source cache metadata is unavailable.",
+            },
+        ),
         "radar_metrics": build_radar_quality(team_metrics, team1, team2),
         "elo_ratings": {
             team1: {
@@ -833,6 +976,14 @@ def get_match_metrics(
         team1: (get_visualization_proxy(team1) or {}).get("label", "Historical proxy match"),
         team2: (get_visualization_proxy(team2) or {}).get("label", "Historical proxy match"),
     }
+    team_metric_source_data = apply_squad_style_source_cache(
+        metrics_data,
+        match_id,
+        (team1, team2),
+        REQUIRED_TEAM_METRIC_FIELDS,
+    )
+    metrics_data["team_metric_source_cache"] = team_metric_source_data.get("metadata", {})
+    metrics_data["team_metric_sources"] = team_metric_source_data.get("teams", {})
     metrics_data["data_quality"] = build_metrics_data_quality(
         metrics_data,
         team1,
@@ -842,6 +993,7 @@ def get_match_metrics(
         elo_data_t1,
         elo_data_t2,
         simulation_metadata,
+        team_metric_source_data,
     )
 
     return metrics_data

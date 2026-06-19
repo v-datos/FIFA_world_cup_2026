@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "schema_version": "1.0",
+    "task": "T-038",
+    "source_label": "web_researched",
+    "source_name": "Transfermarkt national-team profile headers",
+    "collection_method": "static_source_manifest",
+    "parser_version": "squad_style_static_manifest_v1",
+    "status": "partial",
+    "checked_at_utc": "2026-06-19T07:56:49Z",
+    "team_count": 2,
+    "field_record_count": 2,
+    "warnings": [
+      "Initial cache covers only Brazil squad_market_value_m and average_age for brazil_haiti_2026.",
+      "No auditable Haiti national-team Transfermarkt profile was identified during the T-038 check, so Haiti squad/style fields remain missing.",
+      "Style and performance fields remain hardcoded_reference when stored metrics exist and missing where they do not.",
+      "Transfermarkt market values are estimates and should be treated as source-backed reference values, not official squad valuations."
+    ],
+    "blocked_reasons": ["haiti_transfermarkt_profile_not_identified"]
+  },
+  "teams": [
+    {
+      "team": "Brazil",
+      "fixture_ids": ["brazil_haiti_2026"],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 928.2,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
+          "source_path": "Profile header total market value",
+          "source_value_text": "EUR 928.20 m Total market value",
+          "checked_at_utc": "2026-06-19T07:56:49Z",
+          "retrieval_method": "manual_static_manifest"
+        },
+        "average_age": {
+          "value": 29.4,
+          "unit": "years",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
+          "source_path": "Profile header average age",
+          "source_value_text": "Average age: 29.4",
+          "checked_at_utc": "2026-06-19T07:56:49Z",
+          "retrieval_method": "manual_static_manifest"
+        }
+      }
+    },
+    {
+      "team": "Haiti",
+      "fixture_ids": ["brazil_haiti_2026"],
+      "fields": {}
+    }
+  ]
+}

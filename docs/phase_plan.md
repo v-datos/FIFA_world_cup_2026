@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-041 complete; route T-038 next | None |
+| Orchestrator | Routing | T-038 complete; route T-029 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | Source-backed Squad & Style metrics | None |
+| Data Pipeline Engineer | Complete | T-038 source-backed Squad & Style integration delivered | None |
 | Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
-| Frontend Engineer | Queued | Later source-backed metric states | T-038 assignment |
+| Frontend Engineer | Complete | T-038 field-level Squad & Style states delivered | None |
 
 ## Phase 5 Objective
 
@@ -384,17 +384,37 @@ Exit criteria:
 - [x] Live URL failures become blocked source records instead of invented data.
 - [x] Live URL success retains `web_researched` source metadata and draft claims.
 
-## Later Planned Batches
-
-### Batch 13 - Source-Backed Squad & Style Integration
+## Completed Batch - Batch 13: Source-Backed Squad & Style Integration
 
 Owners: Data Pipeline Engineer, Football Data Scientist, Frontend Engineer
 
-Outputs:
+Scope:
 
 - T-038 field-source mapping implemented for at least one fixture.
 - Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
 - Frontend display of sourced, missing, or approximate metric states.
+
+Outputs:
+
+- `docs/squad_style_source_methodology.md`
+- `data/source_cache/squad_style/latest_metrics.json`
+- `src/analytics/squad_style_sources.py`
+- `src/pipeline/collect_squad_style_sources.py`
+- `/api/match/{id}/metrics` field-level team metric provenance
+- `docs/decisions/20260619_DEC019_squad_style_field_source_cache.md`
+- `docs/handoffs/2026-06-19_data_pipeline_football_data_scientist_frontend_t038_squad_style.md`
+
+Exit criteria:
+
+- [x] Field-source mapping implemented for one not-finished fixture:
+  `brazil_haiti_2026`.
+- [x] Source-backed values are merged at runtime without overwriting
+  `metrics.json`.
+- [x] Unsupported and absent fields remain missing instead of invented.
+- [x] Existing unsourced local profiles are labeled `hardcoded_reference`.
+- [x] Squad & Style UI renders per-value provenance states.
+
+## Later Planned Batches
 
 ### Batch 12 - Frontend/API Robustness
 
@@ -448,6 +468,7 @@ Outputs:
 | 2026-06-18 | Seeded Monte Carlo Tournament Simulation | docs/decisions/20260618_DEC016_real_monte_carlo_simulation.md |
 | 2026-06-19 | Adopt World Football Elo Cache as No-Cost Rating Source | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
 | 2026-06-19 | Documentation Clutter Map and Retention Rules | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
+| 2026-06-19 | Squad & Style Field Source Cache | docs/decisions/20260619_DEC019_squad_style_field_source_cache.md |
 
 ## Open Blockers
 
