@@ -16,10 +16,20 @@ application actually consumes. It covers:
 - Implemented last-minute briefing artifact contract from T-032.
 - Prototype source-backed research cache contract from T-036.
 - T-039 World Football Elo rating source cache.
+- T-038 Squad & Style field-level source cache.
+- T-029 deployment verification boundaries.
 - Frontend consumers in `src/frontend/src/components/`.
 
 This is an audit document only. It does not change JSON data, generator scripts,
 API code, frontend code, or deployed behavior.
+
+Deployment note:
+
+- Local data/API contracts are ahead of the current live Cloud Run deployment as
+  of the T-029 read-only checks on 2026-06-19.
+- Use `docs/deployment_operations_runbook.md` and
+  `docs/deployment_verification_checklist.md` before making live-current
+  claims.
 
 ## Source Classification
 
@@ -908,8 +918,8 @@ For T-024, completion means:
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after the T-038 closeout:
+Suggested next Orchestrator assignments after the T-029 closeout:
 
-1. T-029 - Deployment and Operations Runbook Refresh.
-2. T-033 - Briefing API and Match Analysis Freshness UI.
-3. T-031 - Active Match Metrics Completion.
+1. T-033 - Briefing API and Match Analysis Freshness UI.
+2. T-031 - Active Match Metrics Completion.
+3. T-030 - Streamlit Legacy Disposition.

@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-038 complete; route T-029 next | None |
+| Orchestrator | Routing | T-029 complete; route T-033 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
 | Data Pipeline Engineer | Complete | T-038 source-backed Squad & Style integration delivered | None |
 | Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
-| Frontend Engineer | Complete | T-038 field-level Squad & Style states delivered | None |
+| Frontend Engineer | Queued | T-033 briefing freshness UI | Briefing API contract |
 
 ## Phase 5 Objective
 
@@ -428,15 +428,30 @@ Outputs:
 - Briefing API and Match Analysis freshness states.
 - Overview source/date handling.
 
-### Batch 12 - Deployment & Ops Runbook
+## Completed Batch - Batch 14: Deployment & Ops Runbook
 
 Owners: Orchestrator, QA / Reproducibility Engineer
 
-Outputs:
+Scope:
 
 - Current deploy and rollback runbook.
 - Local versus live status checklist.
 - Cloud Run and `accionar.xyz` verification steps.
+
+Outputs:
+
+- `docs/deployment_operations_runbook.md`
+- `docs/deployment_verification_checklist.md`
+- `docs/decisions/20260619_DEC020_deployment_operations_runbook.md`
+- `docs/handoffs/2026-06-19_orchestrator_qa_t029_deployment_runbook.md`
+
+Exit criteria:
+
+- [x] Local verification is separated from live deployment verification.
+- [x] Cloud Run deploy, smoke, status snapshot, and rollback checks are
+  documented.
+- [x] `accionar.xyz` static/iframe/browser checks are documented separately.
+- [x] Current live drift is recorded without claiming a redeploy.
 
 ### Deferred - Streamlit Legacy Disposition
 
@@ -469,6 +484,7 @@ Outputs:
 | 2026-06-19 | Adopt World Football Elo Cache as No-Cost Rating Source | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
 | 2026-06-19 | Documentation Clutter Map and Retention Rules | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
 | 2026-06-19 | Squad & Style Field Source Cache | docs/decisions/20260619_DEC019_squad_style_field_source_cache.md |
+| 2026-06-19 | Deployment and Operations Runbook | docs/decisions/20260619_DEC020_deployment_operations_runbook.md |
 
 ## Open Blockers
 

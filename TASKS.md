@@ -9,14 +9,13 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-029 - Deployment and Operations Runbook Refresh**
-  Owner: Orchestrator / QA / Reproducibility Engineer
-  Phase: Phase 5
-  Notes: Update Cloud Run and `accionar.xyz` procedures for the current
-  React/FastAPI architecture. Separate local verification from live deployment
-  verification and document rollback/status snapshot steps.
-  Verify: One current runbook covers local build, container deploy, live smoke
-  checks, and remote/static asset status.
+- [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Notes: Add `/api/match/{match_id}/briefing` and render briefing freshness in
+  Match Analysis. T-028 already exposes baseline-only status through the summary
+  payload; T-033 should add the dedicated briefing route and full freshness UI.
+  Verify: Fresh, stale, baseline-only, and blocked briefing states are visible
+  and do not mask static baseline preview content.
 
 ## Backlog
 
@@ -48,15 +47,22 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Replacing remaining team metric values should follow T-035 policy and T-038,
   while explicit fallback labeling is now handled by T-028.
 
-- [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
-  Owner: Data Pipeline Engineer / Frontend Engineer
-  Notes: Add `/api/match/{match_id}/briefing` and render briefing freshness in
-  Match Analysis. T-028 already exposes baseline-only status through the summary
-  payload; T-033 should add the dedicated briefing route and full freshness UI.
-  Verify: Fresh, stale, baseline-only, and blocked briefing states are visible
-  and do not mask static baseline preview content.
-
 ## Done
+
+- [x] **T-029 - Deployment and Operations Runbook Refresh**
+  Owner: Orchestrator / QA / Reproducibility Engineer
+  Completed: 2026-06-19
+  Notes: Added current deployment and operations runbook plus QA verification
+  checklist for React/Vite, FastAPI static mount, Docker, Cloud Run,
+  `accionar.xyz`, local-vs-live status snapshots, smoke checks, and rollback
+  procedures. Read-only live checks found Cloud Run reachable but stale versus
+  local code: 19 fixtures, no lifecycle/source-status fields, no
+  `brazil_haiti_2026`, and no current `data_quality`/source-cache metadata.
+  `accionar.xyz` returned HTTP 200 but appeared to serve an older portfolio
+  shell/static route. No deploy was performed.
+  Verify: `python3 -m compileall -q src`; `npm --prefix src/frontend run build`;
+  `git diff --check`; read-only Cloud Run and `accionar.xyz` HTTP checks.
+  Handoff: docs/handoffs/2026-06-19_orchestrator_qa_t029_deployment_runbook.md
 
 - [x] **T-038 - Source-Backed Squad & Style Metrics Integration**
   Owner: Data Pipeline Engineer / Football Data Scientist / Frontend Engineer

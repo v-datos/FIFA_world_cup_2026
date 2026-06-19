@@ -310,7 +310,28 @@ pipeline for the 19 `_2026` match folders.
 
 ## 6. Deployment Procedures
 
-### Cloud Run
+The authoritative deployment procedures are now:
+
+- `docs/deployment_operations_runbook.md`
+- `docs/deployment_verification_checklist.md`
+
+Use those documents for local build gates, Docker checks, Cloud Run deployment,
+Cloud Run rollback, `accionar.xyz` checks, and live status snapshots.
+
+T-029 live-status caveat from 2026-06-19:
+
+- Cloud Run `/health` responded after a cold-start delay.
+- Cloud Run `/api/schedule` was stale versus local code: 19 fixtures, no
+  lifecycle/source-status fields, and no `brazil_haiti_2026`.
+- Live metrics payloads did not yet expose the newer `data_quality` and source
+  cache metadata.
+- `accionar.xyz/dashboards/fifa-2026/` returned HTTP 200 but appeared to serve
+  an older portfolio/static route.
+
+Do not claim live users see current local behavior until Cloud Run is rebuilt,
+redeployed, and both Cloud Run and `accionar.xyz` smoke checks pass.
+
+### Cloud Run Summary
 
 From the repository root:
 
@@ -321,11 +342,13 @@ gcloud builds submit --config cloudbuild.yaml .
 This builds the Docker image, pushes it, and deploys Cloud Run service
 `fifa-2026-dashboard` in `us-central1`.
 
-After deploy, verify:
+After deploy, follow the full runbook. Minimum API smoke:
 
 ```bash
 curl -s https://fifa-2026-dashboard-80399171028.us-central1.run.app/health
 curl -s https://fifa-2026-dashboard-80399171028.us-central1.run.app/api/schedule
+curl -s https://fifa-2026-dashboard-80399171028.us-central1.run.app/api/match/brazil_haiti_2026/summary
+curl -s "https://fifa-2026-dashboard-80399171028.us-central1.run.app/api/match/brazil_haiti_2026/metrics?simulation_count=10000&seed=20260618"
 ```
 
 Then manually smoke-check:
@@ -338,11 +361,7 @@ Then manually smoke-check:
 
 ### accionar.xyz
 
-Current docs need a separate refresh before treating this path as authoritative.
-Open question: decide whether `accionar.xyz` should host static React assets
-directly, embed Cloud Run, or keep both options.
-
-Until that decision is updated, distinguish:
+Always verify `accionar.xyz` separately from Cloud Run. Distinguish:
 
 - Cloud Run application state.
 - Static asset state under `accionar.xyz/dashboards/fifa-2026/`.

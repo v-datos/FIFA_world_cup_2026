@@ -1,5 +1,59 @@
 # STATUS
 
+## 2026-06-19 - T-029 Deployment and Operations Runbook Refresh Completed
+
+Prepared by: Orchestrator / QA / Reproducibility Engineer
+
+### Current State
+
+- T-029 is complete.
+- Added a current deployment and operations runbook for the React/Vite +
+  FastAPI + Docker + Cloud Run + `accionar.xyz` architecture.
+- Added a QA deployment verification checklist that separates local build,
+  optional local API smoke, optional Docker smoke, Cloud Run verification, and
+  `accionar.xyz` verification.
+- No deploy was performed.
+
+### What Changed
+
+- Added `docs/deployment_operations_runbook.md`.
+- Added `docs/deployment_verification_checklist.md`.
+- Added DEC020:
+  `docs/decisions/20260619_DEC020_deployment_operations_runbook.md`.
+- Added handoff:
+  `docs/handoffs/2026-06-19_orchestrator_qa_t029_deployment_runbook.md`.
+- Updated `TASKS.md`, `docs/phase_plan.md`, `docs/data_contracts.md`, and
+  `docs/DEVELOPER_PLAYBOOK.md` with T-029 routing and runbook pointers.
+
+### Read-Only Live Finding
+
+- Cloud Run `/health` returned HTTP 200 after a cold-start delay.
+- Cloud Run `/api/schedule` returned HTTP 200 but only 19 fixtures and no
+  lifecycle/source-status fields.
+- Cloud Run does not currently have `brazil_haiti_2026`.
+- Live older metrics payloads lack newer `data_quality` and source-cache
+  metadata.
+- `accionar.xyz/dashboards/fifa-2026/` returned HTTP 200, but appeared to serve
+  an older portfolio/static route rather than a freshly deployed dashboard
+  bundle.
+
+### Verification
+
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build`
+- `git diff --check`
+- In-process API smoke checks
+- Read-only Cloud Run and `accionar.xyz` HTTP checks
+
+### Routing
+
+- Next project step: **T-033 - Briefing API and Match Analysis Freshness UI**.
+- A separate deployment execution task is needed before claiming live users see
+  local T-037/T-038/T-039/T-040 behavior.
+- T-031 remains the broad active metric coverage task.
+
+---
+
 ## 2026-06-19 - T-038 Source-Backed Squad & Style Metrics Integration Completed
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
@@ -45,7 +99,8 @@ Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist / F
 
 ### Routing
 
-- Next project step: **T-029 - Deployment and Operations Runbook Refresh**.
+- Superseded 2026-06-19: T-029 is now complete. Next project step is
+  **T-033 - Briefing API and Match Analysis Freshness UI**.
 - Remaining broad metric coverage is still T-031 territory: more teams and
   fields need actual source collectors before all Squad & Style values can be
   source-backed.
@@ -107,10 +162,10 @@ current-state summaries.
 
 ### Routing
 
-- Superseded 2026-06-19: T-038 is now complete. Next project step is
-  **T-029 - Deployment and Operations Runbook Refresh**.
-- Documentation-adjacent queued work remains T-029 deployment/ops runbook
-  refresh and T-030 Streamlit legacy disposition.
+- Superseded 2026-06-19: T-038 and T-029 are now complete. Next project step is
+  **T-033 - Briefing API and Match Analysis Freshness UI**.
+- Documentation-adjacent queued work now remains T-030 Streamlit legacy
+  disposition.
 
 ---
 
