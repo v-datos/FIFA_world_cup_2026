@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import pandas as pd
 from typing import Dict, Any, Optional
+from src.analytics.rating_sources import get_cached_world_football_elo_rating
 from src.common.team_identity import normalize_team_name
 
 # Set up local cache directories for soccerdata scrapers
@@ -18,18 +19,34 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 class SoccerDataClient:
     """
     Unified client for retrieving extended tactical stats and team ratings
-    from FBref, Understat, and Club Elo.
+    from FBref, Understat, and national-team rating caches.
     """
     def __init__(self, cache_dir: Path = CACHE_DIR):
         self.cache_dir = cache_dir
 
     def fetch_club_elo_ratings(self, team_name: str) -> Dict[str, Any]:
         """
-        Fetches current team power rating from Club Elo.
-        If the team is a national team (like Netherlands, Japan), it maps 
-        to equivalent Elo rating matrices or uses general stats.
+        Fetches the current team power rating.
+
+        The method name is retained for compatibility with existing callers, but
+        national teams now prefer the World Football Elo cache created by T-039.
+        Local defaults are only a compatibility fallback when the cache is absent.
         """
         team_name = normalize_team_name(team_name)
+        cached_rating = get_cached_world_football_elo_rating(team_name)
+        if cached_rating and cached_rating.get("elo_rating") is not None:
+            return {
+                "team": team_name,
+                "elo_rating": cached_rating.get("elo_rating"),
+                "confidence": 0.98,
+                "source_label": "web_researched",
+                "source_name": cached_rating.get("source_name"),
+                "source_url": cached_rating.get("source_url"),
+                "checked_at_utc": cached_rating.get("checked_at_utc"),
+                "source_last_modified": cached_rating.get("source_last_modified"),
+                "rank": cached_rating.get("rank"),
+                "source_team_code": cached_rating.get("source_team_code"),
+            }
 
         # Mapping national teams to default international Elo values if club ELO is unavailable
         default_elo_ratings = {
@@ -89,7 +106,9 @@ class SoccerDataClient:
         return {
             "team": team_name,
             "elo_rating": rating,
-            "confidence": 0.95 if rating is not None else None
+            "confidence": 0.95 if rating is not None else None,
+            "source_label": "hardcoded_reference" if rating is not None else "missing",
+            "source_name": "local Elo-style compatibility defaults" if rating is not None else None,
         }
 
     def fetch_fbref_team_tactical_stats(self, team_name: str) -> Dict[str, Any]:

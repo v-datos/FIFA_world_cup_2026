@@ -1,5 +1,71 @@
 # STATUS
 
+## 2026-06-19 - T-039 No-Cost Football Data Source Spike Completed
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist
+
+### Current State
+
+- T-039 is complete for national-team rating replacement.
+- World Football Elo is now the primary no-cost rating source for runtime Elo
+  and Monte Carlo inputs.
+- FIFA/Coca-Cola Men's World Ranking remains an official sanity check/fallback
+  reference; the current public page is dynamic, so this spike records update
+  metadata rather than using FIFA as the primary machine-readable rating feed.
+- Runtime rating behavior is cache-first:
+  `SoccerDataClient.fetch_club_elo_ratings()` reads
+  `data/source_cache/world_football_elo/latest_ratings.json` before falling
+  back to the old local Elo-style map.
+- The T-039 source run parsed 244 World Football Elo ratings and matched 48/48
+  current tournament teams through the shared team identity contract.
+- Monte Carlo metadata and `/api/match/{id}/metrics.data_quality` now surface
+  `web_researched` provenance when World Football Elo cache values are used.
+
+### What Changed
+
+- Added `src/analytics/rating_sources.py`.
+- Added `src/pipeline/collect_rating_sources.py` with dry-run default and
+  explicit `--write` for cache/report writes.
+- Added audited source cache:
+  `data/source_cache/world_football_elo/latest_ratings.json`.
+- Added raw source snapshots:
+  `data/source_cache/world_football_elo/raw/World.tsv` and
+  `data/source_cache/world_football_elo/raw/en.teams.tsv`.
+- Added spike reports:
+  `docs/no_cost_football_data_source_spike.md` and
+  `docs/source_spikes/t039_no_cost_rating_sources.md`.
+- Updated API provenance so Monte Carlo `source_label` is `web_researched`
+  while `rating_source` remains `world_football_elo`.
+
+### Verification
+
+- `python3 src/pipeline/collect_rating_sources.py --write`
+  - World Football Elo status: `used`
+  - parsed rows: `244`
+  - FIFA metadata status: `metadata_only`
+  - active tournament coverage: `48/48`
+- Direct rating cache smoke check returned source-backed values for Canada,
+  Mexico, United States, Ivory Coast, and Democratic Republic of the Congo.
+- Direct metrics smoke check returned `source_label=web_researched` for Elo
+  ratings and Monte Carlo projections.
+- `python3 -m compileall -q src`
+- `npm --prefix src/frontend run build` passed with the existing chunk-size
+  warning only.
+
+### Routing
+
+- Next project step: **T-038 - Source-Backed Squad & Style Metrics
+  Integration**. Ratings now have a no-cost source-backed foundation; the
+  remaining Match Analysis weakness is the `team_metrics` payload, especially
+  average age, squad value, possession/passing/shooting, xG, PPDA, and field
+  tilt availability/proxy labeling.
+- Do not use ClubElo as the national-team rating source. Reserve it only for a
+  later player-club-strength feature if that model is explicitly approved.
+- Refresh the World Football Elo cache once per matchday or before the 3-hour
+  jornada window, not per API request.
+
+---
+
 ## 2026-06-18 - T-037 Real Monte Carlo Tournament Simulation Completed
 
 Prepared by: Data Pipeline Engineer
@@ -16,9 +82,10 @@ Prepared by: Data Pipeline Engineer
 - Team probabilities are exposed through `monte_carlo_projections`; simulation
   count, seed, generated time, model version, rating source, and missing-rating
   caveats are exposed through `monte_carlo_metadata`.
-- Rating inputs remain honest: current Elo values are local
-  `hardcoded_reference` defaults, and missing local ratings use a neutral
-  `1500.0` fallback until T-039/T-038 replace them with source-backed ratings.
+- Rating inputs were honest at T-037 closeout: Elo values used local
+  `hardcoded_reference` defaults, and missing local ratings used a neutral
+  `1500.0` fallback. This rating caveat was superseded by T-039 on
+  2026-06-19; runtime ratings now prefer the World Football Elo cache.
 
 ### What Changed
 
@@ -43,8 +110,8 @@ Prepared by: Data Pipeline Engineer
 
 ### Routing
 
-- T-039 remains the next rating-source task: replace or validate local Elo
-  defaults against World Football Elo/FIFA-approved sources.
+- Superseded 2026-06-19: T-039 is complete and runtime ratings now prefer the
+  World Football Elo cache.
 - T-038 remains the Squad & Style source-backed metric integration task.
 - Legacy Streamlit code in `src/app/` still contains old reference-only
   progression logic and is not the production runtime.
@@ -475,8 +542,9 @@ Prepared by: Orchestrator
   deterministic formulas, and historical proxy visualizations.
 - The Dixon-Coles forecast is an Elo-derived Poisson score-grid calculation with
   a low-score adjustment, not a fitted broad-data model.
-- Current Elo ratings are local hardcoded defaults, not live SoccerData or
-  ClubElo reads.
+- At T-026 review time, Elo ratings were local hardcoded defaults, not live
+  SoccerData or ClubElo reads. This rating caveat was superseded by T-039 on
+  2026-06-19 for runtime cache-backed World Football Elo ratings.
 - The default `40/30/30` forecast must be labeled as fallback, not as a model
   result.
 - The current "Monte Carlo" panel is deterministic and should be renamed unless

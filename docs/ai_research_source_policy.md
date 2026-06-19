@@ -209,14 +209,17 @@ Future derived claim record:
 - T-028 is complete: default `40/30/30` renders as "forecast unavailable" and
   unavailable Squad & Style fields render with missing states.
 - T-037 is complete: the active API now uses a seeded random-trial Monte Carlo
-  tournament simulation, with current rating inputs still labeled
-  `hardcoded_reference`.
+  tournament simulation.
+- T-039 is complete: World Football Elo TSV data is cached as the no-cost
+  national-team rating source, FIFA ranking page metadata is retained as an
+  official sanity check, and runtime ratings/Monte Carlo inputs use
+  `web_researched` cache values before falling back to local references.
 - T-036 is complete as a prototype source-backed research collector for one
   fixture. It writes draft `research_cache.json` payloads only when `--write`
   is explicit.
-- T-038: integrate source-backed Squad & Style metrics.
-- T-039: evaluate the no-cost `soccerdata`/FBref/Sofascore path before paid API
-  integration, including PPDA and field-tilt proxy feasibility.
+- T-038: integrate source-backed Squad & Style metrics using the T-039 no-cost
+  findings where coverage exists, with missing/proxy labels for unsupported
+  fields.
 - T-027 is complete; all source-backed writes should normalize provider team
   names through `data/reference/team_identity.json`.
 - T-032 is complete as the safe `briefing.json` artifact generator.

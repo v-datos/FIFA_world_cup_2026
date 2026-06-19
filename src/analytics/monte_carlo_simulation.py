@@ -213,26 +213,58 @@ def build_ratings(teams: list[str]) -> tuple[dict[str, float], dict[str, Any]]:
     client = SoccerDataClient()
     ratings: dict[str, float] = {}
     missing: list[str] = []
+    sources: set[str] = set()
+    source_urls: set[str] = set()
+    checked_times: set[str] = set()
     for team in sorted(set(teams)):
         rating = None
         data = client.fetch_club_elo_ratings(team)
         if data:
             rating = data.get("elo_rating")
+            source_label = data.get("source_label")
+            if source_label:
+                sources.add(source_label)
+            if data.get("source_url"):
+                source_urls.add(str(data["source_url"]))
+            if data.get("checked_at_utc"):
+                checked_times.add(str(data["checked_at_utc"]))
         if rating is None:
             ratings[team] = NEUTRAL_ELO
             missing.append(team)
         else:
             ratings[team] = float(rating)
 
+    if sources == {"web_researched"} and not missing:
+        rating_source = "world_football_elo"
+        rating_status = "complete"
+        source_label = "web_researched"
+        message = "Simulation uses cached World Football Elo national-team ratings."
+    elif "web_researched" in sources:
+        rating_source = "world_football_elo_with_fallbacks"
+        rating_status = "partial_neutral_defaults" if missing else "partial"
+        source_label = "web_researched"
+        message = (
+            "Simulation uses cached World Football Elo ratings where available; "
+            "missing teams use neutral defaults."
+        )
+    else:
+        rating_source = "hardcoded_reference"
+        rating_status = "partial_neutral_defaults" if missing else "complete"
+        source_label = "hardcoded_reference"
+        message = (
+            "Simulation uses local Elo-style reference ratings; missing teams use neutral defaults. "
+            "Refresh the World Football Elo cache with T-039 tooling to replace this fallback."
+        )
+
     return ratings, {
-        "rating_source": "hardcoded_reference",
-        "rating_status": "partial_neutral_defaults" if missing else "complete",
+        "rating_source": rating_source,
+        "rating_status": rating_status,
+        "source_label": source_label,
+        "source_urls": sorted(source_urls),
+        "source_checked_at_utc": sorted(checked_times)[-1] if checked_times else None,
         "neutral_default_elo": NEUTRAL_ELO,
         "missing_rating_teams": missing,
-        "message": (
-            "Simulation uses local Elo-style reference ratings; missing teams use neutral defaults. "
-            "World Football Elo ingestion remains a future source task."
-        ),
+        "message": message,
     }
 
 

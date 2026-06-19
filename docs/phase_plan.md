@@ -1,16 +1,16 @@
 # Phase Plan - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Active Agents
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-037 complete; route T-039/T-038 next | None |
+| Orchestrator | Routing | T-039 complete; route T-038 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Queued | No-cost source spike and source-backed metrics | None |
-| Football Data Scientist | Complete | T-026 model/provenance review delivered in `docs/model_provenance.md` | None |
+| Data Pipeline Engineer | Queued | Source-backed Squad & Style metrics | None |
+| Football Data Scientist | Complete | T-039 no-cost source methodology delivered | None |
 | Frontend Engineer | Queued | Later source-backed metric states | T-038 assignment |
 
 ## Phase 5 Objective
@@ -51,6 +51,8 @@ agent roster, data contracts, task list, and deployment runbook.
 - [x] AI research source policy is approved before web scraping, browser
   automation, or source-backed matchday collection is implemented.
 - [x] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [x] No-cost national-team rating source spike is complete and runtime ratings
+  can use the World Football Elo cache.
 - [ ] Source-backed Squad & Style metrics can replace hardcoded/empty fields.
 - [x] Active fixture discovery and baseline stub generation are implemented so
   new tournament games can enter the Match Analysis workflow.
@@ -206,14 +208,50 @@ Outputs:
 - T-028 UI/API states for "forecast unavailable" and missing Squad & Style
   fields. Complete 2026-06-18.
 - T-037 real Monte Carlo simulation. Complete 2026-06-18.
-- T-039 no-cost source spike before paid provider integration.
+- T-039 no-cost source spike before paid provider integration. Complete
+  2026-06-19.
 
 Exit criteria:
 
 - [x] Default `40/30/30` no longer renders as authoritative probability.
 - [x] Team IDs and aliases are safe enough for source-backed collectors.
 - [x] Real Monte Carlo simulation is implemented for the active API/UI runtime.
-- [ ] Free-source feasibility is known before T-038 relies on paid APIs.
+- [x] Free-source feasibility is known before T-038 relies on paid APIs.
+- [x] Runtime rating inputs can use source-backed World Football Elo cache
+  values before falling back to local references.
+
+## Completed Batch - Batch 10: No-Cost Rating Source Spike
+
+Owners: Data Pipeline Engineer, Football Data Scientist
+
+Scope:
+
+- Evaluate the free/open-source path for replacing hardcoded national-team
+  rating inputs.
+- Use World Football Elo as the no-cost rating source when practical.
+- Use FIFA/Coca-Cola Men's World Ranking as official metadata/fallback context.
+- Reject ClubElo as the primary national-team rating source.
+- Preserve source metadata, parser version, cache path, raw snapshots, and
+  coverage results.
+
+Outputs:
+
+- `src/analytics/rating_sources.py`
+- `src/pipeline/collect_rating_sources.py`
+- `data/source_cache/world_football_elo/latest_ratings.json`
+- `data/source_cache/world_football_elo/raw/World.tsv`
+- `data/source_cache/world_football_elo/raw/en.teams.tsv`
+- `docs/no_cost_football_data_source_spike.md`
+- `docs/source_spikes/t039_no_cost_rating_sources.md`
+- `docs/handoffs/2026-06-19_data_pipeline_football_data_scientist_t039_no_cost_sources.md`
+
+Exit criteria:
+
+- [x] World Football Elo source fetch succeeds and writes only with `--write`.
+- [x] FIFA ranking page metadata is captured as official sanity-check context.
+- [x] Current tournament coverage is documented; T-039 run covered 48/48 teams.
+- [x] Runtime Elo and Monte Carlo metadata prefer source-backed cache values.
+- [x] Local hardcoded ratings remain fallback only when cache values are absent.
 
 ## Completed Batch - Batch 7: Active Fixture Discovery & Baseline Stub Generation
 
@@ -322,13 +360,12 @@ Exit criteria:
 
 ## Later Planned Batches
 
-### Batch 10 - Source-Backed Squad & Style Integration
+### Batch 13 - Source-Backed Squad & Style Integration
 
 Owners: Data Pipeline Engineer, Football Data Scientist, Frontend Engineer
 
 Outputs:
 
-- T-039 no-cost source feasibility report.
 - T-038 field-source mapping implemented for at least one fixture.
 - Missing/approximate states for unsupported PPDA, field tilt, or xG fields.
 - Frontend display of sourced, missing, or approximate metric states.
@@ -382,6 +419,8 @@ Outputs:
 | 2026-06-18 | Render Fallback and Missing Data as Unavailable | docs/decisions/20260618_DEC013_fallback_rendering_contract.md |
 | 2026-06-18 | Add Fixture Lifecycle Filter for Last-Minute Analysis | docs/decisions/20260618_DEC014_fixture_lifecycle_filter.md |
 | 2026-06-18 | Adopt Task Completion Commit and Push Closeout | docs/decisions/20260618_DEC015_task_completion_closeout.md |
+| 2026-06-18 | Seeded Monte Carlo Tournament Simulation | docs/decisions/20260618_DEC016_real_monte_carlo_simulation.md |
+| 2026-06-19 | Adopt World Football Elo Cache as No-Cost Rating Source | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
 
 ## Open Blockers
 

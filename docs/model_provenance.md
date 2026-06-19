@@ -1,6 +1,6 @@
 # Model and Data Provenance Truth Review
 
-Last updated: 2026-06-18  
+Last updated: 2026-06-19
 Task: T-026 - Model and Provenance Truth Review  
 Owner: Football Data Scientist  
 Orchestrator disposition: Review complete; implementation choices routed to follow-up tasks.
@@ -21,7 +21,7 @@ experience is mostly:
 
 - static checked-in `summary.json` baseline previews,
 - static checked-in `metrics.json` forecasts and team profiles,
-- local hardcoded Elo defaults,
+- World Football Elo cached rating inputs with local fallback defaults,
 - local hardcoded roster/reference maps,
 - deterministic and statistical formulas,
 - historical StatsBomb/BigQuery proxy visualizations,
@@ -42,8 +42,8 @@ copy or hidden browser scraping.
 | Stored forecast | `metrics.json.dixon_coles_forecast` | Either generated from local Elo defaults or stored as a default `40/30/30` compatibility fallback. | `generated_model` or `default_forecast` |
 | Exact scores | `metrics.json.score_probabilities` | Either generated from the Poisson score grid or stored as default score fallbacks. | `generated_model` or `default_forecast` |
 | Team metric profiles | `metrics.json.team_metrics` | Some fixtures have local profile values; after T-034, nine active fixtures have empty objects. | `hardcoded_reference`, `missing`, or future `web_researched` |
-| Elo ratings | `SoccerDataClient.fetch_club_elo_ratings()` | Uses a local hardcoded national-team rating map. The `soccerdata` import exists, but ratings are not populated from a live scrape. | `hardcoded_reference` |
-| Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses seeded random trials from `run_tournament_monte_carlo()` over the local group/bracket fallback plus live/cached fixture list when available. Current ratings are local hardcoded Elo-style defaults with neutral fallback for missing entries. | `generated_model` plus `hardcoded_reference` rating inputs |
+| Elo ratings | `SoccerDataClient.fetch_club_elo_ratings()` | Reads the T-039 World Football Elo cache first, then falls back to a local hardcoded national-team rating map only when a cache value is absent. | `web_researched` or fallback `hardcoded_reference` |
+| Tournament progression | `/api/match/{id}/metrics` runtime augmentation | Uses seeded random trials from `run_tournament_monte_carlo()` over the local group/bracket fallback plus live/cached fixture list when available. Rating inputs now prefer cached World Football Elo values, with neutral fallback only for missing teams. | `generated_model` plus `web_researched` or fallback rating provenance |
 | StatsBomb visualizations | `/api/visualizations/{match_id}/{viz_type}` | Uses hand-selected historical BigQuery proxy matches. These are not 2026 event feeds. | `proxy_historical` |
 | Rosters, clubs, last major standing | Frontend TypeScript maps | Local hardcoded reference data, not fresh sourced data. | `hardcoded_reference` |
 
@@ -86,17 +86,25 @@ Implementation:
 
 Current behavior:
 
-- Returns values from a local hardcoded national-team map.
-- Attempts to import `soccerdata`, but does not read live ClubElo data into the
-  returned rating.
-- Returns confidence `0.95` when a local rating exists.
+- Reads `data/source_cache/world_football_elo/latest_ratings.json` created by
+  `src/pipeline/collect_rating_sources.py --write`.
+- Returns World Football Elo values with `source_label=web_researched`,
+  `source_url`, `checked_at_utc`, `source_last_modified`, rank, and source team
+  code when a cache row exists.
+- Falls back to the local hardcoded national-team map only when the cache is
+  absent or the team is missing from the cache.
+- The `soccerdata` import remains a compatibility path; ClubElo is not used as
+  the national-team rating source.
 
 Truth wording:
 
-Use: "local Elo default rating" or "local rating input."
+Use: "cached World Football Elo national-team rating" when
+`source_label=web_researched`; use "local Elo fallback rating" when the cache is
+missing.
 
-Avoid: "Dynamic Club ELO", "SoccerData scraped endpoints", or "live ClubElo"
-until the code actually retrieves ratings from an approved live source.
+Avoid: "ClubElo national-team rating" or "live per-request rating scrape." The
+approved runtime pattern is cached World Football Elo with recorded retrieval
+metadata, not a network fetch on each API request.
 
 ### Default 40/30/30 Forecast
 
@@ -156,17 +164,21 @@ Current behavior:
 
 Current limitations:
 
-- Rating inputs are the existing local hardcoded Elo-style defaults, not live
-  World Football Elo.
-- Teams missing local Elo entries use a neutral `1500.0` simulation fallback.
-- Source-backed rating replacement remains routed to T-039/T-038.
+- Rating inputs use cached World Football Elo when the T-039 cache is present.
+- Teams missing cache and local fallback entries use a neutral `1500.0`
+  simulation fallback.
+- The simulation is still a project model, not an official FIFA forecast; source
+  quality depends on the freshness of the World Football Elo cache and fixture
+  source.
 
 Truth wording:
 
-Use: "Monte Carlo tournament simulation using local Elo-style reference ratings."
+Use: "Monte Carlo tournament simulation using cached World Football Elo ratings"
+when metadata shows `rating_source=world_football_elo` and
+`source_label=web_researched`.
 
-Avoid: "live World Football Elo simulation" or "source-backed ratings" until the
-rating input is replaced and reviewed.
+Avoid: "live World Football Elo simulation" because the API reads a cached
+source run, not the live source on each request.
 
 ## StatsBomb and BigQuery Limits
 
@@ -264,6 +276,8 @@ T-035 resolved the policy questions raised by this review:
 - T-036: prototype source-backed research collection.
 - T-037: complete; active FastAPI progression now uses a seeded random-trial
   tournament simulation.
+- T-039: complete; runtime ratings now use the World Football Elo cache before
+  local fallback defaults.
 - T-038: integrate source-backed Squad & Style metrics.
 
 ## T-026 Completion Criteria

@@ -80,13 +80,14 @@ with:
 - Source: `data/matches/{match_id}/metrics.json`.
 - Current active fields: `dixon_coles_forecast`, `score_probabilities`,
   `team_metrics`.
-- Runtime augmentation: Elo ratings, progression estimates, and visualization
-  proxy labels.
+- Runtime augmentation: cache-backed World Football Elo ratings, seeded Monte
+  Carlo progression estimates, and visualization proxy labels.
 - Known caveat: after T-034, nine fixtures have empty team metric profiles and
   eight fixtures have default stored forecasts.
-- Current caveat from T-026: Elo ratings are local hardcoded defaults, and the
-  progression panel is deterministic even though the UI currently labels it
-  Monte Carlo.
+- Current caveat after T-039: runtime ratings can use the World Football Elo
+  cache, but the stored team profile fields still include empty or hardcoded
+  values. T-038 must decide which Squad & Style metrics are source-backed,
+  approximate, or unavailable.
 
 ### Historical Event Visualizations
 

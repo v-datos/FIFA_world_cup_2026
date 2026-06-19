@@ -546,6 +546,8 @@ def build_metrics_data_quality(
     team2: str,
     elo_t1: Optional[float],
     elo_t2: Optional[float],
+    elo_data_t1: Optional[dict] = None,
+    elo_data_t2: Optional[dict] = None,
     simulation_metadata: Optional[dict] = None,
 ) -> dict:
     forecast = metrics_data.get("dixon_coles_forecast") or {}
@@ -585,13 +587,27 @@ def build_metrics_data_quality(
         "elo_ratings": {
             team1: {
                 "status": "available" if elo_t1 is not None else "missing",
-                "source_label": "hardcoded_reference" if elo_t1 is not None else "missing",
-                "message": "Local fallback Elo-style reference, not a live rating feed.",
+                "source_label": (elo_data_t1 or {}).get("source_label", "missing"),
+                "source_name": (elo_data_t1 or {}).get("source_name"),
+                "source_url": (elo_data_t1 or {}).get("source_url"),
+                "checked_at_utc": (elo_data_t1 or {}).get("checked_at_utc"),
+                "message": (
+                    "Source-backed World Football Elo national-team rating."
+                    if (elo_data_t1 or {}).get("source_label") == "web_researched"
+                    else "Local fallback Elo-style reference, not a live rating feed."
+                ),
             },
             team2: {
                 "status": "available" if elo_t2 is not None else "missing",
-                "source_label": "hardcoded_reference" if elo_t2 is not None else "missing",
-                "message": "Local fallback Elo-style reference, not a live rating feed.",
+                "source_label": (elo_data_t2 or {}).get("source_label", "missing"),
+                "source_name": (elo_data_t2 or {}).get("source_name"),
+                "source_url": (elo_data_t2 or {}).get("source_url"),
+                "checked_at_utc": (elo_data_t2 or {}).get("checked_at_utc"),
+                "message": (
+                    "Source-backed World Football Elo national-team rating."
+                    if (elo_data_t2 or {}).get("source_label") == "web_researched"
+                    else "Local fallback Elo-style reference, not a live rating feed."
+                ),
             },
         },
         "monte_carlo_projections": build_monte_carlo_quality(simulation_metadata),
@@ -618,9 +634,10 @@ def build_monte_carlo_quality(simulation_metadata: Optional[dict]) -> dict:
     simulation_count = simulation_metadata.get("simulation_count")
     seed = simulation_metadata.get("seed")
     rating_source = simulation_metadata.get("rating_source", "hardcoded_reference")
+    source_label = simulation_metadata.get("source_label", rating_source)
     return {
         "status": "simulation",
-        "source_label": rating_source,
+        "source_label": source_label,
         "projection_method": simulation_metadata.get("method"),
         "simulation_count": simulation_count,
         "seed": seed,
@@ -822,6 +839,8 @@ def get_match_metrics(
         team2,
         elo_t1,
         elo_t2,
+        elo_data_t1,
+        elo_data_t2,
         simulation_metadata,
     )
 

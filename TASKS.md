@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## In Progress
@@ -20,21 +20,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   unavailable or explicitly approximate; do not invent values.
   Verify: For one fixture, every displayed Squad & Style metric has source,
   status, checked time, and missing/approximate handling.
-
-- [ ] **T-039 - No-Cost Football Data Source Spike**
-  Owner: Data Pipeline Engineer / Football Data Scientist
-  Phase: Phase 5
-  Notes: Evaluate the free/open-source path suggested in review comments before
-  buying or wiring commercial APIs. Test `soccerdata` against FBref, Sofascore,
-  WhoScored, and related supported sources for World Cup/international coverage;
-  use `worldfootballR` as a reference only unless an R workflow is explicitly
-  approved. Assess whether field-tilt and PPDA proxies can be computed from
-  available aggregate columns. Do not use ClubElo as the national-team rating
-  source; reserve it only for a later player-club-strength blend.
-  Verify: Produce a short feasibility report and sample cached DataFrames for
-  one fixture/team pair, with source coverage, rate-limit/access notes, metric
-  columns found, proxy formulas tested, and fields that still require paid data
-  or must remain unavailable.
 
 - [ ] **T-029 - Deployment and Operations Runbook Refresh**
   Owner: Orchestrator / QA / Reproducibility Engineer
@@ -71,7 +56,8 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   `united_states_australia_2026`, and `uzbekistan_colombia_2026`. The default
   40/30/30 forecast applies to all of those except
   `switzerland_bosnia_and_herzegovina_2026`. T-026 completed the truth review;
-  replacing values with researched metrics should follow T-035 policy and T-038,
+  T-039 now supplies runtime World Football Elo ratings from an auditable cache.
+  Replacing remaining team metric values should follow T-035 policy and T-038,
   while explicit fallback labeling is now handled by T-028.
 
 - [ ] **T-033 - Briefing API and Match Analysis Freshness UI**
@@ -83,6 +69,24 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   and do not mask static baseline preview content.
 
 ## Done
+
+- [x] **T-039 - No-Cost Football Data Source Spike**
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Completed: 2026-06-19
+  Notes: Added a no-cost national-team rating source path using World Football
+  Elo TSV data as the primary source and FIFA/Coca-Cola Men's World Ranking
+  metadata as the official sanity check. The T-039 collector writes an audited
+  cache at `data/source_cache/world_football_elo/latest_ratings.json`, raw TSV
+  snapshots under `data/source_cache/world_football_elo/raw/`, and a spike
+  report at `docs/source_spikes/t039_no_cost_rating_sources.md`. Runtime Elo
+  calls now read the World Football Elo cache first and fall back to local
+  references only when the cache is unavailable; Monte Carlo/API data-quality
+  metadata now exposes `web_researched` rating provenance when the cache is
+  present. The live T-039 run parsed 244 ratings and covered 48/48 tournament
+  teams.
+  Verify: `python3 src/pipeline/collect_rating_sources.py --write`;
+  `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+  Handoff: docs/handoffs/2026-06-19_data_pipeline_football_data_scientist_t039_no_cost_sources.md
 
 - [x] **T-037 - Real Monte Carlo Tournament Simulation**
   Owner: Data Pipeline Engineer / Frontend Engineer

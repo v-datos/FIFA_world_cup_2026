@@ -123,14 +123,26 @@ payloads. The old BigQuery-style schema appears in legacy numeric folders.
 
 T-026 provenance truth:
 
-- Current Elo ratings are local hardcoded defaults.
+- Current Elo ratings use the T-039 World Football Elo cache first, then fall
+  back to local hardcoded defaults only when a cache value is absent.
 - Current Dixon-Coles output is an Elo-derived Poisson forecast with low-score
   adjustment.
 - Current `40/30/30` values are default fallback values.
 - Current progression projections are seeded random-trial Monte Carlo outputs,
-  but rating inputs are still local `hardcoded_reference` values with neutral
-  fallback for missing teams.
+  with `web_researched` rating inputs when the World Football Elo cache is
+  present and neutral fallback for teams missing any rating.
 - See `docs/model_provenance.md` before changing labels or model claims.
+
+Refresh no-cost rating cache:
+
+```bash
+python3 src/pipeline/collect_rating_sources.py --write
+```
+
+This command writes `data/source_cache/world_football_elo/latest_ratings.json`,
+raw TSV snapshots under `data/source_cache/world_football_elo/raw/`, and the
+T-039 source-spike report. The API should read this cache; it should not fetch
+World Football Elo on each request.
 
 ### Standings and Bracket
 

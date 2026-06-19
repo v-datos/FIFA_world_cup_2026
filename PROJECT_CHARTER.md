@@ -131,6 +131,8 @@ Exit criteria:
 - [x] AI research source policy is approved before web-researched Match Analysis
   data collection is implemented.
 - [x] Real Monte Carlo simulation replaces the deterministic progression curve.
+- [x] No-cost source-backed national-team ratings can replace hardcoded rating
+  inputs through the T-039 World Football Elo cache.
 - [ ] Source-backed Squad & Style metrics replace or label hardcoded/missing
   fields.
 - [x] Deployment documentation distinguishes local, Cloud Run, and
