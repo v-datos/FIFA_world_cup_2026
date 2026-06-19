@@ -7,7 +7,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Deploying | T-042 live deployment execution; Docker build fix (DEC023) | Cloud Run/`accionar.xyz` verification |
+| Orchestrator | Routing | T-042 Cloud Run deploy verified (rev 00018); route T-043 next | None |
 | QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
 | Data Pipeline Engineer | Complete | T-031 active metric gap preservation delivered | None |
 | Football Data Scientist | Complete | T-031 missing-metric preservation reviewed | None |

@@ -5,29 +5,25 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## In Progress
 
-- [ ] **T-042 - Live Deployment Execution and Docker Build Fix**
-  Owner: Orchestrator / Data Pipeline Engineer
-  Started: 2026-06-19
-  Notes: Executing the deployment the T-029 runbook flagged as a separate task.
-  Pre-flight found Cloud Run frozen at revision `fifa-2026-dashboard-00017-6z7`
-  (2026-06-17), which predates the T-027 identity contract (2026-06-18) -- this
-  is the root cause of the live drift. The first `gcloud builds submit` failed at
-  the Docker `frontend-builder` stage: `src/frontend/src/lib/teamIdentity.ts`
-  imports the repo-canonical `data/reference/team_identity.json` via a
-  `../../../../` path that the Docker stage did not include, so `tsc` raised
-  TS2307. The local `npm run build` gate did not catch it because it runs in the
-  real repo layout. Fixed the Dockerfile to mirror the repo layout inside the
-  `frontend-builder` stage (DEC023); the rebuilt Cloud Build passed the frontend
-  stage. Cloud Run smoke and `accionar.xyz` verification are pending before this
-  task is marked done.
-  Verify: `gcloud builds submit --config cloudbuild.yaml .`; post-deploy Cloud
-  Run smoke per `docs/deployment_verification_checklist.md`; `accionar.xyz`
-  read-only HTTP/browser checks; `git diff --check`.
-  Decision: docs/decisions/20260619_DEC023_docker_frontend_data_context.md
+- No tasks currently in progress.
 
 ## Queued
 
-- No tasks currently queued.
+- [ ] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Filed: 2026-06-19
+  Notes: When `worldcup26.ir/get/games` is unreachable and no games cache is
+  present (the current live state on Cloud Run), `/api/schedule` returns
+  `schedule_source=unavailable` with every `matches[].match_id` null. The
+  `default_match_id` still resolves from local fixture folders, so the default
+  fixture and per-fixture routes work, but the day-view selector listing loses
+  its IDs. The schedule fallback should derive `match_id`, teams, and lifecycle
+  for the listed rows from local `data/matches/*_2026` folders when the live API
+  and cache are unavailable, so the live selector stays usable during API
+  outages. Optionally ship a committed games cache for deterministic fallback.
+  Verify: temp-run `/api/schedule` with the live API forced unavailable and
+  confirm non-null `match_id`s sourced from local folders; Cloud Run re-smoke
+  after redeploy.
 
 ## Backlog
 
@@ -41,10 +37,36 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 - [ ] **T-030 - Streamlit Legacy Disposition**
   Owner: Orchestrator
-  Notes: Decide whether `src/app/` remains reference code, is archived, or is
-  deleted after React/FastAPI live deployment is verified.
+  Notes: Unblocked 2026-06-19 -- the React/FastAPI live deployment is now
+  verified (T-042, Cloud Run revision `fifa-2026-dashboard-00018-tm5`). Decide
+  whether `src/app/` remains reference code, is archived, or is deleted.
 
 ## Done
+
+- [x] **T-042 - Live Deployment Execution and Docker Build Fix**
+  Owner: Orchestrator / Data Pipeline Engineer
+  Completed: 2026-06-19
+  Notes: Executed the deployment the T-029 runbook flagged as a separate task.
+  Pre-flight found Cloud Run frozen at revision `fifa-2026-dashboard-00017-6z7`
+  (2026-06-17), predating the T-027 identity contract (2026-06-18) -- the root
+  cause of the live drift. The first `gcloud builds submit` failed at the Docker
+  `frontend-builder` stage because `src/frontend/src/lib/teamIdentity.ts` imports
+  the repo-canonical `data/reference/team_identity.json` via `../../../../`, a
+  path the stage did not include, so `tsc` raised TS2307. The local `npm run
+  build` gate did not catch it because it runs in the real repo layout. Fixed the
+  Dockerfile to mirror the repo layout inside `frontend-builder` (DEC023). The
+  rebuilt Cloud Build `88ef8a94` succeeded and deployed revision
+  `fifa-2026-dashboard-00018-tm5` at 100% traffic. Cloud Run smoke verified live:
+  20 fixtures with lifecycle fields, `brazil_haiti_2026` routes 200 (was 404),
+  metrics expose `data_quality`, `world_football_elo` Monte Carlo ratings, and
+  `web_researched` Brazil squad value. Two findings filed: schedule fallback gap
+  (T-043) and an `accionar.xyz` browser-confirm follow-up. Deploy emitted a
+  non-fatal IAM `setIamPolicy` warning; public access persists (unauth `/health`
+  200).
+  Verify: `gcloud builds submit --config cloudbuild.yaml .`; Cloud Run smoke per
+  `docs/deployment_verification_checklist.md`; `git diff --check`.
+  Decision: docs/decisions/20260619_DEC023_docker_frontend_data_context.md
+  Handoff: docs/handoffs/2026-06-19_orchestrator_t042_live_deployment_execution.md
 
 - [x] **T-031 - Active Match Metrics Completion**
   Owner: Data Pipeline Engineer / Football Data Scientist

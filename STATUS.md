@@ -1,13 +1,16 @@
 # STATUS
 
-## 2026-06-19 - T-042 Live Deployment Execution In Progress
+## 2026-06-19 - T-042 Live Deployment Execution - Cloud Run Verified
 
 Prepared by: Orchestrator
 
 ### Current State
 
-- T-042 is in progress: executing the live deployment that the T-029 runbook
-  flagged as a separate operator task.
+- T-042 Cloud Run deployment is complete and verified. The current React/FastAPI
+  code (T-027 through T-041) is now live; `accionar.xyz` needs a browser refresh
+  to confirm the embedded view, and a schedule-fallback follow-up is filed below.
+- This executed the live deployment that the T-029 runbook flagged as a separate
+  operator task.
 - Root cause of the live drift identified: Cloud Run was frozen at revision
   `fifa-2026-dashboard-00017-6z7` (deployed 2026-06-17), which predates the
   T-027 team identity contract (2026-06-18). Every deploy since T-027 was
@@ -23,15 +26,46 @@ Prepared by: Orchestrator
   (DEC023). The rebuilt Cloud Build passed the frontend stage and proceeded to
   backend assembly, image push, and Cloud Run deploy.
 
-### Pending Verification
+### Deployment Result
 
-- Cloud Run post-deploy smoke (expect 20 fixtures, `lifecycle`/source-status
-  fields, `brazil_haiti_2026` routes, and current `data_quality`/Monte
-  Carlo/Elo/Squad-Style provenance).
-- New revision holds 100% traffic.
-- `accionar.xyz/dashboards/fifa-2026/` serves the current dashboard surface.
-- Rollback anchor if smoke fails: route traffic back to
-  `fifa-2026-dashboard-00017-6z7`.
+- Cloud Build `88ef8a94` succeeded in 7m17s.
+- New revision `fifa-2026-dashboard-00018-tm5` serves 100% of traffic
+  (previous: `fifa-2026-dashboard-00017-6z7`, the recorded rollback anchor).
+- Deploy step emitted one non-fatal warning: it could not re-apply the
+  `allUsers` -> `roles/run.invoker` IAM binding (the deploy account lacks
+  `run.setIamPolicy`). The service-level binding already existed, so public
+  access persists, confirmed by an unauthenticated `/health` 200.
+
+### Cloud Run Verification (revision 00018)
+
+- `/health` -> HTTP 200 `{"status":"ok"}` (unauthenticated).
+- `/api/schedule` -> 20 matches, `lifecycle` and full schedule keys present
+  (`active_date`, `briefing_window`, `lifecycle_counts`, `schedule_source`);
+  old revision returned 19 matches and only `['matches']`.
+- `/api/match/brazil_haiti_2026/summary` -> HTTP 200 (old revision: 404).
+- `/api/match/brazil_haiti_2026/metrics` -> HTTP 200 with full `data_quality`,
+  `monte_carlo` `rating_source=world_football_elo` at 10,000 sims, and Brazil
+  `squad_market_value_m` `source_label=web_researched` (T-037/T-038/T-039 live).
+- `/api/standings` -> HTTP 200.
+
+### Findings / Residual Risks
+
+- Schedule fallback gap (filed as T-043): `worldcup26.ir/get/games` is currently
+  unreachable (HTTP 000 from both Cloud Run and a local check), and no games
+  cache ships in the image. In that state `/api/schedule` returns
+  `schedule_source=unavailable` with every `matches[].match_id` null. The
+  `default_match_id` still resolves from local folders (so the default fixture
+  loads and per-fixture routes work), but the day-view selector listing loses its
+  IDs. This is pre-existing T-040 fallback behavior, not a deploy regression from
+  the Docker fix, but it degrades the live selector while the upstream API is
+  down.
+- `accionar.xyz/dashboards/fifa-2026/` returns HTTP 200 and serves the portfolio
+  SPA shell (its own bundle `index-DhXZeTZ5.js`, single `#root`). The dashboard
+  view is rendered client-side and is expected to embed the now-updated Cloud Run
+  service via iframe, but the rendered content was not browser-confirmed in this
+  pass. Recommend a hard-refresh/incognito browser check.
+- BigQuery/StatsBomb visualization routes were not live-verified (credential
+  dependent).
 
 ### What Changed
 
@@ -47,9 +81,14 @@ Prepared by: Orchestrator
 
 ### Routing
 
-- Finish T-042 verification, then close it out with the live smoke results.
-- T-030 - Streamlit Legacy Disposition is unblocked once the live React/FastAPI
-  deployment is verified, since its precondition was a verified live deploy.
+- Next project step: **T-043 - Schedule Fallback Match IDs When Live API Is
+  Unavailable**. This is now the highest-value step because it affects the live
+  day-view selector while `worldcup26.ir` is down.
+- **T-030 - Streamlit Legacy Disposition** is now unblocked: the live
+  React/FastAPI deployment is verified, which was its stated precondition.
+- Remaining T-042 follow-up: browser-confirm `accionar.xyz` reflects revision
+  `00018` (or re-upload the static bundle if it hosts its own copy rather than
+  embedding Cloud Run).
 
 ---
 
