@@ -721,6 +721,7 @@ Returns:
       "team2": "Algeria",
       "date": "06/16/2026",
       "time": "21:00",
+      "kickoff_utc": "2026-06-20T17:00:00Z",
       "venue": "Stadium ...",
       "stage": "Group Stage - Group ...",
       "lifecycle": "finished",
@@ -760,10 +761,23 @@ Contract notes:
   view to avoid future/past clutter.
 - T-032 must generate `briefing.json` only for `source_status=not_finished`
   fixtures in scope.
+- `kickoff_utc` (optional, T-048) is the ISO-8601 UTC kickoff passed through from
+  `summary.json` metadata. The React Overview converts it to Edmonton
+  (`America/Edmonton`, MT) for display and falls back to the bare `time` string
+  when it is absent. The venue string is rendered as a Google Maps search link.
 
 ### `GET /api/match/{match_id}/summary`
 
-Returns the stored `summary.json` plus runtime-added `briefing_status`.
+Returns the stored `summary.json` plus runtime-added `briefing_status`,
+source-backed matchday lineups, and per-player clubs.
+
+Runtime-added lineup fields (T-046):
+
+| Field | Meaning |
+|---|---|
+| `ai_summary.confirmed_tactics[slug]` | Formation/manager/philosophy, filled from `data/source_cache/lineups/latest.json` when present. |
+| `rosters[slug]` | Ordered XI (GK→DF→MF→FW) of player names for the team slug, merged from the lineup cache. The React lineup pitch prefers this over the legacy hardcoded roster map. |
+| `player_clubs` | Map of player name to club, used for lineup tooltips. |
 
 Runtime-added `briefing_status` fields:
 
@@ -846,6 +860,12 @@ Returns the stored `metrics.json` plus runtime-added fields:
 - `team_metric_source_cache`
 - `team_metric_sources`
 - `data_quality`
+
+As of T-045, when the stored `dixon_coles_forecast` is the `40/30/30` stub and
+both Elo ratings are available, the runtime replaces `dixon_coles_forecast` and
+`score_probabilities` with an Elo-derived Dixon-Coles computation
+(`source_label` from the Elo source, e.g. `web_researched`). The stub is only
+returned when ratings are unavailable.
 
 Runtime-added `data_quality` fields:
 

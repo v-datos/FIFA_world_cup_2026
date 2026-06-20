@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-042 Cloud Run deploy verified (rev 00018); route T-043 next | None |
-| QA / Reproducibility Engineer | Complete | Data contract audit delivered in `docs/data_contracts.md` | None |
-| Data Pipeline Engineer | Complete | T-031 active metric gap preservation delivered | None |
-| Football Data Scientist | Complete | T-031 missing-metric preservation reviewed | None |
-| Frontend Engineer | Complete | T-033 briefing freshness UI delivered | None |
+| Orchestrator | Routing | T-042/044-048 deployed and verified live (rev 00021); route T-043 next | None |
+| QA / Reproducibility Engineer | Complete | Live HTTP smoke caught + fixed the summary-route decorator regression | None |
+| Data Pipeline Engineer | Complete | T-045/046/047 real forecast, lineups, standings refresh delivered | None |
+| Football Data Scientist | Complete | Reviewed Elo-derived forecast + researched squad/lineup provenance | None |
+| Frontend Engineer | Complete | T-048 Overview venue links + Edmonton time delivered | None |
 
 ## Phase 5 Objective
 
@@ -543,6 +543,7 @@ Outputs:
 | 2026-06-19 | Briefing API Freshness Contract | docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md |
 | 2026-06-19 | Active Metric Gap Preservation | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
 | 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
+| 2026-06-20 | Runtime Match Analysis Data Contracts (Forecast, Lineups, Overview Time/Venue) | docs/decisions/20260620_DEC024_runtime_match_analysis_contracts.md |
 
 ## Open Blockers
 
