@@ -7,7 +7,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-042/043/044-049 completed and verified; routing T-030 next | None |
+| Orchestrator | Routing | T-030/042/043/044-049 completed and verified; routing T-019 next | None |
 | QA / Reproducibility Engineer | Complete | Live HTTP smoke caught + fixed the summary-route decorator regression | None |
 | Data Pipeline Engineer | Complete | T-043 schedule fallback match IDs delivered | None |
 | Football Data Scientist | Complete | Reviewed Elo-derived forecast + researched squad/lineup provenance | None |

@@ -21,13 +21,13 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   2026 roster to StatsBomb `player` name mapping) and cannot be runtime-verified
   locally without GCP credentials.
 
-- [ ] **T-030 - Streamlit Legacy Disposition**
-  Owner: Orchestrator
-  Notes: Unblocked 2026-06-19 -- the React/FastAPI live deployment is now
-  verified (T-042, Cloud Run revision `fifa-2026-dashboard-00018-tm5`). Decide
-  whether `src/app/` remains reference code, is archived, or is deleted.
-
 ## Done
+
+- [x] **T-030 - Streamlit Legacy Disposition**
+  Owner: Orchestrator
+  Completed: 2026-06-20
+  Notes: Stopped the running Streamlit server process locally (PID 31437) as the React/FastAPI app is now fully verified and production-ready. The legacy Streamlit code in `src/app/` will be kept on disk strictly as reference/archive material and is no longer an active runtime target.
+  Verify: Verify no python process runs the streamlit app in the background (`ps aux | grep streamlit`).
 
 - [x] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
   Owner: Data Pipeline Engineer / Frontend Engineer
