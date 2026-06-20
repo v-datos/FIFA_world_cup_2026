@@ -1,5 +1,41 @@
 # STATUS
 
+## 2026-06-20 - Hotfix: Summary Route Decorator + Full Live Deploy
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- All of this session's work is deployed and verified live on Cloud Run
+  revision `fifa-2026-dashboard-00021-z9r`.
+
+### Hotfix
+
+- The T-046 lineup helpers were inserted directly above `get_match_summary`,
+  which left the `@app.get("/api/match/{match_id}/summary")` decorator bound to
+  `load_lineup_cache`. The summary endpoint therefore served the raw lineup
+  cache for every match and `get_match_summary` was never registered as a route,
+  breaking the entire Match Analysis summary (headline, tactics, injuries,
+  lineups) over HTTP. In-process calls still worked, which is why the earlier
+  API-only check missed it.
+- Fix: moved the route decorator back onto `get_match_summary`;
+  `load_lineup_cache`/`apply_lineup_cache` are plain helpers.
+- Process note: verify route-affecting changes over real HTTP, not only via
+  in-process function calls.
+
+### Live Verification (revision 00021)
+
+- `/api/match/brazil_haiti_2026/summary`: full payload with `rosters` (Brazil 11,
+  Haiti 11), formation 4-3-3, 17 player clubs.
+- `/api/schedule`: 4 today fixtures with real venue + `kickoff_utc`.
+- `/api/standings`: 32 matches; Group D USA 6 / Australia 3 / Paraguay 3 /
+  Turkey 0. Live total goals is 95 (Cloud Run reaches worldcup26.ir and serves a
+  live-feed recompute, one goal off the researched grid_state estimate of 96).
+- `/api/match/united_states_australia_2026/metrics`: forecast 30.5/28.0/41.5,
+  available.
+
+---
+
 ## 2026-06-20 - T-048 Overview Real Fixtures, Stadium Links, Edmonton Time
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
