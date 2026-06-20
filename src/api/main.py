@@ -1116,7 +1116,6 @@ def get_schedule():
         },
     }
 
-@app.get("/api/match/{match_id}/summary")
 def load_lineup_cache() -> dict:
     path = DATA_DIR / "source_cache" / "lineups" / "latest.json"
     if not path.exists():
@@ -1167,6 +1166,7 @@ def apply_lineup_cache(summary_data: dict, team1: str, team2: str) -> dict:
     return summary_data
 
 
+@app.get("/api/match/{match_id}/summary")
 def get_match_summary(match_id: str):
     summary_data = load_match_summary_payload(match_id)
     metadata = summary_data.get("metadata", {})
