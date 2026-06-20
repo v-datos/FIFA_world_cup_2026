@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-20T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Netherlands vs Sweden",
+    "key_headline": "Dutch Control Faces Swedish Shot Volume",
     "injuries": {
       "netherlands": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Forecast uses World Football Elo ratings; squad/style metrics may be unavailable.",
-      "Run last-minute briefing generation inside the match window for fresh updates."
-    ]
+      "Netherlands, the favorite, will aim to dictate play with superior possession and passing accuracy.",
+      "Sweden generates more shots per game despite less possession, indicating a more direct attacking approach.",
+      "The Dutch demonstrate higher attacking efficiency, scoring more goals from fewer shots while Sweden concedes more."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-20T20:55:26Z"
   },
   "data_quality": {
     "status": "baseline_stub"

@@ -31,9 +31,9 @@ from src.common.team_identity import canonical_team_slug, normalize_team_name
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
 # Low-cost / fast model for a simple, high-volume per-fixture generation; override
-# with ANTHROPIC_MODEL if you want a more capable (and costlier) model.
-MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
-MAX_TOKENS = 500
+# with GEMINI_MODEL if you want a more capable (and costlier) model.
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+MAX_TOKENS = 4000
 
 SYSTEM_PROMPT = (
     "You are an expert football (soccer) tactical analyst writing pre-match "
@@ -51,13 +51,12 @@ SYSTEM_PROMPT = (
 )
 
 OUTPUT_SCHEMA = {
-    "type": "object",
+    "type": "OBJECT",
     "properties": {
-        "headline": {"type": "string"},
-        "insights": {"type": "array", "items": {"type": "string"}},
+        "headline": {"type": "STRING"},
+        "insights": {"type": "ARRAY", "items": {"type": "STRING"}},
     },
     "required": ["headline", "insights"],
-    "additionalProperties": False,
 }
 
 
@@ -133,23 +132,34 @@ def build_context(match_id: str) -> Optional[dict]:
 
 
 def generate(context: dict) -> dict:
-    """Call Claude to produce {headline, insights[3]}."""
-    import anthropic
+    """Call Vertex AI Gemini to produce {headline, insights[3]}."""
+    import vertexai
+    from vertexai.generative_models import GenerativeModel, GenerationConfig
 
-    client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
-    user = (
-        "Write the tactical headline and three insights for this match. "
-        "Return JSON only.\n\n" + json.dumps(context, ensure_ascii=False)
+    vertexai.init(project="statsbomb-db", location="us-central1")
+    model = GenerativeModel(MODEL, system_instruction=SYSTEM_PROMPT)
+
+    prompt = (
+        "Given the structured match data below, write the tactical headline and three insights.\n"
+        "Return ONLY a JSON object matching the requested schema.\n\n"
+        f"Match Data:\n{json.dumps(context, ensure_ascii=False)}"
     )
-    resp = client.messages.create(
-        model=MODEL,
-        max_tokens=MAX_TOKENS,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user}],
-        output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
+
+    config = GenerationConfig(
+        response_mime_type="application/json",
+        response_schema=OUTPUT_SCHEMA,
+        max_output_tokens=MAX_TOKENS,
     )
-    text = next((b.text for b in resp.content if b.type == "text"), "{}")
-    data = json.loads(text)
+
+    response = model.generate_content(prompt, generation_config=config)
+    text = response.text.strip()
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError as jde:
+        print(f"JSON DECODE ERROR: {jde}")
+        print(f"RAW TEXT: {repr(text)}")
+        print(f"RESPONSE METADATA: {response}")
+        raise
     insights = [str(i).strip() for i in data.get("insights", []) if str(i).strip()][:3]
     return {"headline": data.get("headline", "").strip(), "insights": insights}
 
@@ -183,7 +193,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Generate AI tactical headlines.")
     ap.add_argument("--match-id", help="Single fixture id, e.g. germany_ivory_coast_2026")
     ap.add_argument("--date", help="YYYYMMDD: all fixtures on that date")
-    ap.add_argument("--write", action="store_true", help="Call Claude and update summary.json (needs ANTHROPIC_API_KEY)")
+    ap.add_argument("--write", action="store_true", help="Call Vertex AI Gemini and update summary.json")
     args = ap.parse_args()
 
     if args.match_id:
@@ -192,9 +202,6 @@ def main() -> None:
         match_ids = _today_match_ids(args.date)
     else:
         match_ids = _today_match_ids(dt.datetime.now().strftime("%Y%m%d"))
-
-    if args.write and not os.environ.get("ANTHROPIC_API_KEY"):
-        raise SystemExit("ANTHROPIC_API_KEY is not set; required for --write.")
 
     print(f"model={MODEL} fixtures={len(match_ids)} mode={'write' if args.write else 'dry-run'}")
     for mid in match_ids:
@@ -210,8 +217,7 @@ def main() -> None:
                 print(f"      - {ins}")
         else:
             print(f"  {mid} context: {json.dumps(ctx, ensure_ascii=False)}")
-    if not args.write:
-        print("(dry-run; set ANTHROPIC_API_KEY and pass --write to generate)")
+        print("(dry-run; pass --write to generate and update summary.json)")
 
 
 if __name__ == "__main__":

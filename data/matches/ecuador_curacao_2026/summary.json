@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Ecuador vs Curacao",
+    "key_headline": "Ecuador Targets Dominance Against Defensive Curacao",
     "injuries": {
       "ecuador": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Forecast uses World Football Elo ratings; squad/style metrics may be unavailable.",
-      "Run last-minute briefing generation inside the match window for fresh updates."
-    ]
+      "Ecuador enters as the strong favorite, reflected by their 93% win expectancy and superior Elo rating of 1890.",
+      "Ecuador's higher possession (51.6%) and shots per game (12.0) suggest a more assertive attacking strategy than Curacao.",
+      "Curacao's significant defensive vulnerability, conceding 7.0 goals per game, contrasts sharply with Ecuador's 1.0 conceded."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-20T20:55:18Z"
   },
   "data_quality": {
     "status": "baseline_stub"

@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T04:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Tunisia vs Japan",
+    "key_headline": "Japan Favored, Facing Tunisia's High Possession",
     "injuries": {
       "tunisia": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Forecast uses World Football Elo ratings; squad/style metrics may be unavailable.",
-      "Run last-minute briefing generation inside the match window for fresh updates."
-    ]
+      "Japan enters as the strong favorite with an 87% win expectancy, reflecting their significantly higher Elo ranking.",
+      "Tunisia holds more possession (51.3%) but Japan generates more shots (10.0), indicating a direct offensive approach.",
+      "Japan's efficient attack (2.0 goals) and tighter defense (2.0 conceded) pose a significant threat to Tunisia's vulnerabilities."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-20T20:55:31Z"
   },
   "data_quality": {
     "status": "baseline_stub"

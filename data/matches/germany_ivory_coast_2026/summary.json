@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-20T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Germany vs Ivory Coast",
+    "key_headline": "Germany Favored: High Shots, High Possession vs Ivory Coast",
     "injuries": {
       "germany": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Forecast uses World Football Elo ratings; squad/style metrics may be unavailable.",
-      "Run last-minute briefing generation inside the match window for fresh updates."
-    ]
+      "Germany is heavily favored with a 76% win expectancy, dominating possession at 64.6%.",
+      "Germany averages significantly more shots per game (26.0) compared to Ivory Coast's 15.0.",
+      "Ivory Coast's defense has conceded zero goals per game, facing Germany's attack averaging 7.0 goals."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-20T20:55:21Z"
   },
   "data_quality": {
     "status": "baseline_stub"

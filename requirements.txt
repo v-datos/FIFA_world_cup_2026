@@ -12,4 +12,4 @@ pyarrow
 soccerdata
 fastapi
 uvicorn
-anthropic>=0.69
+google-cloud-aiplatform
