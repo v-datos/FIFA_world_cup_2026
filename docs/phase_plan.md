@@ -542,6 +542,7 @@ Outputs:
 | 2026-06-19 | Active Metric Gap Preservation | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
 | 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
 | 2026-06-20 | Runtime Match Analysis Data Contracts (Forecast, Lineups, Overview Time/Venue) | docs/decisions/20260620_DEC024_runtime_match_analysis_contracts.md |
+| 2026-06-20 | Deterministic ESPN Matchday Automation | docs/decisions/20260620_DEC025_deterministic_espn_matchday_automation.md |
 
 ## Open Blockers
 

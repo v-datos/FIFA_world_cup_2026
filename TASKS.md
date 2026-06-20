@@ -19,6 +19,22 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-050 - Deterministic ESPN Matchday Automation**
+  Owner: Data Pipeline Engineer
+  Completed: 2026-06-20
+  Notes: Replaced per-matchday manual research with a deterministic collector,
+  `src/pipeline/collect_espn_matchday.py`, that pulls fixtures, real
+  venues/kickoffs, team style metrics, and confirmed starting XIs from ESPN's
+  public soccer API (no browser/auth; FBref rejected because it is
+  Cloudflare-gated and soccerdata needs headless Chrome). Aligned the radar to
+  ESPN-provided metrics (possession, shots/90, shot accuracy %, pass accuracy %);
+  xG/PPDA stay missing. Ran the collector across 06/14-06/21 (48 teams). Added a
+  daily GitHub Action (`.github/workflows/matchday-refresh.yml`) and a Cloud
+  Build trigger guide (`docs/cloud_build_trigger_setup.md`). DEC025.
+  Verify: `python3 -m src.pipeline.collect_espn_matchday --date 20260620 --write`;
+  live radar `status=available` + rosters on Cloud Run rev 00024.
+  Decision: docs/decisions/20260620_DEC025_deterministic_espn_matchday_automation.md
+
 - [x] **T-030 - Streamlit Legacy Disposition**
   Owner: Orchestrator
   Completed: 2026-06-20

@@ -1,5 +1,43 @@
 # STATUS
 
+## 2026-06-20 - T-050 Deterministic ESPN Matchday Automation
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- The dashboard now refreshes itself each matchday. A deterministic collector,
+  `src/pipeline/collect_espn_matchday.py`, pulls fixtures, real venues, UTC
+  kickoffs, team style metrics, and confirmed starting XIs from ESPN's public
+  soccer API (no browser, no auth). FBref was rejected: it is Cloudflare-gated
+  and `soccerdata`'s reader needs a headless Chrome.
+- Ran across 06/14-06/21: all 48 teams have real style metrics + lineups, and
+  every fixture carries its real ESPN venue + `kickoff_utc`.
+- The radar now uses ESPN-provided metrics (possession, shots/90, shot accuracy
+  %, pass accuracy %); xG/PPDA are not exposed by ESPN and stay missing.
+- Automation: `.github/workflows/matchday-refresh.yml` runs the collector twice
+  daily, commits, and pushes. A one-time Cloud Build push-to-`main` trigger
+  (`docs/cloud_build_trigger_setup.md`) closes the loop to auto-deploy.
+
+### Verification
+
+- Live Cloud Run revision `fifa-2026-dashboard-00024-mdz`:
+  `germany_ivory_coast_2026` metrics radar `status=available` (Germany 64.6%
+  poss / 26 shots / 46.2% SoT / 87% pass), summary rosters 11+11, venue
+  "BMO Field, Toronto".
+- `python3 -m src.pipeline.collect_espn_matchday --date 20260620 --write`.
+- `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+
+### Routing
+
+- Next: the project owner completes the one-time Cloud Build trigger setup
+  (`docs/cloud_build_trigger_setup.md`) so refreshes auto-deploy; then validate
+  the first scheduled GitHub Action run end to end. Optional collector
+  enhancements: player clubs + manager names from ESPN, multi-game averaging,
+  and an xG source.
+
+---
+
 ## 2026-06-20 - Phase 5 Completed & Task T-019 Dropped
 
 Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
