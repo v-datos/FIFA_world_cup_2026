@@ -30,20 +30,23 @@ jobs:
           python-version: "3.11"
 
       - name: Install minimal deps
-        run: pip install requests anthropic
+        run: pip install requests google-cloud-aiplatform
 
       - name: Collect today's (and yesterday's) matchday data from ESPN
         run: |
           python -m src.pipeline.collect_espn_matchday --date "$(date -u +%Y%m%d)" --write
           python -m src.pipeline.collect_espn_matchday --date "$(date -u -d 'yesterday' +%Y%m%d)" --write || true
 
-      # Generate AI tactical headlines with Claude. Skipped unless the
-      # ANTHROPIC_API_KEY repository secret is set.
+      # Generate AI tactical headlines with Vertex AI Gemini. Skipped unless the
+      # GCP_SA_KEY repository secret is set.
+      - name: Authenticate to Google Cloud
+        if: ${{ secrets.GCP_SA_KEY != '' }}
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
       - name: Generate AI tactical headlines (optional)
-        if: ${{ env.HAS_KEY == 'true' }}
-        env:
-          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        if: ${{ secrets.GCP_SA_KEY != '' }}
         run: python -m src.pipeline.generate_match_headlines --date "$(date -u +%Y%m%d)" --write || true
 
       - name: Commit and push if data changed
