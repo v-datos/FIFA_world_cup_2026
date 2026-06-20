@@ -10,6 +10,7 @@ interface InteractivePitchProps {
   teamName: string;
   flag?: string;
   players: string[];
+  playerClubs?: Record<string, string>;
   formation: string;
   lang: string;
 }
@@ -128,6 +129,7 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
   teamName,
   flag,
   players,
+  playerClubs,
   formation,
   lang,
 }) => {
@@ -152,7 +154,7 @@ export const InteractivePitch: React.FC<InteractivePitchProps> = ({
       const pData: Player = {
         name: pName,
         position: 'Player',
-        club: PLAYER_CLUBS_ALL[pName] || 'Free Agent',
+        club: playerClubs?.[pName] || PLAYER_CLUBS_ALL[pName] || 'N/A',
       };
 
       if (idx === 0) {

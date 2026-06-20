@@ -69,6 +69,8 @@ interface SummaryPayload {
     }>;
     tactical_insights: string[];
   };
+  rosters?: Record<string, string[]>;
+  player_clubs?: Record<string, string>;
   briefing_status?: QualityRecord;
 }
 
@@ -396,9 +398,12 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const cleanT1 = teamSlug(team1);
   const cleanT2 = teamSlug(team2);
 
-  // Fetch player list from local fallback or fallback to default names list
-  const t1Roster = ROSTERS[normalizedTeam1] || ROSTERS[team1] || ROSTERS[cleanT1] || [];
-  const t2Roster = ROSTERS[normalizedTeam2] || ROSTERS[team2] || ROSTERS[cleanT2] || [];
+  // Prefer source-backed rosters from the API (slug-keyed), then fall back to
+  // the legacy local roster map for teams not yet in the lineup cache.
+  const apiRosters = summaryData.rosters || {};
+  const playerClubs = summaryData.player_clubs || {};
+  const t1Roster = apiRosters[cleanT1] || ROSTERS[normalizedTeam1] || ROSTERS[team1] || ROSTERS[cleanT1] || [];
+  const t2Roster = apiRosters[cleanT2] || ROSTERS[normalizedTeam2] || ROSTERS[team2] || ROSTERS[cleanT2] || [];
 
   const translateText = (text: string) => {
     // Basic translation helper for headers
@@ -598,6 +603,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             teamName={team1}
             flag={getFlag(team1)}
             players={t1Roster}
+            playerClubs={playerClubs}
             formation={confirmed_tactics[cleanT1]?.formation || "4-3-3"}
             lang={lang}
           />
@@ -605,6 +611,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             teamName={team2}
             flag={getFlag(team2)}
             players={t2Roster}
+            playerClubs={playerClubs}
             formation={confirmed_tactics[cleanT2]?.formation || "4-3-3"}
             lang={lang}
           />

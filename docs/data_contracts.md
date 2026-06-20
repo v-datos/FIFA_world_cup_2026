@@ -883,6 +883,13 @@ Contract notes:
 - Live mutation maps provider variants such as `Turkiye` / `Türkiye`,
   `Czechia`, `Curaçao`, `DR Congo`, and `Côte d'Ivoire` through the shared
   identity contract.
+- The response also includes a `tournament_stats` object consumed by the
+  Overview tab (T-044): `matches_played` (`sum(p) // 2` over the live group
+  standings), `total_matches` (104), `total_goals` (`sum(gf)`), `goals_per_game`,
+  and `top_scorer`. `matches_played` and `total_goals` are derived from the same
+  group standings that render the bracket, so they update live. `top_scorer` is a
+  curated `grid_state.json` field (no live scorers feed exists yet) and is `null`
+  if absent.
 
 ### `GET /api/forecast?team1={team1}&team2={team2}`
 

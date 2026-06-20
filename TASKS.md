@@ -43,6 +43,55 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-045 - Real Forecast + Source-Backed Squad & Style Values**
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Completed: 2026-06-20
+  Notes: `/api/match/{id}/metrics` computes an Elo-derived Dixon-Coles forecast
+  from the World Football Elo cache when the stored forecast is the 40/30/30
+  stub (and syncs top-level `score_probabilities`), so Match Outcome Probability
+  and Top Exact Scores render real model output labelled with rating provenance.
+  Researched squad market values (8 current-fixture teams) and average ages were
+  added to the squad/style source cache; advanced style metrics stay missing.
+  Verify: in-process metrics smoke + browser preview.
+
+- [x] **T-046 - Source-Backed Matchday Lineups**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-20
+  Notes: Added `data/source_cache/lineups/latest.json` (formation, manager,
+  philosophy, ordered XI, clubs per team). `get_match_summary` merges it into
+  `confirmed_tactics` and adds slug-keyed `rosters` + `player_clubs`;
+  `MatchAnalysisTab` prefers API rosters over the legacy hardcoded map and
+  `InteractivePitch` takes a `playerClubs` prop. API-verified for all 8
+  current-fixture teams.
+  Verify: in-process `get_match_summary` rosters/tactics; `npm run build`.
+
+- [x] **T-047 - Standings Refresh to Current Results**
+  Owner: Data Pipeline Engineer
+  Completed: 2026-06-20
+  Notes: Refreshed `data/bracket/grid_state.json` group standings to the
+  researched 2026-06-20 results (all 12 groups; 32 matches, 96 goals). Stale
+  because worldcup26.ir is unreachable; the live auto-update path is unchanged
+  and would resume when the API returns. T-043 (schedule fallback match IDs)
+  remains the open robustness item.
+  Verify: in-process `get_standings`; browser Standings tab.
+
+- [x] **T-044 - Live Overview Tournament Stats**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-19
+  Notes: The Overview tab's three stat cards (Matches Played, Total Goals, Top
+  Scorers) were hardcoded constants frozen "as of June 17." Replaced them with
+  live values from the same `/api/standings` source the bracket uses.
+  `/api/standings` now returns a `tournament_stats` object: `matches_played`
+  (`sum(p)//2`) and `total_goals` (`sum(gf)`) derived from the live group
+  standings, plus `goals_per_game` and a curated `top_scorer` read from a new
+  `grid_state.json` field (no live scorers feed exists, so it stays curated and
+  surfaces through the same data path as the bracket). `OverviewTab` fetches
+  `/api/standings` like `StandingsTab` and renders `—` fallbacks until loaded.
+  Verify: in-process `/api/standings` returned
+  `matches_played=20, total_goals=62, goals_per_game=3.1, top_scorer=L. Messi/3`;
+  browser preview confirmed the cards render those values with no console errors;
+  `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+
 - [x] **T-042 - Live Deployment Execution and Docker Build Fix**
   Owner: Orchestrator / Data Pipeline Engineer
   Completed: 2026-06-19

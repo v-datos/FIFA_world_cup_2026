@@ -1,5 +1,104 @@
 # STATUS
 
+## 2026-06-20 - Match Analysis Real-Data Population + Standings Refresh
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist / Frontend Engineer
+
+### Current State
+
+- The Match Analysis sections that previously rendered blank now show real,
+  source-backed data; the Standings & Bracket tab is refreshed to the live
+  2026-06-20 group results. worldcup26.ir remains unreachable, so all live data
+  is served from refreshed local caches/fallbacks.
+
+### What Changed
+
+- **T-045 Match Outcome Probability (real forecast):** `/api/match/{id}/metrics`
+  now computes an Elo-derived Dixon-Coles forecast from the World Football Elo
+  cache when the stored forecast is the 40/30/30 stub, and keeps the top-level
+  `score_probabilities` in sync. Forecast/score quality is labelled with the Elo
+  rating provenance (`web_researched`) instead of `default_forecast`.
+- **T-045 Squad & Style values:** researched squad market values for the current
+  fixtures (US, Australia, Scotland, Morocco, Turkey, Paraguay, Brazil, Haiti)
+  plus average ages where sourced, written into
+  `data/source_cache/squad_style/latest_metrics.json`. Advanced style metrics
+  (xG, PPDA, field tilt, possession) remain explicitly `missing`.
+- **T-046 Squad lineups:** added `data/source_cache/lineups/latest.json` with
+  source-backed matchday XIs (formation, manager, philosophy, ordered players,
+  clubs). `get_match_summary` merges it into `ai_summary.confirmed_tactics` and
+  adds slug-keyed `rosters` + a `player_clubs` map. `MatchAnalysisTab` reads
+  API rosters first (legacy hardcoded map is fallback); `InteractivePitch`
+  accepts a `playerClubs` prop.
+- **T-047 Standings refresh:** updated `data/bracket/grid_state.json` group
+  standings to the researched 2026-06-20 results (all 12 groups; 32 matches
+  played, 96 goals). `/api/standings` and Overview tournament stats follow.
+
+### Verification
+
+- In-process API smoke: real forecast (US 31/28/42, Brazil 78/15/7), Squad
+  market values flow into `team_metrics`, rosters of 11 per team, standings
+  `matches_played=32`/`total_goals=96`.
+- Browser preview: Match Outcome Probability, Squad & Style, and Standings tab
+  render the real values; no console errors.
+- `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+
+### Known Limitations
+
+- Team Performance radar still needs advanced style metrics (xG/PPDA/possession)
+  that are not freely sourceable for national teams; it stays partial/unavailable.
+- Lineups are not browser-visible on 2026-06-20 because no fixture is dated today
+  (the day-view filter hides finished fixtures and the live feed is down).
+- Top scorer in `grid_state.json` remains a curated field (`L. Messi`, 3).
+
+### Routing
+
+- Next: research and add the current day's real fixtures plus real venues and
+  kickoff times, then add the Overview stadium map link and Edmonton (MDT) time
+  display.
+
+---
+
+## 2026-06-19 - T-044 Live Overview Tournament Stats Completed
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
+
+### Current State
+
+- T-044 is complete locally and verified in a browser preview; it is not yet
+  deployed to Cloud Run.
+- The Overview tab's Matches Played, Total Goals, and Top Scorers cards were
+  hardcoded constants frozen "as of June 17." They are now live.
+
+### What Changed
+
+- `/api/standings` now returns a `tournament_stats` object: `matches_played`
+  (`sum(p)//2`), `total_matches` (104), `total_goals` (`sum(gf)`),
+  `goals_per_game`, and `top_scorer`. The first two are derived from the same
+  live group standings that render the bracket, so they update together.
+- Added a curated `top_scorer` field to `data/bracket/grid_state.json`; it flows
+  through `/api/standings` because `load_live_bracket_state()` preserves
+  grid_state top-level keys. No live scorers feed exists yet.
+- `OverviewTab` now fetches `/api/standings` like `StandingsTab`, renders
+  `tournament_stats`, and shows `—` until loaded. `App` passes `serverUrl` to it.
+- Documented the new field in `docs/data_contracts.md`.
+
+### Verification
+
+- In-process `/api/standings` returned `matches_played=20`, `total_goals=62`,
+  `goals_per_game=3.1`, `top_scorer={"name":"L. Messi","goals":3}` (matching the
+  previously hardcoded values, now derived).
+- Browser preview at `localhost:8080` rendered the three cards with the live
+  values and no console errors.
+- `python3 -m compileall -q src`; `npm --prefix src/frontend run build`.
+
+### Routing
+
+- To make this visible to live users, T-044 must ship in the next Cloud Run
+  redeploy (same `gcloud builds submit` path as T-042).
+- T-043 schedule fallback and T-030 Streamlit disposition remain queued/backlog.
+
+---
+
 ## 2026-06-19 - T-042 Live Deployment Execution - Cloud Run Verified
 
 Prepared by: Orchestrator

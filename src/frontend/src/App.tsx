@@ -101,11 +101,12 @@ function App() {
         ) : (
           <>
             {activeTab === 'overview' && (
-              <OverviewTab 
-                matches={matches} 
-                onSelectMatch={handleSelectMatch} 
+              <OverviewTab
+                matches={matches}
+                onSelectMatch={handleSelectMatch}
                 activeDate={activeDate}
-                lang={lang} 
+                lang={lang}
+                serverUrl={serverUrl}
               />
             )}
             

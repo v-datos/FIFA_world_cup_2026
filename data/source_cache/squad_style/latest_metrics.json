@@ -7,16 +7,11 @@
     "collection_method": "static_source_manifest",
     "parser_version": "squad_style_static_manifest_v1",
     "status": "partial",
-    "checked_at_utc": "2026-06-19T13:57:52Z",
+    "checked_at_utc": "2026-06-19T16:45:00Z",
     "team_count": 18,
-    "field_record_count": 2,
+    "field_record_count": 11,
     "warnings": [
-      "Only Brazil has source-backed squad_market_value_m and average_age records in this cache.",
-      "T-031 adds explicit missing rows for active empty team_metrics fixtures where no approved local source-cache record exists.",
-      "No data/matches/**/metrics.json files are rewritten by this cache.",
-      "Default 40/30/30 forecasts remain default_forecast and should not be displayed as model probabilities.",
-      "Style and performance fields remain hardcoded_reference when stored metrics exist and missing where they do not.",
-      "Transfermarkt market values are estimates and should be treated as source-backed reference values, not official squad valuations."
+      "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
     "blocked_reasons": [],
     "missing_reasons": [
@@ -26,13 +21,17 @@
   "teams": [
     {
       "team": "Brazil",
-      "fixture_ids": ["brazil_haiti_2026"],
+      "fixture_ids": [
+        "brazil_haiti_2026"
+      ],
       "status": "partial",
       "source_label": "web_researched",
       "source_name": "Transfermarkt",
       "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
       "checked_at_utc": "2026-06-19T07:56:49Z",
-      "missing_reasons": ["source_cache_only_contains_squad_header_fields"],
+      "missing_reasons": [
+        "source_cache_only_contains_squad_header_fields"
+      ],
       "fields": {
         "squad_market_value_m": {
           "value": 928.2,
@@ -62,172 +61,362 @@
     },
     {
       "team": "Haiti",
-      "fixture_ids": ["brazil_haiti_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache", "haiti_transfermarkt_profile_not_identified"],
-      "fields": {}
+      "fixture_ids": [
+        "brazil_haiti_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 55.9,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 55.90 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "average_age": {
+          "value": 24.0,
+          "unit": "years",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.fourfourtwo.com/team/haiti-world-cup-2026-squad",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "24.0 years average age",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Canada",
-      "fixture_ids": ["canada_qatar_2026"],
+      "fixture_ids": [
+        "canada_qatar_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Qatar",
-      "fixture_ids": ["canada_qatar_2026"],
+      "fixture_ids": [
+        "canada_qatar_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Czech Republic",
-      "fixture_ids": ["czech_republic_south_africa_2026"],
+      "fixture_ids": [
+        "czech_republic_south_africa_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "South Africa",
-      "fixture_ids": ["czech_republic_south_africa_2026"],
+      "fixture_ids": [
+        "czech_republic_south_africa_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Mexico",
-      "fixture_ids": ["mexico_south_korea_2026"],
+      "fixture_ids": [
+        "mexico_south_korea_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "South Korea",
-      "fixture_ids": ["mexico_south_korea_2026"],
+      "fixture_ids": [
+        "mexico_south_korea_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Scotland",
-      "fixture_ids": ["scotland_morocco_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "scotland_morocco_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 170.25,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 170.25 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Morocco",
-      "fixture_ids": ["scotland_morocco_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "scotland_morocco_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 447.7,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 447.70 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Switzerland",
-      "fixture_ids": ["switzerland_bosnia_and_herzegovina_2026"],
+      "fixture_ids": [
+        "switzerland_bosnia_and_herzegovina_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Bosnia and Herzegovina",
-      "fixture_ids": ["switzerland_bosnia_and_herzegovina_2026"],
+      "fixture_ids": [
+        "switzerland_bosnia_and_herzegovina_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Turkey",
-      "fixture_ids": ["turkey_paraguay_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "turkey_paraguay_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 473.7,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 473.70 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Paraguay",
-      "fixture_ids": ["turkey_paraguay_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "turkey_paraguay_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 153.65,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 153.65 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "United States",
-      "fixture_ids": ["united_states_australia_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "united_states_australia_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 385.6,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 385.60 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Australia",
-      "fixture_ids": ["united_states_australia_2026"],
-      "status": "missing",
-      "source_label": "missing",
-      "source_name": "T-031 local source-cache audit",
-      "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
-      "fields": {}
+      "fixture_ids": [
+        "united_states_australia_2026"
+      ],
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "checked_at_utc": "2026-06-19T16:45:00Z",
+      "missing_reasons": [
+        "only_squad_value_and_age_sourced_this_pass"
+      ],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 77.45,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "EUR 77.45 m total market value",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "average_age": {
+          "value": 27.4,
+          "unit": "years",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.transfermarkt.us/australien/datenfakten/verein/3433",
+          "source_path": "National team total market value / average age",
+          "source_value_text": "27.4 years average age",
+          "checked_at_utc": "2026-06-19T16:45:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
     },
     {
       "team": "Uzbekistan",
-      "fixture_ids": ["uzbekistan_colombia_2026"],
+      "fixture_ids": [
+        "uzbekistan_colombia_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     },
     {
       "team": "Colombia",
-      "fixture_ids": ["uzbekistan_colombia_2026"],
+      "fixture_ids": [
+        "uzbekistan_colombia_2026"
+      ],
       "status": "missing",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
-      "missing_reasons": ["no_approved_local_squad_style_source_cache"],
+      "missing_reasons": [
+        "no_approved_local_squad_style_source_cache"
+      ],
       "fields": {}
     }
   ]

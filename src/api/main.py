@@ -667,13 +667,15 @@ def build_metrics_data_quality(
 ) -> dict:
     forecast = metrics_data.get("dixon_coles_forecast") or {}
     default_forecast = is_default_forecast(forecast)
+    elo_source_label = (elo_data_t1 or {}).get("source_label") or (elo_data_t2 or {}).get("source_label")
+    forecast_label = elo_source_label or "generated_model"
     forecast_quality = {
         "status": "unavailable" if default_forecast else "available",
-        "source_label": "default_forecast" if default_forecast else "hardcoded_reference",
+        "source_label": "default_forecast" if default_forecast else forecast_label,
         "message": (
             "Stored forecast is the default 40/30/30 fallback and should not be displayed as a model probability."
             if default_forecast
-            else "Stored forecast is an Elo-derived Dixon-Coles calculation using local reference ratings."
+            else "Elo-derived Dixon-Coles forecast computed from source-backed World Football Elo ratings."
         ),
     }
 
@@ -716,11 +718,11 @@ def build_metrics_data_quality(
         "forecast": forecast_quality,
         "score_probabilities": {
             "status": "unavailable" if default_forecast else "available",
-            "source_label": "default_forecast" if default_forecast else "hardcoded_reference",
+            "source_label": "default_forecast" if default_forecast else forecast_label,
             "message": (
                 "Exact-score probabilities are hidden because the fixture only has the default forecast fallback."
                 if default_forecast
-                else "Exact-score probabilities come from the stored Dixon-Coles score grid."
+                else "Exact-score probabilities come from the Elo-derived Dixon-Coles score grid."
             ),
         },
         "team_metrics": team_quality,
@@ -1114,8 +1116,64 @@ def get_schedule():
     }
 
 @app.get("/api/match/{match_id}/summary")
+def load_lineup_cache() -> dict:
+    path = DATA_DIR / "source_cache" / "lineups" / "latest.json"
+    if not path.exists():
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def apply_lineup_cache(summary_data: dict, team1: str, team2: str) -> dict:
+    """Merge source-backed matchday lineups into the summary payload.
+
+    Fills confirmed-tactics formation/manager/philosophy and adds slug-keyed
+    `rosters` (ordered GK->DF->MF->FW) plus a `player_clubs` map, so the squad
+    lineup pitch renders source-backed XIs instead of the legacy hardcoded map.
+    """
+    teams = load_lineup_cache().get("teams", {})
+    if not teams:
+        return summary_data
+
+    ai_summary = summary_data.setdefault("ai_summary", {})
+    confirmed = ai_summary.setdefault("confirmed_tactics", {})
+    rosters = summary_data.setdefault("rosters", {})
+    player_clubs = summary_data.setdefault("player_clubs", {})
+
+    for team in (team1, team2):
+        slug = canonical_team_slug(team)
+        entry = teams.get(slug)
+        if not entry:
+            continue
+        tactics = confirmed.setdefault(slug, {})
+        for key in ("formation", "manager", "philosophy"):
+            if entry.get(key):
+                tactics[key] = entry[key]
+        names = []
+        for player in entry.get("players", []):
+            name = player.get("name")
+            if not name:
+                continue
+            names.append(name)
+            club = player.get("club")
+            if club and club != "N/A":
+                player_clubs[name] = club
+        if names:
+            rosters[slug] = names
+    return summary_data
+
+
 def get_match_summary(match_id: str):
     summary_data = load_match_summary_payload(match_id)
+    metadata = summary_data.get("metadata", {})
+    summary_data = apply_lineup_cache(
+        summary_data,
+        metadata.get("team1", ""),
+        metadata.get("team2", ""),
+    )
     summary_data["briefing_status"] = build_match_briefing_payload(
         match_id,
         summary_data,
@@ -1162,6 +1220,19 @@ def get_match_metrics(
         team2: elo_t2
     }
 
+    # If the stored forecast is only the 40/30/30 stub, compute a real
+    # Elo-derived Dixon-Coles forecast at request time from the source-backed
+    # World Football Elo ratings, so Match Outcome Probability and Top Exact
+    # Scores show a genuine model result instead of rendering as unavailable.
+    if is_default_forecast(metrics_data.get("dixon_coles_forecast") or {}) and elo_t1 is not None and elo_t2 is not None:
+        computed_forecast = get_dixon_coles_prediction(elo_t1, elo_t2)
+        if computed_forecast and computed_forecast.get("team1_win") is not None:
+            metrics_data["dixon_coles_forecast"] = computed_forecast
+            # Keep the top-level exact-score list (read directly by the UI) in
+            # sync with the computed forecast so Top Exact Scores match the
+            # win/draw/loss probabilities instead of the old stub scores.
+            metrics_data["score_probabilities"] = computed_forecast.get("score_probabilities", [])
+
     simulation = get_monte_carlo_simulation(simulation_count, seed)
     simulation_metadata = simulation.get("metadata")
     metrics_data["monte_carlo_projections"] = simulation.get("probabilities", {})
@@ -1196,7 +1267,25 @@ def get_match_metrics(
 
 @app.get("/api/standings")
 def get_standings():
-    return load_live_bracket_state()
+    state = load_live_bracket_state()
+    if isinstance(state, dict):
+        groups = state.get("groups", [])
+        team_rows = [t for g in groups for t in g.get("standings", [])]
+        # Each match contributes one appearance per team, so matches played is
+        # half the sum of per-team played counts. Total goals is the sum of
+        # goals-for across all teams (each goal counted once for the scorer).
+        total_appearances = sum(t.get("p", 0) for t in team_rows)
+        total_goals = sum(t.get("gf", 0) for t in team_rows)
+        matches_played = total_appearances // 2
+        state["tournament_stats"] = {
+            "matches_played": matches_played,
+            "total_matches": 104,
+            "total_goals": total_goals,
+            "goals_per_game": round(total_goals / matches_played, 1) if matches_played else None,
+            # Curated in grid_state.json; no live scorers feed exists yet.
+            "top_scorer": state.get("top_scorer"),
+        }
+    return state
 
 @app.get("/api/forecast")
 def get_forecast(team1: str, team2: str):

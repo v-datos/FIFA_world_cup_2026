@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { getFlag } from '../lib/teamData';
 
@@ -13,11 +13,20 @@ interface Match {
   lifecycle?: 'finished' | 'today' | 'upcoming' | 'unresolved' | 'archived';
 }
 
+interface TournamentStats {
+  matches_played: number;
+  total_matches: number;
+  total_goals: number;
+  goals_per_game: number | null;
+  top_scorer: { name: string; goals: number } | null;
+}
+
 interface OverviewTabProps {
   matches: Match[];
   onSelectMatch: (matchId: string) => void;
   activeDate: string;
   lang: string;
+  serverUrl: string;
 }
 
 export const OverviewTab: React.FC<OverviewTabProps> = ({
@@ -25,14 +34,36 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   onSelectMatch,
   activeDate,
   lang,
+  serverUrl,
 }) => {
   const filteredMatches = matches.filter((match) => match.lifecycle === 'today');
 
-  // World Cup 2026 group-stage totals as of June 17 (live worldcup26.ir feed: 20 matches played)
-  const matchesPlayed = 20;
-  const totalGoals = 62;
-  const topScorer = "L. Messi: 3 Goals";
-  const topScorerES = "L. Messi: 3 Goles";
+  // Tournament totals are derived live from /api/standings (same source as the
+  // bracket): matches played and goals come from the live group standings; the
+  // top scorer is a curated grid_state.json field surfaced through that payload.
+  const [stats, setStats] = useState<TournamentStats | null>(null);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await fetch(`${serverUrl}/api/standings`);
+        if (res.ok) {
+          const json = await res.json();
+          if (json.tournament_stats) setStats(json.tournament_stats);
+        }
+      } catch (err) {
+        console.error('Error fetching tournament stats', err);
+      }
+    };
+    fetchStats();
+  }, [serverUrl]);
+
+  const totalMatches = stats?.total_matches ?? 104;
+  const matchesPlayed = stats ? stats.matches_played : null;
+  const totalGoals = stats ? stats.total_goals : null;
+  const goalsPerGame = stats?.goals_per_game ?? null;
+  const scorer = stats?.top_scorer ?? null;
+  const goalsLabel = lang === 'Español' ? 'Goles' : 'Goals';
 
   return (
     <div className="space-y-6">
@@ -53,8 +84,8 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             {lang === 'Español' ? 'Partidos Jugados' : 'Matches Played'}
           </span>
           <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-3xl font-bold text-slate-100">{matchesPlayed}</span>
-            <span className="text-xs text-slate-500">/ 104</span>
+            <span className="text-3xl font-bold text-slate-100">{matchesPlayed ?? '—'}</span>
+            <span className="text-xs text-slate-500">/ {totalMatches}</span>
           </div>
         </div>
 
@@ -63,10 +94,12 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             {lang === 'Español' ? 'Goles Totales' : 'Total Goals Scored'}
           </span>
           <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-3xl font-bold text-slate-100">{totalGoals}</span>
-            <span className="text-xs text-emerald-400 font-mono">
-              avg {(totalGoals / matchesPlayed).toFixed(1)} / game
-            </span>
+            <span className="text-3xl font-bold text-slate-100">{totalGoals ?? '—'}</span>
+            {goalsPerGame !== null && (
+              <span className="text-xs text-emerald-400 font-mono">
+                avg {goalsPerGame.toFixed(1)} / game
+              </span>
+            )}
           </div>
         </div>
 
@@ -76,7 +109,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           </span>
           <div className="flex items-baseline gap-2 mt-2">
             <span className="text-lg font-bold text-slate-100">
-              {lang === 'Español' ? topScorerES : topScorer}
+              {scorer ? `${scorer.name}: ${scorer.goals} ${goalsLabel}` : '—'}
             </span>
           </div>
         </div>
