@@ -7,11 +7,11 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-042/044-048 deployed and verified live (rev 00021); routing T-049 next | None |
+| Orchestrator | Routing | T-042/044-049 completed and verified; routing T-043 next | None |
 | QA / Reproducibility Engineer | Complete | Live HTTP smoke caught + fixed the summary-route decorator regression | None |
 | Data Pipeline Engineer | Complete | T-045/046/047 real forecast, lineups, standings refresh delivered | None |
 | Football Data Scientist | Complete | Reviewed Elo-derived forecast + researched squad/lineup provenance | None |
-| Frontend Engineer | In Progress | T-049 Standings and Bracket UI Rebaseline | None |
+| Frontend Engineer | Complete | T-049 Standings and Bracket UI Rebaseline delivered | None |
 
 ## Phase 5 Objective
 

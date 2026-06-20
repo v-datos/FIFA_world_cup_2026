@@ -9,12 +9,6 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-049 - Align Standings & Bracket Tab UI with Streamlit Wood Board & Tape Layout**
-  Owner: Frontend Engineer
-  Filed: 2026-06-20
-  Notes: The current React `StandingsTab.tsx` visual style has drifted from the legacy Streamlit `bracket_ui.py` layout. It lacks individual tape strip rotations, displays scores on tapes (creating text wrap and clutter), and has altered background wood colors and proportions. We will rebaseline the component to use the exact dimensions, color codes, rotation inline styles, and clean presentation (no matchup scores) of the legacy application.
-  Verify: compile React app (`npm run build`), verify standings and bracket tree alignment visually in browser.
-
 - [ ] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
   Owner: Data Pipeline Engineer / Frontend Engineer
   Filed: 2026-06-19
@@ -48,6 +42,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   whether `src/app/` remains reference code, is archived, or is deleted.
 
 ## Done
+
+- [x] **T-049 - Align Standings & Bracket Tab UI with Streamlit Wood Board & Tape Layout**
+  Owner: Frontend Engineer
+  Completed: 2026-06-20
+  Notes: Realigned the React standings and bracket tab visually to match the Streamlit wood board and painter's tape look. Restored individual tape rotations for the standings strips, set the Permanent Marker font on numbers (removing font-mono), removed matchup scores from tapes to maintain a clean layout, and set the board dimensions and vertical lines to match the original proportions.
+  Verify: compile React app (`npm run build`), verify standings and bracket tree alignment visually in browser.
 
 - [x] **T-048 - Overview Real Fixtures, Stadium Links, and Edmonton Time**
   Owner: Data Pipeline Engineer / Frontend Engineer

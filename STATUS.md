@@ -1,5 +1,25 @@
 # STATUS
 
+## 2026-06-20 - Standings & Bracket Tab UI Rebaseline Completed
+
+Prepared by: Orchestrator / Frontend Engineer
+
+### Current State
+
+- Rebaselined the Standings & Bracket UI layout, styles, and font in `StandingsTab.tsx` to match the legacy Streamlit wood board and painter's tape look.
+- Completed all current visual and layout tasks. The project code is committed and pushed to `origin/main`.
+
+### Completed This Update
+
+- **Standings & Bracket UI Rebaseline (T-049)**: Re-aligned the React bracket view to match the legacy Streamlit wood-board and tape layout, restoring organic individual tape rotations, hand-written number fonts, and clean matchups with no score overlays.
+- **Local preview verified**: Symbolic link created locally between `src/frontend/dist` and `src/api/static` to enable local static serves, and verified uvicorn serves standings and schedule correctly.
+
+### Next Sprint Priorities
+
+- **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**: Improve API resilience by fallback-resolving match IDs from local fixture folders during external feed outages.
+
+---
+
 ## 2026-06-20 - Hotfix: Summary Route Decorator + Full Live Deploy
 
 Prepared by: Orchestrator / Data Pipeline Engineer
