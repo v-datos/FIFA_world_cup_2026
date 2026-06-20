@@ -1,0 +1,60 @@
+name: Matchday Refresh
+
+# Automatically refreshes the dashboard's match data every matchday by running
+# the deterministic ESPN collector. No manual research required.
+#
+# Runs twice daily (UTC) to catch both the day's games and late kickoffs that
+# fall into the next UTC date; also runnable on demand from the Actions tab.
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 07:00 America/Edmonton (MDT) — morning refresh
+    - cron: "0 5 * * *"    # 23:00 America/Edmonton — catch late/finished games
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matchday-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal deps
+        run: pip install requests
+
+      - name: Collect today's (and yesterday's) matchday data from ESPN
+        run: |
+          python -m src.pipeline.collect_espn_matchday --date "$(date -u +%Y%m%d)" --write
+          python -m src.pipeline.collect_espn_matchday --date "$(date -u -d 'yesterday' +%Y%m%d)" --write || true
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name "matchday-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Matchday refresh $(date -u +%F)"
+            git push
+          fi
+
+      # Optional auto-deploy to Cloud Run after a successful data refresh.
+      # Enable by adding repository secrets GCP_SA_KEY (service-account JSON) and
+      # GCP_PROJECT. Without them, this step is skipped and the refreshed data
+      # deploys on the next build (e.g. a Cloud Build push trigger).
+      - name: Deploy to Cloud Run (optional)
+        if: ${{ env.HAS_GCP == 'true' }}
+        env:
+          HAS_GCP: ${{ secrets.GCP_SA_KEY != '' }}
+        run: echo "Configure GCP_SA_KEY + GCP_PROJECT secrets to enable auto-deploy."
