@@ -1,6 +1,6 @@
 # Documentation Clutter Audit
 
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 Task: T-041 - Documentation Clutter Audit and Current-State Alignment
 Owner: Orchestrator
 
@@ -52,6 +52,8 @@ Use this order when trying to understand the project today:
 | DCA-5 | `PROJECT_CHARTER.md` decision/risk lists lagged recent DEC012-DEC017 records. | Added DEC012-DEC018 references, source-cache architecture note, and documentation-clutter risk. |
 | DCA-6 | Decisions and handoffs intentionally preserve old statements such as deterministic progression or hardcoded ratings. | No rewrite. Current docs and DEC018 now state retention rules. |
 | DCA-7 | `STATUS.md` is large and historical. | Retained because newest-first status is useful; future archival is optional if it becomes hard to navigate. |
+| DCA-8 | Stale `generate_match_headlines.py` documentation and comments still referenced Anthropic Claude and billing API keys. | Updated code comments and docstrings to match the Vertex AI Gemini implementation. |
+| DCA-9 | `docs/data_contracts.md` suggested `T-019` as a future assignment despite the task being dropped. | Removed the T-019 player stats hover task reference. |
 
 ## Retention Decision
 
@@ -67,14 +69,10 @@ Rationale:
 
 ## Current Next Step
 
-The next project implementation task remains:
+All sprint backlog tasks and phase objectives are complete. The project is fully operational on Cloud Run with Google SDK integration. Upcoming assignments focus on scheduled automation monitoring:
 
-- T-038 - Source-Backed Squad & Style Metrics Integration.
-
-Documentation-adjacent queued work remains:
-
-- T-029 - Deployment and Operations Runbook Refresh.
-- T-030 - Streamlit Legacy Disposition.
+- Monitor and verify the daily ESPN matchday refresh GitHub Actions workflow.
+- Monitor Vertex AI Gemini tactical insights generation for subsequent fixtures.
 
 ## Verification
 

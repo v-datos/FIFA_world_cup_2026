@@ -1023,9 +1023,8 @@ For T-024, completion means:
 - Follow-up work is routed to existing tasks instead of being silently bundled
   into this audit.
 
-Suggested next Orchestrator assignments after the T-031 closeout:
+Suggested next Orchestrator assignments after the Phase 5 closeout:
 
-1. T-030 - Streamlit Legacy Disposition.
+1. Operational verification of scheduled GitHub Actions matchday refresh runbook.
 2. Future reviewed Squad & Style source collectors for replacing explicit
    T-031 `missing` rows field by field.
-3. T-019 - Player Career-Stats Hover Endpoint.

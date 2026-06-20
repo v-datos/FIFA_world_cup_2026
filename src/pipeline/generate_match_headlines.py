@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """AI tactical headline generator for the FIFA World Cup 2026 dashboard.
 
-Uses Claude (Anthropic API) to write a real tactical headline + 3 insights for a
-match from the structured data the dashboard already has — team Elo ratings, a
-win expectancy, ESPN style metrics (possession/shots/goals), and formations.
+Uses Google Vertex AI Gemini (gemini-2.5-flash) to write a real tactical headline +
+3 insights for a match from the structured data the dashboard already has — team Elo
+ratings, a win expectancy, ESPN style metrics (possession/shots/goals), and formations.
 Replaces the generic "Baseline preview pending for X vs Y" stub.
 
 Designed to run in the matchday refresh: it grounds the model in real numbers and
 writes the result back to each fixture's summary.json `ai_summary`.
 
 Usage:
-  export ANTHROPIC_API_KEY=sk-ant-...
   python3 -m src.pipeline.generate_match_headlines --match-id germany_ivory_coast_2026 --write
   python3 -m src.pipeline.generate_match_headlines --date 20260620          # all today's fixtures (dry-run)
 
-Dry-run (default) assembles and prints the context without calling the API, so it
-works without an API key. `--write` calls Claude and updates summary.json.
+Dry-run (default) assembles and prints the context without calling the API.
+`--write` calls Vertex AI Gemini and updates summary.json.
 """
 from __future__ import annotations
 

@@ -2,7 +2,7 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 Profile: software-app
 
 ## Mission
@@ -205,6 +205,16 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-18 | Seeded Monte Carlo Tournament Simulation | Orchestrator | docs/decisions/20260618_DEC016_real_monte_carlo_simulation.md |
 | 2026-06-19 | World Football Elo Cache for No-Cost Rating Inputs | Orchestrator | docs/decisions/20260619_DEC017_no_cost_rating_source_cache.md |
 | 2026-06-19 | Documentation Clutter Map and Retention Rules | Orchestrator | docs/decisions/20260619_DEC018_documentation_clutter_map.md |
+| 2026-06-19 | Squad & Style Field Source Cache | Orchestrator | docs/decisions/20260619_DEC019_squad_style_field_source_cache.md |
+| 2026-06-19 | Deployment and Operations Runbook | Orchestrator | docs/decisions/20260619_DEC020_deployment_operations_runbook.md |
+| 2026-06-19 | Briefing API Freshness Contract | Orchestrator | docs/decisions/20260619_DEC021_briefing_api_freshness_contract.md |
+| 2026-06-19 | Active Metric Gap Preservation | Orchestrator | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
+| 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | Orchestrator | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
+| 2026-06-20 | Runtime Match Analysis Data Contracts (Forecast, Lineups, Overview Time/Venue) | Orchestrator | docs/decisions/20260620_DEC024_runtime_match_analysis_contracts.md |
+| 2026-06-20 | Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment) | Orchestrator | docs/decisions/20260620_DEC025_bracket_ui_rebaseline.md |
+| 2026-06-20 | Deterministic ESPN Matchday Automation | Orchestrator | docs/decisions/20260620_DEC025_deterministic_espn_matchday_automation.md |
+| 2026-06-20 | Drop Player Career-Stats Hover Endpoint (T-019) | Orchestrator | docs/decisions/20260620_DEC026_drop_player_career_stats_hover.md |
+| 2026-06-20 | Switch from Anthropic Claude to Google Vertex AI Gemini for Preview Generation | Orchestrator | docs/decisions/20260620_DEC027_switch_from_anthropic_to_gemini_vertex.md |
 
 ## Risks
 
