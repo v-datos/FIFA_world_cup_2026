@@ -47,8 +47,10 @@ scoreboard (fixtures, real venue, UTC kickoff, score) and per-event boxscore
   confirmed XIs, and real venues/kickoffs.
 - xG, PPDA, and field tilt remain missing until an event-data provider
   (StatsBomb/Opta) or a browser-based FBref scraper is added.
-- Style metrics reflect the most recent match (not a multi-game average); this
-  can be enhanced later.
+- Style metrics are averaged across every match a team has played in the
+  tournament window (the source label records the match count). Player clubs and
+  manager names are not in ESPN's match feed, so clubs fall back to the frontend
+  player→club map and manager stays blank.
 - The deploy half of the chain requires a one-time GCP setup (Cloud Build
   trigger or a `GCP_SA_KEY` GitHub secret) that needs the project owner.
 

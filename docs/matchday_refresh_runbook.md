@@ -19,13 +19,15 @@ python3 -m src.pipeline.collect_espn_matchday
 python3 -m src.pipeline.collect_espn_matchday --date 20260620 --write
 ```
 
-It writes, for every played match on that date:
+It writes, averaging each team's stats across all its tournament matches:
 
 - `data/source_cache/squad_style/latest_metrics.json` — possession, shots/90,
   shots-on-target %, passes/90, pass completion %, goals/90, goals conceded/90,
-  shots against/90 (ESPN does not expose xG, so xG/PPDA/field-tilt stay missing;
+  shots against/90 (averaged over the team's matches; the source label records
+  the match count). ESPN does not expose xG, so xG/PPDA/field-tilt stay missing;
   the radar uses the four ESPN axes — possession, shots, shot accuracy, pass
-  accuracy).
+  accuracy. `--season-start YYYYMMDD` sets the averaging window (default
+  20260611).
 - `data/source_cache/lineups/latest.json` — confirmed starting XI + formation.
 - `data/matches/{match_id}/summary.json` — real `venue` + `kickoff_utc`.
 
