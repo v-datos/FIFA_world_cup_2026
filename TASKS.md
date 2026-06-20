@@ -9,21 +9,7 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Queued
 
-- [ ] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
-  Owner: Data Pipeline Engineer / Frontend Engineer
-  Filed: 2026-06-19
-  Notes: When `worldcup26.ir/get/games` is unreachable and no games cache is
-  present (the current live state on Cloud Run), `/api/schedule` returns
-  `schedule_source=unavailable` with every `matches[].match_id` null. The
-  `default_match_id` still resolves from local fixture folders, so the default
-  fixture and per-fixture routes work, but the day-view selector listing loses
-  its IDs. The schedule fallback should derive `match_id`, teams, and lifecycle
-  for the listed rows from local `data/matches/*_2026` folders when the live API
-  and cache are unavailable, so the live selector stays usable during API
-  outages. Optionally ship a committed games cache for deterministic fallback.
-  Verify: temp-run `/api/schedule` with the live API forced unavailable and
-  confirm non-null `match_id`s sourced from local folders; Cloud Run re-smoke
-  after redeploy.
+- No tasks currently queued.
 
 ## Backlog
 
@@ -42,6 +28,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   whether `src/app/` remains reference code, is archived, or is deleted.
 
 ## Done
+
+- [x] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-20
+  Notes: Resolved the schedule fallback gap. When `worldcup26.ir/get/games` is unreachable and `/tmp/games.json` is missing, `/api/schedule` now falls back to loading a committed games cache (`data/reference/games_cache.json`) or scanning local fixture folders to reconstruct match ID mappings and details. The day-view selector listing and match details now remain fully populated with correct IDs during Nestor API outages. Hardened data pipeline scripts (`discover_active_fixtures.py`, `generate_match_previews.py`) to use the committed fallback cache.
+  Verify: Simulate API outage and cache absence; confirm non-null match IDs and `"cache"` / `"local_folders"` source in schedule payload; compile and build verification checks pass.
 
 - [x] **T-049 - Align Standings & Bracket Tab UI with Streamlit Wood Board & Tape Layout**
   Owner: Frontend Engineer

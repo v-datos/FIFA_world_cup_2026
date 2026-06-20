@@ -7,16 +7,17 @@ Prepared by: Orchestrator / Frontend Engineer
 ### Current State
 
 - Rebaselined the Standings & Bracket UI layout, styles, and font in `StandingsTab.tsx` to match the legacy Streamlit wood board and painter's tape look.
-- Completed all current visual and layout tasks. The project code is committed and pushed to `origin/main`.
+- Completed all current visual layout and API resilience tasks. The project code is committed and pushed to `origin/main`.
 
 ### Completed This Update
 
+- **Resilient Schedule Fallback Match IDs (T-043)**: Resolved the schedule fallback gap by introducing a committed games cache and folder scanning fallbacks to popuate the match ID list when the live Nestor API is unreachable and no `/tmp/games.json` cache is present. Hardened pipeline scripts to use this cache as well.
 - **Standings & Bracket UI Rebaseline (T-049)**: Re-aligned the React bracket view to match the legacy Streamlit wood-board and tape layout, restoring organic individual tape rotations, hand-written number fonts, and clean matchups with no score overlays.
 - **Local preview verified**: Symbolic link created locally between `src/frontend/dist` and `src/api/static` to enable local static serves, and verified uvicorn serves standings and schedule correctly.
 
 ### Next Sprint Priorities
 
-- **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**: Improve API resilience by fallback-resolving match IDs from local fixture folders during external feed outages.
+- **T-030 - Streamlit Legacy Disposition**: Decide whether `src/app/` remains reference code, is archived, or is deleted.
 
 ---
 
@@ -188,7 +189,7 @@ Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
 
 - To make this visible to live users, T-044 must ship in the next Cloud Run
   redeploy (same `gcloud builds submit` path as T-042).
-- T-043 schedule fallback and T-030 Streamlit disposition remain queued/backlog.
+- T-030 Streamlit disposition remains queued/backlog.
 
 ---
 

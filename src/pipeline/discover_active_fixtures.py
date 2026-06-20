@@ -115,6 +115,22 @@ def fetch_games(cache_path: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
     except Exception as exc:
         errors.append(f"cache failed: {exc}")
 
+    try:
+        committed_path = PROJECT_ROOT / "data" / "reference" / "games_cache.json"
+        games = extract_games(load_json_payload(committed_path))
+        if games:
+            return games, {
+                "source_label": "live_schedule",
+                "source_name": "committed reference games cache",
+                "source_url": str(committed_path),
+                "collection_method": "cache",
+                "status": "used",
+                "checked_at_utc": utc_now(),
+                "warnings": errors,
+            }
+    except Exception as exc:
+        errors.append(f"committed cache failed: {exc}")
+
     raise RuntimeError("; ".join(errors) or "no fixture source available")
 
 

@@ -445,13 +445,23 @@ def generate_upcoming_previews():
         except Exception as e:
             print(f"⚠️ Live API call for games timed out or failed: {e}. Checking local cache...")
             
-        if not api_data and os.path.exists("/tmp/games.json"):
-            print("ℹ️ Using cached /tmp/games.json...")
-            try:
-                with open("/tmp/games.json", "r") as f:
-                    api_data = json.load(f)
-            except Exception as e:
-                print(f"⚠️ Failed to load local games cache: {e}")
+        if not api_data:
+            if os.path.exists("/tmp/games.json"):
+                print("ℹ️ Using cached /tmp/games.json...")
+                try:
+                    with open("/tmp/games.json", "r") as f:
+                        api_data = json.load(f)
+                except Exception as e:
+                    print(f"⚠️ Failed to load local games cache: {e}")
+            else:
+                committed_cache = "./data/reference/games_cache.json"
+                if os.path.exists(committed_cache):
+                    print(f"ℹ️ Using committed reference games cache at {committed_cache}...")
+                    try:
+                        with open(committed_cache, "r") as f:
+                            api_data = json.load(f)
+                    except Exception as e:
+                        print(f"⚠️ Failed to load committed reference games cache: {e}")
                 
         if not api_data:
             print("❌ Failed to query games API and no local cache found.")

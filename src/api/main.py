@@ -124,6 +124,51 @@ def fetch_live_games_for_schedule() -> tuple[dict[str, dict], str]:
         except Exception as exc:
             errors.append(f"cache failed: {exc}")
 
+    if payload is None:
+        committed_path = DATA_DIR / "reference" / "games_cache.json"
+        try:
+            if committed_path.exists():
+                with open(committed_path, "r", encoding="utf-8") as f:
+                    payload = json.load(f)
+                source = "cache"
+        except Exception as exc:
+            errors.append(f"committed cache failed: {exc}")
+
+    if payload is None:
+        local_games = []
+        matches_dir = DATA_DIR / "matches"
+        if matches_dir.exists():
+            for folder in sorted(matches_dir.iterdir()):
+                if folder.is_dir() and folder.name.endswith("_2026"):
+                    sum_path = folder / "summary.json"
+                    if sum_path.exists():
+                        try:
+                            with open(sum_path, "r", encoding="utf-8") as f:
+                                data = json.load(f)
+                            meta = data.get("metadata", {})
+                            date_str = meta.get("date")
+                            time_str = meta.get("time") or "00:00"
+                            kickoff = parse_schedule_datetime(date_str, time_str)
+                            is_finished = False
+                            if kickoff and kickoff.date() < datetime.now().date():
+                                is_finished = True
+                            local_games.append({
+                                "id": folder.name,
+                                "home_team_name_en": meta.get("team1"),
+                                "away_team_name_en": meta.get("team2"),
+                                "date": date_str,
+                                "time": time_str,
+                                "finished": is_finished,
+                                "stadium_name": meta.get("venue"),
+                                "type": "group" if "Group" in meta.get("stage", "") else "knockout",
+                                "group": meta.get("stage").replace("Group Stage - Group ", "") if "Group" in meta.get("stage", "") else "",
+                            })
+                        except Exception:
+                            pass
+            if local_games:
+                payload = local_games
+                source = "local_folders"
+
     games = []
     if isinstance(payload, dict):
         games = payload.get("games", [])
