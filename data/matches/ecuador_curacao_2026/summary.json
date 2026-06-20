@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "match_id": "ecuador_curacao_2026",
+    "team1": "Ecuador",
+    "team2": "Curacao",
+    "date": "06/20/2026",
+    "time": "",
+    "venue": "Arrowhead Stadium, Kansas City",
+    "stage": "Group Stage - Group E",
+    "kickoff_utc": "2026-06-21T00:00:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Ecuador vs Curacao",
+    "injuries": {
+      "ecuador": [
+        "No verified baseline injury update is available yet."
+      ],
+      "curacao": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "ecuador": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "curacao": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Forecast uses World Football Elo ratings; squad/style metrics may be unavailable.",
+      "Run last-minute briefing generation inside the match window for fresh updates."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub"
+  }
+}

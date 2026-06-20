@@ -1065,6 +1065,7 @@ def get_schedule():
                             "team2": meta.get("team2"),
                             "date": meta.get("date"),
                             "time": meta.get("time"),
+                            "kickoff_utc": meta.get("kickoff_utc"),
                             "venue": meta.get("venue"),
                             "stage": meta.get("stage"),
                             **lifecycle,

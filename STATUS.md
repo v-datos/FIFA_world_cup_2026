@@ -1,5 +1,42 @@
 # STATUS
 
+## 2026-06-20 - T-048 Overview Real Fixtures, Stadium Links, Edmonton Time
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer
+
+### Current State
+
+- The Overview "Fixtures of the Day" now shows the day's real 2026-06-20
+  fixtures with clickable stadium links and Edmonton (Mountain) kickoff times.
+  Previously the day view was empty because no fixture was dated today.
+
+### What Changed
+
+- Added fixture folders for the day's real matches: `netherlands_sweden_2026`,
+  `germany_ivory_coast_2026`, `ecuador_curacao_2026`, `tunisia_japan_2026`, each
+  with a real venue and a `kickoff_utc` field (derived from the published ET
+  kickoff). Forecasts use the World Football Elo path; squad/style and curated
+  tactics remain baseline until researched.
+- `/api/schedule` now passes `kickoff_utc` through to each match.
+- `OverviewTab` renders the venue as a Google Maps search link and the kickoff
+  in `America/Edmonton` (MT) via `Intl.DateTimeFormat`, with a fallback to the
+  stored local time string when no UTC kickoff exists.
+
+### Verification
+
+- In-process `/api/schedule`: 4 today fixtures with real venue + `kickoff_utc`.
+- Browser Overview: Maps links resolve and times show 11:00 / 14:00 / 18:00 /
+  22:00 MT (DST-correct); `python3 -m compileall -q src`; `npm run build`.
+
+### Known Limitations
+
+- Historical fixtures keep placeholder `Stadium N` venues and tz-less times;
+  only fixtures with a `kickoff_utc` get Edmonton conversion.
+- The new fixtures' lineups render only for teams already in the lineup/legacy
+  rosters; Germany, Curacao, and Tunisia lineups are not yet sourced.
+
+---
+
 ## 2026-06-20 - Match Analysis Real-Data Population + Standings Refresh
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Football Data Scientist / Frontend Engineer

@@ -8,10 +8,32 @@ interface Match {
   team2: string;
   date: string;
   time: string;
+  kickoff_utc?: string | null;
   venue: string;
   stage: string;
   lifecycle?: 'finished' | 'today' | 'upcoming' | 'unresolved' | 'archived';
 }
+
+// Kickoffs are shown in Edmonton, Alberta (Mountain) time. When a UTC kickoff is
+// available we convert it; otherwise we fall back to the stored local string.
+const EDMONTON_TZ = 'America/Edmonton';
+const edmontonTime = (match: Match): string => {
+  if (match.kickoff_utc) {
+    const d = new Date(match.kickoff_utc);
+    if (!isNaN(d.getTime())) {
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: EDMONTON_TZ,
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).format(d) + ' MT';
+    }
+  }
+  return match.time || 'TBD';
+};
+
+const mapsUrl = (venue: string): string =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue)}`;
 
 interface TournamentStats {
   matches_played: number;
@@ -147,7 +169,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
                   </span>
                   <span className="text-[10px] text-slate-500 flex items-center gap-1 font-mono">
                     <Clock className="w-3 h-3" />
-                    {match.time}
+                    {edmontonTime(match)}
                   </span>
                 </div>
 
@@ -170,10 +192,17 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
 
                 {/* Venue / Footer */}
                 <div className="flex justify-between items-center mt-3 pt-3 border-t border-slate-800/40 text-[11px] text-slate-400">
-                  <span className="flex items-center gap-1">
+                  <a
+                    href={mapsUrl(match.venue)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1 hover:text-emerald-400 hover:underline transition-colors"
+                    title={lang === 'Español' ? 'Ver en Google Maps' : 'View on Google Maps'}
+                  >
                     <MapPin className="w-3.5 h-3.5 text-slate-500" />
                     {match.venue}
-                  </span>
+                  </a>
                   <span className="flex items-center gap-0.5 text-emerald-400 group-hover:translate-x-1 transition-transform duration-200">
                     {lang === 'Español' ? 'Analizar' : 'Analyze'}
                     <ArrowRight className="w-3.5 h-3.5" />

@@ -43,6 +43,20 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-048 - Overview Real Fixtures, Stadium Links, and Edmonton Time**
+  Owner: Data Pipeline Engineer / Frontend Engineer
+  Completed: 2026-06-20
+  Notes: Added the day's real 2026 WC fixtures (Netherlands-Sweden,
+  Germany-Ivory Coast, Ecuador-Curacao, Tunisia-Japan) as fixture folders with
+  real venue and a `kickoff_utc` field. `/api/schedule` now passes
+  `kickoff_utc`. Overview renders the venue as a Google Maps link and the
+  kickoff in Edmonton (America/Edmonton, MT) via `Intl.DateTimeFormat`, falling
+  back to the stored local string when no UTC kickoff exists. Historical
+  placeholder venues ("Stadium N") are unchanged.
+  Verify: in-process `/api/schedule` shows 4 today fixtures with venue +
+  kickoff_utc; browser Overview shows Maps links and MT times (11:00/14:00/
+  18:00/22:00 MT); `npm run build`.
+
 - [x] **T-045 - Real Forecast + Source-Backed Squad & Style Values**
   Owner: Data Pipeline Engineer / Football Data Scientist
   Completed: 2026-06-20
