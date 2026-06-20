@@ -7,9 +7,9 @@
     "collection_method": "static_source_manifest",
     "parser_version": "squad_style_static_manifest_v1",
     "status": "partial",
-    "checked_at_utc": "2026-06-20T18:30:00Z",
+    "checked_at_utc": "2026-06-20T18:45:00Z",
     "team_count": 18,
-    "field_record_count": 19,
+    "field_record_count": 51,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -434,6 +434,54 @@
           "source_value_text": "EUR 754.20 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 54,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "54",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 10,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "10",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 0.78,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.78",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.59,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.59",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
         }
       },
       "status": "partial",
@@ -456,6 +504,54 @@
           "source_path": "National team total market value",
           "source_value_text": "EUR 406.08 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 53,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "53",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 13,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "13",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 1.36,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.36",
+          "checked_at_utc": "2026-06-20T18:55:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.28,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.28",
+          "checked_at_utc": "2026-06-20T18:55:00Z",
           "retrieval_method": "web_research"
         }
       },
@@ -480,6 +576,54 @@
           "source_value_text": "EUR 947.00 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 65,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "65",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 26,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "26",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 3.91,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "3.91",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.4,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.4",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
         }
       },
       "status": "partial",
@@ -502,6 +646,54 @@
           "source_path": "National team total market value",
           "source_value_text": "EUR 522.10 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 48,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "48",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 15,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "15",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 1.52,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.52",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.01,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.01",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
         }
       },
@@ -526,6 +718,54 @@
           "source_value_text": "EUR 368.70 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 52,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "52",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 12,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "12",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 1.01,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.01",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.52,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.52",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
         }
       },
       "status": "partial",
@@ -548,6 +788,54 @@
           "source_path": "National team total market value",
           "source_value_text": "EUR 25.78 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 35,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "35",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 0.4,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.4",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 3.91,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "3.91",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 8,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "8",
+          "checked_at_utc": "2026-06-20T18:55:00Z",
           "retrieval_method": "web_research"
         }
       },
@@ -572,6 +860,54 @@
           "source_value_text": "EUR 69.95 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 47,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "47",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 6,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "6",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.36,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "1.36",
+          "checked_at_utc": "2026-06-20T18:55:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 0.28,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.28",
+          "checked_at_utc": "2026-06-20T18:55:00Z",
+          "retrieval_method": "web_research"
         }
       },
       "status": "partial",
@@ -594,6 +930,54 @@
           "source_path": "National team total market value",
           "source_value_text": "EUR 270.85 m total market value",
           "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 46,
+          "unit": "pct",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "46",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "shots_per_90": {
+          "value": 9,
+          "unit": "count",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "9",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_per_90": {
+          "value": 0.59,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.59",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
+          "retrieval_method": "web_research"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.78,
+          "unit": "xg",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
+          "source_url": "https://theanalyst.com/articles/",
+          "source_path": "Match team stats (1 game played)",
+          "source_value_text": "0.78",
+          "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
         }
       },

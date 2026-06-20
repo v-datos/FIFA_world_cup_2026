@@ -415,12 +415,14 @@ REQUIRED_TEAM_METRIC_FIELDS = [
     "shots_against_per_90",
 ]
 
+# Radar requires only metrics that are reliably sourceable for national teams
+# from match reports. Pass completion % and PPDA are not consistently published
+# for international sides, so they are excluded from the required radar set
+# (DEC024); they can be re-added when a provider feed supplies them.
 RADAR_METRIC_FIELDS = [
     "expected_goals_per_90",
     "shots_per_90",
-    "pass_completion_pct",
     "possession_avg",
-    "ppda",
     "expected_goals_conceded_per_90",
 ]
 

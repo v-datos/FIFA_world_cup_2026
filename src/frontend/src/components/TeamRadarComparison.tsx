@@ -26,12 +26,12 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   quality,
   lang,
 }) => {
+  // Pass completion % and PPDA are not reliably available for national teams,
+  // so the radar only requires the metrics sourced from match reports.
   const requiredFields = [
     'expected_goals_per_90',
     'shots_per_90',
-    'pass_completion_pct',
     'possession_avg',
-    'ppda',
     'expected_goals_conceded_per_90',
   ];
 
@@ -90,19 +90,9 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
         [team2]: scale(t2.shots_per_90, 5.0, 20.0),
       },
       {
-        subject: labels.passing,
-        [team1]: scale(t1.pass_completion_pct, 60.0, 95.0),
-        [team2]: scale(t2.pass_completion_pct, 60.0, 95.0),
-      },
-      {
         subject: labels.possession,
         [team1]: scale(t1.possession_avg, 35.0, 65.0),
         [team2]: scale(t2.possession_avg, 35.0, 65.0),
-      },
-      {
-        subject: labels.press,
-        [team1]: scaleInv(t1.ppda, 7.0, 14.0),
-        [team2]: scaleInv(t2.ppda, 7.0, 14.0),
       },
       {
         subject: labels.defense,
