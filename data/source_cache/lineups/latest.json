@@ -20,17 +20,50 @@
       "source_url": "https://www.mlssoccer.com/competitions/fifa-world-cup/news/usa-starting-lineup-vs-australia-2026-fifa-world-cup-usmnt-group-d",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Matt Freese", "club": "New York City FC"},
-        {"name": "Tim Ream", "club": "Charlotte FC"},
-        {"name": "Chris Richards", "club": "Crystal Palace"},
-        {"name": "Alex Freeman", "club": "Orlando City"},
-        {"name": "Antonee Robinson", "club": "Fulham"},
-        {"name": "Tyler Adams", "club": "Bournemouth"},
-        {"name": "Weston McKennie", "club": "Juventus"},
-        {"name": "Sergiño Dest", "club": "PSV Eindhoven"},
-        {"name": "Malik Tillman", "club": "Bayer Leverkusen"},
-        {"name": "Folarin Balogun", "club": "Monaco"},
-        {"name": "Ricardo Pepi", "club": "PSV Eindhoven"}
+        {
+          "name": "Matt Freese",
+          "club": "New York City FC"
+        },
+        {
+          "name": "Tim Ream",
+          "club": "Charlotte FC"
+        },
+        {
+          "name": "Chris Richards",
+          "club": "Crystal Palace"
+        },
+        {
+          "name": "Alex Freeman",
+          "club": "Orlando City"
+        },
+        {
+          "name": "Antonee Robinson",
+          "club": "Fulham"
+        },
+        {
+          "name": "Tyler Adams",
+          "club": "Bournemouth"
+        },
+        {
+          "name": "Weston McKennie",
+          "club": "Juventus"
+        },
+        {
+          "name": "Sergiño Dest",
+          "club": "PSV Eindhoven"
+        },
+        {
+          "name": "Malik Tillman",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "name": "Folarin Balogun",
+          "club": "Monaco"
+        },
+        {
+          "name": "Ricardo Pepi",
+          "club": "PSV Eindhoven"
+        }
       ]
     },
     "australia": {
@@ -41,17 +74,50 @@
       "source_url": "https://www.espn.com/soccer/story/_/id/49093966/",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Patrick Beach", "club": "N/A"},
-        {"name": "Alessandro Circati", "club": "Parma"},
-        {"name": "Harry Souttar", "club": "Sheffield United"},
-        {"name": "Cameron Burgess", "club": "Ipswich Town"},
-        {"name": "Jordan Bos", "club": "Feyenoord"},
-        {"name": "Aiden O'Neill", "club": "Al-Wakrah"},
-        {"name": "Paul Okon Jr.", "club": "N/A"},
-        {"name": "Jacob Italiano", "club": "N/A"},
-        {"name": "Nishan Velupillay", "club": "Melbourne Victory"},
-        {"name": "Mathew Leckie", "club": "Melbourne City"},
-        {"name": "Mohamed Touré", "club": "Randers"}
+        {
+          "name": "Patrick Beach",
+          "club": "N/A"
+        },
+        {
+          "name": "Alessandro Circati",
+          "club": "Parma"
+        },
+        {
+          "name": "Harry Souttar",
+          "club": "Sheffield United"
+        },
+        {
+          "name": "Cameron Burgess",
+          "club": "Ipswich Town"
+        },
+        {
+          "name": "Jordan Bos",
+          "club": "Feyenoord"
+        },
+        {
+          "name": "Aiden O'Neill",
+          "club": "Al-Wakrah"
+        },
+        {
+          "name": "Paul Okon Jr.",
+          "club": "N/A"
+        },
+        {
+          "name": "Jacob Italiano",
+          "club": "N/A"
+        },
+        {
+          "name": "Nishan Velupillay",
+          "club": "Melbourne Victory"
+        },
+        {
+          "name": "Mathew Leckie",
+          "club": "Melbourne City"
+        },
+        {
+          "name": "Mohamed Touré",
+          "club": "Randers"
+        }
       ]
     },
     "scotland": {
@@ -62,17 +128,50 @@
       "source_url": "https://www.espn.com/soccer/story/_/id/49107538/scotland-morocco-line-ups-world-cup-predicted-xis",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Angus Gunn", "club": "Norwich City"},
-        {"name": "Aaron Hickey", "club": "Brentford"},
-        {"name": "Grant Hanley", "club": "Birmingham City"},
-        {"name": "Jack Hendry", "club": "Al-Ettifaq"},
-        {"name": "Andy Robertson", "club": "Liverpool"},
-        {"name": "Ben Gannon-Doak", "club": "Liverpool"},
-        {"name": "John McGinn", "club": "Aston Villa"},
-        {"name": "Scott McTominay", "club": "Napoli"},
-        {"name": "Lewis Ferguson", "club": "Bologna"},
-        {"name": "Ryan Christie", "club": "Bournemouth"},
-        {"name": "Ché Adams", "club": "Torino"}
+        {
+          "name": "Angus Gunn",
+          "club": "Norwich City"
+        },
+        {
+          "name": "Aaron Hickey",
+          "club": "Brentford"
+        },
+        {
+          "name": "Grant Hanley",
+          "club": "Birmingham City"
+        },
+        {
+          "name": "Jack Hendry",
+          "club": "Al-Ettifaq"
+        },
+        {
+          "name": "Andy Robertson",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Ben Gannon-Doak",
+          "club": "Liverpool"
+        },
+        {
+          "name": "John McGinn",
+          "club": "Aston Villa"
+        },
+        {
+          "name": "Scott McTominay",
+          "club": "Napoli"
+        },
+        {
+          "name": "Lewis Ferguson",
+          "club": "Bologna"
+        },
+        {
+          "name": "Ryan Christie",
+          "club": "Bournemouth"
+        },
+        {
+          "name": "Ché Adams",
+          "club": "Torino"
+        }
       ]
     },
     "morocco": {
@@ -83,17 +182,50 @@
       "source_url": "https://www.rotowire.com/soccer/article/scotland-vs-morocco-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-group-c-118659",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Yassine Bounou", "club": "Al-Hilal"},
-        {"name": "Achraf Hakimi", "club": "Paris Saint-Germain"},
-        {"name": "Chadi Riad", "club": "Crystal Palace"},
-        {"name": "Bilal El Khannouss", "club": "VfB Stuttgart"},
-        {"name": "Noussair Mazraoui", "club": "Manchester United"},
-        {"name": "Sofyan Amrabat", "club": "Fenerbahçe"},
-        {"name": "Neil El Aynaoui", "club": "AS Roma"},
-        {"name": "Azzedine Ounahi", "club": "Girona"},
-        {"name": "Brahim Díaz", "club": "Real Madrid"},
-        {"name": "Eliesse Ben Seghir", "club": "Bayer Leverkusen"},
-        {"name": "Hamza Igamane", "club": "Lille"}
+        {
+          "name": "Yassine Bounou",
+          "club": "Al-Hilal"
+        },
+        {
+          "name": "Achraf Hakimi",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "name": "Chadi Riad",
+          "club": "Crystal Palace"
+        },
+        {
+          "name": "Bilal El Khannouss",
+          "club": "VfB Stuttgart"
+        },
+        {
+          "name": "Noussair Mazraoui",
+          "club": "Manchester United"
+        },
+        {
+          "name": "Sofyan Amrabat",
+          "club": "Fenerbahçe"
+        },
+        {
+          "name": "Neil El Aynaoui",
+          "club": "AS Roma"
+        },
+        {
+          "name": "Azzedine Ounahi",
+          "club": "Girona"
+        },
+        {
+          "name": "Brahim Díaz",
+          "club": "Real Madrid"
+        },
+        {
+          "name": "Eliesse Ben Seghir",
+          "club": "Bayer Leverkusen"
+        },
+        {
+          "name": "Hamza Igamane",
+          "club": "Lille"
+        }
       ]
     },
     "turkey": {
@@ -104,17 +236,50 @@
       "source_url": "https://www.sportsmole.co.uk/football/turkey/world-cup-2026/predicted-lineups/yildiz-doubt-persists-for-montella-predicted-turkey-lineup-vs-paraguay_599445.html",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Uğurcan Çakır", "club": "Galatasaray"},
-        {"name": "Zeki Çelik", "club": "AS Roma"},
-        {"name": "Merih Demiral", "club": "Al-Ahli"},
-        {"name": "Abdülkerim Bardakcı", "club": "Galatasaray"},
-        {"name": "Ferdi Kadıoğlu", "club": "Brighton & Hove Albion"},
-        {"name": "Hakan Çalhanoğlu", "club": "Inter Milan"},
-        {"name": "İsmail Yüksek", "club": "Fenerbahçe"},
-        {"name": "Barış Alper Yılmaz", "club": "Galatasaray"},
-        {"name": "Arda Güler", "club": "Real Madrid"},
-        {"name": "Kenan Yıldız", "club": "Juventus"},
-        {"name": "Kerem Aktürkoğlu", "club": "Fenerbahçe"}
+        {
+          "name": "Uğurcan Çakır",
+          "club": "Galatasaray"
+        },
+        {
+          "name": "Zeki Çelik",
+          "club": "AS Roma"
+        },
+        {
+          "name": "Merih Demiral",
+          "club": "Al-Ahli"
+        },
+        {
+          "name": "Abdülkerim Bardakcı",
+          "club": "Galatasaray"
+        },
+        {
+          "name": "Ferdi Kadıoğlu",
+          "club": "Brighton & Hove Albion"
+        },
+        {
+          "name": "Hakan Çalhanoğlu",
+          "club": "Inter Milan"
+        },
+        {
+          "name": "İsmail Yüksek",
+          "club": "Fenerbahçe"
+        },
+        {
+          "name": "Barış Alper Yılmaz",
+          "club": "Galatasaray"
+        },
+        {
+          "name": "Arda Güler",
+          "club": "Real Madrid"
+        },
+        {
+          "name": "Kenan Yıldız",
+          "club": "Juventus"
+        },
+        {
+          "name": "Kerem Aktürkoğlu",
+          "club": "Fenerbahçe"
+        }
       ]
     },
     "paraguay": {
@@ -125,17 +290,50 @@
       "source_url": "https://www.sportsmole.co.uk/football/paraguay/world-cup-2026/predicted-lineups/almiron-and-enciso-lead-la-albirroja-lineup-predicted-paraguay-xi-vs-turkey_599450.html",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Roberto Fernández", "club": "Club Olimpia"},
-        {"name": "Juan Cáceres", "club": "Club Libertad"},
-        {"name": "Gustavo Gómez", "club": "Palmeiras"},
-        {"name": "Omar Alderete", "club": "Sunderland"},
-        {"name": "Alexandro Maidana", "club": "Club Libertad"},
-        {"name": "Damián Bobadilla", "club": "São Paulo"},
-        {"name": "Andrés Cubas", "club": "Vancouver Whitecaps"},
-        {"name": "Diego Gómez", "club": "Brighton & Hove Albion"},
-        {"name": "Julio Enciso", "club": "Ipswich Town"},
-        {"name": "Miguel Almirón", "club": "Atlanta United"},
-        {"name": "Antonio Sanabria", "club": "Torino"}
+        {
+          "name": "Roberto Fernández",
+          "club": "Club Olimpia"
+        },
+        {
+          "name": "Juan Cáceres",
+          "club": "Club Libertad"
+        },
+        {
+          "name": "Gustavo Gómez",
+          "club": "Palmeiras"
+        },
+        {
+          "name": "Omar Alderete",
+          "club": "Sunderland"
+        },
+        {
+          "name": "Alexandro Maidana",
+          "club": "Club Libertad"
+        },
+        {
+          "name": "Damián Bobadilla",
+          "club": "São Paulo"
+        },
+        {
+          "name": "Andrés Cubas",
+          "club": "Vancouver Whitecaps"
+        },
+        {
+          "name": "Diego Gómez",
+          "club": "Brighton & Hove Albion"
+        },
+        {
+          "name": "Julio Enciso",
+          "club": "Ipswich Town"
+        },
+        {
+          "name": "Miguel Almirón",
+          "club": "Atlanta United"
+        },
+        {
+          "name": "Antonio Sanabria",
+          "club": "Torino"
+        }
       ]
     },
     "brazil": {
@@ -146,17 +344,50 @@
       "source_url": "https://www.si.com/soccer/brazil-vs-haiti-world-cup-preview-predictions-lineups-6-19-26",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Alisson", "club": "Liverpool"},
-        {"name": "Danilo", "club": "Flamengo"},
-        {"name": "Marquinhos", "club": "Paris Saint-Germain"},
-        {"name": "Gabriel Magalhães", "club": "Arsenal"},
-        {"name": "Roger Ibáñez", "club": "Al-Ahli"},
-        {"name": "Bruno Guimarães", "club": "Newcastle United"},
-        {"name": "Casemiro", "club": "Manchester United"},
-        {"name": "Lucas Paquetá", "club": "West Ham United"},
-        {"name": "Raphinha", "club": "Barcelona"},
-        {"name": "Igor Thiago", "club": "Brentford"},
-        {"name": "Vinícius Júnior", "club": "Real Madrid"}
+        {
+          "name": "Alisson",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Danilo",
+          "club": "Flamengo"
+        },
+        {
+          "name": "Marquinhos",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "name": "Gabriel Magalhães",
+          "club": "Arsenal"
+        },
+        {
+          "name": "Roger Ibáñez",
+          "club": "Al-Ahli"
+        },
+        {
+          "name": "Bruno Guimarães",
+          "club": "Newcastle United"
+        },
+        {
+          "name": "Casemiro",
+          "club": "Manchester United"
+        },
+        {
+          "name": "Lucas Paquetá",
+          "club": "West Ham United"
+        },
+        {
+          "name": "Raphinha",
+          "club": "Barcelona"
+        },
+        {
+          "name": "Igor Thiago",
+          "club": "Brentford"
+        },
+        {
+          "name": "Vinícius Júnior",
+          "club": "Real Madrid"
+        }
       ]
     },
     "haiti": {
@@ -167,17 +398,482 @@
       "source_url": "https://www.si.com/soccer/brazil-vs-haiti-world-cup-preview-predictions-lineups-6-19-26",
       "checked_at_utc": "2026-06-19T17:10:00Z",
       "players": [
-        {"name": "Johny Placide", "club": "N/A"},
-        {"name": "Carlens Arcus", "club": "Auxerre"},
-        {"name": "Ricardo Adé", "club": "N/A"},
-        {"name": "Hannes Delcroix", "club": "Burnley"},
-        {"name": "Martin Experience", "club": "N/A"},
-        {"name": "Louicius Deedson", "club": "N/A"},
-        {"name": "Danley Jean Jacques", "club": "Lorient"},
-        {"name": "Jean-Ricner Bellegarde", "club": "Wolverhampton Wanderers"},
-        {"name": "Ruben Providence", "club": "N/A"},
-        {"name": "Frantzdy Pierrot", "club": "Al-Wehda"},
-        {"name": "Wilson Isidor", "club": "Sunderland"}
+        {
+          "name": "Johny Placide",
+          "club": "N/A"
+        },
+        {
+          "name": "Carlens Arcus",
+          "club": "Auxerre"
+        },
+        {
+          "name": "Ricardo Adé",
+          "club": "N/A"
+        },
+        {
+          "name": "Hannes Delcroix",
+          "club": "Burnley"
+        },
+        {
+          "name": "Martin Experience",
+          "club": "N/A"
+        },
+        {
+          "name": "Louicius Deedson",
+          "club": "N/A"
+        },
+        {
+          "name": "Danley Jean Jacques",
+          "club": "Lorient"
+        },
+        {
+          "name": "Jean-Ricner Bellegarde",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "name": "Ruben Providence",
+          "club": "N/A"
+        },
+        {
+          "name": "Frantzdy Pierrot",
+          "club": "Al-Wehda"
+        },
+        {
+          "name": "Wilson Isidor",
+          "club": "Sunderland"
+        }
+      ]
+    },
+    "netherlands": {
+      "formation": "4-3-3",
+      "manager": "Ronald Koeman",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Bart Verbruggen",
+          "club": "Brighton"
+        },
+        {
+          "name": "Denzel Dumfries",
+          "club": "Inter Milan"
+        },
+        {
+          "name": "Virgil van Dijk",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Micky van de Ven",
+          "club": "Tottenham Hotspur"
+        },
+        {
+          "name": "Jan Paul van Hecke",
+          "club": "Brighton"
+        },
+        {
+          "name": "Frenkie de Jong",
+          "club": "Barcelona"
+        },
+        {
+          "name": "Tijjani Reijnders",
+          "club": "Manchester City"
+        },
+        {
+          "name": "Ryan Gravenberch",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Cody Gakpo",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Donyell Malen",
+          "club": "Aston Villa"
+        },
+        {
+          "name": "Brian Brobbey",
+          "club": "Sunderland"
+        }
+      ]
+    },
+    "sweden": {
+      "formation": "3-5-2",
+      "manager": "Graham Potter",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Kristoffer Nordfeldt",
+          "club": "Lazio"
+        },
+        {
+          "name": "Isak Hien",
+          "club": "Atalanta"
+        },
+        {
+          "name": "Gustaf Lagerbielke",
+          "club": "Celtic"
+        },
+        {
+          "name": "Victor Lindelof",
+          "club": "Manchester United"
+        },
+        {
+          "name": "Gabriel Gudmundsson",
+          "club": "Leeds United"
+        },
+        {
+          "name": "Yasin Ayari",
+          "club": "Brighton"
+        },
+        {
+          "name": "Jesper Karlstrom",
+          "club": "Lech Poznan"
+        },
+        {
+          "name": "Benjamin Nygren",
+          "club": "Celtic"
+        },
+        {
+          "name": "Alexander Bernhardsson",
+          "club": "Elfsborg"
+        },
+        {
+          "name": "Viktor Gyokeres",
+          "club": "Arsenal"
+        },
+        {
+          "name": "Alexander Isak",
+          "club": "Liverpool"
+        }
+      ]
+    },
+    "germany": {
+      "formation": "4-2-3-1",
+      "manager": "Julian Nagelsmann",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Manuel Neuer",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Joshua Kimmich",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Jonathan Tah",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Nico Schlotterbeck",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "name": "Nathaniel Brown",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "name": "Felix Nmecha",
+          "club": "Borussia Dortmund"
+        },
+        {
+          "name": "Aleksandar Pavlovic",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Leroy Sane",
+          "club": "Galatasaray"
+        },
+        {
+          "name": "Jamal Musiala",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Florian Wirtz",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Kai Havertz",
+          "club": "Arsenal"
+        }
+      ]
+    },
+    "ivory_coast": {
+      "formation": "4-3-3",
+      "manager": "Emerse Fae",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Yahia Fofana",
+          "club": "Angers"
+        },
+        {
+          "name": "Wilfried Singo",
+          "club": "Galatasaray"
+        },
+        {
+          "name": "Emmanuel Agbadou",
+          "club": "Wolverhampton Wanderers"
+        },
+        {
+          "name": "Sinaly Diomande",
+          "club": "Rennes"
+        },
+        {
+          "name": "Ghislain Konan",
+          "club": "Reims"
+        },
+        {
+          "name": "Franck Kessie",
+          "club": "Al-Ahli"
+        },
+        {
+          "name": "Ibrahim Sangare",
+          "club": "Nottingham Forest"
+        },
+        {
+          "name": "Seko Fofana",
+          "club": "Al-Nassr"
+        },
+        {
+          "name": "Amad Diallo",
+          "club": "Manchester United"
+        },
+        {
+          "name": "Evann Guessand",
+          "club": "Aston Villa"
+        },
+        {
+          "name": "Simon Adingra",
+          "club": "Sunderland"
+        }
+      ]
+    },
+    "ecuador": {
+      "formation": "4-2-3-1",
+      "manager": "Sebastian Beccacece",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Hernan Galindez",
+          "club": "Huracan"
+        },
+        {
+          "name": "Angelo Preciado",
+          "club": "Sporting CP"
+        },
+        {
+          "name": "Willian Pacho",
+          "club": "Paris Saint-Germain"
+        },
+        {
+          "name": "Felix Torres",
+          "club": "Corinthians"
+        },
+        {
+          "name": "Piero Hincapie",
+          "club": "Arsenal"
+        },
+        {
+          "name": "Moises Caicedo",
+          "club": "Chelsea"
+        },
+        {
+          "name": "Jhegson Mendez",
+          "club": "Sao Paulo"
+        },
+        {
+          "name": "Nilson Angulo",
+          "club": "Anderlecht"
+        },
+        {
+          "name": "Kendry Paez",
+          "club": "Chelsea"
+        },
+        {
+          "name": "Gonzalo Plata",
+          "club": "Flamengo"
+        },
+        {
+          "name": "Enner Valencia",
+          "club": "Internacional"
+        }
+      ]
+    },
+    "curacao": {
+      "formation": "4-2-3-1",
+      "manager": "Dick Advocaat",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Eloy Room",
+          "club": "N/A"
+        },
+        {
+          "name": "Shurandy Sambo",
+          "club": "N/A"
+        },
+        {
+          "name": "Riechedly Bazoer",
+          "club": "NEC Nijmegen"
+        },
+        {
+          "name": "Cuco Martina",
+          "club": "N/A"
+        },
+        {
+          "name": "Livano Comenencia",
+          "club": "Juventus"
+        },
+        {
+          "name": "Leandro Bacuna",
+          "club": "N/A"
+        },
+        {
+          "name": "Juninho Bacuna",
+          "club": "N/A"
+        },
+        {
+          "name": "Tahith Chong",
+          "club": "Sheffield United"
+        },
+        {
+          "name": "Sontje Hansen",
+          "club": "NEC Nijmegen"
+        },
+        {
+          "name": "Jurien Gaari",
+          "club": "N/A"
+        },
+        {
+          "name": "Jeremy Antonisse",
+          "club": "N/A"
+        }
+      ]
+    },
+    "tunisia": {
+      "formation": "4-2-3-1",
+      "manager": "Herve Renard",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Aymen Dahmen",
+          "club": "N/A"
+        },
+        {
+          "name": "Mortadha Ben Ouanes",
+          "club": "N/A"
+        },
+        {
+          "name": "Yassine Meriah",
+          "club": "N/A"
+        },
+        {
+          "name": "Montassar Talbi",
+          "club": "Lorient"
+        },
+        {
+          "name": "Ali Abdi",
+          "club": "Nice"
+        },
+        {
+          "name": "Ellyes Skhiri",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "name": "Aissa Laidouni",
+          "club": "Al-Wakrah"
+        },
+        {
+          "name": "Hannibal Mejbri",
+          "club": "Burnley"
+        },
+        {
+          "name": "Elias Achouri",
+          "club": "Copenhagen"
+        },
+        {
+          "name": "Naim Sliti",
+          "club": "N/A"
+        },
+        {
+          "name": "Hazem Mastouri",
+          "club": "N/A"
+        }
+      ]
+    },
+    "japan": {
+      "formation": "4-2-3-1",
+      "manager": "Hajime Moriyasu",
+      "philosophy": "Probable matchday XI from preview sources.",
+      "source_label": "web_researched",
+      "source_url": "https://www.rotowire.com/soccer/",
+      "checked_at_utc": "2026-06-20T18:30:00Z",
+      "players": [
+        {
+          "name": "Zion Suzuki",
+          "club": "Parma"
+        },
+        {
+          "name": "Yukinari Sugawara",
+          "club": "Southampton"
+        },
+        {
+          "name": "Ko Itakura",
+          "club": "Ajax"
+        },
+        {
+          "name": "Shogo Taniguchi",
+          "club": "N/A"
+        },
+        {
+          "name": "Hiroki Ito",
+          "club": "Bayern Munich"
+        },
+        {
+          "name": "Wataru Endo",
+          "club": "Liverpool"
+        },
+        {
+          "name": "Daichi Kamada",
+          "club": "Crystal Palace"
+        },
+        {
+          "name": "Ritsu Doan",
+          "club": "Eintracht Frankfurt"
+        },
+        {
+          "name": "Takefusa Kubo",
+          "club": "Real Sociedad"
+        },
+        {
+          "name": "Kaoru Mitoma",
+          "club": "Brighton"
+        },
+        {
+          "name": "Ayase Ueda",
+          "club": "Feyenoord"
+        }
       ]
     }
   }

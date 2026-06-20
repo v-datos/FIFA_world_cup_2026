@@ -7,9 +7,9 @@
     "collection_method": "static_source_manifest",
     "parser_version": "squad_style_static_manifest_v1",
     "status": "partial",
-    "checked_at_utc": "2026-06-19T16:45:00Z",
+    "checked_at_utc": "2026-06-20T18:30:00Z",
     "team_count": 18,
-    "field_record_count": 11,
+    "field_record_count": 19,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -418,6 +418,190 @@
         "no_approved_local_squad_style_source_cache"
       ],
       "fields": {}
+    },
+    {
+      "team": "Netherlands",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 754.2,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 754.20 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Sweden",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 406.08,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 406.08 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Germany",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 947.0,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 947.00 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Ivory Coast",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 522.1,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 522.10 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Ecuador",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 368.7,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 368.70 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Curacao",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 25.78,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 25.78 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Tunisia",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 69.95,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 69.95 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Japan",
+      "fixture_ids": [],
+      "fields": {
+        "squad_market_value_m": {
+          "value": 270.85,
+          "unit": "EUR_m",
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "Transfermarkt",
+          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+          "source_path": "National team total market value",
+          "source_value_text": "EUR 270.85 m total market value",
+          "checked_at_utc": "2026-06-20T18:30:00Z",
+          "retrieval_method": "web_research"
+        }
+      },
+      "status": "partial",
+      "source_label": "web_researched",
+      "source_name": "Transfermarkt (WC2026 squad value ranking)",
+      "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
+      "checked_at_utc": "2026-06-20T18:30:00Z"
     }
   ]
 }
