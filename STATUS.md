@@ -1,24 +1,26 @@
 # STATUS
 
-## 2026-06-20 - Standings & Bracket Tab UI Rebaseline Completed
+## 2026-06-20 - Phase 5 Completed & Task T-019 Dropped
 
-Prepared by: Orchestrator / Frontend Engineer
+Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 
 ### Current State
 
-- Rebaselined the Standings & Bracket UI layout, styles, and font in `StandingsTab.tsx` to match the legacy Streamlit wood board and painter's tape look.
-- Completed all current visual layout and API resilience tasks. The project code is committed and pushed to `origin/main`.
+- Phase 5 exit criteria have been fully met. The React dashboard is validated, streamlined, and fully in sync with the FastAPI backend.
+- Task T-019 (Player Career-Stats Hover Endpoint) has been dropped to maintain simplicity, avoid dead backend code, and prevent adding GCP/BigQuery credential requirements.
+- Completed all visual layout, API resilience, and legacy cleanup tasks. The project code is committed and pushed to `origin/main`.
 
 ### Completed This Update
 
-- **Streamlit Legacy Disposition (T-030)**: Stopped the running Streamlit server process locally. The legacy Streamlit code in `src/app/` is officially retired/archived and is kept purely as reference material.
-- **Resilient Schedule Fallback Match IDs (T-043)**: Resolved the schedule fallback gap by introducing a committed games cache and folder scanning fallbacks to populate the match ID list when the live Nestor API is unreachable and no `/tmp/games.json` cache is present. Hardened pipeline scripts to use this cache as well.
-- **Standings & Bracket UI Rebaseline (T-049)**: Re-aligned the React bracket view to match the legacy Streamlit wood-board and tape layout, restoring organic individual tape rotations, hand-written number fonts, and clean matchups with no score overlays.
-- **Local preview verified**: Symbolic link created locally between `src/frontend/dist` and `src/api/static` to enable local static serves, and verified uvicorn serves standings and schedule correctly.
+- **Approved Drop of T-019 (DEC026)**: Dropped T-019 after verifying the frontend lineup pitch (`InteractivePitch.tsx`) doesn't show hover stats and the backend has no corresponding route.
+- **Streamlit Legacy Disposition (T-030)**: Stopped the running Streamlit server process locally. The legacy Streamlit code in `src/app/` is retired/archived.
+- **Resilient Schedule Fallback Match IDs (T-043)**: Resolved Nestor API schedule fallbacks using a committed games cache and folder scanning.
+- **Standings & Bracket UI Rebaseline (T-049)**: Re-aligned the React bracket view to match the legacy Streamlit wood-board and tape layout.
+- **Local preview verified**: Symbolic link created locally between `src/frontend/dist` and `src/api/static` to enable local serves.
 
 ### Next Sprint Priorities
 
-- **T-019 - Player Career-Stats Hover Endpoint (`/api/player/stats`)**: Build career stats hover route and back with a BigQuery query, mapping 2026 rosters to historical StatsBomb names.
+- Phase 5 is closed out. All planned sprint tasks are either completed or dropped. No active priorities.
 
 ---
 

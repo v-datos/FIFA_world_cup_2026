@@ -13,13 +13,9 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Backlog
 
-- [ ] **T-019 - Player Career-Stats Hover Endpoint (`/api/player/stats`)**
-  Owner: Data Pipeline Engineer / Football Data Scientist
-  Notes: Deferred 2026-06-16 (DEC006). `InteractivePitch` already fetches
-  per-player career stats on hover, but neither the route nor a backing BigQuery
-  query exists. Requires data-model decisions (dataset/competition scope,
-  2026 roster to StatsBomb `player` name mapping) and cannot be runtime-verified
-  locally without GCP credentials.
+- No tasks currently in backlog.
+
+
 
 ## Done
 
@@ -488,6 +484,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
   Cancelled: 2026-06-16
   Notes: Local fallback and direct API polling satisfy current requirements;
   PostgreSQL standings sync was dismissed in DEC003.
+
+- [-] **T-019 - Player Career-Stats Hover Endpoint (`/api/player/stats`)**
+  Phase: Phase 5
+  Owner: Data Pipeline Engineer / Football Data Scientist
+  Cancelled: 2026-06-20
+  Notes: Dropped/cancelled per DEC026. The new React/Vite dashboard tooltip does not display career stats and only renders player Name, Position, and Club. Backing this route with dated StatsBomb BigQuery historical data is complex, credential-dependent, and goes against the online/AI-researched architecture goals.
 
 ## Blockers
 
