@@ -12,3 +12,4 @@ pyarrow
 soccerdata
 fastapi
 uvicorn
+anthropic>=0.69

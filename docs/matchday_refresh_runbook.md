@@ -42,10 +42,23 @@ cd <repo>
 python3 -m src.pipeline.collect_espn_matchday --date $(date -u +%Y%m%d) --write
 # (optional) also refresh the prior day in case late games finished
 python3 -m src.pipeline.collect_espn_matchday --date $(date -u -d yesterday +%Y%m%d) --write
+# (optional) AI tactical headlines — needs ANTHROPIC_API_KEY
+python3 -m src.pipeline.generate_match_headlines --date $(date -u +%Y%m%d) --write
 python3 -m compileall -q src && npm --prefix src/frontend run build
 git add -A && git commit -m "Matchday refresh $(date -u +%F)" && git push origin main
 gcloud builds submit --config cloudbuild.yaml .
 ```
+
+## AI tactical headlines (`generate_match_headlines.py`)
+
+Replaces the "Baseline preview pending…" stub with a Claude-written headline + 3
+insights, grounded in each fixture's real data (Elo, win expectancy, ESPN
+possession/shots/goals, formations). Low-cost model (`claude-haiku-4-5`,
+override with `ANTHROPIC_MODEL`); dry-run prints the assembled context, `--write`
+calls the API and updates `summary.json` `ai_summary` (labelled
+`headline_source: ai_generated`). Set `ANTHROPIC_API_KEY` (env locally, or the
+`ANTHROPIC_API_KEY` GitHub Actions secret) to enable it; without the key the
+GitHub Action skips this step and headlines stay as baseline stubs.
 
 Standings/schedule auto-update on Cloud Run from the live feed; `grid_state.json`
 remains the committed fallback.
