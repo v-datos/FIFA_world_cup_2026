@@ -1,41 +1,42 @@
 {
-    "metadata": {
-        "match_id": "france_senegal_2026",
-        "team1": "France",
-        "team2": "Senegal",
-        "date": "06/16/2026",
-        "time": "15:00",
-        "venue": "Stadium 11",
-        "stage": "Group Stage - Group I"
+  "metadata": {
+    "match_id": "france_senegal_2026",
+    "team1": "France",
+    "team2": "Senegal",
+    "date": "06/16/2026",
+    "time": "15:00",
+    "venue": "MetLife Stadium, East Rutherford, New Jersey",
+    "stage": "Group Stage - Group I",
+    "kickoff_utc": "2026-06-16T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Deschamps' Final-Tournament Bleus Face Thiaw's Resurgent Lions",
+    "injuries": {
+      "france": [
+        "Hugo Ekitike (Season-Ending Injury - Out)",
+        "William Saliba (Back Issue - Probable)",
+        "Eduardo Camavinga (Omitted from Squad)"
+      ],
+      "senegal": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Deschamps' Final-Tournament Bleus Face Thiaw's Resurgent Lions",
-        "injuries": {
-            "france": [
-                "Hugo Ekitike (Season-Ending Injury - Out)",
-                "William Saliba (Back Issue - Probable)",
-                "Eduardo Camavinga (Omitted from Squad)"
-            ],
-            "senegal": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "france": {
-                "formation": "4-2-3-1",
-                "philosophy": "High-transition direct attacking built around Mbappe and a fluid front line.",
-                "manager": "Didier Deschamps"
-            },
-            "senegal": {
-                "formation": "4-3-3",
-                "philosophy": "High-intensity pressing with rapid wing transitions through Mane and Diatta.",
-                "manager": "Pape Thiaw"
-            }
-        },
-        "tactical_insights": [
-            "France will look to break Senegal's block through Tchouameni and Rabiot's progression to feed Dembele, Olise and Mbappe.",
-            "Senegal's Nicolas Jackson and Sadio Mane will target France's advanced fullbacks on counter-attacks.",
-            "The midfield battle between Tchouameni and Pape Gueye will dictate the tempo and possession share."
-        ]
-    }
+    "confirmed_tactics": {
+      "france": {
+        "formation": "4-2-3-1",
+        "philosophy": "High-transition direct attacking built around Mbappe and a fluid front line.",
+        "manager": "Didier Deschamps"
+      },
+      "senegal": {
+        "formation": "4-3-3",
+        "philosophy": "High-intensity pressing with rapid wing transitions through Mane and Diatta.",
+        "manager": "Pape Thiaw"
+      }
+    },
+    "tactical_insights": [
+      "France will look to break Senegal's block through Tchouameni and Rabiot's progression to feed Dembele, Olise and Mbappe.",
+      "Senegal's Nicolas Jackson and Sadio Mane will target France's advanced fullbacks on counter-attacks.",
+      "The midfield battle between Tchouameni and Pape Gueye will dictate the tempo and possession share."
+    ]
+  }
 }

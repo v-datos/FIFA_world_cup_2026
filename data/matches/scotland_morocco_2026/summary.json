@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "scotland_morocco_2026",
-        "team1": "Scotland",
-        "team2": "Morocco",
-        "date": "06/19/2026",
-        "time": "18:00",
-        "venue": "Stadium 9",
-        "stage": "Group Stage - Group C"
+  "metadata": {
+    "match_id": "scotland_morocco_2026",
+    "team1": "Scotland",
+    "team2": "Morocco",
+    "date": "06/19/2026",
+    "time": "18:00",
+    "venue": "Gillette Stadium, Foxborough, Massachusetts",
+    "stage": "Group Stage - Group C",
+    "kickoff_utc": "2026-06-19T22:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Tartan Army's Midfield Runners Encounter Atlas Lions' Technical Precision",
+    "injuries": {
+      "scotland": [
+        "No major injuries reported."
+      ],
+      "morocco": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Tartan Army's Midfield Runners Encounter Atlas Lions' Technical Precision",
-        "injuries": {
-            "scotland": [
-                "No major injuries reported."
-            ],
-            "morocco": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "scotland": {
-                "formation": "3-4-2-1",
-                "philosophy": "Disciplined low-block, rapid flank transitions, and late midfield runs into the box.",
-                "manager": "Steve Clarke"
-            },
-            "morocco": {
-                "formation": "4-2-3-1",
-                "philosophy": "Technical possession with high-speed flank combinations and a structured mid-block.",
-                "manager": "Mohamed Ouahbi"
-            }
-        },
-        "tactical_insights": [
-            "Napoli's Scott McTominay and his late runs into the box will be Scotland's main weapon against the AFCON 2025 champions.",
-            "Achraf Hakimi's overlaps on the right wing will test Andrew Robertson's defensive positioning.",
-            "Sofyan Amrabat will lock down the central areas, stopping Scotland's quick transitions from deep."
-        ]
-    }
+    "confirmed_tactics": {
+      "scotland": {
+        "formation": "3-4-2-1",
+        "philosophy": "Disciplined low-block, rapid flank transitions, and late midfield runs into the box.",
+        "manager": "Steve Clarke"
+      },
+      "morocco": {
+        "formation": "4-2-3-1",
+        "philosophy": "Technical possession with high-speed flank combinations and a structured mid-block.",
+        "manager": "Mohamed Ouahbi"
+      }
+    },
+    "tactical_insights": [
+      "Napoli's Scott McTominay and his late runs into the box will be Scotland's main weapon against the AFCON 2025 champions.",
+      "Achraf Hakimi's overlaps on the right wing will test Andrew Robertson's defensive positioning.",
+      "Sofyan Amrabat will lock down the central areas, stopping Scotland's quick transitions from deep."
+    ]
+  }
 }

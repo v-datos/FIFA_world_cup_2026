@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "united_states_australia_2026",
-        "team1": "United States",
-        "team2": "Australia",
-        "date": "06/19/2026",
-        "time": "12:00",
-        "venue": "Stadium 14",
-        "stage": "Group Stage - Group D"
+  "metadata": {
+    "match_id": "united_states_australia_2026",
+    "team1": "United States",
+    "team2": "Australia",
+    "date": "06/19/2026",
+    "time": "12:00",
+    "venue": "Lumen Field, Seattle, Washington",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-06-19T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "USA's Dynamic Wing Combinations Face Direct Australian Physicality",
+    "injuries": {
+      "united_states": [
+        "Christian Pulisic (Calf Injury - Doubtful)"
+      ],
+      "australia": [
+        "Riley McGree (Injury - Out)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "USA's Dynamic Wing Combinations Face Direct Australian Physicality",
-        "injuries": {
-            "united_states": [
-                "Christian Pulisic (Calf Injury - Doubtful)"
-            ],
-            "australia": [
-                "Riley McGree (Injury - Out)"
-            ]
-        },
-        "confirmed_tactics": {
-            "united_states": {
-                "formation": "4-3-3",
-                "philosophy": "High intensity pressing, vertical transitions, and dynamic flank overloads.",
-                "manager": "Mauricio Pochettino"
-            },
-            "australia": {
-                "formation": "4-4-2",
-                "philosophy": "Compact defensive organization, direct flank crosses, and set-piece targeting.",
-                "manager": "Tony Popovic"
-            }
-        },
-        "tactical_insights": [
-            "Pulisic and Robinson will look to double-team Australia's right-back to create crossing opportunities.",
-            "Australia will rely on Harry Souttar's aerial presence to threaten on corners and set-piece opportunities.",
-            "The athletic battle between McKennie and Irvine will dictate who controls the second balls in midfield."
-        ]
-    }
+    "confirmed_tactics": {
+      "united_states": {
+        "formation": "4-3-3",
+        "philosophy": "High intensity pressing, vertical transitions, and dynamic flank overloads.",
+        "manager": "Mauricio Pochettino"
+      },
+      "australia": {
+        "formation": "4-4-2",
+        "philosophy": "Compact defensive organization, direct flank crosses, and set-piece targeting.",
+        "manager": "Tony Popovic"
+      }
+    },
+    "tactical_insights": [
+      "Pulisic and Robinson will look to double-team Australia's right-back to create crossing opportunities.",
+      "Australia will rely on Harry Souttar's aerial presence to threaten on corners and set-piece opportunities.",
+      "The athletic battle between McKennie and Irvine will dictate who controls the second balls in midfield."
+    ]
+  }
 }

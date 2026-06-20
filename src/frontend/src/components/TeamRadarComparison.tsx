@@ -26,13 +26,14 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   quality,
   lang,
 }) => {
-  // Pass completion % and PPDA are not reliably available for national teams,
-  // so the radar only requires the metrics sourced from match reports.
+  // Radar uses the metrics the deterministic ESPN match-stats collector provides
+  // for every played match. xG/PPDA are not exposed by that feed, so they are
+  // not required here (see collect_espn_matchday.py / DEC024).
   const requiredFields = [
-    'expected_goals_per_90',
-    'shots_per_90',
     'possession_avg',
-    'expected_goals_conceded_per_90',
+    'shots_per_90',
+    'shots_on_target_pct',
+    'pass_completion_pct',
   ];
 
   const toNumber = (value: MetricValue): number => {
@@ -56,12 +57,10 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   const prepareRadarData = () => {
     // Labels mapping
     const labels: Record<string, string> = {
-      xg: lang === 'Español' ? 'Goles Esperados (xG)' : 'Expected Goals (xG)',
       shots: lang === 'Español' ? 'Tiros/90' : 'Shots/90',
       passing: lang === 'Español' ? 'Precisión Pases %' : 'Pass Accuracy %',
       possession: lang === 'Español' ? 'Posesión %' : 'Possession %',
-      press: lang === 'Español' ? 'Presión (PPDA)' : 'Press (PPDA)',
-      defense: lang === 'Español' ? 'Defensa (xGA)' : 'Defense (xGA)',
+      accuracy: lang === 'Español' ? 'Precisión Tiro %' : 'Shot Accuracy %',
     };
 
     // Map a real-world value into the 0-100 radar range (higher = better/more).
@@ -69,20 +68,15 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
       const v = toNumber(val);
       return Math.round(Math.max(10, Math.min(100, ((v - min) / (max - min)) * 90 + 10)));
     };
-    // Inverted scale for "lower is better" metrics (PPDA, xG conceded).
-    const scaleInv = (val: MetricValue, min: number, max: number) => {
-      const v = toNumber(val);
-      return Math.round(Math.max(10, Math.min(100, ((max - v) / (max - min)) * 90 + 10)));
-    };
 
     const t1 = metrics1 || {};
     const t2 = metrics2 || {};
 
     return [
       {
-        subject: labels.xg,
-        [team1]: scale(t1.expected_goals_per_90, 0.5, 2.5),
-        [team2]: scale(t2.expected_goals_per_90, 0.5, 2.5),
+        subject: labels.possession,
+        [team1]: scale(t1.possession_avg, 35.0, 65.0),
+        [team2]: scale(t2.possession_avg, 35.0, 65.0),
       },
       {
         subject: labels.shots,
@@ -90,14 +84,14 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
         [team2]: scale(t2.shots_per_90, 5.0, 20.0),
       },
       {
-        subject: labels.possession,
-        [team1]: scale(t1.possession_avg, 35.0, 65.0),
-        [team2]: scale(t2.possession_avg, 35.0, 65.0),
+        subject: labels.accuracy,
+        [team1]: scale(t1.shots_on_target_pct, 20.0, 60.0),
+        [team2]: scale(t2.shots_on_target_pct, 20.0, 60.0),
       },
       {
-        subject: labels.defense,
-        [team1]: scaleInv(t1.expected_goals_conceded_per_90, 0.6, 1.8),
-        [team2]: scaleInv(t2.expected_goals_conceded_per_90, 0.6, 1.8),
+        subject: labels.passing,
+        [team1]: scale(t1.pass_completion_pct, 60.0, 92.0),
+        [team2]: scale(t2.pass_completion_pct, 60.0, 92.0),
       },
     ];
   };

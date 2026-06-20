@@ -465,10 +465,10 @@ REQUIRED_TEAM_METRIC_FIELDS = [
 # for international sides, so they are excluded from the required radar set
 # (DEC024); they can be re-added when a provider feed supplies them.
 RADAR_METRIC_FIELDS = [
-    "expected_goals_per_90",
-    "shots_per_90",
     "possession_avg",
-    "expected_goals_conceded_per_90",
+    "shots_per_90",
+    "shots_on_target_pct",
+    "pass_completion_pct",
 ]
 
 

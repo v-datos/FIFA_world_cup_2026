@@ -12,3 +12,4 @@ venv/
 .venv/
 .project_env/
 .claude/settings.local.json
+downloaded_files/

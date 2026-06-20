@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "portugal_democratic_republic_of_the_congo_2026",
-        "team1": "Portugal",
-        "team2": "Democratic Republic of the Congo",
-        "date": "06/17/2026",
-        "time": "12:00",
-        "venue": "Stadium 5",
-        "stage": "Group Stage - Group K"
+  "metadata": {
+    "match_id": "portugal_democratic_republic_of_the_congo_2026",
+    "team1": "Portugal",
+    "team2": "Democratic Republic of the Congo",
+    "date": "06/17/2026",
+    "time": "12:00",
+    "venue": "NRG Stadium, Houston, Texas",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-17T17:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Selecao's Tactical Fluidity Collides with Leopards' Physicality",
+    "injuries": {
+      "portugal": [
+        "No major injuries reported."
+      ],
+      "democratic_republic_of_the_congo": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Selecao's Tactical Fluidity Collides with Leopards' Physicality",
-        "injuries": {
-            "portugal": [
-                "No major injuries reported."
-            ],
-            "democratic_republic_of_the_congo": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "portugal": {
-                "formation": "4-2-3-1",
-                "philosophy": "Fluid possession with the Vitinha-Neves double pivot feeding Ronaldo and the wingers.",
-                "manager": "Roberto Martinez"
-            },
-            "democratic_republic_of_the_congo": {
-                "formation": "4-2-3-1",
-                "philosophy": "Physical mid-block with explosive wing transitions and direct play to Wissa.",
-                "manager": "Sebastien Desabre"
-            }
-        },
-        "tactical_insights": [
-            "Portugal will look to isolate Rafael Leao on the left flank to exploit DR Congo's full-backs in 1v1 situations.",
-            "DR Congo will seek to exploit Portugal's high line with direct balls over the top to Newcastle's Yoane Wissa.",
-            "Bruno Fernandes' progressive passing and the Vitinha-Neves pivot will be vital to break down the Leopards' compact block."
-        ]
-    }
+    "confirmed_tactics": {
+      "portugal": {
+        "formation": "4-2-3-1",
+        "philosophy": "Fluid possession with the Vitinha-Neves double pivot feeding Ronaldo and the wingers.",
+        "manager": "Roberto Martinez"
+      },
+      "democratic_republic_of_the_congo": {
+        "formation": "4-2-3-1",
+        "philosophy": "Physical mid-block with explosive wing transitions and direct play to Wissa.",
+        "manager": "Sebastien Desabre"
+      }
+    },
+    "tactical_insights": [
+      "Portugal will look to isolate Rafael Leao on the left flank to exploit DR Congo's full-backs in 1v1 situations.",
+      "DR Congo will seek to exploit Portugal's high line with direct balls over the top to Newcastle's Yoane Wissa.",
+      "Bruno Fernandes' progressive passing and the Vitinha-Neves pivot will be vital to break down the Leopards' compact block."
+    ]
+  }
 }

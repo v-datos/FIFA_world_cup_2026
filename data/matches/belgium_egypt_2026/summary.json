@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "belgium_egypt_2026",
-        "team1": "Belgium",
-        "team2": "Egypt",
-        "date": "06/15/2026",
-        "time": "12:00",
-        "venue": "Stadium 14",
-        "stage": "Group Stage - Group G"
+  "metadata": {
+    "match_id": "belgium_egypt_2026",
+    "team1": "Belgium",
+    "team2": "Egypt",
+    "date": "06/15/2026",
+    "time": "12:00",
+    "venue": "Lumen Field, Seattle, Washington",
+    "stage": "Group Stage - Group G",
+    "kickoff_utc": "2026-06-15T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Garcia's De Bruyne-Led Red Devils Probe the Pharaohs' Compact Block",
+    "injuries": {
+      "belgium": [
+        "Romelu Lukaku (Match Fitness - Super-Sub Role)"
+      ],
+      "egypt": [
+        "Mohamed Salah (Hamstring Strain - Probable)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Garcia's De Bruyne-Led Red Devils Probe the Pharaohs' Compact Block",
-        "injuries": {
-            "belgium": [
-                "Romelu Lukaku (Match Fitness - Super-Sub Role)"
-            ],
-            "egypt": [
-                "Mohamed Salah (Hamstring Strain - Probable)"
-            ]
-        },
-        "confirmed_tactics": {
-            "belgium": {
-                "formation": "4-2-3-1",
-                "philosophy": "Fluid, high-tempo attacking transitions orchestrated by Kevin De Bruyne.",
-                "manager": "Rudi Garcia"
-            },
-            "egypt": {
-                "formation": "4-3-3",
-                "philosophy": "Highly organized defensive mid-block with quick direct plays to Salah and Marmoush.",
-                "manager": "Hossam Hassan"
-            }
-        },
-        "tactical_insights": [
-            "Kevin De Bruyne will try to find spaces behind Egypt's midfield line to feed Belgium's quick forwards Doku and Trossard.",
-            "Egypt will focus on defensive compactness, relying on Salah and Marmoush for sharp counter-attacking outlets.",
-            "With Lukaku restricted to a super-sub role, Belgium's first-half edge hinges on De Bruyne unlocking the Egyptian low block."
-        ]
-    }
+    "confirmed_tactics": {
+      "belgium": {
+        "formation": "4-2-3-1",
+        "philosophy": "Fluid, high-tempo attacking transitions orchestrated by Kevin De Bruyne.",
+        "manager": "Rudi Garcia"
+      },
+      "egypt": {
+        "formation": "4-3-3",
+        "philosophy": "Highly organized defensive mid-block with quick direct plays to Salah and Marmoush.",
+        "manager": "Hossam Hassan"
+      }
+    },
+    "tactical_insights": [
+      "Kevin De Bruyne will try to find spaces behind Egypt's midfield line to feed Belgium's quick forwards Doku and Trossard.",
+      "Egypt will focus on defensive compactness, relying on Salah and Marmoush for sharp counter-attacking outlets.",
+      "With Lukaku restricted to a super-sub role, Belgium's first-half edge hinges on De Bruyne unlocking the Egyptian low block."
+    ]
+  }
 }

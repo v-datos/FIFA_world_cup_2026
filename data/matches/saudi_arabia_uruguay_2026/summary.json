@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "saudi_arabia_uruguay_2026",
-        "team1": "Saudi Arabia",
-        "team2": "Uruguay",
-        "date": "06/15/2026",
-        "time": "18:00",
-        "venue": "Stadium 8",
-        "stage": "Group Stage - Group H"
+  "metadata": {
+    "match_id": "saudi_arabia_uruguay_2026",
+    "team1": "Saudi Arabia",
+    "team2": "Uruguay",
+    "date": "06/15/2026",
+    "time": "18:00",
+    "venue": "Hard Rock Stadium, Miami Gardens, Florida",
+    "stage": "Group Stage - Group H",
+    "kickoff_utc": "2026-06-15T22:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Green Falcons Face Tactical Test Against Bielsa's High-Pressing Uruguay",
+    "injuries": {
+      "saudi_arabia": [
+        "No major injuries reported."
+      ],
+      "uruguay": [
+        "Luis Suarez (Omitted from Squad)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Green Falcons Face Tactical Test Against Bielsa's High-Pressing Uruguay",
-        "injuries": {
-            "saudi_arabia": [
-                "No major injuries reported."
-            ],
-            "uruguay": [
-                "Luis Suarez (Omitted from Squad)"
-            ]
-        },
-        "confirmed_tactics": {
-            "saudi_arabia": {
-                "formation": "4-2-3-1",
-                "philosophy": "Defensively compact block springing direct counters through Al-Dawsari.",
-                "manager": "Georgios Donis"
-            },
-            "uruguay": {
-                "formation": "4-3-3",
-                "philosophy": "High-intensity man-marking press and vertical attacking transitions.",
-                "manager": "Marcelo Bielsa"
-            }
-        },
-        "tactical_insights": [
-            "Uruguay's relentless pressing will attempt to disrupt Saudi Arabia's build-up from the back.",
-            "Saudi Arabia will look to exploit the space behind Uruguay's high line with direct balls to Al-Dawsari.",
-            "Valverde's box-to-box presence will be key in winning second balls and sustaining Uruguay's attacking pressure."
-        ]
-    }
+    "confirmed_tactics": {
+      "saudi_arabia": {
+        "formation": "4-2-3-1",
+        "philosophy": "Defensively compact block springing direct counters through Al-Dawsari.",
+        "manager": "Georgios Donis"
+      },
+      "uruguay": {
+        "formation": "4-3-3",
+        "philosophy": "High-intensity man-marking press and vertical attacking transitions.",
+        "manager": "Marcelo Bielsa"
+      }
+    },
+    "tactical_insights": [
+      "Uruguay's relentless pressing will attempt to disrupt Saudi Arabia's build-up from the back.",
+      "Saudi Arabia will look to exploit the space behind Uruguay's high line with direct balls to Al-Dawsari.",
+      "Valverde's box-to-box presence will be key in winning second balls and sustaining Uruguay's attacking pressure."
+    ]
+  }
 }

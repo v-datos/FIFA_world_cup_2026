@@ -7,9 +7,9 @@
     "collection_method": "static_source_manifest",
     "parser_version": "squad_style_static_manifest_v1",
     "status": "partial",
-    "checked_at_utc": "2026-06-20T18:45:00Z",
+    "checked_at_utc": "2026-06-20T19:49:54Z",
     "team_count": 18,
-    "field_record_count": 51,
+    "field_record_count": 419,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -56,6 +56,78 @@
           "source_value_text": "Average age: 29.4",
           "checked_at_utc": "2026-06-19T07:56:49Z",
           "retrieval_method": "manual_static_manifest"
+        },
+        "possession_avg": {
+          "value": 56.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 62.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 525.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       }
     },
@@ -95,6 +167,78 @@
           "source_value_text": "24.0 years average age",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 43.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 42.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 399.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 83.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -104,84 +248,522 @@
       "fixture_ids": [
         "canada_qatar_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 79.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 32.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 31.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 567.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 90.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Qatar",
       "fixture_ids": [
         "canada_qatar_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 21.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 162.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 64.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 32.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Czech Republic",
       "fixture_ids": [
         "czech_republic_south_africa_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 38.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 21.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 341.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 79.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 17.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "South Africa",
       "fixture_ids": [
         "czech_republic_south_africa_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 61.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 17.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 23.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 563.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 90.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Mexico",
       "fixture_ids": [
         "mexico_south_korea_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 42.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 50.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 427.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 81.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 9.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "South Korea",
       "fixture_ids": [
         "mexico_south_korea_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 57.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 9.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 22.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 578.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 84.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Scotland",
@@ -207,6 +789,78 @@
           "source_value_text": "EUR 170.25 m total market value",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 41.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 456.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 12.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -235,6 +889,78 @@
           "source_value_text": "EUR 447.70 m total market value",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 58.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 12.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 16.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 670.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 89.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -244,28 +970,174 @@
       "fixture_ids": [
         "switzerland_bosnia_and_herzegovina_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 62.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 13.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 53.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 586.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Bosnia and Herzegovina",
       "fixture_ids": [
         "switzerland_bosnia_and_herzegovina_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 37.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 60.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 354.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 81.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 13.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:51Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Turkey",
@@ -291,6 +1163,78 @@
           "source_value_text": "EUR 473.70 m total market value",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 78.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 32.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 15.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 629.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -319,6 +1263,78 @@
           "source_value_text": "EUR 153.65 m total market value",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 21.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 28.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 178.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 53.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 32.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -347,6 +1363,78 @@
           "source_value_text": "EUR 385.60 m total market value",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 61.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 20.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 523.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 84.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -387,6 +1475,78 @@
           "source_value_text": "27.4 years average age",
           "checked_at_utc": "2026-06-19T16:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "possession_avg": {
+          "value": 38.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 40.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 310.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 70.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:52Z",
+          "retrieval_method": "espn_api"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -396,28 +1556,174 @@
       "fixture_ids": [
         "uzbekistan_colombia_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 38.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 25.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 319.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 76.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 15.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Colombia",
       "fixture_ids": [
         "uzbekistan_colombia_2026"
       ],
-      "status": "missing",
+      "status": "partial",
       "source_label": "missing",
       "source_name": "T-031 local source-cache audit",
       "checked_at_utc": "2026-06-19T13:57:52Z",
       "missing_reasons": [
         "no_approved_local_squad_style_source_cache"
       ],
-      "fields": {}
+      "fields": {
+        "possession_avg": {
+          "value": 61.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 15.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 26.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 519.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      }
     },
     {
       "team": "Netherlands",
@@ -436,28 +1742,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 54,
-          "unit": "pct",
+          "value": 50.9,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "54",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 10,
-          "unit": "count",
+          "value": 10.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "10",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 0.78,
@@ -482,6 +1782,60 @@
           "source_value_text": "0.59",
           "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 70.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 450.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 16.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -507,28 +1861,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 53,
-          "unit": "pct",
+          "value": 49.1,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "53",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 13,
-          "unit": "count",
+          "value": 16.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "13",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 1.36,
@@ -553,6 +1901,60 @@
           "source_value_text": "0.28",
           "checked_at_utc": "2026-06-20T18:55:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 50.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 424.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:53Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -578,28 +1980,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 65,
-          "unit": "pct",
+          "value": 64.6,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "65",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 26,
-          "unit": "count",
+          "value": 26.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "26",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 3.91,
@@ -624,6 +2020,60 @@
           "source_value_text": "0.4",
           "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 46.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 637.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 87.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -649,28 +2099,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 48,
-          "unit": "pct",
+          "value": 48.4,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "48",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 15,
-          "unit": "count",
+          "value": 15.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "15",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 1.52,
@@ -695,6 +2139,60 @@
           "source_value_text": "1.01",
           "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 26.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 470.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 84.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 12.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -720,28 +2218,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 52,
-          "unit": "pct",
+          "value": 51.6,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "52",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 12,
-          "unit": "count",
+          "value": 12.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "12",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 1.01,
@@ -766,6 +2258,60 @@
           "source_value_text": "1.52",
           "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 8.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 492.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 15.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -791,16 +2337,13 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 35,
-          "unit": "pct",
+          "value": 35.4,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "35",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 0.4,
@@ -827,16 +2370,67 @@
           "retrieval_method": "web_research"
         },
         "shots_per_90": {
-          "value": 8,
-          "unit": "count",
+          "value": 8.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "8",
-          "checked_at_utc": "2026-06-20T18:55:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 25.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 343.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 82.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 26.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -862,28 +2456,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 47,
-          "unit": "pct",
+          "value": 51.3,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "47",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 6,
-          "unit": "count",
+          "value": 6.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "6",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_conceded_per_90": {
           "value": 1.36,
@@ -908,6 +2496,60 @@
           "source_value_text": "0.28",
           "checked_at_utc": "2026-06-20T18:55:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 33.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 371.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 78.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 5.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 13.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -933,28 +2575,22 @@
           "retrieval_method": "web_research"
         },
         "possession_avg": {
-          "value": 46,
-          "unit": "pct",
+          "value": 40.2,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "46",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "shots_per_90": {
-          "value": 9,
-          "unit": "count",
+          "value": 10.0,
           "status": "available",
           "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "9",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
           "value": 0.59,
@@ -979,6 +2615,60 @@
           "source_value_text": "0.78",
           "checked_at_utc": "2026-06-20T18:45:00Z",
           "retrieval_method": "web_research"
+        },
+        "shots_on_target_pct": {
+          "value": 30.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 341.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 83.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:47Z",
+          "retrieval_method": "espn_api"
         }
       },
       "status": "partial",
@@ -986,6 +2676,1744 @@
       "source_name": "Transfermarkt (WC2026 squad value ranking)",
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
       "checked_at_utc": "2026-06-20T18:30:00Z"
+    },
+    {
+      "team": "Spain",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 74.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 27.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 25.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 800.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 91.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Cape Verde",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 25.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 16.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 278.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 73.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 27.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Belgium",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 53.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 15.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 20.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 455.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Egypt",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 46.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 21.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 398.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 81.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 15.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Saudi Arabia",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 33.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 42.9,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 322.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 73.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 27.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Uruguay",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 66.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 27.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 37.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 612.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Iran",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 48.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 17.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 23.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 409.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 76.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "New Zealand",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 51.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 14.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 57.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 446.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 84.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 17.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:48Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "France",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 53.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 72.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 575.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 87.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Senegal",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 46.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 6.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 33.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 502.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Iraq",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 38.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 9.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 334.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 81.1,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 12.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Norway",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 61.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 12.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 41.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 537.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 88.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Argentina",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 47.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 60.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 561.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 89.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Algeria",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 52.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 14.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 609.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 92.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:49Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Austria",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 63.2,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 36.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 580.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 84.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Jordan",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 36.8,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 36.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 332.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 72.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 3.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Portugal",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 75.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 14.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 783.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 92.5,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Democratic Republic of the Congo",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 24.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 8.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 25.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 249.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 78.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "England",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 51.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 22.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 50.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 474.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 85.7,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Croatia",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 48.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 10.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 50.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 443.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 86.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 2.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 4.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 22.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Ghana",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 38.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 28.6,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 352.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 83.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
+    },
+    {
+      "team": "Panama",
+      "fixture_ids": [],
+      "fields": {
+        "possession_avg": {
+          "value": 62.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_per_90": {
+          "value": 11.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_on_target_pct": {
+          "value": 36.4,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "passes_per_90": {
+          "value": 583.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "pass_completion_pct": {
+          "value": 86.3,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_per_90": {
+          "value": 0.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "goals_conceded_per_90": {
+          "value": 1.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        },
+        "shots_against_per_90": {
+          "value": 7.0,
+          "status": "available",
+          "source_label": "web_researched",
+          "source_name": "ESPN match boxscore",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
+          "checked_at_utc": "2026-06-20T19:49:50Z",
+          "retrieval_method": "espn_api"
+        }
+      },
+      "status": "partial"
     }
   ]
 }

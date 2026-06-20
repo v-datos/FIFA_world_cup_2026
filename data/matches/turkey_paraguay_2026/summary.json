@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "turkey_paraguay_2026",
-        "team1": "Turkey",
-        "team2": "Paraguay",
-        "date": "06/19/2026",
-        "time": "20:00",
-        "venue": "Stadium 15",
-        "stage": "Group Stage - Group D"
+  "metadata": {
+    "match_id": "turkey_paraguay_2026",
+    "team1": "Turkey",
+    "team2": "Paraguay",
+    "date": "06/19/2026",
+    "time": "20:00",
+    "venue": "Levi's Stadium, Santa Clara, California",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-06-20T03:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Crescent-Stars' Creative Talents Face La Albirroja's Intense Counter-Press",
+    "injuries": {
+      "turkey": [
+        "No major injuries reported."
+      ],
+      "paraguay": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Crescent-Stars' Creative Talents Face La Albirroja's Intense Counter-Press",
-        "injuries": {
-            "turkey": [
-                "No major injuries reported."
-            ],
-            "paraguay": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "turkey": {
-                "formation": "4-2-3-1",
-                "philosophy": "Technical fluid possession through half-space combinations and creative playmakers.",
-                "manager": "Vincenzo Montella"
-            },
-            "paraguay": {
-                "formation": "4-3-3",
-                "philosophy": "Aggressive defensive press and direct vertical counter-attacks under Gustavo Alfaro.",
-                "manager": "Gustavo Alfaro"
-            }
-        },
-        "tactical_insights": [
-            "Arda Guler and Kenan Yildiz will look to occupy the half-spaces, drifting inside to create overloads on Turkey's first World Cup since 2002.",
-            "Paraguay's Miguel Almiron will try to exploit Turkey's flanks in transition using his pace.",
-            "Hakan Calhanoglu's distribution from deep will be key to bypass Paraguay's intense frontline press."
-        ]
-    }
+    "confirmed_tactics": {
+      "turkey": {
+        "formation": "4-2-3-1",
+        "philosophy": "Technical fluid possession through half-space combinations and creative playmakers.",
+        "manager": "Vincenzo Montella"
+      },
+      "paraguay": {
+        "formation": "4-3-3",
+        "philosophy": "Aggressive defensive press and direct vertical counter-attacks under Gustavo Alfaro.",
+        "manager": "Gustavo Alfaro"
+      }
+    },
+    "tactical_insights": [
+      "Arda Guler and Kenan Yildiz will look to occupy the half-spaces, drifting inside to create overloads on Turkey's first World Cup since 2002.",
+      "Paraguay's Miguel Almiron will try to exploit Turkey's flanks in transition using his pace.",
+      "Hakan Calhanoglu's distribution from deep will be key to bypass Paraguay's intense frontline press."
+    ]
+  }
 }

@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "mexico_south_korea_2026",
-        "team1": "Mexico",
-        "team2": "South Korea",
-        "date": "06/18/2026",
-        "time": "19:00",
-        "venue": "Stadium 2",
-        "stage": "Group Stage - Group A"
+  "metadata": {
+    "match_id": "mexico_south_korea_2026",
+    "team1": "Mexico",
+    "team2": "South Korea",
+    "date": "06/18/2026",
+    "time": "19:00",
+    "venue": "Estadio Akron, Guadalajara",
+    "stage": "Group Stage - Group A",
+    "kickoff_utc": "2026-06-19T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash",
+    "injuries": {
+      "mexico": [
+        "No major injuries reported."
+      ],
+      "south_korea": [
+        "Hwang In-beom (Ankle Injury - Doubtful)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "El Tri's Flank Attacks Collide with Son's Speed in High-Octane Clash",
-        "injuries": {
-            "mexico": [
-                "No major injuries reported."
-            ],
-            "south_korea": [
-                "Hwang In-beom (Ankle Injury - Doubtful)"
-            ]
-        },
-        "confirmed_tactics": {
-            "mexico": {
-                "formation": "4-3-3",
-                "philosophy": "High-possession positional play with inverted wingers and overlapping fullbacks.",
-                "manager": "Javier Aguirre"
-            },
-            "south_korea": {
-                "formation": "4-2-3-1",
-                "philosophy": "Highly disciplined mid-block with rapid direct counter-attacking transitions.",
-                "manager": "Hong Myung-bo"
-            }
-        },
-        "tactical_insights": [
-            "Edson Alvarez will anchor Aguirre's midfield, screening against South Korea's direct central counters.",
-            "Captain Son Heung-min's inside runs from the left will target Mexico's right fullback in transition.",
-            "Raul Jimenez's hold-up play will be key for El Tri to sustain pressure on the Korean back line."
-        ]
-    }
+    "confirmed_tactics": {
+      "mexico": {
+        "formation": "4-3-3",
+        "philosophy": "High-possession positional play with inverted wingers and overlapping fullbacks.",
+        "manager": "Javier Aguirre"
+      },
+      "south_korea": {
+        "formation": "4-2-3-1",
+        "philosophy": "Highly disciplined mid-block with rapid direct counter-attacking transitions.",
+        "manager": "Hong Myung-bo"
+      }
+    },
+    "tactical_insights": [
+      "Edson Alvarez will anchor Aguirre's midfield, screening against South Korea's direct central counters.",
+      "Captain Son Heung-min's inside runs from the left will target Mexico's right fullback in transition.",
+      "Raul Jimenez's hold-up play will be key for El Tri to sustain pressure on the Korean back line."
+    ]
+  }
 }

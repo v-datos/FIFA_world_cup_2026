@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "austria_jordan_2026",
-        "team1": "Austria",
-        "team2": "Jordan",
-        "date": "06/16/2026",
-        "time": "21:00",
-        "venue": "Stadium 15",
-        "stage": "Group Stage - Group J"
+  "metadata": {
+    "match_id": "austria_jordan_2026",
+    "team1": "Austria",
+    "team2": "Jordan",
+    "date": "06/16/2026",
+    "time": "21:00",
+    "venue": "Levi's Stadium, Santa Clara, California",
+    "stage": "Group Stage - Group J",
+    "kickoff_utc": "2026-06-17T04:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Rangnick's Gegenpress Put to the Test Against Resilient Jordanians",
+    "injuries": {
+      "austria": [
+        "No major injuries reported."
+      ],
+      "jordan": [
+        "Yazan Al-Naimat (Knee Injury - Out)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Rangnick's Gegenpress Put to the Test Against Resilient Jordanians",
-        "injuries": {
-            "austria": [
-                "No major injuries reported."
-            ],
-            "jordan": [
-                "Yazan Al-Naimat (Knee Injury - Out)"
-            ]
-        },
-        "confirmed_tactics": {
-            "austria": {
-                "formation": "4-2-3-1",
-                "philosophy": "High-intensity vertical press and immediate counter-pressing.",
-                "manager": "Ralf Rangnick"
-            },
-            "jordan": {
-                "formation": "3-4-2-1",
-                "philosophy": "Deep low-block with quick transitions through Al-Taamari.",
-                "manager": "Jamal Sellami"
-            }
-        },
-        "tactical_insights": [
-            "Austria's high press will aim to choke Jordan's build-up play in their first World Cup appearance since 1998.",
-            "Jordan will rely heavily on Rennes winger Musa Al-Taamari's dribbling to bypass Austria's initial press.",
-            "Captain David Alaba's distribution and Sabitzer's late runs will be key to unlocking Jordan's compact block."
-        ]
-    }
+    "confirmed_tactics": {
+      "austria": {
+        "formation": "4-2-3-1",
+        "philosophy": "High-intensity vertical press and immediate counter-pressing.",
+        "manager": "Ralf Rangnick"
+      },
+      "jordan": {
+        "formation": "3-4-2-1",
+        "philosophy": "Deep low-block with quick transitions through Al-Taamari.",
+        "manager": "Jamal Sellami"
+      }
+    },
+    "tactical_insights": [
+      "Austria's high press will aim to choke Jordan's build-up play in their first World Cup appearance since 1998.",
+      "Jordan will rely heavily on Rennes winger Musa Al-Taamari's dribbling to bypass Austria's initial press.",
+      "Captain David Alaba's distribution and Sabitzer's late runs will be key to unlocking Jordan's compact block."
+    ]
+  }
 }

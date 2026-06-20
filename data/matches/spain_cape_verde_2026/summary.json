@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "spain_cape_verde_2026",
-        "team1": "Spain",
-        "team2": "Cape Verde",
-        "date": "06/15/2026",
-        "time": "12:00",
-        "venue": "Stadium 7",
-        "stage": "Group Stage - Group H"
+  "metadata": {
+    "match_id": "spain_cape_verde_2026",
+    "team1": "Spain",
+    "team2": "Cape Verde",
+    "date": "06/15/2026",
+    "time": "12:00",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Group Stage - Group H",
+    "kickoff_utc": "2026-06-15T16:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "La Roja's Positional Overloads Meet Resilient Blue Sharks Defensive Block",
+    "injuries": {
+      "spain": [
+        "Lamine Yamal (Hamstring Recovery - Probable)"
+      ],
+      "cape_verde": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "La Roja's Positional Overloads Meet Resilient Blue Sharks Defensive Block",
-        "injuries": {
-            "spain": [
-                "Lamine Yamal (Hamstring Recovery - Probable)"
-            ],
-            "cape_verde": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "spain": {
-                "formation": "4-3-3",
-                "philosophy": "High-possession positional play with rapid ball circulation and active wingers.",
-                "manager": "Luis de la Fuente"
-            },
-            "cape_verde": {
-                "formation": "4-1-4-1",
-                "philosophy": "Low-block defensive organization with explosive direct wing outlets.",
-                "manager": "Bubista"
-            }
-        },
-        "tactical_insights": [
-            "Spain will look to use Nico Williams and Lamine Yamal to stretch Cape Verde's backline and create gaps centrally.",
-            "On their World Cup debut, Cape Verde will defend deep and seek to spring direct transitions through captain Ryan Mendes.",
-            "Rodri's role in controlling the midfield and stopping Cape Verde's counter-attacks early will be vital."
-        ]
-    }
+    "confirmed_tactics": {
+      "spain": {
+        "formation": "4-3-3",
+        "philosophy": "High-possession positional play with rapid ball circulation and active wingers.",
+        "manager": "Luis de la Fuente"
+      },
+      "cape_verde": {
+        "formation": "4-1-4-1",
+        "philosophy": "Low-block defensive organization with explosive direct wing outlets.",
+        "manager": "Bubista"
+      }
+    },
+    "tactical_insights": [
+      "Spain will look to use Nico Williams and Lamine Yamal to stretch Cape Verde's backline and create gaps centrally.",
+      "On their World Cup debut, Cape Verde will defend deep and seek to spring direct transitions through captain Ryan Mendes.",
+      "Rodri's role in controlling the midfield and stopping Cape Verde's counter-attacks early will be vital."
+    ]
+  }
 }

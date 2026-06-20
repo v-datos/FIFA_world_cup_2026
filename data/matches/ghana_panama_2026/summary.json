@@ -1,41 +1,42 @@
 {
-    "metadata": {
-        "match_id": "ghana_panama_2026",
-        "team1": "Ghana",
-        "team2": "Panama",
-        "date": "06/17/2026",
-        "time": "19:00",
-        "venue": "Stadium 12",
-        "stage": "Group Stage - Group L"
+  "metadata": {
+    "match_id": "ghana_panama_2026",
+    "team1": "Ghana",
+    "team2": "Panama",
+    "date": "06/17/2026",
+    "time": "19:00",
+    "venue": "BMO Field, Toronto",
+    "stage": "Group Stage - Group L",
+    "kickoff_utc": "2026-06-17T23:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Black Stars Target Dominant Midfield Presence Against Panama",
+    "injuries": {
+      "ghana": [
+        "Mohammed Salisu (ACL Injury - Out)",
+        "Alexander Djiku (Hamstring Injury - Out)",
+        "Mohammed Kudus (Fitness Concern - Probable)"
+      ],
+      "panama": [
+        "Adalberto Carrasquilla (Groin Issue - Probable)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Black Stars Target Dominant Midfield Presence Against Panama",
-        "injuries": {
-            "ghana": [
-                "Mohammed Salisu (ACL Injury - Out)",
-                "Alexander Djiku (Hamstring Injury - Out)",
-                "Mohammed Kudus (Fitness Concern - Probable)"
-            ],
-            "panama": [
-                "Adalberto Carrasquilla (Groin Issue - Probable)"
-            ]
-        },
-        "confirmed_tactics": {
-            "ghana": {
-                "formation": "4-2-3-1",
-                "philosophy": "Fast vertical transition utilizing Kudus' ball-carrying ability.",
-                "manager": "Carlos Queiroz"
-            },
-            "panama": {
-                "formation": "4-4-2",
-                "philosophy": "Direct, physical CONCACAF football with an organized low block and set-piece focus.",
-                "manager": "Thomas Christiansen"
-            }
-        },
-        "tactical_insights": [
-            "Mohammed Kudus' central ball-carrying will be the key to breaking Panama's organized defensive lines.",
-            "Panama will sit in a compact block and look to spring direct counters and set-pieces against the Black Stars.",
-            "Inaki Williams' diagonal runs in behind will be Ghana's primary attacking threat under Carlos Queiroz."
-        ]
-    }
+    "confirmed_tactics": {
+      "ghana": {
+        "formation": "4-2-3-1",
+        "philosophy": "Fast vertical transition utilizing Kudus' ball-carrying ability.",
+        "manager": "Carlos Queiroz"
+      },
+      "panama": {
+        "formation": "4-4-2",
+        "philosophy": "Direct, physical CONCACAF football with an organized low block and set-piece focus.",
+        "manager": "Thomas Christiansen"
+      }
+    },
+    "tactical_insights": [
+      "Mohammed Kudus' central ball-carrying will be the key to breaking Panama's organized defensive lines.",
+      "Panama will sit in a compact block and look to spring direct counters and set-pieces against the Black Stars.",
+      "Inaki Williams' diagonal runs in behind will be Ghana's primary attacking threat under Carlos Queiroz."
+    ]
+  }
 }

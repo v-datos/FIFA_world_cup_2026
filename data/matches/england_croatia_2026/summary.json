@@ -1,42 +1,43 @@
 {
-    "metadata": {
-        "match_id": "england_croatia_2026",
-        "team1": "England",
-        "team2": "Croatia",
-        "date": "06/17/2026",
-        "time": "15:00",
-        "venue": "Stadium 4",
-        "stage": "Group Stage - Group L"
+  "metadata": {
+    "match_id": "england_croatia_2026",
+    "team1": "England",
+    "team2": "Croatia",
+    "date": "06/17/2026",
+    "time": "15:00",
+    "venue": "AT&T Stadium, Arlington, Texas",
+    "stage": "Group Stage - Group L",
+    "kickoff_utc": "2026-06-17T20:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Tuchel's Reshaped England Meets Modric's Farewell-Tour Croatia",
+    "injuries": {
+      "england": [
+        "Bukayo Saka (Fitness Concern - Probable)",
+        "Tino Livramento (Late Withdrawal - Out)",
+        "John Stones (Fitness Monitored - Probable)"
+      ],
+      "croatia": [
+        "Luka Modric (Cheekbone Fracture Recovery - Doubtful)",
+        "Mateo Kovacic (Match Fitness - Probable)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Tuchel's Reshaped England Meets Modric's Farewell-Tour Croatia",
-        "injuries": {
-            "england": [
-                "Bukayo Saka (Fitness Concern - Probable)",
-                "Tino Livramento (Late Withdrawal - Out)",
-                "John Stones (Fitness Monitored - Probable)"
-            ],
-            "croatia": [
-                "Luka Modric (Cheekbone Fracture Recovery - Doubtful)",
-                "Mateo Kovacic (Match Fitness - Probable)"
-            ]
-        },
-        "confirmed_tactics": {
-            "england": {
-                "formation": "4-2-3-1",
-                "philosophy": "Tuchel's structured possession with positional fullbacks and direct wide threats.",
-                "manager": "Thomas Tuchel"
-            },
-            "croatia": {
-                "formation": "4-2-3-1",
-                "philosophy": "Veteran midfield tempo control built around Modric and Kovacic possession cycles.",
-                "manager": "Zlatko Dalic"
-            }
-        },
-        "tactical_insights": [
-            "England's Declan Rice and Elliot Anderson will look to press Modric and Kovacic early to disrupt Croatia's passing rhythm.",
-            "Croatia's ageing midfield core will try to slow the tempo against the legs of England's Bellingham and Eze.",
-            "Jude Bellingham's direct runs from deep will challenge Croatia's central defensive block in Modric's last World Cup."
-        ]
-    }
+    "confirmed_tactics": {
+      "england": {
+        "formation": "4-2-3-1",
+        "philosophy": "Tuchel's structured possession with positional fullbacks and direct wide threats.",
+        "manager": "Thomas Tuchel"
+      },
+      "croatia": {
+        "formation": "4-2-3-1",
+        "philosophy": "Veteran midfield tempo control built around Modric and Kovacic possession cycles.",
+        "manager": "Zlatko Dalic"
+      }
+    },
+    "tactical_insights": [
+      "England's Declan Rice and Elliot Anderson will look to press Modric and Kovacic early to disrupt Croatia's passing rhythm.",
+      "Croatia's ageing midfield core will try to slow the tempo against the legs of England's Bellingham and Eze.",
+      "Jude Bellingham's direct runs from deep will challenge Croatia's central defensive block in Modric's last World Cup."
+    ]
+  }
 }

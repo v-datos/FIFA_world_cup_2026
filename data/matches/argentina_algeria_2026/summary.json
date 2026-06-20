@@ -1,40 +1,41 @@
 {
-    "metadata": {
-        "match_id": "argentina_algeria_2026",
-        "team1": "Argentina",
-        "team2": "Algeria",
-        "date": "06/16/2026",
-        "time": "20:00",
-        "venue": "Stadium 6",
-        "stage": "Group Stage - Group J"
+  "metadata": {
+    "match_id": "argentina_algeria_2026",
+    "team1": "Argentina",
+    "team2": "Algeria",
+    "date": "06/16/2026",
+    "time": "20:00",
+    "venue": "GEHA Field at Arrowhead Stadium, Kansas City, Missouri",
+    "stage": "Group Stage - Group J",
+    "kickoff_utc": "2026-06-17T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Messi-led Albiceleste Brace for Desert Foxes' Aggressive Counter",
+    "injuries": {
+      "argentina": [
+        "Lionel Messi (Hamstring - Probable)",
+        "Nicolas Tagliafico (Soleus Tear - Out)"
+      ],
+      "algeria": [
+        "Ramy Bensebaini (Ankle Injury - Out)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Messi-led Albiceleste Brace for Desert Foxes' Aggressive Counter",
-        "injuries": {
-            "argentina": [
-                "Lionel Messi (Hamstring - Probable)",
-                "Nicolas Tagliafico (Soleus Tear - Out)"
-            ],
-            "algeria": [
-                "Ramy Bensebaini (Ankle Injury - Out)"
-            ]
-        },
-        "confirmed_tactics": {
-            "argentina": {
-                "formation": "4-3-3",
-                "philosophy": "Positional overload with fluid movement around Lionel Messi.",
-                "manager": "Lionel Scaloni"
-            },
-            "algeria": {
-                "formation": "4-3-3",
-                "philosophy": "Compact defensive block with quick direct counters through Amoura and Gouiri.",
-                "manager": "Vladimir Petkovic"
-            }
-        },
-        "tactical_insights": [
-            "Argentina's possession will focus on overloads to free Messi in the half-spaces on his record sixth World Cup.",
-            "Algeria will look to exploit spaces behind Argentina's attacking fullbacks via Amoura's pace on the counter.",
-            "Mac Allister's ball recovery rate will be critical in stopping Algeria's central counter-attacking transitions."
-        ]
-    }
+    "confirmed_tactics": {
+      "argentina": {
+        "formation": "4-3-3",
+        "philosophy": "Positional overload with fluid movement around Lionel Messi.",
+        "manager": "Lionel Scaloni"
+      },
+      "algeria": {
+        "formation": "4-3-3",
+        "philosophy": "Compact defensive block with quick direct counters through Amoura and Gouiri.",
+        "manager": "Vladimir Petkovic"
+      }
+    },
+    "tactical_insights": [
+      "Argentina's possession will focus on overloads to free Messi in the half-spaces on his record sixth World Cup.",
+      "Algeria will look to exploit spaces behind Argentina's attacking fullbacks via Amoura's pace on the counter.",
+      "Mac Allister's ball recovery rate will be critical in stopping Algeria's central counter-attacking transitions."
+    ]
+  }
 }

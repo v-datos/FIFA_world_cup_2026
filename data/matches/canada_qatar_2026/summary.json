@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "canada_qatar_2026",
-        "team1": "Canada",
-        "team2": "Qatar",
-        "date": "06/18/2026",
-        "time": "15:00",
-        "venue": "Stadium 13",
-        "stage": "Group Stage - Group B"
+  "metadata": {
+    "match_id": "canada_qatar_2026",
+    "team1": "Canada",
+    "team2": "Qatar",
+    "date": "06/18/2026",
+    "time": "15:00",
+    "venue": "BC Place, Vancouver",
+    "stage": "Group Stage - Group B",
+    "kickoff_utc": "2026-06-18T22:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block",
+    "injuries": {
+      "canada": [
+        "Alphonso Davies (Hamstring Recovery - Doubtful)"
+      ],
+      "qatar": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Marsch's Vertical Gegenpress Meets Compact Qatari Low-Block",
-        "injuries": {
-            "canada": [
-                "Alphonso Davies (Hamstring Recovery - Doubtful)"
-            ],
-            "qatar": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "canada": {
-                "formation": "4-4-2",
-                "philosophy": "Aggressive high press and direct vertical attacking transitions.",
-                "manager": "Jesse Marsch"
-            },
-            "qatar": {
-                "formation": "4-3-3",
-                "philosophy": "Compact defensive block springing direct counters through Akram Afif.",
-                "manager": "Julen Lopetegui"
-            }
-        },
-        "tactical_insights": [
-            "With Alphonso Davies racing back from a hamstring injury, Tajon Buchanan carries Canada's main wide threat.",
-            "Juventus striker Jonathan David's clever movement will be vital to unlock Qatar's compact defensive block.",
-            "Lopetegui's Qatar will look to spring Akram Afif into the space behind Canada's aggressive high line."
-        ]
-    }
+    "confirmed_tactics": {
+      "canada": {
+        "formation": "4-4-2",
+        "philosophy": "Aggressive high press and direct vertical attacking transitions.",
+        "manager": "Jesse Marsch"
+      },
+      "qatar": {
+        "formation": "4-3-3",
+        "philosophy": "Compact defensive block springing direct counters through Akram Afif.",
+        "manager": "Julen Lopetegui"
+      }
+    },
+    "tactical_insights": [
+      "With Alphonso Davies racing back from a hamstring injury, Tajon Buchanan carries Canada's main wide threat.",
+      "Juventus striker Jonathan David's clever movement will be vital to unlock Qatar's compact defensive block.",
+      "Lopetegui's Qatar will look to spring Akram Afif into the space behind Canada's aggressive high line."
+    ]
+  }
 }

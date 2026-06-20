@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "uzbekistan_colombia_2026",
-        "team1": "Uzbekistan",
-        "team2": "Colombia",
-        "date": "06/17/2026",
-        "time": "20:00",
-        "venue": "Stadium 1",
-        "stage": "Group Stage - Group K"
+  "metadata": {
+    "match_id": "uzbekistan_colombia_2026",
+    "team1": "Uzbekistan",
+    "team2": "Colombia",
+    "date": "06/17/2026",
+    "time": "20:00",
+    "venue": "Estadio Banorte, Mexico City",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-18T02:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "White Wolves Seek Historic Upset Against In-Form Colombia",
+    "injuries": {
+      "uzbekistan": [
+        "No major injuries reported."
+      ],
+      "colombia": [
+        "No major injuries reported."
+      ]
     },
-    "ai_summary": {
-        "key_headline": "White Wolves Seek Historic Upset Against In-Form Colombia",
-        "injuries": {
-            "uzbekistan": [
-                "No major injuries reported."
-            ],
-            "colombia": [
-                "No major injuries reported."
-            ]
-        },
-        "confirmed_tactics": {
-            "uzbekistan": {
-                "formation": "5-4-1",
-                "philosophy": "Highly organized defensive low-block with quick counter-attacks.",
-                "manager": "Fabio Cannavaro"
-            },
-            "colombia": {
-                "formation": "4-2-3-1",
-                "philosophy": "High pressing, intensive wing play, and fluid attacking rotations.",
-                "manager": "Nestor Lorenzo"
-            }
-        },
-        "tactical_insights": [
-            "Colombia will use intensive counter-pressing to win the ball high and catch Uzbekistan in transition on their World Cup debut.",
-            "Uzbekistan will defend in a deep block under Cannavaro, relying on Abbosbek Fayzullaev's creativity to spark counters.",
-            "Bayern Munich's Luis Diaz and James Rodriguez's set-piece delivery will be crucial weapons against a packed defense."
-        ]
-    }
+    "confirmed_tactics": {
+      "uzbekistan": {
+        "formation": "5-4-1",
+        "philosophy": "Highly organized defensive low-block with quick counter-attacks.",
+        "manager": "Fabio Cannavaro"
+      },
+      "colombia": {
+        "formation": "4-2-3-1",
+        "philosophy": "High pressing, intensive wing play, and fluid attacking rotations.",
+        "manager": "Nestor Lorenzo"
+      }
+    },
+    "tactical_insights": [
+      "Colombia will use intensive counter-pressing to win the ball high and catch Uzbekistan in transition on their World Cup debut.",
+      "Uzbekistan will defend in a deep block under Cannavaro, relying on Abbosbek Fayzullaev's creativity to spark counters.",
+      "Bayern Munich's Luis Diaz and James Rodriguez's set-piece delivery will be crucial weapons against a packed defense."
+    ]
+  }
 }

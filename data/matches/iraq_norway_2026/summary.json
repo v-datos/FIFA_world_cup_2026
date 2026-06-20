@@ -1,39 +1,40 @@
 {
-    "metadata": {
-        "match_id": "iraq_norway_2026",
-        "team1": "Iraq",
-        "team2": "Norway",
-        "date": "06/16/2026",
-        "time": "18:00",
-        "venue": "Stadium 9",
-        "stage": "Group Stage - Group I"
+  "metadata": {
+    "match_id": "iraq_norway_2026",
+    "team1": "Iraq",
+    "team2": "Norway",
+    "date": "06/16/2026",
+    "time": "18:00",
+    "venue": "Gillette Stadium, Foxborough, Massachusetts",
+    "stage": "Group Stage - Group I",
+    "kickoff_utc": "2026-06-16T22:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Arnold's Lions of Mesopotamia Target a Haaland Containment Plan",
+    "injuries": {
+      "iraq": [
+        "No major injuries reported."
+      ],
+      "norway": [
+        "Martin Odegaard (Fitness Concern - Probable)"
+      ]
     },
-    "ai_summary": {
-        "key_headline": "Arnold's Lions of Mesopotamia Target a Haaland Containment Plan",
-        "injuries": {
-            "iraq": [
-                "No major injuries reported."
-            ],
-            "norway": [
-                "Martin Odegaard (Fitness Concern - Probable)"
-            ]
-        },
-        "confirmed_tactics": {
-            "iraq": {
-                "formation": "4-2-3-1",
-                "philosophy": "Disciplined, defensively organized mid-block with a focal-point target man.",
-                "manager": "Graham Arnold"
-            },
-            "norway": {
-                "formation": "4-3-3",
-                "philosophy": "Aggressive high press with direct vertical balls into Haaland's central runs.",
-                "manager": "Stale Solbakken"
-            }
-        },
-        "tactical_insights": [
-            "On their first World Cup since 1986, Iraq will use a double-pivot screen to restrict service to Erling Haaland.",
-            "Norway's wings will overlap and cross frequently to exploit Iraq's height disadvantage in defense.",
-            "Ali Jasim's pace on the counter will be Iraq's primary outlet to bypass Norway's high defensive line."
-        ]
-    }
+    "confirmed_tactics": {
+      "iraq": {
+        "formation": "4-2-3-1",
+        "philosophy": "Disciplined, defensively organized mid-block with a focal-point target man.",
+        "manager": "Graham Arnold"
+      },
+      "norway": {
+        "formation": "4-3-3",
+        "philosophy": "Aggressive high press with direct vertical balls into Haaland's central runs.",
+        "manager": "Stale Solbakken"
+      }
+    },
+    "tactical_insights": [
+      "On their first World Cup since 1986, Iraq will use a double-pivot screen to restrict service to Erling Haaland.",
+      "Norway's wings will overlap and cross frequently to exploit Iraq's height disadvantage in defense.",
+      "Ali Jasim's pace on the counter will be Iraq's primary outlet to bypass Norway's high defensive line."
+    ]
+  }
 }
