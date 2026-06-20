@@ -1,17 +1,17 @@
 # Phase Plan - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Active Agents
 
 | Agent | Status | Current task | Blocking on |
 |---|---|---|---|
-| Orchestrator | Routing | T-042/044-048 deployed and verified live (rev 00021); route T-043 next | None |
+| Orchestrator | Routing | T-042/044-048 deployed and verified live (rev 00021); routing T-049 next | None |
 | QA / Reproducibility Engineer | Complete | Live HTTP smoke caught + fixed the summary-route decorator regression | None |
 | Data Pipeline Engineer | Complete | T-045/046/047 real forecast, lineups, standings refresh delivered | None |
 | Football Data Scientist | Complete | Reviewed Elo-derived forecast + researched squad/lineup provenance | None |
-| Frontend Engineer | Complete | T-048 Overview venue links + Edmonton time delivered | None |
+| Frontend Engineer | In Progress | T-049 Standings and Bracket UI Rebaseline | None |
 
 ## Phase 5 Objective
 

@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## In Progress
@@ -8,6 +8,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 - No tasks currently in progress.
 
 ## Queued
+
+- [ ] **T-049 - Align Standings & Bracket Tab UI with Streamlit Wood Board & Tape Layout**
+  Owner: Frontend Engineer
+  Filed: 2026-06-20
+  Notes: The current React `StandingsTab.tsx` visual style has drifted from the legacy Streamlit `bracket_ui.py` layout. It lacks individual tape strip rotations, displays scores on tapes (creating text wrap and clutter), and has altered background wood colors and proportions. We will rebaseline the component to use the exact dimensions, color codes, rotation inline styles, and clean presentation (no matchup scores) of the legacy application.
+  Verify: compile React app (`npm run build`), verify standings and bracket tree alignment visually in browser.
 
 - [ ] **T-043 - Schedule Fallback Match IDs When Live API Is Unavailable**
   Owner: Data Pipeline Engineer / Frontend Engineer
