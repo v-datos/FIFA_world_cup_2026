@@ -192,7 +192,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-right"></div>
           <div className="group-stat-header">{lang === 'Español' ? 'J' : 'P'}</div>
           {standings.map((s, sidx) => (
-            <div key={sidx} className="group-stat-val font-mono">{s.p}</div>
+            <div key={sidx} className="group-stat-val">{s.p}</div>
           ))}
         </div>
 
@@ -202,7 +202,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-right"></div>
           <div className="group-stat-header">{lang === 'Español' ? 'G' : 'W'}</div>
           {standings.map((s, sidx) => (
-            <div key={sidx} className="group-stat-val font-mono">{s.w}</div>
+            <div key={sidx} className="group-stat-val">{s.w}</div>
           ))}
         </div>
 
@@ -212,7 +212,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-right"></div>
           <div className="group-stat-header">{lang === 'Español' ? 'E' : 'D'}</div>
           {standings.map((s, sidx) => (
-            <div key={sidx} className="group-stat-val font-mono">{s.d}</div>
+            <div key={sidx} className="group-stat-val">{s.d}</div>
           ))}
         </div>
 
@@ -222,7 +222,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-right"></div>
           <div className="group-stat-header">{lang === 'Español' ? 'P' : 'L'}</div>
           {standings.map((s, sidx) => (
-            <div key={sidx} className="group-stat-val font-mono">{s.l}</div>
+            <div key={sidx} className="group-stat-val">{s.l}</div>
           ))}
         </div>
 
@@ -234,18 +234,18 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           {standings.map((s, sidx) => {
             const gdVal = s.gd > 0 ? `+${s.gd}` : s.gd;
             return (
-              <div key={sidx} className="group-stat-val font-mono">{gdVal}</div>
+              <div key={sidx} className="group-stat-val">{gdVal}</div>
             );
           })}
         </div>
 
         {/* Pts Strip */}
-        <div className="group-stat-strip" style={{ transform: `rotate(${idx % 2 === 0 ? 1 : -1.5}deg)` }}>
+        <div className="group-stat-strip highlight-pts" style={{ transform: `rotate(${idx % 2 === 0 ? 1 : -1.5}deg)` }}>
           <div className="tape-corner-left"></div>
           <div className="tape-corner-right"></div>
           <div className="group-stat-header">Pts</div>
           {standings.map((s, sidx) => (
-            <div key={sidx} className="group-stat-val font-bold font-mono">{s.pts}</div>
+            <div key={sidx} className="group-stat-val">{s.pts}</div>
           ))}
         </div>
       </div>
