@@ -110,37 +110,20 @@ credentials, live Cloud Run state, external API freshness, or remote
 
 ## Current Phase
 
-### Phase 5 - Framework Rebaseline & Pipeline Hardening (Active)
-
-Exit criteria:
-
-- [x] Charter, agent roster, phase plan, tasks, status, and playbook describe
-  the current React/FastAPI project.
-- [x] Active data contracts are documented for match summaries, match metrics,
-  bracket state, and API payloads.
-- [x] All 20 active match folders are audited for schema, model fallbacks,
-  missing team metrics, and source provenance.
-- [x] Legacy numeric match folders `1001`, `1002`, and `1003` are classified.
-- [x] Last-minute briefing generation has a documented safety plan before
-  implementation.
-- [x] Last-minute `briefing.json` generation is implemented with dry-run/write
-  safety and source-status validation.
-- [x] Model/provenance truth is documented for current forecasts, Elo defaults,
-  seeded Monte Carlo progression simulation, hardcoded references, and proxy
-  data.
-- [x] Team-name normalization and multi-word team handling are implemented
-  through the shared identity contract.
-- [x] AI research source policy is approved before web-researched Match Analysis
-  data collection is implemented.
-- [x] Real Monte Carlo simulation replaces the deterministic progression curve.
-- [x] No-cost source-backed national-team ratings can replace hardcoded rating
-  inputs through the T-039 World Football Elo cache.
-- [ ] Source-backed Squad & Style metrics replace or label hardcoded/missing
-  fields.
-- [x] Deployment documentation distinguishes local, Cloud Run, and
-  `accionar.xyz` state.
+None. All sprints and phase tasks are completed.
 
 ## Completed Phases
+
+### Phase 5 - Framework Rebaseline & Pipeline Hardening
+
+Rebaselined the framework docs (charter, agents, playbook, phase plan, tasks) to align with React/FastAPI as the canonical runtime. Hardened the static-data pipeline, integrated World Football Elo ratings, introduced a real Monte Carlo simulation, added resilient schedule fallback paths, cleaned up legacy Streamlit configurations, and established AI research source metadata policies. All exit criteria were met, including:
+- Framework docs, playbook, and data contracts rebaselined to React/FastAPI.
+- Legacy match folder audit and classification of stubs completed.
+- Last-minute briefing generation, AI source metadata policies, and research prototypes implemented.
+- Seeded Monte Carlo tournament simulation built.
+- World Football Elo cache integrated as no-cost ratings.
+- Source-backed Squad & Style metrics integrated.
+- Local and deployment verification paths separated and documented.
 
 ### Phase 0 - Initialization
 
