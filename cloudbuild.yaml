@@ -36,3 +36,10 @@ steps:
 
 images:
   - 'gcr.io/midyear-castle-328020/fifa-2026-dashboard'
+
+# Triggers run the build under a service account, which requires an explicit
+# logging option (the legacy default logs bucket is not allowed in that mode).
+# CLOUD_LOGGING_ONLY sends build logs to Cloud Logging. This is also compatible
+# with `gcloud builds submit`.
+options:
+  logging: CLOUD_LOGGING_ONLY
