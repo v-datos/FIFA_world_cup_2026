@@ -40,10 +40,13 @@ chromium`, run with `|| true`.
 - All 48 teams get real xG (e.g. Germany 3.06 xG/90, Japan 0.93, Tunisia 0.15),
   verified over HTTP on `/api/match/.../metrics`.
 - This is the project's first headless-browser dependency and is **fragile**: it
-  depends on FotMob's page structure and may be blocked from datacenter IPs. The
-  workflow tolerates failure, so xG simply keeps its last committed values if a
-  run is blocked; it can always be refreshed by running the pipeline from a
-  residential IP.
+  depends on FotMob's page structure and may be blocked from datacenter IPs. To
+  protect against that, every successful scrape writes a dedicated fallback
+  snapshot at `data/source_cache/team_xg/latest.json`; if a later fetch fails,
+  the pipeline restores xG from that backup (keeping the original snapshot
+  timestamp) so the dashboard never loses xG. The workflow also tolerates the
+  step failing outright. xG can always be refreshed by running the pipeline from
+  a residential IP.
 - Playwright/Chromium are installed only in the Action (and locally), not in the
   Cloud Run image — the API never runs the scraper, so the image stays lean.
 

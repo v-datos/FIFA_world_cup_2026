@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "checked_at_utc": "2026-06-21T04:43:31Z",
+    "source": "FotMob",
+    "league_id": 77,
+    "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
+  },
+  "teams": [
+    {
+      "name": "South Korea",
+      "xg90": 1.6,
+      "xga90": 0.68,
+      "mp": 2
+    },
+    {
+      "name": "Mexico",
+      "xg90": 0.99,
+      "xga90": 0.49,
+      "mp": 2
+    },
+    {
+      "name": "South Africa",
+      "xg90": 0.73,
+      "xga90": 1.24,
+      "mp": 2
+    },
+    {
+      "name": "Czechia",
+      "xg90": 0.92,
+      "xga90": 1.84,
+      "mp": 2
+    },
+    {
+      "name": "Switzerland",
+      "xg90": 2.63,
+      "xga90": 0.41,
+      "mp": 2
+    },
+    {
+      "name": "Canada",
+      "xg90": 2.92,
+      "xga90": 0.59,
+      "mp": 2
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "xg90": 0.59,
+      "xga90": 1.65,
+      "mp": 2
+    },
+    {
+      "name": "Qatar",
+      "xg90": 0.41,
+      "xga90": 3.9,
+      "mp": 2
+    },
+    {
+      "name": "Brazil",
+      "xg90": 1.51,
+      "xga90": 0.8,
+      "mp": 2
+    },
+    {
+      "name": "Morocco",
+      "xg90": 1.18,
+      "xga90": 0.89,
+      "mp": 2
+    },
+    {
+      "name": "Scotland",
+      "xg90": 0.78,
+      "xga90": 1.02,
+      "mp": 2
+    },
+    {
+      "name": "Haiti",
+      "xg90": 0.64,
+      "xga90": 1.4,
+      "mp": 2
+    },
+    {
+      "name": "Turkiye",
+      "xg90": 1.76,
+      "xga90": 0.75,
+      "mp": 2
+    },
+    {
+      "name": "USA",
+      "xg90": 1.25,
+      "xga90": 0.44,
+      "mp": 2
+    },
+    {
+      "name": "Australia",
+      "xg90": 0.76,
+      "xga90": 1.22,
+      "mp": 2
+    },
+    {
+      "name": "Paraguay",
+      "xg90": 0.43,
+      "xga90": 1.79,
+      "mp": 2
+    },
+    {
+      "name": "Germany",
+      "xg90": 3.06,
+      "xga90": 0.81,
+      "mp": 2
+    },
+    {
+      "name": "Ecuador",
+      "xg90": 2.03,
+      "xga90": 1.0,
+      "mp": 2
+    },
+    {
+      "name": "Ivory Coast",
+      "xg90": 1.37,
+      "xga90": 1.45,
+      "mp": 2
+    },
+    {
+      "name": "Curacao",
+      "xg90": 0.44,
+      "xga90": 3.63,
+      "mp": 2
+    },
+    {
+      "name": "Netherlands",
+      "xg90": 1.7,
+      "xga90": 0.8,
+      "mp": 2
+    },
+    {
+      "name": "Japan",
+      "xg90": 0.93,
+      "xga90": 0.4,
+      "mp": 2
+    },
+    {
+      "name": "Sweden",
+      "xg90": 1.17,
+      "xga90": 1.44,
+      "mp": 2
+    },
+    {
+      "name": "Tunisia",
+      "xg90": 0.15,
+      "xga90": 1.3,
+      "mp": 2
+    },
+    {
+      "name": "Belgium",
+      "xg90": 1.35,
+      "xga90": 1.08,
+      "mp": 1
+    },
+    {
+      "name": "Iran",
+      "xg90": 1.5,
+      "xga90": 1.24,
+      "mp": 1
+    },
+    {
+      "name": "New Zealand",
+      "xg90": 1.24,
+      "xga90": 1.5,
+      "mp": 1
+    },
+    {
+      "name": "Egypt",
+      "xg90": 1.08,
+      "xga90": 1.35,
+      "mp": 1
+    },
+    {
+      "name": "Spain",
+      "xg90": 2.1,
+      "xga90": 0.2,
+      "mp": 1
+    },
+    {
+      "name": "Uruguay",
+      "xg90": 1.72,
+      "xga90": 0.66,
+      "mp": 1
+    },
+    {
+      "name": "Saudi Arabia",
+      "xg90": 0.66,
+      "xga90": 1.72,
+      "mp": 1
+    },
+    {
+      "name": "Cape Verde",
+      "xg90": 0.2,
+      "xga90": 2.1,
+      "mp": 1
+    },
+    {
+      "name": "Norway",
+      "xg90": 2.52,
+      "xga90": 0.8,
+      "mp": 1
+    },
+    {
+      "name": "France",
+      "xg90": 1.79,
+      "xga90": 0.53,
+      "mp": 1
+    },
+    {
+      "name": "Senegal",
+      "xg90": 0.53,
+      "xga90": 1.79,
+      "mp": 1
+    },
+    {
+      "name": "Iraq",
+      "xg90": 0.8,
+      "xga90": 2.52,
+      "mp": 1
+    },
+    {
+      "name": "Austria",
+      "xg90": 1.69,
+      "xga90": 0.46,
+      "mp": 1
+    },
+    {
+      "name": "Argentina",
+      "xg90": 1.26,
+      "xga90": 0.32,
+      "mp": 1
+    },
+    {
+      "name": "Algeria",
+      "xg90": 0.32,
+      "xga90": 1.26,
+      "mp": 1
+    },
+    {
+      "name": "Jordan",
+      "xg90": 0.46,
+      "xga90": 1.69,
+      "mp": 1
+    },
+    {
+      "name": "Colombia",
+      "xg90": 1.61,
+      "xga90": 1.16,
+      "mp": 1
+    },
+    {
+      "name": "DR Congo",
+      "xg90": 0.87,
+      "xga90": 0.65,
+      "mp": 1
+    },
+    {
+      "name": "Portugal",
+      "xg90": 0.65,
+      "xga90": 0.87,
+      "mp": 1
+    },
+    {
+      "name": "Uzbekistan",
+      "xg90": 1.16,
+      "xga90": 1.61,
+      "mp": 1
+    },
+    {
+      "name": "England",
+      "xg90": 3.2,
+      "xga90": 0.7,
+      "mp": 1
+    },
+    {
+      "name": "Ghana",
+      "xg90": 1.25,
+      "xga90": 0.73,
+      "mp": 1
+    },
+    {
+      "name": "Panama",
+      "xg90": 0.73,
+      "xga90": 1.25,
+      "mp": 1
+    },
+    {
+      "name": "Croatia",
+      "xg90": 0.7,
+      "xga90": 3.2,
+      "mp": 1
+    }
+  ]
+}
