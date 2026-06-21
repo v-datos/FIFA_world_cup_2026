@@ -7,6 +7,14 @@ Last updated: 2026-06-19
 This playbook describes the current local architecture and operating workflow.
 Older Streamlit instructions are legacy/reference unless explicitly called out.
 
+> **Superseded data pipelines:** matchday data now refreshes via the ESPN/FotMob
+> pipeline suite documented in `docs/matchday_refresh_runbook.md`. The scripts
+> `generate_match_previews.py`, `collect_match_research.py`,
+> `collect_squad_style_sources.py`, and `update_live_standings.py` were removed;
+> any commands referencing them below are historical. Use `collect_espn_matchday`,
+> `update_standings`, `update_top_scorers`, `update_team_ages`, `update_team_xg`,
+> and `generate_match_headlines` instead.
+
 ## 1. Current Architecture
 
 ### Active Application

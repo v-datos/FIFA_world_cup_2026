@@ -55,13 +55,13 @@ runtime unless a future decision restores it.
 
 ## Compilation & Pipeline
 
-The static data preview files are compiled using the pipeline script:
+The dashboard refreshes itself from a deterministic ESPN/FotMob pipeline suite
+(collector, standings & bracket, top scorers, squad ages, team xG, and AI
+tactical headlines). See `docs/matchday_refresh_runbook.md` for the full suite
+and the daily routine; it runs automatically via
+`.github/workflows/matchday-refresh.yml`. (The earlier
+`generate_match_previews.py` step was removed — Gemini headlines replace it.)
 
-```bash
-python src/pipeline/generate_match_previews.py
-```
-
-Current caution: this script can overwrite curated `summary.json` files.
 Baseline previews and last-minute match briefings are separate concepts. The
 matchday briefing artifact is `data/matches/{match_id}/briefing.json`, generated
 by:
