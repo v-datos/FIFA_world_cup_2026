@@ -43,6 +43,9 @@ jobs:
       - name: Refresh top scorers from ESPN
         run: python -m src.pipeline.update_top_scorers --write || true
 
+      - name: Refresh squad average ages from ESPN
+        run: python -m src.pipeline.update_team_ages --write || true
+
       # Generate AI tactical headlines with Vertex AI Gemini. Skipped unless the
       # GCP_SA_KEY repository secret is set.
       - name: Authenticate to Google Cloud

@@ -9,7 +9,7 @@
     "status": "partial",
     "checked_at_utc": "2026-06-21T03:07:39Z",
     "team_count": 18,
-    "field_record_count": 419,
+    "field_record_count": 464,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -46,16 +46,14 @@
           "retrieval_method": "manual_static_manifest"
         },
         "average_age": {
-          "value": 29.4,
+          "value": 29.2,
           "unit": "years",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
-          "source_path": "Profile header average age",
-          "source_value_text": "Average age: 29.4",
-          "checked_at_utc": "2026-06-19T07:56:49Z",
-          "retrieval_method": "manual_static_manifest"
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 25 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         },
         "possession_avg": {
           "value": 54.0,
@@ -157,16 +155,14 @@
           "retrieval_method": "web_research"
         },
         "average_age": {
-          "value": 24.0,
+          "value": 27.5,
           "unit": "years",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.fourfourtwo.com/team/haiti-world-cup-2026-squad",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "24.0 years average age",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         },
         "possession_avg": {
           "value": 48.5,
@@ -327,6 +323,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.0,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -414,6 +420,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -501,6 +517,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.6,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -588,6 +614,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -675,6 +711,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.9,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -762,6 +808,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -861,6 +917,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.2,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -961,6 +1027,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.6,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1049,6 +1125,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.3,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -1136,6 +1222,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -1235,6 +1331,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.7,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1335,6 +1441,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1435,6 +1551,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.9,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1468,13 +1594,11 @@
           "value": 27.4,
           "unit": "years",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.transfermarkt.us/australien/datenfakten/verein/3433",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "27.4 years average age",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         },
         "possession_avg": {
           "value": 33.2,
@@ -1635,6 +1759,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.2,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -1722,6 +1856,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 30.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       }
     },
@@ -1836,6 +1980,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -1955,6 +2109,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.6,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2074,6 +2238,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2193,6 +2367,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 25.9,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2312,6 +2496,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2431,6 +2625,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.0,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2550,6 +2754,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.7,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2669,6 +2883,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial",
@@ -2752,6 +2976,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -2831,6 +3065,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.7,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -2910,6 +3154,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 25 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -2989,6 +3243,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3068,6 +3332,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3147,6 +3421,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.6,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 24 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3226,6 +3510,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 30.4,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3305,6 +3599,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.3,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 25 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3384,6 +3688,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.0,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3463,6 +3777,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3542,6 +3866,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.9,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3621,6 +3955,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3700,6 +4044,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3779,6 +4133,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.9,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3858,6 +4222,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.6,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -3937,6 +4311,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4016,6 +4400,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4095,6 +4489,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 29.1,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4174,6 +4578,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 27.3,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 25 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4253,6 +4667,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 28.4,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4332,6 +4756,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 26.8,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 25 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
@@ -4411,6 +4845,16 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "average_age": {
+          "value": 30.5,
+          "unit": "years",
+          "status": "available",
+          "source_label": "espn_derived",
+          "source_name": "ESPN squad roster DOBs (avg of 26 players)",
+          "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
+          "checked_at_utc": "2026-06-21T04:16:53Z",
+          "retrieval_method": "espn_roster_dob"
         }
       },
       "status": "partial"
