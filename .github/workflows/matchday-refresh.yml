@@ -43,6 +43,9 @@ jobs:
       - name: Refresh top scorers from ESPN
         run: python -m src.pipeline.update_top_scorers --write || true
 
+      - name: Refresh group standings and bracket from ESPN
+        run: python -m src.pipeline.update_standings --write || true
+
       - name: Refresh squad average ages from ESPN
         run: python -m src.pipeline.update_team_ages --write || true
 
