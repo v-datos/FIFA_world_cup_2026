@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "Dominant Spain Faces Defensive Saudi Arabia in Group H Clash",
+    "key_headline": "Spain seeks attacking edge; Donis's Saudi Arabia tests defensive block.",
     "injuries": {
       "spain": [
         "Fermín López (fractured right foot - Out)",
@@ -36,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Spain is the overwhelming favorite with a 96% win expectancy against Saudi Arabia.",
-      "Spain's high possession (74.3%) and shots (27.0) indicate a dominant attacking style.",
-      "Saudi Arabia's low possession (33.2%) and shots (7.0) suggest a defensive, counter-attacking approach."
+      "Lamine Yamal's creativity will challenge Saudi Arabia's disciplined low block, crucial for Spain's attacking breakthrough.",
+      "Spain must find attacking sharpness after their surprising goalless draw against Cape Verde to assert tournament dominance.",
+      "Georgios Donis's newly implemented low defensive block will aim to frustrate Spain's high-possession, vertical attacking style."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:33Z",
+    "headline_generated_at_utc": "2026-06-21T08:20:19Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
