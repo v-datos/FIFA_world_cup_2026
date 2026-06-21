@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-053 - Verify Scheduled GitHub Actions Workflow**
+  Owner: QA / Reproducibility Engineer
+  Completed: 2026-06-21
+  Notes: Audited the GitHub Actions runs for the `Matchday Refresh` workflow. Confirmed that scheduled runs executed successfully at 06:35 UTC (late-night refresh) and 13:34 UTC (morning refresh) today, fetching live ESPN match data, ELO ratings, and team news, and pushing commits to `main` which successfully triggered Cloud Build auto-deployments.
+  Verify: `gh run list --limit 5` shows successful status for schedule-triggered runs.
+
 - [x] **T-052 - Support Complete Spanish Localization in Match Analysis & Deploy**
   Owner: Frontend Engineer / Data Pipeline Engineer
   Completed: 2026-06-21

@@ -6,6 +6,7 @@ Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 
 ### Current State
 
+- **GitHub Actions & Auto-Deploy Validation**: Verified the end-to-end scheduled `Matchday Refresh` pipeline. Both scheduled workflows today (06:35 UTC and 13:34 UTC) completed successfully, updating the Elo ratings, xG metrics, and lineups cache, and committing/pushing changes. The push automatically triggered Cloud Build auto-deployments, which succeeded in deploying the fresh dashboard state to Cloud Run.
 - **Complete Spanish Localization**: The Match Analysis tab now fully translates headlines, tactical insights, and team philosophies when toggled to Spanish. The backend `/api/match/{match_id}/summary` endpoint accepts a `lang` parameter and dynamically translates the English content into Spanish using Gemini.
 - **Disk Caching for Translations**: Translations are cached locally as `data/matches/{match_id}/summary_es.json`. Subsequent requests load the cached file if the translation timestamp matches the current English headline, preventing redundant API calls and conserving quota.
 - **Automated Web-Grounded Tactical Philosophy**: Lineup philosophies in the cache are no longer generic placeholders. If the cache contains generic text (e.g., "Confirmed XI from ESPN match data."), the API dynamically queries Gemini with Google Search grounding to generate a punchy 20-word system description under the team's manager, and caches it back to `data/source_cache/lineups/latest.json`.
@@ -16,6 +17,7 @@ Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 - Syntax compile: `python3 -m compileall -q src` (PASS)
 - Frontend build: `npm --prefix src/frontend run build` (PASS)
 - Live deployment verification: Confirmed Uruguay-Cape Verde and Spain-Saudi Arabia matches load localized Spanish headlines, insights, and dynamic tactical philosophies from the cached/grounded endpoints.
+- GitHub Actions verification: `gh run list --limit 5` confirms schedule-triggered Matchday Refresh runs succeed and trigger Cloud Build webhooks (PASS).
 
 ---
 
