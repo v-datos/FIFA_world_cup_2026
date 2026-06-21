@@ -2,13 +2,18 @@
   "tournament": "FIFA World Cup 2026",
   "top_scorer": [
     {
-      "name": "L. Messi",
-      "team": "Argentina",
+      "name": "Deniz Undav",
+      "team": "Germany",
       "goals": 3
     },
     {
-      "name": "J. David",
+      "name": "Jonathan David",
       "team": "Canada",
+      "goals": 3
+    },
+    {
+      "name": "Lionel Messi",
+      "team": "Argentina",
       "goals": 3
     }
   ],
