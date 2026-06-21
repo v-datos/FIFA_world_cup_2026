@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-21T04:43:31Z",
+    "checked_at_utc": "2026-06-21T05:05:37Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -110,8 +110,8 @@
     },
     {
       "name": "Ecuador",
-      "xg90": 2.03,
-      "xga90": 1.0,
+      "xg90": 1.93,
+      "xga90": 1.01,
       "mp": 2
     },
     {
@@ -122,8 +122,8 @@
     },
     {
       "name": "Curacao",
-      "xg90": 0.44,
-      "xga90": 3.63,
+      "xg90": 0.46,
+      "xga90": 3.53,
       "mp": 2
     },
     {
