@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-052 - Support Complete Spanish Localization in Match Analysis & Deploy**
+  Owner: Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-06-21
+  Notes: Implemented backend-driven dynamic translation of match summary headlines, tactical insights, and team philosophies in `/api/match/{match_id}/summary` when `lang=es` or `lang=Español` is requested. Caches translated data locally in `summary_es.json`. Also added dynamic, web-grounded generation of tactical philosophies for squad lineups when placeholders are found in the lineups cache, updating `latest.json` in-place. Wired the language selector and components on the React frontend. DEC033.
+  Verify: Toggle language to Spanish on the Match Analysis tab; check cached `summary_es.json` files and updated `latest.json` cache; run `npm run build`.
+
 - [x] **T-051 - Grounded Web Search for AI Tactical Previews**
   Owner: Data Pipeline Engineer
   Completed: 2026-06-21

@@ -1,5 +1,24 @@
 # STATUS
 
+## 2026-06-21 - Spanish Localization & Automated Tactical Philosophies
+
+Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
+
+### Current State
+
+- **Complete Spanish Localization**: The Match Analysis tab now fully translates headlines, tactical insights, and team philosophies when toggled to Spanish. The backend `/api/match/{match_id}/summary` endpoint accepts a `lang` parameter and dynamically translates the English content into Spanish using Gemini.
+- **Disk Caching for Translations**: Translations are cached locally as `data/matches/{match_id}/summary_es.json`. Subsequent requests load the cached file if the translation timestamp matches the current English headline, preventing redundant API calls and conserving quota.
+- **Automated Web-Grounded Tactical Philosophy**: Lineup philosophies in the cache are no longer generic placeholders. If the cache contains generic text (e.g., "Confirmed XI from ESPN match data."), the API dynamically queries Gemini with Google Search grounding to generate a punchy 20-word system description under the team's manager, and caches it back to `data/source_cache/lineups/latest.json`.
+- **Wired React UI**: Refactored frontend components (`MatchAnalysisTab.tsx`, `BriefingFreshnessBadge.tsx`, `MatchPredictionGraph.tsx`, etc.) to pass the active language to the backend and handle Spanish outcomes cleanly.
+
+### Verification
+
+- Syntax compile: `python3 -m compileall -q src` (PASS)
+- Frontend build: `npm --prefix src/frontend run build` (PASS)
+- Live deployment verification: Confirmed Uruguay-Cape Verde and Spain-Saudi Arabia matches load localized Spanish headlines, insights, and dynamic tactical philosophies from the cached/grounded endpoints.
+
+---
+
 ## 2026-06-21 - Grounded Web Search for AI Tactical Previews
 
 Prepared by: Orchestrator / Data Pipeline Engineer

@@ -1,6 +1,6 @@
 # Phase Plan - FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-20
+Last updated: 2026-06-21
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Active Agents
@@ -542,7 +542,16 @@ Outputs:
 | 2026-06-19 | Active Metric Gap Preservation | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
 | 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
 | 2026-06-20 | Runtime Match Analysis Data Contracts (Forecast, Lineups, Overview Time/Venue) | docs/decisions/20260620_DEC024_runtime_match_analysis_contracts.md |
+| 2026-06-20 | Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment) | docs/decisions/20260620_DEC025b_bracket_ui_rebaseline.md |
 | 2026-06-20 | Deterministic ESPN Matchday Automation | docs/decisions/20260620_DEC025_deterministic_espn_matchday_automation.md |
+| 2026-06-20 | Drop Player Career-Stats Hover Endpoint (T-019) | docs/decisions/20260620_DEC026_drop_player_career_stats_hover.md |
+| 2026-06-20 | Switch from Anthropic Claude to Google Vertex AI Gemini for Preview Generation | docs/decisions/20260620_DEC027_switch_from_anthropic_to_gemini_vertex.md |
+| 2026-06-20 | Team xG via FotMob Headless Browser | docs/decisions/20260620_DEC028_team_xg_via_fotmob_headless.md |
+| 2026-06-21 | Deterministic Standings & Bracket Automation | docs/decisions/20260621_DEC029_deterministic_standings_bracket.md |
+| 2026-06-21 | Squad Market Value via FotMob Headless Browser | docs/decisions/20260621_DEC030_team_market_value_via_fotmob.md |
+| 2026-06-21 | Injuries & Player Clubs via Gemini + Google Search Grounding | docs/decisions/20260621_DEC031_injuries_clubs_via_gemini_grounding.md |
+| 2026-06-21 | Grounded Web Search for AI Tactical Previews (Headlines + Insights) | docs/decisions/20260621_DEC032_grounded_headlines_insights.md |
+| 2026-06-21 | Spanish Localization & Automated Tactical Philosophy Generation | docs/decisions/20260621_DEC033_spanish_localization_and_tactical_philosophy.md |
 
 ## Open Blockers
 

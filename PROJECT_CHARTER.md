@@ -2,7 +2,7 @@
 
 Owner: Orchestrator agent
 Status: Living document
-Last updated: 2026-06-20
+Last updated: 2026-06-21
 Profile: software-app
 
 ## Mission
@@ -219,6 +219,8 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-21 | Deterministic Standings & Bracket Automation | Orchestrator | docs/decisions/20260621_DEC029_deterministic_standings_bracket.md |
 | 2026-06-21 | Squad Market Value via FotMob Headless Browser | Orchestrator | docs/decisions/20260621_DEC030_team_market_value_via_fotmob.md |
 | 2026-06-21 | Injuries & Player Clubs via Gemini + Google Search Grounding | Orchestrator | docs/decisions/20260621_DEC031_injuries_clubs_via_gemini_grounding.md |
+| 2026-06-21 | Grounded Web Search for AI Tactical Previews (Headlines + Insights) | Orchestrator | docs/decisions/20260621_DEC032_grounded_headlines_insights.md |
+| 2026-06-21 | Spanish Localization & Automated Tactical Philosophy Generation | Orchestrator | docs/decisions/20260621_DEC033_spanish_localization_and_tactical_philosophy.md |
 
 ## Risks
 
