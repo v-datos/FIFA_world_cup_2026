@@ -553,6 +553,7 @@ Outputs:
 | 2026-06-21 | Grounded Web Search for AI Tactical Previews (Headlines + Insights) | docs/decisions/20260621_DEC032_grounded_headlines_insights.md |
 | 2026-06-21 | Spanish Localization & Automated Tactical Philosophy Generation | docs/decisions/20260621_DEC033_spanish_localization_and_tactical_philosophy.md |
 | 2026-06-21 | GCP Project Resolution & Sidebar Toggle Placement | docs/decisions/20260621_DEC034_gcp_project_resolution_and_sidebar_toggle.md |
+| 2026-06-21 | Responsive Mobile Sidebar Drawer | docs/decisions/20260621_DEC035_responsive_mobile_sidebar_drawer.md |
 
 ## Open Blockers
 

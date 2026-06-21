@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LayoutDashboard, Swords, Trophy, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, Swords, Trophy, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import ballLogo from '../assets/ball-logo.png';
 
 interface SidebarProps {
@@ -7,6 +7,8 @@ interface SidebarProps {
   setActiveTab: (tab: string) => void;
   lang: string;
   setLang: (lang: string) => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 // Sidebar brand icon uses the official FIFA World Cup 26 match-ball logo asset.
@@ -16,6 +18,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setActiveTab,
   lang,
   setLang,
+  isOpen = false,
+  onClose,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -26,7 +30,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className={`${collapsed ? 'w-20' : 'w-64'} min-h-screen bg-slate-950/40 border-r border-slate-800/60 flex flex-col backdrop-blur-xl z-20 transition-[width] duration-200 ease-in-out`}>
+    <aside className={`
+      fixed md:sticky top-0 bottom-0 left-0 z-40
+      ${collapsed ? 'w-20' : 'w-64'} min-h-screen
+      bg-[#090d1a] md:bg-slate-950/40 border-r border-slate-800/60 flex flex-col backdrop-blur-xl
+      transition-transform md:transition-[width] duration-200 ease-in-out
+      ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+    `}>
       {/* Brand Header */}
       <div className={`border-b border-slate-800/60 ${collapsed ? 'p-3 flex flex-col items-center gap-2' : 'p-4 flex items-center justify-between gap-3'}`}>
         <div className={`flex items-center min-w-0 ${collapsed ? '' : 'gap-3'}`}>
@@ -42,11 +52,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
           )}
         </div>
+        
+        {/* Mobile close drawer button */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            aria-label="Close sidebar"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-400 hover:bg-slate-900/40 transition-all shrink-0 md:hidden"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+
+        {/* Desktop collapse button */}
         <button
           onClick={() => setCollapsed((c) => !c)}
           title={collapsed ? (lang === 'Español' ? 'Expandir' : 'Expand') : (lang === 'Español' ? 'Contraer' : 'Collapse')}
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-400 hover:bg-slate-900/40 transition-all shrink-0"
+          className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-400 hover:bg-slate-900/40 transition-all shrink-0 md:block hidden"
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
         </button>

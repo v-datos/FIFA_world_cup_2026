@@ -6,6 +6,7 @@ Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 
 ### Current State
 
+- **Responsive Mobile Sidebar Drawer**: Optimized the layout for mobile and tablet viewports. Introduced a sticky mobile top bar with a hamburger menu button to trigger the sidebar navigation. The sidebar now acts as a sliding overlay drawer from the left on smaller screens, supported by a dark blur backdrop and auto-closing triggers.
 - **GCP Project Resolution & Translation Permission Fix**: Resolved a 403 Permission Denied error on Cloud Run where Vertex AI translation calls failed because they defaulted to the developer's legacy project ID (`statsbomb-db`). The backend (`main.py`) and pipelines (`generate_match_headlines.py`, `generate_team_news.py`) now dynamically resolve the project ID (`GEMINI_PROJECT` or `GOOGLE_CLOUD_PROJECT` or fallback to `midyear-castle-328020`), granting the Cloud Run service account proper access to the Vertex AI service.
 - **Sidebar Toggle Relocation**: Relocated the EN/ES toggle from the top-right corner of the screen into the navigation sidebar directly below 'Tabla y Llaves' ('Standings & Bracket'). Supports fully responsive layouts for both expanded and collapsed sidebar states.
 - **GitHub Actions & Auto-Deploy Validation**: Verified the end-to-end scheduled `Matchday Refresh` pipeline. Both scheduled workflows today (06:35 UTC and 13:34 UTC) completed successfully, updating the Elo ratings, xG metrics, and lineups cache, and committing/pushing changes. The push automatically triggered Cloud Build auto-deployments, which succeeded in deploying the fresh dashboard state to Cloud Run.
@@ -20,6 +21,7 @@ Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 - Frontend build: `npm --prefix src/frontend run build` (PASS)
 - Live deployment verification: Confirmed Uruguay-Cape Verde and Spain-Saudi Arabia matches load localized Spanish headlines, insights, and dynamic tactical philosophies from the cached/grounded endpoints.
 - GitHub Actions verification: `gh run list --limit 5` confirms schedule-triggered Matchday Refresh runs succeed and trigger Cloud Build webhooks (PASS).
+- Mobile & Tablet layout verification: Verified sidebar transition to slide drawer, hamburger overlay interaction, and responsive grids/charts on mobile viewport simulations (PASS).
 
 ---
 
