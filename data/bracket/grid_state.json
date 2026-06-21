@@ -196,9 +196,9 @@
           "w": 1,
           "d": 0,
           "l": 1,
-          "gf": 1,
-          "ga": 2,
-          "gd": -1,
+          "gf": 2,
+          "ga": 4,
+          "gd": -2,
           "pts": 3
         },
         {
@@ -207,9 +207,9 @@
           "w": 0,
           "d": 0,
           "l": 2,
-          "gf": 1,
-          "ga": 5,
-          "gd": -4,
+          "gf": 0,
+          "ga": 3,
+          "gd": -3,
           "pts": 0
         }
       ]
@@ -219,47 +219,47 @@
       "standings": [
         {
           "team": "Germany",
-          "p": 1,
-          "w": 1,
+          "p": 2,
+          "w": 2,
           "d": 0,
           "l": 0,
-          "gf": 7,
-          "ga": 1,
-          "gd": 6,
-          "pts": 3
+          "gf": 9,
+          "ga": 2,
+          "gd": 7,
+          "pts": 6
         },
         {
           "team": "Ivory Coast",
-          "p": 1,
+          "p": 2,
           "w": 1,
           "d": 0,
-          "l": 0,
-          "gf": 1,
-          "ga": 0,
-          "gd": 1,
+          "l": 1,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
           "pts": 3
         },
         {
           "team": "Ecuador",
-          "p": 1,
+          "p": 2,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 1,
           "gf": 0,
           "ga": 1,
           "gd": -1,
-          "pts": 0
+          "pts": 1
         },
         {
           "team": "Curacao",
-          "p": 1,
+          "p": 2,
           "w": 0,
-          "d": 0,
+          "d": 1,
           "l": 1,
           "gf": 1,
           "ga": 7,
           "gd": -6,
-          "pts": 0
+          "pts": 1
         }
       ]
     },
@@ -267,29 +267,29 @@
       "name": "Group F",
       "standings": [
         {
+          "team": "Netherlands",
+          "p": 2,
+          "w": 1,
+          "d": 1,
+          "l": 0,
+          "gf": 7,
+          "ga": 3,
+          "gd": 4,
+          "pts": 4
+        },
+        {
           "team": "Sweden",
-          "p": 1,
+          "p": 2,
           "w": 1,
           "d": 0,
-          "l": 0,
-          "gf": 5,
-          "ga": 1,
-          "gd": 4,
+          "l": 1,
+          "gf": 6,
+          "ga": 6,
+          "gd": 0,
           "pts": 3
         },
         {
           "team": "Japan",
-          "p": 1,
-          "w": 0,
-          "d": 1,
-          "l": 0,
-          "gf": 2,
-          "ga": 2,
-          "gd": 0,
-          "pts": 1
-        },
-        {
-          "team": "Netherlands",
           "p": 1,
           "w": 0,
           "d": 1,
@@ -745,55 +745,23 @@
       "name": "Round of 16",
       "matches": [
         {
-          "id": "r16_1",
+          "id": "r16_89",
+          "team1": "Winner Match R32-2",
+          "team2": "Winner Match R32-5",
+          "score1": null,
+          "score2": null,
+          "winner": null
+        },
+        {
+          "id": "r16_90",
           "team1": "Winner Match R32-1",
-          "team2": "Winner Match R32-2",
+          "team2": "Winner Match R32-3",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
-          "id": "r16_2",
-          "team1": "Winner Match R32-3",
-          "team2": "Winner Match R32-4",
-          "score1": null,
-          "score2": null,
-          "winner": null
-        },
-        {
-          "id": "r16_3",
-          "team1": "Winner Match R32-5",
-          "team2": "Winner Match R32-6",
-          "score1": null,
-          "score2": null,
-          "winner": null
-        },
-        {
-          "id": "r16_4",
-          "team1": "Winner Match R32-7",
-          "team2": "Winner Match R32-8",
-          "score1": null,
-          "score2": null,
-          "winner": null
-        },
-        {
-          "id": "r16_5",
-          "team1": "Winner Match R32-9",
-          "team2": "Winner Match R32-10",
-          "score1": null,
-          "score2": null,
-          "winner": null
-        },
-        {
-          "id": "r16_6",
-          "team1": "Winner Match R32-11",
-          "team2": "Winner Match R32-12",
-          "score1": null,
-          "score2": null,
-          "winner": null
-        },
-        {
-          "id": "r16_7",
+          "id": "r16_93",
           "team1": "Winner Match R32-13",
           "team2": "Winner Match R32-14",
           "score1": null,
@@ -801,9 +769,41 @@
           "winner": null
         },
         {
-          "id": "r16_8",
-          "team1": "Winner Match R32-15",
+          "id": "r16_94",
+          "team1": "Winner Match R32-9",
+          "team2": "Winner Match R32-10",
+          "score1": null,
+          "score2": null,
+          "winner": null
+        },
+        {
+          "id": "r16_91",
+          "team1": "Winner Match R32-4",
+          "team2": "Winner Match R32-6",
+          "score1": null,
+          "score2": null,
+          "winner": null
+        },
+        {
+          "id": "r16_92",
+          "team1": "Winner Match R32-7",
+          "team2": "Winner Match R32-8",
+          "score1": null,
+          "score2": null,
+          "winner": null
+        },
+        {
+          "id": "r16_95",
+          "team1": "Winner Match R32-12",
           "team2": "Winner Match R32-16",
+          "score1": null,
+          "score2": null,
+          "winner": null
+        },
+        {
+          "id": "r16_96",
+          "team1": "Winner Match R32-11",
+          "team2": "Winner Match R32-15",
           "score1": null,
           "score2": null,
           "winner": null
@@ -814,7 +814,7 @@
       "name": "Quarterfinals",
       "matches": [
         {
-          "id": "qf_1",
+          "id": "qf_97",
           "team1": "Winner Match R16-1",
           "team2": "Winner Match R16-2",
           "score1": null,
@@ -822,7 +822,7 @@
           "winner": null
         },
         {
-          "id": "qf_2",
+          "id": "qf_98",
           "team1": "Winner Match R16-3",
           "team2": "Winner Match R16-4",
           "score1": null,
@@ -830,7 +830,7 @@
           "winner": null
         },
         {
-          "id": "qf_3",
+          "id": "qf_99",
           "team1": "Winner Match R16-5",
           "team2": "Winner Match R16-6",
           "score1": null,
@@ -838,7 +838,7 @@
           "winner": null
         },
         {
-          "id": "qf_4",
+          "id": "qf_100",
           "team1": "Winner Match R16-7",
           "team2": "Winner Match R16-8",
           "score1": null,
@@ -851,7 +851,7 @@
       "name": "Semifinals",
       "matches": [
         {
-          "id": "sf_1",
+          "id": "sf_101",
           "team1": "Winner Match QF-1",
           "team2": "Winner Match QF-2",
           "score1": null,
@@ -859,7 +859,7 @@
           "winner": null
         },
         {
-          "id": "sf_2",
+          "id": "sf_102",
           "team1": "Winner Match QF-3",
           "team2": "Winner Match QF-4",
           "score1": null,
@@ -889,5 +889,273 @@
     "score1": null,
     "score2": null,
     "winner": null
-  }
+  },
+  "r32": [
+    {
+      "id": "r32_74",
+      "team1": "Winner Group C",
+      "team2": "Runner-up Group F",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_77",
+      "team1": "Runner-up Group E",
+      "team2": "Runner-up Group I",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_73",
+      "team1": "Runner-up Group A",
+      "team2": "Runner-up Group B",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_75",
+      "team1": "Winner Group E",
+      "team2": "3rd Group A/B/C/D/F",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_83",
+      "team1": "Winner Group B",
+      "team2": "3rd Group E/F/G/I/J",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_84",
+      "team1": "Runner-up Group D",
+      "team2": "Runner-up Group G",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_81",
+      "team1": "Winner Group G",
+      "team2": "3rd Group A/E/H/I/J",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_82",
+      "team1": "Winner Group D",
+      "team2": "3rd Group B/E/F/I/J",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_76",
+      "team1": "Winner Group F",
+      "team2": "Runner-up Group C",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_78",
+      "team1": "Winner Group I",
+      "team2": "3rd Group C/D/F/G/H",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_79",
+      "team1": "Winner Group A",
+      "team2": "3rd Group C/E/F/H/I",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_80",
+      "team1": "Winner Group L",
+      "team2": "3rd Group E/H/I/J/K",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_86",
+      "team1": "Runner-up Group K",
+      "team2": "Runner-up Group L",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_88",
+      "team1": "Winner Group K",
+      "team2": "3rd Group D/E/I/J/L",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_85",
+      "team1": "Winner Group H",
+      "team2": "Runner-up Group J",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r32_87",
+      "team1": "Winner Group J",
+      "team2": "Runner-up Group H",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ],
+  "r16": [
+    {
+      "id": "r16_89",
+      "team1": "Winner Match R32-2",
+      "team2": "Winner Match R32-5",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_90",
+      "team1": "Winner Match R32-1",
+      "team2": "Winner Match R32-3",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_93",
+      "team1": "Winner Match R32-13",
+      "team2": "Winner Match R32-14",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_94",
+      "team1": "Winner Match R32-9",
+      "team2": "Winner Match R32-10",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_91",
+      "team1": "Winner Match R32-4",
+      "team2": "Winner Match R32-6",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_92",
+      "team1": "Winner Match R32-7",
+      "team2": "Winner Match R32-8",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_95",
+      "team1": "Winner Match R32-12",
+      "team2": "Winner Match R32-16",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "r16_96",
+      "team1": "Winner Match R32-11",
+      "team2": "Winner Match R32-15",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ],
+  "qf": [
+    {
+      "id": "qf_97",
+      "team1": "Winner Match R16-1",
+      "team2": "Winner Match R16-2",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "qf_98",
+      "team1": "Winner Match R16-3",
+      "team2": "Winner Match R16-4",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "qf_99",
+      "team1": "Winner Match R16-5",
+      "team2": "Winner Match R16-6",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "qf_100",
+      "team1": "Winner Match R16-7",
+      "team2": "Winner Match R16-8",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ],
+  "sf": [
+    {
+      "id": "sf_101",
+      "team1": "Winner Match QF-1",
+      "team2": "Winner Match QF-2",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    },
+    {
+      "id": "sf_102",
+      "team1": "Winner Match QF-3",
+      "team2": "Winner Match QF-4",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ],
+  "final": [
+    {
+      "id": "final_104",
+      "team1": "Winner Match SF-1",
+      "team2": "Winner Match SF-2",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ],
+  "third": [
+    {
+      "id": "third_103",
+      "team1": "Loser Match SF-1",
+      "team2": "Loser Match SF-2",
+      "score1": null,
+      "score2": null,
+      "winner": null
+    }
+  ]
 }
