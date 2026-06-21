@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Spain vs Saudi Arabia",
+    "key_headline": "Dominant Spain Faces Defensive Saudi Arabia in Group H Clash",
     "injuries": {
       "spain": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Spain is the overwhelming favorite with a 96% win expectancy against Saudi Arabia.",
+      "Spain's high possession (74.3%) and shots (27.0) indicate a dominant attacking style.",
+      "Saudi Arabia's low possession (33.2%) and shots (7.0) suggest a defensive, counter-attacking approach."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-21T06:36:33Z"
   },
   "data_quality": {
     "status": "baseline_stub",

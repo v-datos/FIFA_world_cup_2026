@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-22T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for New Zealand vs Egypt",
+    "key_headline": "Egypt Favored Against New Zealand's Possession Game",
     "injuries": {
       "new_zealand": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Egypt enters as the favorite with a 68% win expectancy and a higher Elo rating.",
+      "New Zealand favors a possession-based approach, completing more passes than Egypt.",
+      "Despite similar shots per game, Egypt concedes half as many goals as New Zealand."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-21T06:36:31Z"
   },
   "data_quality": {
     "status": "baseline_stub",

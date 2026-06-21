@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Belgium vs Iran",
+    "key_headline": "Belgium's Possession vs. Iran's Attacking Efficiency",
     "injuries": {
       "belgium": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Belgium, with a 67% win expectancy, will likely control possession due to higher pass completion.",
+      "Despite less possession, Iran generates more shots per game and scores more goals, indicating a direct attacking approach.",
+      "Iran's higher goals conceded per game (2.0) suggests a defensive vulnerability that Belgium could exploit."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-21T06:36:26Z"
   },
   "data_quality": {
     "status": "baseline_stub",

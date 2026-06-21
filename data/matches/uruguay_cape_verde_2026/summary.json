@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Uruguay vs Cape Verde",
+    "key_headline": "Uruguay Seeks Control Against Defensive Cape Verde",
     "injuries": {
       "uruguay": [
         "No verified baseline injury update is available yet."
@@ -32,10 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Favorite Uruguay will control possession, averaging 66.8% compared to Cape Verde's 25.7%.",
+      "Uruguay's offensive approach is highlighted by 27 shots per game, far more than Cape Verde's six.",
+      "Cape Verde's low possession and shot volume indicate a defensive strategy against favored Uruguay's attack."
+    ],
+    "headline_source": "ai_generated",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-21T06:36:39Z"
   },
   "data_quality": {
     "status": "baseline_stub",
