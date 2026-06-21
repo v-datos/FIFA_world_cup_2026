@@ -22,7 +22,7 @@ interface Match {
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('overview');
-  const [lang, setLang] = useState<string>('English');
+  const [lang, setLang] = useState<string>('Español');
   const [matches, setMatches] = useState<Match[]>([]);
   const [activeDate, setActiveDate] = useState<string>('');
   const [selectedMatchId, setSelectedMatchId] = useState<string | null>(null);

@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-056 - Set Spanish as Default Dashboard Language**
+  Owner: Frontend Engineer / Orchestrator
+  Completed: 2026-06-21
+  Notes: Configured the initial value of the frontend language state (`lang`) in `src/frontend/src/App.tsx` to `'Español'` so that the dashboard loads all headlines, insights, translations, and rosters in Spanish by default on initial render. The toggle remains fully active.
+  Verify: Ensure that building the app succeeds and launching the app defaults to Spanish.
+
 - [x] **T-054 - Fix Vertex AI GCP Project Permissions on Cloud Run**
   Owner: Data Pipeline Engineer
   Completed: 2026-06-21

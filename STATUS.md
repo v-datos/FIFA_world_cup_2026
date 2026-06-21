@@ -6,6 +6,7 @@ Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
 
 ### Current State
 
+- **Spanish as Default Dashboard Language**: Changed the default dashboard language state to `'Español'` so that the user interface loads in Spanish by default, with all tabs, headlines, predictions, and squad style tables showing localized Spanish data on initial page load. Users can still toggle back to English at any time.
 - **Responsive Mobile Sidebar Drawer**: Optimized the layout for mobile and tablet viewports. Introduced a sticky mobile top bar with a hamburger menu button to trigger the sidebar navigation. The sidebar now acts as a sliding overlay drawer from the left on smaller screens, supported by a dark blur backdrop and auto-closing triggers.
 - **GCP Project Resolution & Translation Permission Fix**: Resolved a 403 Permission Denied error on Cloud Run where Vertex AI translation calls failed because they defaulted to the developer's legacy project ID (`statsbomb-db`). The backend (`main.py`) and pipelines (`generate_match_headlines.py`, `generate_team_news.py`) now dynamically resolve the project ID (`GEMINI_PROJECT` or `GOOGLE_CLOUD_PROJECT` or fallback to `midyear-castle-328020`), granting the Cloud Run service account proper access to the Vertex AI service.
 - **Sidebar Toggle Relocation**: Relocated the EN/ES toggle from the top-right corner of the screen into the navigation sidebar directly below 'Tabla y Llaves' ('Standings & Bracket'). Supports fully responsive layouts for both expanded and collapsed sidebar states.
