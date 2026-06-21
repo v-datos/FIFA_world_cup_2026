@@ -22,6 +22,9 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    # secrets can't be used directly in `if:`; expose presence via env instead.
+    env:
+      HAS_GCP: ${{ secrets.GCP_SA_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -40,13 +43,13 @@ jobs:
       # Generate AI tactical headlines with Vertex AI Gemini. Skipped unless the
       # GCP_SA_KEY repository secret is set.
       - name: Authenticate to Google Cloud
-        if: ${{ secrets.GCP_SA_KEY != '' }}
+        if: ${{ env.HAS_GCP == 'true' }}
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: Generate AI tactical headlines (optional)
-        if: ${{ secrets.GCP_SA_KEY != '' }}
+        if: ${{ env.HAS_GCP == 'true' }}
         run: python -m src.pipeline.generate_match_headlines --date "$(date -u +%Y%m%d)" --write || true
 
       - name: Commit and push if data changed
@@ -67,6 +70,4 @@ jobs:
       # deploys on the next build (e.g. a Cloud Build push trigger).
       - name: Deploy to Cloud Run (optional)
         if: ${{ env.HAS_GCP == 'true' }}
-        env:
-          HAS_GCP: ${{ secrets.GCP_SA_KEY != '' }}
         run: echo "Configure GCP_SA_KEY + GCP_PROJECT secrets to enable auto-deploy."
