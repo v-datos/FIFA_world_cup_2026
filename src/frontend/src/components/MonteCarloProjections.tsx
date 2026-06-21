@@ -20,6 +20,7 @@ interface Props {
     rating_status?: string;
   };
   lang: string;
+  noWrapper?: boolean;
 }
 
 export const MonteCarloProjections: React.FC<Props> = ({
@@ -29,6 +30,7 @@ export const MonteCarloProjections: React.FC<Props> = ({
   proj2 = {},
   quality,
   lang,
+  noWrapper = false,
 }) => {
   const es = lang === 'Español';
   const deterministicFallback = quality?.status === 'deterministic_fallback';
@@ -53,8 +55,8 @@ export const MonteCarloProjections: React.FC<Props> = ({
   const pct = (v: ProjectionValue): string => (typeof v === 'number' ? `${Math.round(v * 100)}%` : 'N/A');
   const width = (v: ProjectionValue): number => (typeof v === 'number' ? Math.max(2, Math.round(v * 100)) : 0);
 
-  return (
-    <div className="w-full glass-panel p-5">
+  const renderContent = () => (
+    <>
       <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2 mb-1">
         <Dices className="w-5 h-5 text-emerald-400" />
         <span>
@@ -109,6 +111,16 @@ export const MonteCarloProjections: React.FC<Props> = ({
           );
         })}
       </div>
+    </>
+  );
+
+  if (noWrapper) {
+    return <div className="space-y-4">{renderContent()}</div>;
+  }
+
+  return (
+    <div className="w-full glass-panel p-5">
+      {renderContent()}
     </div>
   );
 };

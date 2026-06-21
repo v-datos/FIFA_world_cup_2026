@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-057 - Refine Match Analysis Tab Layout & Merge Predictions**
+  Owner: Frontend Engineer
+  Completed: 2026-06-21
+  Notes: Moved the "Key Insights, Injuries & Last Major Standing" card directly below the tactical headline, spanning full-width with a responsive 3-column inner layout. Merged the Dixon-Coles prediction details and Monte Carlo Simulation projections into a single card using a `noWrapper` option in `MonteCarloProjections`, placing this unified card beneath the radar (Performance Comparison) card.
+  Verify: Run `npm run build` and ensure dashboard compiles and renders correctly.
+
 - [x] **T-056 - Set Spanish as Default Dashboard Language**
   Owner: Frontend Engineer / Orchestrator
   Completed: 2026-06-21

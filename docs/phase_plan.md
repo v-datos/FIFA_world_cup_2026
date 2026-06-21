@@ -555,6 +555,7 @@ Outputs:
 | 2026-06-21 | GCP Project Resolution & Sidebar Toggle Placement | docs/decisions/20260621_DEC034_gcp_project_resolution_and_sidebar_toggle.md |
 | 2026-06-21 | Responsive Mobile Sidebar Drawer | docs/decisions/20260621_DEC035_responsive_mobile_sidebar_drawer.md |
 | 2026-06-21 | Spanish as Default Dashboard Language | docs/decisions/20260621_DEC036_spanish_default_language.md |
+| 2026-06-21 | Match Analysis Layout Refinement | docs/decisions/20260621_DEC037_match_analysis_layout_refinement.md |
 
 ## Open Blockers
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart3, HelpCircle } from 'lucide-react';
 import { translateTeamName } from '../lib/translations';
+import { MonteCarloProjections } from './MonteCarloProjections';
 
 interface MatchPredictionGraphProps {
   team1: string;
@@ -23,6 +24,9 @@ interface MatchPredictionGraphProps {
     message?: string;
   };
   lang: string;
+  proj1?: Record<string, any>;
+  proj2?: Record<string, any>;
+  monteCarloQuality?: any;
 }
 
 export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
@@ -33,6 +37,9 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
   quality,
   scoreQuality,
   lang,
+  proj1 = {},
+  proj2 = {},
+  monteCarloQuality,
 }) => {
   const forecastUnavailable = (
     quality?.status === 'unavailable' ||
@@ -173,6 +180,19 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
           </span>
         </div>
       )}
+
+      {/* Monte Carlo Simulation Projections */}
+      <div className="pt-5 border-t border-slate-800/60">
+        <MonteCarloProjections
+          team1={team1}
+          team2={team2}
+          proj1={proj1}
+          proj2={proj2}
+          quality={monteCarloQuality}
+          lang={lang}
+          noWrapper={true}
+        />
+      </div>
     </div>
   );
 };
