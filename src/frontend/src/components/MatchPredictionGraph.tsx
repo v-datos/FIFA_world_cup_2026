@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, BarChart3, HelpCircle } from 'lucide-react';
+import { BarChart3, HelpCircle } from 'lucide-react';
 
 interface MatchPredictionGraphProps {
   team1: string;
@@ -157,39 +157,8 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
         )}
       </div>
 
-      {/* Model Information Container */}
-      <div className="pt-4 border-t border-slate-800/60 space-y-4">
-        <h4 className="text-xs font-bold text-slate-300 uppercase tracking-widest flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span>{translateText('Model Methodology & Info')}</span>
-        </h4>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-          <div className="bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40 flex flex-col justify-between">
-            <span className="text-slate-500 font-medium">{translateText('Model Used')}</span>
-            <span className="font-bold text-slate-200 mt-1 font-mono text-[11px]">
-              {forecastUnavailable ? 'Unavailable' : translateText('Dixon-Coles Poisson Solver')}
-            </span>
-            <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed">
-              {forecastUnavailable
-                ? (quality?.message || 'Default fallback hidden.')
-                : translateText('Bivariate Poisson solver utilizing Elo ratings with low-score correlation adjustment.')}
-            </p>
-          </div>
-
-          <div className="bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40 flex flex-col justify-between">
-            <span className="text-slate-500 font-medium">{translateText('Input Sources')}</span>
-            <span className="font-bold text-slate-200 mt-1 font-mono text-[11px]">{sourceLabel}</span>
-            <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed">
-              {forecastUnavailable
-                ? 'No source-backed probability is available for this fixture.'
-                : 'Local Elo-style reference values; not a live rating feed.'}
-            </p>
-          </div>
-        </div>
-
-        {!forecastUnavailable && (
-        <div className="flex justify-between items-center text-xs pt-1">
+      {!forecastUnavailable && (
+        <div className="pt-4 border-t border-slate-800/60 flex justify-between items-center text-xs">
           <span className="text-slate-400 flex items-center gap-1 font-medium">
             <HelpCircle className="w-4 h-4 text-slate-500" />
             {translateText('Confidence Rating')}
@@ -198,8 +167,7 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
             {confidence === null ? 'N/A' : `${Math.round(confidence * 100)}%`}
           </span>
         </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };

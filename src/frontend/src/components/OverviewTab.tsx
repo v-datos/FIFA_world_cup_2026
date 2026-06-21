@@ -35,12 +35,18 @@ const edmontonTime = (match: Match): string => {
 const mapsUrl = (venue: string): string =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue)}`;
 
+interface Scorer {
+  name: string;
+  team?: string;
+  goals: number;
+}
+
 interface TournamentStats {
   matches_played: number;
   total_matches: number;
   total_goals: number;
   goals_per_game: number | null;
-  top_scorer: { name: string; goals: number } | null;
+  top_scorer: Scorer[] | Scorer | null;
 }
 
 interface OverviewTabProps {
@@ -129,10 +135,28 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
             {lang === 'Español' ? 'Goleadores Líderes' : 'Top Scorers'}
           </span>
-          <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-lg font-bold text-slate-100">
-              {scorer ? `${scorer.name}: ${scorer.goals} ${goalsLabel}` : '—'}
-            </span>
+          <div className="flex flex-col gap-1.5 mt-2 justify-center flex-grow">
+            {scorer ? (
+              Array.isArray(scorer) ? (
+                scorer.map((s, idx) => (
+                  <div key={idx} className="flex items-center gap-1.5">
+                    <span className="text-lg">{s.team ? getFlag(s.team) : ''}</span>
+                    <span className="text-sm font-bold text-slate-100">
+                      {s.name} <span className="text-xs text-slate-400">({s.goals} {goalsLabel})</span>
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <div className="flex items-center gap-1.5">
+                  <span className="text-lg">{(scorer as Scorer).team ? getFlag((scorer as Scorer).team!) : ''}</span>
+                  <span className="text-sm font-bold text-slate-100">
+                    {(scorer as Scorer).name} <span className="text-xs text-slate-400">({(scorer as Scorer).goals} {goalsLabel})</span>
+                  </span>
+                </div>
+              )
+            ) : (
+              <span className="text-lg font-bold text-slate-100">—</span>
+            )}
           </div>
         </div>
       </div>

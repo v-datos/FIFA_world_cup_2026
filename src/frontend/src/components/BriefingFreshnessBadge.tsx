@@ -120,6 +120,10 @@ export const BriefingFreshnessBadge: React.FC<Props> = ({ status, lang }) => {
     status?.status_origin && `${es ? 'Origen' : 'Origin'}: ${status.status_origin}`,
   ].filter(Boolean).join('\n');
 
+  if (state === 'baseline_only' || state === 'missing') {
+    return null;
+  }
+
   return (
     <div
       className={`mt-3 inline-flex max-w-full flex-wrap items-center gap-2 rounded-lg border px-3 py-2 text-[10px] font-mono ${stateClasses(state)}`}

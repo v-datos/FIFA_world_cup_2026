@@ -405,6 +405,27 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const t1Roster = apiRosters[cleanT1] || ROSTERS[normalizedTeam1] || ROSTERS[team1] || ROSTERS[cleanT1] || [];
   const t2Roster = apiRosters[cleanT2] || ROSTERS[normalizedTeam2] || ROSTERS[team2] || ROSTERS[cleanT2] || [];
 
+  const translateInjury = (inj: string) => {
+    if (lang !== 'Español') return inj;
+    if (inj === 'No major injuries reported.') return 'Sin lesiones graves reportadas.';
+    if (inj === 'No verified baseline injury update is available yet.') return 'Sin actualización de lesiones disponible aún.';
+    return inj
+      .replace(/\(Concussion - Out\)/g, '(Conmoción cerebral - Baja)')
+      .replace(/\(Groin Injury - Out\)/g, '(Lesión de ingle - Baja)')
+      .replace(/\(Groin - Out\)/g, '(Lesión de ingle - Baja)')
+      .replace(/\(Physical Issue - Doubtful\)/g, '(Problema físico - Duda)')
+      .replace(/\(Minor Knock - Probable\)/g, '(Golpe menor - Probable)')
+      .replace(/\(Medial Ligament - Out\)/g, '(Ligamento medial - Baja)')
+      .replace(/\(Fitness - Doubtful\)/g, '(Estado físico - Duda)')
+      .replace(/\(Thigh Strain - Doubtful\)/g, '(Distensión de muslo - Duda)')
+      .replace(/\(Hamstring Tear - Out\)/g, '(Desgarro de isquiotibiales - Baja)')
+      .replace(/\(Adductor Injury - Out\)/g, '(Lesión de aductores - Baja)')
+      .replace(/\(Striker - Cleared to play\)/g, '(Delantero - Apto para jugar)')
+      .replace(/\(Knee Injury - Out\)/g, '(Lesión de rodilla - Baja)')
+      .replace(/\(Foot Injury - Out\)/g, '(Lesión de pie - Baja)')
+      .replace(/\(Hamstring - Out\)/g, '(Isquiotibiales - Baja)');
+  };
+
   const translateText = (text: string) => {
     // Basic translation helper for headers
     if (lang === 'English') return text;
@@ -501,13 +522,13 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
               <div className="text-emerald-400 font-semibold">{getFlag(team1)} {team1}:</div>
               {injuries[cleanT1]?.map((inj: string, idx: number) => (
-                <div key={idx}>• {inj}</div>
-              )) || <div>No major injuries reported.</div>}
+                <div key={idx}>• {translateInjury(inj)}</div>
+              )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
 
               <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {team2}:</div>
               {injuries[cleanT2]?.map((inj: string, idx: number) => (
-                <div key={idx}>• {inj}</div>
-              )) || <div>No major injuries reported.</div>}
+                <div key={idx}>• {translateInjury(inj)}</div>
+              )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
             </div>
           </div>
 

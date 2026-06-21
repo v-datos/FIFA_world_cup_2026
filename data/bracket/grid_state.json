@@ -1,9 +1,17 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "top_scorer": {
-    "name": "L. Messi",
-    "goals": 3
-  },
+  "top_scorer": [
+    {
+      "name": "L. Messi",
+      "team": "Argentina",
+      "goals": 3
+    },
+    {
+      "name": "J. David",
+      "team": "Canada",
+      "goals": 3
+    }
+  ],
   "groups": [
     {
       "name": "Group A",

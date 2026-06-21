@@ -23,13 +23,13 @@ export const getFlag = (team: string): string => getTeamFlag(team) || TEAM_FLAGS
 // Each team's most recent major-tournament finish (curated).
 export const LAST_MAJOR_STANDING: Record<string, string> = {
   "Netherlands": "Semi-finals (UEFA Euro 2024)",
-  "Japan": "Round of 16 (FIFA World Cup 2022)",
-  "Ivory Coast": "Champions (Africa Cup of Nations 2023)",
+  "Japan": "Quarter-finals (AFC Asian Cup 2023)",
+  "Ivory Coast": "Quarter-finals (Africa Cup of Nations 2025)",
   "Ecuador": "Quarter-finals (Copa América 2024)",
   "Sweden": "Round of 16 (UEFA Euro 2020)",
-  "Tunisia": "Group Stage (Africa Cup of Nations 2023)",
+  "Tunisia": "Round of 16 (Africa Cup of Nations 2025)",
   "Spain": "Runners-up (UEFA Nations League 2025)",
-  "Cape Verde": "Group Stage (Africa Cup of Nations 2025)",
+  "Cape Verde": "Did not qualify (Africa Cup of Nations 2025)",
   "Belgium": "Round of 16 (UEFA Euro 2024)",
   "Egypt": "Fourth Place (Africa Cup of Nations 2025)",
   "Saudi Arabia": "Round of 16 (AFC Asian Cup 2023)",
@@ -41,7 +41,7 @@ export const LAST_MAJOR_STANDING: Record<string, string> = {
   "Iraq": "Round of 16 (AFC Asian Cup 2023)",
   "Norway": "Group Stage (UEFA Nations League A 2024)",
   "Argentina": "Champions (FIFA World Cup 2022 & Copa América 2024)",
-  "Algeria": "Round of 16 (Africa Cup of Nations 2025)",
+  "Algeria": "Quarter-finals (Africa Cup of Nations 2025)",
   "Austria": "Round of 16 (UEFA Euro 2024)",
   "Jordan": "Runners-up (AFC Asian Cup 2023)",
   "Morocco": "Champions (Africa Cup of Nations 2025)",
@@ -51,7 +51,7 @@ export const LAST_MAJOR_STANDING: Record<string, string> = {
   "Colombia": "Runners-up (Copa América 2024)",
   "Mexico": "Champions (CONCACAF Gold Cup 2025)",
   "Croatia": "Group Stage (UEFA Euro 2024)",
-  "Ghana": "Group Stage (Africa Cup of Nations 2023)",
+  "Ghana": "Did not qualify (Africa Cup of Nations 2025)",
 };
 
 export const getLastStanding = (team: string): string | null => (
