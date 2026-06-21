@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "norway_senegal_2026",
+    "team1": "Norway",
+    "team2": "Senegal",
+    "date": "06/22/2026",
+    "time": "18:00",
+    "venue": "MetLife Stadium, East Rutherford, New Jersey",
+    "stage": "Group Stage - Group I",
+    "kickoff_utc": "2026-06-23T00:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Norway vs Senegal",
+    "injuries": {
+      "norway": [
+        "No verified baseline injury update is available yet."
+      ],
+      "senegal": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "norway": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "senegal": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

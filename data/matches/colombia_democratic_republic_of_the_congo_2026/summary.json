@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "colombia_democratic_republic_of_the_congo_2026",
+    "team1": "Colombia",
+    "team2": "Democratic Republic of the Congo",
+    "date": "06/23/2026",
+    "time": "20:00",
+    "venue": "Estadio Akron, Guadalajara",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-24T02:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Colombia vs Democratic Republic of the Congo",
+    "injuries": {
+      "colombia": [
+        "No verified baseline injury update is available yet."
+      ],
+      "democratic_republic_of_the_congo": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "colombia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "democratic_republic_of_the_congo": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

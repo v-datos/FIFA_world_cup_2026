@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "czech_republic_mexico_2026",
+    "team1": "Czech Republic",
+    "team2": "Mexico",
+    "date": "06/24/2026",
+    "time": "19:00",
+    "venue": "Estadio Banorte, Mexico City",
+    "stage": "Group Stage - Group A",
+    "kickoff_utc": "2026-06-25T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Czech Republic vs Mexico",
+    "injuries": {
+      "czech_republic": [
+        "No verified baseline injury update is available yet."
+      ],
+      "mexico": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "czech_republic": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "mexico": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

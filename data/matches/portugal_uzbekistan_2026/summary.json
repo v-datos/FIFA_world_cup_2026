@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "portugal_uzbekistan_2026",
+    "team1": "Portugal",
+    "team2": "Uzbekistan",
+    "date": "06/23/2026",
+    "time": "11:00",
+    "venue": "NRG Stadium, Houston, Texas",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-23T17:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Portugal vs Uzbekistan",
+    "injuries": {
+      "portugal": [
+        "No verified baseline injury update is available yet."
+      ],
+      "uzbekistan": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "portugal": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "uzbekistan": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

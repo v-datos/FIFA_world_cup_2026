@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "england_ghana_2026",
+    "team1": "England",
+    "team2": "Ghana",
+    "date": "06/23/2026",
+    "time": "14:00",
+    "venue": "Gillette Stadium, Foxborough, Massachusetts",
+    "stage": "Group Stage - Group L",
+    "kickoff_utc": "2026-06-23T20:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for England vs Ghana",
+    "injuries": {
+      "england": [
+        "No verified baseline injury update is available yet."
+      ],
+      "ghana": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "ghana": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

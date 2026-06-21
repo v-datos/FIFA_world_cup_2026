@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "uruguay_cape_verde_2026",
+    "team1": "Uruguay",
+    "team2": "Cape Verde",
+    "date": "06/21/2026",
+    "time": "16:00",
+    "venue": "Hard Rock Stadium, Miami Gardens, Florida",
+    "stage": "Group Stage - Group H",
+    "kickoff_utc": "2026-06-21T22:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Uruguay vs Cape Verde",
+    "injuries": {
+      "uruguay": [
+        "No verified baseline injury update is available yet."
+      ],
+      "cape_verde": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "uruguay": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "cape_verde": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

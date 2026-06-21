@@ -26,11 +26,13 @@ import datetime as dt
 import json
 from pathlib import Path
 from typing import Any, Optional
+from zoneinfo import ZoneInfo
 
 import requests
 
 from src.common.team_identity import canonical_team_slug, normalize_team_name
 
+EDMONTON_TZ = ZoneInfo("America/Edmonton")
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
 ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
@@ -202,6 +204,51 @@ def _load(path: Path, default):
     return default
 
 
+def _team_group_map() -> dict[str, str]:
+    """Normalized team name -> group letter, from the committed bracket state."""
+    grid = _load(DATA_DIR / "bracket" / "grid_state.json", {})
+    out: dict[str, str] = {}
+    for g in grid.get("groups", []):
+        letter = g.get("name", "").replace("Group ", "").strip()
+        for row in g.get("standings", []):
+            out[normalize_team_name(row.get("team"))] = letter
+    return out
+
+
+def _create_fixture_folder(fx: dict, group_map: dict[str, str]) -> Optional[str]:
+    """Create a baseline summary.json + metrics.json for a fixture with no folder.
+
+    ESPN is the schedule source of truth; the old worldcup26.ir-based discoverer
+    is unreliable, which is why future matchdays never appeared. Downstream
+    pipelines (style, lineups, headlines) enrich these stubs in place.
+    """
+    from src.pipeline.discover_active_fixtures import build_summary_stub, build_metrics_stub
+    t1, t2 = fx["team1"], fx["team2"]
+    ko = fx.get("kickoff_utc") or ""
+    try:
+        loc = dt.datetime.fromisoformat(ko.replace("Z", "+00:00")).astimezone(EDMONTON_TZ)
+        date_s, time_s = loc.strftime("%m/%d/%Y"), loc.strftime("%H:%M")
+    except ValueError:
+        date_s, time_s = "", ""
+    grp = group_map.get(normalize_team_name(t1)) or group_map.get(normalize_team_name(t2))
+    game = {
+        "home_team_name_en": t1, "away_team_name_en": t2,
+        "date": date_s, "time": time_s, "stadium_name": fx.get("venue") or "",
+        "type": "group" if grp else "", "group": grp or "",
+    }
+    source = {"source_label": "live_schedule", "source_url": ESPN_BASE, "source_name": "ESPN scoreboard"}
+    folder = DATA_DIR / "matches" / fx["match_id"]
+    folder.mkdir(parents=True, exist_ok=True)
+    summary = build_summary_stub(fx["match_id"], t1, t2, game, source)
+    summary["metadata"]["kickoff_utc"] = ko
+    with open(folder / "summary.json", "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    if not (folder / "metrics.json").exists():
+        with open(folder / "metrics.json", "w", encoding="utf-8") as f:
+            json.dump(build_metrics_stub(t1, t2, source), f, indent=2, ensure_ascii=False)
+    return str((folder / "summary.json").relative_to(PROJECT_ROOT))
+
+
 def write_caches(manifest: dict) -> list[str]:
     now = manifest["checked_at_utc"]
     written = []
@@ -238,6 +285,7 @@ def write_caches(manifest: dict) -> list[str]:
         json.dump(L, f, indent=2, ensure_ascii=False)
     written.append(str(lp.relative_to(PROJECT_ROOT)))
 
+    group_map = _team_group_map()
     for fx in manifest["fixtures"]:
         sjson = DATA_DIR / "matches" / fx["match_id"] / "summary.json"
         if sjson.exists():
@@ -250,6 +298,10 @@ def write_caches(manifest: dict) -> list[str]:
             with open(sjson, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             written.append(str(sjson.relative_to(PROJECT_ROOT)))
+        else:
+            created = _create_fixture_folder(fx, group_map)
+            if created:
+                written.append(created)
     return written
 
 

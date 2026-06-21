@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "bosnia_and_herzegovina_qatar_2026",
+    "team1": "Bosnia and Herzegovina",
+    "team2": "Qatar",
+    "date": "06/24/2026",
+    "time": "13:00",
+    "venue": "Lumen Field, Seattle, Washington",
+    "stage": "Group Stage - Group B",
+    "kickoff_utc": "2026-06-24T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Bosnia and Herzegovina vs Qatar",
+    "injuries": {
+      "bosnia_and_herzegovina": [
+        "No verified baseline injury update is available yet."
+      ],
+      "qatar": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "bosnia_and_herzegovina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "qatar": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

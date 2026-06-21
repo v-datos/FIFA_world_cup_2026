@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "spain_saudi_arabia_2026",
+    "team1": "Spain",
+    "team2": "Saudi Arabia",
+    "date": "06/21/2026",
+    "time": "10:00",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Group Stage - Group H",
+    "kickoff_utc": "2026-06-21T16:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Spain vs Saudi Arabia",
+    "injuries": {
+      "spain": [
+        "No verified baseline injury update is available yet."
+      ],
+      "saudi_arabia": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "spain": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "saudi_arabia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

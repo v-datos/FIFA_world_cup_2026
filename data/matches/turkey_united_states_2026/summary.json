@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "match_id": "turkey_united_states_2026",
+    "team1": "Turkey",
+    "team2": "United States",
+    "date": "06/25/2026",
+    "time": "20:00",
+    "venue": "SoFi Stadium, Inglewood, California",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-06-26T02:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Baseline preview pending for Turkey vs United States",
+    "injuries": {
+      "turkey": [
+        "No verified baseline injury update is available yet."
+      ],
+      "united_states": [
+        "No verified baseline injury update is available yet."
+      ]
+    },
+    "confirmed_tactics": {
+      "turkey": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "united_states": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Baseline preview has not been curated yet.",
+      "Run last-minute briefing generation inside the match window for fresh updates.",
+      "Treat model and team profile sections as unavailable until metrics are populated."
+    ]
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
