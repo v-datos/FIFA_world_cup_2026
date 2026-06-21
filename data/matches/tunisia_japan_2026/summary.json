@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T04:00Z"
   },
   "ai_summary": {
-    "key_headline": "Japan Favored, Facing Tunisia's High Possession",
+    "key_headline": "Renard's Debut Fails as Japan Eliminates Tunisia",
     "injuries": {
       "tunisia": [
         "No major injuries reported."
@@ -35,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Japan enters as the strong favorite with an 87% win expectancy, reflecting their significantly higher Elo ranking.",
-      "Tunisia holds more possession (51.3%) but Japan generates more shots (10.0), indicating a direct offensive approach.",
-      "Japan's efficient attack (2.0 goals) and tighter defense (2.0 conceded) pose a significant threat to Tunisia's vulnerabilities."
+      "Ayase Ueda's two goals highlighted Japan's clinical finishing against Tunisia's exposed defense.",
+      "Tunisia's 4-0 defeat to Japan confirmed their elimination, making them the first African team knocked out.",
+      "Hervé Renard's debut 5-3-2 formation for Tunisia was overwhelmed by Japan's aggressive 3-4-3 pressing style."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-20T20:55:31Z"
+    "headline_generated_at_utc": "2026-06-21T08:29:59Z"
   },
   "data_quality": {
     "status": "baseline_stub"

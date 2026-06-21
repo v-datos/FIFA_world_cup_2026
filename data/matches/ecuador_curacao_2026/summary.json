@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Ecuador Targets Dominance Against Defensive Curacao",
+    "key_headline": "Room's Record Saves Deny Ecuador, Curacao Claims First Point",
     "injuries": {
       "ecuador": [
         "Enner Valencia (Striker - Cleared to play)"
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Ecuador enters as the strong favorite, reflected by their 93% win expectancy and superior Elo rating of 1890.",
-      "Ecuador's higher possession (51.6%) and shots per game (12.0) suggest a more assertive attacking strategy than Curacao.",
-      "Curacao's significant defensive vulnerability, conceding 7.0 goals per game, contrasts sharply with Ecuador's 1.0 conceded."
+      "Eloy Room's record-breaking 15 saves secured Curacao's historic first World Cup point against Ecuador.",
+      "The 0-0 draw highlighted Ecuador's offensive struggles despite 27 shots, threatening their early World Cup exit.",
+      "Dick Advocaat's disciplined defensive block effectively neutralized Sebastián Beccacece's high-intensity attacking Ecuador."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-20T20:55:18Z"
+    "headline_generated_at_utc": "2026-06-21T08:28:45Z"
   },
   "data_quality": {
     "status": "baseline_stub"

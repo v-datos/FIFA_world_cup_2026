@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-20T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Germany Favored: High Shots, High Possession vs Ivory Coast",
+    "key_headline": "Germany's Depth Secures Knockout Berth in Thriller",
     "injuries": {
       "germany": [
         "Nico Schlotterbeck (Medial Ligament - Out)",
@@ -36,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Germany is heavily favored with a 76% win expectancy, dominating possession at 64.6%.",
-      "Germany averages significantly more shots per game (26.0) compared to Ivory Coast's 15.0.",
-      "Ivory Coast's defense has conceded zero goals per game, facing Germany's attack averaging 7.0 goals."
+      "Deniz Undav's impactful brace from the bench proved decisive for Germany.",
+      "Germany's comeback victory secured their progression to the World Cup knockout stages.",
+      "Nagelsmann's tactical depth, including key substitutions, outmaneuvered Faé's resilient defensive setup."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-20T20:55:21Z"
+    "headline_generated_at_utc": "2026-06-21T08:29:09Z"
   },
   "data_quality": {
     "status": "baseline_stub"

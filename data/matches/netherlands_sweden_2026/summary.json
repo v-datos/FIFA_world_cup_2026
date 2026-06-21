@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-20T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Dutch Total Football Resurgence: Koeman's Men Dominate Sweden",
+    "key_headline": "Dutch Total Football Returns: Sweden Overwhelmed 5-1",
     "injuries": {
       "netherlands": [
         "Quinten Timber (Concussion - Out)",
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Sweden's prolific strike partnership of Isak and Gyökeres struggled against Van Dijk's organized Dutch defense.",
-      "The Netherlands' crucial victory after their Japan draw secured top spot in Group F.",
-      "Koeman's possession-oriented \"Total Football\" overwhelmed Potter's direct, transition-based Swedish tactics."
+      "Dumfries' influential wing play and Dutch midfield control were pivotal in the dominant victory.",
+      "Netherlands' commanding 5-1 win after an opening draw significantly boosts their group standing.",
+      "Koeman's tactical flexibility and adjustments countered Potter's direct, transition-heavy Sweden."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:19:46Z"
+    "headline_generated_at_utc": "2026-06-21T08:29:32Z"
   },
   "data_quality": {
     "status": "baseline_stub"

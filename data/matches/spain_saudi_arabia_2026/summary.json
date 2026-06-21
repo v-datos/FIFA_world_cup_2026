@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "Spain seeks attacking edge; Donis's Saudi Arabia tests defensive block.",
+    "key_headline": "Spain seeks attacking spark after draw; Saudi Arabia confident.",
     "injuries": {
       "spain": [
         "Fermín López (fractured right foot - Out)",
@@ -36,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Lamine Yamal's creativity will challenge Saudi Arabia's disciplined low block, crucial for Spain's attacking breakthrough.",
-      "Spain must find attacking sharpness after their surprising goalless draw against Cape Verde to assert tournament dominance.",
-      "Georgios Donis's newly implemented low defensive block will aim to frustrate Spain's high-possession, vertical attacking style."
+      "Spain's dynamic wingers, Yamal and Williams, challenge Saudi Arabia's flanks.",
+      "Spain's goalless draw against Cape Verde puts pressure on their attacking output.",
+      "De la Fuente's evolved Spain meets Donis's flexible, attacking Saudi Arabia setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:20:19Z",
+    "headline_generated_at_utc": "2026-06-21T08:31:02Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

@@ -228,11 +228,14 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Generate AI tactical headlines.")
     ap.add_argument("--match-id", help="Single fixture id, e.g. germany_ivory_coast_2026")
     ap.add_argument("--date", help="YYYYMMDD: all fixtures on that date")
+    ap.add_argument("--all", action="store_true", help="Regenerate all fixtures under data/matches/")
     ap.add_argument("--write", action="store_true", help="Call Vertex AI Gemini and update summary.json")
     args = ap.parse_args()
 
     if args.match_id:
         match_ids = [args.match_id]
+    elif args.all:
+        match_ids = [folder.name for folder in sorted((DATA_DIR / "matches").glob("*_2026"))]
     elif args.date:
         match_ids = _today_match_ids(args.date)
     else:

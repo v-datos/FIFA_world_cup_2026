@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Belgium's Possession vs. Iran's Attacking Efficiency",
+    "key_headline": "Belgium's New Attacking Era Faces Iran's Disrupted Preparation",
     "injuries": {
       "belgium": [
         "Zeno Debast (Thigh/Leg injury - Out)",
@@ -37,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "Belgium, with a 67% win expectancy, will likely control possession due to higher pass completion.",
-      "Despite less possession, Iran generates more shots per game and scores more goals, indicating a direct attacking approach.",
-      "Iran's higher goals conceded per game (2.0) suggests a defensive vulnerability that Belgium could exploit."
+      "Mehdi Taremi's deep-lying role and finishing prowess will test Belgium's sometimes vulnerable defensive structure.",
+      "Iran's severely hampered preparation due to travel restrictions could impact their physical and mental readiness.",
+      "Rudi Garcia's attack-minded philosophy will clash with Iran's disciplined deep block and swift counter-attacking strategy."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:26Z",
+    "headline_generated_at_utc": "2026-06-21T08:30:13Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

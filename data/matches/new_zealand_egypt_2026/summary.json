@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-22T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Egypt Favored Against New Zealand's Possession Game",
+    "key_headline": "Group G Showdown: New Zealand, Egypt Chase Elusive First Win",
     "injuries": {
       "new_zealand": [
         "Matt Garbett (Hamstring injury - Out)"
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Egypt enters as the favorite with a 68% win expectancy and a higher Elo rating.",
-      "New Zealand favors a possession-based approach, completing more passes than Egypt.",
-      "Despite similar shots per game, Egypt concedes half as many goals as New Zealand."
+      "Players face immense pressure to secure their nation's inaugural World Cup victory.",
+      "Both teams drew their opening matches, making this a crucial fixture for knockout stage hopes.",
+      "A win is vital for either side to gain an advantage in the tight Group G standings."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:31Z",
+    "headline_generated_at_utc": "2026-06-21T08:30:38Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

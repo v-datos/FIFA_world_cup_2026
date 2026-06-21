@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-21T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Uruguay Seeks Control Against Defensive Cape Verde",
+    "key_headline": "Bielsa's Uruguay Battles Cape Verde's Defensive Resilience",
     "injuries": {
       "uruguay": [
         "Giorgian de Arrascaeta (broken collarbone - Out)",
@@ -35,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Favorite Uruguay will control possession, averaging 66.8% compared to Cape Verde's 25.7%.",
-      "Uruguay's offensive approach is highlighted by 27 shots per game, far more than Cape Verde's six.",
-      "Cape Verde's low possession and shot volume indicate a defensive strategy against favored Uruguay's attack."
+      "Darwin Nunez's attacking threat faces Cape Verde's breakout goalkeeper Vozinha.",
+      "Cape Verde's disciplined 0-0 draw against Spain highlights their strong defensive organization.",
+      "Bielsa's high-intensity pressing system will challenge Bubista's disciplined low-block and counter-attacking strategy."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:39Z",
+    "headline_generated_at_utc": "2026-06-21T08:31:26Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
