@@ -1,6 +1,6 @@
 # TASKS
 
-Last updated: 2026-06-20
+Last updated: 2026-06-21
 Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## In Progress
@@ -18,6 +18,16 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 
 ## Done
+
+- [x] **T-051 - Grounded Web Search for AI Tactical Previews**
+  Owner: Data Pipeline Engineer
+  Completed: 2026-06-21
+  Notes: Migrated `src/pipeline/generate_match_headlines.py` from legacy `vertexai`
+  to modern `google-genai` SDK. Upgraded the AI preview generator to use the Google
+  Search grounding tool to fetch real-time squad news, tactical previews, form,
+  and manager updates. Integrates search results with local stats to produce
+  structured JSON previews. Includes graceful fallback if web search fails. DEC032.
+  Verify: `python3 -m src.pipeline.generate_match_headlines --match-id netherlands_sweden_2026 --write`.
 
 - [x] **T-050 - Deterministic ESPN Matchday Automation**
   Owner: Data Pipeline Engineer

@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-20T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Dutch Control Faces Swedish Shot Volume",
+    "key_headline": "Netherlands' Clinical Attack Exploits Sweden's Defensive Flaws",
     "injuries": {
       "netherlands": [
         "Quinten Timber (Concussion - Out)",
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Netherlands, the favorite, will aim to dictate play with superior possession and passing accuracy.",
-      "Sweden generates more shots per game despite less possession, indicating a more direct attacking approach.",
-      "The Dutch demonstrate higher attacking efficiency, scoring more goals from fewer shots while Sweden concedes more."
+      "Netherlands' possession dominance and tactical flexibility overwhelmed Sweden's defensive vulnerabilities.",
+      "Sweden's higher shot volume was negated by their defensive frailties and the Netherlands' clinical finishing.",
+      "Koeman's side effectively utilized width and structured possession to break down Sweden's exposed pressing structure."
     ],
-    "headline_source": "ai_generated",
+    "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-20T20:55:26Z"
+    "headline_generated_at_utc": "2026-06-21T08:02:02Z"
   },
   "data_quality": {
     "status": "baseline_stub"

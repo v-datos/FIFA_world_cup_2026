@@ -1,5 +1,26 @@
 # STATUS
 
+## 2026-06-21 - Grounded Web Search for AI Tactical Previews
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- Migrated `src/pipeline/generate_match_headlines.py` to the modern `google-genai` SDK, eliminating deprecated legacy `vertexai` warnings.
+- Upgraded the AI headlines and insights generator to execute web-grounded Google Search research in a two-step sequence:
+  1. Use the Google Search grounding tool to gather real-time tactical matchups, news, manager quotes, and form.
+  2. Parse the research results alongside local metrics into a structured JSON tactical preview.
+- Implemented robust exception handling to fall back to structured-only preview generation if the grounded search fails or is blocked.
+- Successfully verified execution on `netherlands_sweden_2026`, resulting in `"headline_source": "ai_web_grounded"` in `summary.json`.
+
+### Verification
+
+- Syntax compile: `python3 -m compileall -q src` (PASS)
+- Frontend build: `npm --prefix src/frontend run build` (PASS)
+- Execution: `python3 -m src.pipeline.generate_match_headlines --match-id netherlands_sweden_2026 --write` (PASS)
+
+---
+
 ## 2026-06-20 - T-050 Deterministic ESPN Matchday Automation
 
 Prepared by: Orchestrator / Data Pipeline Engineer

@@ -29,31 +29,16 @@ from src.common.team_identity import canonical_team_slug, normalize_team_name
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
-# Low-cost / fast model for a simple, high-volume per-fixture generation; override
-# with GEMINI_MODEL if you want a more capable (and costlier) model.
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+PROJECT = os.environ.get("GEMINI_PROJECT", "statsbomb-db")
+LOCATION = os.environ.get("GEMINI_LOCATION", "us-central1")
 MAX_TOKENS = 4000
 
-SYSTEM_PROMPT = (
-    "You are an expert football (soccer) tactical analyst writing pre-match "
-    "previews for a World Cup dashboard. Given structured match data, write one "
-    "punchy tactical headline and exactly three short tactical insights.\n"
-    "Rules:\n"
-    "- Ground every claim ONLY in the data provided. Do not invent players, "
-    "injuries, scores, or stats that are not in the data.\n"
-    "- The headline is one line, under 12 words, specific to these two teams.\n"
-    "- Each insight is one sentence (under 25 words) about the tactical matchup, "
-    "form, or style contrast implied by the numbers.\n"
-    "- Reference the favourite (by Elo / win expectancy), the style contrast "
-    "(possession, shots), and formations when the data supports it.\n"
-    "- Neutral, analytical tone. No betting language. No emojis."
-)
-
 OUTPUT_SCHEMA = {
-    "type": "OBJECT",
+    "type": "object",
     "properties": {
-        "headline": {"type": "STRING"},
-        "insights": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "headline": {"type": "string"},
+        "insights": {"type": "array", "items": {"type": "string"}},
     },
     "required": ["headline", "insights"],
 }
@@ -130,27 +115,75 @@ def build_context(match_id: str) -> Optional[dict]:
     }
 
 
-def generate(context: dict) -> dict:
-    """Call Vertex AI Gemini to produce {headline, insights[3]}."""
-    import vertexai
-    from vertexai.generative_models import GenerativeModel, GenerationConfig
+def generate(context: dict) -> tuple[dict, str]:
+    """Call Vertex AI Gemini to produce {headline, insights[3]} and return the source label."""
+    from google import genai
+    from google.genai import types
 
-    vertexai.init(project="statsbomb-db", location="us-central1")
-    model = GenerativeModel(MODEL, system_instruction=SYSTEM_PROMPT)
+    client = genai.Client(vertexai=True, project=PROJECT, location=LOCATION)
 
-    prompt = (
-        "Given the structured match data below, write the tactical headline and three insights.\n"
-        "Return ONLY a JSON object matching the requested schema.\n\n"
-        f"Match Data:\n{json.dumps(context, ensure_ascii=False)}"
+    t1 = context["team1"]["team"]
+    t2 = context["team2"]["team"]
+    search_prompt = (
+        f"Using current web sources, research the upcoming 2026 FIFA World Cup match between {t1} and {t2}.\n"
+        "1. List recent news, manager updates, and tactical previews for both teams.\n"
+        "2. Identify key players to watch, recent team form, and projected styles/tactics for this match.\n"
+        "Focus on the tactical setup, match significance, and key match insights."
     )
 
-    config = GenerationConfig(
+    research_text = ""
+    source_label = "ai_web_grounded"
+    try:
+        grounded = client.models.generate_content(
+            model=MODEL,
+            contents=search_prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                temperature=0.2,
+                max_output_tokens=2500,
+            ),
+        )
+        research_text = (grounded.text or "").strip()
+    except Exception as e:
+        print(f"  WARNING: Grounded web search failed ({type(e).__name__}: {e}). Falling back to local data only.")
+        source_label = "ai_generated"
+
+    if research_text:
+        prompt = (
+            "You are an expert football (soccer) tactical analyst writing pre-match previews for a World Cup dashboard.\n"
+            "Given the structured match data and the web-grounded research report below, write one punchy tactical headline (under 12 words) and exactly three short tactical insights (each one sentence, under 25 words).\n\n"
+            "Rules:\n"
+            "- Ground your response in both the structured data and the provided web research. Do not invent players, injuries, scores, or stats that are not in the data/research.\n"
+            "- The headline is one line, specific to these two teams.\n"
+            "- Reference the favourite (by Elo / win expectancy), the style contrast (possession, shots), formations, or key tactical updates when supported.\n"
+            "- Neutral, analytical tone. No betting language. No emojis.\n\n"
+            f"Structured Match Data:\n{json.dumps(context, ensure_ascii=False)}\n\n"
+            f"Web Research Report:\n{research_text}"
+        )
+    else:
+        prompt = (
+            "You are an expert football (soccer) tactical analyst writing pre-match previews for a World Cup dashboard.\n"
+            "Given the structured match data below, write one punchy tactical headline (under 12 words) and exactly three short tactical insights (each one sentence, under 25 words).\n\n"
+            "Rules:\n"
+            "- Ground every claim ONLY in the provided structured data. Do not invent players, injuries, scores, or stats.\n"
+            "- The headline is one line, specific to these two teams.\n"
+            "- Reference the favourite (by Elo / win expectancy), the style contrast (possession, shots), or formations when supported.\n"
+            "- Neutral, analytical tone. No betting language. No emojis.\n\n"
+            f"Structured Match Data:\n{json.dumps(context, ensure_ascii=False)}"
+        )
+
+    config = types.GenerateContentConfig(
         response_mime_type="application/json",
         response_schema=OUTPUT_SCHEMA,
+        temperature=0.0,
         max_output_tokens=MAX_TOKENS,
     )
 
-    response = model.generate_content(prompt, generation_config=config)
+    response = client.models.generate_content(
+        model=MODEL,
+        contents=prompt,
+        config=config,
+    )
     text = response.text.strip()
     try:
         data = json.loads(text)
@@ -160,17 +193,17 @@ def generate(context: dict) -> dict:
         print(f"RESPONSE METADATA: {response}")
         raise
     insights = [str(i).strip() for i in data.get("insights", []) if str(i).strip()][:3]
-    return {"headline": data.get("headline", "").strip(), "insights": insights}
+    return {"headline": data.get("headline", "").strip(), "insights": insights}, source_label
 
 
-def write_summary(match_id: str, result: dict) -> None:
+def write_summary(match_id: str, result: dict, source_label: str) -> None:
     path = DATA_DIR / "matches" / match_id / "summary.json"
     summary = _load(path)
     ai = summary.setdefault("ai_summary", {})
     ai["key_headline"] = result["headline"]
     if result["insights"]:
         ai["tactical_insights"] = result["insights"]
-    ai["headline_source"] = "ai_generated"
+    ai["headline_source"] = source_label
     ai["headline_model"] = MODEL
     ai["headline_generated_at_utc"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(path, "w", encoding="utf-8") as f:
@@ -209,8 +242,8 @@ def main() -> None:
             print(f"  {mid}: skipped (no summary/teams)")
             continue
         if args.write:
-            result = generate(ctx)
-            write_summary(mid, result)
+            result, source_label = generate(ctx)
+            write_summary(mid, result, source_label)
             print(f"  {mid}: {result['headline']}")
             for ins in result["insights"]:
                 print(f"      - {ins}")
