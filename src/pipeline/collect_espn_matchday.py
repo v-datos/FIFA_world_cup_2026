@@ -285,8 +285,16 @@ def write_caches(manifest: dict) -> list[str]:
         for p in players:
             if prev_clubs.get(p.get("name")):
                 p["club"] = prev_clubs[p["name"]]
+        
+        # Preserve custom tactical philosophy if it exists and is non-generic
+        prev_phil = prev.get("philosophy")
+        if prev_phil and prev_phil not in ("Confirmed XI from ESPN match data.", "Baseline tactical preview pending.", "TBD", "TBC", "None", ""):
+            philosophy = prev_phil
+        else:
+            philosophy = "Confirmed XI from ESPN match data."
+
         L.setdefault("teams", {})[slug] = {
-            "formation": lu["formation"], "manager": prev.get("manager") or "", "philosophy": "Confirmed XI from ESPN match data.",
+            "formation": lu["formation"], "manager": prev.get("manager") or "", "philosophy": philosophy,
             "source_label": "web_researched", "source_url": ESPN_BASE, "checked_at_utc": now,
             "players": players}
     L.setdefault("metadata", {})["checked_at_utc"] = now

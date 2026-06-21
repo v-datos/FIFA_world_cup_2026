@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertTriangle, CheckCircle2, Clock, FileClock } from 'lucide-react';
+import { translateSourceLabel, translateBriefingMessage } from '../lib/translations';
 
 export type BriefingFreshnessStatus = {
   freshness_state?: string;
@@ -37,9 +38,9 @@ const stateLabel = (state: string, es: boolean): string => {
   return es ? label.es : label.en;
 };
 
-const sourceLabel = (label?: string): string | undefined => {
+const sourceLabel = (label: string | undefined, es: boolean): string | undefined => {
   if (!label) return undefined;
-  return label.replace(/_/g, ' ');
+  return translateSourceLabel(label, es ? 'Español' : 'English');
 };
 
 const parseDate = (value?: string): Date | null => {
@@ -103,13 +104,13 @@ const StatusIcon = ({ state }: { state: string }) => {
 export const BriefingFreshnessBadge: React.FC<Props> = ({ status, lang }) => {
   const es = lang === 'Español';
   const state = cleanState(status?.freshness_state);
-  const source = sourceLabel(status?.source_label);
+  const source = sourceLabel(status?.source_label, es);
   const generatedText = ageText(status?.generated_at_utc, es);
   const checkedText = shortDateTime(status?.checked_at_utc || status?.generated_at_utc, es);
   const warningCount = status?.warnings?.length || 0;
   const blockedCount = status?.blocked_reasons?.length || 0;
   const detailParts = [
-    status?.message,
+    translateBriefingMessage(status?.message, lang),
     source && `${es ? 'Fuente' : 'Source'}: ${source}`,
     generatedText && `${es ? 'Generado' : 'Generated'}: ${generatedText}`,
     checkedText && `${es ? 'Revisado' : 'Checked'}: ${checkedText}`,
@@ -150,7 +151,7 @@ export const BriefingFreshnessBadge: React.FC<Props> = ({ status, lang }) => {
       )}
       {status?.message && (
         <span className="max-w-full truncate text-slate-300/80 normal-case tracking-normal sm:max-w-md">
-          {status.message}
+          {translateBriefingMessage(status.message, lang)}
         </span>
       )}
     </div>

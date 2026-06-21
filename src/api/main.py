@@ -57,6 +57,9 @@ app.add_middleware(
 )
 
 DATA_DIR = PROJECT_ROOT / "data"
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+PROJECT = os.environ.get("GEMINI_PROJECT", "statsbomb-db")
+LOCATION = os.environ.get("GEMINI_LOCATION", "us-central1")
 
 # Memory cache for standings
 _standings_cache = {}
@@ -1200,6 +1203,69 @@ def load_lineup_cache() -> dict:
         return {}
 
 
+def is_generic_philosophy(phil: Optional[str]) -> bool:
+    if not phil:
+        return True
+    phil_clean = phil.strip().strip(".")
+    return phil_clean in (
+        "Confirmed XI from ESPN match data",
+        "Baseline tactical preview pending",
+        "TBD",
+        "TBC",
+        "None",
+        "",
+    )
+
+
+def generate_tactical_philosophy(team_name: str, manager: str) -> str:
+    try:
+        from google import genai
+        from google.genai import types
+
+        client = genai.Client(vertexai=True, project=PROJECT, location=LOCATION)
+        
+        prompt = (
+            f"Using current web sources, research the tactical philosophy, playing style, and setup of the "
+            f"{team_name} national football team under manager {manager or 'their coaching staff'} "
+            f"for the 2026 FIFA World Cup.\n"
+            f"Based on your research, write a single concise, punchy sentence (maximum 20 words) in English "
+            f"describing their core tactical style/system (e.g., 'High-intensity pressing, vertical transitions, and dynamic flank overloads' "
+            f"or 'Compact defensive organization, direct flank crosses, and set-piece targeting').\n"
+            f"Do not include generic phrases, introductory text, or markdown formatting."
+        )
+        
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                temperature=0.2,
+                max_output_tokens=2048,
+            ),
+        )
+        res_text = (response.text or "").strip().strip('"').strip("'")
+        if res_text:
+            return res_text
+    except Exception as e:
+        print(f"Failed to generate tactical philosophy for {team_name} ({type(e).__name__}: {e})")
+    
+    return "Confirmed XI from ESPN match data."
+
+
+def update_philosophy_in_lineup_cache(slug: str, philosophy: str) -> None:
+    path = DATA_DIR / "source_cache" / "lineups" / "latest.json"
+    if not path.exists():
+        return
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        teams = data.get("teams", {})
+        if slug in teams:
+            teams[slug]["philosophy"] = philosophy
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        print(f"Failed to write updated philosophy for {slug} back to latest.json ({type(e).__name__}: {e})")
+
+
 def apply_lineup_cache(summary_data: dict, team1: str, team2: str) -> dict:
     """Merge source-backed matchday lineups into the summary payload.
 
@@ -1225,6 +1291,15 @@ def apply_lineup_cache(summary_data: dict, team1: str, team2: str) -> dict:
         for key in ("formation", "manager", "philosophy"):
             if entry.get(key):
                 tactics[key] = entry[key]
+        
+        phil = tactics.get("philosophy")
+        manager = tactics.get("manager") or ""
+        if is_generic_philosophy(phil):
+            new_phil = generate_tactical_philosophy(team, manager)
+            if not is_generic_philosophy(new_phil):
+                tactics["philosophy"] = new_phil
+                update_philosophy_in_lineup_cache(slug, new_phil)
+
         names = []
         for player in entry.get("players", []):
             name = player.get("name")
@@ -1239,8 +1314,109 @@ def apply_lineup_cache(summary_data: dict, team1: str, team2: str) -> dict:
     return summary_data
 
 
+def translate_summary_to_spanish(summary_data: dict, match_id: str) -> dict:
+    es_path = DATA_DIR / "matches" / match_id / "summary_es.json"
+    ai = summary_data.get("ai_summary", {})
+    if not ai:
+        return summary_data
+
+    confirmed = ai.get("confirmed_tactics", {})
+
+    # Check if cached translation exists on disk
+    if es_path.exists():
+        try:
+            es_cache = json.loads(es_path.read_text(encoding="utf-8"))
+            if es_cache.get("headline_generated_at_utc") == ai.get("headline_generated_at_utc"):
+                ai["key_headline"] = es_cache.get("key_headline")
+                ai["tactical_insights"] = es_cache.get("tactical_insights")
+                cached_phils = es_cache.get("philosophies", {})
+                for slug, translation in cached_phils.items():
+                    if slug in confirmed:
+                        confirmed[slug]["philosophy"] = translation
+                return summary_data
+        except Exception:
+            pass
+
+    # Call Gemini to translate
+    try:
+        from google import genai
+        from google.genai import types
+
+        client = genai.Client(vertexai=True, project=PROJECT, location=LOCATION)
+        
+        prompt = (
+            "You are an expert football translator. Translate the following English football tactical headline, "
+            "insights, and tactical philosophies into natural, professional Spanish using proper football terminology. "
+            "Do NOT change any player names, team names, or numeric stats.\n\n"
+            f"Headline: {ai.get('key_headline')}\n"
+            f"Insights:\n" + "\n".join(f"- {i}" for i in ai.get("tactical_insights", [])) + "\n"
+        )
+        
+        phils_to_translate = []
+        for slug, tac in confirmed.items():
+            phil = tac.get("philosophy")
+            if phil and not is_generic_philosophy(phil):
+                prompt += f"Philosophy ({slug}): {phil}\n"
+                phils_to_translate.append(slug)
+        
+        schema = {
+            "type": "object",
+            "properties": {
+                "headline": {"type": "string"},
+                "insights": {"type": "array", "items": {"type": "string"}},
+                "philosophies": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "slug": {"type": "string"},
+                            "translation": {"type": "string"}
+                        },
+                        "required": ["slug", "translation"]
+                    }
+                }
+            },
+            "required": ["headline", "insights"],
+        }
+        
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=schema,
+                temperature=0.0,
+            ),
+        )
+        data = json.loads(response.text or "{}")
+        if data.get("headline") and data.get("insights"):
+            ai["key_headline"] = data["headline"].strip()
+            ai["tactical_insights"] = [i.strip() for i in data["insights"]][:3]
+            
+            translated_phils = {}
+            for item in data.get("philosophies", []):
+                slug = item.get("slug")
+                translation = item.get("translation", "").strip()
+                if slug and translation:
+                    translated_phils[slug] = translation
+                    if slug in confirmed:
+                        confirmed[slug]["philosophy"] = translation
+            
+            es_cache = {
+                "headline_generated_at_utc": ai.get("headline_generated_at_utc"),
+                "key_headline": ai["key_headline"],
+                "tactical_insights": ai["tactical_insights"],
+                "philosophies": translated_phils
+            }
+            es_path.write_text(json.dumps(es_cache, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        print(f"Failed to translate match summary to Spanish ({type(e).__name__}: {e})")
+        
+    return summary_data
+
+
 @app.get("/api/match/{match_id}/summary")
-def get_match_summary(match_id: str):
+def get_match_summary(match_id: str, lang: Optional[str] = None):
     summary_data = load_match_summary_payload(match_id)
     metadata = summary_data.get("metadata", {})
     summary_data = apply_lineup_cache(
@@ -1252,6 +1428,9 @@ def get_match_summary(match_id: str):
         match_id,
         summary_data,
     )["briefing_status"]
+
+    if lang in ("es", "Español"):
+        summary_data = translate_summary_to_spanish(summary_data, match_id)
 
     return summary_data
 

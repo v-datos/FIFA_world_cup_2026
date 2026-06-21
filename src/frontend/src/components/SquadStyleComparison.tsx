@@ -1,5 +1,6 @@
 import React from 'react';
 import { getFlag } from '../lib/teamData';
+import { translateTeamName, translateSourceLabel } from '../lib/translations';
 
 type MetricValue = number | string | null | undefined;
 type MetricRecord = Record<string, MetricValue>;
@@ -175,9 +176,10 @@ export const SquadStyleComparison: React.FC<Props> = ({
   const q2 = metricQuality[team2];
   const bothMissing = q1?.status === 'missing' && q2?.status === 'missing';
   const anyMissing = q1?.status === 'missing' || q2?.status === 'missing' || q1?.status === 'partial' || q2?.status === 'partial';
+  const rawSourceLabel = q1?.source_label || q2?.source_label || 'static_curated';
   const sourceLabel = bothMissing
     ? (es ? 'Métricas no disponibles' : 'Metrics unavailable')
-    : ((q1?.source_label || q2?.source_label || 'static_curated').replace(/_/g, ' '));
+    : (translateSourceLabel(rawSourceLabel, lang) || rawSourceLabel.replace(/_/g, ' '));
 
   const rows: Row[] = [
     { label: es ? 'Posesión Media' : 'Average Possession', key: 'possession_avg', suffix: '%', dec: 1 },
@@ -365,8 +367,8 @@ export const SquadStyleComparison: React.FC<Props> = ({
       <p className="text-xs text-slate-400">{sourceLabel}</p>
 
       <div className="flex justify-between items-center text-sm font-bold mt-4 mb-2 pb-2 border-b border-slate-800/60">
-        <span className="text-emerald-400">{getFlag(team1)} {team1}</span>
-        <span className="text-rose-400">{team2} {getFlag(team2)}</span>
+        <span className="text-emerald-400">{getFlag(team1)} {translateTeamName(team1, lang)}</span>
+        <span className="text-rose-400">{translateTeamName(team2, lang)} {getFlag(team2)}</span>
       </div>
 
       {anyMissing && !bothMissing && (

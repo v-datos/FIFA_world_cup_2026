@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart3, HelpCircle } from 'lucide-react';
+import { translateTeamName } from '../lib/translations';
 
 interface MatchPredictionGraphProps {
   team1: string;
@@ -127,13 +128,17 @@ export const MatchPredictionGraph: React.FC<MatchPredictionGraphProps> = ({
             {/* Outcome Bar Labels */}
             <div className="flex justify-between text-xs font-semibold px-1">
               <span className="text-sky-400 flex items-center gap-1">
-                {team1.toUpperCase()} {translateText('WIN')}
+                {lang === 'Español'
+                  ? `VICTORIA DE ${translateTeamName(team1, lang).toUpperCase()}`
+                  : `${team1.toUpperCase()} WIN`}
               </span>
               <span className="text-slate-400">
                 {translateText('DRAW')}
               </span>
               <span className="text-rose-400 flex items-center gap-1">
-                {team2.toUpperCase()} {translateText('WIN')}
+                {lang === 'Español'
+                  ? `VICTORIA DE ${translateTeamName(team2, lang).toUpperCase()}`
+                  : `${team2.toUpperCase()} WIN`}
               </span>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dices } from 'lucide-react';
 import { getFlag } from '../lib/teamData';
+import { translateTeamName, translateSimMessage, translateSourceLabel } from '../lib/translations';
 
 type ProjectionValue = number | string | null | undefined;
 
@@ -32,12 +33,13 @@ export const MonteCarloProjections: React.FC<Props> = ({
   const es = lang === 'Español';
   const deterministicFallback = quality?.status === 'deterministic_fallback';
   const simulation = quality?.status === 'simulation';
-  const sourceLabel = quality?.source_label?.replace(/_/g, ' ') || 'hardcoded reference';
+  const rawSourceLabel = quality?.source_label || 'hardcoded_reference';
+  const sourceLabel = translateSourceLabel(rawSourceLabel, lang) || rawSourceLabel.replace(/_/g, ' ');
   const simulationDetails = [
     quality?.simulation_count ? `${quality.simulation_count.toLocaleString()} ${es ? 'ensayos' : 'trials'}` : null,
     quality?.seed !== undefined ? `seed ${quality.seed}` : null,
     quality?.model_version,
-    quality?.rating_status?.replace(/_/g, ' '),
+    quality?.rating_status ? (es ? (quality.rating_status === 'complete' ? 'completo' : quality.rating_status === 'partial' ? 'parcial' : 'no disponible') : quality.rating_status.replace(/_/g, ' ')) : null,
   ].filter(Boolean).join(' · ');
 
   const stages: { key: string; label: string }[] = [
@@ -71,7 +73,7 @@ export const MonteCarloProjections: React.FC<Props> = ({
       )}
       {simulation && (
         <div className="rounded-lg border border-emerald-500/15 bg-emerald-500/5 px-3 py-2 text-[11px] text-slate-300/80 leading-relaxed">
-          {quality?.message || (es
+          {translateSimMessage(quality?.message, lang) || (es
             ? 'Simulación con ensayos aleatorios basada en referencias Elo locales.'
             : 'Random-trial simulation based on local Elo-style reference ratings.')}
           <span className="block mt-1 uppercase tracking-wide text-emerald-200/70 font-mono">
@@ -80,8 +82,8 @@ export const MonteCarloProjections: React.FC<Props> = ({
         </div>
       )}
       <div className="flex justify-between items-center text-sm font-bold mt-3 mb-3">
-        <span className="text-emerald-400">{getFlag(team1)} {team1}</span>
-        <span className="text-rose-400">{team2} {getFlag(team2)}</span>
+        <span className="text-emerald-400">{getFlag(team1)} {translateTeamName(team1, lang)}</span>
+        <span className="text-rose-400">{translateTeamName(team2, lang)} {getFlag(team2)}</span>
       </div>
 
       <div className="space-y-3.5">

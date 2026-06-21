@@ -879,7 +879,7 @@
     "spain": {
       "formation": "4-3-3",
       "manager": "Luis de la Fuente",
-      "philosophy": "Confirmed XI from ESPN match data.",
+      "philosophy": "Dynamic possession, aggressive pressing, vertical attacks, and fluid wide overloads.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
       "checked_at_utc": "2026-06-21T07:51:39Z",
@@ -933,7 +933,7 @@
     "cape_verde": {
       "formation": "4-1-4-1",
       "manager": "Bubista",
-      "philosophy": "Confirmed XI from ESPN match data.",
+      "philosophy": "Organized defensive blocks, high pressing, and quick transitions, leveraging dynamic wingers.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
       "checked_at_utc": "2026-06-21T07:51:39Z",
@@ -1095,7 +1095,7 @@
     "saudi_arabia": {
       "formation": "4-4-2",
       "manager": "Georgios Donis",
-      "philosophy": "Confirmed XI from ESPN match data.",
+      "philosophy": "Disciplined defense, pressing, and quick, purposeful transition attacks.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
       "checked_at_utc": "2026-06-21T07:51:39Z",
@@ -1149,7 +1149,7 @@
     "uruguay": {
       "formation": "4-2-3-1",
       "manager": "Marcelo Bielsa",
-      "philosophy": "Confirmed XI from ESPN match data.",
+      "philosophy": "Bielsa's Uruguay: aggressive pressing, vertical attacks, and fluid positional play.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
       "checked_at_utc": "2026-06-21T07:51:39Z",

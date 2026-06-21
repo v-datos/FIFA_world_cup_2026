@@ -8,6 +8,7 @@ import { BriefingFreshnessBadge, type BriefingFreshnessStatus } from './Briefing
 import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
 import { getFlag, getLastStanding } from '../lib/teamData';
 import { normalizeTeamName, teamSlug } from '../lib/teamIdentity';
+import { translateTeamName, translateInjury, translatePhilosophy, translateStanding } from '../lib/translations';
 
 interface Match {
   id: string;
@@ -281,7 +282,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         const briefingRequest = fetch(`${serverUrl}/api/match/${selectedMatchId}/briefing`)
           .catch((err: unknown) => err);
         const [sumRes, metRes, briefingResult] = await Promise.all([
-          fetch(`${serverUrl}/api/match/${selectedMatchId}/summary`),
+          fetch(`${serverUrl}/api/match/${selectedMatchId}/summary?lang=${lang}`),
           fetch(`${serverUrl}/api/match/${selectedMatchId}/metrics`),
           briefingRequest,
         ]);
@@ -359,7 +360,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
     return () => {
       cancelled = true;
     };
-  }, [selectedMatchId, serverUrl]);
+  }, [selectedMatchId, serverUrl, lang]);
 
   if (!selectedMatchId) {
     return (
@@ -405,26 +406,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
   const t1Roster = apiRosters[cleanT1] || ROSTERS[normalizedTeam1] || ROSTERS[team1] || ROSTERS[cleanT1] || [];
   const t2Roster = apiRosters[cleanT2] || ROSTERS[normalizedTeam2] || ROSTERS[team2] || ROSTERS[cleanT2] || [];
 
-  const translateInjury = (inj: string) => {
-    if (lang !== 'Español') return inj;
-    if (inj === 'No major injuries reported.') return 'Sin lesiones graves reportadas.';
-    if (inj === 'No verified baseline injury update is available yet.') return 'Sin actualización de lesiones disponible aún.';
-    return inj
-      .replace(/\(Concussion - Out\)/g, '(Conmoción cerebral - Baja)')
-      .replace(/\(Groin Injury - Out\)/g, '(Lesión de ingle - Baja)')
-      .replace(/\(Groin - Out\)/g, '(Lesión de ingle - Baja)')
-      .replace(/\(Physical Issue - Doubtful\)/g, '(Problema físico - Duda)')
-      .replace(/\(Minor Knock - Probable\)/g, '(Golpe menor - Probable)')
-      .replace(/\(Medial Ligament - Out\)/g, '(Ligamento medial - Baja)')
-      .replace(/\(Fitness - Doubtful\)/g, '(Estado físico - Duda)')
-      .replace(/\(Thigh Strain - Doubtful\)/g, '(Distensión de muslo - Duda)')
-      .replace(/\(Hamstring Tear - Out\)/g, '(Desgarro de isquiotibiales - Baja)')
-      .replace(/\(Adductor Injury - Out\)/g, '(Lesión de aductores - Baja)')
-      .replace(/\(Striker - Cleared to play\)/g, '(Delantero - Apto para jugar)')
-      .replace(/\(Knee Injury - Out\)/g, '(Lesión de rodilla - Baja)')
-      .replace(/\(Foot Injury - Out\)/g, '(Lesión de pie - Baja)')
-      .replace(/\(Hamstring - Out\)/g, '(Isquiotibiales - Baja)');
-  };
+  const translateInjuryLocal = (inj: string) => translateInjury(inj, lang);
 
   const translateText = (text: string) => {
     // Basic translation helper for headers
@@ -453,9 +435,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900/40 p-4 rounded-xl border border-slate-800/40">
         <div>
           <h2 className="text-xl font-bold text-slate-100 flex items-center gap-2">
-            <span>{getFlag(team1)} {team1}</span>
+            <span>{getFlag(team1)} {translateTeamName(team1, lang)}</span>
             <span className="text-xs text-slate-500 font-mono">VS</span>
-            <span>{getFlag(team2)} {team2}</span>
+            <span>{getFlag(team2)} {translateTeamName(team2, lang)}</span>
           </h2>
           <p className="text-xs text-slate-400 font-mono mt-0.5">
             {stage} | {date} {time} | {venue}
@@ -469,7 +451,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         >
           {dropdownMatches.map((m) => (
             <option key={m.id} value={m.id}>
-              {getFlag(m.team1)} {m.team1} vs {getFlag(m.team2)} {m.team2}
+              {getFlag(m.team1)} {translateTeamName(m.team1, lang)} vs {getFlag(m.team2)} {translateTeamName(m.team2, lang)}
             </option>
           ))}
         </select>
@@ -478,7 +460,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
       {/* Match Preview Headline */}
       <div className="glass-panel p-5 bg-gradient-to-r from-emerald-500/5 to-slate-950/20 border-l-4 border-l-emerald-500">
         <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest font-mono">
-          AI Tactical Headline
+          {lang === 'Español' ? 'Titular Táctico de IA' : 'AI Tactical Headline'}
         </span>
         <h3 className="text-lg font-bold text-slate-100 mt-1">
           {lang === 'Español' && key_headline ? 'Análisis: ' + key_headline : key_headline}
@@ -520,14 +502,14 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
               <span>{translateText("Injury Updates")}</span>
             </h4>
             <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
-              <div className="text-emerald-400 font-semibold">{getFlag(team1)} {team1}:</div>
+              <div className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</div>
               {injuries[cleanT1]?.map((inj: string, idx: number) => (
-                <div key={idx}>• {translateInjury(inj)}</div>
+                <div key={idx}>• {translateInjuryLocal(inj)}</div>
               )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
 
-              <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {team2}:</div>
+              <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {translateTeamName(team2, lang)}:</div>
               {injuries[cleanT2]?.map((inj: string, idx: number) => (
-                <div key={idx}>• {translateInjury(inj)}</div>
+                <div key={idx}>• {translateInjuryLocal(inj)}</div>
               )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
             </div>
           </div>
@@ -539,12 +521,12 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             </h4>
             <div className="space-y-1.5 text-[11px] leading-relaxed">
               <div>
-                <span className="text-emerald-400 font-semibold">{getFlag(team1)} {team1}:</span>{' '}
-                <span className="text-slate-300">{getLastStanding(team1) || 'N/A'}</span>
+                <span className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</span>{' '}
+                <span className="text-slate-300">{translateStanding(getLastStanding(team1), lang)}</span>
               </div>
               <div>
-                <span className="text-rose-400 font-semibold">{getFlag(team2)} {team2}:</span>{' '}
-                <span className="text-slate-300">{getLastStanding(team2) || 'N/A'}</span>
+                <span className="text-rose-400 font-semibold">{getFlag(team2)} {translateTeamName(team2, lang)}:</span>{' '}
+                <span className="text-slate-300">{translateStanding(getLastStanding(team2), lang)}</span>
               </div>
             </div>
           </div>
@@ -607,13 +589,13 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             return (
               <div key={key} className="bg-slate-900/40 border border-slate-800/40 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-sm font-bold text-slate-100">{getFlag(team)} {team}</span>
+                  <span className="text-sm font-bold text-slate-100">{getFlag(team)} {translateTeamName(team, lang)}</span>
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
                     {tac.formation || 'N/A'}
                   </span>
                 </div>
                 <div className="text-xs text-slate-300 font-medium mb-1">{tac.manager || '—'}</div>
-                <p className="text-[11px] text-slate-400 leading-relaxed italic">{tac.philosophy || ''}</p>
+                <p className="text-[11px] text-slate-400 leading-relaxed italic">{translatePhilosophy(tac.philosophy, lang)}</p>
               </div>
             );
           })}
