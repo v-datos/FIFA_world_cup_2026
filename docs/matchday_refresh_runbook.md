@@ -62,11 +62,17 @@ gcloud builds submit --config cloudbuild.yaml .
 | `update_standings` | group tables + knockout bracket | ESPN scoreboard | DEC029 |
 | `update_team_ages` | squad average age (48 teams) | ESPN athlete DOBs | — |
 | `update_team_xg` | team xG/xGA per 90 (48 teams) | FotMob (headless) | DEC028 |
+| `collect_rating_sources` | World Football Elo (forecast input) | eloratings.net | DEC017 |
 | `generate_match_headlines` | AI tactical headline + insights | Gemini | DEC027 |
 
 Each is dry-run by default, `--write` to persist, and runs in
 `.github/workflows/matchday-refresh.yml`. The standings/scorers/age/xG writes are
 surgical (they only touch their own keys/fields, so the others are preserved).
+
+**On-demand (not in the daily Action — slow-changing):**
+`update_team_market_value` writes squad market value (squad_style) and the
+manager (lineups cache) from FotMob; the collector preserves the manager. Run it
+periodically (e.g. weekly), not every matchday. See DEC030.
 
 ## AI tactical headlines (`generate_match_headlines.py`)
 

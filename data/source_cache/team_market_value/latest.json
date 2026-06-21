@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-21T06:58:42Z",
+    "checked_at_utc": "2026-06-21T07:29:14Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback squad market value snapshot; restored if a live fetch fails."
@@ -8,195 +8,243 @@
   "teams": [
     {
       "name": "South Korea",
-      "value_m": 128.5
+      "value_m": 128.5,
+      "manager": "Myung-Bo Hong"
     },
     {
       "name": "Mexico",
-      "value_m": 171.1
+      "value_m": 171.1,
+      "manager": "Javier Aguirre"
     },
     {
       "name": "South Africa",
-      "value_m": 32.9
+      "value_m": 32.9,
+      "manager": "Hugo Broos"
     },
     {
       "name": "Czechia",
-      "value_m": 156.6
+      "value_m": 156.6,
+      "manager": "Miroslav Koubek"
     },
     {
       "name": "Switzerland",
-      "value_m": 343.4
+      "value_m": 343.4,
+      "manager": "Murat Yakin"
     },
     {
       "name": "Canada",
-      "value_m": 183.3
+      "value_m": 183.3,
+      "manager": "Jesse Marsch"
     },
     {
       "name": "Bosnia and Herzegovina",
-      "value_m": 110.6
+      "value_m": 110.6,
+      "manager": "Sergej Barbarez"
     },
     {
       "name": "Qatar",
-      "value_m": 13.0
+      "value_m": 13.0,
+      "manager": "Julen Lopetegui"
     },
     {
       "name": "Brazil",
-      "value_m": 815.2
+      "value_m": 815.2,
+      "manager": "Carlo Ancelotti"
     },
     {
       "name": "Morocco",
-      "value_m": 417.0
+      "value_m": 417.0,
+      "manager": "Mohamed Ouahbi"
     },
     {
       "name": "Scotland",
-      "value_m": 195.0
+      "value_m": 195.0,
+      "manager": "Steve Clarke"
     },
     {
       "name": "Haiti",
-      "value_m": 55.5
+      "value_m": 55.5,
+      "manager": "Sébastien Migné"
     },
     {
       "name": "Turkiye",
-      "value_m": 472.8
+      "value_m": 472.8,
+      "manager": "Vincenzo Montella"
     },
     {
       "name": "USA",
-      "value_m": 317.2
+      "value_m": 317.2,
+      "manager": "Mauricio Pochettino"
     },
     {
       "name": "Australia",
-      "value_m": 68.5
+      "value_m": 68.5,
+      "manager": "Tony Popovic"
     },
     {
       "name": "Paraguay",
-      "value_m": 139.0
+      "value_m": 139.0,
+      "manager": "Gustavo Alfaro"
     },
     {
       "name": "Germany",
-      "value_m": 943.9
+      "value_m": 943.9,
+      "manager": "Julian Nagelsmann"
     },
     {
       "name": "Ecuador",
-      "value_m": 382.1
+      "value_m": 382.1,
+      "manager": "Sebastián Beccacece"
     },
     {
       "name": "Ivory Coast",
-      "value_m": 464.8
+      "value_m": 464.8,
+      "manager": "Emerse Faé"
     },
     {
       "name": "Curacao",
-      "value_m": 22.5
+      "value_m": 22.5,
+      "manager": "Dick Advocaat"
     },
     {
       "name": "Netherlands",
-      "value_m": 836.7
+      "value_m": 836.7,
+      "manager": "Ronald Koeman"
     },
     {
       "name": "Japan",
-      "value_m": 263.8
+      "value_m": 263.8,
+      "manager": "Hajime Moriyasu"
     },
     {
       "name": "Sweden",
-      "value_m": 460.0
+      "value_m": 460.0,
+      "manager": "Graham Potter"
     },
     {
       "name": "Tunisia",
-      "value_m": 64.0
+      "value_m": 64.0,
+      "manager": "Sabri Lamouchi"
     },
     {
       "name": "Belgium",
-      "value_m": 529.4
+      "value_m": 529.4,
+      "manager": "Rudi Garcia"
     },
     {
       "name": "Iran",
-      "value_m": 12.8
+      "value_m": 12.8,
+      "manager": "Amir Ghalenoei"
     },
     {
       "name": "New Zealand",
-      "value_m": 26.6
+      "value_m": 26.6,
+      "manager": "Darren Bazeley"
     },
     {
       "name": "Egypt",
-      "value_m": 127.6
+      "value_m": 127.6,
+      "manager": "Hossam Hassan"
     },
     {
       "name": "Spain",
-      "value_m": 1265.6
+      "value_m": 1265.6,
+      "manager": "Luis de la Fuente"
     },
     {
       "name": "Uruguay",
-      "value_m": 363.1
+      "value_m": 363.1,
+      "manager": "Marcelo Bielsa"
     },
     {
       "name": "Saudi Arabia",
-      "value_m": 24.4
+      "value_m": 24.4,
+      "manager": "Georgios Donis"
     },
     {
       "name": "Cape Verde",
-      "value_m": 42.5
+      "value_m": 42.5,
+      "manager": "Bubista"
     },
     {
       "name": "Norway",
-      "value_m": 543.6
+      "value_m": 543.6,
+      "manager": "Ståle Solbakken"
     },
     {
       "name": "France",
-      "value_m": 1433.5
+      "value_m": 1433.5,
+      "manager": "Didier Deschamps"
     },
     {
       "name": "Senegal",
-      "value_m": 507.2
+      "value_m": 507.2,
+      "manager": "Pape Thiaw"
     },
     {
       "name": "Iraq",
-      "value_m": 14.8
+      "value_m": 14.8,
+      "manager": "Graham Arnold"
     },
     {
       "name": "Austria",
-      "value_m": 226.8
+      "value_m": 226.8,
+      "manager": "Ralf Rangnick"
     },
     {
       "name": "Argentina",
-      "value_m": 848.3
+      "value_m": 848.3,
+      "manager": "Lionel Scaloni"
     },
     {
       "name": "Algeria",
-      "value_m": 251.1
+      "value_m": 251.1,
+      "manager": "Vladimir Petkovic"
     },
     {
       "name": "Jordan",
-      "value_m": 7.6
+      "value_m": 7.6,
+      "manager": "Jamal Sellami"
     },
     {
       "name": "Colombia",
-      "value_m": 300.0
+      "value_m": 300.0,
+      "manager": "Néstor Lorenzo"
     },
     {
       "name": "DR Congo",
-      "value_m": 141.9
+      "value_m": 141.9,
+      "manager": "Sébastien Desabre"
     },
     {
       "name": "Portugal",
-      "value_m": 953.2
+      "value_m": 953.2,
+      "manager": "Roberto Martínez"
     },
     {
       "name": "Uzbekistan",
-      "value_m": 72.5
+      "value_m": 72.5,
+      "manager": "Fabio Cannavaro"
     },
     {
       "name": "England",
-      "value_m": 1352.5
+      "value_m": 1352.5,
+      "manager": "Thomas Tuchel"
     },
     {
       "name": "Ghana",
-      "value_m": 222.0
+      "value_m": 222.0,
+      "manager": "Carlos Queiroz"
     },
     {
       "name": "Panama",
-      "value_m": 28.2
+      "value_m": 28.2,
+      "manager": "Thomas Christiansen"
     },
     {
       "name": "Croatia",
-      "value_m": 348.1
+      "value_m": 348.1,
+      "manager": "Zlatko Dalic"
     }
   ]
 }

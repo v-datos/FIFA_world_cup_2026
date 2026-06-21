@@ -5,7 +5,7 @@
     "source_label": "web_researched",
     "source_name": "Matchday predicted/confirmed XIs (SI, ESPN, Sports Mole, RotoWire, FourFourTwo, MLSsoccer)",
     "collection_method": "web_research",
-    "checked_at_utc": "2026-06-21T06:35:29Z",
+    "checked_at_utc": "2026-06-21T07:30:56Z",
     "warnings": [
       "Probable/confirmed matchday XIs for the 2026-06-19 jornada; players and clubs are point-in-time and should be refreshed each matchday.",
       "Clubs are included where confidently known; unknown clubs render as N/A."
@@ -14,11 +14,11 @@
   "teams": {
     "united_states": {
       "formation": "3-5-2",
-      "manager": "",
+      "manager": "Mauricio Pochettino",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Matt Freese",
@@ -68,11 +68,11 @@
     },
     "australia": {
       "formation": "5-4-1",
-      "manager": "",
+      "manager": "Tony Popovic",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Patrick Beach",
@@ -122,11 +122,11 @@
     },
     "scotland": {
       "formation": "4-4-1-1",
-      "manager": "",
+      "manager": "Steve Clarke",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Angus Gunn",
@@ -176,11 +176,11 @@
     },
     "morocco": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Mohamed Ouahbi",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Yassine Bounou",
@@ -230,11 +230,11 @@
     },
     "turkey": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Vincenzo Montella",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Ugurcan Çakir",
@@ -284,11 +284,11 @@
     },
     "paraguay": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Gustavo Alfaro",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Orlando Gil",
@@ -338,11 +338,11 @@
     },
     "brazil": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Carlo Ancelotti",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Alisson Becker",
@@ -392,11 +392,11 @@
     },
     "haiti": {
       "formation": "5-4-1",
-      "manager": "",
+      "manager": "Sébastien Migné",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Johny Placide",
@@ -446,11 +446,11 @@
     },
     "netherlands": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Ronald Koeman",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Bart Verbruggen",
@@ -500,11 +500,11 @@
     },
     "sweden": {
       "formation": "3-1-4-2",
-      "manager": "",
+      "manager": "Graham Potter",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Kristoffer Nordfeldt",
@@ -554,11 +554,11 @@
     },
     "germany": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Julian Nagelsmann",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Manuel Neuer",
@@ -608,11 +608,11 @@
     },
     "ivory_coast": {
       "formation": "4-1-4-1",
-      "manager": "",
+      "manager": "Emerse Faé",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Yahia Fofana",
@@ -662,11 +662,11 @@
     },
     "ecuador": {
       "formation": "3-1-4-2",
-      "manager": "",
+      "manager": "Sebastián Beccacece",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Hernán Galíndez",
@@ -716,11 +716,11 @@
     },
     "curacao": {
       "formation": "5-4-1",
-      "manager": "",
+      "manager": "Dick Advocaat",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Eloy Room",
@@ -770,11 +770,11 @@
     },
     "tunisia": {
       "formation": "5-3-2",
-      "manager": "",
+      "manager": "Sabri Lamouchi",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Mouhib Chamakh",
@@ -824,11 +824,11 @@
     },
     "japan": {
       "formation": "3-4-2-1",
-      "manager": "",
+      "manager": "Hajime Moriyasu",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Zion Suzuki",
@@ -878,11 +878,11 @@
     },
     "spain": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Luis de la Fuente",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Unai Simón",
@@ -932,11 +932,11 @@
     },
     "cape_verde": {
       "formation": "4-1-4-1",
-      "manager": "",
+      "manager": "Bubista",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Vozinha",
@@ -986,11 +986,11 @@
     },
     "belgium": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Rudi Garcia",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Thibaut Courtois",
@@ -1040,11 +1040,11 @@
     },
     "egypt": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Hossam Hassan",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Mostafa Shoubir",
@@ -1094,11 +1094,11 @@
     },
     "saudi_arabia": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Georgios Donis",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Mohammed Al-Owais",
@@ -1148,11 +1148,11 @@
     },
     "uruguay": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Marcelo Bielsa",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Fernando Muslera",
@@ -1202,11 +1202,11 @@
     },
     "iran": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Amir Ghalenoei",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Alireza Beiranvand",
@@ -1256,11 +1256,11 @@
     },
     "new_zealand": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Darren Bazeley",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Max Crocombe",
@@ -1310,11 +1310,11 @@
     },
     "france": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Didier Deschamps",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Mike Maignan",
@@ -1364,11 +1364,11 @@
     },
     "senegal": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Pape Thiaw",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Édouard Mendy",
@@ -1418,11 +1418,11 @@
     },
     "iraq": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Graham Arnold",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Jalal Hassan",
@@ -1472,11 +1472,11 @@
     },
     "norway": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Ståle Solbakken",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Ørjan Nyland",
@@ -1526,11 +1526,11 @@
     },
     "argentina": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Lionel Scaloni",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Emiliano Martínez",
@@ -1580,11 +1580,11 @@
     },
     "algeria": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Vladimir Petkovic",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Luca Zidane",
@@ -1634,11 +1634,11 @@
     },
     "austria": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Ralf Rangnick",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Alexander Schlager",
@@ -1688,11 +1688,11 @@
     },
     "jordan": {
       "formation": "3-4-2-1",
-      "manager": "",
+      "manager": "Jamal Sellami",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Yazeed Abulaila",
@@ -1742,11 +1742,11 @@
     },
     "portugal": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Roberto Martínez",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Diogo Costa",
@@ -1796,11 +1796,11 @@
     },
     "democratic_republic_of_the_congo": {
       "formation": "5-3-2",
-      "manager": "",
+      "manager": "Sébastien Desabre",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Lionel Mpasi",
@@ -1850,11 +1850,11 @@
     },
     "england": {
       "formation": "4-2-3-1",
-      "manager": "",
+      "manager": "Thomas Tuchel",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Jordan Pickford",
@@ -1904,11 +1904,11 @@
     },
     "croatia": {
       "formation": "3-4-2-1",
-      "manager": "",
+      "manager": "Zlatko Dalic",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Dominik Livakovic",
@@ -1958,11 +1958,11 @@
     },
     "ghana": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Carlos Queiroz",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Lawrence Ati Zigi",
@@ -2012,11 +2012,11 @@
     },
     "panama": {
       "formation": "3-4-3",
-      "manager": "",
+      "manager": "Thomas Christiansen",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Orlando Mosquera",
@@ -2066,11 +2066,11 @@
     },
     "uzbekistan": {
       "formation": "3-4-2-1",
-      "manager": "",
+      "manager": "Fabio Cannavaro",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Utkir Yusupov",
@@ -2120,11 +2120,11 @@
     },
     "colombia": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Néstor Lorenzo",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Camilo Vargas",
@@ -2174,11 +2174,11 @@
     },
     "czech_republic": {
       "formation": "3-5-2",
-      "manager": "",
+      "manager": "Miroslav Koubek",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Matej Kovár",
@@ -2228,11 +2228,11 @@
     },
     "south_africa": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Hugo Broos",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Ronwen Williams",
@@ -2282,11 +2282,11 @@
     },
     "switzerland": {
       "formation": "4-3-1-2",
-      "manager": "",
+      "manager": "Murat Yakin",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Gregor Kobel",
@@ -2336,11 +2336,11 @@
     },
     "bosnia_and_herzegovina": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Sergej Barbarez",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Nikola Vasilj",
@@ -2390,11 +2390,11 @@
     },
     "canada": {
       "formation": "4-4-2",
-      "manager": "",
+      "manager": "Jesse Marsch",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Maxime Crépeau",
@@ -2444,11 +2444,11 @@
     },
     "qatar": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Julen Lopetegui",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Mahmoud Abunada",
@@ -2498,11 +2498,11 @@
     },
     "mexico": {
       "formation": "4-3-3",
-      "manager": "",
+      "manager": "Javier Aguirre",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Raúl Rangel",
@@ -2552,11 +2552,11 @@
     },
     "south_korea": {
       "formation": "3-4-2-1",
-      "manager": "",
+      "manager": "Myung-Bo Hong",
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-06-21T06:35:29Z",
+      "checked_at_utc": "2026-06-21T07:30:56Z",
       "players": [
         {
           "name": "Kim Seung-Gyu",

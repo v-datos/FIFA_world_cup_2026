@@ -40,6 +40,9 @@ jobs:
           python -m src.pipeline.collect_espn_matchday --date "$(date -u +%Y%m%d)" --write
           python -m src.pipeline.collect_espn_matchday --date "$(date -u -d 'yesterday' +%Y%m%d)" --write || true
 
+      - name: Refresh World Football Elo ratings (forecast input)
+        run: python -m src.pipeline.collect_rating_sources --write || true
+
       - name: Refresh top scorers from ESPN
         run: python -m src.pipeline.update_top_scorers --write || true
 

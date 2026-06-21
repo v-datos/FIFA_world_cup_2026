@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Squad market value via FotMob (headless browser).
+"""Squad market value (and manager) via FotMob (headless browser).
+
+Each FotMob team page also exposes the head coach, which ESPN does not provide,
+so this writes the manager into the lineups cache in the same pass (the collector
+now preserves it). Both are slow-changing, so run this on demand.
 
 `squad_market_value_m` was hand-researched from Transfermarkt for only 16/48
 teams, leaving 32 MISSING (no free no-browser source carries it reliably).
@@ -24,10 +28,11 @@ import json
 import re
 from pathlib import Path
 
-from src.common.team_identity import normalize_team_name
+from src.common.team_identity import canonical_team_slug, normalize_team_name
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 STYLE_CACHE = PROJECT_ROOT / "data" / "source_cache" / "squad_style" / "latest_metrics.json"
+LINEUPS_CACHE = PROJECT_ROOT / "data" / "source_cache" / "lineups" / "latest.json"
 BACKUP = PROJECT_ROOT / "data" / "source_cache" / "team_market_value" / "latest.json"
 LEAGUE_ID = 77
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -91,8 +96,9 @@ def fetch_values() -> list[dict]:
             lls = (tp.get("overview", {}) or {}).get("lastLineupStats") or {}
             total = sum((pl.get("marketValue") or 0) for pl in lls.get("starters", []))
             total += sum((pl.get("marketValue") or 0) for pl in lls.get("subs", []))
+            coach = (lls.get("coach") or {}).get("name") or ""
             if total > 0:
-                rows.append({"name": nm, "value_m": round(total / 1e6, 1)})
+                rows.append({"name": nm, "value_m": round(total / 1e6, 1), "manager": coach})
         browser.close()
     return rows
 
@@ -138,6 +144,23 @@ def write_cache(rows: list[dict], checked_at: str) -> tuple[int, list[str]]:
     return updated, missed
 
 
+def write_managers(rows: list[dict]) -> int:
+    """Write the FotMob coach name into the lineups cache (ESPN has no manager)."""
+    if not LINEUPS_CACHE.exists():
+        return 0
+    L = json.loads(LINEUPS_CACHE.read_text(encoding="utf-8"))
+    teams = L.setdefault("teams", {})
+    updated = 0
+    for r in rows:
+        mgr = (r.get("manager") or "").strip()
+        entry = teams.get(canonical_team_slug(normalize_team_name(r["name"])))
+        if mgr and entry is not None:
+            entry["manager"] = mgr
+            updated += 1
+    LINEUPS_CACHE.write_text(json.dumps(L, indent=2, ensure_ascii=False), encoding="utf-8")
+    return updated
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Derive squad market value from FotMob (headless).")
     ap.add_argument("--write", action="store_true", help="Update the squad_style cache")
@@ -165,6 +188,8 @@ def main() -> None:
         return
     updated, missed = write_cache(rows, checked_at)
     print(f"updated squad_market_value_m for {updated} teams in {STYLE_CACHE.relative_to(PROJECT_ROOT)}")
+    mgr = write_managers(rows)
+    print(f"updated manager for {mgr} teams in {LINEUPS_CACHE.relative_to(PROJECT_ROOT)}")
     if source == "fotmob_live":
         write_backup(rows, now)
         print(f"backup refreshed: {BACKUP.relative_to(PROJECT_ROOT)}")

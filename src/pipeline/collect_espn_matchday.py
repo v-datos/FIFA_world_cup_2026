@@ -276,8 +276,11 @@ def write_caches(manifest: dict) -> list[str]:
     lp = DATA_DIR / "source_cache" / "lineups" / "latest.json"
     L = _load(lp, {"metadata": {}, "teams": {}})
     for team, lu in manifest["lineups"].items():
-        L.setdefault("teams", {})[canonical_team_slug(team)] = {
-            "formation": lu["formation"], "manager": "", "philosophy": "Confirmed XI from ESPN match data.",
+        slug = canonical_team_slug(team)
+        # ESPN does not expose the manager; preserve one set by update_team_market_value (FotMob).
+        prev_manager = L.get("teams", {}).get(slug, {}).get("manager") or ""
+        L.setdefault("teams", {})[slug] = {
+            "formation": lu["formation"], "manager": prev_manager, "philosophy": "Confirmed XI from ESPN match data.",
             "source_label": "web_researched", "source_url": ESPN_BASE, "checked_at_utc": now,
             "players": lu["players"]}
     L.setdefault("metadata", {})["checked_at_utc"] = now

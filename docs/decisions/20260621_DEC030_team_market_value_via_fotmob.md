@@ -30,6 +30,15 @@ mid-tournament, so loading 48 team pages twice a day is wasteful. Run it on
 demand; the value persists in the cache (the collector preserves it) and can be
 refreshed periodically.
 
+## Manager (same FotMob pass)
+
+ESPN does not expose the head coach, so the manager was always blank/TBD. Each
+FotMob team page carries `lastLineupStats.coach`, so the same pipeline now writes
+the manager into the lineups cache (48/48; e.g. USA Pochettino, Germany
+Nagelsmann). `collect_espn_matchday` was changed to **preserve** an existing
+manager when it rewrites a lineup entry, so the daily ESPN run no longer wipes
+it. Served via `confirmed_tactics`.
+
 ## Consequences
 
 - 48/48 teams now have a squad market value from one consistent source (e.g.
