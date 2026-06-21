@@ -3,6 +3,7 @@ import sys
 import json
 import subprocess
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 from fastapi import FastAPI, HTTPException
@@ -95,6 +96,29 @@ def is_finished_game(game: dict | None) -> bool:
     return value is True or str(value).upper() == "TRUE"
 
 
+# The dashboard's clock is Edmonton (Mountain) time, not the server's UTC.
+EDMONTON_TZ = ZoneInfo("America/Edmonton")
+
+
+def resolve_kickoff(meta: dict, live_game: dict | None = None) -> Optional[datetime]:
+    """Kickoff as Edmonton wall-clock (naive), preferring the real UTC timestamp.
+
+    Lifecycle and day-grouping must use the same clock as the UI (Edmonton),
+    otherwise after 18:00 MT (UTC midnight) the day's remaining fixtures get
+    treated as belonging to the next calendar day.
+    """
+    iso = str(meta.get("kickoff_utc") or "").strip()
+    if iso:
+        try:
+            aware = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+            return aware.astimezone(EDMONTON_TZ).replace(tzinfo=None)
+        except ValueError:
+            pass
+    if live_game:
+        return parse_live_game_datetime(live_game)
+    return parse_schedule_datetime(meta.get("date"), meta.get("time"))
+
+
 def fetch_live_games_for_schedule() -> tuple[dict[str, dict], str]:
     errors = []
     payload = None
@@ -148,10 +172,11 @@ def fetch_live_games_for_schedule() -> tuple[dict[str, dict], str]:
                             meta = data.get("metadata", {})
                             date_str = meta.get("date")
                             time_str = meta.get("time") or "00:00"
-                            kickoff = parse_schedule_datetime(date_str, time_str)
-                            is_finished = False
-                            if kickoff and kickoff.date() < datetime.now().date():
-                                is_finished = True
+                            kickoff = resolve_kickoff(meta)
+                            now_local = datetime.now(EDMONTON_TZ).replace(tzinfo=None)
+                            is_finished = bool(
+                                kickoff and kickoff + timedelta(hours=3) < now_local
+                            )
                             local_games.append({
                                 "id": folder.name,
                                 "home_team_name_en": meta.get("team1"),
@@ -205,11 +230,16 @@ def schedule_lifecycle(
     now_value: datetime,
     next_24h_end: datetime,
 ) -> dict:
-    kickoff = parse_live_game_datetime(live_game) if live_game else parse_schedule_datetime(meta.get("date"), meta.get("time"))
+    kickoff = resolve_kickoff(meta, live_game)
     kickoff_date = kickoff.date() if kickoff else None
     today = now_value.date()
     is_finished = is_finished_game(live_game)
-    if not is_finished and kickoff_date and kickoff_date < today:
+    if not is_finished and kickoff and (
+        kickoff + timedelta(hours=3) < now_value
+        or (kickoff_date and kickoff_date < today)
+    ):
+        # Feed missed it, but kickoff was long enough ago (covers extra time +
+        # penalties) or it belongs to an earlier matchday.
         is_finished = True
     live_team1 = live_game.get("home_team_name_en") or live_game.get("home_team_label") if live_game else ""
     live_team2 = live_game.get("away_team_name_en") or live_game.get("away_team_label") if live_game else ""
@@ -1087,7 +1117,8 @@ def health():
 def get_schedule():
     matches_dir = DATA_DIR / "matches"
     matches_details = []
-    now_value = datetime.now().replace(microsecond=0)
+    # Use the dashboard's Edmonton clock (naive wall-clock) for "today"/active_date.
+    now_value = datetime.now(EDMONTON_TZ).replace(tzinfo=None, microsecond=0)
     next_24h_end = now_value + timedelta(hours=24)
     live_game_index, schedule_source = fetch_live_games_for_schedule()
 
@@ -1122,7 +1153,7 @@ def get_schedule():
 
     matches_details.sort(
         key=lambda item: (
-            parse_schedule_datetime(item.get("date"), item.get("time")) or datetime.max,
+            resolve_kickoff(item) or datetime.max,
             item.get("id") or "",
         )
     )
@@ -1131,10 +1162,7 @@ def get_schedule():
     first_kickoff = None
     if day_matches:
         day_kickoffs = [
-            kickoff for kickoff in (
-                parse_schedule_datetime(item.get("date"), item.get("time"))
-                for item in day_matches
-            )
+            kickoff for kickoff in (resolve_kickoff(item) for item in day_matches)
             if kickoff
         ]
         first_kickoff = min(day_kickoffs) if day_kickoffs else None
