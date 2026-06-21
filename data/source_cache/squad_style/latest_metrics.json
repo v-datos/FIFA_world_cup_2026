@@ -9,7 +9,7 @@
     "status": "partial",
     "checked_at_utc": "2026-06-21T03:07:39Z",
     "team_count": 18,
-    "field_record_count": 464,
+    "field_record_count": 544,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -126,6 +126,26 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "expected_goals_per_90": {
+          "value": 1.51,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.8,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -235,6 +255,26 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "expected_goals_per_90": {
+          "value": 0.64,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.4,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -333,6 +373,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 2.92,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.59,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -430,6 +490,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.41,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 3.9,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -527,6 +607,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.92,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.84,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -624,6 +724,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.73,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.24,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -721,6 +841,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.99,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.49,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -818,6 +958,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.6,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.68,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -927,6 +1087,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.78,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.02,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1037,6 +1217,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.18,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.89,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1135,6 +1335,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 2.63,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.41,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1232,6 +1452,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.59,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.65,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1341,6 +1581,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.76,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.75,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1451,6 +1711,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.43,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.79,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1561,6 +1841,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.25,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.44,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1671,6 +1971,26 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
           "checked_at_utc": "2026-06-21T03:07:39Z",
           "retrieval_method": "espn_api"
+        },
+        "expected_goals_per_90": {
+          "value": 0.76,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.22,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value"
@@ -1769,6 +2089,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.16,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.61,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1866,6 +2206,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.61,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.16,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1904,28 +2264,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 0.78,
-          "unit": "xg",
+          "value": 1.7,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.78",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 0.59,
-          "unit": "xg",
+          "value": 0.8,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.59",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 65.0,
@@ -2033,28 +2389,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 1.36,
-          "unit": "xg",
+          "value": 1.17,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.36",
-          "checked_at_utc": "2026-06-20T18:55:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 0.28,
-          "unit": "xg",
+          "value": 1.44,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.28",
-          "checked_at_utc": "2026-06-20T18:55:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 51.7,
@@ -2162,28 +2514,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 3.91,
-          "unit": "xg",
+          "value": 3.06,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "3.91",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 0.4,
-          "unit": "xg",
+          "value": 0.81,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.4",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 45.2,
@@ -2291,28 +2639,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 1.52,
-          "unit": "xg",
+          "value": 1.37,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.52",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 1.01,
-          "unit": "xg",
+          "value": 1.45,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.01",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 25.0,
@@ -2420,28 +2764,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 1.01,
-          "unit": "xg",
+          "value": 2.03,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.01",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 1.52,
-          "unit": "xg",
+          "value": 1.0,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.52",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 41.0,
@@ -2540,28 +2880,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 0.4,
-          "unit": "xg",
+          "value": 0.44,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.4",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 3.91,
-          "unit": "xg",
+          "value": 3.63,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "3.91",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_per_90": {
           "value": 9.0,
@@ -2678,28 +3014,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_conceded_per_90": {
-          "value": 1.36,
-          "unit": "xg",
+          "value": 1.3,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "1.36",
-          "checked_at_utc": "2026-06-20T18:55:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_per_90": {
-          "value": 0.28,
-          "unit": "xg",
+          "value": 0.15,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / xGscore)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.28",
-          "checked_at_utc": "2026-06-20T18:55:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 33.3,
@@ -2807,28 +3139,24 @@
           "retrieval_method": "espn_api"
         },
         "expected_goals_per_90": {
-          "value": 0.59,
-          "unit": "xg",
+          "value": 0.93,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.59",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "expected_goals_conceded_per_90": {
-          "value": 0.78,
-          "unit": "xg",
+          "value": 0.4,
+          "unit": "xG per 90",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Matchday-1 match report (Opta Analyst / ESPN / FIFA)",
-          "source_url": "https://theanalyst.com/articles/",
-          "source_path": "Match team stats (1 game played)",
-          "source_value_text": "0.78",
-          "checked_at_utc": "2026-06-20T18:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 2 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "shots_on_target_pct": {
           "value": 30.0,
@@ -2986,6 +3314,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 2.1,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.2,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3075,6 +3423,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.2,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 2.1,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3164,6 +3532,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.35,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.08,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3253,6 +3641,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.08,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.35,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3342,6 +3750,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.66,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.72,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3431,6 +3859,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.72,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.66,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3520,6 +3968,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.5,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.24,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3609,6 +4077,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.24,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.5,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3698,6 +4186,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.79,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.53,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3787,6 +4295,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.53,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.79,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3876,6 +4404,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.8,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 2.52,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3965,6 +4513,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 2.52,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.8,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4054,6 +4622,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.26,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.32,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4143,6 +4731,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.32,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.26,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4232,6 +4840,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.69,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.46,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4321,6 +4949,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.46,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.69,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4410,6 +5058,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.65,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.87,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4499,6 +5167,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.87,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.65,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4588,6 +5276,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 3.2,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.7,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4677,6 +5385,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.7,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 3.2,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4766,6 +5494,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 1.25,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 0.73,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4855,6 +5603,26 @@
           "source_url": "https://sports.core.api.espn.com/v2/sports/soccer/athletes/{id}",
           "checked_at_utc": "2026-06-21T04:16:53Z",
           "retrieval_method": "espn_roster_dob"
+        },
+        "expected_goals_per_90": {
+          "value": 0.73,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
+        },
+        "expected_goals_conceded_per_90": {
+          "value": 1.25,
+          "unit": "xG per 90",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob World Cup team table (avg of 1 matches)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T04:38:54Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
