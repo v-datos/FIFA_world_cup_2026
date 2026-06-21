@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-21T06:36:12Z",
+    "checked_at_utc": "2026-06-21T13:35:17Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -134,7 +134,7 @@
     },
     {
       "name": "Japan",
-      "xg90": 1.33,
+      "xg90": 1.36,
       "xga90": 0.42,
       "mp": 2
     },
@@ -147,7 +147,7 @@
     {
       "name": "Tunisia",
       "xg90": 0.16,
-      "xga90": 1.7,
+      "xga90": 1.73,
       "mp": 2
     },
     {

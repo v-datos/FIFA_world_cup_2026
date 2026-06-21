@@ -10,13 +10,12 @@
     "kickoff_utc": "2026-06-21T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Bielsa's Uruguay Battles Cape Verde's Defensive Resilience",
+    "key_headline": "Bielsa's Uruguay: Generational shift meets crucial Cape Verde clash",
     "injuries": {
       "uruguay": [
-        "Giorgian de Arrascaeta (broken collarbone - Out)",
-        "Ronald Araujo (calf injury, muscle tear - Doubtful)",
-        "José María Giménez (fitness concerns - Doubtful)",
-        "Sebastián Cáceres (concussion - Out)"
+        "Giorgian de Arrascaeta (muscle injury - Out)",
+        "Ronald Araujo (calf injury - Doubtful)",
+        "José María Giménez (ankle injury - Doubtful)"
       ],
       "cape_verde": [
         "No confirmed injuries reported."
@@ -35,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Darwin Nunez's attacking threat faces Cape Verde's breakout goalkeeper Vozinha.",
-      "Cape Verde's disciplined 0-0 draw against Spain highlights their strong defensive organization.",
-      "Bielsa's high-intensity pressing system will challenge Bubista's disciplined low-block and counter-attacking strategy."
+      "Federico Valverde carries Uruguay's creative burden with key teammates injured, driving midfield and attack.",
+      "Both teams drew their opening fixtures, making this a crucial match for World Cup progression.",
+      "Bielsa's high-intensity, vertical attacking system will challenge Cape Verde's likely defensive organization."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:31:26Z",
+    "headline_generated_at_utc": "2026-06-21T13:37:13Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

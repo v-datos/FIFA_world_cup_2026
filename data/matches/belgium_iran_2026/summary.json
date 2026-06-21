@@ -10,17 +10,17 @@
     "kickoff_utc": "2026-06-21T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Belgium's New Attacking Era Faces Iran's Disrupted Preparation",
+    "key_headline": "Garcia's Belgium faces motivated Iran amid off-field drama.",
     "injuries": {
       "belgium": [
-        "Zeno Debast (Thigh/Leg injury - Out)",
-        "Jérémy Doku (Illness - Out)"
+        "Zeno Debast (Thigh injury - Out)",
+        "Jérémy Doku (Illness (respiratory infection) - Out)"
       ],
       "iran": [
         "Alireza Jahanbakhsh (muscle injury - Out)",
         "Dennis Eckert (unspecified injury - Out)",
         "Mehdi Torabi (unspecified injury - Out)",
-        "Roozbeh Cheshmi (unspecified injury - Doubtful)",
+        "Roozbeh Cheshmi (unspecified/hamstring injury - Doubtful)",
         "Saman Ghoddos (ankle injury - Doubtful)"
       ]
     },
@@ -37,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "Mehdi Taremi's deep-lying role and finishing prowess will test Belgium's sometimes vulnerable defensive structure.",
-      "Iran's severely hampered preparation due to travel restrictions could impact their physical and mental readiness.",
-      "Rudi Garcia's attack-minded philosophy will clash with Iran's disciplined deep block and swift counter-attacking strategy."
+      "Lukaku's 'super sub' role will test Iran's disciplined defense.",
+      "Iran's off-field challenges could highly motivate their performance.",
+      "Belgium's vertical 4-3-3 challenges Iran's compact defense and counter-attacks."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:30:13Z",
+    "headline_generated_at_utc": "2026-06-21T13:35:59Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

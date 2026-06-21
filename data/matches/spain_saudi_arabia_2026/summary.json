@@ -10,14 +10,12 @@
     "kickoff_utc": "2026-06-21T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "Spain seeks attacking spark after draw; Saudi Arabia confident.",
+    "key_headline": "Spain's direct evolution faces Saudi counter after opening draws",
     "injuries": {
       "spain": [
-        "Fermín López (fractured right foot - Out)",
-        "Lamine Yamal (hamstring injury - Doubtful)",
-        "Nico Williams (hamstring problem - Doubtful)",
-        "Mikel Merino (foot fracture - Doubtful)",
-        "Victor Munoz (hamstring injury - Doubtful)"
+        "Victor Muñoz (hamstring - Doubtful)",
+        "Lamine Yamal (not at best after injury - Doubtful)",
+        "Nico Williams (not at best after injury - Doubtful)"
       ],
       "saudi_arabia": [
         "No confirmed injuries reported."
@@ -36,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Spain's dynamic wingers, Yamal and Williams, challenge Saudi Arabia's flanks.",
-      "Spain's goalless draw against Cape Verde puts pressure on their attacking output.",
-      "De la Fuente's evolved Spain meets Donis's flexible, attacking Saudi Arabia setup."
+      "Spain's Lamine Yamal and Nico Williams will test Saudi Arabia's compact wide defense and potential five-man backline.",
+      "Spain must improve finishing after their surprising goalless draw against Cape Verde in the opening match.",
+      "Luis de la Fuente's vertical 4-3-3 will challenge Georgios Donis's compact 4-4-2 and quick counter-attacking strategy."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:31:02Z",
+    "headline_generated_at_utc": "2026-06-21T13:36:45Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

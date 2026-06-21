@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-22T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Group G Showdown: New Zealand, Egypt Chase Elusive First Win",
+    "key_headline": "Egypt's Pragmatism Meets All Whites' Resilience for Crucial Win",
     "injuries": {
       "new_zealand": [
-        "Matt Garbett (Hamstring injury - Out)"
+        "Matt Garbett (hamstring injury - Out)",
+        "Ryan Thomas (hamstring strain - Doubtful)",
+        "Joe Bell (calf issue - Doubtful)"
       ],
       "egypt": [
-        "No confirmed injuries reported."
+        "Islam Issa (torn cruciate ligament - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Players face immense pressure to secure their nation's inaugural World Cup victory.",
-      "Both teams drew their opening matches, making this a crucial fixture for knockout stage hopes.",
-      "A win is vital for either side to gain an advantage in the tight Group G standings."
+      "Mohamed Salah's individual brilliance will test New Zealand's organized defensive efforts.",
+      "Both teams seek their first tournament win after opening draws, making this match pivotal for knockout hopes.",
+      "Hassan's pragmatic Egypt must adapt from a low block to proactive possession against Bazeley's adaptable All Whites."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T08:30:38Z",
+    "headline_generated_at_utc": "2026-06-21T13:36:20Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
