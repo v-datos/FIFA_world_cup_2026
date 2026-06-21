@@ -13,4 +13,5 @@ soccerdata
 fastapi
 uvicorn
 google-cloud-aiplatform
+google-genai
 tzdata

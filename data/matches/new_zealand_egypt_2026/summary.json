@@ -13,10 +13,10 @@
     "key_headline": "Egypt Favored Against New Zealand's Possession Game",
     "injuries": {
       "new_zealand": [
-        "No verified baseline injury update is available yet."
+        "Matt Garbett (Hamstring injury - Out)"
       ],
       "egypt": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -38,7 +38,8 @@
     ],
     "headline_source": "ai_generated",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:31Z"
+    "headline_generated_at_utc": "2026-06-21T06:36:31Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

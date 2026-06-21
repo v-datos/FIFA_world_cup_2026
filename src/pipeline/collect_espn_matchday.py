@@ -277,12 +277,18 @@ def write_caches(manifest: dict) -> list[str]:
     L = _load(lp, {"metadata": {}, "teams": {}})
     for team, lu in manifest["lineups"].items():
         slug = canonical_team_slug(team)
-        # ESPN does not expose the manager; preserve one set by update_team_market_value (FotMob).
-        prev_manager = L.get("teams", {}).get(slug, {}).get("manager") or ""
+        prev = L.get("teams", {}).get(slug, {})
+        # ESPN exposes neither the manager nor player clubs; preserve values set by
+        # update_team_market_value (manager) and generate_team_news (player clubs).
+        prev_clubs = {p.get("name"): p.get("club") for p in prev.get("players", []) if (p.get("club") or "N/A") != "N/A"}
+        players = lu["players"]
+        for p in players:
+            if prev_clubs.get(p.get("name")):
+                p["club"] = prev_clubs[p["name"]]
         L.setdefault("teams", {})[slug] = {
-            "formation": lu["formation"], "manager": prev_manager, "philosophy": "Confirmed XI from ESPN match data.",
+            "formation": lu["formation"], "manager": prev.get("manager") or "", "philosophy": "Confirmed XI from ESPN match data.",
             "source_label": "web_researched", "source_url": ESPN_BASE, "checked_at_utc": now,
-            "players": lu["players"]}
+            "players": players}
     L.setdefault("metadata", {})["checked_at_utc"] = now
     with open(lp, "w", encoding="utf-8") as f:
         json.dump(L, f, indent=2, ensure_ascii=False)

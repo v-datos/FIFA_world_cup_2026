@@ -13,10 +13,15 @@
     "key_headline": "Belgium's Possession vs. Iran's Attacking Efficiency",
     "injuries": {
       "belgium": [
-        "No verified baseline injury update is available yet."
+        "Zeno Debast (Thigh/Leg injury - Out)",
+        "Jérémy Doku (Illness - Out)"
       ],
       "iran": [
-        "No verified baseline injury update is available yet."
+        "Alireza Jahanbakhsh (muscle injury - Out)",
+        "Dennis Eckert (unspecified injury - Out)",
+        "Mehdi Torabi (unspecified injury - Out)",
+        "Roozbeh Cheshmi (unspecified injury - Doubtful)",
+        "Saman Ghoddos (ankle injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -38,7 +43,8 @@
     ],
     "headline_source": "ai_generated",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:26Z"
+    "headline_generated_at_utc": "2026-06-21T06:36:26Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

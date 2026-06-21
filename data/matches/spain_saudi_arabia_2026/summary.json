@@ -13,10 +13,14 @@
     "key_headline": "Dominant Spain Faces Defensive Saudi Arabia in Group H Clash",
     "injuries": {
       "spain": [
-        "No verified baseline injury update is available yet."
+        "Fermín López (fractured right foot - Out)",
+        "Lamine Yamal (hamstring injury - Doubtful)",
+        "Nico Williams (hamstring problem - Doubtful)",
+        "Mikel Merino (foot fracture - Doubtful)",
+        "Victor Munoz (hamstring injury - Doubtful)"
       ],
       "saudi_arabia": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -38,7 +42,8 @@
     ],
     "headline_source": "ai_generated",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-21T06:36:33Z"
+    "headline_generated_at_utc": "2026-06-21T06:36:33Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",
