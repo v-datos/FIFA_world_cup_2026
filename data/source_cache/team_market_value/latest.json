@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "checked_at_utc": "2026-06-21T06:58:42Z",
+    "source": "FotMob",
+    "league_id": 77,
+    "note": "Fallback squad market value snapshot; restored if a live fetch fails."
+  },
+  "teams": [
+    {
+      "name": "South Korea",
+      "value_m": 128.5
+    },
+    {
+      "name": "Mexico",
+      "value_m": 171.1
+    },
+    {
+      "name": "South Africa",
+      "value_m": 32.9
+    },
+    {
+      "name": "Czechia",
+      "value_m": 156.6
+    },
+    {
+      "name": "Switzerland",
+      "value_m": 343.4
+    },
+    {
+      "name": "Canada",
+      "value_m": 183.3
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "value_m": 110.6
+    },
+    {
+      "name": "Qatar",
+      "value_m": 13.0
+    },
+    {
+      "name": "Brazil",
+      "value_m": 815.2
+    },
+    {
+      "name": "Morocco",
+      "value_m": 417.0
+    },
+    {
+      "name": "Scotland",
+      "value_m": 195.0
+    },
+    {
+      "name": "Haiti",
+      "value_m": 55.5
+    },
+    {
+      "name": "Turkiye",
+      "value_m": 472.8
+    },
+    {
+      "name": "USA",
+      "value_m": 317.2
+    },
+    {
+      "name": "Australia",
+      "value_m": 68.5
+    },
+    {
+      "name": "Paraguay",
+      "value_m": 139.0
+    },
+    {
+      "name": "Germany",
+      "value_m": 943.9
+    },
+    {
+      "name": "Ecuador",
+      "value_m": 382.1
+    },
+    {
+      "name": "Ivory Coast",
+      "value_m": 464.8
+    },
+    {
+      "name": "Curacao",
+      "value_m": 22.5
+    },
+    {
+      "name": "Netherlands",
+      "value_m": 836.7
+    },
+    {
+      "name": "Japan",
+      "value_m": 263.8
+    },
+    {
+      "name": "Sweden",
+      "value_m": 460.0
+    },
+    {
+      "name": "Tunisia",
+      "value_m": 64.0
+    },
+    {
+      "name": "Belgium",
+      "value_m": 529.4
+    },
+    {
+      "name": "Iran",
+      "value_m": 12.8
+    },
+    {
+      "name": "New Zealand",
+      "value_m": 26.6
+    },
+    {
+      "name": "Egypt",
+      "value_m": 127.6
+    },
+    {
+      "name": "Spain",
+      "value_m": 1265.6
+    },
+    {
+      "name": "Uruguay",
+      "value_m": 363.1
+    },
+    {
+      "name": "Saudi Arabia",
+      "value_m": 24.4
+    },
+    {
+      "name": "Cape Verde",
+      "value_m": 42.5
+    },
+    {
+      "name": "Norway",
+      "value_m": 543.6
+    },
+    {
+      "name": "France",
+      "value_m": 1433.5
+    },
+    {
+      "name": "Senegal",
+      "value_m": 507.2
+    },
+    {
+      "name": "Iraq",
+      "value_m": 14.8
+    },
+    {
+      "name": "Austria",
+      "value_m": 226.8
+    },
+    {
+      "name": "Argentina",
+      "value_m": 848.3
+    },
+    {
+      "name": "Algeria",
+      "value_m": 251.1
+    },
+    {
+      "name": "Jordan",
+      "value_m": 7.6
+    },
+    {
+      "name": "Colombia",
+      "value_m": 300.0
+    },
+    {
+      "name": "DR Congo",
+      "value_m": 141.9
+    },
+    {
+      "name": "Portugal",
+      "value_m": 953.2
+    },
+    {
+      "name": "Uzbekistan",
+      "value_m": 72.5
+    },
+    {
+      "name": "England",
+      "value_m": 1352.5
+    },
+    {
+      "name": "Ghana",
+      "value_m": 222.0
+    },
+    {
+      "name": "Panama",
+      "value_m": 28.2
+    },
+    {
+      "name": "Croatia",
+      "value_m": 348.1
+    }
+  ]
+}

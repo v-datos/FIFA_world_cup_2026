@@ -9,7 +9,7 @@
     "status": "partial",
     "checked_at_utc": "2026-06-21T06:35:29Z",
     "team_count": 18,
-    "field_record_count": 592,
+    "field_record_count": 624,
     "warnings": [
       "Squad value (all today fixtures) + average age (Brazil, Australia, Haiti) are source-backed; advanced style metrics (xG, PPDA, field tilt, possession) remain missing pending a provider feed."
     ],
@@ -34,16 +34,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 928.2,
-          "unit": "EUR_m",
+          "value": 815.2,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.transfermarkt.com/brazil/startseite/verein/3439",
-          "source_path": "Profile header total market value",
-          "source_value_text": "EUR 928.20 m Total market value",
-          "checked_at_utc": "2026-06-19T07:56:49Z",
-          "retrieval_method": "manual_static_manifest"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "average_age": {
           "value": 29.2,
@@ -173,16 +171,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 55.9,
-          "unit": "EUR_m",
+          "value": 55.5,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 55.90 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "average_age": {
           "value": 27.5,
@@ -423,6 +419,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 183.3,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -550,6 +556,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 13.0,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -677,6 +693,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 156.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -804,6 +830,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 32.9,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -931,6 +967,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 171.1,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1058,6 +1104,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 128.5,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1075,16 +1131,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 170.25,
-          "unit": "EUR_m",
+          "value": 195.0,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 170.25 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 43.7,
@@ -1215,16 +1269,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 447.7,
-          "unit": "EUR_m",
+          "value": 417.0,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 447.70 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 53.8,
@@ -1465,6 +1517,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 343.4,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1592,6 +1654,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 110.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -1609,16 +1681,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 473.7,
-          "unit": "EUR_m",
+          "value": 472.8,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 473.70 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 75.0,
@@ -1749,16 +1819,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 153.65,
-          "unit": "EUR_m",
+          "value": 139.0,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 153.65 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 28.1,
@@ -1889,16 +1957,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 385.6,
-          "unit": "EUR_m",
+          "value": 317.2,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 385.60 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 63.6,
@@ -2029,16 +2095,14 @@
       ],
       "fields": {
         "squad_market_value_m": {
-          "value": 77.45,
-          "unit": "EUR_m",
+          "value": 68.5,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value / average age",
-          "source_value_text": "EUR 77.45 m total market value",
-          "checked_at_utc": "2026-06-19T16:45:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "average_age": {
           "value": 27.4,
@@ -2279,6 +2343,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 72.5,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -2406,6 +2480,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 300.0,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       }
     },
@@ -2414,16 +2498,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 754.2,
-          "unit": "EUR_m",
+          "value": 836.7,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 754.20 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 55.3,
@@ -2549,16 +2631,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 406.08,
-          "unit": "EUR_m",
+          "value": 460.0,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 406.08 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 48.9,
@@ -2684,16 +2764,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 947.0,
-          "unit": "EUR_m",
+          "value": 943.9,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 947.00 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 62.0,
@@ -2819,16 +2897,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 522.1,
-          "unit": "EUR_m",
+          "value": 464.8,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 522.10 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 44.5,
@@ -2954,16 +3030,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 368.7,
-          "unit": "EUR_m",
+          "value": 382.1,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 368.70 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 63.1,
@@ -3089,16 +3163,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 25.78,
-          "unit": "EUR_m",
+          "value": 22.5,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 25.78 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 30.4,
@@ -3224,16 +3296,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 69.95,
-          "unit": "EUR_m",
+          "value": 64.0,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 69.95 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 51.3,
@@ -3359,16 +3429,14 @@
       "fixture_ids": [],
       "fields": {
         "squad_market_value_m": {
-          "value": 270.85,
-          "unit": "EUR_m",
+          "value": 263.8,
+          "unit": "EUR millions",
           "status": "available",
-          "source_label": "web_researched",
-          "source_name": "Transfermarkt",
-          "source_url": "https://www.planetfootball.com/lists-and-rankings/world-cup-2026-every-squad-ranked-market-value",
-          "source_path": "National team total market value",
-          "source_value_text": "EUR 270.85 m total market value",
-          "checked_at_utc": "2026-06-20T18:30:00Z",
-          "retrieval_method": "web_research"
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         },
         "possession_avg": {
           "value": 40.2,
@@ -3604,6 +3672,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 1265.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3723,6 +3801,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 42.5,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3842,6 +3930,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 529.4,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -3961,6 +4059,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 127.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4080,6 +4188,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 24.4,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4199,6 +4317,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 363.1,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4318,6 +4446,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 12.8,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4437,6 +4575,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 26.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4556,6 +4704,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 1433.5,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4675,6 +4833,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 507.2,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4794,6 +4962,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 14.8,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -4913,6 +5091,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 543.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5032,6 +5220,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 848.3,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5151,6 +5349,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 251.1,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5270,6 +5478,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 226.8,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5389,6 +5607,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 7.6,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5508,6 +5736,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 953.2,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5627,6 +5865,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 141.9,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5746,6 +5994,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 1352.5,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5865,6 +6123,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 348.1,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -5984,6 +6252,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 222.0,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"
@@ -6103,6 +6381,16 @@
           "source_url": "https://www.fotmob.com/leagues/77",
           "checked_at_utc": "2026-06-21T06:36:12Z",
           "retrieval_method": "derived_xg_per_shot"
+        },
+        "squad_market_value_m": {
+          "value": 28.2,
+          "unit": "EUR millions",
+          "status": "available",
+          "source_label": "fotmob",
+          "source_name": "FotMob matchday squad market value (starters + subs)",
+          "source_url": "https://www.fotmob.com/leagues/77",
+          "checked_at_utc": "2026-06-21T06:58:42Z",
+          "retrieval_method": "fotmob_headless_browser"
         }
       },
       "status": "partial"

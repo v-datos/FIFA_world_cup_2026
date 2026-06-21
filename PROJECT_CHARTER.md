@@ -217,6 +217,7 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-20 | Switch from Anthropic Claude to Google Vertex AI Gemini for Preview Generation | Orchestrator | docs/decisions/20260620_DEC027_switch_from_anthropic_to_gemini_vertex.md |
 | 2026-06-20 | Team xG via FotMob Headless Browser | Orchestrator | docs/decisions/20260620_DEC028_team_xg_via_fotmob_headless.md |
 | 2026-06-21 | Deterministic Standings & Bracket Automation | Orchestrator | docs/decisions/20260621_DEC029_deterministic_standings_bracket.md |
+| 2026-06-21 | Squad Market Value via FotMob Headless Browser | Orchestrator | docs/decisions/20260621_DEC030_team_market_value_via_fotmob.md |
 
 ## Risks
 
