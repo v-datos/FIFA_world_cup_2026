@@ -1,4 +1,7 @@
-# DEC025 - Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment)
+# DEC025b - Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment)
+
+> Renumbered from a duplicate DEC025 (the deterministic ESPN matchday automation
+> record owns DEC025). Content unchanged.
 
 Date: 2026-06-20  
 Authority: Orchestrator / Frontend Engineer  

@@ -211,10 +211,12 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-19 | Active Metric Gap Preservation | Orchestrator | docs/decisions/20260619_DEC022_active_metric_gap_preservation.md |
 | 2026-06-19 | Docker Frontend Build Must Include Team Identity Contract | Orchestrator | docs/decisions/20260619_DEC023_docker_frontend_data_context.md |
 | 2026-06-20 | Runtime Match Analysis Data Contracts (Forecast, Lineups, Overview Time/Venue) | Orchestrator | docs/decisions/20260620_DEC024_runtime_match_analysis_contracts.md |
-| 2026-06-20 | Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment) | Orchestrator | docs/decisions/20260620_DEC025_bracket_ui_rebaseline.md |
+| 2026-06-20 | Standings & Bracket Tab UI Rebaseline (Streamlit Wood Board Alignment) | Orchestrator | docs/decisions/20260620_DEC025b_bracket_ui_rebaseline.md |
 | 2026-06-20 | Deterministic ESPN Matchday Automation | Orchestrator | docs/decisions/20260620_DEC025_deterministic_espn_matchday_automation.md |
 | 2026-06-20 | Drop Player Career-Stats Hover Endpoint (T-019) | Orchestrator | docs/decisions/20260620_DEC026_drop_player_career_stats_hover.md |
 | 2026-06-20 | Switch from Anthropic Claude to Google Vertex AI Gemini for Preview Generation | Orchestrator | docs/decisions/20260620_DEC027_switch_from_anthropic_to_gemini_vertex.md |
+| 2026-06-20 | Team xG via FotMob Headless Browser | Orchestrator | docs/decisions/20260620_DEC028_team_xg_via_fotmob_headless.md |
+| 2026-06-21 | Deterministic Standings & Bracket Automation | Orchestrator | docs/decisions/20260621_DEC029_deterministic_standings_bracket.md |
 
 ## Risks
 
