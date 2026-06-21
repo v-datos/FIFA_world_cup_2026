@@ -194,8 +194,6 @@ export const SquadStyleComparison: React.FC<Props> = ({
     { label: es ? 'Tiros en Contra / 90' : 'Shots Against / 90', key: 'shots_against_per_90', dec: 1, lowerIsBetter: true },
     { label: es ? 'Pases / 90' : 'Passes / 90', key: 'passes_per_90', dec: 0 },
     { label: es ? 'Precisión de Pase %' : 'Pass Completion %', key: 'pass_completion_pct', suffix: '%', dec: 1 },
-    { label: es ? 'PPDA (Intensidad de Presión)' : 'PPDA (Pressing Intensity)', key: 'ppda', dec: 1, lowerIsBetter: true },
-    { label: es ? 'Inclinación de Campo %' : 'Field Tilt %', key: 'field_tilt_pct', suffix: '%', dec: 1 },
   ];
 
   const toNumber = (value: MetricValue): number => {

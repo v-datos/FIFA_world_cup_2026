@@ -480,8 +480,6 @@ REQUIRED_TEAM_METRIC_FIELDS = [
     "expected_goals_per_90",
     "expected_goals_conceded_per_90",
     "shots_per_90",
-    "ppda",
-    "field_tilt_pct",
     "goals_per_90",
     "goals_conceded_per_90",
     "shots_on_target_pct",
