@@ -67,27 +67,8 @@ function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         lang={lang}
+        setLang={setLang}
       />
-
-      {/* Language toggle — fixed at the top-right corner of the page */}
-      <div className="fixed top-3 right-4 z-50 flex items-center gap-1 p-1 bg-slate-900/80 backdrop-blur rounded-lg border border-slate-800/60 shadow-lg">
-        <button
-          onClick={() => setLang('English')}
-          className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all duration-150 ${
-            lang === 'English' ? 'bg-emerald-500/15 text-emerald-400' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          EN
-        </button>
-        <button
-          onClick={() => setLang('Español')}
-          className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all duration-150 ${
-            lang === 'Español' ? 'bg-emerald-500/15 text-emerald-400' : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          ES
-        </button>
-      </div>
 
       {/* Main Content Pane */}
       <main className="flex-1 min-h-screen overflow-y-auto p-6 md:p-8 space-y-6 max-w-7xl mx-auto">

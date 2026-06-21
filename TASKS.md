@@ -19,6 +19,18 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-054 - Fix Vertex AI GCP Project Permissions on Cloud Run**
+  Owner: Data Pipeline Engineer
+  Completed: 2026-06-21
+  Notes: Resolved 403 Permission Denied translation failures on Cloud Run by dynamically resolving the project ID (`GEMINI_PROJECT` or `GOOGLE_CLOUD_PROJECT` or fallback to `midyear-castle-328020`) rather than defaulting to the developer's legacy project ID (`statsbomb-db`). Updates applied to `src/api/main.py`, `generate_match_headlines.py`, and `generate_team_news.py`.
+  Verify: Call `/api/match/uruguay_cape_verde_2026/summary?lang=es` on Cloud Run and verify Spanish JSON payload.
+
+- [x] **T-055 - Relocate Language Toggle to Sidebar**
+  Owner: Frontend Engineer
+  Completed: 2026-06-21
+  Notes: Moved the EN/ES language toggle from the top-right corner to the sidebar directly below the 'Tabla y Llaves' ('Standings & Bracket') navigation tab. Supports responsive layout styling for both expanded and collapsed sidebar states.
+  Verify: Check toggle appearance and behavior in both sidebar states; run `npm run build`.
+
 - [x] **T-053 - Verify Scheduled GitHub Actions Workflow**
   Owner: QA / Reproducibility Engineer
   Completed: 2026-06-21

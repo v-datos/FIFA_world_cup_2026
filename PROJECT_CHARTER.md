@@ -221,6 +221,7 @@ Roles are defined in `AGENTS.md`.
 | 2026-06-21 | Injuries & Player Clubs via Gemini + Google Search Grounding | Orchestrator | docs/decisions/20260621_DEC031_injuries_clubs_via_gemini_grounding.md |
 | 2026-06-21 | Grounded Web Search for AI Tactical Previews (Headlines + Insights) | Orchestrator | docs/decisions/20260621_DEC032_grounded_headlines_insights.md |
 | 2026-06-21 | Spanish Localization & Automated Tactical Philosophy Generation | Orchestrator | docs/decisions/20260621_DEC033_spanish_localization_and_tactical_philosophy.md |
+| 2026-06-21 | GCP Project Resolution & Sidebar Toggle Placement | Orchestrator | docs/decisions/20260621_DEC034_gcp_project_resolution_and_sidebar_toggle.md |
 
 ## Risks
 

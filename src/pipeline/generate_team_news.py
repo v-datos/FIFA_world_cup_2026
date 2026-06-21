@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
 LINEUPS_CACHE = DATA_DIR / "source_cache" / "lineups" / "latest.json"
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-PROJECT = os.environ.get("GEMINI_PROJECT", "statsbomb-db")
+PROJECT = os.environ.get("GEMINI_PROJECT") or os.environ.get("GOOGLE_CLOUD_PROJECT") or "midyear-castle-328020"
 LOCATION = os.environ.get("GEMINI_LOCATION", "us-central1")
 
 

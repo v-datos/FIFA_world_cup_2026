@@ -58,7 +58,7 @@ app.add_middleware(
 
 DATA_DIR = PROJECT_ROOT / "data"
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-PROJECT = os.environ.get("GEMINI_PROJECT", "statsbomb-db")
+PROJECT = os.environ.get("GEMINI_PROJECT") or os.environ.get("GOOGLE_CLOUD_PROJECT") or "midyear-castle-328020"
 LOCATION = os.environ.get("GEMINI_LOCATION", "us-central1")
 
 # Memory cache for standings

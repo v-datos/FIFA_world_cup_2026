@@ -6,6 +6,7 @@ interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   lang: string;
+  setLang: (lang: string) => void;
 }
 
 // Sidebar brand icon uses the official FIFA World Cup 26 match-ball logo asset.
@@ -14,6 +15,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activeTab,
   setActiveTab,
   lang,
+  setLang,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -73,6 +75,43 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </button>
           );
         })}
+
+        {/* Language toggle — placed below Standings & Bracket ('Tabla y Llaves') */}
+        {collapsed ? (
+          <div className="flex flex-col items-center gap-1 mt-6 border-t border-slate-800/60 pt-4">
+            <button 
+              onClick={() => setLang(lang === 'English' ? 'Español' : 'English')} 
+              title={lang === 'Español' ? 'Switch to English' : 'Cambiar a Español'}
+              className="text-xs font-bold text-slate-400 hover:text-slate-200 uppercase bg-slate-900/40 p-2 rounded-lg border border-slate-800/60 transition-all duration-150"
+            >
+              {lang === 'English' ? 'ES' : 'EN'}
+            </button>
+          </div>
+        ) : (
+          <div className="mt-6 border-t border-slate-800/60 pt-4 px-1.5">
+            <div className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+              {lang === 'Español' ? 'Idioma' : 'Language'}
+            </div>
+            <div className="flex items-center gap-1 p-1 bg-slate-900/80 backdrop-blur rounded-lg border border-slate-800/60 shadow-lg">
+              <button
+                onClick={() => setLang('English')}
+                className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-150 ${
+                  lang === 'English' ? 'bg-emerald-500/15 text-emerald-400' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                English
+              </button>
+              <button
+                onClick={() => setLang('Español')}
+                className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-150 ${
+                  lang === 'Español' ? 'bg-emerald-500/15 text-emerald-400' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Español
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
     </aside>
