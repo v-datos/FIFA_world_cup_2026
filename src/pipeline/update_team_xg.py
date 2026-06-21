@@ -128,6 +128,19 @@ def write_cache(rows: list[dict], checked_at: str | None = None) -> tuple[int, l
         fields = entry.setdefault("fields", {})
         fields["expected_goals_per_90"] = field(r["xg90"], r["mp"])
         fields["expected_goals_conceded_per_90"] = field(r["xga90"], r["mp"])
+        # xG per shot = xG/90 ÷ shots/90 (shots come from the ESPN collector).
+        shots90 = (fields.get("shots_per_90") or {}).get("value")
+        if isinstance(shots90, (int, float)) and shots90 > 0:
+            fields["xg_per_shot"] = {
+                "value": round(r["xg90"] / shots90, 3),
+                "unit": "xG per shot",
+                "status": "available",
+                "source_label": "derived",
+                "source_name": "Derived: FotMob xG/90 ÷ ESPN shots/90",
+                "source_url": f"https://www.fotmob.com/leagues/{LEAGUE_ID}",
+                "checked_at_utc": now,
+                "retrieval_method": "derived_xg_per_shot",
+            }
         updated += 1
     cache.setdefault("metadata", {})["field_record_count"] = sum(len(t.get("fields", {})) for t in cache["teams"])
     STYLE_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
