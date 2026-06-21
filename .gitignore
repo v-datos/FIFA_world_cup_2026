@@ -4,6 +4,7 @@ __pycache__/
 .env
 node_modules/
 dist/
+src/api/static
 src/api/static/
 src/frontend/node_modules/
 src/frontend/dist/
