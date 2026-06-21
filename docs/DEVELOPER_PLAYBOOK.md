@@ -2,7 +2,7 @@
 
 ## FIFA World Cup 2026 Dashboard
 
-Last updated: 2026-06-19
+Last updated: 2026-06-21
 
 This playbook describes the current local architecture and operating workflow.
 Older Streamlit instructions are legacy/reference unless explicitly called out.
