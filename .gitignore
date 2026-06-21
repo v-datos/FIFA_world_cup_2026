@@ -13,3 +13,5 @@ venv/
 .project_env/
 .claude/settings.local.json
 downloaded_files/
+# google-github-actions/auth writes the SA key here in CI — never commit it
+gha-creds-*.json
