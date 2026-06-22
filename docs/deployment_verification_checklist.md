@@ -309,10 +309,7 @@ Static asset checks:
 
 `accionar.xyz` rollback expectations:
 
-- If it embeds or proxies Cloud Run, first rollback Cloud Run traffic and then
-  verify the public page hits the restored revision.
-- If it hosts static React assets directly, retain the previous static bundle or
-  hosting release so the asset set can be restored.
+- **Iframe Integration (Project-Specific)**: Since this project embeds the Cloud Run app via an iframe (unlike other dashboards on `accionar.xyz` which host static assets directly), rolling back is managed purely by rolling back Cloud Run traffic. First rollback Cloud Run traffic and then verify the public page hits the restored revision.
 - After rollback, repeat:
   - page load
   - root HTTP status

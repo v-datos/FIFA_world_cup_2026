@@ -45,9 +45,8 @@ Cloud Build target:
 
 - Public dashboard URL:
   `https://accionar.xyz/dashboards/fifa-2026/`.
-- The current frontend code uses the Cloud Run API URL for any non-local host.
-- The route may serve the portfolio shell or a static dashboard bundle depending
-  on the website deployment. Verify it separately from Cloud Run.
+- **Iframe Integration (Project-Specific)**: Unlike other dashboards on `accionar.xyz` which host static frontend assets directly, this project embeds the Cloud Run app via an iframe. Therefore, any backend or frontend updates deployed to Cloud Run will automatically reflect on `accionar.xyz` once the Cloud Run revision traffic is routed.
+- **Verification**: Always verify layout changes on `accionar.xyz` separately by performing a hard-refresh (Cmd+Shift+R or Ctrl+F5) or testing in an incognito window to bypass browser caches.
 
 ## Local Verification
 
