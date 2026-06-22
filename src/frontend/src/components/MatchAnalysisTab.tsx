@@ -468,9 +468,9 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
       </div>
 
       {/* Insights + Radar Grid Row (70% and 30% width respectively on large screens) */}
-      <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 items-stretch">
+      <div className="flex flex-col lg:flex-row gap-6 items-stretch w-full">
         {/* Key Insights, Injuries & Last Major Standing (70% width) */}
-        <div className="glass-panel p-5 grid grid-cols-1 md:grid-cols-3 gap-6 lg:col-span-7">
+        <div className="glass-panel p-5 grid grid-cols-1 md:grid-cols-3 gap-6 w-full lg:w-[70%]">
           <div>
             <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
               <FileText className="w-4.5 h-4.5 text-emerald-400" />
@@ -522,7 +522,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         </div>
 
         {/* Comparación de Rendimiento (30% width) */}
-        <div className="lg:col-span-3 flex flex-col h-full">
+        <div className="w-full lg:w-[30%] flex flex-col">
           <TeamRadarComparison
             team1={team1}
             team2={team2}
@@ -530,6 +530,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             metrics2={teamMetrics[team2]}
             quality={dataQuality.radar_metrics}
             lang={lang}
+            className="h-full"
           />
         </div>
       </div>
@@ -547,6 +548,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
           proj1={monteCarlo[team1]}
           proj2={monteCarlo[team2]}
           monteCarloQuality={dataQuality.monte_carlo_projections}
+          className="h-full"
         />
         <SquadStyleComparison
           team1={team1}

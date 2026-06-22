@@ -16,6 +16,7 @@ interface TeamRadarComparisonProps {
     missing_fields?: Record<string, string[]>;
   };
   lang: string;
+  className?: string;
 }
 
 export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
@@ -25,6 +26,7 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   metrics2 = {},
   quality,
   lang,
+  className = "",
 }) => {
   // Radar uses the metrics the deterministic ESPN match-stats collector provides
   // for every played match. xG/PPDA are not exposed by that feed, so they are
@@ -100,7 +102,7 @@ export const TeamRadarComparison: React.FC<TeamRadarComparisonProps> = ({
   const sourceLabel = quality?.source_label?.replace(/_/g, ' ') || 'static curated';
 
   return (
-    <div className="w-full glass-panel p-5">
+    <div className={`w-full glass-panel p-5 flex flex-col justify-between ${className}`}>
       <div className="flex justify-between items-center mb-6">
         <div>
           <h3 className="text-lg font-bold text-slate-100">
