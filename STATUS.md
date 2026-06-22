@@ -1,5 +1,20 @@
 # STATUS
 
+## 2026-06-22 - Match Analysis 70/30 Row Layout Adjustment
+
+Prepared by: Orchestrator / Frontend Engineer
+
+### Current State
+
+- **Match Analysis 70/30 Row Layout**: Refined the Match Analysis tab layout on desktop viewports to group the "Key Insights, Injuries & Last Major Standing" card and the "Comparación de Rendimiento" (Radar) card in a single row. The Insights card occupies 70% of the row width (`lg:col-span-7`), and the Radar card occupies 30% of the row width (`lg:col-span-3`). Below them, the combined predictions card (`MatchPredictionGraph`) and the squad style comparison card (`SquadStyleComparison`) split the remaining width 50/50.
+
+### Verification
+
+- Syntax compile: `python3 -m compileall -q src` (PASS)
+- Frontend build: `npm --prefix src/frontend run build` (PASS)
+
+---
+
 ## 2026-06-21 - Spanish Localization & Automated Tactical Philosophies
 
 Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer

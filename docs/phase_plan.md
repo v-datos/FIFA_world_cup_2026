@@ -556,6 +556,7 @@ Outputs:
 | 2026-06-21 | Responsive Mobile Sidebar Drawer | docs/decisions/20260621_DEC035_responsive_mobile_sidebar_drawer.md |
 | 2026-06-21 | Spanish as Default Dashboard Language | docs/decisions/20260621_DEC036_spanish_default_language.md |
 | 2026-06-21 | Match Analysis Layout Refinement | docs/decisions/20260621_DEC037_match_analysis_layout_refinement.md |
+| 2026-06-22 | Match Analysis 70/30 Row Layout | docs/decisions/20260622_DEC038_match_analysis_70_30_layout.md |
 
 ## Open Blockers
 

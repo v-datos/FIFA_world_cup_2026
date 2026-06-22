@@ -467,61 +467,62 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
         <BriefingFreshnessBadge status={briefingStatus} lang={lang} />
       </div>
 
-      {/* Key Insights, Injuries & Last Major Standing (Now full-width below the Headline card, same style width, with vertical columns on larger screens) */}
-      <div className="glass-panel p-5 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div>
-          <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
-            <FileText className="w-4.5 h-4.5 text-emerald-400" />
-            <span>{translateText("Key Match Insights")}</span>
-          </h4>
-          <ul className="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
-            {tactical_insights.map((insight: string, idx: number) => (
-              <li key={idx} className="leading-relaxed">
-                {insight}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Insights + Radar Grid Row (70% and 30% width respectively on large screens) */}
+      <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 items-stretch">
+        {/* Key Insights, Injuries & Last Major Standing (70% width) */}
+        <div className="glass-panel p-5 grid grid-cols-1 md:grid-cols-3 gap-6 lg:col-span-7">
+          <div>
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <FileText className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Key Match Insights")}</span>
+            </h4>
+            <ul className="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+              {tactical_insights.map((insight: string, idx: number) => (
+                <li key={idx} className="leading-relaxed">
+                  {insight}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="border-t border-slate-800/60 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-800/60 md:pl-6">
-          <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
-            <ShieldAlert className="w-4.5 h-4.5 text-emerald-400" />
-            <span>{translateText("Injury Updates")}</span>
-          </h4>
-          <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
-            <div className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</div>
-            {injuries[cleanT1]?.map((inj: string, idx: number) => (
-              <div key={idx}>• {translateInjuryLocal(inj)}</div>
-            )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
+          <div className="border-t border-slate-800/60 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-800/60 md:pl-6">
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <ShieldAlert className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Injury Updates")}</span>
+            </h4>
+            <div className="space-y-1 text-[11px] text-slate-400 font-mono leading-relaxed">
+              <div className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</div>
+              {injuries[cleanT1]?.map((inj: string, idx: number) => (
+                <div key={idx}>• {translateInjuryLocal(inj)}</div>
+              )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
 
-            <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {translateTeamName(team2, lang)}:</div>
-            {injuries[cleanT2]?.map((inj: string, idx: number) => (
-              <div key={idx}>• {translateInjuryLocal(inj)}</div>
-            )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
+              <div className="text-rose-400 font-semibold mt-1">{getFlag(team2)} {translateTeamName(team2, lang)}:</div>
+              {injuries[cleanT2]?.map((inj: string, idx: number) => (
+                <div key={idx}>• {translateInjuryLocal(inj)}</div>
+              )) || <div>{lang === 'Español' ? 'Sin lesiones graves reportadas.' : 'No major injuries reported.'}</div>}
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800/60 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-800/60 md:pl-6">
+            <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+              <Award className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{translateText("Last Major Standing")}</span>
+            </h4>
+            <div className="space-y-1.5 text-[11px] leading-relaxed">
+              <div>
+                <span className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</span>{' '}
+                <span className="text-slate-300">{translateStanding(getLastStanding(team1), lang)}</span>
+              </div>
+              <div>
+                <span className="text-rose-400 font-semibold">{getFlag(team2)} {translateTeamName(team2, lang)}:</span>{' '}
+                <span className="text-slate-300">{translateStanding(getLastStanding(team2), lang)}</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-800/60 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-800/60 md:pl-6">
-          <h4 className="text-sm font-bold text-slate-200 mb-2 flex items-center gap-1.5">
-            <Award className="w-4.5 h-4.5 text-emerald-400" />
-            <span>{translateText("Last Major Standing")}</span>
-          </h4>
-          <div className="space-y-1.5 text-[11px] leading-relaxed">
-            <div>
-              <span className="text-emerald-400 font-semibold">{getFlag(team1)} {translateTeamName(team1, lang)}:</span>{' '}
-              <span className="text-slate-300">{translateStanding(getLastStanding(team1), lang)}</span>
-            </div>
-            <div>
-              <span className="text-rose-400 font-semibold">{getFlag(team2)} {translateTeamName(team2, lang)}:</span>{' '}
-              <span className="text-slate-300">{translateStanding(getLastStanding(team2), lang)}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Radar + Predictions/Monte Carlo stacked (left) · Squad & Style comparison (right) */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-        <div className="space-y-6">
+        {/* Comparación de Rendimiento (30% width) */}
+        <div className="lg:col-span-3 flex flex-col h-full">
           <TeamRadarComparison
             team1={team1}
             team2={team2}
@@ -530,19 +531,23 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             quality={dataQuality.radar_metrics}
             lang={lang}
           />
-          <MatchPredictionGraph
-            team1={team1}
-            team2={team2}
-            probabilities={forecast}
-            scoreProbs={scoreProbs}
-            quality={dataQuality.forecast}
-            scoreQuality={dataQuality.score_probabilities}
-            lang={lang}
-            proj1={monteCarlo[team1]}
-            proj2={monteCarlo[team2]}
-            monteCarloQuality={dataQuality.monte_carlo_projections}
-          />
         </div>
+      </div>
+
+      {/* Predictions (left) · Squad & Style comparison (right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <MatchPredictionGraph
+          team1={team1}
+          team2={team2}
+          probabilities={forecast}
+          scoreProbs={scoreProbs}
+          quality={dataQuality.forecast}
+          scoreQuality={dataQuality.score_probabilities}
+          lang={lang}
+          proj1={monteCarlo[team1]}
+          proj2={monteCarlo[team2]}
+          monteCarloQuality={dataQuality.monte_carlo_projections}
+        />
         <SquadStyleComparison
           team1={team1}
           team2={team2}

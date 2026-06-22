@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-058 - Match Analysis 70/30 Row Layout**
+  Owner: Frontend Engineer
+  Completed: 2026-06-22
+  Notes: Placed the Key Insights card (70% width) and the Performance Radar comparison card (30% width) on the same row on desktop viewports. Refined spacing and layout so they stack cleanly on mobile.
+  Verify: Run `npm run build` and ensure dashboard compiles and renders correctly.
+
 - [x] **T-057 - Refine Match Analysis Tab Layout & Merge Predictions**
   Owner: Frontend Engineer
   Completed: 2026-06-21
