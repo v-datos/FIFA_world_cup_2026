@@ -10,19 +10,22 @@
     "kickoff_utc": "2026-06-22T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Messi's Argentina Battles Rangnick's High-Press Austria",
+    "key_headline": "Champions Argentina Clash with Rangnick's Resurgent Austria",
     "injuries": {
       "argentina": [
-        "Lionel Messi (adductor issue - Out)",
-        "Marcos Acuña (muscle injury - Out)"
+        "Leonardo Balerdi (soleus muscle tear - Out)",
+        "Lionel Messi (muscle fatigue and left hamstring strain - Doubtful)",
+        "Emiliano Martínez (fractured right finger - Doubtful)",
+        "Cristian Romero (sprained collateral ligament in right knee - Doubtful)",
+        "Gonzalo Montiel (hamstring issue - Doubtful)",
+        "Nahuel Molina (tear in right hamstring - Doubtful)",
+        "Leandro Paredes (hamstring spasms/strain - Doubtful)",
+        "Nicolás Paz (left knee contusion/spasms - Doubtful)"
       ],
       "austria": [
-        "Christoph Baumgartner (Thigh muscle injury - Out)",
-        "David Alaba (muscle fatigue - Doubtful)",
-        "Florian Grillitsch (Unspecified injury - Doubtful)",
-        "Patrick Wimmer (Unspecified injury - Doubtful)",
-        "Stefan Posch (Broken jaw - Doubtful)",
-        "Alessandro Schöpf (Fitness concerns - Doubtful)"
+        "Christoph Baumgartner (thigh muscle injury - Out)",
+        "Florian Grillitsch (Doubtful)",
+        "Patrick Wimmer (Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -38,13 +41,13 @@
       }
     },
     "tactical_insights": [
-      "Lionel Messi's leadership and scoring prowess will test Austria's high-intensity midfield.",
-      "Austria's recent qualification success, topping their Euro 2024 group, highlights their strong form.",
-      "Scaloni's ball-dominant approach will clash with Rangnick's aggressive Gegenpressing system."
+      "Lionel Messi's current form and playmaking will test Austria's high-intensity pressing system.",
+      "Both teams won their opening fixtures, making this match crucial for topping Group J.",
+      "Scaloni's tactical flexibility will counter Rangnick's trademark high-intensity pressing system."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-22T06:48:34Z",
+    "headline_generated_at_utc": "2026-06-22T14:55:53Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

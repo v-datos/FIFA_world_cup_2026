@@ -10,20 +10,18 @@
     "kickoff_utc": "2026-06-23T03:00Z"
   },
   "ai_summary": {
-    "key_headline": "New managers, first points: Jordan battles Algeria in Group J.",
+    "key_headline": "Algeria, Jordan Battle for World Cup Survival",
     "injuries": {
       "jordan": [
-        "Yazan Al-Naimat (knee injury (cruciate ligament) - Out)",
-        "Adham Quraishi (anterior cruciate ligament injury - Out)",
-        "Ibrahim Sabra (torn ankle ligament injury - Out)",
-        "Abdallah Nasib (unspecified issue - Doubtful)"
+        "Yazan Al-Naimat (ACL injury - Out)",
+        "Adham Quraishi (ACL injury - Out)",
+        "Ibrahim Sabra (ankle injury - Out)",
+        "Abdallah Nasib (unspecified injury - Doubtful)"
       ],
       "algeria": [
         "Mohamed Amoura (thigh injury - Out)",
-        "Anthony Mandrea (dislocated shoulder - Out)",
-        "Luca Zidane (fractures to his jaw and chin - Doubtful)",
-        "Melvin Mastil (hernia surgery - Doubtful)",
-        "Ramy Bensebaïni (lingering injury - Doubtful)"
+        "Youcef Atal (Achilles tendon rupture - Out)",
+        "Ismaël Bennacer (lack of match fitness and ongoing physical setbacks following a serious knee injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -39,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "Jordan's Mousa Al-Tamari's attacking prowess will test Algeria's defense, while Riyad Mahrez dictates Algeria's offense.",
-      "Both nations seek crucial first points after suffering opening World Cup defeats in their respective groups.",
-      "Sellami's Jordan will likely employ a compact defensive structure against Petkovic's tactically flexible Algerian side."
+      "Farès Chaïbi's attacking creativity for Algeria will test Jordan's defense, especially if Abdallah Nasib is out.",
+      "Both teams, reeling from opening defeats, face immense pressure to secure a win and advance from Group J.",
+      "Jordan's 'compact, physical' approach will test Algeria's attacking talent, who need to be more clinical."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-22T06:49:19Z",
+    "headline_generated_at_utc": "2026-06-22T14:56:42Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

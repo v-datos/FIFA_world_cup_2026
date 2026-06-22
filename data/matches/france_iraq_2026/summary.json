@@ -10,10 +10,11 @@
     "kickoff_utc": "2026-06-22T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Deschamps' France Faces Iraq's Historic World Cup Return",
+    "key_headline": "France's firepower challenges Iraq's historic World Cup debut",
     "injuries": {
       "france": [
-        "Eduardo Camavinga (difficult season and injuries - Out)",
+        "Hugo Ekitike (ruptured Achilles tendon - Out)",
+        "William Saliba (still in pain from a previous injury - Doubtful)",
         "Malo Gusto (foot injury - Doubtful)"
       ],
       "iraq": [
@@ -33,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Kylian Mbappé, playing his 100th cap, will test Iraq's disciplined defensive structure.",
-      "Iraq, reeling from a 4-1 opening loss, must now contain a dominant French side.",
-      "Deschamps' possession-based attack will challenge Arnold's pragmatic, counter-attacking 4-4-2 setup."
+      "Deschamps may unleash Bradley Barcola, adding fresh attacking dynamism against Iraq's compact defense.",
+      "Iraq's historic World Cup return faces immense pressure after their opening 4-1 defeat to Norway.",
+      "Deschamps' pragmatic France will aim to dismantle Iraq's expected compact defensive block and counter-attacking strategy."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-22T06:48:56Z",
+    "headline_generated_at_utc": "2026-06-22T14:56:18Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-23T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Norway's Golden Generation Meets Senegal's Desperate Fight",
+    "key_headline": "Norway aims for knockout, Senegal fights for survival.",
     "injuries": {
       "norway": [
         "No confirmed injuries reported."
       ],
       "senegal": [
-        "No confirmed injuries reported."
+        "Cherif Ndiaye (unspecified injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Erling Haaland's prolific scoring for Norway will test Kalidou Koulibaly's defensive leadership.",
-      "Senegal, reeling from an opening loss, views this match as a crucial 'final' for progression.",
-      "Solbakken's pragmatic, counter-attacking Norway will challenge Senegal's need for an aggressive response."
+      "The duel between Erling Haaland and Kalidou Koulibaly will be crucial for Senegal's defensive success.",
+      "Senegal faces a must-win 'final' after their opening loss, while Norway seeks to solidify their strong start.",
+      "Norway's fluid attacking system will test Senegal's organized defensive structure and aggressive high press."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-22T06:49:42Z",
+    "headline_generated_at_utc": "2026-06-22T14:57:07Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

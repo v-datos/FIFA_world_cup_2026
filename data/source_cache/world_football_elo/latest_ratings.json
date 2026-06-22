@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-06-22T06:47:33Z",
-    "source_last_modified": "Mon, 22 Jun 2026 00:04:53 GMT",
+    "checked_at_utc": "2026-06-22T14:54:38Z",
+    "source_last_modified": "Mon, 22 Jun 2026 10:19:31 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -335,11 +335,20 @@
       "rating_value": 1744
     },
     {
+      "team": "Egypt",
+      "source_team_name": "Egypt",
+      "source_team_code": "EG",
+      "rank": 36,
+      "rating_rank": 36,
+      "elo_rating": 1740,
+      "rating_value": 1740
+    },
+    {
       "team": "Serbia",
       "source_team_name": "Serbia",
       "source_team_code": "RS",
-      "rank": 36,
-      "rating_rank": 36,
+      "rank": 37,
+      "rating_rank": 37,
       "elo_rating": 1734,
       "rating_value": 1734
     },
@@ -347,8 +356,8 @@
       "team": "Venezuela",
       "source_team_name": "Venezuela",
       "source_team_code": "VE",
-      "rank": 37,
-      "rating_rank": 37,
+      "rank": 38,
+      "rating_rank": 38,
       "elo_rating": 1733,
       "rating_value": 1733
     },
@@ -356,8 +365,8 @@
       "team": "Ivory Coast",
       "source_team_name": "Ivory Coast",
       "source_team_code": "CI",
-      "rank": 38,
-      "rating_rank": 38,
+      "rank": 39,
+      "rating_rank": 39,
       "elo_rating": 1728,
       "rating_value": 1728
     },
@@ -365,8 +374,8 @@
       "team": "Sweden",
       "source_team_name": "Sweden",
       "source_team_code": "SE",
-      "rank": 39,
-      "rating_rank": 39,
+      "rank": 40,
+      "rating_rank": 40,
       "elo_rating": 1727,
       "rating_value": 1727
     },
@@ -374,8 +383,8 @@
       "team": "Chile",
       "source_team_name": "Chile",
       "source_team_code": "CL",
-      "rank": 40,
-      "rating_rank": 40,
+      "rank": 41,
+      "rating_rank": 41,
       "elo_rating": 1717,
       "rating_value": 1717
     },
@@ -383,19 +392,10 @@
       "team": "Kosovo",
       "source_team_name": "Kosovo",
       "source_team_code": "KO",
-      "rank": 41,
-      "rating_rank": 41,
-      "elo_rating": 1714,
-      "rating_value": 1714
-    },
-    {
-      "team": "Egypt",
-      "source_team_name": "Egypt",
-      "source_team_code": "EG",
       "rank": 42,
       "rating_rank": 42,
-      "elo_rating": 1711,
-      "rating_value": 1711
+      "elo_rating": 1714,
+      "rating_value": 1714
     },
     {
       "team": "Hungary",
@@ -632,20 +632,11 @@
       "rating_value": 1588
     },
     {
-      "team": "New Zealand",
-      "source_team_name": "New Zealand",
-      "source_team_code": "NZ",
-      "rank": 69,
-      "rating_rank": 69,
-      "elo_rating": 1578,
-      "rating_value": 1578
-    },
-    {
       "team": "Tunisia",
       "source_team_name": "Tunisia",
       "source_team_code": "TN",
-      "rank": 70,
-      "rating_rank": 70,
+      "rank": 69,
+      "rating_rank": 69,
       "elo_rating": 1570,
       "rating_value": 1570
     },
@@ -653,8 +644,8 @@
       "team": "Honduras",
       "source_team_name": "Honduras",
       "source_team_code": "HN",
-      "rank": 70,
-      "rating_rank": 70,
+      "rank": 69,
+      "rating_rank": 69,
       "elo_rating": 1570,
       "rating_value": 1570
     },
@@ -662,8 +653,8 @@
       "team": "Iceland",
       "source_team_name": "Iceland",
       "source_team_code": "IS",
-      "rank": 72,
-      "rating_rank": 72,
+      "rank": 71,
+      "rating_rank": 71,
       "elo_rating": 1568,
       "rating_value": 1568
     },
@@ -671,10 +662,19 @@
       "team": "Ghana",
       "source_team_name": "Ghana",
       "source_team_code": "GH",
-      "rank": 73,
-      "rating_rank": 73,
+      "rank": 72,
+      "rating_rank": 72,
       "elo_rating": 1557,
       "rating_value": 1557
+    },
+    {
+      "team": "New Zealand",
+      "source_team_name": "New Zealand",
+      "source_team_code": "NZ",
+      "rank": 73,
+      "rating_rank": 73,
+      "elo_rating": 1549,
+      "rating_value": 1549
     },
     {
       "team": "Angola",
@@ -758,20 +758,20 @@
       "rating_value": 1505
     },
     {
-      "team": "Syria",
-      "source_team_name": "Syria",
-      "source_team_code": "SY",
-      "rank": 83,
-      "rating_rank": 83,
-      "elo_rating": 1479,
-      "rating_value": 1479
-    },
-    {
       "team": "Oman",
       "source_team_name": "Oman",
       "source_team_code": "OM",
       "rank": 83,
       "rating_rank": 83,
+      "elo_rating": 1480,
+      "rating_value": 1480
+    },
+    {
+      "team": "Syria",
+      "source_team_name": "Syria",
+      "source_team_code": "SY",
+      "rank": 84,
+      "rating_rank": 84,
       "elo_rating": 1479,
       "rating_value": 1479
     },
@@ -1532,20 +1532,20 @@
       "rating_value": 1128
     },
     {
+      "team": "Bermuda",
+      "source_team_name": "Bermuda",
+      "source_team_code": "BM",
+      "rank": 169,
+      "rating_rank": 169,
+      "elo_rating": 1117,
+      "rating_value": 1117
+    },
+    {
       "team": "Vanuatu",
       "source_team_name": "Vanuatu",
       "source_team_code": "VU",
       "rank": 169,
       "rating_rank": 169,
-      "elo_rating": 1118,
-      "rating_value": 1118
-    },
-    {
-      "team": "Bermuda",
-      "source_team_name": "Bermuda",
-      "source_team_code": "BM",
-      "rank": 170,
-      "rating_rank": 170,
       "elo_rating": 1117,
       "rating_value": 1117
     },
@@ -1703,15 +1703,6 @@
       "rating_value": 984
     },
     {
-      "team": "Aruba",
-      "source_team_name": "Aruba",
-      "source_team_code": "AW",
-      "rank": 188,
-      "rating_rank": 188,
-      "elo_rating": 979,
-      "rating_value": 979
-    },
-    {
       "team": "Somalia",
       "source_team_name": "Somalia",
       "source_team_code": "SO",
@@ -1719,6 +1710,15 @@
       "rating_rank": 188,
       "elo_rating": 979,
       "rating_value": 979
+    },
+    {
+      "team": "Aruba",
+      "source_team_name": "Aruba",
+      "source_team_code": "AW",
+      "rank": 189,
+      "rating_rank": 189,
+      "elo_rating": 978,
+      "rating_value": 978
     },
     {
       "team": "Sint Maarten",
