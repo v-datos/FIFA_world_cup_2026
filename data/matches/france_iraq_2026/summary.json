@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-22T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for France vs Iraq",
+    "key_headline": "Deschamps' France Faces Iraq's Historic World Cup Return",
     "injuries": {
       "france": [
-        "No verified baseline injury update is available yet."
+        "Eduardo Camavinga (difficult season and injuries - Out)",
+        "Malo Gusto (foot injury - Doubtful)"
       ],
       "iraq": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +33,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Kylian Mbappé, playing his 100th cap, will test Iraq's disciplined defensive structure.",
+      "Iraq, reeling from a 4-1 opening loss, must now contain a dominant French side.",
+      "Deschamps' possession-based attack will challenge Arnold's pragmatic, counter-attacking 4-4-2 setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-22T06:48:56Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

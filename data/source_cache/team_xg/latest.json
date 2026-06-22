@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-21T13:35:17Z",
+    "checked_at_utc": "2026-06-22T06:48:04Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -152,51 +152,51 @@
     },
     {
       "name": "Belgium",
-      "xg90": 1.35,
-      "xga90": 1.08,
-      "mp": 1
+      "xg90": 1.57,
+      "xga90": 0.85,
+      "mp": 2
+    },
+    {
+      "name": "Egypt",
+      "xg90": 1.48,
+      "xga90": 1.29,
+      "mp": 2
     },
     {
       "name": "Iran",
-      "xg90": 1.5,
-      "xga90": 1.24,
-      "mp": 1
+      "xg90": 1.06,
+      "xga90": 1.52,
+      "mp": 2
     },
     {
       "name": "New Zealand",
       "xg90": 1.24,
-      "xga90": 1.5,
-      "mp": 1
-    },
-    {
-      "name": "Egypt",
-      "xg90": 1.08,
-      "xga90": 1.35,
-      "mp": 1
+      "xga90": 1.69,
+      "mp": 2
     },
     {
       "name": "Spain",
-      "xg90": 2.1,
-      "xga90": 0.2,
-      "mp": 1
+      "xg90": 2.2,
+      "xga90": 0.17,
+      "mp": 2
     },
     {
       "name": "Uruguay",
-      "xg90": 1.72,
-      "xga90": 0.66,
-      "mp": 1
+      "xg90": 2.02,
+      "xga90": 0.77,
+      "mp": 2
     },
     {
       "name": "Saudi Arabia",
-      "xg90": 0.66,
-      "xga90": 1.72,
-      "mp": 1
+      "xg90": 0.4,
+      "xga90": 2.01,
+      "mp": 2
     },
     {
       "name": "Cape Verde",
-      "xg90": 0.2,
-      "xga90": 2.1,
-      "mp": 1
+      "xg90": 0.54,
+      "xga90": 2.21,
+      "mp": 2
     },
     {
       "name": "Norway",

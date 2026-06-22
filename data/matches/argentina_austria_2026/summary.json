@@ -10,13 +10,19 @@
     "kickoff_utc": "2026-06-22T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Argentina vs Austria",
+    "key_headline": "Messi's Argentina Battles Rangnick's High-Press Austria",
     "injuries": {
       "argentina": [
-        "No verified baseline injury update is available yet."
+        "Lionel Messi (adductor issue - Out)",
+        "Marcos Acuña (muscle injury - Out)"
       ],
       "austria": [
-        "No verified baseline injury update is available yet."
+        "Christoph Baumgartner (Thigh muscle injury - Out)",
+        "David Alaba (muscle fatigue - Doubtful)",
+        "Florian Grillitsch (Unspecified injury - Doubtful)",
+        "Patrick Wimmer (Unspecified injury - Doubtful)",
+        "Stefan Posch (Broken jaw - Doubtful)",
+        "Alessandro Schöpf (Fitness concerns - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +38,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Lionel Messi's leadership and scoring prowess will test Austria's high-intensity midfield.",
+      "Austria's recent qualification success, topping their Euro 2024 group, highlights their strong form.",
+      "Scaloni's ball-dominant approach will clash with Rangnick's aggressive Gegenpressing system."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-22T06:48:34Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

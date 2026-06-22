@@ -10,13 +10,20 @@
     "kickoff_utc": "2026-06-23T03:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Jordan vs Algeria",
+    "key_headline": "New managers, first points: Jordan battles Algeria in Group J.",
     "injuries": {
       "jordan": [
-        "No verified baseline injury update is available yet."
+        "Yazan Al-Naimat (knee injury (cruciate ligament) - Out)",
+        "Adham Quraishi (anterior cruciate ligament injury - Out)",
+        "Ibrahim Sabra (torn ankle ligament injury - Out)",
+        "Abdallah Nasib (unspecified issue - Doubtful)"
       ],
       "algeria": [
-        "No verified baseline injury update is available yet."
+        "Mohamed Amoura (thigh injury - Out)",
+        "Anthony Mandrea (dislocated shoulder - Out)",
+        "Luca Zidane (fractures to his jaw and chin - Doubtful)",
+        "Melvin Mastil (hernia surgery - Doubtful)",
+        "Ramy Bensebaïni (lingering injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +39,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Jordan's Mousa Al-Tamari's attacking prowess will test Algeria's defense, while Riyad Mahrez dictates Algeria's offense.",
+      "Both nations seek crucial first points after suffering opening World Cup defeats in their respective groups.",
+      "Sellami's Jordan will likely employ a compact defensive structure against Petkovic's tactically flexible Algerian side."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-22T06:49:19Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",
