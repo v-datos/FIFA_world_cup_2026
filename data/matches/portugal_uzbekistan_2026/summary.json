@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-23T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Portugal vs Uzbekistan",
+    "key_headline": "Martínez's Portugal targets breakthrough against historic Uzbekistan.",
     "injuries": {
       "portugal": [
-        "No verified baseline injury update is available yet."
+        "Rúben Dias (fitness concerns - Doubtful)"
       ],
       "uzbekistan": [
-        "No verified baseline injury update is available yet."
+        "Ibrokhimkhalil Yuldoshev (Injury - Out)",
+        "Khojiakbar Alijonov (Calf injury - Doubtful)",
+        "Jaloliddin Masharipov (Back injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Cristiano Ronaldo, at 41, continues his World Cup quest, a key talisman for Portugal's attack.",
+      "Portugal must secure a win after their opening draw to avoid early elimination pressure.",
+      "Martínez's Portugal must find offensive penetration against Uzbekistan's likely deep defensive block."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-23T06:25:03Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

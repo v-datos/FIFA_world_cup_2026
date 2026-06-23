@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-23T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for England vs Ghana",
+    "key_headline": "Southgate's Structure Meets Addo's Directness in Group L Clash",
     "injuries": {
       "england": [
-        "No verified baseline injury update is available yet."
+        "Tino Livramento (calf injury - Out)"
       ],
       "ghana": [
-        "No verified baseline injury update is available yet."
+        "Lawrence Ati-Zigi (Groin injury - Doubtful)",
+        "Alexander Djiku (Injury - Out)",
+        "Mohammed Kudus (Thigh injury - Out)",
+        "Mohammed Salisu (Ruptured anterior cruciate ligament (ACL) - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +35,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Mohammed Kudus's attacking flair will test England's structured defense, creating a key individual battle.",
+      "England's consistent deep runs in recent major tournaments underscore their strong pedigree.",
+      "Southgate's structured 4-3-3 setup will contend with Otto Addo's athletic, direct counter-attacking style."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-23T06:24:23Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

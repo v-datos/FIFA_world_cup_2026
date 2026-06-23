@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-22T14:55:18Z",
+    "checked_at_utc": "2026-06-23T06:23:26Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -199,52 +199,52 @@
       "mp": 2
     },
     {
-      "name": "Norway",
-      "xg90": 2.52,
-      "xga90": 0.8,
-      "mp": 1
+      "name": "France",
+      "xg90": 2.23,
+      "xga90": 0.58,
+      "mp": 2
     },
     {
-      "name": "France",
-      "xg90": 1.79,
-      "xga90": 0.53,
-      "mp": 1
+      "name": "Norway",
+      "xg90": 2.36,
+      "xga90": 1.26,
+      "mp": 2
     },
     {
       "name": "Senegal",
-      "xg90": 0.53,
-      "xga90": 1.79,
-      "mp": 1
+      "xg90": 1.12,
+      "xga90": 1.99,
+      "mp": 2
     },
     {
       "name": "Iraq",
-      "xg90": 0.8,
-      "xga90": 2.52,
-      "mp": 1
-    },
-    {
-      "name": "Austria",
-      "xg90": 1.69,
-      "xga90": 0.46,
-      "mp": 1
+      "xg90": 0.71,
+      "xga90": 2.6,
+      "mp": 2
     },
     {
       "name": "Argentina",
-      "xg90": 1.26,
-      "xga90": 0.32,
-      "mp": 1
+      "xg90": 1.81,
+      "xga90": 0.42,
+      "mp": 2
     },
     {
       "name": "Algeria",
-      "xg90": 0.32,
-      "xga90": 1.26,
-      "mp": 1
+      "xg90": 1.06,
+      "xga90": 0.95,
+      "mp": 2
+    },
+    {
+      "name": "Austria",
+      "xg90": 1.11,
+      "xga90": 1.41,
+      "mp": 2
     },
     {
       "name": "Jordan",
-      "xg90": 0.46,
-      "xga90": 1.69,
-      "mp": 1
+      "xg90": 0.56,
+      "xga90": 1.75,
+      "mp": 2
     },
     {
       "name": "Colombia",

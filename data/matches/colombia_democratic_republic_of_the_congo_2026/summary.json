@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-24T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Colombia vs Democratic Republic of the Congo",
+    "key_headline": "Colombia's High Press vs. DR Congo's Resilient Counter",
     "injuries": {
       "colombia": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "democratic_republic_of_the_congo": [
-        "No verified baseline injury update is available yet."
+        "Rocky Bushiri (Achilles injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +32,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "The key duel between Luis Díaz and Aaron Wan-Bissaka on the flank will be a decisive tactical battle.",
+      "DR Congo's historic draw against Portugal fuels their World Cup knockout stage aspirations.",
+      "Colombia's high-intensity pressing will test DR Congo's disciplined defensive block and rapid counterattacks."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-23T06:24:03Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",
