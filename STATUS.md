@@ -1,5 +1,23 @@
 # STATUS
 
+## 2026-06-22 - Top Scorers Sync & Bracket Label Abbreviations
+
+Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer
+
+### Current State
+
+- **Dynamic Top Scorers Integration**: Updated the FastAPI backend (`main.py`) to parse `home_scorers` and `away_scorers` fields directly from the simulated games database (`worldcup26.ir/get/games`). Top scorers are now aggregated on the fly at runtime, ensuring the Overview tab's card displays live goals correctly and matches the standings/bracket.
+- **Data Pipeline Correction**: Refactored `src/pipeline/update_top_scorers.py` to query `worldcup26.ir/get/games` instead of ESPN. This aligns the fallback `grid_state.json` file with the custom tournament data rather than real-world 2022 historical stats.
+- **Bracket tape label abbreviations**: Added an abbreviation utility (`abbreviatePlaceholder`) in `StandingsTab.tsx` to condense long placeholder strings on the blue tapes (e.g. `Winner Group A` -> `W G: A`, `Winner Match R32-2` -> `W M: R32-2`, `Loser Match SF-1` -> `L M: SF-1`).
+
+### Verification
+
+- Syntax compile: `python3 -m compileall -q src` (PASS)
+- Frontend build: `npm --prefix src/frontend run build` (PASS)
+- Local script dry-run: `python3 -m src.pipeline.update_top_scorers --write` (PASS - successfully updated local `grid_state.json`)
+
+---
+
 ## 2026-06-22 - Match Analysis 70/30 Row Layout Adjustment
 
 Prepared by: Orchestrator / Frontend Engineer

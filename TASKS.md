@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-059 - Resolve Top Scorers Sync & Bracket Label Abbreviations**
+  Owner: Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer
+  Completed: 2026-06-22
+  Notes: Integrated dynamic top scorers calculation from the live `worldcup26.ir` API inside `main.py`. Refactored `update_top_scorers.py` to target the live simulated database instead of ESPN. Added bracket label abbreviation helper (`abbreviatePlaceholder`) in `StandingsTab.tsx` to keep the labels (Group, Winner, Match, Loser, 3rd) legible within the blue tapes.
+  Verify: Run `python3 -m compileall -q src` and `npm --prefix src/frontend run build`.
+
 - [x] **T-058 - Match Analysis 70/30 Row Layout**
   Owner: Frontend Engineer
   Completed: 2026-06-22

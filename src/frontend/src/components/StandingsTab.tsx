@@ -53,6 +53,33 @@ interface BracketData {
 }
 
 export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) => {
+  const abbreviatePlaceholder = (name: string): string => {
+    if (!name || name === '???') return name;
+    let s = name;
+    
+    // Replace "Runner-up Group X" with "RU G: X"
+    s = s.replace(/Runner-up Group\s+([A-L])/i, 'RU G: $1');
+    
+    // Replace "Winner Group X" with "W G: X"
+    s = s.replace(/Winner Group\s+([A-L])/i, 'W G: $1');
+    
+    // Replace "Winner Match X" with "W M: X"
+    s = s.replace(/Winner Match\s+(.+)/i, 'W M: $1');
+    
+    // Replace "Loser Match X" with "L M: X"
+    s = s.replace(/Loser Match\s+(.+)/i, 'L M: $1');
+    
+    // Replace "3rd Group X" with "3rd G: X"
+    s = s.replace(/3rd Group\s+(.+)/i, '3rd G: $1');
+    
+    // Generic overrides
+    s = s.replace(/Group\s+/i, 'G: ');
+    s = s.replace(/Winner\s+/i, 'W: ');
+    s = s.replace(/Match\s+/i, 'M: ');
+    
+    return s;
+  };
+
   const [data, setData] = useState<BracketData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -273,7 +300,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-left"></div>
           <div className="tape-corner-right"></div>
           <div className={`team-tape ${isT1Winner ? 'winner' : ''}`}>
-            {t1.toUpperCase()}
+            {abbreviatePlaceholder(t1).toUpperCase()}
           </div>
         </div>
 
@@ -282,7 +309,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
           <div className="tape-corner-left"></div>
           <div className="tape-corner-right"></div>
           <div className={`team-tape ${isT2Winner ? 'winner' : ''}`}>
-            {t2.toUpperCase()}
+            {abbreviatePlaceholder(t2).toUpperCase()}
           </div>
         </div>
 
@@ -796,7 +823,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
             <div className="tape-corner-left" style={{ width: '22px', height: '8px', top: -5, left: -10 }}></div>
             <div className="tape-corner-right" style={{ width: '22px', height: '8px', bottom: -5, right: -10 }}></div>
             <div className="champion-tape">
-              {(finalMatch.winner || '???').toUpperCase()}
+              {abbreviatePlaceholder(finalMatch.winner || '???').toUpperCase()}
             </div>
             <div className="champion-label">
               {lang === 'Español' ? 'Campeón del Mundo' : 'World Cup Champion'}
@@ -817,7 +844,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
               <div className="tape-corner-left"></div>
               <div className="tape-corner-right"></div>
               <div className={`team-tape ${finalMatch.winner === finalMatch.team1 && finalMatch.team1 !== '???' ? 'winner' : ''}`} style={{ width: '105px', fontSize: '12px', padding: '5px 8px' }}>
-                {finalMatch.team1.toUpperCase()}
+                {abbreviatePlaceholder(finalMatch.team1).toUpperCase()}
               </div>
             </div>
 
@@ -825,7 +852,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
               <div className="tape-corner-left"></div>
               <div className="tape-corner-right"></div>
               <div className={`team-tape ${finalMatch.winner === finalMatch.team2 && finalMatch.team2 !== '???' ? 'winner' : ''}`} style={{ width: '105px', fontSize: '12px', padding: '5px 8px' }}>
-                {finalMatch.team2.toUpperCase()}
+                {abbreviatePlaceholder(finalMatch.team2).toUpperCase()}
               </div>
             </div>
           </div>
@@ -841,7 +868,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
                   <div className="tape-corner-left" style={{ width: '10px', height: '5px' }}></div>
                   <div className="tape-corner-right" style={{ width: '10px', height: '5px' }}></div>
                   <div className={`team-tape ${thirdPlaceMatch.winner === thirdPlaceMatch.team1 && thirdPlaceMatch.team1 !== '???' ? 'winner' : ''}`} style={{ width: '80px', fontSize: '9px', padding: '2px 4px' }}>
-                    {thirdPlaceMatch.team1.toUpperCase()}
+                    {abbreviatePlaceholder(thirdPlaceMatch.team1).toUpperCase()}
                   </div>
                 </div>
 
@@ -849,7 +876,7 @@ export const StandingsTab: React.FC<StandingsTabProps> = ({ serverUrl, lang }) =
                   <div className="tape-corner-left" style={{ width: '10px', height: '5px' }}></div>
                   <div className="tape-corner-right" style={{ width: '10px', height: '5px' }}></div>
                   <div className={`team-tape ${thirdPlaceMatch.winner === thirdPlaceMatch.team2 && thirdPlaceMatch.team2 !== '???' ? 'winner' : ''}`} style={{ width: '80px', fontSize: '9px', padding: '2px 4px' }}>
-                    {thirdPlaceMatch.team2.toUpperCase()}
+                    {abbreviatePlaceholder(thirdPlaceMatch.team2).toUpperCase()}
                   </div>
                 </div>
               </div>

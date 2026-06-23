@@ -21,6 +21,7 @@ import collections
 import datetime as dt
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 import requests
@@ -29,7 +30,6 @@ from src.common.team_identity import normalize_team_name
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 GRID_STATE = PROJECT_ROOT / "data" / "bracket" / "grid_state.json"
-ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
 UA = {"User-Agent": "Mozilla/5.0"}
 SEASON_START = "20260611"  # 2026 World Cup group stage opener
 MAX_LEADERS = 8            # guard against absurd lists if many tie early
@@ -41,50 +41,93 @@ def _get(url: str) -> dict:
     return r.json()
 
 
-def _date_range(start: str, end: str) -> list[str]:
-    d0 = dt.datetime.strptime(start, "%Y%m%d").date()
-    d1 = dt.datetime.strptime(end, "%Y%m%d").date()
-    if d1 < d0:
-        return [start]
-    return [(d0 + dt.timedelta(days=i)).strftime("%Y%m%d") for i in range((d1 - d0).days + 1)]
-
-
-def _is_real_goal(ev: dict) -> bool:
-    """A scoring play that counts toward the Golden Boot."""
-    if not ev.get("scoringPlay") or ev.get("shootout"):
-        return False
-    type_info = ev.get("type") or {}
-    blob = f"{type_info.get('type','')} {type_info.get('text','')} {ev.get('text','')}".lower()
-    return "own" not in blob  # own goals are not credited to the scorer
+def parse_scorers(scorers_str: str | None) -> list[str]:
+    if not scorers_str or scorers_str == "null":
+        return []
+    
+    # Standardize quotes and brackets to make it valid JSON list format
+    s = scorers_str.replace('“', '"').replace('”', '"').replace('‘', '"').replace('’', '"')
+    s = s.replace('{', '[').replace('}', ']')
+    
+    try:
+        items = json.loads(s)
+    except Exception:
+        # Fallback if json load fails, use regex to find everything inside quotes
+        items = re.findall(r'"([^"]+)"', s)
+        if not items:
+            # Fallback if no quotes at all, split by comma
+            s_clean = scorers_str.strip().strip("{}")
+            items = [x.strip() for x in s_clean.split(",") if x.strip()]
+            
+    parsed = []
+    for item in items:
+        item = item.strip()
+        if not item:
+            continue
+        # Skip own goals
+        if "(OG)" in item or "(og)" in item or "own goal" in item.lower():
+            continue
+        
+        # Regex to match player name and minute (e.g., "J. Quiñones 9'", "K. Havertz 45'+5'(p)")
+        m = re.match(r'^(.+?)\s+\d+(?:\+\d+)?\'(?:.*)$', item)
+        if m:
+            player_name = m.group(1).strip()
+            parsed.append(player_name)
+        else:
+            # Fallback: if no match, try to split by last space if there is a number
+            parts = item.split()
+            if len(parts) > 1:
+                parsed.append(" ".join(parts[:-1]))
+            else:
+                parsed.append(item)
+    return parsed
 
 
 def aggregate(season_start: str, end: str) -> tuple[list[dict], int]:
     goals: collections.Counter = collections.Counter()
     team_of: dict[str, str] = {}
     matches = 0
-    for day in _date_range(season_start, end):
-        try:
-            events = _get(f"{ESPN_BASE}/scoreboard?dates={day}").get("events", [])
-        except requests.RequestException:
+    
+    url = "https://worldcup26.ir/get/games"
+    try:
+        r = requests.get(url, headers=UA, timeout=25)
+        r.raise_for_status()
+        games = r.json().get("games", [])
+    except Exception as e:
+        print(f"Error fetching live games: {e}")
+        return [], 0
+
+    for g in games:
+        # Check if match is finished
+        if g.get("finished") != "TRUE" and g.get("finished") is not True:
             continue
-        for event in events:
-            matches += 1
-            try:
-                summary = _get(f"{ESPN_BASE}/summary?event={event['id']}")
-            except (requests.RequestException, KeyError):
-                continue
-            for ev in summary.get("keyEvents", []):
-                if not _is_real_goal(ev):
-                    continue
-                participants = ev.get("participants") or []
-                if not participants:
-                    continue
-                athlete = (participants[0] or {}).get("athlete") or {}
-                name = athlete.get("displayName")
-                if not name:
-                    continue
-                goals[name] += 1
-                team_of[name] = normalize_team_name((ev.get("team") or {}).get("displayName"))
+            
+        local_date = g.get("local_date")
+        if not local_date:
+            continue
+            
+        try:
+            game_date_str = local_date.split()[0] # "MM/DD/YYYY"
+            m, d, y = game_date_str.split("/")
+            game_yyyymmdd = f"{y}{m}{d}"
+        except Exception:
+            continue
+            
+        if not (season_start <= game_yyyymmdd <= end):
+            continue
+            
+        matches += 1
+        
+        home_team = normalize_team_name(g.get("home_team_name_en"))
+        away_team = normalize_team_name(g.get("away_team_name_en"))
+        
+        for p in parse_scorers(g.get("home_scorers")):
+            goals[p] += 1
+            team_of[p] = home_team
+            
+        for p in parse_scorers(g.get("away_scorers")):
+            goals[p] += 1
+            team_of[p] = away_team
 
     if not goals:
         return [], matches
@@ -97,7 +140,7 @@ def aggregate(season_start: str, end: str) -> tuple[list[dict], int]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Update top scorers from ESPN.")
+    ap = argparse.ArgumentParser(description="Update top scorers from worldcup26.ir.")
     ap.add_argument("--season-start", default=SEASON_START, help="YYYYMMDD window start")
     ap.add_argument("--end", default=dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d"), help="YYYYMMDD window end (default today UTC)")
     ap.add_argument("--write", action="store_true", help="Write leaders into grid_state.json")

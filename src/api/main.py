@@ -1,6 +1,8 @@
 import os
 import sys
 import json
+import re
+import collections
 import subprocess
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -274,6 +276,47 @@ def schedule_lifecycle(
         "is_briefing_candidate": lifecycle == "today" or is_upcoming_24h,
     }
 
+def parse_scorers(scorers_str: Optional[str]) -> List[str]:
+    if not scorers_str or scorers_str == "null":
+        return []
+    
+    # Standardize quotes and brackets to make it valid JSON list format
+    s = scorers_str.replace('“', '"').replace('”', '"').replace('‘', '"').replace('’', '"')
+    s = s.replace('{', '[').replace('}', ']')
+    
+    try:
+        items = json.loads(s)
+    except Exception:
+        # Fallback if json load fails, use regex to find everything inside quotes
+        items = re.findall(r'"([^"]+)"', s)
+        if not items:
+            # Fallback if no quotes at all, split by comma
+            s_clean = scorers_str.strip().strip("{}")
+            items = [x.strip() for x in s_clean.split(",") if x.strip()]
+            
+    parsed = []
+    for item in items:
+        item = item.strip()
+        if not item:
+            continue
+        # Skip own goals
+        if "(OG)" in item or "(og)" in item or "own goal" in item.lower():
+            continue
+        
+        # Regex to match player name and minute (e.g., "J. Quiñones 9'", "K. Havertz 45'+5'(p)")
+        m = re.match(r'^(.+?)\s+\d+(?:\+\d+)?\'(?:.*)$', item)
+        if m:
+            player_name = m.group(1).strip()
+            parsed.append(player_name)
+        else:
+            # Fallback: if no match, try to split by last space if there is a number
+            parts = item.split()
+            if len(parts) > 1:
+                parsed.append(" ".join(parts[:-1]))
+            else:
+                parsed.append(item)
+    return parsed
+
 def load_live_bracket_state() -> dict:
     bracket_path = DATA_DIR / "bracket" / "grid_state.json"
     if not bracket_path.exists():
@@ -439,6 +482,34 @@ def load_live_bracket_state() -> dict:
                         "score2": int(s2) if s2 is not None and str(s2).strip() != "" else None,
                         "winner": winner_name
                     }
+
+                # Dynamic top scorers aggregation
+                try:
+                    goals_count = collections.Counter()
+                    team_of = {}
+                    for game in games_list:
+                        if game.get("finished") == "TRUE" or game.get("finished") is True:
+                            h = game.get("home_team_name_en") or game.get("home_team_label") or ""
+                            a = game.get("away_team_name_en") or game.get("away_team_label") or ""
+                            h = normalize_team_name(h)
+                            a = normalize_team_name(a)
+                            
+                            for p in parse_scorers(game.get("home_scorers")):
+                                goals_count[p] += 1
+                                team_of[p] = h
+                            for p in parse_scorers(game.get("away_scorers")):
+                                goals_count[p] += 1
+                                team_of[p] = a
+                                
+                    if goals_count:
+                        top_goals = max(goals_count.values())
+                        leaders = sorted(
+                            [{"name": n, "team": team_of[n], "goals": g} for n, g in goals_count.items() if g == top_goals],
+                            key=lambda x: x["name"]
+                        )
+                        data["top_scorer"] = leaders[:8]
+                except Exception:
+                    pass
 
                 data["r32"] = [make_match(mid, "r32") for mid in r32_ids]
                 data["r16"] = [make_match(mid, "r16") for mid in r16_ids]
