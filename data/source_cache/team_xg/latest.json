@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-23T06:23:26Z",
+    "checked_at_utc": "2026-06-23T13:52:46Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -230,7 +230,7 @@
     },
     {
       "name": "Algeria",
-      "xg90": 1.06,
+      "xg90": 1.1,
       "xga90": 0.95,
       "mp": 2
     },
@@ -242,8 +242,8 @@
     },
     {
       "name": "Jordan",
-      "xg90": 0.56,
-      "xga90": 1.75,
+      "xg90": 0.55,
+      "xga90": 1.79,
       "mp": 2
     },
     {

@@ -10,15 +10,16 @@
     "kickoff_utc": "2026-06-23T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Martínez's Portugal targets breakthrough against historic Uzbekistan.",
+    "key_headline": "Portugal seeks bounce-back win against debutant Uzbekistan.",
     "injuries": {
       "portugal": [
-        "Rúben Dias (fitness concerns - Doubtful)"
+        "Tomas Araujo (Injury - Doubtful)"
       ],
       "uzbekistan": [
-        "Ibrokhimkhalil Yuldoshev (Injury - Out)",
-        "Khojiakbar Alijonov (Calf injury - Doubtful)",
-        "Jaloliddin Masharipov (Back injury - Doubtful)"
+        "Khojiakbar Alijonov (calf/fitness - Doubtful)",
+        "Jaloliddin Masharipov (back problem/injury comeback trail - Doubtful)",
+        "Azizjon Ganiev (fitness - Doubtful)",
+        "Rustam Ashurmatov (after coming off in the defeat to Colombia - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Cristiano Ronaldo, at 41, continues his World Cup quest, a key talisman for Portugal's attack.",
-      "Portugal must secure a win after their opening draw to avoid early elimination pressure.",
-      "Martínez's Portugal must find offensive penetration against Uzbekistan's likely deep defensive block."
+      "Bruno Fernandes' creativity will test Uzbekistan's compact defense, anchored by Khusanov.",
+      "Portugal must rebound from their opening draw to secure vital group stage points.",
+      "Martínez's possession-based style clashes with Cannavaro's disciplined low block and quick counters."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-23T06:25:03Z",
+    "headline_generated_at_utc": "2026-06-23T13:54:56Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

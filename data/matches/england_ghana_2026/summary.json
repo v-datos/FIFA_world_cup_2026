@@ -10,16 +10,14 @@
     "kickoff_utc": "2026-06-23T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Southgate's Structure Meets Addo's Directness in Group L Clash",
+    "key_headline": "Queiroz's Ghana Defense Faces Tuchel's Potent England Attack",
     "injuries": {
       "england": [
-        "Tino Livramento (calf injury - Out)"
+        "No confirmed injuries reported."
       ],
       "ghana": [
-        "Lawrence Ati-Zigi (Groin injury - Doubtful)",
-        "Alexander Djiku (Injury - Out)",
-        "Mohammed Kudus (Thigh injury - Out)",
-        "Mohammed Salisu (Ruptured anterior cruciate ligament (ACL) - Out)"
+        "Mohammed Kudus (thigh injury - Out)",
+        "Alexander Djiku (hamstring injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -35,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "Mohammed Kudus's attacking flair will test England's structured defense, creating a key individual battle.",
-      "England's consistent deep runs in recent major tournaments underscore their strong pedigree.",
-      "Southgate's structured 4-3-3 setup will contend with Otto Addo's athletic, direct counter-attacking style."
+      "Ghana's Antoine Semenyo and Jordan Ayew will test England's high defensive line on the counter-attack.",
+      "Both teams' opening victories make this clash pivotal for early World Cup knockout stage qualification.",
+      "Thomas Tuchel's attacking 4-2-3-1 will challenge Carlos Queiroz's disciplined defensive 4-3-3 setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-23T06:24:23Z",
+    "headline_generated_at_utc": "2026-06-23T13:53:53Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-24T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Colombia's High Press vs. DR Congo's Resilient Counter",
+    "key_headline": "Colombia's Offensive Surge Challenges DR Congo's Historic World Cup Defense",
     "injuries": {
       "colombia": [
-        "No confirmed injuries reported."
+        "Cristian Borja (ruptured medial collateral ligament (MCL) in his right knee - Out)",
+        "Yaser Asprilla (knee edema - Out)"
       ],
       "democratic_republic_of_the_congo": [
-        "Rocky Bushiri (Achilles injury - Out)"
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "The key duel between Luis Díaz and Aaron Wan-Bissaka on the flank will be a decisive tactical battle.",
-      "DR Congo's historic draw against Portugal fuels their World Cup knockout stage aspirations.",
-      "Colombia's high-intensity pressing will test DR Congo's disciplined defensive block and rapid counterattacks."
+      "Colombia's Luis Díaz's explosive pace will test DR Congo's formidable defensive anchor Chancel Mbemba.",
+      "DR Congo's historic 1-1 draw against Portugal demonstrates their capacity to defy expectations in the tournament.",
+      "Néstor Lorenzo's high-intensity pressing and vertical transitions will clash with Sébastien Desabre's deep defensive block."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-23T06:24:03Z",
+    "headline_generated_at_utc": "2026-06-23T13:53:27Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

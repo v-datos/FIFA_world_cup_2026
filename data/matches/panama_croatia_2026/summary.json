@@ -10,10 +10,10 @@
     "kickoff_utc": "2026-06-23T23:00Z"
   },
   "ai_summary": {
-    "key_headline": "Must-Win Clash: Panama's Possession vs. Croatia's Tactical Adjustments",
+    "key_headline": "Must-Win Showdown: Croatia's Class vs. Panama's Grit",
     "injuries": {
       "panama": [
-        "Adalberto Carrasquilla (groin injury - Doubtful)"
+        "Adalberto Carrasquilla (reason unknown - Doubtful)"
       ],
       "croatia": [
         "No confirmed injuries reported."
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Modrić's 200th cap sees him duel Panama's engine Carrasquilla in midfield.",
-      "Both teams seek redemption after opening defeats, making this a critical group stage fixture.",
-      "Christiansen's possession-based Panama faces Dalić's pragmatic Croatia, likely with tactical adjustments."
+      "Luka Modrić's midfield mastery will duel Adalberto Carrasquilla's playmaking engine.",
+      "Both teams seek redemption after opening losses, making this a critical 'must-win' fixture.",
+      "Christiansen's pragmatic Panama will challenge Dalić's ball-retaining, midfield-dictated Croatia."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-23T06:24:45Z",
+    "headline_generated_at_utc": "2026-06-23T13:54:24Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
