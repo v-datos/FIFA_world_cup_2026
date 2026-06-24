@@ -10,17 +10,18 @@
     "kickoff_utc": "2026-06-24T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Unbeaten Morocco Targets Goal Spree; Haiti Fights for History.",
+    "key_headline": "Ouahbi's Evolved Morocco Targets Group C Top Spot",
     "injuries": {
       "morocco": [
-        "Nayef Aguerd (persistent groin injury and a fracture - Out)",
-        "Abde Ezzalzouli (knee injury - Out)",
+        "Abde Ezzalzouli (knee ligament injury - Out)",
+        "Nayef Aguerd (groin issue - Out)",
         "Noussair Mazraoui (shoulder issue - Doubtful)",
-        "Anas Salaheddine (injury - Doubtful)",
-        "Achraf Hakimi (thigh injury - Doubtful)"
+        "Chamseddine Talbi (monitored - Doubtful)",
+        "Neil El Aynaoui (monitored - Doubtful)",
+        "Anas Salaheddine (injury - Doubtful)"
       ],
       "haiti": [
-        "Leverton Pierre (injury - Out)"
+        "Duckens Nazon (unspecified - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -36,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "Morocco's in-form attacker Ismael Saibari will test Haiti's defensive leader Ricardo Adé.",
-      "Morocco needs a significant win to improve goal difference and secure Group C's top spot.",
-      "Mohamed Ouahbi's offensive 4-2-3-1 will challenge Sébastien Migné's vertical, counter-attacking Haiti."
+      "Morocco's attacking intent under Ouahbi, averaging 5.9 shots on target, will challenge Haiti's deep block.",
+      "Morocco, already qualified, aims to top Group C, while eliminated Haiti seeks their first World Cup point.",
+      "Ouahbi's possession-based, high-pressing 4-2-3-1 Morocco will clash with Migné's defensive 4-4-2 and quick transitions."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-24T06:22:19Z",
+    "headline_generated_at_utc": "2026-06-24T13:45:23Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

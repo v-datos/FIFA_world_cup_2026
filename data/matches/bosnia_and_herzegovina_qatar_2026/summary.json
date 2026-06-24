@@ -10,13 +10,10 @@
     "kickoff_utc": "2026-06-24T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Suspensions and heavy defeats shape crucial Group B showdown",
+    "key_headline": "Decisive Group B: Bosnia's Grit Meets Qatar's Lopetegui Challenge",
     "injuries": {
       "bosnia_and_herzegovina": [
-        "Amir Hadžiahmetović (meniscus injury - Out)",
-        "Haris Tabaković (metatarsal fracture - Doubtful)",
-        "Sead Kolašinac (knock - Doubtful)",
-        "Ivan Šunjić (muscle injury - Doubtful)"
+        "No confirmed injuries reported."
       ],
       "qatar": [
         "No confirmed injuries reported."
@@ -35,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Akram Afif's pace and directness will challenge Bosnia's left-sided defense, especially Sead Kolašinac.",
-      "Qatar's 6-0 loss to Canada, with two red cards, exposed significant defensive vulnerabilities.",
-      "Barbarez's aggressive, direct approach and aerial threat will test Lopetegui's makeshift defensive setup."
+      "Qatar's Afif and Ali will test Bosnia's defense, weakened by Muharemovic's suspension.",
+      "Both teams, with one point, face a decisive match for their World Cup knockout stage aspirations.",
+      "Barbarez's aggressive, direct Bosnia will challenge Lopetegui's compact Qatar in a tactical duel."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-24T06:21:27Z",
+    "headline_generated_at_utc": "2026-06-24T13:44:29Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

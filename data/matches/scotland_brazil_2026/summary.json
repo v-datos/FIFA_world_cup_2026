@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-24T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Scotland's Historic Knockout Bid Faces Ancelotti's Brazil",
+    "key_headline": "Ancelotti's Brazil faces Scotland's historic knockout quest.",
     "injuries": {
       "scotland": [
         "Billy Gilmour (knee injury - Out)"
       ],
       "brazil": [
-        "Neymar Jr. (Calf injury - Doubtful)"
+        "Rodrygo (ACL injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Vinicius Jr.'s vertical speed will challenge Scotland's disciplined backline.",
-      "Scotland seeks historic knockout stage progression against group leaders Brazil.",
-      "Ancelotti's vertical 4-2-4 system meets Clarke's pragmatic, counter-attacking setup."
+      "Neymar's return from injury offers Brazil a late-game attacking boost.",
+      "Scotland seeks historic knockout stage qualification with a win or favorable draw.",
+      "Steve Clarke's pragmatic, organized defense will counter Ancelotti's attacking Brazil."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-24T06:22:43Z",
+    "headline_generated_at_utc": "2026-06-24T13:45:50Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

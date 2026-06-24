@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-25T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Hong's Son Shift: Korea's Crucial Group Stage Decider",
+    "key_headline": "Broos's Bafana Bafana faces Korea's tactical changes in decisive clash.",
     "injuries": {
       "south_africa": [
-        "Themba Zwane (suspension - Out)"
+        "Teboho Mokoena (Suspension - Out)",
+        "Themba Zwane (Suspension - Out)",
+        "Yaya Sithole (Suspension - Out)",
+        "Aubrey Modiba (Hamstring injury - Doubtful)"
       ],
       "south_korea": [
-        "Jo Yu-min (partial tear of the plantar fascia - Out)"
+        "Cho Yu-min (torn plantar fascia - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Son Heung-min's return to the left wing will be crucial for South Korea's attacking threat.",
-      "South Africa's historical knockout stage ambition hinges on overcoming key suspensions.",
-      "Broos's defensive setup for South Africa will counter Hong's aggressive South Korea."
+      "Son Heung-min's shift to the left flank and a new central striker will test South Africa's defense.",
+      "South Africa, returning to the World Cup since 2010, must overcome key suspensions in this crucial group decider.",
+      "Hugo Broos aims to exploit South Korea's weaknesses, while Hong Myung-bo adjusts his lineup after a recent loss."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-24T06:23:08Z",
+    "headline_generated_at_utc": "2026-06-24T13:46:15Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

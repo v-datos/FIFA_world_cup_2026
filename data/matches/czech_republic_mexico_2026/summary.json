@@ -10,20 +10,20 @@
     "kickoff_utc": "2026-06-25T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Qualified Mexico Hosts Desperate Czechia at Azteca",
+    "key_headline": "Mexico's Azteca Fortress vs. Czech Republic's World Cup Last Stand",
     "injuries": {
       "czech_republic": [
-        "David Jurasek (thigh injury - Out)"
+        "Jan Kuchta (Ankle injury - Doubtful)"
       ],
       "mexico": [
-        "César Montes (Muscle pain - Doubtful)",
-        "Edson Álvarez (Ankle issue - Doubtful)",
-        "Luis Chávez (Painful ligament condition - Doubtful)",
-        "Alexis Vega (Knee pain - Doubtful)",
-        "Santiago Giménez (Ankle injury - Doubtful)",
-        "Gilberto Mora (Sports hernia - Doubtful)",
-        "César Huerta (Pelvic injury - Doubtful)",
-        "Marcel Ruiz (Torn ACL - Out)"
+        "Luis Ángel Malagón (torn Achilles tendon - Out)",
+        "Marcel Ruiz (torn ACL - Out)",
+        "Jesús Orozco (fractured ankle - Out)",
+        "César Montes (muscle pain - Doubtful)",
+        "Edson Álvarez (ankle issue - Doubtful)",
+        "Luis Chávez (ligament condition - Doubtful)",
+        "Alexis Vega (knee pain - Doubtful)",
+        "Gilberto Mora (pubalgia/sports hernia - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -39,13 +39,13 @@
       }
     },
     "tactical_insights": [
-      "Veteran goalkeeper Guillermo Ochoa could make a sentimental farewell appearance for Mexico at home.",
-      "Czechia must win to keep their World Cup dream alive, facing a formidable, already-qualified Mexico.",
-      "Aguirre's structured Mexico will test Koubek's physical, direct Czechia, who must adopt a high-risk attacking approach."
+      "Luis Romo's midfield control will duel Czech Republic's physical, direct approach for dominance.",
+      "Mexico, already qualified, faces a Czech Republic side needing a win to keep World Cup hopes alive.",
+      "Miroslav Koubek's direct, high-risk Czech strategy will challenge Aguirre's disciplined, possession-based Mexico."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-24T06:21:58Z",
+    "headline_generated_at_utc": "2026-06-24T13:44:55Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
