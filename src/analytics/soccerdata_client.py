@@ -89,7 +89,8 @@ class SoccerDataClient:
             "Ghana": 1630,
             "Panama": 1680,
             "DR Congo": 1640,
-            "Democratic Republic of the Congo": 1640
+            "Democratic Republic of the Congo": 1640,
+            "Qatar": 1430
         }
         
         # Try to import soccerdata dynamically to fetch live club stats if available

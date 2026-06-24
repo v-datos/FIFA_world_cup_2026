@@ -40,10 +40,9 @@ def load_squad_style_cache(cache_path: Path = DEFAULT_CACHE_PATH) -> dict[str, A
 
 
 def _fixture_matches(row: dict[str, Any], match_id: str) -> bool:
-    fixture_ids = row.get("fixture_ids")
-    if not fixture_ids:
-        return True
-    return match_id in fixture_ids
+    # Squad/style metrics should be team-wide profiles and apply to all matches.
+    # We ignore the match_id restriction to prevent empty dashboards.
+    return True
 
 
 def _normalize_source_record(

@@ -137,6 +137,9 @@ def collect_world_football_elo(
             "ratings": rows,
         }
         if write:
+            if not rows:
+                print("WARNING: Skipping write because parsed ELO ratings are empty (possible Cloudflare block).")
+                return payload
             raw_dir.mkdir(parents=True, exist_ok=True)
             world_raw_path = raw_dir / "World.tsv"
             teams_raw_path = raw_dir / "en.teams.tsv"

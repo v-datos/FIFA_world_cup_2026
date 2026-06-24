@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-060 - Fix Match Analysis Dashboard Panels (Outcome Probability, Performance Radar, and Squad & Style Comparison)**
+  Owner: Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer
+  Completed: 2026-06-24
+  Notes: Restored ELO ratings cache from git history after it was wiped out due to a Cloudflare anti-bot challenge on the automated daily refresh. Added a safeguard in `rating_sources.py` to skip writing cache files when parsed ratings are empty. Removed the strict match-specific `fixture_ids` restriction in `squad_style_sources.py` by making `_fixture_matches` return `True` so team-level profile metrics apply to all matches. Added Qatar to the `default_elo_ratings` fallback dictionary in `soccerdata_client.py`.
+  Verify: Run `python3 -m compileall -q src` and `npm --prefix src/frontend run build`.
+
 - [x] **T-059 - Resolve Top Scorers Sync & Bracket Label Abbreviations**
   Owner: Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer
   Completed: 2026-06-22
