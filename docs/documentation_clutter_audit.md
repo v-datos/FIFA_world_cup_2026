@@ -1,6 +1,6 @@
 # Documentation Clutter Audit
 
-Last updated: 2026-06-21
+Last updated: 2026-06-24
 Task: T-041 - Documentation Clutter Audit and Current-State Alignment
 Owner: Orchestrator
 
@@ -54,6 +54,7 @@ Use this order when trying to understand the project today:
 | DCA-7 | `STATUS.md` is large and historical. | Retained because newest-first status is useful; future archival is optional if it becomes hard to navigate. |
 | DCA-8 | Stale `generate_match_headlines.py` documentation and comments still referenced Anthropic Claude and billing API keys. | Updated code comments and docstrings to match the Vertex AI Gemini implementation. |
 | DCA-9 | `docs/data_contracts.md` suggested `T-019` as a future assignment despite the task being dropped. | Removed the T-019 player stats hover task reference. |
+| DCA-10 | ELO ratings cache was wiped out by a Cloudflare anti-bot challenge page; squad/style cache match ID filter caused blank panels for Bosnia-Qatar. | Restored ELO cache, added safeguard in rating_sources.py to prevent empty writes, added Qatar fallback ELO, and bypassed match ID filter in squad_style_sources.py. |
 
 ## Retention Decision
 
@@ -73,6 +74,7 @@ All sprint backlog tasks and phase objectives are complete. The project is fully
 
 - Monitor and verify the daily ESPN matchday refresh GitHub Actions workflow.
 - Monitor Vertex AI Gemini tactical insights generation for subsequent fixtures.
+- Verify that ELO ratings caches are maintained correctly under Cloudflare safeguards.
 
 ## Verification
 
