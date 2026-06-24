@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-23T13:52:46Z",
+    "checked_at_utc": "2026-06-24T06:20:53Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -247,52 +247,52 @@
       "mp": 2
     },
     {
+      "name": "Portugal",
+      "xg90": 1.63,
+      "xga90": 0.56,
+      "mp": 2
+    },
+    {
       "name": "Colombia",
-      "xg90": 1.61,
-      "xga90": 1.16,
-      "mp": 1
+      "xg90": 1.29,
+      "xga90": 0.77,
+      "mp": 2
     },
     {
       "name": "DR Congo",
-      "xg90": 0.87,
-      "xga90": 0.65,
-      "mp": 1
-    },
-    {
-      "name": "Portugal",
-      "xg90": 0.65,
-      "xga90": 0.87,
-      "mp": 1
+      "xg90": 0.62,
+      "xga90": 0.82,
+      "mp": 2
     },
     {
       "name": "Uzbekistan",
-      "xg90": 1.16,
-      "xga90": 1.61,
-      "mp": 1
+      "xg90": 0.7,
+      "xga90": 2.11,
+      "mp": 2
     },
     {
       "name": "England",
-      "xg90": 3.2,
-      "xga90": 0.7,
-      "mp": 1
-    },
-    {
-      "name": "Ghana",
-      "xg90": 1.25,
-      "xga90": 0.73,
-      "mp": 1
-    },
-    {
-      "name": "Panama",
-      "xg90": 0.73,
-      "xga90": 1.25,
-      "mp": 1
+      "xg90": 2.28,
+      "xga90": 0.44,
+      "mp": 2
     },
     {
       "name": "Croatia",
-      "xg90": 0.7,
-      "xga90": 3.2,
-      "mp": 1
+      "xg90": 1.17,
+      "xga90": 1.88,
+      "mp": 2
+    },
+    {
+      "name": "Ghana",
+      "xg90": 0.71,
+      "xga90": 1.04,
+      "mp": 2
+    },
+    {
+      "name": "Panama",
+      "xg90": 0.64,
+      "xga90": 1.45,
+      "mp": 2
     }
   ]
 }

@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-24T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Bosnia and Herzegovina vs Qatar",
+    "key_headline": "Suspensions and heavy defeats shape crucial Group B showdown",
     "injuries": {
       "bosnia_and_herzegovina": [
-        "No verified baseline injury update is available yet."
+        "Amir Hadžiahmetović (meniscus injury - Out)",
+        "Haris Tabaković (metatarsal fracture - Doubtful)",
+        "Sead Kolašinac (knock - Doubtful)",
+        "Ivan Šunjić (muscle injury - Doubtful)"
       ],
       "qatar": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +35,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Akram Afif's pace and directness will challenge Bosnia's left-sided defense, especially Sead Kolašinac.",
+      "Qatar's 6-0 loss to Canada, with two red cards, exposed significant defensive vulnerabilities.",
+      "Barbarez's aggressive, direct approach and aerial threat will test Lopetegui's makeshift defensive setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-24T06:21:27Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

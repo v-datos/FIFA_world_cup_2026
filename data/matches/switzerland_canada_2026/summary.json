@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-24T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Switzerland vs Canada",
+    "key_headline": "Marsch's Press vs. Yakin's Discipline for Group B Lead",
     "injuries": {
       "switzerland": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "canada": [
-        "No verified baseline injury update is available yet."
+        "Alphonso Davies (Hamstring injury - Doubtful)",
+        "Marcelo Flores (Leg injury (ruptured ACL) - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +33,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Alphonso Davies' pace against Switzerland's right-back Silvan Widmer will be a crucial individual battle.",
+      "Both teams are tied on points, with the winner securing the top spot and a more favorable knockout path.",
+      "Yakin's disciplined Swiss defense will aim to frustrate Marsch's high-intensity Canadian pressing game."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-24T06:23:30Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

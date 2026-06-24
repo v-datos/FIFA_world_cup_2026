@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-25T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for South Africa vs South Korea",
+    "key_headline": "Hong's Son Shift: Korea's Crucial Group Stage Decider",
     "injuries": {
       "south_africa": [
-        "No verified baseline injury update is available yet."
+        "Themba Zwane (suspension - Out)"
       ],
       "south_korea": [
-        "No verified baseline injury update is available yet."
+        "Jo Yu-min (partial tear of the plantar fascia - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +32,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Son Heung-min's return to the left wing will be crucial for South Korea's attacking threat.",
+      "South Africa's historical knockout stage ambition hinges on overcoming key suspensions.",
+      "Broos's defensive setup for South Africa will counter Hong's aggressive South Korea."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-24T06:23:08Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

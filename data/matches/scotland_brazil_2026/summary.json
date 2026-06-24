@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-24T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Scotland vs Brazil",
+    "key_headline": "Scotland's Historic Knockout Bid Faces Ancelotti's Brazil",
     "injuries": {
       "scotland": [
-        "No verified baseline injury update is available yet."
+        "Billy Gilmour (knee injury - Out)"
       ],
       "brazil": [
-        "No verified baseline injury update is available yet."
+        "Neymar Jr. (Calf injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +32,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Vinicius Jr.'s vertical speed will challenge Scotland's disciplined backline.",
+      "Scotland seeks historic knockout stage progression against group leaders Brazil.",
+      "Ancelotti's vertical 4-2-4 system meets Clarke's pragmatic, counter-attacking setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-24T06:22:43Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

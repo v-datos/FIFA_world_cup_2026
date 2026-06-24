@@ -10,13 +10,20 @@
     "kickoff_utc": "2026-06-25T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Czech Republic vs Mexico",
+    "key_headline": "Qualified Mexico Hosts Desperate Czechia at Azteca",
     "injuries": {
       "czech_republic": [
-        "No verified baseline injury update is available yet."
+        "David Jurasek (thigh injury - Out)"
       ],
       "mexico": [
-        "No verified baseline injury update is available yet."
+        "César Montes (Muscle pain - Doubtful)",
+        "Edson Álvarez (Ankle issue - Doubtful)",
+        "Luis Chávez (Painful ligament condition - Doubtful)",
+        "Alexis Vega (Knee pain - Doubtful)",
+        "Santiago Giménez (Ankle injury - Doubtful)",
+        "Gilberto Mora (Sports hernia - Doubtful)",
+        "César Huerta (Pelvic injury - Doubtful)",
+        "Marcel Ruiz (Torn ACL - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +39,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Veteran goalkeeper Guillermo Ochoa could make a sentimental farewell appearance for Mexico at home.",
+      "Czechia must win to keep their World Cup dream alive, facing a formidable, already-qualified Mexico.",
+      "Aguirre's structured Mexico will test Koubek's physical, direct Czechia, who must adopt a high-risk attacking approach."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-24T06:21:58Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",
