@@ -10,14 +10,14 @@
     "kickoff_utc": "2026-06-26T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "US Rotates for Knockouts; Turkey Plays for Pride",
+    "key_headline": "USMNT seeks perfect group stage as eliminated Turkey aims for pride",
     "injuries": {
       "turkey": [
-        "No confirmed injuries reported."
+        "Kenan Yildiz (calf - Doubtful)"
       ],
       "united_states": [
-        "Christian Pulisic (Calf injury - Doubtful)",
-        "Johnny Cardoso (Ankle injury - Out)"
+        "Chris Richards (torn ligaments in his ankle - Doubtful)",
+        "Christian Pulisic (discomfort in his left calf area - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -33,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "US squad players will aim to impress Pochettino, while Turkey's individuals seek to salvage pride.",
-      "With US qualification secured and Turkey eliminated, the match offers differing motivations for both sides.",
-      "Pochettino's US rotation prioritizes freshness, while Turkey's manager may experiment with less pressure."
+      "Pulisic and Balogun's in-form attack challenges Turkey's goal-scoring drought.",
+      "USMNT, already qualified, aims for a perfect group stage after historic wins.",
+      "Pochettino's aggressive high-pressing USMNT will test Montella's structured 4-2-3-1 setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:25:47Z",
+    "headline_generated_at_utc": "2026-06-25T13:46:52Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

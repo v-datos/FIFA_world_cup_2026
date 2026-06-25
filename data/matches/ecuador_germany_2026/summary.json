@@ -10,15 +10,14 @@
     "kickoff_utc": "2026-06-25T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Ecuador's Last Stand Against Qualified Germany",
+    "key_headline": "Do-or-Die Ecuador Faces Nagelsmann's Tactical Experiment",
     "injuries": {
       "ecuador": [
         "No confirmed injuries reported."
       ],
       "germany": [
-        "Nico Schlotterbeck (ligament tear in his left ankle - Out)",
-        "Lennart Karl (muscle bundle tear in his left thigh - Out)",
-        "Serge Gnabry (adductor injury - Out)"
+        "Lennart Karl (torn muscle in his left thigh - Out)",
+        "Nico Schlotterbeck (torn medial ligament in his left ankle - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "Ecuador's goal-shy attack, led by Enner Valencia, faces a potentially rotated but deep German defense.",
-      "Germany, already qualified, can experiment, while Ecuador desperately needs a victory to advance.",
-      "Nagelsmann's fluid, high-pressing system will challenge Beccacece's disciplined, counter-attacking Ecuador setup."
+      "Deniz Undav's scoring form contrasts with Enner Valencia's struggle to convert chances for Ecuador.",
+      "Ecuador must overcome their two-match goal drought to keep their World Cup hopes alive.",
+      "Nagelsmann may rotate his squad, testing Germany's depth against Ecuador's high-intensity pressing."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:24:19Z",
+    "headline_generated_at_utc": "2026-06-25T13:45:08Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

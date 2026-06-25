@@ -10,15 +10,16 @@
     "kickoff_utc": "2026-06-26T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Paraguay Must Win: Group D Knockout Stage Decider",
+    "key_headline": "Paraguay's Must-Win Clash Against Australia's Defensive Wall",
     "injuries": {
       "paraguay": [
-        "Miguel Almirón (Suspension - Out)",
+        "Miguel Almirón (Suspended - Out)",
+        "Julio Enciso (Thigh injury - Doubtful)",
         "Ramón Sosa (Discomfort - Doubtful)"
       ],
       "australia": [
-        "Mathew Leckie (Suffered a hamstring strain during a match against the USA - Out)",
-        "Jacob Italiano (Picked up an adductor injury in training and will miss the final Group D match - Out)"
+        "Mathew Leckie (Hamstring strain - Out)",
+        "Jacob Italiano (Adductor injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Without Almirón, Julio Enciso carries Paraguay's creative burden against Australia's disciplined defense.",
-      "Paraguay needs a victory to guarantee progression, while Australia can advance with a draw.",
-      "Both managers, Alfaro and Popovic, favor disciplined defensive structures and swift counter-attacks."
+      "Australia's midfield must neutralize Julio Enciso, Paraguay's creative engine, to prevent him from dictating play.",
+      "Paraguay must win for guaranteed progression, while a draw secures Australia's knockout stage spot.",
+      "Alfaro's pragmatic, low-block counter-attacking style clashes with Popovic's structured, high-intensity pressing system."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:25:04Z",
+    "headline_generated_at_utc": "2026-06-25T13:46:01Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

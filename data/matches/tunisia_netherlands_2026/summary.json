@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-25T23:00Z"
   },
   "ai_summary": {
-    "key_headline": "Pride vs. Top Spot: Renard's Tunisia faces Koeman's Netherlands",
+    "key_headline": "Dutch aim for group top; Renard's Tunisia farewell",
     "injuries": {
       "tunisia": [
         "No confirmed injuries reported."
       ],
       "netherlands": [
-        "Xavi Simons (Ruptured anterior cruciate ligament (ACL) - Out)"
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Memphis Depay and Cody Gakpo's attacking prowess will exploit Tunisia's vulnerable defense.",
-      "Eliminated Tunisia, under new manager Renard, plays for pride after two heavy defeats.",
-      "Koeman's pragmatic Dutch system will test Renard's attempt to restore Tunisia's defensive solidity."
+      "Frenkie de Jong's midfield control will test Ellyes Skhiri's ability to disrupt Dutch build-up.",
+      "Netherlands seeks to secure knockout progression and group top after a commanding 5-1 victory.",
+      "Ronald Koeman's pragmatic Dutch possession game will challenge Hervé Renard's struggling Tunisian defense."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:25:30Z",
+    "headline_generated_at_utc": "2026-06-25T13:46:27Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

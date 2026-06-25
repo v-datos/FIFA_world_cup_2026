@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-25T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Curacao's Historic Run Meets Ivory Coast's Knockout Ambition",
+    "key_headline": "Curacao's World Cup Dream Hinges on Ivory Coast Clash",
     "injuries": {
       "curacao": [
-        "No confirmed injuries reported."
+        "Jurgen Locadia (knock - Doubtful)"
       ],
       "ivory_coast": [
-        "Clément Akpa (thigh injury - Out)"
+        "Clement Akpa (Thigh injury - Out)",
+        "Evan Ndicka (Thigh injury - Doubtful)",
+        "Wilfried Singo (Thigh injury - Doubtful)",
+        "Elye Wahi (Barred from entering Canada due to a pending criminal investigation related to betting manipulation - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Curacao's Eloy Room, fresh from 15 saves, faces Ivory Coast's dynamic attack led by Amad Diallo.",
-      "Curacao's historic draw against Ecuador highlights their defensive evolution and resilience in their debut World Cup.",
-      "Advocaat's defensive Curacao will aim to frustrate Faé's flexible Ivory Coast, who prefer a high press and wide attacks."
+      "Eloy Room's record-breaking saves will be crucial against Ivory Coast's dynamic attackers like Amad Diallo.",
+      "Curacao needs a victory to advance, while Ivory Coast can progress with a win or a draw.",
+      "Curacao's deep defensive block and counter-attacking strategy will test Ivory Coast's midfield power."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:23:53Z",
+    "headline_generated_at_utc": "2026-06-25T13:44:36Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

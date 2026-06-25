@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-25T06:23:20Z",
+    "checked_at_utc": "2026-06-25T13:43:58Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."

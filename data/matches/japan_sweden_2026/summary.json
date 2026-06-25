@@ -10,10 +10,14 @@
     "kickoff_utc": "2026-06-25T23:00Z"
   },
   "ai_summary": {
-    "key_headline": "Potter's Sweden Faces Decisive Japan Test After Dutch Rout",
+    "key_headline": "Japan's momentum meets Sweden's fight for knockout stage.",
     "injuries": {
       "japan": [
-        "No confirmed injuries reported."
+        "Wataru Endo (foot injury - Out)",
+        "Kaoru Mitoma (hamstring injury - Out)",
+        "Takumi Minamino (ruptured left knee anterior cruciate ligament - Out)",
+        "Takefusa Kubo (left knee injury - Doubtful)",
+        "Shuto Machino (virus - Doubtful)"
       ],
       "sweden": [
         "No confirmed injuries reported."
@@ -32,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Japan's Ueda and Kubo will test Sweden's Lindelöf, while Gyökeres and Isak challenge Japan's Tomiyasu and Itakura.",
-      "Sweden must win to advance after their 5-1 defeat to the Netherlands, while Japan only requires a draw for knockout progression.",
-      "Moriyasu's flexible pressing and counter-attacking style will challenge Potter's Sweden, who seek improved defensive compactness."
+      "Sweden's potent Isak-Gyökeres duo will test Japan's strong defensive organization.",
+      "Japan seeks to win Group F to avoid Brazil, while Sweden needs victory to secure knockout progression.",
+      "Moriyasu's tactical flexibility and fast transitions will challenge Potter's evolving possession and counter-attacking style."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-25T06:24:41Z",
+    "headline_generated_at_utc": "2026-06-25T13:45:35Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
