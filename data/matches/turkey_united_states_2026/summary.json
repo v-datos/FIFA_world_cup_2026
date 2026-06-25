@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-26T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Turkey vs United States",
+    "key_headline": "US Rotates for Knockouts; Turkey Plays for Pride",
     "injuries": {
       "turkey": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "united_states": [
-        "No verified baseline injury update is available yet."
+        "Christian Pulisic (Calf injury - Doubtful)",
+        "Johnny Cardoso (Ankle injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +33,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "US squad players will aim to impress Pochettino, while Turkey's individuals seek to salvage pride.",
+      "With US qualification secured and Turkey eliminated, the match offers differing motivations for both sides.",
+      "Pochettino's US rotation prioritizes freshness, while Turkey's manager may experiment with less pressure."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-25T06:25:47Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

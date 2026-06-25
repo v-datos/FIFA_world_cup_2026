@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-26T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Paraguay vs Australia",
+    "key_headline": "Paraguay Must Win: Group D Knockout Stage Decider",
     "injuries": {
       "paraguay": [
-        "No verified baseline injury update is available yet."
+        "Miguel Almirón (Suspension - Out)",
+        "Ramón Sosa (Discomfort - Doubtful)"
       ],
       "australia": [
-        "No verified baseline injury update is available yet."
+        "Mathew Leckie (Suffered a hamstring strain during a match against the USA - Out)",
+        "Jacob Italiano (Picked up an adductor injury in training and will miss the final Group D match - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Without Almirón, Julio Enciso carries Paraguay's creative burden against Australia's disciplined defense.",
+      "Paraguay needs a victory to guarantee progression, while Australia can advance with a draw.",
+      "Both managers, Alfaro and Popovic, favor disciplined defensive structures and swift counter-attacks."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-25T06:25:04Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

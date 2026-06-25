@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-25T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Ecuador vs Germany",
+    "key_headline": "Ecuador's Last Stand Against Qualified Germany",
     "injuries": {
       "ecuador": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "germany": [
-        "No verified baseline injury update is available yet."
+        "Nico Schlotterbeck (ligament tear in his left ankle - Out)",
+        "Lennart Karl (muscle bundle tear in his left thigh - Out)",
+        "Serge Gnabry (adductor injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Ecuador's goal-shy attack, led by Enner Valencia, faces a potentially rotated but deep German defense.",
+      "Germany, already qualified, can experiment, while Ecuador desperately needs a victory to advance.",
+      "Nagelsmann's fluid, high-pressing system will challenge Beccacece's disciplined, counter-attacking Ecuador setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-25T06:24:19Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

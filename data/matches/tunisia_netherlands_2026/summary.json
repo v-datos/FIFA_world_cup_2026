@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-25T23:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Tunisia vs Netherlands",
+    "key_headline": "Pride vs. Top Spot: Renard's Tunisia faces Koeman's Netherlands",
     "injuries": {
       "tunisia": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "netherlands": [
-        "No verified baseline injury update is available yet."
+        "Xavi Simons (Ruptured anterior cruciate ligament (ACL) - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +32,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Memphis Depay and Cody Gakpo's attacking prowess will exploit Tunisia's vulnerable defense.",
+      "Eliminated Tunisia, under new manager Renard, plays for pride after two heavy defeats.",
+      "Koeman's pragmatic Dutch system will test Renard's attempt to restore Tunisia's defensive solidity."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-25T06:25:30Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

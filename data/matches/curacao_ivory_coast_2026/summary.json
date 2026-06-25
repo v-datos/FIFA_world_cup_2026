@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-25T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Curacao vs Ivory Coast",
+    "key_headline": "Curacao's Historic Run Meets Ivory Coast's Knockout Ambition",
     "injuries": {
       "curacao": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ],
       "ivory_coast": [
-        "No verified baseline injury update is available yet."
+        "Clément Akpa (thigh injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +32,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Curacao's Eloy Room, fresh from 15 saves, faces Ivory Coast's dynamic attack led by Amad Diallo.",
+      "Curacao's historic draw against Ecuador highlights their defensive evolution and resilience in their debut World Cup.",
+      "Advocaat's defensive Curacao will aim to frustrate Faé's flexible Ivory Coast, who prefer a high press and wide attacks."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-25T06:23:53Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

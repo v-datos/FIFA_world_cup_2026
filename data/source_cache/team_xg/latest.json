@@ -1,82 +1,82 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-24T13:43:54Z",
+    "checked_at_utc": "2026-06-25T06:23:20Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
   },
   "teams": [
     {
-      "name": "South Korea",
-      "xg90": 1.6,
-      "xga90": 0.68,
-      "mp": 2
+      "name": "Mexico",
+      "xg90": 1.24,
+      "xga90": 0.5,
+      "mp": 3
     },
     {
-      "name": "Mexico",
-      "xg90": 0.99,
-      "xga90": 0.49,
-      "mp": 2
+      "name": "South Korea",
+      "xg90": 1.37,
+      "xga90": 0.84,
+      "mp": 3
     },
     {
       "name": "South Africa",
-      "xg90": 0.73,
-      "xga90": 1.24,
-      "mp": 2
+      "xg90": 0.87,
+      "xga90": 1.13,
+      "mp": 3
     },
     {
       "name": "Czechia",
-      "xg90": 0.92,
-      "xga90": 1.84,
-      "mp": 2
+      "xg90": 0.79,
+      "xga90": 1.81,
+      "mp": 3
     },
     {
       "name": "Switzerland",
-      "xg90": 2.63,
-      "xga90": 0.41,
-      "mp": 2
+      "xg90": 2.12,
+      "xga90": 0.83,
+      "mp": 3
     },
     {
       "name": "Canada",
-      "xg90": 2.92,
-      "xga90": 0.59,
-      "mp": 2
+      "xg90": 2.5,
+      "xga90": 0.77,
+      "mp": 3
     },
     {
       "name": "Bosnia and Herzegovina",
-      "xg90": 0.59,
-      "xga90": 1.65,
-      "mp": 2
+      "xg90": 0.62,
+      "xga90": 1.36,
+      "mp": 3
     },
     {
       "name": "Qatar",
-      "xg90": 0.41,
-      "xga90": 3.9,
-      "mp": 2
+      "xg90": 0.53,
+      "xga90": 2.82,
+      "mp": 3
     },
     {
       "name": "Brazil",
-      "xg90": 1.51,
-      "xga90": 0.8,
-      "mp": 2
+      "xg90": 2.45,
+      "xga90": 0.88,
+      "mp": 3
     },
     {
       "name": "Morocco",
-      "xg90": 1.18,
-      "xga90": 0.89,
-      "mp": 2
+      "xg90": 2.04,
+      "xga90": 0.82,
+      "mp": 3
     },
     {
       "name": "Scotland",
-      "xg90": 0.78,
-      "xga90": 1.02,
-      "mp": 2
+      "xg90": 0.87,
+      "xga90": 2.12,
+      "mp": 3
     },
     {
       "name": "Haiti",
-      "xg90": 0.64,
-      "xga90": 1.4,
-      "mp": 2
+      "xg90": 0.65,
+      "xga90": 2.19,
+      "mp": 3
     },
     {
       "name": "Turkiye",
