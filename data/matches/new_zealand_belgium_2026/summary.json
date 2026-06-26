@@ -10,15 +10,18 @@
     "kickoff_utc": "2026-06-27T03:00Z"
   },
   "ai_summary": {
-    "key_headline": "Belgium's Tournament Fate Rests on New Zealand Clash",
+    "key_headline": "Stuttering Belgium must win to secure knockout qualification",
     "injuries": {
       "new_zealand": [
-        "Matt Garbett (hamstring injury - Out)"
+        "Matt Garbett (hamstring injury - Out)",
+        "Ryan Thomas (hamstring strain - Doubtful)",
+        "Joe Bell (calf issue - Doubtful)"
       ],
       "belgium": [
-        "Nathan Ngoy (Suspended - Out)",
-        "Jeremy Doku (Fitness concerns - Doubtful)",
-        "Zeno Debast (Fitness concerns - Doubtful)"
+        "Nathan Ngoy (direct red card - Out)",
+        "Romelu Lukaku (not ready for full match - Doubtful)",
+        "Jeremy Doku (illness and recent trip home - Doubtful)",
+        "Zeno Debast (Hamstring muscle injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "Chris Wood's aerial threat and finishing will test Belgium's defense, a key individual battle.",
-      "Belgium's two draws put immense pressure on them to secure a vital win for knockout stage progression.",
-      "Bazeley's structured low block will aim to frustrate Garcia's high-tempo, attacking 4-2-3-1 system."
+      "Kevin De Bruyne remains Belgium's creative engine, crucial for unlocking New Zealand's defense.",
+      "Belgium's two draws mean they must win this final group match to guarantee progression.",
+      "Rudi Garcia's 4-2-3-1 system emphasizes high-tempo, high-pressing, direct attacking football."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-26T06:25:22Z",
+    "headline_generated_at_utc": "2026-06-26T13:43:47Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

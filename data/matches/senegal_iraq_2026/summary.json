@@ -10,10 +10,10 @@
     "kickoff_utc": "2026-06-26T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Senegal's Last Stand: Thiaw's Men Battle Iraq for World Cup Hope",
+    "key_headline": "Senegal's Must-Win \"Final\" Against Iraq",
     "injuries": {
       "senegal": [
-        "Édouard Mendy (knee injury - Out)"
+        "Edouard Mendy (Knee injury - Out)"
       ],
       "iraq": [
         "Aymen Hussein (adductor muscle injury - Out)",
@@ -33,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "Senegal's dynamic attackers Mane, Jackson, and Ndiaye will test Iraq's disciplined defensive block.",
-      "Senegal's \"must-win\" scenario demands an aggressive attack despite recent defensive vulnerabilities.",
-      "Pape Thiaw's Senegal must balance attacking intent with defensive solidity against Iraq's compact block."
+      "Senegal's pace and width will challenge Iraq's compact defensive structure.",
+      "Senegal needs a high-scoring victory to improve goal difference for third-place qualification.",
+      "Pape Thiaw's dynamic Senegal will aim to break down Graham Arnold's pragmatic, organized Iraq."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-26T06:26:15Z",
+    "headline_generated_at_utc": "2026-06-26T13:44:35Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

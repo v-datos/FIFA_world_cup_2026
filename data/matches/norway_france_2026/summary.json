@@ -10,15 +10,13 @@
     "kickoff_utc": "2026-06-26T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Deschamps' absence looms as France battles Norway for group supremacy",
+    "key_headline": "Deschamps out: France battles Norway for Group I winner",
     "injuries": {
       "norway": [
-        "Julian Ryerson (Thigh injury - Doubtful)"
+        "Julian Ryerson (thigh injury - Doubtful)"
       ],
       "france": [
-        "Adrien Rabiot (Suspension - Out)",
-        "Lucas Hernandez (Ruptured ACL - Out)",
-        "Christopher Nkunku (Injury troubles - Out)"
+        "Hugo Ekitike (Achilles tendon injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Erling Haaland versus Dayot Upamecano and Maxence Lacroix will be the key defensive duel for France.",
-      "Deschamps' absence and Stephan's interim leadership add intrigue to France's group-topping quest.",
-      "France's disciplined transition play will challenge Norway's aggressive attacking style and high-flying full-backs."
+      "Erling Haaland's blistering pace and finishing will test France's defensive anchors Saliba and Upamecano.",
+      "France plays for Group I supremacy without manager Deschamps, who is temporarily absent.",
+      "Norway's pragmatic deep block and counter-attacking style will challenge France's fluid 4-2-3-1 formation."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-26T06:25:52Z",
+    "headline_generated_at_utc": "2026-06-26T13:44:12Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

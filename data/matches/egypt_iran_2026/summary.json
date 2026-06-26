@@ -10,15 +10,17 @@
     "kickoff_utc": "2026-06-27T03:00Z"
   },
   "ai_summary": {
-    "key_headline": "Hassan's Egypt targets top spot against desperate Iran",
+    "key_headline": "Egypt's historic run meets Iran's pragmatic challenge.",
     "injuries": {
       "egypt": [
-        "Hossam Abdelmaguid (Head injury - Out)",
-        "Hamdy Fathy (Hamstring injury - Doubtful)"
+        "Hossam Abdelmaguid (head injury - Out)",
+        "Hamdy Fathy (hamstring injury - Doubtful)"
       ],
       "iran": [
-        "Ali Gholizadeh (torn anterior cruciate ligament (ACL) - Out)",
-        "Rouzbeh Cheshmi (questionable - Doubtful)"
+        "Ali Gholizadeh (torn anterior cruciate ligament (ACL) in his left knee - Out)",
+        "Alireza Jahanbakhsh (muscular injury - Doubtful)",
+        "Roozbeh Cheshmi (hamstring injury and a knee injury - Doubtful)",
+        "Saman Ghoddos (ankle injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Mohamed Salah's transition-based attacks will test Iran's structured defense and experienced goalkeeper Beiranvand.",
-      "Egypt, leading Group G, aims to secure qualification against Iran, who desperately needs a win to advance.",
-      "Hossam Hassan's pragmatic 4-2-3-1 and counter-attacks will clash with Ghalenoei's structured, direct approach."
+      "Mohamed Salah's creative freedom tests Iran's pragmatic defensive structure.",
+      "Egypt's historic win and strong form contrast Iran's travel-affected preparation.",
+      "Hassan's disciplined transitions meet Ghalenoei's pragmatic counter-attacking style."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-26T06:24:57Z",
+    "headline_generated_at_utc": "2026-06-26T13:43:21Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

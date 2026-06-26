@@ -10,12 +10,10 @@
     "kickoff_utc": "2026-06-27T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Group H Decider: Cape Verde's Resilience vs. Saudi Arabia's Urgency",
+    "key_headline": "Cape Verde's Unbeaten Streak Challenges Saudi Arabia's World Cup Hopes",
     "injuries": {
       "cape_verde": [
-        "Sidny Lopes Cabral (Suspended - Out)",
-        "Telmo Arcanjo (Fitness concern/Injury - Doubtful)",
-        "Jovane Cabral (Fitness concern/Knock - Doubtful)"
+        "No confirmed injuries reported."
       ],
       "saudi_arabia": [
         "No confirmed injuries reported."
@@ -34,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Saudi Arabia's captain Salem Al-Dawsari must deliver against Cape Verde's organized defense.",
-      "Cape Verde's historic unbeaten run in their debut World Cup sets up a tense qualification decider.",
-      "Bubista's disciplined defense and counter-attacks will face Donis's possession-focused Saudi Arabia."
+      "Cape Verde's veteran goalkeeper Vozinha, after his Spain heroics, faces Saudi Arabia's Salem Al-Dawsari.",
+      "Saudi Arabia needs a win to advance, while Cape Verde seeks to extend their surprising unbeaten World Cup debut.",
+      "Bubista's disciplined, counter-attacking Cape Verde will challenge Donis's Saudi Arabia, who must improve defensively."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-26T06:24:33Z",
+    "headline_generated_at_utc": "2026-06-26T13:42:55Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
