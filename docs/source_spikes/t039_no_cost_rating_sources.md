@@ -1,23 +1,23 @@
 # T-039 No-Cost Rating Source Spike
 
-Last updated: 2026-06-25
+Last updated: 2026-06-26
 Owner: Data Pipeline Engineer
 
 ## Finding
 
-World Football Elo is practical as the no-cost national-team rating source. The current cache parsed 244 ratings and covered 48/48 tournament teams.
+World Football Elo is practical as the no-cost national-team rating source. The current cache parsed 0 ratings and covered 0/48 tournament teams.
 
 FIFA ranking remains useful as an official sanity check and fallback reference, but the public page is a dynamic application. This spike captures update metadata instead of using FIFA as the primary machine-readable rating feed.
 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-06-25T13:43:17Z`
-- World Football Elo last modified: `Thu, 25 Jun 2026 09:22:41 GMT`
-- World Football Elo status: `used`
+- World Football Elo checked at: `2026-06-26T06:23:32Z`
+- World Football Elo last modified: `None`
+- World Football Elo status: `blocked`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
-- World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`
-- World Football Elo raw team dictionary snapshot: `data/source_cache/world_football_elo/raw/en.teams.tsv`
+- World Football Elo raw ratings snapshot: `None`
+- World Football Elo raw team dictionary snapshot: `None`
 - FIFA ranking page: `https://inside.fifa.com/fifa-world-ranking/men`
 - FIFA metadata status: `metadata_only`
 - FIFA last update date: `2026-06-11T10:00:59.636Z`
@@ -26,25 +26,13 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Coverage
 
 - Tournament teams checked: 48
-- World Football Elo matches: 48
-- Missing teams: None
+- World Football Elo matches: 0
+- Missing teams: Algeria, Argentina, Australia, Austria, Belgium, Bosnia and Herzegovina, Brazil, Canada, Cape Verde, Colombia, Croatia, Curacao, Czech Republic, Democratic Republic of the Congo, Ecuador, Egypt, England, France, Germany, Ghana, Haiti, Iran, Iraq, Ivory Coast, Japan, Jordan, Mexico, Morocco, Netherlands, New Zealand, Norway, Panama, Paraguay, Portugal, Qatar, Saudi Arabia, Scotland, Senegal, South Africa, South Korea, Spain, Sweden, Switzerland, Tunisia, Turkey, United States, Uruguay, Uzbekistan
 
 ## Sample Tournament Ratings
 
 | Rank | Team | Elo | Code |
 |---:|---|---:|---|
-| 1 | Argentina | 2144 | AR |
-| 2 | Spain | 2134 | ES |
-| 3 | France | 2090 | FR |
-| 4 | England | 2028 | EN |
-| 5 | Brazil | 2009 | BR |
-| 6 | Colombia | 2006 | CO |
-| 7 | Portugal | 1988 | PT |
-| 8 | Netherlands | 1972 | NL |
-| 9 | Germany | 1954 | DE |
-| 10 | Norway | 1951 | NO |
-| 11 | Japan | 1925 | JP |
-| 12 | Switzerland | 1914 | CH |
 
 ## Recommended Cache Contract
 

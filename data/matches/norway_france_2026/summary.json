@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-26T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Norway vs France",
+    "key_headline": "Deschamps' absence looms as France battles Norway for group supremacy",
     "injuries": {
       "norway": [
-        "No verified baseline injury update is available yet."
+        "Julian Ryerson (Thigh injury - Doubtful)"
       ],
       "france": [
-        "No verified baseline injury update is available yet."
+        "Adrien Rabiot (Suspension - Out)",
+        "Lucas Hernandez (Ruptured ACL - Out)",
+        "Christopher Nkunku (Injury troubles - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Erling Haaland versus Dayot Upamecano and Maxence Lacroix will be the key defensive duel for France.",
+      "Deschamps' absence and Stephan's interim leadership add intrigue to France's group-topping quest.",
+      "France's disciplined transition play will challenge Norway's aggressive attacking style and high-flying full-backs."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-26T06:25:52Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

@@ -160,47 +160,47 @@
       "standings": [
         {
           "team": "United States",
-          "p": 2,
+          "p": 3,
           "w": 2,
           "d": 0,
-          "l": 0,
-          "gf": 6,
-          "ga": 1,
-          "gd": 5,
+          "l": 1,
+          "gf": 8,
+          "ga": 4,
+          "gd": 4,
           "pts": 6
         },
         {
           "team": "Australia",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 1,
           "gf": 2,
           "ga": 2,
           "gd": 0,
-          "pts": 3
+          "pts": 4
         },
         {
           "team": "Paraguay",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 1,
           "gf": 2,
           "ga": 4,
           "gd": -2,
-          "pts": 3
+          "pts": 4
         },
         {
           "team": "Turkey",
-          "p": 2,
-          "w": 0,
+          "p": 3,
+          "w": 1,
           "d": 0,
           "l": 2,
-          "gf": 0,
-          "ga": 3,
-          "gd": -3,
-          "pts": 0
+          "gf": 3,
+          "ga": 5,
+          "gd": -2,
+          "pts": 3
         }
       ]
     },
@@ -209,46 +209,46 @@
       "standings": [
         {
           "team": "Germany",
-          "p": 2,
+          "p": 3,
           "w": 2,
           "d": 0,
-          "l": 0,
-          "gf": 9,
-          "ga": 2,
-          "gd": 7,
+          "l": 1,
+          "gf": 10,
+          "ga": 4,
+          "gd": 6,
           "pts": 6
         },
         {
           "team": "Ivory Coast",
-          "p": 2,
-          "w": 1,
+          "p": 3,
+          "w": 2,
           "d": 0,
+          "l": 1,
+          "gf": 4,
+          "ga": 2,
+          "gd": 2,
+          "pts": 6
+        },
+        {
+          "team": "Ecuador",
+          "p": 3,
+          "w": 1,
+          "d": 1,
           "l": 1,
           "gf": 2,
           "ga": 2,
           "gd": 0,
-          "pts": 3
-        },
-        {
-          "team": "Ecuador",
-          "p": 2,
-          "w": 0,
-          "d": 1,
-          "l": 1,
-          "gf": 0,
-          "ga": 1,
-          "gd": -1,
-          "pts": 1
+          "pts": 4
         },
         {
           "team": "Curacao",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 1,
-          "l": 1,
+          "l": 2,
           "gf": 1,
-          "ga": 7,
-          "gd": -6,
+          "ga": 9,
+          "gd": -8,
           "pts": 1
         }
       ]
@@ -258,46 +258,46 @@
       "standings": [
         {
           "team": "Netherlands",
-          "p": 2,
-          "w": 1,
+          "p": 3,
+          "w": 2,
           "d": 1,
+          "l": 0,
+          "gf": 10,
+          "ga": 4,
+          "gd": 6,
+          "pts": 7
+        },
+        {
+          "team": "Japan",
+          "p": 3,
+          "w": 1,
+          "d": 2,
           "l": 0,
           "gf": 7,
           "ga": 3,
           "gd": 4,
-          "pts": 4
-        },
-        {
-          "team": "Japan",
-          "p": 2,
-          "w": 1,
-          "d": 1,
-          "l": 0,
-          "gf": 6,
-          "ga": 2,
-          "gd": 4,
-          "pts": 4
+          "pts": 5
         },
         {
           "team": "Sweden",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 1,
-          "gf": 6,
-          "ga": 6,
+          "gf": 7,
+          "ga": 7,
           "gd": 0,
-          "pts": 3
+          "pts": 4
         },
         {
           "team": "Tunisia",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 2,
-          "gf": 1,
-          "ga": 9,
-          "gd": -8,
+          "l": 3,
+          "gf": 2,
+          "ga": 12,
+          "gd": -10,
           "pts": 0
         }
       ]
@@ -612,7 +612,7 @@
         {
           "id": "r32_2",
           "team1": "Brazil",
-          "team2": "Runner-up Group F",
+          "team2": "Japan",
           "score1": null,
           "score2": null,
           "winner": null
@@ -627,7 +627,7 @@
         },
         {
           "id": "r32_4",
-          "team1": "Winner Group F",
+          "team1": "Netherlands",
           "team2": "Morocco",
           "score1": null,
           "score2": null,
@@ -635,7 +635,7 @@
         },
         {
           "id": "r32_5",
-          "team1": "Runner-up Group E",
+          "team1": "Ivory Coast",
           "team2": "Runner-up Group I",
           "score1": null,
           "score2": null,
@@ -675,8 +675,8 @@
         },
         {
           "id": "r32_10",
-          "team1": "Winner Group D",
-          "team2": "3rd Group B/E/F/I/J",
+          "team1": "United States",
+          "team2": "Bosnia and Herzegovina",
           "score1": null,
           "score2": null,
           "winner": null
@@ -707,7 +707,7 @@
         },
         {
           "id": "r32_14",
-          "team1": "Runner-up Group D",
+          "team1": "Australia",
           "team2": "Runner-up Group G",
           "score1": null,
           "score2": null,
@@ -884,14 +884,14 @@
     {
       "id": "r32_74",
       "team1": "Brazil",
-      "team2": "Runner-up Group F",
+      "team2": "Japan",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r32_77",
-      "team1": "Runner-up Group E",
+      "team1": "Ivory Coast",
       "team2": "Runner-up Group I",
       "score1": null,
       "score2": null,
@@ -923,7 +923,7 @@
     },
     {
       "id": "r32_84",
-      "team1": "Runner-up Group D",
+      "team1": "Australia",
       "team2": "Runner-up Group G",
       "score1": null,
       "score2": null,
@@ -939,15 +939,15 @@
     },
     {
       "id": "r32_82",
-      "team1": "Winner Group D",
-      "team2": "3rd Group B/E/F/I/J",
+      "team1": "United States",
+      "team2": "Bosnia and Herzegovina",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r32_76",
-      "team1": "Winner Group F",
+      "team1": "Netherlands",
       "team2": "Morocco",
       "score1": null,
       "score2": null,

@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-27T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Cape Verde vs Saudi Arabia",
+    "key_headline": "Group H Decider: Cape Verde's Resilience vs. Saudi Arabia's Urgency",
     "injuries": {
       "cape_verde": [
-        "No verified baseline injury update is available yet."
+        "Sidny Lopes Cabral (Suspended - Out)",
+        "Telmo Arcanjo (Fitness concern/Injury - Doubtful)",
+        "Jovane Cabral (Fitness concern/Knock - Doubtful)"
       ],
       "saudi_arabia": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Saudi Arabia's captain Salem Al-Dawsari must deliver against Cape Verde's organized defense.",
+      "Cape Verde's historic unbeaten run in their debut World Cup sets up a tense qualification decider.",
+      "Bubista's disciplined defense and counter-attacks will face Donis's possession-focused Saudi Arabia."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-26T06:24:33Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

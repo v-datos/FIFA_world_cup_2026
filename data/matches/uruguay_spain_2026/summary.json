@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-06-27T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Uruguay vs Spain",
+    "key_headline": "Unbeaten Spain Faces Desperate Uruguay in Group H Decider",
     "injuries": {
       "uruguay": [
-        "No verified baseline injury update is available yet."
+        "Giorgian de Arrascaeta (muscle injury - Out)",
+        "Ronald Araujo (calf injury - Doubtful)",
+        "José María Giménez (fitness concerns - Doubtful)"
       ],
       "spain": [
-        "No verified baseline injury update is available yet."
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +34,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "The midfield duel between Rodri and Valverde will dictate the game's tempo and control.",
+      "Uruguay desperately needs a win to secure knockout stage progression in this crucial group decider.",
+      "Bielsa's intense pressing system will test de la Fuente's vertical 4-3-3 and high defensive line."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-26T06:26:37Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",

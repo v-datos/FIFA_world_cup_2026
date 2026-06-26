@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-26T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Baseline preview pending for Senegal vs Iraq",
+    "key_headline": "Senegal's Last Stand: Thiaw's Men Battle Iraq for World Cup Hope",
     "injuries": {
       "senegal": [
-        "No verified baseline injury update is available yet."
+        "Édouard Mendy (knee injury - Out)"
       ],
       "iraq": [
-        "No verified baseline injury update is available yet."
+        "Aymen Hussein (adductor muscle injury - Out)",
+        "Mohanad Ali (recent injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,10 +33,14 @@
       }
     },
     "tactical_insights": [
-      "Baseline preview has not been curated yet.",
-      "Run last-minute briefing generation inside the match window for fresh updates.",
-      "Treat model and team profile sections as unavailable until metrics are populated."
-    ]
+      "Senegal's dynamic attackers Mane, Jackson, and Ndiaye will test Iraq's disciplined defensive block.",
+      "Senegal's \"must-win\" scenario demands an aggressive attack despite recent defensive vulnerabilities.",
+      "Pape Thiaw's Senegal must balance attacking intent with defensive solidity against Iraq's compact block."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-26T06:26:15Z",
+    "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
     "status": "baseline_stub",
