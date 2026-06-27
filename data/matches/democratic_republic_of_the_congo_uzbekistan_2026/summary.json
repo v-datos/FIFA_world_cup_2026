@@ -10,13 +10,14 @@
     "kickoff_utc": "2026-06-27T23:30Z"
   },
   "ai_summary": {
-    "key_headline": "DR Congo Seeks Aggressive Win; Uzbekistan Fights for Survival",
+    "key_headline": "DRC's Resilience Meets Uzbekistan's Debut Desperation",
     "injuries": {
       "democratic_republic_of_the_congo": [
-        "Rocky Bushiri (Achilles injury - Out)"
+        "No confirmed injuries reported."
       ],
       "uzbekistan": [
-        "Jaloliddin Masharipov (recurrence of a spinal disc herniation - Out)"
+        "Husniddin Alikulov (serious knee injury - Out)",
+        "Jaloliddin Masharipov (recurring spinal disc herniation - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "Chancel Mbemba's defensive organization will be crucial against Eldor Shomurodov's central goal threat.",
-      "DR Congo must secure a victory to keep their Round of 32 qualification hopes alive in Group K.",
-      "Sébastien Desabre's expected aggressive approach will test Fabio Cannavaro's defensive organization."
+      "Chancel Mbemba's leadership will be crucial against Eldor Shomurodov's goal-scoring threat.",
+      "DRC needs a win to advance after a draw with Portugal and narrow loss to Colombia.",
+      "Desabre's flexible 4-1-4-1 counter-attacking style will test Cannavaro's compact 3-4-2-1 defense."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-27T06:14:21Z",
+    "headline_generated_at_utc": "2026-06-27T13:35:01Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

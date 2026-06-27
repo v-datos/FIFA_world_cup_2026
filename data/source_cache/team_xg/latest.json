@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-27T06:12:43Z",
+    "checked_at_utc": "2026-06-27T13:33:19Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -152,14 +152,14 @@
     },
     {
       "name": "Belgium",
-      "xg90": 2.28,
+      "xg90": 2.26,
       "xga90": 0.65,
       "mp": 3
     },
     {
       "name": "Iran",
       "xg90": 1.36,
-      "xga90": 1.28,
+      "xga90": 1.29,
       "mp": 3
     },
     {
@@ -171,7 +171,7 @@
     {
       "name": "New Zealand",
       "xg90": 0.91,
-      "xga90": 2.35,
+      "xga90": 2.34,
       "mp": 3
     },
     {

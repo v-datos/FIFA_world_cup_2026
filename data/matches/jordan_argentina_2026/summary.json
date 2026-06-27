@@ -10,23 +10,22 @@
     "kickoff_utc": "2026-06-28T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Argentina's Depth Faces Jordan's Historic World Cup Exit",
+    "key_headline": "Argentina Secures Spot, Rotates Squad vs. Jordan",
     "injuries": {
       "jordan": [
-        "Yazan Al-Naimat (knee injury, specifically a torn ligament (ACL) - Out)",
-        "Adham Al-Quraishi (ACL injury (cruciate ligament tear) - Out)",
-        "Ibrahim Sabra (torn ankle ligament - Out)",
-        "Issam Smeiri (ruptured Achilles tendon - Out)"
+        "Yazan Al-Naimat (severe knee injury - Out)",
+        "Adham Al-Quraishi (ACL - Out)",
+        "Issam Smeeri (Achilles tendon rupture - Out)",
+        "Ibrahim Sabra (torn ankle ligament - Out)"
       ],
       "argentina": [
-        "Leonardo Balerdi (soleus muscle injury - Out)",
-        "Juan Foyth (severe Achilles tendon injury - Out)",
-        "Lionel Messi (hamstring strain/inflammation - Doubtful)",
-        "Emiliano Martínez (minor fracture to a finger on his left hand - Doubtful)",
-        "Cristian Romero (lateral ligament strain in his right knee - Doubtful)",
-        "Gonzalo Montiel (tear in his left quadriceps - Doubtful)",
-        "Nahuel Molina (tear in his right hamstring - Doubtful)",
-        "Leandro Paredes (hamstring spasms/strain - Doubtful)"
+        "Cristian Romero (lateral ligament strain - Doubtful)",
+        "Gonzalo Montiel (tear in left quadriceps - Doubtful)",
+        "Nicolás González (muscle tear - Out)",
+        "Nicolás Paz (knee contusion - Out)",
+        "Thiago Almada (muscle overload - Out)",
+        "Julián Álvarez (ankle sprain - Out)",
+        "Leandro Paredes (hamstring strain - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -42,13 +41,13 @@
       }
     },
     "tactical_insights": [
-      "Julián Álvarez starts for Argentina, offering a chance to shine against Jordan's determined defense.",
-      "Argentina seeks a perfect group stage record, while eliminated Jordan plays for a historic World Cup farewell.",
-      "Scaloni's rotation strategy tests Argentina's depth against Jordan's 3-4-3 aiming for a historic upset."
+      "With Messi rested, Julián Álvarez aims to lead Argentina's attack.",
+      "Argentina's secured knockout spot enables squad rotation, contrasting Jordan's elimination.",
+      "Scaloni's adaptable attacking philosophy meets Sellami's disciplined defensive structure."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-27T06:14:38Z",
+    "headline_generated_at_utc": "2026-06-27T13:35:22Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

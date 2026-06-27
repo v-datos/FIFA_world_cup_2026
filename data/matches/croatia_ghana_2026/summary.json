@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-27T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Croatia's Last Stand: Qualification on the Line",
+    "key_headline": "Croatia fights for knockout spot against secure Ghana",
     "injuries": {
       "croatia": [
         "No confirmed injuries reported."
       ],
       "ghana": [
-        "Alexander Djiku (hamstring injury - Out)"
+        "Mohammed Kudus (thigh injury - Out)",
+        "Mohammed Salisu (ruptured anterior cruciate ligament - Out)",
+        "Alexander Djiku (injury during training - Out)",
+        "Lawrence Ati-Zigi (groin issue - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Luka Modrić's midfield mastery will be crucial against Ghana's dynamic engine, Thomas Partey.",
-      "Croatia must secure a positive result to advance, while Ghana has already qualified for the Round of 32.",
-      "Dalić's possession-based pragmatism faces Queiroz's compact defensive block and quick counter-attacks."
+      "Luka Modrić's midfield mastery will clash with Thomas Partey's defensive anchoring.",
+      "Ghana's undefeated run and two clean sheets highlight their strong defensive form.",
+      "Carlos Queiroz's disciplined Ghana will counter Zlatko Dalić's possession-based Croatian attack."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-27T06:13:57Z",
+    "headline_generated_at_utc": "2026-06-27T13:34:36Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

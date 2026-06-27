@@ -10,13 +10,13 @@
     "kickoff_utc": "2026-06-27T23:30Z"
   },
   "ai_summary": {
-    "key_headline": "Group K Decider: Unbeaten Colombia Battles Martínez's Portugal",
+    "key_headline": "Group K Decider: Colombia's Counter vs. Portugal's Press",
     "injuries": {
       "colombia": [
-        "No confirmed injuries reported."
+        "Luis Suarez (shoulder injury - Doubtful)"
       ],
       "portugal": [
-        "Rúben Dias (Fitness - Doubtful)"
+        "Tomás Araújo (Physical problems - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Colombia's Néstor Lorenzo must contain Vitinha and Ronaldo, while Portugal faces Luis Díaz's explosive attack.",
-      "Colombia's 28-game unbeaten streak means a draw secures top spot, while Portugal needs a win to advance.",
-      "Lorenzo's aggressive pressing and counter-attacking style will test Martínez's high-pressing Portugal, vulnerable to direct balls."
+      "Colombia's rapid wide forwards, like Luis Díaz, will aim to exploit Portugal's high defensive line on the counter.",
+      "Both nations, already qualified, battle for Group K's top spot and crucial knockout stage seeding.",
+      "Lorenzo's disciplined counter-attacking approach will test Martínez's proactive, possession-dominant Portuguese setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-27T06:13:38Z",
+    "headline_generated_at_utc": "2026-06-27T13:34:17Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

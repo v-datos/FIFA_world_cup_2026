@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-06-28T02:00Z"
   },
   "ai_summary": {
-    "key_headline": "Algeria's Redemption Bid Meets Austria's Rangnick Revolution",
+    "key_headline": "Eliminator Clash: Algeria, Austria Fight for Progression",
     "injuries": {
       "algeria": [
-        "Mohamed Amoura (hamstring injury - Out)"
+        "Mohamed Amoura (hamstring/thigh injury - Out)"
       ],
       "austria": [
-        "Christoph Baumgartner (muscle injury to his right thigh - Out)"
+        "Christoph Baumgartner (thigh muscle injury - Out)",
+        "Paul Wanner (involvement yet to be confirmed - Doubtful)",
+        "Stefan Posch (broken jaw - Doubtful)",
+        "Alessandro Schopf (fitness concerns - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Riyad Mahrez's creativity will test David Alaba and Austria's organized defense.",
-      "This final group match carries historical weight for Algeria, seeking knockout qualification and Gijón redemption.",
-      "Ralf Rangnick's high-intensity pressing will challenge Vladimir Petkovic's tactical setup and build-up play."
+      "Riyad Mahrez's creativity will test Austria's aggressive pressing and defensive structure.",
+      "A win guarantees knockout progression for either side in this high-stakes group decider.",
+      "Petkovic's possession-based Algeria will clash with Rangnick's intense Gegenpressing tactics."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-27T06:13:15Z",
+    "headline_generated_at_utc": "2026-06-27T13:33:53Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
