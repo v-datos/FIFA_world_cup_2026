@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "match_id": "jordan_argentina_2026",
+    "team1": "Jordan",
+    "team2": "Argentina",
+    "date": "06/27/2026",
+    "time": "20:00",
+    "venue": "AT&T Stadium, Arlington, Texas",
+    "stage": "Group Stage - Group J",
+    "kickoff_utc": "2026-06-28T02:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Argentina's Depth Faces Jordan's Historic World Cup Exit",
+    "injuries": {
+      "jordan": [
+        "Yazan Al-Naimat (knee injury, specifically a torn ligament (ACL) - Out)",
+        "Adham Al-Quraishi (ACL injury (cruciate ligament tear) - Out)",
+        "Ibrahim Sabra (torn ankle ligament - Out)",
+        "Issam Smeiri (ruptured Achilles tendon - Out)"
+      ],
+      "argentina": [
+        "Leonardo Balerdi (soleus muscle injury - Out)",
+        "Juan Foyth (severe Achilles tendon injury - Out)",
+        "Lionel Messi (hamstring strain/inflammation - Doubtful)",
+        "Emiliano Martínez (minor fracture to a finger on his left hand - Doubtful)",
+        "Cristian Romero (lateral ligament strain in his right knee - Doubtful)",
+        "Gonzalo Montiel (tear in his left quadriceps - Doubtful)",
+        "Nahuel Molina (tear in his right hamstring - Doubtful)",
+        "Leandro Paredes (hamstring spasms/strain - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "jordan": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "argentina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Julián Álvarez starts for Argentina, offering a chance to shine against Jordan's determined defense.",
+      "Argentina seeks a perfect group stage record, while eliminated Jordan plays for a historic World Cup farewell.",
+      "Scaloni's rotation strategy tests Argentina's depth against Jordan's 3-4-3 aiming for a historic upset."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-27T06:14:38Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "panama_england_2026",
+    "team1": "Panama",
+    "team2": "England",
+    "date": "06/27/2026",
+    "time": "15:00",
+    "venue": "MetLife Stadium, East Rutherford, New Jersey",
+    "stage": "Group Stage - Group L",
+    "kickoff_utc": "2026-06-27T21:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Kane under pressure as England targets Group L top spot",
+    "injuries": {
+      "panama": [
+        "Aníbal Godoy (fitness concerns - Doubtful)",
+        "Adalberto Carrasquilla (adductor injury - Doubtful)",
+        "Luis Mejía (unknown injury - Doubtful)"
+      ],
+      "england": [
+        "Tino Livramento (Injury - Out)"
+      ]
+    },
+    "confirmed_tactics": {
+      "panama": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Harry Kane is under pressure to deliver after a difficult performance against Ghana.",
+      "England needs a win to secure top spot, while Panama is already eliminated.",
+      "Panama's compact 5-4-1 low block will challenge England's attacking consistency."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-27T06:14:52Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

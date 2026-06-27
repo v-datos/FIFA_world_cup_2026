@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "democratic_republic_of_the_congo_uzbekistan_2026",
+    "team1": "Democratic Republic of the Congo",
+    "team2": "Uzbekistan",
+    "date": "06/27/2026",
+    "time": "17:30",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-27T23:30Z"
+  },
+  "ai_summary": {
+    "key_headline": "DR Congo Seeks Aggressive Win; Uzbekistan Fights for Survival",
+    "injuries": {
+      "democratic_republic_of_the_congo": [
+        "Rocky Bushiri (Achilles injury - Out)"
+      ],
+      "uzbekistan": [
+        "Jaloliddin Masharipov (recurrence of a spinal disc herniation - Out)"
+      ]
+    },
+    "confirmed_tactics": {
+      "democratic_republic_of_the_congo": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "uzbekistan": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Chancel Mbemba's defensive organization will be crucial against Eldor Shomurodov's central goal threat.",
+      "DR Congo must secure a victory to keep their Round of 32 qualification hopes alive in Group K.",
+      "Sébastien Desabre's expected aggressive approach will test Fabio Cannavaro's defensive organization."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-27T06:14:21Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

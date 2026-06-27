@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "colombia_portugal_2026",
+    "team1": "Colombia",
+    "team2": "Portugal",
+    "date": "06/27/2026",
+    "time": "17:30",
+    "venue": "Hard Rock Stadium, Miami Gardens, Florida",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-06-27T23:30Z"
+  },
+  "ai_summary": {
+    "key_headline": "Group K Decider: Unbeaten Colombia Battles Martínez's Portugal",
+    "injuries": {
+      "colombia": [
+        "No confirmed injuries reported."
+      ],
+      "portugal": [
+        "Rúben Dias (Fitness - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "colombia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "portugal": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Colombia's Néstor Lorenzo must contain Vitinha and Ronaldo, while Portugal faces Luis Díaz's explosive attack.",
+      "Colombia's 28-game unbeaten streak means a draw secures top spot, while Portugal needs a win to advance.",
+      "Lorenzo's aggressive pressing and counter-attacking style will test Martínez's high-pressing Portugal, vulnerable to direct balls."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-27T06:13:38Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

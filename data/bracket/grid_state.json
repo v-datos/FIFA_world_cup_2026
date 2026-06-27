@@ -306,47 +306,47 @@
       "name": "Group G",
       "standings": [
         {
-          "team": "Egypt",
-          "p": 2,
+          "team": "Belgium",
+          "p": 3,
           "w": 1,
-          "d": 1,
+          "d": 2,
           "l": 0,
-          "gf": 4,
+          "gf": 6,
           "ga": 2,
+          "gd": 4,
+          "pts": 5
+        },
+        {
+          "team": "Egypt",
+          "p": 3,
+          "w": 1,
+          "d": 2,
+          "l": 0,
+          "gf": 5,
+          "ga": 3,
           "gd": 2,
-          "pts": 4
+          "pts": 5
         },
         {
           "team": "Iran",
-          "p": 2,
+          "p": 3,
           "w": 0,
-          "d": 2,
+          "d": 3,
           "l": 0,
-          "gf": 2,
-          "ga": 2,
+          "gf": 3,
+          "ga": 3,
           "gd": 0,
-          "pts": 2
-        },
-        {
-          "team": "Belgium",
-          "p": 2,
-          "w": 0,
-          "d": 2,
-          "l": 0,
-          "gf": 1,
-          "ga": 1,
-          "gd": 0,
-          "pts": 2
+          "pts": 3
         },
         {
           "team": "New Zealand",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 1,
-          "l": 1,
-          "gf": 3,
-          "ga": 5,
-          "gd": -2,
+          "l": 2,
+          "gf": 4,
+          "ga": 10,
+          "gd": -6,
           "pts": 1
         }
       ]
@@ -356,47 +356,47 @@
       "standings": [
         {
           "team": "Spain",
-          "p": 2,
-          "w": 1,
+          "p": 3,
+          "w": 2,
           "d": 1,
           "l": 0,
-          "gf": 4,
+          "gf": 5,
           "ga": 0,
-          "gd": 4,
-          "pts": 4
-        },
-        {
-          "team": "Uruguay",
-          "p": 2,
-          "w": 0,
-          "d": 2,
-          "l": 0,
-          "gf": 3,
-          "ga": 3,
-          "gd": 0,
-          "pts": 2
+          "gd": 5,
+          "pts": 7
         },
         {
           "team": "Cape Verde",
-          "p": 2,
+          "p": 3,
           "w": 0,
-          "d": 2,
+          "d": 3,
           "l": 0,
           "gf": 2,
           "ga": 2,
           "gd": 0,
+          "pts": 3
+        },
+        {
+          "team": "Uruguay",
+          "p": 3,
+          "w": 0,
+          "d": 2,
+          "l": 1,
+          "gf": 3,
+          "ga": 4,
+          "gd": -1,
           "pts": 2
         },
         {
           "team": "Saudi Arabia",
-          "p": 2,
+          "p": 3,
           "w": 0,
-          "d": 1,
+          "d": 2,
           "l": 1,
           "gf": 1,
           "ga": 5,
           "gd": -4,
-          "pts": 1
+          "pts": 2
         }
       ]
     },
@@ -405,46 +405,46 @@
       "standings": [
         {
           "team": "France",
-          "p": 2,
-          "w": 2,
+          "p": 3,
+          "w": 3,
           "d": 0,
           "l": 0,
-          "gf": 6,
-          "ga": 1,
-          "gd": 5,
-          "pts": 6
+          "gf": 10,
+          "ga": 2,
+          "gd": 8,
+          "pts": 9
         },
         {
           "team": "Norway",
-          "p": 2,
+          "p": 3,
           "w": 2,
           "d": 0,
-          "l": 0,
-          "gf": 7,
-          "ga": 3,
-          "gd": 4,
+          "l": 1,
+          "gf": 8,
+          "ga": 7,
+          "gd": 1,
           "pts": 6
         },
         {
           "team": "Senegal",
-          "p": 2,
-          "w": 0,
+          "p": 3,
+          "w": 1,
           "d": 0,
           "l": 2,
-          "gf": 3,
+          "gf": 8,
           "ga": 6,
-          "gd": -3,
-          "pts": 0
+          "gd": 2,
+          "pts": 3
         },
         {
           "team": "Iraq",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 2,
+          "l": 3,
           "gf": 1,
-          "ga": 7,
-          "gd": -6,
+          "ga": 12,
+          "gd": -11,
           "pts": 0
         }
       ]
@@ -619,8 +619,8 @@
         },
         {
           "id": "r32_3",
-          "team1": "Winner Group E",
-          "team2": "3rd Group A/B/C/D/F",
+          "team1": "Germany",
+          "team2": "Paraguay",
           "score1": null,
           "score2": null,
           "winner": null
@@ -636,15 +636,15 @@
         {
           "id": "r32_5",
           "team1": "Ivory Coast",
-          "team2": "Runner-up Group I",
+          "team2": "Norway",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_6",
-          "team1": "Winner Group I",
-          "team2": "3rd Group C/D/F/G/H",
+          "team1": "France",
+          "team2": "Sweden",
           "score1": null,
           "score2": null,
           "winner": null
@@ -683,7 +683,7 @@
         },
         {
           "id": "r32_11",
-          "team1": "Winner Group H",
+          "team1": "Spain",
           "team2": "Runner-up Group J",
           "score1": null,
           "score2": null,
@@ -708,7 +708,7 @@
         {
           "id": "r32_14",
           "team1": "Australia",
-          "team2": "Runner-up Group G",
+          "team2": "Egypt",
           "score1": null,
           "score2": null,
           "winner": null
@@ -716,7 +716,7 @@
         {
           "id": "r32_15",
           "team1": "Argentina",
-          "team2": "Runner-up Group H",
+          "team2": "Cape Verde",
           "score1": null,
           "score2": null,
           "winner": null
@@ -892,7 +892,7 @@
     {
       "id": "r32_77",
       "team1": "Ivory Coast",
-      "team2": "Runner-up Group I",
+      "team2": "Norway",
       "score1": null,
       "score2": null,
       "winner": null
@@ -907,8 +907,8 @@
     },
     {
       "id": "r32_75",
-      "team1": "Winner Group E",
-      "team2": "3rd Group A/B/C/D/F",
+      "team1": "Germany",
+      "team2": "Paraguay",
       "score1": null,
       "score2": null,
       "winner": null
@@ -924,7 +924,7 @@
     {
       "id": "r32_84",
       "team1": "Australia",
-      "team2": "Runner-up Group G",
+      "team2": "Egypt",
       "score1": null,
       "score2": null,
       "winner": null
@@ -955,8 +955,8 @@
     },
     {
       "id": "r32_78",
-      "team1": "Winner Group I",
-      "team2": "3rd Group C/D/F/G/H",
+      "team1": "France",
+      "team2": "Sweden",
       "score1": null,
       "score2": null,
       "winner": null
@@ -995,7 +995,7 @@
     },
     {
       "id": "r32_85",
-      "team1": "Winner Group H",
+      "team1": "Spain",
       "team2": "Runner-up Group J",
       "score1": null,
       "score2": null,
@@ -1004,7 +1004,7 @@
     {
       "id": "r32_87",
       "team1": "Argentina",
-      "team2": "Runner-up Group H",
+      "team2": "Cape Verde",
       "score1": null,
       "score2": null,
       "winner": null
