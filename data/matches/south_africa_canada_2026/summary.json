@@ -10,13 +10,19 @@
     "kickoff_utc": "2026-06-28T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Marsch's Press vs. Broos' Defense in Historic Knockout",
+    "key_headline": "High-Press Canada Meets Disciplined South Africa in Historic Knockout",
     "injuries": {
       "south_africa": [
-        "No confirmed injuries reported."
+        "Themba Zwane (Suspension - Out)",
+        "Teboho Mokoena (Suspension - Out)"
       ],
       "canada": [
-        "Tajon Buchanan (Broken tibia - Out)"
+        "Ismaël Koné (fractured leg - Out)",
+        "Marcelo Flores (ruptured ACL - Out)",
+        "Alphonso Davies (hamstring injury - Doubtful)",
+        "Stephen Eustáquio (unspecified injury - Doubtful)",
+        "Alfie Jones (ankle injury - Doubtful)",
+        "Promise David (rehab from surgery - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +38,13 @@
       }
     },
     "tactical_insights": [
-      "Alphonso Davies' elite pace and dribbling will challenge South Africa's organized defensive structure.",
-      "Both nations make history in their first-ever World Cup knockout stage appearance.",
-      "Jesse Marsch's high-pressing system will clash with Hugo Broos' pragmatic, organized defensive setup."
+      "Alphonso Davies' pace and direct running will test South Africa's compact defense.",
+      "Both nations make history reaching their first-ever World Cup knockout stage.",
+      "Jesse Marsch's high-intensity press will challenge Hugo Broos's compact mid-block."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-28T06:30:44Z",
+    "headline_generated_at_utc": "2026-06-28T13:33:32Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
