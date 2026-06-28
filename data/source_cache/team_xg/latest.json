@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at_utc": "2026-06-27T13:33:19Z",
+    "checked_at_utc": "2026-06-28T06:30:13Z",
     "source": "FotMob",
     "league_id": 77,
     "note": "Fallback xG snapshot; restored into squad_style if a live FotMob fetch fails."
@@ -224,75 +224,75 @@
     },
     {
       "name": "Argentina",
-      "xg90": 1.81,
-      "xga90": 0.42,
-      "mp": 2
+      "xg90": 1.92,
+      "xga90": 0.54,
+      "mp": 3
     },
     {
       "name": "Algeria",
-      "xg90": 1.1,
-      "xga90": 0.95,
-      "mp": 2
+      "xg90": 1.28,
+      "xga90": 1.11,
+      "mp": 3
     },
     {
       "name": "Austria",
-      "xg90": 1.11,
-      "xga90": 1.41,
-      "mp": 2
+      "xg90": 1.22,
+      "xga90": 1.48,
+      "mp": 3
     },
     {
       "name": "Jordan",
-      "xg90": 0.55,
-      "xga90": 1.79,
-      "mp": 2
-    },
-    {
-      "name": "Portugal",
-      "xg90": 1.63,
-      "xga90": 0.56,
-      "mp": 2
+      "xg90": 0.62,
+      "xga90": 1.9,
+      "mp": 3
     },
     {
       "name": "Colombia",
-      "xg90": 1.29,
-      "xga90": 0.77,
-      "mp": 2
+      "xg90": 1.43,
+      "xga90": 0.82,
+      "mp": 3
     },
     {
       "name": "DR Congo",
-      "xg90": 0.62,
-      "xga90": 0.82,
-      "mp": 2
+      "xg90": 1.14,
+      "xga90": 0.61,
+      "mp": 3
+    },
+    {
+      "name": "Portugal",
+      "xg90": 1.4,
+      "xga90": 0.94,
+      "mp": 3
     },
     {
       "name": "Uzbekistan",
-      "xg90": 0.7,
-      "xga90": 2.11,
-      "mp": 2
+      "xg90": 0.54,
+      "xga90": 2.13,
+      "mp": 3
     },
     {
       "name": "England",
-      "xg90": 2.28,
-      "xga90": 0.44,
-      "mp": 2
-    },
-    {
-      "name": "Croatia",
-      "xg90": 1.17,
-      "xga90": 1.88,
-      "mp": 2
+      "xg90": 2.04,
+      "xga90": 0.51,
+      "mp": 3
     },
     {
       "name": "Ghana",
-      "xg90": 0.71,
-      "xga90": 1.04,
-      "mp": 2
+      "xg90": 0.69,
+      "xga90": 0.84,
+      "mp": 3
+    },
+    {
+      "name": "Croatia",
+      "xg90": 0.92,
+      "xga90": 1.46,
+      "mp": 3
     },
     {
       "name": "Panama",
-      "xg90": 0.64,
-      "xga90": 1.45,
-      "mp": 2
+      "xg90": 0.65,
+      "xga90": 1.49,
+      "mp": 3
     }
   ]
 }

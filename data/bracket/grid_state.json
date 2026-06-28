@@ -4,7 +4,7 @@
     {
       "name": "Lionel Messi",
       "team": "Argentina",
-      "goals": 5
+      "goals": 6
     }
   ],
   "groups": [
@@ -454,46 +454,46 @@
       "standings": [
         {
           "team": "Argentina",
-          "p": 2,
-          "w": 2,
+          "p": 3,
+          "w": 3,
           "d": 0,
           "l": 0,
-          "gf": 5,
-          "ga": 0,
-          "gd": 5,
-          "pts": 6
+          "gf": 8,
+          "ga": 1,
+          "gd": 7,
+          "pts": 9
         },
         {
           "team": "Austria",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 1,
-          "gf": 3,
-          "ga": 3,
+          "gf": 6,
+          "ga": 6,
           "gd": 0,
-          "pts": 3
+          "pts": 4
         },
         {
           "team": "Algeria",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 1,
-          "gf": 2,
-          "ga": 4,
+          "gf": 5,
+          "ga": 7,
           "gd": -2,
-          "pts": 3
+          "pts": 4
         },
         {
           "team": "Jordan",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 2,
-          "gf": 2,
-          "ga": 5,
-          "gd": -3,
+          "l": 3,
+          "gf": 3,
+          "ga": 8,
+          "gd": -5,
           "pts": 0
         }
       ]
@@ -503,46 +503,46 @@
       "standings": [
         {
           "team": "Colombia",
-          "p": 2,
+          "p": 3,
           "w": 2,
-          "d": 0,
+          "d": 1,
           "l": 0,
           "gf": 4,
           "ga": 1,
           "gd": 3,
-          "pts": 6
+          "pts": 7
         },
         {
           "team": "Portugal",
-          "p": 2,
+          "p": 3,
           "w": 1,
-          "d": 1,
+          "d": 2,
           "l": 0,
           "gf": 6,
           "ga": 1,
           "gd": 5,
-          "pts": 4
+          "pts": 5
         },
         {
           "team": "Democratic Republic of the Congo",
-          "p": 2,
-          "w": 0,
+          "p": 3,
+          "w": 1,
           "d": 1,
           "l": 1,
-          "gf": 1,
-          "ga": 2,
-          "gd": -1,
-          "pts": 1
+          "gf": 4,
+          "ga": 3,
+          "gd": 1,
+          "pts": 4
         },
         {
           "team": "Uzbekistan",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 2,
-          "gf": 1,
-          "ga": 8,
-          "gd": -7,
+          "l": 3,
+          "gf": 2,
+          "ga": 11,
+          "gd": -9,
           "pts": 0
         }
       ]
@@ -552,46 +552,46 @@
       "standings": [
         {
           "team": "England",
-          "p": 2,
-          "w": 1,
+          "p": 3,
+          "w": 2,
           "d": 1,
           "l": 0,
-          "gf": 4,
+          "gf": 6,
           "ga": 2,
-          "gd": 2,
-          "pts": 4
-        },
-        {
-          "team": "Ghana",
-          "p": 2,
-          "w": 1,
-          "d": 1,
-          "l": 0,
-          "gf": 1,
-          "ga": 0,
-          "gd": 1,
-          "pts": 4
+          "gd": 4,
+          "pts": 7
         },
         {
           "team": "Croatia",
-          "p": 2,
-          "w": 1,
+          "p": 3,
+          "w": 2,
           "d": 0,
           "l": 1,
-          "gf": 3,
-          "ga": 4,
-          "gd": -1,
-          "pts": 3
+          "gf": 5,
+          "ga": 5,
+          "gd": 0,
+          "pts": 6
+        },
+        {
+          "team": "Ghana",
+          "p": 3,
+          "w": 1,
+          "d": 1,
+          "l": 1,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "pts": 4
         },
         {
           "team": "Panama",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 2,
+          "l": 3,
           "gf": 0,
-          "ga": 2,
-          "gd": -2,
+          "ga": 4,
+          "gd": -4,
           "pts": 0
         }
       ]
@@ -651,24 +651,24 @@
         },
         {
           "id": "r32_7",
-          "team1": "Winner Group A",
-          "team2": "3rd Group C/E/F/H/I",
+          "team1": "Mexico",
+          "team2": "Ecuador",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_8",
-          "team1": "Winner Group L",
-          "team2": "3rd Group E/H/I/J/K",
+          "team1": "England",
+          "team2": "Democratic Republic of the Congo",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_9",
-          "team1": "Winner Group G",
-          "team2": "3rd Group A/E/H/I/J",
+          "team1": "Belgium",
+          "team2": "Senegal",
           "score1": null,
           "score2": null,
           "winner": null
@@ -684,23 +684,23 @@
         {
           "id": "r32_11",
           "team1": "Spain",
-          "team2": "Runner-up Group J",
+          "team2": "Austria",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_12",
-          "team1": "Runner-up Group K",
-          "team2": "Runner-up Group L",
+          "team1": "Portugal",
+          "team2": "Croatia",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r32_13",
-          "team1": "Winner Group B",
-          "team2": "3rd Group E/F/G/I/J",
+          "team1": "Switzerland",
+          "team2": "Algeria",
           "score1": null,
           "score2": null,
           "winner": null
@@ -723,8 +723,8 @@
         },
         {
           "id": "r32_16",
-          "team1": "Winner Group K",
-          "team2": "3rd Group D/E/I/J/L",
+          "team1": "Colombia",
+          "team2": "Ghana",
           "score1": null,
           "score2": null,
           "winner": null
@@ -915,8 +915,8 @@
     },
     {
       "id": "r32_83",
-      "team1": "Winner Group B",
-      "team2": "3rd Group E/F/G/I/J",
+      "team1": "Switzerland",
+      "team2": "Algeria",
       "score1": null,
       "score2": null,
       "winner": null
@@ -931,8 +931,8 @@
     },
     {
       "id": "r32_81",
-      "team1": "Winner Group G",
-      "team2": "3rd Group A/E/H/I/J",
+      "team1": "Belgium",
+      "team2": "Senegal",
       "score1": null,
       "score2": null,
       "winner": null
@@ -963,32 +963,32 @@
     },
     {
       "id": "r32_79",
-      "team1": "Winner Group A",
-      "team2": "3rd Group C/E/F/H/I",
+      "team1": "Mexico",
+      "team2": "Ecuador",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r32_80",
-      "team1": "Winner Group L",
-      "team2": "3rd Group E/H/I/J/K",
+      "team1": "England",
+      "team2": "Democratic Republic of the Congo",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r32_86",
-      "team1": "Runner-up Group K",
-      "team2": "Runner-up Group L",
+      "team1": "Portugal",
+      "team2": "Croatia",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r32_88",
-      "team1": "Winner Group K",
-      "team2": "3rd Group D/E/I/J/L",
+      "team1": "Colombia",
+      "team2": "Ghana",
       "score1": null,
       "score2": null,
       "winner": null
@@ -996,7 +996,7 @@
     {
       "id": "r32_85",
       "team1": "Spain",
-      "team2": "Runner-up Group J",
+      "team2": "Austria",
       "score1": null,
       "score2": null,
       "winner": null
