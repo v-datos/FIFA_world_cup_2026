@@ -10,22 +10,19 @@
     "kickoff_utc": "2026-06-29T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Ancelotti's Brazil: Samba flair meets Japan's tactical challenge.",
+    "key_headline": "Ancelotti's Brazil vs. Moriyasu's Japan: A tactical knockout duel.",
     "injuries": {
       "brazil": [
-        "Neymar (Calf injury - Doubtful)",
-        "Raphinha (Thigh injury - Doubtful)",
-        "Wesley (Muscle injury (adductor of left thigh) - Out)",
-        "Eder Militao (Rupture of the proximal tendon of the biceps femoris (hamstring issue) - Out)",
-        "Rodrygo (ACL injury - Out)",
-        "Estêvão (Severe Grade 4 hamstring tear - Out)",
-        "Leonardo Balerdi (Right calf injury - Out)"
+        "Raphinha (hamstring injury - Doubtful)",
+        "Neymar Jr. (calf injury - Doubtful)",
+        "Éder Militão (hamstring tear - Out)",
+        "Rodrygo (ACL injury - Out)"
       ],
       "japan": [
-        "Wataru Endo (foot injury - Out)",
-        "Kaoru Mitoma (injury - Out)",
-        "Takumi Minamino (injury - Out)",
-        "Takefusa Kubo (left-knee injury - Out)",
+        "Kaoru Mitoma (hamstring injury - Out)",
+        "Wataru Endo (ankle injury - Out)",
+        "Takumi Minamino (fitness issues - Out)",
+        "Takefusa Kubo (knee injury - Out)",
         "Shuto Machino (virus - Doubtful)"
       ]
     },
@@ -42,13 +39,13 @@
       }
     },
     "tactical_insights": [
-      "Vinícius Júnior's explosive pace will test Japan's disciplined defensive organization.",
-      "Japan's recent 3-2 friendly victory against Brazil boosts confidence for an upset.",
-      "Ancelotti's attacking freedom meets Moriyasu's sophisticated, high-pressing tactical setup."
+      "Vinícius Júnior's scoring prowess challenges Japan's disciplined defense.",
+      "Japan's undefeated group stage, including a draw with Netherlands, shows their knockout potential.",
+      "Ancelotti's fluid 4-2-3-1 will challenge Moriyasu's disciplined 3-4-2-1 and aggressive midfield press."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-29T06:34:27Z",
+    "headline_generated_at_utc": "2026-06-29T14:25:14Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-06-29T20:30Z"
   },
   "ai_summary": {
-    "key_headline": "Germany's redemption quest meets Paraguay's upset dream",
+    "key_headline": "Germany's High Possession Attack Faces Paraguay's Low Shot Volume",
     "injuries": {
       "germany": [
         "Lennart Karl (torn muscle - Out)",
@@ -18,7 +18,7 @@
         "Kai Havertz (plagued by injuries - Doubtful)"
       ],
       "paraguay": [
-        "Andrés Cubas (red card - Out)"
+        "Julio Enciso (Thigh injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Paraguay's Almirón and Enciso will aim to exploit Germany's high defensive line on the counter.",
-      "Paraguay aims for a \"life-changing\" upset, drawing inspiration from their surprising qualification run.",
-      "Nagelsmann's fluid, high-pressing Germany will clash with Alfaro's compact, counter-attacking Paraguay."
+      "Germany is the favorite with a 64% win expectancy and a higher Elo rating of 1916.",
+      "Germany's tactical approach features high possession (61.7%) and a high volume of shots (17.7 per game).",
+      "Paraguay operates with significantly less possession (33.4%) and fewer shots (7.7 per game)."
     ],
-    "headline_source": "ai_web_grounded",
+    "headline_source": "ai_generated",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-29T06:34:51Z",
+    "headline_generated_at_utc": "2026-06-29T14:25:51Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
