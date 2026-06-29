@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-061 - Fix Last Major Standing Metadata Gaps (Germany, Paraguay, etc.)**
+  Owner: Frontend Engineer / Orchestrator
+  Completed: 2026-06-29
+  Notes: Populated the `LAST_MAJOR_STANDING` dictionary in `teamData.ts` to include all 48 tournament teams (adding Germany, Paraguay, South Korea, Qatar, etc.) and updated the translation logic in `translations.ts` to cover additional tournaments like OFC Nations Cup, UEFA Nations League, and CONCACAF Gold Cup.
+  Verify: Run `npm --prefix src/frontend run build`.
+
 - [x] **T-060 - Fix Match Analysis Dashboard Panels (Outcome Probability, Performance Radar, and Squad & Style Comparison)**
   Owner: Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer
   Completed: 2026-06-24

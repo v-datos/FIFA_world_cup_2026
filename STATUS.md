@@ -1,5 +1,17 @@
 # STATUS
 
+## 2026-06-29 - Fix Last Major Standing Metadata Gaps
+
+Prepared by: Orchestrator / Frontend Engineer
+
+### Current State
+
+- **Last Major Standing Metadata**: Populated the hardcoded `LAST_MAJOR_STANDING` dictionary in `teamData.ts` to cover all 48 teams in the tournament (adding Germany, Paraguay, South Korea, Canada, Qatar, Switzerland, Brazil, Turkey, Haiti, etc.).
+- **Tournament Standings Translation**: Updated `translateStanding` in `translations.ts` to translate additional international tournaments: OFC Nations Cup ("Copa de Naciones de la OFC"), UEFA Nations League ("Liga de Naciones de la UEFA"), and CONCACAF Gold Cup ("Copa Oro de la CONCACAF").
+- **Verification**: Verified that the frontend builds successfully with `npm --prefix src/frontend run build`.
+
+---
+
 ## 2026-06-24 - Fix Match Analysis Dashboard Panels
 
 Prepared by: Orchestrator / Data Pipeline Engineer / Frontend Engineer / QA / Reproducibility Engineer

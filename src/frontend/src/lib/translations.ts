@@ -120,9 +120,12 @@ export const translateStanding = (standing: string | null, lang: string): string
     .replace(/Champions/g, 'Campeón')
     .replace(/Group Stage/g, 'Fase de grupos')
     .replace(/Africa Cup of Nations/g, 'Copa Africana de Naciones')
+    .replace(/UEFA Nations League/g, 'Liga de Naciones de la UEFA')
+    .replace(/OFC Nations Cup/g, 'Copa de Naciones de la OFC')
+    .replace(/CONCACAF Gold Cup/g, 'Copa Oro de la CONCACAF')
     .replace(/UEFA European Championship|Euro/g, 'Eurocopa')
     .replace(/AFC Asian Cup|Asian Cup/g, 'Copa Asiática')
-    .replace(/CONCACAF Gold Cup|Gold Cup/g, 'Copa Oro')
+    .replace(/Gold Cup/g, 'Copa Oro')
     .replace(/FIFA World Cup|World Cup/g, 'Copa del Mundo');
   return translated;
 };
