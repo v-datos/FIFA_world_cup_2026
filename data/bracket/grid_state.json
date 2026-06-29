@@ -605,9 +605,9 @@
           "id": "r32_1",
           "team1": "South Africa",
           "team2": "Canada",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 0,
+          "score2": 1,
+          "winner": "Canada"
         },
         {
           "id": "r32_2",
@@ -744,7 +744,7 @@
         },
         {
           "id": "r16_90",
-          "team1": "Winner Match R32-1",
+          "team1": "Canada",
           "team2": "Winner Match R32-3",
           "score1": null,
           "score2": null,
@@ -901,9 +901,9 @@
       "id": "r32_73",
       "team1": "South Africa",
       "team2": "Canada",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 0,
+      "score2": 1,
+      "winner": "Canada"
     },
     {
       "id": "r32_75",
@@ -1021,7 +1021,7 @@
     },
     {
       "id": "r16_90",
-      "team1": "Winner Match R32-1",
+      "team1": "Canada",
       "team2": "Winner Match R32-3",
       "score1": null,
       "score2": null,

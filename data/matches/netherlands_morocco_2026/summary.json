@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "match_id": "netherlands_morocco_2026",
+    "team1": "Netherlands",
+    "team2": "Morocco",
+    "date": "06/29/2026",
+    "time": "19:00",
+    "venue": "Estadio BBVA, Guadalupe",
+    "stage": "Group Stage - Group F",
+    "kickoff_utc": "2026-06-30T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Adaptable Morocco faces Koeman's structured Dutch challenge",
+    "injuries": {
+      "netherlands": [
+        "Xavi Simons (Ruptured anterior cruciate ligament (ACL) - Out)",
+        "Jerdy Schouten (Ruptured anterior cruciate ligament (ACL) - Out)",
+        "Jurriën Timber (Groin injury - Out)",
+        "Stefan de Vrij (Injury sustained on the final day of the Italian league season - Out)",
+        "Matthijs de Ligt (Underwent back surgery - Out)",
+        "Bart Verbruggen (Hip injury - Doubtful)",
+        "Quinten Timber (Concussion - Doubtful)"
+      ],
+      "morocco": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "netherlands": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "morocco": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Frenkie de Jong's midfield battle against Ounahi and Saibari will dictate tempo.",
+      "Morocco's new coach Ouahbi aims to build on group stage adaptability and 2022 legacy.",
+      "Koeman's possession-based 4-3-3 meets Ouahbi's flexible, counter-attacking Moroccan setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-29T06:35:15Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

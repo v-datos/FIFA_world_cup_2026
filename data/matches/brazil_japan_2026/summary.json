@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "match_id": "brazil_japan_2026",
+    "team1": "Brazil",
+    "team2": "Japan",
+    "date": "06/29/2026",
+    "time": "11:00",
+    "venue": "NRG Stadium, Houston, Texas",
+    "stage": "Group Stage - Group C",
+    "kickoff_utc": "2026-06-29T17:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Ancelotti's Brazil: Samba flair meets Japan's tactical challenge.",
+    "injuries": {
+      "brazil": [
+        "Neymar (Calf injury - Doubtful)",
+        "Raphinha (Thigh injury - Doubtful)",
+        "Wesley (Muscle injury (adductor of left thigh) - Out)",
+        "Eder Militao (Rupture of the proximal tendon of the biceps femoris (hamstring issue) - Out)",
+        "Rodrygo (ACL injury - Out)",
+        "Estêvão (Severe Grade 4 hamstring tear - Out)",
+        "Leonardo Balerdi (Right calf injury - Out)"
+      ],
+      "japan": [
+        "Wataru Endo (foot injury - Out)",
+        "Kaoru Mitoma (injury - Out)",
+        "Takumi Minamino (injury - Out)",
+        "Takefusa Kubo (left-knee injury - Out)",
+        "Shuto Machino (virus - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "brazil": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "japan": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Vinícius Júnior's explosive pace will test Japan's disciplined defensive organization.",
+      "Japan's recent 3-2 friendly victory against Brazil boosts confidence for an upset.",
+      "Ancelotti's attacking freedom meets Moriyasu's sophisticated, high-pressing tactical setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-29T06:34:27Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
