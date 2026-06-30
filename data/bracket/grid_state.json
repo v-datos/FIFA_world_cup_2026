@@ -613,25 +613,25 @@
           "id": "r32_2",
           "team1": "Brazil",
           "team2": "Japan",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 1,
+          "winner": "Brazil"
         },
         {
           "id": "r32_3",
           "team1": "Germany",
           "team2": "Paraguay",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 1,
+          "winner": "Paraguay"
         },
         {
           "id": "r32_4",
           "team1": "Netherlands",
           "team2": "Morocco",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 1,
+          "winner": "Morocco"
         },
         {
           "id": "r32_5",
@@ -736,7 +736,7 @@
       "matches": [
         {
           "id": "r16_89",
-          "team1": "Winner Match R32-2",
+          "team1": "Brazil",
           "team2": "Winner Match R32-5",
           "score1": null,
           "score2": null,
@@ -745,7 +745,7 @@
         {
           "id": "r16_90",
           "team1": "Canada",
-          "team2": "Winner Match R32-3",
+          "team2": "Paraguay",
           "score1": null,
           "score2": null,
           "winner": null
@@ -768,7 +768,7 @@
         },
         {
           "id": "r16_91",
-          "team1": "Winner Match R32-4",
+          "team1": "Morocco",
           "team2": "Winner Match R32-6",
           "score1": null,
           "score2": null,
@@ -885,9 +885,9 @@
       "id": "r32_74",
       "team1": "Brazil",
       "team2": "Japan",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 1,
+      "winner": "Brazil"
     },
     {
       "id": "r32_77",
@@ -909,9 +909,9 @@
       "id": "r32_75",
       "team1": "Germany",
       "team2": "Paraguay",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 1,
+      "winner": "Paraguay"
     },
     {
       "id": "r32_83",
@@ -949,9 +949,9 @@
       "id": "r32_76",
       "team1": "Netherlands",
       "team2": "Morocco",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 1,
+      "winner": "Morocco"
     },
     {
       "id": "r32_78",
@@ -1013,7 +1013,7 @@
   "r16": [
     {
       "id": "r16_89",
-      "team1": "Winner Match R32-2",
+      "team1": "Brazil",
       "team2": "Winner Match R32-5",
       "score1": null,
       "score2": null,
@@ -1022,7 +1022,7 @@
     {
       "id": "r16_90",
       "team1": "Canada",
-      "team2": "Winner Match R32-3",
+      "team2": "Paraguay",
       "score1": null,
       "score2": null,
       "winner": null
@@ -1045,7 +1045,7 @@
     },
     {
       "id": "r16_91",
-      "team1": "Winner Match R32-4",
+      "team1": "Morocco",
       "team2": "Winner Match R32-6",
       "score1": null,
       "score2": null,

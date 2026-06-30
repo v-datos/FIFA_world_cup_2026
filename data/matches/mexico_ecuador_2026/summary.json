@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "mexico_ecuador_2026",
+    "team1": "Mexico",
+    "team2": "Ecuador",
+    "date": "06/30/2026",
+    "time": "19:00",
+    "venue": "Estadio Banorte, Mexico City",
+    "stage": "Group Stage - Group A",
+    "kickoff_utc": "2026-07-01T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Azteca Showdown: Mexico's Perfect Run vs. Ecuador's Defensive Might",
+    "injuries": {
+      "mexico": [
+        "No confirmed injuries reported."
+      ],
+      "ecuador": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "mexico": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "ecuador": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "The midfield battle between Mexico's Edson Álvarez and Ecuador's Moisés Caicedo will be crucial for control.",
+      "Mexico's perfect group stage, winning all three matches without conceding, highlights their strong form.",
+      "Aguirre's flexible tactics face Beccacece's rigid, defense-first pressing and direct transitions."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-06-30T06:27:40Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-06-29T14:23:56Z",
-    "source_last_modified": "Mon, 29 Jun 2026 13:21:34 GMT",
+    "checked_at_utc": "2026-06-30T06:25:56Z",
+    "source_last_modified": "Mon, 29 Jun 2026 23:26:34 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -61,8 +61,8 @@
       "source_team_code": "BR",
       "rank": 5,
       "rating_rank": 5,
-      "elo_rating": 2009,
-      "rating_value": 2009
+      "elo_rating": 2031,
+      "rating_value": 2031
     },
     {
       "team": "Colombia",
@@ -101,20 +101,11 @@
       "rating_value": 1918
     },
     {
-      "team": "Germany",
-      "source_team_name": "Germany",
-      "source_team_code": "DE",
-      "rank": 10,
-      "rating_rank": 10,
-      "elo_rating": 1916,
-      "rating_value": 1916
-    },
-    {
       "team": "Switzerland",
       "source_team_name": "Switzerland",
       "source_team_code": "CH",
-      "rank": 11,
-      "rating_rank": 11,
+      "rank": 10,
+      "rating_rank": 10,
       "elo_rating": 1914,
       "rating_value": 1914
     },
@@ -122,26 +113,26 @@
       "team": "Mexico",
       "source_team_name": "Mexico",
       "source_team_code": "MX",
-      "rank": 12,
-      "rating_rank": 12,
+      "rank": 11,
+      "rating_rank": 11,
       "elo_rating": 1912,
       "rating_value": 1912
     },
     {
-      "team": "Japan",
-      "source_team_name": "Japan",
-      "source_team_code": "JP",
-      "rank": 13,
-      "rating_rank": 13,
-      "elo_rating": 1910,
-      "rating_value": 1910
+      "team": "Germany",
+      "source_team_name": "Germany",
+      "source_team_code": "DE",
+      "rank": 12,
+      "rating_rank": 12,
+      "elo_rating": 1908,
+      "rating_value": 1908
     },
     {
       "team": "Croatia",
       "source_team_name": "Croatia",
       "source_team_code": "HR",
-      "rank": 14,
-      "rating_rank": 14,
+      "rank": 13,
+      "rating_rank": 13,
       "elo_rating": 1905,
       "rating_value": 1905
     },
@@ -149,10 +140,19 @@
       "team": "Ecuador",
       "source_team_name": "Ecuador",
       "source_team_code": "EC",
-      "rank": 15,
-      "rating_rank": 15,
+      "rank": 14,
+      "rating_rank": 14,
       "elo_rating": 1902,
       "rating_value": 1902
+    },
+    {
+      "team": "Japan",
+      "source_team_name": "Japan",
+      "source_team_code": "JP",
+      "rank": 15,
+      "rating_rank": 15,
+      "elo_rating": 1888,
+      "rating_value": 1888
     },
     {
       "team": "Belgium",
@@ -232,8 +232,8 @@
       "source_team_code": "PY",
       "rank": 24,
       "rating_rank": 24,
-      "elo_rating": 1815,
-      "rating_value": 1815
+      "elo_rating": 1823,
+      "rating_value": 1823
     },
     {
       "team": "Australia",
