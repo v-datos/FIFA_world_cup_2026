@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-06-30T06:25:56Z",
-    "source_last_modified": "Mon, 29 Jun 2026 23:26:34 GMT",
+    "checked_at_utc": "2026-06-30T13:36:26Z",
+    "source_last_modified": "Tue, 30 Jun 2026 08:31:28 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -88,8 +88,8 @@
       "source_team_code": "NL",
       "rank": 8,
       "rating_rank": 8,
-      "elo_rating": 1980,
-      "rating_value": 1980
+      "elo_rating": 1971,
+      "rating_value": 1971
     },
     {
       "team": "Norway",
@@ -155,22 +155,22 @@
       "rating_value": 1888
     },
     {
-      "team": "Belgium",
-      "source_team_name": "Belgium",
-      "source_team_code": "BE",
-      "rank": 16,
-      "rating_rank": 16,
-      "elo_rating": 1884,
-      "rating_value": 1884
-    },
-    {
       "team": "Morocco",
       "source_team_name": "Morocco",
       "source_team_code": "MA",
+      "rank": 16,
+      "rating_rank": 16,
+      "elo_rating": 1886,
+      "rating_value": 1886
+    },
+    {
+      "team": "Belgium",
+      "source_team_name": "Belgium",
+      "source_team_code": "BE",
       "rank": 17,
       "rating_rank": 17,
-      "elo_rating": 1877,
-      "rating_value": 1877
+      "elo_rating": 1884,
+      "rating_value": 1884
     },
     {
       "team": "Denmark",

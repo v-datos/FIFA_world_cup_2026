@@ -10,16 +10,17 @@
     "kickoff_utc": "2026-06-30T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Deschamps' Return Ignites France vs. Potter's Playoff Sweden",
+    "key_headline": "Deschamps' Final Chapter: France Battles Potter's Sweden",
     "injuries": {
       "france": [
-        "Marcus Thuram (calf injury - Doubtful)",
-        "William Saliba (back injury - Doubtful)",
-        "Jules Koundé (muscular problem - Doubtful)"
+        "William Saliba (Aggravated injury (unspecified) - Doubtful)"
       ],
       "sweden": [
         "Isak Hien (hamstring injury - Out)",
-        "Gabriel Gudmundsson (illness - Doubtful)"
+        "Dejan Kulusevski (knee injury - Out)",
+        "Carl Starfelt (herniated disc - Out)",
+        "Gustav Lundgren (Achilles tendon tear - Out)",
+        "Gabriel Gudmundsson (injured - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -35,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Sweden's Gyökeres and Isak challenge France's solid central defense of Saliba and Upamecano.",
-      "France's flawless group stage record meets Sweden's 'great escape' playoff qualification.",
-      "Didier Deschamps' pragmatic approach faces Graham Potter's direct, vertical transition tactics."
+      "Lindelöf's defensive shift and Bergvall's midfield role due to injury could be exploited by France.",
+      "France's flawless group stage contrasts with Sweden's mixed form, highlighting their underdog status.",
+      "Deschamps' possession-based attack meets Potter's compact 3-4-2-1 and vertical transitions."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-30T06:27:01Z",
+    "headline_generated_at_utc": "2026-06-30T13:37:57Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

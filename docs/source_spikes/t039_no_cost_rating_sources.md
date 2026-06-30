@@ -12,8 +12,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-06-30T06:25:56Z`
-- World Football Elo last modified: `Mon, 29 Jun 2026 23:26:34 GMT`
+- World Football Elo checked at: `2026-06-30T13:36:26Z`
+- World Football Elo last modified: `Tue, 30 Jun 2026 08:31:28 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
 - World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`
@@ -40,7 +40,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 | 5 | Brazil | 2031 | BR |
 | 6 | Colombia | 2004 | CO |
 | 7 | Portugal | 1990 | PT |
-| 8 | Netherlands | 1980 | NL |
+| 8 | Netherlands | 1971 | NL |
 | 9 | Norway | 1918 | NO |
 | 10 | Switzerland | 1914 | CH |
 | 11 | Mexico | 1912 | MX |

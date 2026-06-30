@@ -10,15 +10,15 @@
     "kickoff_utc": "2026-06-30T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Elephants' knockout debut vs. Norway's 28-year return",
+    "key_headline": "Faé's Disciplined Elephants Face Solbakken's Attacking Norway",
     "injuries": {
       "ivory_coast": [
-        "Clement Akpa (thigh injury - Out)",
-        "Wilfried Singo (thigh/hamstring injury - Doubtful)",
+        "Clément Akpa (thigh injury - Out)",
+        "Wilfried Singo (hamstring injury - Doubtful)",
         "Evan Ndicka (thigh injury - Doubtful)"
       ],
       "norway": [
-        "Julian Ryerson (Thigh muscle issue - Out)"
+        "No confirmed injuries reported."
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Erling Haaland and Martin Ødegaard, rested by Solbakken, will challenge Ivory Coast's formidable defense.",
-      "Ivory Coast carries AFCON-winning momentum into their historic first World Cup knockout appearance.",
-      "Emerse Faé's defensively solid Ivory Coast will test Ståle Solbakken's strategically rested, high-scoring Norway."
+      "Ivory Coast's strong central defense must contain Erling Haaland's prolific scoring threat.",
+      "Ivory Coast makes history in their first World Cup knockout stage appearance.",
+      "Faé's counter-attacking discipline clashes with Solbakken's high-intensity, creative attacking philosophy."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-06-30T06:27:17Z",
+    "headline_generated_at_utc": "2026-06-30T13:38:21Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
