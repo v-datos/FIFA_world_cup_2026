@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "match_id": "belgium_senegal_2026",
+    "team1": "Belgium",
+    "team2": "Senegal",
+    "date": "07/01/2026",
+    "time": "14:00",
+    "venue": "Lumen Field, Seattle, Washington",
+    "stage": "Group Stage - Group G",
+    "kickoff_utc": "2026-07-01T20:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Garcia's Belgium seeks knockout redemption after group stage scares",
+    "injuries": {
+      "belgium": [
+        "Zeno Debast (leg injury - Doubtful)"
+      ],
+      "senegal": [
+        "Édouard Mendy (knee injury - Out)",
+        "Kalidou Koulibaly (muscle injury - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "belgium": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "senegal": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Belgium's debate over De Ketelaere as false nine versus Lukaku's bench impact will be key.",
+      "Belgium's commanding 5-1 win over New Zealand signals improved form after two initial draws.",
+      "Garcia's 4-2-3-1 aims for creative control against Thiaw's pace and busy midfield."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-01T06:32:09Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

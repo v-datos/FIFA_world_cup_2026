@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "match_id": "england_democratic_republic_of_the_congo_2026",
+    "team1": "England",
+    "team2": "Democratic Republic of the Congo",
+    "date": "07/01/2026",
+    "time": "10:00",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Group Stage - Group L",
+    "kickoff_utc": "2026-07-01T16:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "DR Congo's Historic Knockout Debut Challenges England's Title Hopes",
+    "injuries": {
+      "england": [
+        "Reece James (Hamstring injury - Out)",
+        "Jarell Quansah (Ankle injury - Doubtful)",
+        "Elliot Anderson (Muscle tightness - Doubtful)",
+        "Declan Rice (Calf injury - Doubtful)",
+        "Bukayo Saka (Achilles tendinitis issue - Doubtful)",
+        "Marcus Rashford (Hamstring discomfort - Doubtful)",
+        "Djed Spence (Ankle issue - Doubtful)",
+        "Tino Livramento (Calf injury - Out)"
+      ],
+      "democratic_republic_of_the_congo": [
+        "Rocky Bushiri (injury - Out)"
+      ]
+    },
+    "confirmed_tactics": {
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "democratic_republic_of_the_congo": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "England's right-back crisis forces Tuchel to adapt, potentially shifting Konsa or utilizing Spence.",
+      "DR Congo makes history in their first knockout stage, showcasing resilience under Desabre.",
+      "Tuchel's possession-heavy England must break down Desabre's disciplined, counter-attacking DR Congo."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-01T06:32:33Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

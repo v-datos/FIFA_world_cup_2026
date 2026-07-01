@@ -637,25 +637,25 @@
           "id": "r32_5",
           "team1": "Ivory Coast",
           "team2": "Norway",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 2,
+          "winner": "Norway"
         },
         {
           "id": "r32_6",
           "team1": "France",
           "team2": "Sweden",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 3,
+          "score2": 0,
+          "winner": "France"
         },
         {
           "id": "r32_7",
           "team1": "Mexico",
           "team2": "Ecuador",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 0,
+          "winner": "Mexico"
         },
         {
           "id": "r32_8",
@@ -737,7 +737,7 @@
         {
           "id": "r16_89",
           "team1": "Brazil",
-          "team2": "Winner Match R32-5",
+          "team2": "Norway",
           "score1": null,
           "score2": null,
           "winner": null
@@ -769,14 +769,14 @@
         {
           "id": "r16_91",
           "team1": "Morocco",
-          "team2": "Winner Match R32-6",
+          "team2": "France",
           "score1": null,
           "score2": null,
           "winner": null
         },
         {
           "id": "r16_92",
-          "team1": "Winner Match R32-7",
+          "team1": "Mexico",
           "team2": "Winner Match R32-8",
           "score1": null,
           "score2": null,
@@ -893,9 +893,9 @@
       "id": "r32_77",
       "team1": "Ivory Coast",
       "team2": "Norway",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 2,
+      "winner": "Norway"
     },
     {
       "id": "r32_73",
@@ -957,17 +957,17 @@
       "id": "r32_78",
       "team1": "France",
       "team2": "Sweden",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 3,
+      "score2": 0,
+      "winner": "France"
     },
     {
       "id": "r32_79",
       "team1": "Mexico",
       "team2": "Ecuador",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 0,
+      "winner": "Mexico"
     },
     {
       "id": "r32_80",
@@ -1014,7 +1014,7 @@
     {
       "id": "r16_89",
       "team1": "Brazil",
-      "team2": "Winner Match R32-5",
+      "team2": "Norway",
       "score1": null,
       "score2": null,
       "winner": null
@@ -1046,14 +1046,14 @@
     {
       "id": "r16_91",
       "team1": "Morocco",
-      "team2": "Winner Match R32-6",
+      "team2": "France",
       "score1": null,
       "score2": null,
       "winner": null
     },
     {
       "id": "r16_92",
-      "team1": "Winner Match R32-7",
+      "team1": "Mexico",
       "team2": "Winner Match R32-8",
       "score1": null,
       "score2": null,

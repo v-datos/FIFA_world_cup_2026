@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-06-30T13:36:26Z",
-    "source_last_modified": "Tue, 30 Jun 2026 08:31:28 GMT",
+    "checked_at_utc": "2026-07-01T06:30:46Z",
+    "source_last_modified": "Tue, 30 Jun 2026 22:56:53 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -43,8 +43,8 @@
       "source_team_code": "FR",
       "rank": 3,
       "rating_rank": 3,
-      "elo_rating": 2123,
-      "rating_value": 2123
+      "elo_rating": 2134,
+      "rating_value": 2134
     },
     {
       "team": "England",
@@ -97,8 +97,8 @@
       "source_team_code": "NO",
       "rank": 9,
       "rating_rank": 9,
-      "elo_rating": 1918,
-      "rating_value": 1918
+      "elo_rating": 1934,
+      "rating_value": 1934
     },
     {
       "team": "Switzerland",
@@ -326,29 +326,11 @@
       "rating_value": 1744
     },
     {
-      "team": "Ivory Coast",
-      "source_team_name": "Ivory Coast",
-      "source_team_code": "CI",
-      "rank": 35,
-      "rating_rank": 35,
-      "elo_rating": 1743,
-      "rating_value": 1743
-    },
-    {
-      "team": "Sweden",
-      "source_team_name": "Sweden",
-      "source_team_code": "SE",
-      "rank": 36,
-      "rating_rank": 36,
-      "elo_rating": 1742,
-      "rating_value": 1742
-    },
-    {
       "team": "Egypt",
       "source_team_name": "Egypt",
       "source_team_code": "EG",
-      "rank": 36,
-      "rating_rank": 36,
+      "rank": 35,
+      "rating_rank": 35,
       "elo_rating": 1742,
       "rating_value": 1742
     },
@@ -356,8 +338,8 @@
       "team": "Serbia",
       "source_team_name": "Serbia",
       "source_team_code": "RS",
-      "rank": 38,
-      "rating_rank": 38,
+      "rank": 36,
+      "rating_rank": 36,
       "elo_rating": 1734,
       "rating_value": 1734
     },
@@ -365,10 +347,28 @@
       "team": "Venezuela",
       "source_team_name": "Venezuela",
       "source_team_code": "VE",
-      "rank": 39,
-      "rating_rank": 39,
+      "rank": 37,
+      "rating_rank": 37,
       "elo_rating": 1733,
       "rating_value": 1733
+    },
+    {
+      "team": "Sweden",
+      "source_team_name": "Sweden",
+      "source_team_code": "SE",
+      "rank": 38,
+      "rating_rank": 38,
+      "elo_rating": 1731,
+      "rating_value": 1731
+    },
+    {
+      "team": "Ivory Coast",
+      "source_team_name": "Ivory Coast",
+      "source_team_code": "CI",
+      "rank": 39,
+      "rating_rank": 39,
+      "elo_rating": 1727,
+      "rating_value": 1727
     },
     {
       "team": "South Korea",

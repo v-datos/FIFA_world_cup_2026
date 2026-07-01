@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "united_states_bosnia_and_herzegovina_2026",
+    "team1": "United States",
+    "team2": "Bosnia and Herzegovina",
+    "date": "07/01/2026",
+    "time": "18:00",
+    "venue": "Levi's Stadium, Santa Clara, California",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-07-02T00:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "USMNT seeks knockout history against debutant Bosnia",
+    "injuries": {
+      "united_states": [
+        "Chris Richards (injury - Doubtful)"
+      ],
+      "bosnia_and_herzegovina": [
+        "Haris Tabaković (metatarsal fracture - Doubtful)",
+        "Ivan Šunjić (muscle injury - Out)",
+        "Amar Dedić (thigh injury - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "united_states": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "bosnia_and_herzegovina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Pulisic's return from injury boosts USMNT's attacking threat and playmaking against Bosnia.",
+      "USMNT topped Group D despite rotation, showcasing depth and readiness for knockout football.",
+      "Pochettino's aggressive pressing and vertical play will challenge Barbarez's defensive low-block and counter-attacks."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-01T06:33:02Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
