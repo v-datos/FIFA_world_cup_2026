@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-01T06:30:46Z",
-    "source_last_modified": "Tue, 30 Jun 2026 22:56:53 GMT",
+    "checked_at_utc": "2026-07-01T13:48:25Z",
+    "source_last_modified": "Wed, 01 Jul 2026 09:55:04 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -92,11 +92,20 @@
       "rating_value": 1971
     },
     {
+      "team": "Mexico",
+      "source_team_name": "Mexico",
+      "source_team_code": "MX",
+      "rank": 9,
+      "rating_rank": 9,
+      "elo_rating": 1943,
+      "rating_value": 1943
+    },
+    {
       "team": "Norway",
       "source_team_name": "Norway",
       "source_team_code": "NO",
-      "rank": 9,
-      "rating_rank": 9,
+      "rank": 10,
+      "rating_rank": 10,
       "elo_rating": 1934,
       "rating_value": 1934
     },
@@ -104,19 +113,10 @@
       "team": "Switzerland",
       "source_team_name": "Switzerland",
       "source_team_code": "CH",
-      "rank": 10,
-      "rating_rank": 10,
-      "elo_rating": 1914,
-      "rating_value": 1914
-    },
-    {
-      "team": "Mexico",
-      "source_team_name": "Mexico",
-      "source_team_code": "MX",
       "rank": 11,
       "rating_rank": 11,
-      "elo_rating": 1912,
-      "rating_value": 1912
+      "elo_rating": 1914,
+      "rating_value": 1914
     },
     {
       "team": "Germany",
@@ -137,20 +137,11 @@
       "rating_value": 1905
     },
     {
-      "team": "Ecuador",
-      "source_team_name": "Ecuador",
-      "source_team_code": "EC",
-      "rank": 14,
-      "rating_rank": 14,
-      "elo_rating": 1902,
-      "rating_value": 1902
-    },
-    {
       "team": "Japan",
       "source_team_name": "Japan",
       "source_team_code": "JP",
-      "rank": 15,
-      "rating_rank": 15,
+      "rank": 14,
+      "rating_rank": 14,
       "elo_rating": 1888,
       "rating_value": 1888
     },
@@ -158,8 +149,8 @@
       "team": "Morocco",
       "source_team_name": "Morocco",
       "source_team_code": "MA",
-      "rank": 16,
-      "rating_rank": 16,
+      "rank": 15,
+      "rating_rank": 15,
       "elo_rating": 1886,
       "rating_value": 1886
     },
@@ -167,10 +158,19 @@
       "team": "Belgium",
       "source_team_name": "Belgium",
       "source_team_code": "BE",
-      "rank": 17,
-      "rating_rank": 17,
+      "rank": 16,
+      "rating_rank": 16,
       "elo_rating": 1884,
       "rating_value": 1884
+    },
+    {
+      "team": "Ecuador",
+      "source_team_name": "Ecuador",
+      "source_team_code": "EC",
+      "rank": 17,
+      "rating_rank": 17,
+      "elo_rating": 1871,
+      "rating_value": 1871
     },
     {
       "team": "Denmark",

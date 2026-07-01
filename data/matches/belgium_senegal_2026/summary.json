@@ -10,14 +10,17 @@
     "kickoff_utc": "2026-07-01T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Garcia's Belgium seeks knockout redemption after group stage scares",
+    "key_headline": "Belgium's Late Surge Meets Senegal's Transition Challenge",
     "injuries": {
       "belgium": [
-        "Zeno Debast (leg injury - Doubtful)"
+        "Zeno Debast (Leg injury (hamstring muscle injury) - Doubtful)"
       ],
       "senegal": [
         "Édouard Mendy (knee injury - Out)",
-        "Kalidou Koulibaly (muscle injury - Doubtful)"
+        "Sadio Mané (recurring hamstring issue - Doubtful)",
+        "Kalidou Koulibaly (minor knee irritation - Doubtful)",
+        "Idrissa Gueye (calf strain - Doubtful)",
+        "Ismaïl Jakobs (thigh issue - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -33,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Belgium's debate over De Ketelaere as false nine versus Lukaku's bench impact will be key.",
-      "Belgium's commanding 5-1 win over New Zealand signals improved form after two initial draws.",
-      "Garcia's 4-2-3-1 aims for creative control against Thiaw's pace and busy midfield."
+      "Kevin De Bruyne's elite vision will test Kalidou Koulibaly's defensive leadership and Senegal's compact structure.",
+      "Belgium's late group stage surge contrasts with Senegal's turbulent path to knockout qualification.",
+      "Rudi Garcia's possession-based attack will challenge Pape Thiaw's organized defensive block and rapid counter-attacking strategy."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-01T06:32:09Z",
+    "headline_generated_at_utc": "2026-07-01T13:50:15Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

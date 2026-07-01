@@ -10,15 +10,14 @@
     "kickoff_utc": "2026-07-02T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "USMNT seeks knockout history against debutant Bosnia",
+    "key_headline": "Bosnia's Historic Knockout Debut Against Pochettino's USMNT",
     "injuries": {
       "united_states": [
-        "Chris Richards (injury - Doubtful)"
+        "Chris Richards (Torn ligaments in his left ankle - Doubtful)"
       ],
       "bosnia_and_herzegovina": [
-        "Haris Tabaković (metatarsal fracture - Doubtful)",
-        "Ivan Šunjić (muscle injury - Out)",
-        "Amar Dedić (thigh injury - Doubtful)"
+        "Haris Tabakovic (metatarsal fracture - Doubtful)",
+        "Amar Dedic (thigh injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +33,13 @@
       }
     },
     "tactical_insights": [
-      "Pulisic's return from injury boosts USMNT's attacking threat and playmaking against Bosnia.",
-      "USMNT topped Group D despite rotation, showcasing depth and readiness for knockout football.",
-      "Pochettino's aggressive pressing and vertical play will challenge Barbarez's defensive low-block and counter-attacks."
+      "Pochettino's tactical approach will test Bosnia's historic knockout stage resilience.",
+      "Bosnia and Herzegovina make history with their first-ever World Cup knockout stage appearance.",
+      "Pochettino's attacking USMNT will likely dominate possession against Bosnia's defensive setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-01T06:33:02Z",
+    "headline_generated_at_utc": "2026-07-01T13:51:15Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

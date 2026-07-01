@@ -10,17 +10,12 @@
     "kickoff_utc": "2026-07-01T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "DR Congo's Historic Knockout Debut Challenges England's Title Hopes",
+    "key_headline": "Historic DR Congo Challenges Tuchel's Injury-Hit England",
     "injuries": {
       "england": [
         "Reece James (Hamstring injury - Out)",
-        "Jarell Quansah (Ankle injury - Doubtful)",
-        "Elliot Anderson (Muscle tightness - Doubtful)",
-        "Declan Rice (Calf injury - Doubtful)",
-        "Bukayo Saka (Achilles tendinitis issue - Doubtful)",
-        "Marcus Rashford (Hamstring discomfort - Doubtful)",
-        "Djed Spence (Ankle issue - Doubtful)",
-        "Tino Livramento (Calf injury - Out)"
+        "Jarell Quansah (Twisted ankle - Out)",
+        "Tino Livramento (Calf issue - Out)"
       ],
       "democratic_republic_of_the_congo": [
         "Rocky Bushiri (injury - Out)"
@@ -39,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "England's right-back crisis forces Tuchel to adapt, potentially shifting Konsa or utilizing Spence.",
-      "DR Congo makes history in their first knockout stage, showcasing resilience under Desabre.",
-      "Tuchel's possession-heavy England must break down Desabre's disciplined, counter-attacking DR Congo."
+      "England's Djed Spence faces a tough test against DR Congo's in-form attacker Yoane Wissa on the right flank.",
+      "DR Congo's historic knockout stage debut, fueled by resilience, sets up a high-stakes encounter.",
+      "Tuchel's possession-dominant England must break down Desabre's likely compact 5-3-2 defensive setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-01T06:32:33Z",
+    "headline_generated_at_utc": "2026-07-01T13:50:38Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
