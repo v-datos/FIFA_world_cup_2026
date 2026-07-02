@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "switzerland_algeria_2026",
+    "team1": "Switzerland",
+    "team2": "Algeria",
+    "date": "07/02/2026",
+    "time": "21:00",
+    "venue": "BC Place, Vancouver",
+    "stage": "Group Stage - Group B",
+    "kickoff_utc": "2026-07-03T03:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Petkovic's Return: Algeria Challenges Former Team Switzerland in Knockouts",
+    "injuries": {
+      "switzerland": [
+        "Silvan Widmer (Hip injury - Doubtful)"
+      ],
+      "algeria": [
+        "Mohamed Amoura (hamstring/thigh injury - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "switzerland": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "algeria": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Mahrez's final World Cup drive meets Switzerland's organized midfield led by Xhaka.",
+      "Switzerland's strong group stage form contrasts with Algeria's defensive vulnerabilities, conceding seven goals.",
+      "Petkovic's deep knowledge of his former Swiss squad creates a fascinating tactical duel with Yakin."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-02T06:19:07Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

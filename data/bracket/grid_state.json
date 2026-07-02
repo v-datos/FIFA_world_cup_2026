@@ -661,25 +661,25 @@
           "id": "r32_8",
           "team1": "England",
           "team2": "Democratic Republic of the Congo",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 1,
+          "winner": "England"
         },
         {
           "id": "r32_9",
           "team1": "Belgium",
           "team2": "Senegal",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 3,
+          "score2": 2,
+          "winner": "Belgium"
         },
         {
           "id": "r32_10",
           "team1": "United States",
           "team2": "Bosnia and Herzegovina",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 0,
+          "winner": "United States"
         },
         {
           "id": "r32_11",
@@ -760,8 +760,8 @@
         },
         {
           "id": "r16_94",
-          "team1": "Winner Match R32-9",
-          "team2": "Winner Match R32-10",
+          "team1": "United States",
+          "team2": "Belgium",
           "score1": null,
           "score2": null,
           "winner": null
@@ -777,7 +777,7 @@
         {
           "id": "r16_92",
           "team1": "Mexico",
-          "team2": "Winner Match R32-8",
+          "team2": "England",
           "score1": null,
           "score2": null,
           "winner": null
@@ -933,17 +933,17 @@
       "id": "r32_81",
       "team1": "Belgium",
       "team2": "Senegal",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 3,
+      "score2": 2,
+      "winner": "Belgium"
     },
     {
       "id": "r32_82",
       "team1": "United States",
       "team2": "Bosnia and Herzegovina",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 0,
+      "winner": "United States"
     },
     {
       "id": "r32_76",
@@ -973,9 +973,9 @@
       "id": "r32_80",
       "team1": "England",
       "team2": "Democratic Republic of the Congo",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 1,
+      "winner": "England"
     },
     {
       "id": "r32_86",
@@ -1037,8 +1037,8 @@
     },
     {
       "id": "r16_94",
-      "team1": "Winner Match R32-9",
-      "team2": "Winner Match R32-10",
+      "team1": "United States",
+      "team2": "Belgium",
       "score1": null,
       "score2": null,
       "winner": null
@@ -1054,7 +1054,7 @@
     {
       "id": "r16_92",
       "team1": "Mexico",
-      "team2": "Winner Match R32-8",
+      "team2": "England",
       "score1": null,
       "score2": null,
       "winner": null

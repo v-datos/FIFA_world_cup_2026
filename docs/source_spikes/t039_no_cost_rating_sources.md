@@ -1,6 +1,6 @@
 # T-039 No-Cost Rating Source Spike
 
-Last updated: 2026-07-01
+Last updated: 2026-07-02
 Owner: Data Pipeline Engineer
 
 ## Finding
@@ -12,8 +12,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-01T13:48:25Z`
-- World Football Elo last modified: `Wed, 01 Jul 2026 09:55:04 GMT`
+- World Football Elo checked at: `2026-07-02T06:16:59Z`
+- World Football Elo last modified: `Thu, 02 Jul 2026 02:07:23 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
 - World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`
@@ -36,7 +36,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 | 1 | Argentina | 2148 | AR |
 | 2 | Spain | 2144 | ES |
 | 3 | France | 2134 | FR |
-| 4 | England | 2038 | EN |
+| 4 | England | 2046 | EN |
 | 5 | Brazil | 2031 | BR |
 | 6 | Colombia | 2004 | CO |
 | 7 | Portugal | 1990 | PT |
@@ -44,7 +44,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 | 9 | Mexico | 1943 | MX |
 | 10 | Norway | 1934 | NO |
 | 11 | Switzerland | 1914 | CH |
-| 12 | Germany | 1908 | DE |
+| 12 | Belgium | 1910 | BE |
 
 ## Recommended Cache Contract
 
