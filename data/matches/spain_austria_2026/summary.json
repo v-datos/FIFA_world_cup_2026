@@ -10,18 +10,17 @@
     "kickoff_utc": "2026-07-02T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Euro Champions Spain Face Austria's World Cup Return",
+    "key_headline": "Spain's Evolved Style Faces Rangnick's Aggressive Austria",
     "injuries": {
       "spain": [
-        "Fermin Lopez (broken foot - Out)",
-        "Nico Williams (hamstring injury - Out)",
-        "Yeremy Pino (fractured collarbone - Out)",
-        "Lamine Yamal (torn left hamstring - Doubtful)",
-        "Mikel Merino (stress fracture in foot - Doubtful)"
+        "Fermín López (broken right foot - Out)",
+        "Yeremy Pino (acromioclavicular sprain - Doubtful)",
+        "Nico Williams (minor grade muscle injury in his right adductor - Doubtful)",
+        "Lamine Yamal (leg muscle injury - Doubtful)",
+        "Víctor Muñoz (calf injury - Doubtful)"
       ],
       "austria": [
-        "Christoph Baumgartner (thigh injury - Out)",
-        "David Alaba (knock - Doubtful)"
+        "Christoph Baumgartner (thigh injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -37,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Rodri's midfield control will duel Konrad Laimer's relentless work rate.",
-      "Austria's first World Cup knockout stage in 28 years marks a significant achievement.",
-      "De la Fuente's dynamic Spain will challenge Rangnick's intense Gegenpressing system."
+      "Rodri's midfield control will be tested by Austria's aggressive high-pressing tactics.",
+      "Austria's historic first knockout appearance in 44 years highlights Ralf Rangnick's transformative impact.",
+      "De la Fuente's vertical possession game will clash with Rangnick's intense high-pressing and quick transition style."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-02T06:18:47Z",
+    "headline_generated_at_utc": "2026-07-02T13:35:40Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

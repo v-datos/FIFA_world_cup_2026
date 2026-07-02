@@ -5,7 +5,7 @@
     "source_label": "web_researched",
     "source_name": "Matchday predicted/confirmed XIs (SI, ESPN, Sports Mole, RotoWire, FourFourTwo, MLSsoccer)",
     "collection_method": "web_research",
-    "checked_at_utc": "2026-07-02T06:16:44Z",
+    "checked_at_utc": "2026-07-02T13:33:46Z",
     "warnings": [
       "Probable/confirmed matchday XIs for the 2026-06-19 jornada; players and clubs are point-in-time and should be refreshed each matchday.",
       "Clubs are included where confidently known; unknown clubs render as N/A."
@@ -18,7 +18,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Matt Freese",
@@ -72,7 +72,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Patrick Beach",
@@ -126,7 +126,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Angus Gunn",
@@ -180,7 +180,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Yassine Bounou",
@@ -234,7 +234,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Ugurcan Çakir",
@@ -288,7 +288,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Orlando Gill",
@@ -342,7 +342,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Alisson Becker",
@@ -396,7 +396,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Johny Placide",
@@ -450,7 +450,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Bart Verbruggen",
@@ -504,7 +504,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Jacob Widell Zetterström",
@@ -558,7 +558,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Manuel Neuer",
@@ -612,7 +612,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Yahia Fofana",
@@ -666,7 +666,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Hernán Galíndez",
@@ -720,7 +720,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Eloy Room",
@@ -774,7 +774,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Aymen Dahmen",
@@ -828,7 +828,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Zion Suzuki",
@@ -882,7 +882,7 @@
       "philosophy": "Dynamic possession, aggressive pressing, vertical attacks, and fluid wide overloads.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Unai Simón",
@@ -902,7 +902,7 @@
         },
         {
           "name": "Marcos Llorente",
-          "club": "Atletico Madrid"
+          "club": "Atlético Madrid"
         },
         {
           "name": "Mikel Merino",
@@ -914,7 +914,7 @@
         },
         {
           "name": "Pedri",
-          "club": "N/A"
+          "club": "Barcelona"
         },
         {
           "name": "Mikel Oyarzabal",
@@ -922,7 +922,7 @@
         },
         {
           "name": "Álex Baena",
-          "club": "Atletico Madrid"
+          "club": "Atlético Madrid"
         },
         {
           "name": "Lamine Yamal",
@@ -936,7 +936,7 @@
       "philosophy": "Organized defensive blocks, high pressing, and quick transitions, leveraging dynamic wingers.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Vozinha",
@@ -990,7 +990,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Thibaut Courtois",
@@ -1044,7 +1044,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Mostafa Shoubir",
@@ -1098,7 +1098,7 @@
       "philosophy": "Disciplined defense, pressing, and quick, purposeful transition attacks.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Mohammed Al-Owais",
@@ -1152,7 +1152,7 @@
       "philosophy": "Bielsa's Uruguay: aggressive pressing, vertical attacks, and fluid positional play.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Fernando Muslera",
@@ -1206,7 +1206,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Alireza Beiranvand",
@@ -1260,7 +1260,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Max Crocombe",
@@ -1314,7 +1314,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Mike Maignan",
@@ -1368,7 +1368,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Mory Diaw",
@@ -1422,7 +1422,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Ahmed Basil",
@@ -1476,7 +1476,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Ørjan Nyland",
@@ -1530,7 +1530,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Emiliano Martínez",
@@ -1584,11 +1584,11 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Oussama Benbot",
-          "club": "N/A"
+          "club": "USM Alger"
         },
         {
           "name": "Ramy Bensebaini",
@@ -1596,11 +1596,11 @@
         },
         {
           "name": "Aïssa Mandi",
-          "club": "Lille OSC"
+          "club": "Lille"
         },
         {
           "name": "Jaouen Hadjam",
-          "club": "N/A"
+          "club": "Young Boys"
         },
         {
           "name": "Rafik Belghali",
@@ -1612,7 +1612,7 @@
         },
         {
           "name": "Nabil Bentaleb",
-          "club": "N/A"
+          "club": "Lille"
         },
         {
           "name": "Farès Chaïbi",
@@ -1620,11 +1620,11 @@
         },
         {
           "name": "Amine Gouiri",
-          "club": "Olympique de Marseille"
+          "club": "Olympique Marseille"
         },
         {
           "name": "Houssem Aouar",
-          "club": "N/A"
+          "club": "Al-Ittihad"
         },
         {
           "name": "Riyad Mahrez",
@@ -1638,11 +1638,11 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Alexander Schlager",
-          "club": "Red Bull Salzburg"
+          "club": "FC Salzburg"
         },
         {
           "name": "David Alaba",
@@ -1650,11 +1650,11 @@
         },
         {
           "name": "Philipp Lienhart",
-          "club": "N/A"
+          "club": "SC Freiburg"
         },
         {
           "name": "Phillipp Mwene",
-          "club": "N/A"
+          "club": "Mainz 05"
         },
         {
           "name": "Stefan Posch",
@@ -1674,7 +1674,7 @@
         },
         {
           "name": "Marko Arnautovic",
-          "club": "N/A"
+          "club": "Red Star Belgrade"
         },
         {
           "name": "Marcel Sabitzer",
@@ -1682,7 +1682,7 @@
         },
         {
           "name": "Konrad Laimer",
-          "club": "Bayern München"
+          "club": "Bayern Munich"
         }
       ]
     },
@@ -1692,7 +1692,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Yazeed Abulaila",
@@ -1746,7 +1746,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Diogo Costa",
@@ -1800,7 +1800,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Lionel Mpasi",
@@ -1854,7 +1854,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Jordan Pickford",
@@ -1908,7 +1908,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Dominik Livakovic",
@@ -1962,7 +1962,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Benjamin Asare",
@@ -2016,7 +2016,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Orlando Mosquera",
@@ -2070,7 +2070,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Abduvohid Nematov",
@@ -2124,7 +2124,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Camilo Vargas",
@@ -2178,7 +2178,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Matej Kovár",
@@ -2232,7 +2232,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Ronwen Williams",
@@ -2286,7 +2286,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Gregor Kobel",
@@ -2306,7 +2306,7 @@
         },
         {
           "name": "Luca Jaquez",
-          "club": "Stuttgart"
+          "club": "VfB Stuttgart"
         },
         {
           "name": "Johan Manzambi",
@@ -2314,7 +2314,7 @@
         },
         {
           "name": "Granit Xhaka",
-          "club": "Sunderland"
+          "club": "Sunderland AFC"
         },
         {
           "name": "Remo Freuler",
@@ -2322,7 +2322,7 @@
         },
         {
           "name": "Breel Embolo",
-          "club": "Monaco"
+          "club": "Rennes"
         },
         {
           "name": "Rubén Vargas",
@@ -2340,7 +2340,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Nikola Vasilj",
@@ -2394,7 +2394,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Maxime Crépeau",
@@ -2448,7 +2448,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Mahmoud Abunada",
@@ -2502,7 +2502,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Raúl Rangel",
@@ -2556,7 +2556,7 @@
       "philosophy": "Confirmed XI from ESPN match data.",
       "source_label": "web_researched",
       "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world",
-      "checked_at_utc": "2026-07-02T06:16:44Z",
+      "checked_at_utc": "2026-07-02T13:33:46Z",
       "players": [
         {
           "name": "Kim Seung-Gyu",

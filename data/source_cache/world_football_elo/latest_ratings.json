@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-02T06:16:59Z",
-    "source_last_modified": "Thu, 02 Jul 2026 02:07:23 GMT",
+    "checked_at_utc": "2026-07-02T13:33:53Z",
+    "source_last_modified": "Thu, 02 Jul 2026 12:56:56 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -758,20 +758,20 @@
       "rating_value": 1505
     },
     {
+      "team": "Syria",
+      "source_team_name": "Syria",
+      "source_team_code": "SY",
+      "rank": 83,
+      "rating_rank": 83,
+      "elo_rating": 1479,
+      "rating_value": 1479
+    },
+    {
       "team": "Oman",
       "source_team_name": "Oman",
       "source_team_code": "OM",
       "rank": 83,
       "rating_rank": 83,
-      "elo_rating": 1480,
-      "rating_value": 1480
-    },
-    {
-      "team": "Syria",
-      "source_team_name": "Syria",
-      "source_team_code": "SY",
-      "rank": 84,
-      "rating_rank": 84,
       "elo_rating": 1479,
       "rating_value": 1479
     },
@@ -1703,6 +1703,15 @@
       "rating_value": 984
     },
     {
+      "team": "Aruba",
+      "source_team_name": "Aruba",
+      "source_team_code": "AW",
+      "rank": 188,
+      "rating_rank": 188,
+      "elo_rating": 979,
+      "rating_value": 979
+    },
+    {
       "team": "Somalia",
       "source_team_name": "Somalia",
       "source_team_code": "SO",
@@ -1710,15 +1719,6 @@
       "rating_rank": 188,
       "elo_rating": 979,
       "rating_value": 979
-    },
-    {
-      "team": "Aruba",
-      "source_team_name": "Aruba",
-      "source_team_code": "AW",
-      "rank": 189,
-      "rating_rank": 189,
-      "elo_rating": 978,
-      "rating_value": 978
     },
     {
       "team": "Sint Maarten",

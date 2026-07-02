@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-07-02T23:00Z"
   },
   "ai_summary": {
-    "key_headline": "Martínez's final stand: Portugal battles experienced Croatia.",
+    "key_headline": "Legends Collide: Ronaldo, Modrić Face World Cup Farewell",
     "injuries": {
       "portugal": [
         "No confirmed injuries reported."
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Rafael Leão's explosive pace against Croatia's compact mid-block will be a key duel.",
-      "Portugal's draws against defensive teams in the group stage highlight potential struggles against Croatia's compact setup.",
-      "Martínez's possession-based, wide-play approach will test Dalić's compact mid-block and counter-attacking strategy."
+      "The midfield duel between Portugal's creators and Croatia's experienced trio will be paramount.",
+      "Portugal's group stage draws highlighted concerns about open-play attacking urgency.",
+      "Portugal's possession-based attack meets Croatia's compact midfield and quick counter-attacking style."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-02T06:18:21Z",
+    "headline_generated_at_utc": "2026-07-02T13:35:14Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
