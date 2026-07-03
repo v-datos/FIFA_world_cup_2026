@@ -10,15 +10,15 @@
     "kickoff_utc": "2026-07-03T18:00Z"
   },
   "ai_summary": {
-    "key_headline": "Popovic's Defense Meets Salah's Doubtful Attack",
+    "key_headline": "Salah Doubt Casts Shadow on Egypt's Historic Knockout Bid",
     "injuries": {
       "australia": [
-        "Jacob Italiano (groin problem (adductor injury in training) - Out)"
+        "No confirmed injuries reported."
       ],
       "egypt": [
         "Mohamed Salah (Hamstring strain - Doubtful)",
         "Ahmed Fattouh (Hamstring tear - Out)",
-        "Mohamed Abdelmonem (Ankle bruising - Doubtful)"
+        "Mohamed Abdel Monem (Severe ankle bruising - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Mohamed Salah's uncertain fitness is Egypt's biggest concern, potentially elevating Omar Marmoush's counter-attacking role.",
-      "Both nations chase their historic first World Cup knockout victory, adding immense pressure and motivation to the clash.",
-      "Australia's disciplined three-centre-back defense under Popovic will aim to frustrate Egypt's counter-attacks, especially if Salah is limited."
+      "Mohamed Salah's hamstring strain casts doubt on Egypt's attacking potency against Australia.",
+      "Both nations seek their first-ever World Cup knockout victory in this historic Round of 32 clash.",
+      "Popovic's compact 3-4-2-1 will test Hassan's 4-3-3, particularly Egypt's adaptability against a low block."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-03T07:57:46Z",
+    "headline_generated_at_utc": "2026-07-03T15:07:49Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

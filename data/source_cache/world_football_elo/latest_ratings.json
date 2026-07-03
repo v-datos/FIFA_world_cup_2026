@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-03T07:56:11Z",
-    "source_last_modified": "Fri, 03 Jul 2026 01:09:52 GMT",
+    "checked_at_utc": "2026-07-03T15:06:02Z",
+    "source_last_modified": "Fri, 03 Jul 2026 10:13:51 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -101,22 +101,22 @@
       "rating_value": 1943
     },
     {
-      "team": "Norway",
-      "source_team_name": "Norway",
-      "source_team_code": "NO",
-      "rank": 10,
-      "rating_rank": 10,
-      "elo_rating": 1934,
-      "rating_value": 1934
-    },
-    {
       "team": "Switzerland",
       "source_team_name": "Switzerland",
       "source_team_code": "CH",
+      "rank": 9,
+      "rating_rank": 9,
+      "elo_rating": 1943,
+      "rating_value": 1943
+    },
+    {
+      "team": "Norway",
+      "source_team_name": "Norway",
+      "source_team_code": "NO",
       "rank": 11,
       "rating_rank": 11,
-      "elo_rating": 1914,
-      "rating_value": 1914
+      "elo_rating": 1934,
+      "rating_value": 1934
     },
     {
       "team": "Belgium",
@@ -254,20 +254,11 @@
       "rating_value": 1798
     },
     {
-      "team": "Algeria",
-      "source_team_name": "Algeria",
-      "source_team_code": "DZ",
-      "rank": 27,
-      "rating_rank": 27,
-      "elo_rating": 1785,
-      "rating_value": 1785
-    },
-    {
       "team": "Ukraine",
       "source_team_name": "Ukraine",
       "source_team_code": "UA",
-      "rank": 28,
-      "rating_rank": 28,
+      "rank": 27,
+      "rating_rank": 27,
       "elo_rating": 1780,
       "rating_value": 1780
     },
@@ -275,8 +266,8 @@
       "team": "Russia",
       "source_team_name": "Russia",
       "source_team_code": "RU",
-      "rank": 29,
-      "rating_rank": 29,
+      "rank": 28,
+      "rating_rank": 28,
       "elo_rating": 1772,
       "rating_value": 1772
     },
@@ -284,8 +275,8 @@
       "team": "Nigeria",
       "source_team_name": "Nigeria",
       "source_team_code": "NG",
-      "rank": 30,
-      "rating_rank": 30,
+      "rank": 29,
+      "rating_rank": 29,
       "elo_rating": 1767,
       "rating_value": 1767
     },
@@ -293,8 +284,8 @@
       "team": "Iran",
       "source_team_name": "Iran",
       "source_team_code": "IR",
-      "rank": 31,
-      "rating_rank": 31,
+      "rank": 30,
+      "rating_rank": 30,
       "elo_rating": 1764,
       "rating_value": 1764
     },
@@ -302,10 +293,19 @@
       "team": "Canada",
       "source_team_name": "Canada",
       "source_team_code": "CA",
-      "rank": 31,
-      "rating_rank": 31,
+      "rank": 30,
+      "rating_rank": 30,
       "elo_rating": 1764,
       "rating_value": 1764
+    },
+    {
+      "team": "Algeria",
+      "source_team_name": "Algeria",
+      "source_team_code": "DZ",
+      "rank": 32,
+      "rating_rank": 32,
+      "elo_rating": 1756,
+      "rating_value": 1756
     },
     {
       "team": "Scotland",

@@ -10,15 +10,17 @@
     "kickoff_utc": "2026-07-04T01:30Z"
   },
   "ai_summary": {
-    "key_headline": "Lorenzo's Colombia faces Queiroz's disciplined Ghana in historic clash",
+    "key_headline": "Lorenzo's Colombia vs. Queiroz's Ghana: Attack Meets Defense",
     "injuries": {
       "colombia": [
-        "No confirmed injuries reported."
+        "Luis Suárez (shoulder injury - Doubtful)"
       ],
       "ghana": [
-        "Mohammed Kudus (quadriceps injury - Out)",
-        "Mohammed Salisu (ACL - Out)",
-        "Antoine Semenyo (ankle injury - Doubtful)"
+        "Kojo Oppong Peprah (knee injury - Out)",
+        "Antoine Semenyo (ankle issue - Doubtful)",
+        "Mohammed Salisu (ACL injury - Out)",
+        "Mohammed Kudus (quadriceps injury and hamstring relapse - Out)",
+        "Alexander Djiku (hamstring injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Colombia's 'Overload Left, Switch Right' strategy will test Ghana's compact defensive block.",
-      "Colombia's strong group stage form, conceding only one goal, highlights their defensive solidity.",
-      "Néstor Lorenzo's flexible, high-pressing Colombia will challenge Carlos Queiroz's disciplined, defensive Ghana setup."
+      "Luis Díaz's elite dribbling and pace will challenge Ghana's disciplined defensive low block.",
+      "Colombia's impressive 28-match unbeaten run and Group K topping form sets high expectations.",
+      "Lorenzo's attacking prowess meets Queiroz's disciplined defensive approach, favoring a low block and counters."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-03T07:58:11Z",
+    "headline_generated_at_utc": "2026-07-03T15:08:12Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

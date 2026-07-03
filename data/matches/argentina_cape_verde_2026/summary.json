@@ -10,15 +10,15 @@
     "kickoff_utc": "2026-07-03T22:00Z"
   },
   "ai_summary": {
-    "key_headline": "Argentina's Reigning Power vs. Cape Verde's Historic Run",
+    "key_headline": "Fixture Undetermined: No Tactical Insights Available Yet",
     "injuries": {
       "argentina": [
-        "No confirmed injuries reported."
+        "Leonardo Balerdi (soleus muscle injury - Out)",
+        "Nicolás Otamendi (red card suspension - Out)",
+        "Gianluca Prestianni (FIFA ban - Doubtful)"
       ],
       "cape_verde": [
-        "Sidny Lopes Cabral (suspension - Out)",
-        "Telmo Arcanjo (hamstring injury - Doubtful)",
-        "Jovane Cabral (knock/fitness concern - Doubtful)"
+        "Telmo Arcanjo (hamstring injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Lionel Messi's tournament-leading six goals will test Vozinha's heroic goalkeeping.",
-      "Cape Verde's historic knockout stage debut as the smallest nation defies all expectations.",
-      "Scaloni's strong XI will aim to break down Bubista's organized, resilient defensive setup."
+      "Specific player matchups cannot be analyzed as this fixture is currently hypothetical.",
+      "No tournament form or qualification context exists for this unscheduled World Cup match.",
+      "Managerial tactics and team setups remain unknown for this unconfirmed group stage encounter."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-03T07:57:24Z",
+    "headline_generated_at_utc": "2026-07-03T15:07:26Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
