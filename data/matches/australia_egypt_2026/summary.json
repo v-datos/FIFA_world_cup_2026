@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "australia_egypt_2026",
+    "team1": "Australia",
+    "team2": "Egypt",
+    "date": "07/03/2026",
+    "time": "12:00",
+    "venue": "AT&T Stadium, Arlington, Texas",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-07-03T18:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Popovic's Defense Meets Salah's Doubtful Attack",
+    "injuries": {
+      "australia": [
+        "Jacob Italiano (groin problem (adductor injury in training) - Out)"
+      ],
+      "egypt": [
+        "Mohamed Salah (Hamstring strain - Doubtful)",
+        "Ahmed Fattouh (Hamstring tear - Out)",
+        "Mohamed Abdelmonem (Ankle bruising - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "australia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "egypt": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Mohamed Salah's uncertain fitness is Egypt's biggest concern, potentially elevating Omar Marmoush's counter-attacking role.",
+      "Both nations chase their historic first World Cup knockout victory, adding immense pressure and motivation to the clash.",
+      "Australia's disciplined three-centre-back defense under Popovic will aim to frustrate Egypt's counter-attacks, especially if Salah is limited."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-03T07:57:46Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-02T13:33:53Z",
-    "source_last_modified": "Thu, 02 Jul 2026 12:56:56 GMT",
+    "checked_at_utc": "2026-07-03T07:56:11Z",
+    "source_last_modified": "Fri, 03 Jul 2026 01:09:52 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -20,22 +20,22 @@
   },
   "ratings": [
     {
-      "team": "Argentina",
-      "source_team_name": "Argentina",
-      "source_team_code": "AR",
-      "rank": 1,
-      "rating_rank": 1,
-      "elo_rating": 2148,
-      "rating_value": 2148
-    },
-    {
       "team": "Spain",
       "source_team_name": "Spain",
       "source_team_code": "ES",
+      "rank": 1,
+      "rating_rank": 1,
+      "elo_rating": 2159,
+      "rating_value": 2159
+    },
+    {
+      "team": "Argentina",
+      "source_team_name": "Argentina",
+      "source_team_code": "AR",
       "rank": 2,
       "rating_rank": 2,
-      "elo_rating": 2144,
-      "rating_value": 2144
+      "elo_rating": 2148,
+      "rating_value": 2148
     },
     {
       "team": "France",
@@ -65,22 +65,22 @@
       "rating_value": 2031
     },
     {
-      "team": "Colombia",
-      "source_team_name": "Colombia",
-      "source_team_code": "CO",
-      "rank": 6,
-      "rating_rank": 6,
-      "elo_rating": 2004,
-      "rating_value": 2004
-    },
-    {
       "team": "Portugal",
       "source_team_name": "Portugal",
       "source_team_code": "PT",
+      "rank": 6,
+      "rating_rank": 6,
+      "elo_rating": 2013,
+      "rating_value": 2013
+    },
+    {
+      "team": "Colombia",
+      "source_team_name": "Colombia",
+      "source_team_code": "CO",
       "rank": 7,
       "rating_rank": 7,
-      "elo_rating": 1990,
-      "rating_value": 1990
+      "elo_rating": 2004,
+      "rating_value": 2004
     },
     {
       "team": "Netherlands",
@@ -137,20 +137,11 @@
       "rating_value": 1908
     },
     {
-      "team": "Croatia",
-      "source_team_name": "Croatia",
-      "source_team_code": "HR",
-      "rank": 14,
-      "rating_rank": 14,
-      "elo_rating": 1905,
-      "rating_value": 1905
-    },
-    {
       "team": "Japan",
       "source_team_name": "Japan",
       "source_team_code": "JP",
-      "rank": 15,
-      "rating_rank": 15,
+      "rank": 14,
+      "rating_rank": 14,
       "elo_rating": 1888,
       "rating_value": 1888
     },
@@ -158,10 +149,19 @@
       "team": "Morocco",
       "source_team_name": "Morocco",
       "source_team_code": "MA",
-      "rank": 16,
-      "rating_rank": 16,
+      "rank": 15,
+      "rating_rank": 15,
       "elo_rating": 1886,
       "rating_value": 1886
+    },
+    {
+      "team": "Croatia",
+      "source_team_name": "Croatia",
+      "source_team_code": "HR",
+      "rank": 16,
+      "rating_rank": 16,
+      "elo_rating": 1882,
+      "rating_value": 1882
     },
     {
       "team": "Ecuador",
@@ -209,22 +209,22 @@
       "rating_value": 1841
     },
     {
-      "team": "Austria",
-      "source_team_name": "Austria",
-      "source_team_code": "AT",
-      "rank": 22,
-      "rating_rank": 22,
-      "elo_rating": 1836,
-      "rating_value": 1836
-    },
-    {
       "team": "Paraguay",
       "source_team_name": "Paraguay",
       "source_team_code": "PY",
-      "rank": 23,
-      "rating_rank": 23,
+      "rank": 22,
+      "rating_rank": 22,
       "elo_rating": 1823,
       "rating_value": 1823
+    },
+    {
+      "team": "Austria",
+      "source_team_name": "Austria",
+      "source_team_code": "AT",
+      "rank": 23,
+      "rating_rank": 23,
+      "elo_rating": 1821,
+      "rating_value": 1821
     },
     {
       "team": "Senegal",

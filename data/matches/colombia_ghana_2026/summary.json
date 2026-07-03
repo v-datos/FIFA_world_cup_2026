@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "colombia_ghana_2026",
+    "team1": "Colombia",
+    "team2": "Ghana",
+    "date": "07/03/2026",
+    "time": "19:30",
+    "venue": "GEHA Field at Arrowhead Stadium, Kansas City, Missouri",
+    "stage": "Group Stage - Group K",
+    "kickoff_utc": "2026-07-04T01:30Z"
+  },
+  "ai_summary": {
+    "key_headline": "Lorenzo's Colombia faces Queiroz's disciplined Ghana in historic clash",
+    "injuries": {
+      "colombia": [
+        "No confirmed injuries reported."
+      ],
+      "ghana": [
+        "Mohammed Kudus (quadriceps injury - Out)",
+        "Mohammed Salisu (ACL - Out)",
+        "Antoine Semenyo (ankle injury - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "colombia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "ghana": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Colombia's 'Overload Left, Switch Right' strategy will test Ghana's compact defensive block.",
+      "Colombia's strong group stage form, conceding only one goal, highlights their defensive solidity.",
+      "Néstor Lorenzo's flexible, high-pressing Colombia will challenge Carlos Queiroz's disciplined, defensive Ghana setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-03T07:58:11Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
