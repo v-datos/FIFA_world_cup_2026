@@ -10,19 +10,19 @@
     "kickoff_utc": "2026-07-04T17:00Z"
   },
   "ai_summary": {
-    "key_headline": "Marsch's Canada faces unbeaten Morocco in historic rematch",
+    "key_headline": "Canada's Historic Run Collides with Morocco's Unbeaten Form",
     "injuries": {
       "canada": [
-        "Alphonso Davies (Hamstring injury - Doubtful)",
-        "Moïse Bombito (Fractured leg - Doubtful)",
-        "Ralph Priso (Hamstring injury - Doubtful)",
-        "Luc de Fougerolles (Concussion and previously an ankle problem - Doubtful)",
-        "Kamal Miller (Hamstring injury - Doubtful)",
-        "Marcelo Flores (Injury - Out)"
+        "Marcelo Flores (torn ACL - Out)"
       ],
       "morocco": [
-        "Abdessamad Ezzalzouli (knee ligament sprain - Out)",
-        "Nayef Aguerd (groin injury - Out)"
+        "Abde Ezzalzouli (knee injury - Out)",
+        "Nayef Aguerd (groin injury - Out)",
+        "Noussair Mazraoui (shoulder issue - Doubtful)",
+        "Achraf Hakimi (thigh injury - Doubtful)",
+        "Chamseddine Talbi (being monitored - Doubtful)",
+        "Neil El Aynaoui (being monitored - Doubtful)",
+        "Anas Salaheddine (injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -38,13 +38,13 @@
       }
     },
     "tactical_insights": [
-      "Canada must contain in-form Ismael Saibari, who scored in all group stage matches.",
-      "Canada makes history reaching knockout stage for first time, facing a 36-game unbeaten Morocco.",
-      "Marsch's high-press Canada will challenge Ouahbi's possession-based Morocco and their attacking arsenal."
+      "Morocco's potent right flank, led by Achraf Hakimi, will challenge Canada's defensive left side.",
+      "Canada's historic first knockout win faces Morocco's formidable 33-game unbeaten streak.",
+      "Morocco's controlled 4-2-3-1 possession game will clash with Canada's direct 4-4-2 approach."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-04T07:39:52Z",
+    "headline_generated_at_utc": "2026-07-04T14:26:20Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

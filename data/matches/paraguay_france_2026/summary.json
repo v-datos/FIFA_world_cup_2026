@@ -10,13 +10,15 @@
     "kickoff_utc": "2026-07-04T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Deschamps' Final Run Meets Alfaro's Transformed Paraguay",
+    "key_headline": "Paraguay's Defensive Grit Tests France's Elite Attack",
     "injuries": {
       "paraguay": [
-        "Julio Enciso (Thigh injury - Out)"
+        "Julio Enciso (tight hamstring, blow to the waist affecting quadriceps - Doubtful)",
+        "Omar Alderete (Knee injury - Doubtful)"
       ],
       "france": [
-        "No confirmed injuries reported."
+        "Aurélien Tchouaméni (Thigh injury - Out)",
+        "William Saliba (Worsened injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Kylian Mbappé's prolific scoring form challenges Paraguay's rigid defensive shield of Gustavo Gómez and José Canale.",
-      "Paraguay's monumental upset over Germany in the Round of 32 proves their resilience and competitive spirit.",
-      "Didier Deschamps' dominant attacking 4-2-3-1 will test Gustavo Alfaro's resilient, counter-attacking 5-3-2 setup."
+      "Mbappé's attacking prowess will clash with Gustavo Gómez's leadership in Paraguay's organized defense.",
+      "Paraguay's progression via penalties against Germany highlights their ability to frustrate top teams.",
+      "Gustavo Alfaro's organized defensive block will aim to absorb pressure and exploit spaces against Didier Deschamps' pragmatic system."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-04T07:40:12Z",
+    "headline_generated_at_utc": "2026-07-04T14:26:47Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

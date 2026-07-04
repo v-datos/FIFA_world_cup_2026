@@ -12,8 +12,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-04T07:38:38Z`
-- World Football Elo last modified: `Sat, 04 Jul 2026 00:46:24 GMT`
+- World Football Elo checked at: `2026-07-04T14:25:10Z`
+- World Football Elo last modified: `Sat, 04 Jul 2026 10:17:18 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
 - World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`
@@ -39,7 +39,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 | 4 | England | 2046 | EN |
 | 5 | Brazil | 2031 | BR |
 | 6 | Portugal | 2013 | PT |
-| 7 | Colombia | 2004 | CO |
+| 7 | Colombia | 2009 | CO |
 | 8 | Netherlands | 1971 | NL |
 | 9 | Mexico | 1943 | MX |
 | 9 | Switzerland | 1943 | CH |

@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-04T07:38:38Z",
-    "source_last_modified": "Sat, 04 Jul 2026 00:46:24 GMT",
+    "checked_at_utc": "2026-07-04T14:25:10Z",
+    "source_last_modified": "Sat, 04 Jul 2026 10:17:18 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -79,8 +79,8 @@
       "source_team_code": "CO",
       "rank": 7,
       "rating_rank": 7,
-      "elo_rating": 2004,
-      "rating_value": 2004
+      "elo_rating": 2009,
+      "rating_value": 2009
     },
     {
       "team": "Netherlands",
@@ -628,15 +628,15 @@
       "source_team_code": "GH",
       "rank": 68,
       "rating_rank": 68,
-      "elo_rating": 1575,
-      "rating_value": 1575
+      "elo_rating": 1570,
+      "rating_value": 1570
     },
     {
       "team": "Honduras",
       "source_team_name": "Honduras",
       "source_team_code": "HN",
-      "rank": 69,
-      "rating_rank": 69,
+      "rank": 68,
+      "rating_rank": 68,
       "elo_rating": 1570,
       "rating_value": 1570
     },
