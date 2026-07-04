@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-03T15:06:02Z",
-    "source_last_modified": "Fri, 03 Jul 2026 10:13:51 GMT",
+    "checked_at_utc": "2026-07-04T07:38:38Z",
+    "source_last_modified": "Sat, 04 Jul 2026 00:46:24 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -34,8 +34,8 @@
       "source_team_code": "AR",
       "rank": 2,
       "rating_rank": 2,
-      "elo_rating": 2148,
-      "rating_value": 2148
+      "elo_rating": 2151,
+      "rating_value": 2151
     },
     {
       "team": "France",
@@ -236,22 +236,22 @@
       "rating_value": 1816
     },
     {
-      "team": "Australia",
-      "source_team_name": "Australia",
-      "source_team_code": "AU",
-      "rank": 25,
-      "rating_rank": 25,
-      "elo_rating": 1800,
-      "rating_value": 1800
-    },
-    {
       "team": "United States",
       "source_team_name": "United States",
       "source_team_code": "US",
-      "rank": 26,
-      "rating_rank": 26,
+      "rank": 25,
+      "rating_rank": 25,
       "elo_rating": 1798,
       "rating_value": 1798
+    },
+    {
+      "team": "Australia",
+      "source_team_name": "Australia",
+      "source_team_code": "AU",
+      "rank": 26,
+      "rating_rank": 26,
+      "elo_rating": 1795,
+      "rating_value": 1795
     },
     {
       "team": "Ukraine",
@@ -308,11 +308,20 @@
       "rating_value": 1756
     },
     {
+      "team": "Egypt",
+      "source_team_name": "Egypt",
+      "source_team_code": "EG",
+      "rank": 33,
+      "rating_rank": 33,
+      "elo_rating": 1747,
+      "rating_value": 1747
+    },
+    {
       "team": "Scotland",
       "source_team_name": "Scotland",
       "source_team_code": "SQ",
-      "rank": 33,
-      "rating_rank": 33,
+      "rank": 34,
+      "rating_rank": 34,
       "elo_rating": 1745,
       "rating_value": 1745
     },
@@ -320,19 +329,10 @@
       "team": "Greece",
       "source_team_name": "Greece",
       "source_team_code": "GR",
-      "rank": 34,
-      "rating_rank": 34,
-      "elo_rating": 1744,
-      "rating_value": 1744
-    },
-    {
-      "team": "Egypt",
-      "source_team_name": "Egypt",
-      "source_team_code": "EG",
       "rank": 35,
       "rating_rank": 35,
-      "elo_rating": 1742,
-      "rating_value": 1742
+      "elo_rating": 1744,
+      "rating_value": 1744
     },
     {
       "team": "Serbia",
@@ -533,22 +533,22 @@
       "rating_value": 1628
     },
     {
-      "team": "Cape Verde",
-      "source_team_name": "Cape Verde",
-      "source_team_code": "CV",
-      "rank": 58,
-      "rating_rank": 58,
-      "elo_rating": 1622,
-      "rating_value": 1622
-    },
-    {
       "team": "Bolivia",
       "source_team_name": "Bolivia",
       "source_team_code": "BO",
-      "rank": 59,
-      "rating_rank": 59,
+      "rank": 58,
+      "rating_rank": 58,
       "elo_rating": 1621,
       "rating_value": 1621
+    },
+    {
+      "team": "Cape Verde",
+      "source_team_name": "Cape Verde",
+      "source_team_code": "CV",
+      "rank": 59,
+      "rating_rank": 59,
+      "elo_rating": 1619,
+      "rating_value": 1619
     },
     {
       "team": "Albania",
