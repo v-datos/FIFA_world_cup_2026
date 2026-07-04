@@ -215,7 +215,7 @@ def _team_group_map() -> dict[str, str]:
     return out
 
 
-def _create_fixture_folder(fx: dict, group_map: dict[str, str]) -> Optional[str]:
+def _create_fixture_folder(fx: dict, group_map: dict[str, str], live_game_index: dict) -> Optional[str]:
     """Create a baseline summary.json + metrics.json for a fixture with no folder.
 
     ESPN is the schedule source of truth; the old worldcup26.ir-based discoverer
@@ -230,11 +230,21 @@ def _create_fixture_folder(fx: dict, group_map: dict[str, str]) -> Optional[str]
         date_s, time_s = loc.strftime("%m/%d/%Y"), loc.strftime("%H:%M")
     except ValueError:
         date_s, time_s = "", ""
-    grp = group_map.get(normalize_team_name(t1)) or group_map.get(normalize_team_name(t2))
+
+    # Look up in the simulation live game index to find type and group
+    sim_game = live_game_index.get(fx["match_id"])
+    if sim_game:
+        g_type = sim_game.get("type", "").strip().lower()
+        g_group = sim_game.get("group", "").strip()
+    else:
+        grp = group_map.get(normalize_team_name(t1)) or group_map.get(normalize_team_name(t2))
+        g_type = "group" if grp else ""
+        g_group = grp or ""
+
     game = {
         "home_team_name_en": t1, "away_team_name_en": t2,
         "date": date_s, "time": time_s, "stadium_name": fx.get("venue") or "",
-        "type": "group" if grp else "", "group": grp or "",
+        "type": g_type, "group": g_group,
     }
     source = {"source_label": "live_schedule", "source_url": ESPN_BASE, "source_name": "ESPN scoreboard"}
     folder = DATA_DIR / "matches" / fx["match_id"]
@@ -303,6 +313,12 @@ def write_caches(manifest: dict) -> list[str]:
     written.append(str(lp.relative_to(PROJECT_ROOT)))
 
     group_map = _team_group_map()
+    try:
+        from src.api.main import fetch_live_games_for_schedule
+        live_game_index, _ = fetch_live_games_for_schedule()
+    except Exception:
+        live_game_index = {}
+
     for fx in manifest["fixtures"]:
         sjson = DATA_DIR / "matches" / fx["match_id"] / "summary.json"
         if sjson.exists():
@@ -312,11 +328,20 @@ def write_caches(manifest: dict) -> list[str]:
             if fx["venue"]:
                 md["venue"] = fx["venue"]
             md["kickoff_utc"] = fx["kickoff_utc"]
+
+            # Update/Correct the stage from simulation index if present
+            sim_game = live_game_index.get(fx["match_id"])
+            if sim_game:
+                from src.pipeline.discover_active_fixtures import game_stage
+                g_stage = game_stage(sim_game)
+                if g_stage:
+                    md["stage"] = g_stage
+
             with open(sjson, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             written.append(str(sjson.relative_to(PROJECT_ROOT)))
         else:
-            created = _create_fixture_folder(fx, group_map)
+            created = _create_fixture_folder(fx, group_map, live_game_index)
             if created:
                 written.append(created)
     return written

@@ -186,3 +186,21 @@ export const translateSourceLabel = (label: string | undefined, lang: string): s
 
   return map[clean] || clean;
 };
+
+export const translateStage = (stage: string | null | undefined, lang: string): string => {
+  if (!stage) return '';
+  if (lang !== 'Español') return stage;
+
+  let translated = stage;
+  translated = translated
+    .replace(/Group Stage - Group/g, 'Fase de grupos - Grupo')
+    .replace(/Group Stage/g, 'Fase de grupos')
+    .replace(/Round of 32/g, 'Dieciseisavos de final')
+    .replace(/Round of 16/g, 'Octavos de final')
+    .replace(/Quarterfinal/g, 'Cuartos de final')
+    .replace(/Semifinal/g, 'Semifinal')
+    .replace(/Third Place/g, 'Tercer lugar')
+    .replace(/Final/g, 'Final');
+  return translated;
+};
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { getFlag } from '../lib/teamData';
+import { translateStage } from '../lib/translations';
 
 interface Match {
   id: string;
@@ -189,7 +190,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
                 {/* Stage Header */}
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    {match.stage}
+                    {translateStage(match.stage, lang)}
                   </span>
                   <span className="text-[10px] text-slate-500 flex items-center gap-1 font-mono">
                     <Clock className="w-3 h-3" />

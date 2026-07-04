@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-062 - Correct Knockout Stage Metadata and Translation**
+  Owner: Frontend Engineer / Data Pipeline Engineer / Orchestrator
+  Completed: 2026-07-04
+  Notes: Fixed the match discovery logic in `collect_espn_matchday.py` which was hardcoding knockout games to "Group Stage" because teams were still found in the historical group map. Resolved this by looking up matches in the live simulation database to retrieve correct stages (e.g. Round of 32, Round of 16). Implemented a `translateStage` helper in the React frontend (`translations.ts`) and applied it to translate stages to Spanish on both the Match Analysis and Overview tabs.
+  Verify: Run `npm --prefix src/frontend run build`.
+
 - [x] **T-061 - Fix Last Major Standing Metadata Gaps (Germany, Paraguay, etc.)**
   Owner: Frontend Engineer / Orchestrator
   Completed: 2026-06-29

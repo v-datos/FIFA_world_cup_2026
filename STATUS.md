@@ -1,5 +1,18 @@
 # STATUS
 
+## 2026-07-04 - Correct Knockout Stage Metadata and Translation
+
+Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
+
+### Current State
+
+- **Knockout Stage Sourcing**: Fixed `collect_espn_matchday.py` which was incorrectly labeling knockout matches as "Group Stage" by relying solely on the team-to-group mapping. Sourced match stage types dynamically from the live simulation games index (e.g. Round of 32, Round of 16, Quarterfinal).
+- **Match stage translation**: Implemented `translateStage` in `translations.ts` and integrated it in `MatchAnalysisTab.tsx` and `OverviewTab.tsx` to automatically render translated Spanish stage descriptions (e.g. *Dieciseisavos de final*, *Octavos de final*, *Fase de grupos - Grupo B*) when toggled to Spanish.
+- **Data Remediation**: Executed a correction script that aligned existing match folders on disk (`brazil_japan_2026`, `germany_paraguay_2026`, `netherlands_morocco_2026`, `south_africa_canada_2026`) with their true Round of 32 knockout stage headers.
+- **Verification**: Verified that both backend compilation and frontend build pass with zero errors.
+
+---
+
 ## 2026-06-29 - Fix Last Major Standing Metadata Gaps
 
 Prepared by: Orchestrator / Frontend Engineer

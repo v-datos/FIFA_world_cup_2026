@@ -7,7 +7,7 @@ import { BriefingFreshnessBadge, type BriefingFreshnessStatus } from './Briefing
 import { ShieldAlert, Award, FileText, Image as ImageIcon } from 'lucide-react';
 import { getFlag, getLastStanding } from '../lib/teamData';
 import { normalizeTeamName, teamSlug } from '../lib/teamIdentity';
-import { translateTeamName, translateInjury, translatePhilosophy, translateStanding } from '../lib/translations';
+import { translateTeamName, translateInjury, translatePhilosophy, translateStanding, translateStage } from '../lib/translations';
 
 interface Match {
   id: string;
@@ -439,7 +439,7 @@ export const MatchAnalysisTab: React.FC<MatchAnalysisTabProps> = ({
             <span>{getFlag(team2)} {translateTeamName(team2, lang)}</span>
           </h2>
           <p className="text-xs text-slate-400 font-mono mt-0.5">
-            {stage} | {date} {time} | {venue}
+            {translateStage(stage, lang)} | {date} {time} | {venue}
           </p>
         </div>
         
