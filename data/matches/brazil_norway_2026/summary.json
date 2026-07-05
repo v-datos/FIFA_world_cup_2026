@@ -10,10 +10,10 @@
     "kickoff_utc": "2026-07-05T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Ancelotti's Brazil confronts Solbakken's Norway, eyeing history",
+    "key_headline": "Ancelotti's Brazil faces Norway's historical challenge",
     "injuries": {
       "brazil": [
-        "Wesley (injury - Out)"
+        "Raphinha (Hamstring injury - Out)"
       ],
       "norway": [
         "Julian Ryerson (Thigh injury - Doubtful)"
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Erling Haaland's prolific form challenges Brazil's robust defense led by Marquinhos and Alisson.",
-      "Norway's historic 1998 upset against Brazil adds significant narrative weight to this Round of 16 clash.",
-      "Ancelotti's associative Brazil will counter Solbakken's high-pressing, vertical 4-3-3, creating a midfield battle."
+      "Erling Haaland's physical duel against Brazil's Marquinhos and Gabriel Magalhães will be pivotal.",
+      "Norway's 'golden generation' aims to extend their surprising historical unbeaten record against Brazil.",
+      "Ancelotti's attacking freedom meets Solbakken's high press and direct play, centered on Haaland."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-05T07:53:47Z",
+    "headline_generated_at_utc": "2026-07-05T14:28:33Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

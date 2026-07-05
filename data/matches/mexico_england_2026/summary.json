@@ -10,13 +10,16 @@
     "kickoff_utc": "2026-07-06T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Azteca Altitude Test for Tuchel's Perfect England",
+    "key_headline": "Aguirre's Resurgent Mexico Battles Southgate's England at Azteca",
     "injuries": {
       "mexico": [
         "No confirmed injuries reported."
       ],
       "england": [
-        "Tino Livramento (miss the entire tournament - Out)"
+        "Tino Livramento (calf injury - Out)",
+        "Declan Rice (hamstring tightness - Doubtful)",
+        "Reece James (hamstring problem - Doubtful)",
+        "Jarell Quansah (ankle injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Prolific Harry Kane challenges Mexico's in-form Julián Quiñones in a crucial attacking duel.",
-      "Mexico's formidable Azteca home advantage, coupled with their recent knockout stage victory, presents a significant challenge.",
-      "Aguirre's compact, counter-attacking Mexico will test Tuchel's tactically disciplined and adaptable England setup."
+      "Edson Álvarez's midfield battle against Jude Bellingham will be crucial for control.",
+      "Mexico's flawless group stage and home crowd boost their knockout stage confidence.",
+      "Javier Aguirre's disciplined defensive setup will challenge Gareth Southgate's cautious attacking approach."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-05T07:54:12Z",
+    "headline_generated_at_utc": "2026-07-05T14:29:04Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
