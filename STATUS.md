@@ -1,5 +1,17 @@
 # STATUS
 
+## 2026-07-05 - Harden Reference Games Cache for Automated Refresh Bot
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- **Reference Cache Hardening**: Populated `data/reference/games_cache.json` with all 104 tournament matches (previously only had 24). This ensures that even when the live `worldcup26.ir` API is unreachable (e.g. within the GitHub Actions runner bot environment), the fallback schedule index contains all knockout fixtures with their correct stage types (Round of 32, Round of 16, etc.) instead of resorting to the group fallback.
+- **Data Remediation**: Corrected `brazil_norway_2026` and `mexico_england_2026` summaries on disk to be `"Round of 16"` (*Octavos de final*) instead of `"Group Stage"`.
+- **Verification**: Built and verified compilation.
+
+---
+
 ## 2026-07-04 - Correct Knockout Stage Metadata and Translation
 
 Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
