@@ -768,8 +768,8 @@
         },
         {
           "id": "r16_91",
-          "team1": "Morocco",
-          "team2": "France",
+          "team1": "France",
+          "team2": "Morocco",
           "score1": null,
           "score2": null,
           "winner": null
@@ -1045,8 +1045,8 @@
     },
     {
       "id": "r16_91",
-      "team1": "Morocco",
-      "team2": "France",
+      "team1": "France",
+      "team2": "Morocco",
       "score1": null,
       "score2": null,
       "winner": null

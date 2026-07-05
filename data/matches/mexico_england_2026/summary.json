@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "mexico_england_2026",
+    "team1": "Mexico",
+    "team2": "England",
+    "date": "07/05/2026",
+    "time": "18:00",
+    "venue": "Estadio Banorte, Mexico City",
+    "stage": "Group Stage - Group A",
+    "kickoff_utc": "2026-07-06T00:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Azteca Altitude Test for Tuchel's Perfect England",
+    "injuries": {
+      "mexico": [
+        "No confirmed injuries reported."
+      ],
+      "england": [
+        "Tino Livramento (miss the entire tournament - Out)"
+      ]
+    },
+    "confirmed_tactics": {
+      "mexico": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Prolific Harry Kane challenges Mexico's in-form Julián Quiñones in a crucial attacking duel.",
+      "Mexico's formidable Azteca home advantage, coupled with their recent knockout stage victory, presents a significant challenge.",
+      "Aguirre's compact, counter-attacking Mexico will test Tuchel's tactically disciplined and adaptable England setup."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-05T07:54:12Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
