@@ -1,5 +1,19 @@
 # STATUS
 
+## 2026-07-06 - Remove API Module Imports in Matchday Collector Pipeline
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- **Dependency-free Sourcing**: Refactored `collect_espn_matchday.py` to completely remove the brittle import of `fetch_live_games_for_schedule` from `src.api.main`. Since `src.api.main` is a FastAPI app containing heavy external dependencies (FastAPI, Pandas, NumPy, BigQuery), it threw a `ModuleNotFoundError` inside the minimal GitHub Actions runner bot environment, causing all fresh bot refreshes to fallback to incorrect stage guessing. Replaced with a self-contained, zero-dependency `_load_live_game_index()` helper.
+- **Data Remediation**: Corrected today's fresh match summaries on disk:
+  * **Portugal vs Spain** (Match 93): Corrected to `"Round of 16"` (*Octavos de final*).
+  * **United States vs Belgium** (Match 94): Corrected to `"Round of 16"` (*Octavos de final*).
+- **Verification**: Verified Python backend compilation and successful local execution.
+
+---
+
 ## 2026-07-05 - Harden Reference Games Cache for Automated Refresh Bot
 
 Prepared by: Orchestrator / Data Pipeline Engineer

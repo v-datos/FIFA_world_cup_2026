@@ -215,6 +215,52 @@ def _team_group_map() -> dict[str, str]:
     return out
 
 
+def _load_live_game_index() -> dict[str, dict]:
+    payload = None
+    try:
+        r = requests.get("https://worldcup26.ir/get/games", timeout=10, verify=False)
+        if r.status_code == 200:
+            payload = r.json()
+    except Exception:
+        pass
+
+    if payload is None:
+        committed_path = DATA_DIR / "reference" / "games_cache.json"
+        try:
+            if committed_path.exists():
+                with open(committed_path, "r", encoding="utf-8") as f:
+                    payload = json.load(f)
+        except Exception:
+            pass
+
+    games = []
+    if isinstance(payload, dict):
+        games = payload.get("games", [])
+    elif isinstance(payload, list):
+        games = payload
+
+    index = {}
+    for game in games:
+        if not isinstance(game, dict):
+            continue
+        team1 = normalize_team_name(
+            game.get("home_team_name_en")
+            or game.get("home_team_label")
+            or ""
+        )
+        team2 = normalize_team_name(
+            game.get("away_team_name_en")
+            or game.get("away_team_label")
+            or ""
+        )
+        if not team1 or not team2:
+            continue
+        match_id = f"{canonical_team_slug(team1)}_{canonical_team_slug(team2)}_2026"
+        index[match_id] = game
+
+    return index
+
+
 def _create_fixture_folder(fx: dict, group_map: dict[str, str], live_game_index: dict) -> Optional[str]:
     """Create a baseline summary.json + metrics.json for a fixture with no folder.
 
@@ -313,11 +359,7 @@ def write_caches(manifest: dict) -> list[str]:
     written.append(str(lp.relative_to(PROJECT_ROOT)))
 
     group_map = _team_group_map()
-    try:
-        from src.api.main import fetch_live_games_for_schedule
-        live_game_index, _ = fetch_live_games_for_schedule()
-    except Exception:
-        live_game_index = {}
+    live_game_index = _load_live_game_index()
 
     for fx in manifest["fixtures"]:
         sjson = DATA_DIR / "matches" / fx["match_id"] / "summary.json"
