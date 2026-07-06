@@ -2,6 +2,11 @@
   "tournament": "FIFA World Cup 2026",
   "top_scorer": [
     {
+      "name": "Erling Haaland",
+      "team": "Norway",
+      "goals": 7
+    },
+    {
       "name": "Lionel Messi",
       "team": "Argentina",
       "goals": 7
@@ -738,9 +743,9 @@
           "id": "r16_89",
           "team1": "Brazil",
           "team2": "Norway",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 2,
+          "winner": "Norway"
         },
         {
           "id": "r16_90",
@@ -778,9 +783,9 @@
           "id": "r16_92",
           "team1": "Mexico",
           "team2": "England",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 3,
+          "winner": "England"
         },
         {
           "id": "r16_95",
@@ -805,7 +810,7 @@
       "matches": [
         {
           "id": "qf_97",
-          "team1": "Winner Match R16-1",
+          "team1": "Norway",
           "team2": "Winner Match R16-2",
           "score1": null,
           "score2": null,
@@ -822,7 +827,7 @@
         {
           "id": "qf_99",
           "team1": "Winner Match R16-5",
-          "team2": "Winner Match R16-6",
+          "team2": "England",
           "score1": null,
           "score2": null,
           "winner": null
@@ -1015,9 +1020,9 @@
       "id": "r16_89",
       "team1": "Brazil",
       "team2": "Norway",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 2,
+      "winner": "Norway"
     },
     {
       "id": "r16_90",
@@ -1055,9 +1060,9 @@
       "id": "r16_92",
       "team1": "Mexico",
       "team2": "England",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 3,
+      "winner": "England"
     },
     {
       "id": "r16_95",
@@ -1079,7 +1084,7 @@
   "qf": [
     {
       "id": "qf_97",
-      "team1": "Winner Match R16-1",
+      "team1": "Norway",
       "team2": "Winner Match R16-2",
       "score1": null,
       "score2": null,
@@ -1096,7 +1101,7 @@
     {
       "id": "qf_99",
       "team1": "Winner Match R16-5",
-      "team2": "Winner Match R16-6",
+      "team2": "England",
       "score1": null,
       "score2": null,
       "winner": null

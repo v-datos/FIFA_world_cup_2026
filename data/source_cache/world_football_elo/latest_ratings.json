@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-05T07:52:38Z",
-    "source_last_modified": "Sat, 04 Jul 2026 23:05:24 GMT",
+    "checked_at_utc": "2026-07-06T08:56:10Z",
+    "source_last_modified": "Sun, 05 Jul 2026 22:04:51 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -56,20 +56,11 @@
       "rating_value": 2046
     },
     {
-      "team": "Brazil",
-      "source_team_name": "Brazil",
-      "source_team_code": "BR",
-      "rank": 5,
-      "rating_rank": 5,
-      "elo_rating": 2031,
-      "rating_value": 2031
-    },
-    {
       "team": "Portugal",
       "source_team_name": "Portugal",
       "source_team_code": "PT",
-      "rank": 6,
-      "rating_rank": 6,
+      "rank": 5,
+      "rating_rank": 5,
       "elo_rating": 2013,
       "rating_value": 2013
     },
@@ -77,17 +68,35 @@
       "team": "Colombia",
       "source_team_name": "Colombia",
       "source_team_code": "CO",
-      "rank": 7,
-      "rating_rank": 7,
+      "rank": 6,
+      "rating_rank": 6,
       "elo_rating": 2009,
       "rating_value": 2009
+    },
+    {
+      "team": "Brazil",
+      "source_team_name": "Brazil",
+      "source_team_code": "BR",
+      "rank": 7,
+      "rating_rank": 7,
+      "elo_rating": 1993,
+      "rating_value": 1993
+    },
+    {
+      "team": "Norway",
+      "source_team_name": "Norway",
+      "source_team_code": "NO",
+      "rank": 8,
+      "rating_rank": 8,
+      "elo_rating": 1972,
+      "rating_value": 1972
     },
     {
       "team": "Netherlands",
       "source_team_name": "Netherlands",
       "source_team_code": "NL",
-      "rank": 8,
-      "rating_rank": 8,
+      "rank": 9,
+      "rating_rank": 9,
       "elo_rating": 1971,
       "rating_value": 1971
     },
@@ -95,8 +104,8 @@
       "team": "Mexico",
       "source_team_name": "Mexico",
       "source_team_code": "MX",
-      "rank": 9,
-      "rating_rank": 9,
+      "rank": 10,
+      "rating_rank": 10,
       "elo_rating": 1943,
       "rating_value": 1943
     },
@@ -104,19 +113,10 @@
       "team": "Switzerland",
       "source_team_name": "Switzerland",
       "source_team_code": "CH",
-      "rank": 9,
-      "rating_rank": 9,
+      "rank": 10,
+      "rating_rank": 10,
       "elo_rating": 1943,
       "rating_value": 1943
-    },
-    {
-      "team": "Norway",
-      "source_team_name": "Norway",
-      "source_team_code": "NO",
-      "rank": 11,
-      "rating_rank": 11,
-      "elo_rating": 1934,
-      "rating_value": 1934
     },
     {
       "team": "Morocco",

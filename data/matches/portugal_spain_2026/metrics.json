@@ -1,0 +1,48 @@
+{
+  "dixon_coles_forecast": {
+    "team1_win": 0.4,
+    "draw": 0.3,
+    "team2_win": 0.3,
+    "confidence": 0.7
+  },
+  "score_probabilities": [
+    {
+      "score": "1-0",
+      "probability": 0.15
+    },
+    {
+      "score": "1-1",
+      "probability": 0.14
+    },
+    {
+      "score": "0-1",
+      "probability": 0.13
+    },
+    {
+      "score": "2-1",
+      "probability": 0.1
+    },
+    {
+      "score": "0-0",
+      "probability": 0.09
+    },
+    {
+      "score": "1-2",
+      "probability": 0.08
+    }
+  ],
+  "team_metrics": {
+    "Portugal": {},
+    "Spain": {}
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "forecast_status": "default_forecast",
+    "team_metrics_status": "empty_team_metrics",
+    "warnings": [
+      "Forecast not generated.",
+      "Team metrics not populated."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "united_states_belgium_2026",
+    "team1": "United States",
+    "team2": "Belgium",
+    "date": "07/06/2026",
+    "time": "18:00",
+    "venue": "Lumen Field, Seattle, Washington",
+    "stage": "Group Stage - Group D",
+    "kickoff_utc": "2026-07-07T00:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Balogun's controversial return boosts USMNT against Belgium",
+    "injuries": {
+      "united_states": [
+        "Patrick Agyemang (Achilles tendon injury - Out)",
+        "Jonathan Klinsmann (broken neck - Out)",
+        "Tanner Tessmann (muscle strain - Out)"
+      ],
+      "belgium": [
+        "Zeno Debast (Thigh/hamstring muscle injury - Out)"
+      ]
+    },
+    "confirmed_tactics": {
+      "united_states": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "belgium": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Folarin Balogun's controversial return significantly boosts USMNT's attacking threat against Belgium's vulnerable defense.",
+      "Belgium's inconsistent form, including a dramatic comeback win, contrasts with USMNT's strong group stage performance and home advantage.",
+      "Pochettino's high-pressing, athletic USMNT will challenge Garcia's fluid 4-2-3-1, aiming to exploit Belgium's defensive vulnerabilities with rapid transitions."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-06T08:58:09Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
