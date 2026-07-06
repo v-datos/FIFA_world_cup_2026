@@ -10,16 +10,16 @@
     "kickoff_utc": "2026-07-06T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Iberian Derby: Martínez's Portugal clashes with De la Fuente's Spain",
+    "key_headline": "Ronaldo's Last Dance: Portugal Battles Unbeaten European Champions Spain",
     "injuries": {
       "portugal": [
         "No confirmed injuries reported."
       ],
       "spain": [
-        "Nico Williams (Groin injury - Doubtful)",
-        "Yeremy Pino (Shoulder injury - Doubtful)",
-        "Victor Munoz (Muscle injury - Out)",
-        "Lamine Yamal (Hamstring injury - Doubtful)"
+        "Yeremy Pino (Shoulder injury, potentially a broken collarbone, sustained during the match against Uruguay on June 27, 2026 - Out)",
+        "Nico Williams (Discomfort/hamstring injury sustained during the match against Uruguay on June 27, 2026. He has had ongoing groin issues and a previous hamstring injury earlier in May 2026 - Doubtful)",
+        "Lamine Yamal (Hamstring injury in May 2026 that ended his club season. He was on the bench at the start of the tournament due to this injury - Doubtful)",
+        "Víctor Muñoz (Muscle problem while recovering from a calf injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -35,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Rodri's midfield control against Portugal's creative playmakers will be a key battle.",
-      "Spain enters in strong form, defensively solid, while Portugal's group stage was 'far from convincing'.",
-      "Portugal's high press and expansive play meet Spain's vertical, direct possession with wide threats."
+      "Spain's dynamic wingers, Yamal and Williams, will test Portugal's aggressive high defensive line.",
+      "Spain enters the match unbeaten in the World Cup, yet to concede a single goal.",
+      "Spain's vertical, high-pressing style under De la Fuente contrasts with Portugal's expansive, possession-oriented approach."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-06T08:57:44Z",
+    "headline_generated_at_utc": "2026-07-06T16:16:46Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

@@ -10,15 +10,15 @@
     "kickoff_utc": "2026-07-07T00:00Z"
   },
   "ai_summary": {
-    "key_headline": "Balogun's controversial return boosts USMNT against Belgium",
+    "key_headline": "Controversial Balogun Return Fuels USA-Belgium R16 Showdown",
     "injuries": {
       "united_states": [
-        "Patrick Agyemang (Achilles tendon injury - Out)",
-        "Jonathan Klinsmann (broken neck - Out)",
-        "Tanner Tessmann (muscle strain - Out)"
+        "Christian Pulisic (Calf strain - Doubtful)"
       ],
       "belgium": [
-        "Zeno Debast (Thigh/hamstring muscle injury - Out)"
+        "Romelu Lukaku (Hip injury and hamstring injury - Doubtful)",
+        "Kevin De Bruyne (Eye injury - Doubtful)",
+        "Zeno Debast (Leg injury suffered on club duty - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Folarin Balogun's controversial return significantly boosts USMNT's attacking threat against Belgium's vulnerable defense.",
-      "Belgium's inconsistent form, including a dramatic comeback win, contrasts with USMNT's strong group stage performance and home advantage.",
-      "Pochettino's high-pressing, athletic USMNT will challenge Garcia's fluid 4-2-3-1, aiming to exploit Belgium's defensive vulnerabilities with rapid transitions."
+      "Folarin Balogun's controversial reinstatement significantly boosts USA's attacking threat against Belgium's defense.",
+      "Belgium's dramatic extra-time comeback against Senegal highlights their resilience and knockout stage experience.",
+      "Pochettino's high-pressing USA 4-3-3 will challenge Garcia's balanced 4-2-3-1 and midfield control."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-06T08:58:09Z",
+    "headline_generated_at_utc": "2026-07-06T16:17:11Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
