@@ -10,14 +10,15 @@
     "kickoff_utc": "2026-07-07T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Swiss discipline meets Colombian intensity in knockout battle",
+    "key_headline": "Swiss Knockout Breakthrough Meets Colombia's Unbeaten Challenge",
     "injuries": {
       "switzerland": [
-        "Silvan Widmer (Hip problem - Doubtful)",
-        "Michel Aebischer (Muscle injury - Doubtful)"
+        "Granit Xhaka (Muscle complaint (left adductor) - Doubtful)",
+        "Silvan Widmer (Accumulation of yellow cards - Out)"
       ],
       "colombia": [
-        "No confirmed injuries reported."
+        "Jhon Cordoba (hamstring injury - Out)",
+        "James Rodriguez (virus - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -33,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Luis Díaz's explosive runs challenge Switzerland's resolute defense.",
-      "Colombia aims to build on Copa America success and strong defensive form.",
-      "Yakin's compact Swiss defense battles Lorenzo's intense, organized Colombian attack."
+      "Xhaka's midfield anchor will duel James Rodríguez's creative influence in a key tactical battle.",
+      "Switzerland's first World Cup knockout victory since 1938 marks improved tournament performance.",
+      "Yakin's adaptable Swiss discipline will counter Lorenzo's high-pressing, quick-transitioning Colombian 4-3-3."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-07T08:18:14Z",
+    "headline_generated_at_utc": "2026-07-07T15:44:14Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

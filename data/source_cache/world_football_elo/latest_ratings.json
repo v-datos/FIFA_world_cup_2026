@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-07T08:16:21Z",
-    "source_last_modified": "Tue, 07 Jul 2026 08:00:09 GMT",
+    "checked_at_utc": "2026-07-07T15:42:26Z",
+    "source_last_modified": "Tue, 07 Jul 2026 14:47:03 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -160,8 +160,8 @@
       "source_team_code": "HR",
       "rank": 16,
       "rating_rank": 16,
-      "elo_rating": 1881,
-      "rating_value": 1881
+      "elo_rating": 1882,
+      "rating_value": 1882
     },
     {
       "team": "Ecuador",
@@ -583,15 +583,15 @@
       "source_team_code": "EI",
       "rank": 63,
       "rating_rank": 63,
-      "elo_rating": 1606,
-      "rating_value": 1606
+      "elo_rating": 1605,
+      "rating_value": 1605
     },
     {
       "team": "Bosnia and Herzegovina",
       "source_team_name": "Bosnia and Herzegovina",
       "source_team_code": "BA",
-      "rank": 64,
-      "rating_rank": 64,
+      "rank": 63,
+      "rating_rank": 63,
       "elo_rating": 1605,
       "rating_value": 1605
     },
@@ -1681,8 +1681,8 @@
       "source_team_code": "LC",
       "rank": 185,
       "rating_rank": 185,
-      "elo_rating": 1003,
-      "rating_value": 1003
+      "elo_rating": 1004,
+      "rating_value": 1004
     },
     {
       "team": "Western Sahara",
@@ -2059,8 +2059,8 @@
       "source_team_code": "AI",
       "rank": 227,
       "rating_rank": 227,
-      "elo_rating": 647,
-      "rating_value": 647
+      "elo_rating": 646,
+      "rating_value": 646
     },
     {
       "team": "Tibet",

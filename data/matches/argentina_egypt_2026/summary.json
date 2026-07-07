@@ -10,10 +10,17 @@
     "kickoff_utc": "2026-07-07T16:00Z"
   },
   "ai_summary": {
-    "key_headline": "Messi's Argentina Battles Historic Egypt in Star Showdown",
+    "key_headline": "Argentina's Title Defense Meets Egypt's Historic World Cup Run",
     "injuries": {
       "argentina": [
-        "No confirmed injuries reported."
+        "Leonardo Balerdi (soleus muscle injury - Out)",
+        "Joaquin Panichelli (torn anterior cruciate ligament (ACL) - Out)",
+        "Juan Foyth (Achilles tendon injury - Out)",
+        "Lionel Messi (hamstring inflammation - Doubtful)",
+        "Emiliano \"Dibu\" Martínez (fractured finger - Doubtful)",
+        "Cristian \"Cuti\" Romero (lateral ligament strain - Doubtful)",
+        "Gonzalo Montiel (tear in left quadriceps - Doubtful)",
+        "Nahuel Molina (tear in right hamstring - Doubtful)"
       ],
       "egypt": [
         "No confirmed injuries reported."
@@ -32,13 +39,13 @@
       }
     },
     "tactical_insights": [
-      "Lionel Messi and Mohamed Salah's direct confrontation highlights this Round of 16 star duel.",
-      "Egypt's historic Round of 16 debut tests Argentina's title defense after a recent scare.",
-      "Scaloni's structured Argentina will face Egypt's disciplined counter-attacking style led by Salah."
+      "Mohamed Salah's pace and skill could exploit Argentina's defensive vulnerabilities on the wings.",
+      "Egypt's historic Round of 16 qualification and penalty shootout resilience mark their best-ever World Cup campaign.",
+      "Scaloni's front-foot, possession-based style faces Hassan's organized, collective approach with attacking threats."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-07T08:17:52Z",
+    "headline_generated_at_utc": "2026-07-07T15:43:45Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
