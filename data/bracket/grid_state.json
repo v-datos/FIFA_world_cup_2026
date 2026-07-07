@@ -772,9 +772,9 @@
           "id": "r16_94",
           "team1": "United States",
           "team2": "Belgium",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 4,
+          "winner": "Belgium"
         },
         {
           "id": "r16_91",
@@ -824,7 +824,7 @@
         {
           "id": "qf_98",
           "team1": "Winner Match R16-3",
-          "team2": "Winner Match R16-4",
+          "team2": "Belgium",
           "score1": null,
           "score2": null,
           "winner": null
@@ -1049,9 +1049,9 @@
       "id": "r16_94",
       "team1": "United States",
       "team2": "Belgium",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 4,
+      "winner": "Belgium"
     },
     {
       "id": "r16_91",
@@ -1098,7 +1098,7 @@
     {
       "id": "qf_98",
       "team1": "Winner Match R16-3",
-      "team2": "Winner Match R16-4",
+      "team2": "Belgium",
       "score1": null,
       "score2": null,
       "winner": null

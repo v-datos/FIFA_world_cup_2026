@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "match_id": "switzerland_colombia_2026",
+    "team1": "Switzerland",
+    "team2": "Colombia",
+    "date": "07/07/2026",
+    "time": "14:00",
+    "venue": "BC Place, Vancouver",
+    "stage": "Round of 16",
+    "kickoff_utc": "2026-07-07T20:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Swiss discipline meets Colombian intensity in knockout battle",
+    "injuries": {
+      "switzerland": [
+        "Silvan Widmer (Hip problem - Doubtful)",
+        "Michel Aebischer (Muscle injury - Doubtful)"
+      ],
+      "colombia": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "switzerland": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "colombia": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Luis Díaz's explosive runs challenge Switzerland's resolute defense.",
+      "Colombia aims to build on Copa America success and strong defensive form.",
+      "Yakin's compact Swiss defense battles Lorenzo's intense, organized Colombian attack."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-07T08:18:14Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

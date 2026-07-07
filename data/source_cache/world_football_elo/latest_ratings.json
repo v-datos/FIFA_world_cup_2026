@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-06T08:56:10Z",
-    "source_last_modified": "Sun, 05 Jul 2026 22:04:51 GMT",
+    "checked_at_utc": "2026-07-07T08:16:21Z",
+    "source_last_modified": "Tue, 07 Jul 2026 08:00:09 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -25,8 +25,8 @@
       "source_team_code": "ES",
       "rank": 1,
       "rating_rank": 1,
-      "elo_rating": 2159,
-      "rating_value": 2159
+      "elo_rating": 2177,
+      "rating_value": 2177
     },
     {
       "team": "Argentina",
@@ -52,26 +52,26 @@
       "source_team_code": "EN",
       "rank": 4,
       "rating_rank": 4,
-      "elo_rating": 2046,
-      "rating_value": 2046
-    },
-    {
-      "team": "Portugal",
-      "source_team_name": "Portugal",
-      "source_team_code": "PT",
-      "rank": 5,
-      "rating_rank": 5,
-      "elo_rating": 2013,
-      "rating_value": 2013
+      "elo_rating": 2076,
+      "rating_value": 2076
     },
     {
       "team": "Colombia",
       "source_team_name": "Colombia",
       "source_team_code": "CO",
-      "rank": 6,
-      "rating_rank": 6,
+      "rank": 5,
+      "rating_rank": 5,
       "elo_rating": 2009,
       "rating_value": 2009
+    },
+    {
+      "team": "Portugal",
+      "source_team_name": "Portugal",
+      "source_team_code": "PT",
+      "rank": 6,
+      "rating_rank": 6,
+      "elo_rating": 1995,
+      "rating_value": 1995
     },
     {
       "team": "Brazil",
@@ -101,20 +101,20 @@
       "rating_value": 1971
     },
     {
-      "team": "Mexico",
-      "source_team_name": "Mexico",
-      "source_team_code": "MX",
+      "team": "Belgium",
+      "source_team_name": "Belgium",
+      "source_team_code": "BE",
       "rank": 10,
       "rating_rank": 10,
-      "elo_rating": 1943,
-      "rating_value": 1943
+      "elo_rating": 1961,
+      "rating_value": 1961
     },
     {
       "team": "Switzerland",
       "source_team_name": "Switzerland",
       "source_team_code": "CH",
-      "rank": 10,
-      "rating_rank": 10,
+      "rank": 11,
+      "rating_rank": 11,
       "elo_rating": 1943,
       "rating_value": 1943
     },
@@ -128,13 +128,13 @@
       "rating_value": 1921
     },
     {
-      "team": "Belgium",
-      "source_team_name": "Belgium",
-      "source_team_code": "BE",
+      "team": "Mexico",
+      "source_team_name": "Mexico",
+      "source_team_code": "MX",
       "rank": 13,
       "rating_rank": 13,
-      "elo_rating": 1910,
-      "rating_value": 1910
+      "elo_rating": 1913,
+      "rating_value": 1913
     },
     {
       "team": "Germany",
@@ -142,8 +142,8 @@
       "source_team_code": "DE",
       "rank": 14,
       "rating_rank": 14,
-      "elo_rating": 1908,
-      "rating_value": 1908
+      "elo_rating": 1907,
+      "rating_value": 1907
     },
     {
       "team": "Japan",
@@ -160,8 +160,8 @@
       "source_team_code": "HR",
       "rank": 16,
       "rating_rank": 16,
-      "elo_rating": 1882,
-      "rating_value": 1882
+      "elo_rating": 1881,
+      "rating_value": 1881
     },
     {
       "team": "Ecuador",
@@ -236,20 +236,11 @@
       "rating_value": 1814
     },
     {
-      "team": "United States",
-      "source_team_name": "United States",
-      "source_team_code": "US",
-      "rank": 25,
-      "rating_rank": 25,
-      "elo_rating": 1798,
-      "rating_value": 1798
-    },
-    {
       "team": "Australia",
       "source_team_name": "Australia",
       "source_team_code": "AU",
-      "rank": 26,
-      "rating_rank": 26,
+      "rank": 25,
+      "rating_rank": 25,
       "elo_rating": 1795,
       "rating_value": 1795
     },
@@ -257,8 +248,8 @@
       "team": "Ukraine",
       "source_team_name": "Ukraine",
       "source_team_code": "UA",
-      "rank": 27,
-      "rating_rank": 27,
+      "rank": 26,
+      "rating_rank": 26,
       "elo_rating": 1780,
       "rating_value": 1780
     },
@@ -266,8 +257,8 @@
       "team": "Russia",
       "source_team_name": "Russia",
       "source_team_code": "RU",
-      "rank": 28,
-      "rating_rank": 28,
+      "rank": 27,
+      "rating_rank": 27,
       "elo_rating": 1772,
       "rating_value": 1772
     },
@@ -275,8 +266,8 @@
       "team": "Nigeria",
       "source_team_name": "Nigeria",
       "source_team_code": "NG",
-      "rank": 29,
-      "rating_rank": 29,
+      "rank": 28,
+      "rating_rank": 28,
       "elo_rating": 1767,
       "rating_value": 1767
     },
@@ -284,8 +275,8 @@
       "team": "Iran",
       "source_team_name": "Iran",
       "source_team_code": "IR",
-      "rank": 30,
-      "rating_rank": 30,
+      "rank": 29,
+      "rating_rank": 29,
       "elo_rating": 1764,
       "rating_value": 1764
     },
@@ -293,8 +284,8 @@
       "team": "Algeria",
       "source_team_name": "Algeria",
       "source_team_code": "DZ",
-      "rank": 31,
-      "rating_rank": 31,
+      "rank": 30,
+      "rating_rank": 30,
       "elo_rating": 1756,
       "rating_value": 1756
     },
@@ -302,8 +293,17 @@
       "team": "Egypt",
       "source_team_name": "Egypt",
       "source_team_code": "EG",
-      "rank": 32,
-      "rating_rank": 32,
+      "rank": 31,
+      "rating_rank": 31,
+      "elo_rating": 1747,
+      "rating_value": 1747
+    },
+    {
+      "team": "United States",
+      "source_team_name": "United States",
+      "source_team_code": "US",
+      "rank": 31,
+      "rating_rank": 31,
       "elo_rating": 1747,
       "rating_value": 1747
     },
@@ -565,8 +565,8 @@
       "source_team_code": "CM",
       "rank": 61,
       "rating_rank": 61,
-      "elo_rating": 1614,
-      "rating_value": 1614
+      "elo_rating": 1613,
+      "rating_value": 1613
     },
     {
       "team": "Costa Rica",
@@ -574,8 +574,8 @@
       "source_team_code": "CR",
       "rank": 62,
       "rating_rank": 62,
-      "elo_rating": 1608,
-      "rating_value": 1608
+      "elo_rating": 1609,
+      "rating_value": 1609
     },
     {
       "team": "Northern Ireland",
@@ -583,15 +583,15 @@
       "source_team_code": "EI",
       "rank": 63,
       "rating_rank": 63,
-      "elo_rating": 1605,
-      "rating_value": 1605
+      "elo_rating": 1606,
+      "rating_value": 1606
     },
     {
       "team": "Bosnia and Herzegovina",
       "source_team_name": "Bosnia and Herzegovina",
       "source_team_code": "BA",
-      "rank": 63,
-      "rating_rank": 63,
+      "rank": 64,
+      "rating_rank": 64,
       "elo_rating": 1605,
       "rating_value": 1605
     },
@@ -673,8 +673,8 @@
       "source_team_code": "ZA",
       "rank": 73,
       "rating_rank": 73,
-      "elo_rating": 1559,
-      "rating_value": 1559
+      "elo_rating": 1560,
+      "rating_value": 1560
     },
     {
       "team": "Angola",
@@ -754,8 +754,8 @@
       "source_team_code": "GT",
       "rank": 82,
       "rating_rank": 82,
-      "elo_rating": 1505,
-      "rating_value": 1505
+      "elo_rating": 1504,
+      "rating_value": 1504
     },
     {
       "team": "Syria",
@@ -799,8 +799,8 @@
       "source_team_code": "ME",
       "rank": 87,
       "rating_rank": 87,
-      "elo_rating": 1461,
-      "rating_value": 1461
+      "elo_rating": 1460,
+      "rating_value": 1460
     },
     {
       "team": "Bulgaria",
@@ -1256,10 +1256,10 @@
       "team": "Guyana",
       "source_team_name": "Guyana",
       "source_team_code": "GY",
-      "rank": 138,
-      "rating_rank": 138,
-      "elo_rating": 1292,
-      "rating_value": 1292
+      "rank": 137,
+      "rating_rank": 137,
+      "elo_rating": 1293,
+      "rating_value": 1293
     },
     {
       "team": "Lebanon",
@@ -1298,15 +1298,6 @@
       "rating_value": 1286
     },
     {
-      "team": "Tajikistan",
-      "source_team_name": "Tajikistan",
-      "source_team_code": "TJ",
-      "rank": 143,
-      "rating_rank": 143,
-      "elo_rating": 1285,
-      "rating_value": 1285
-    },
-    {
       "team": "Burundi",
       "source_team_name": "Burundi",
       "source_team_code": "BI",
@@ -1314,6 +1305,15 @@
       "rating_rank": 143,
       "elo_rating": 1285,
       "rating_value": 1285
+    },
+    {
+      "team": "Tajikistan",
+      "source_team_name": "Tajikistan",
+      "source_team_code": "TJ",
+      "rank": 144,
+      "rating_rank": 144,
+      "elo_rating": 1284,
+      "rating_value": 1284
     },
     {
       "team": "Dominican Republic",
@@ -1636,8 +1636,8 @@
       "source_team_code": "MF",
       "rank": 180,
       "rating_rank": 180,
-      "elo_rating": 1042,
-      "rating_value": 1042
+      "elo_rating": 1043,
+      "rating_value": 1043
     },
     {
       "team": "Sao Tome and Principe",
@@ -1735,8 +1735,8 @@
       "source_team_code": "MS",
       "rank": 191,
       "rating_rank": 191,
-      "elo_rating": 972,
-      "rating_value": 972
+      "elo_rating": 971,
+      "rating_value": 971
     },
     {
       "team": "Afghanistan",
@@ -1780,8 +1780,8 @@
       "source_team_code": "DM",
       "rank": 196,
       "rating_rank": 196,
-      "elo_rating": 934,
-      "rating_value": 934
+      "elo_rating": 935,
+      "rating_value": 935
     },
     {
       "team": "Pakistan",
@@ -2059,8 +2059,8 @@
       "source_team_code": "AI",
       "rank": 227,
       "rating_rank": 227,
-      "elo_rating": 646,
-      "rating_value": 646
+      "elo_rating": 647,
+      "rating_value": 647
     },
     {
       "team": "Tibet",

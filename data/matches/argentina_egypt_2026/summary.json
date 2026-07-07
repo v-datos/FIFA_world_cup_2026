@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "argentina_egypt_2026",
+    "team1": "Argentina",
+    "team2": "Egypt",
+    "date": "07/07/2026",
+    "time": "10:00",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Round of 16",
+    "kickoff_utc": "2026-07-07T16:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Messi's Argentina Battles Historic Egypt in Star Showdown",
+    "injuries": {
+      "argentina": [
+        "No confirmed injuries reported."
+      ],
+      "egypt": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "argentina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "egypt": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Lionel Messi and Mohamed Salah's direct confrontation highlights this Round of 16 star duel.",
+      "Egypt's historic Round of 16 debut tests Argentina's title defense after a recent scare.",
+      "Scaloni's structured Argentina will face Egypt's disciplined counter-attacking style led by Salah."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-07T08:17:52Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
