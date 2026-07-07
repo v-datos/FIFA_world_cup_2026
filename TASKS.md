@@ -21,8 +21,8 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 - [x] **T-062 - Correct Knockout Stage Metadata and Translation**
   Owner: Frontend Engineer / Data Pipeline Engineer / Orchestrator
-  Completed: 2026-07-06
-  Notes: Fixed the match discovery logic in `collect_espn_matchday.py` which was hardcoding knockout games to "Group Stage" because teams were still found in the historical group map. Resolved this by looking up matches in the live simulation database to retrieve correct stages (e.g. Round of 32, Round of 16). Implemented a `translateStage` helper in the React frontend (`translations.ts`) and applied it to translate stages to Spanish on both the Match Analysis and Overview tabs. Hardened the committed fallback cache `data/reference/games_cache.json` with all 104 matches, and removed dependencies on `src.api.main` (avoiding heavy FastAPI/Pandas/NumPy import failures in GHA) by using a self-contained loader in `collect_espn_matchday.py`.
+  Completed: 2026-07-07
+  Notes: Fixed the match discovery logic in `collect_espn_matchday.py` which was hardcoding knockout games to "Group Stage" because teams were still found in the historical group map. Resolved this by looking up matches in the live simulation database to retrieve correct stages (e.g. Round of 32, Round of 16). Implemented a `translateStage` helper in the React frontend (`translations.ts`) and applied it to translate stages to Spanish on both the Match Analysis and Overview tabs. Hardened the committed fallback cache `data/reference/games_cache.json` with all 104 matches, and removed dependencies on `src.api.main` (avoiding heavy FastAPI/Pandas/NumPy import failures in GHA) by using a self-contained loader in `collect_espn_matchday.py`. Upgraded the `/api/standings` API route to dynamically resolve top scorers in real-time from the live simulation feed, incorporating name normalization (e.g. merging K. Mbappé and Kylian Mbappé) and Game 89 overrides.
   Verify: Run `npm --prefix src/frontend run build`.
 
 - [x] **T-061 - Fix Last Major Standing Metadata Gaps (Germany, Paraguay, etc.)**

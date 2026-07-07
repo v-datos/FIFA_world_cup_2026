@@ -1,5 +1,17 @@
 # STATUS
 
+## 2026-07-07 - Dynamic Top Scorer Resolution
+
+Prepared by: Orchestrator / Data Pipeline Engineer
+
+### Current State
+
+- **Dynamic Scorer Sourcing**: Upgraded `/api/standings` route in [main.py](file:///Users/micra/Dataland/FIFA_world_cup_2026/src/api/main.py) to calculate top scorers dynamically in real time from the live schedule database, instead of reading a static curated array from `grid_state.json`. Included the player name normalization dictionary (merging `K. Mbappé` and `Kylian Mbappé`) and the Game 89 override within the API layer. This guarantees that the top scorers on the dashboard are always live and update automatically after every game, bypassing any GitHub Actions IP blockages.
+- **Reference Cache Update**: Synced [games_cache.json](file:///Users/micra/Dataland/FIFA_world_cup_2026/data/reference/games_cache.json) with the latest live matches (bringing Game 93 and 94 results into the local fallback database).
+- **Verification**: Built and verified python compilation.
+
+---
+
 ## 2026-07-06 - Remove API Module Imports in Matchday Collector Pipeline
 
 Prepared by: Orchestrator / Data Pipeline Engineer
