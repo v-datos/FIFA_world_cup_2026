@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-07T15:42:26Z",
-    "source_last_modified": "Tue, 07 Jul 2026 14:47:03 GMT",
+    "checked_at_utc": "2026-07-08T07:24:03Z",
+    "source_last_modified": "Tue, 07 Jul 2026 23:48:50 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -34,8 +34,8 @@
       "source_team_code": "AR",
       "rank": 2,
       "rating_rank": 2,
-      "elo_rating": 2151,
-      "rating_value": 2151
+      "elo_rating": 2156,
+      "rating_value": 2156
     },
     {
       "team": "France",
@@ -61,8 +61,8 @@
       "source_team_code": "CO",
       "rank": 5,
       "rating_rank": 5,
-      "elo_rating": 2009,
-      "rating_value": 2009
+      "elo_rating": 2003,
+      "rating_value": 2003
     },
     {
       "team": "Portugal",
@@ -115,8 +115,8 @@
       "source_team_code": "CH",
       "rank": 11,
       "rating_rank": 11,
-      "elo_rating": 1943,
-      "rating_value": 1943
+      "elo_rating": 1949,
+      "rating_value": 1949
     },
     {
       "team": "Morocco",
@@ -290,15 +290,6 @@
       "rating_value": 1756
     },
     {
-      "team": "Egypt",
-      "source_team_name": "Egypt",
-      "source_team_code": "EG",
-      "rank": 31,
-      "rating_rank": 31,
-      "elo_rating": 1747,
-      "rating_value": 1747
-    },
-    {
       "team": "United States",
       "source_team_name": "United States",
       "source_team_code": "US",
@@ -311,8 +302,8 @@
       "team": "Scotland",
       "source_team_name": "Scotland",
       "source_team_code": "SQ",
-      "rank": 33,
-      "rating_rank": 33,
+      "rank": 32,
+      "rating_rank": 32,
       "elo_rating": 1745,
       "rating_value": 1745
     },
@@ -320,10 +311,19 @@
       "team": "Greece",
       "source_team_name": "Greece",
       "source_team_code": "GR",
-      "rank": 34,
-      "rating_rank": 34,
+      "rank": 33,
+      "rating_rank": 33,
       "elo_rating": 1744,
       "rating_value": 1744
+    },
+    {
+      "team": "Egypt",
+      "source_team_name": "Egypt",
+      "source_team_code": "EG",
+      "rank": 34,
+      "rating_rank": 34,
+      "elo_rating": 1742,
+      "rating_value": 1742
     },
     {
       "team": "Serbia",
