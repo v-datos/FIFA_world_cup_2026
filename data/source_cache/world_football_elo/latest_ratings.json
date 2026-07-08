@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-08T07:24:03Z",
-    "source_last_modified": "Tue, 07 Jul 2026 23:48:50 GMT",
+    "checked_at_utc": "2026-07-08T15:14:17Z",
+    "source_last_modified": "Wed, 08 Jul 2026 14:17:03 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -160,8 +160,8 @@
       "source_team_code": "HR",
       "rank": 16,
       "rating_rank": 16,
-      "elo_rating": 1882,
-      "rating_value": 1882
+      "elo_rating": 1881,
+      "rating_value": 1881
     },
     {
       "team": "Ecuador",
@@ -430,15 +430,15 @@
       "source_team_code": "PE",
       "rank": 46,
       "rating_rank": 46,
-      "elo_rating": 1699,
-      "rating_value": 1699
+      "elo_rating": 1700,
+      "rating_value": 1700
     },
     {
       "team": "Ireland",
       "source_team_name": "Ireland",
       "source_team_code": "IE",
-      "rank": 46,
-      "rating_rank": 46,
+      "rank": 47,
+      "rating_rank": 47,
       "elo_rating": 1699,
       "rating_value": 1699
     },
@@ -574,8 +574,8 @@
       "source_team_code": "CR",
       "rank": 62,
       "rating_rank": 62,
-      "elo_rating": 1609,
-      "rating_value": 1609
+      "elo_rating": 1608,
+      "rating_value": 1608
     },
     {
       "team": "Northern Ireland",
@@ -799,8 +799,8 @@
       "source_team_code": "ME",
       "rank": 87,
       "rating_rank": 87,
-      "elo_rating": 1460,
-      "rating_value": 1460
+      "elo_rating": 1461,
+      "rating_value": 1461
     },
     {
       "team": "Bulgaria",
@@ -1735,8 +1735,8 @@
       "source_team_code": "MS",
       "rank": 191,
       "rating_rank": 191,
-      "elo_rating": 971,
-      "rating_value": 971
+      "elo_rating": 972,
+      "rating_value": 972
     },
     {
       "team": "Afghanistan",
@@ -1888,8 +1888,8 @@
       "source_team_code": "BQ",
       "rank": 208,
       "rating_rank": 208,
-      "elo_rating": 817,
-      "rating_value": 817
+      "elo_rating": 816,
+      "rating_value": 816
     },
     {
       "team": "Maldives",
