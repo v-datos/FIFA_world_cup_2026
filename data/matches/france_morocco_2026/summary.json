@@ -10,23 +10,16 @@
     "kickoff_utc": "2026-07-09T20:00Z"
   },
   "ai_summary": {
-    "key_headline": "Deschamps' Final Chapter Faces Morocco's New Era",
+    "key_headline": "Deschamps' Final Bow Against Ouahbi's Tactical Evolution",
     "injuries": {
       "france": [
-        "Hugo Ekitike (Achilles tendon injury - Out)",
-        "Michael Olise (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
-        "Manu Koné (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
-        "Bradley Barcola (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
-        "Marcus Thuram (Calf injury - Doubtful)"
+        "No confirmed injuries reported."
       ],
       "morocco": [
-        "Abdessamad Ezzalzouli (Out)",
-        "Nayef Aguerd (Out)",
-        "Noussair Mazraoui (Doubtful)",
-        "Ismael Saibari (Out)",
-        "Chamseddine Talbi (Doubtful)",
-        "Neil El Aynaoui (Doubtful)",
-        "Anass Salah-Eddine (Doubtful)"
+        "Abde Ezzalzouli (right knee injury - Out)",
+        "Nayef Aguerd (lingering groin issue - Out)",
+        "Noussair Mazraoui (shoulder injury - Doubtful)",
+        "Achraf Hakimi (thigh injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -42,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Kylian Mbappé's Golden Boot pursuit will test Morocco's formidable defense.",
-      "Morocco's transformation to a dominant, possession-based side marks a significant evolution.",
-      "Deschamps' counter-attacking pragmatism meets Ouahbi's new possession-based tactical approach."
+      "Achraf Hakimi's dynamic runs will test France's wide defense against Mbappé's pace.",
+      "Morocco enters with an impressive 34-match unbeaten run, showcasing their evolved tactical approach.",
+      "Deschamps' counter-attacking 4-2-3-1 faces Ouahbi's possession-based, high-pressing Moroccan side."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-09T08:22:02Z",
+    "headline_generated_at_utc": "2026-07-09T15:55:28Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
