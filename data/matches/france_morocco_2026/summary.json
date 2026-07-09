@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "match_id": "france_morocco_2026",
+    "team1": "France",
+    "team2": "Morocco",
+    "date": "07/09/2026",
+    "time": "14:00",
+    "venue": "Gillette Stadium, Foxborough, Massachusetts",
+    "stage": "Quarterfinal",
+    "kickoff_utc": "2026-07-09T20:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Deschamps' Final Chapter Faces Morocco's New Era",
+    "injuries": {
+      "france": [
+        "Hugo Ekitike (Achilles tendon injury - Out)",
+        "Michael Olise (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
+        "Manu Koné (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
+        "Bradley Barcola (One yellow card received in the Round of 16 against Paraguay - Doubtful)",
+        "Marcus Thuram (Calf injury - Doubtful)"
+      ],
+      "morocco": [
+        "Abdessamad Ezzalzouli (Out)",
+        "Nayef Aguerd (Out)",
+        "Noussair Mazraoui (Doubtful)",
+        "Ismael Saibari (Out)",
+        "Chamseddine Talbi (Doubtful)",
+        "Neil El Aynaoui (Doubtful)",
+        "Anass Salah-Eddine (Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "france": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "morocco": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Kylian Mbappé's Golden Boot pursuit will test Morocco's formidable defense.",
+      "Morocco's transformation to a dominant, possession-based side marks a significant evolution.",
+      "Deschamps' counter-attacking pragmatism meets Ouahbi's new possession-based tactical approach."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-09T08:22:02Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
