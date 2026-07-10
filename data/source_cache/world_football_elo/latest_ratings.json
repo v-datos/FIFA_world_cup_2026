@@ -7,7 +7,7 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-10T08:16:25Z",
+    "checked_at_utc": "2026-07-10T15:28:42Z",
     "source_last_modified": "Fri, 10 Jul 2026 00:46:54 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
