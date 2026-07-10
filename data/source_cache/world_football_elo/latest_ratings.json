@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-09T15:54:10Z",
-    "source_last_modified": "Wed, 08 Jul 2026 14:17:03 GMT",
+    "checked_at_utc": "2026-07-10T08:16:25Z",
+    "source_last_modified": "Fri, 10 Jul 2026 00:46:54 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -29,22 +29,22 @@
       "rating_value": 2177
     },
     {
-      "team": "Argentina",
-      "source_team_name": "Argentina",
-      "source_team_code": "AR",
-      "rank": 2,
-      "rating_rank": 2,
-      "elo_rating": 2156,
-      "rating_value": 2156
-    },
-    {
       "team": "France",
       "source_team_name": "France",
       "source_team_code": "FR",
+      "rank": 2,
+      "rating_rank": 2,
+      "elo_rating": 2163,
+      "rating_value": 2163
+    },
+    {
+      "team": "Argentina",
+      "source_team_name": "Argentina",
+      "source_team_code": "AR",
       "rank": 3,
       "rating_rank": 3,
-      "elo_rating": 2143,
-      "rating_value": 2143
+      "elo_rating": 2156,
+      "rating_value": 2156
     },
     {
       "team": "England",
@@ -119,20 +119,11 @@
       "rating_value": 1949
     },
     {
-      "team": "Morocco",
-      "source_team_name": "Morocco",
-      "source_team_code": "MA",
-      "rank": 12,
-      "rating_rank": 12,
-      "elo_rating": 1921,
-      "rating_value": 1921
-    },
-    {
       "team": "Mexico",
       "source_team_name": "Mexico",
       "source_team_code": "MX",
-      "rank": 13,
-      "rating_rank": 13,
+      "rank": 12,
+      "rating_rank": 12,
       "elo_rating": 1913,
       "rating_value": 1913
     },
@@ -140,10 +131,19 @@
       "team": "Germany",
       "source_team_name": "Germany",
       "source_team_code": "DE",
-      "rank": 14,
-      "rating_rank": 14,
+      "rank": 13,
+      "rating_rank": 13,
       "elo_rating": 1907,
       "rating_value": 1907
+    },
+    {
+      "team": "Morocco",
+      "source_team_name": "Morocco",
+      "source_team_code": "MA",
+      "rank": 14,
+      "rating_rank": 14,
+      "elo_rating": 1901,
+      "rating_value": 1901
     },
     {
       "team": "Japan",

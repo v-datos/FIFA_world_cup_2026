@@ -2,6 +2,11 @@
   "tournament": "FIFA World Cup 2026",
   "top_scorer": [
     {
+      "name": "Kylian Mbappé",
+      "team": "France",
+      "goals": 8
+    },
+    {
       "name": "Lionel Messi",
       "team": "Argentina",
       "goals": 8
@@ -770,9 +775,9 @@
           "id": "r16_91",
           "team1": "France",
           "team2": "Morocco",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 2,
+          "score2": 0,
+          "winner": "France"
         },
         {
           "id": "r16_92",
@@ -821,7 +826,7 @@
         },
         {
           "id": "qf_99",
-          "team1": "Winner Match R16-5",
+          "team1": "France",
           "team2": "England",
           "score1": null,
           "score2": null,
@@ -1047,9 +1052,9 @@
       "id": "r16_91",
       "team1": "France",
       "team2": "Morocco",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 2,
+      "score2": 0,
+      "winner": "France"
     },
     {
       "id": "r16_92",
@@ -1095,7 +1100,7 @@
     },
     {
       "id": "qf_99",
-      "team1": "Winner Match R16-5",
+      "team1": "France",
       "team2": "England",
       "score1": null,
       "score2": null,
