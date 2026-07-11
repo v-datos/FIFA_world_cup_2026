@@ -10,18 +10,15 @@
     "kickoff_utc": "2026-07-12T01:00Z"
   },
   "ai_summary": {
-    "key_headline": "Argentina's Title Defense Meets Swiss Defensive Wall",
+    "key_headline": "Messi's Argentina Faces Stubborn Swiss Quarter-Final Challenge",
     "injuries": {
       "argentina": [
-        "Lionel Messi (Muscle fatigue and minor strain in left hamstring - Doubtful)",
-        "Emiliano Martínez (Small fracture - Doubtful)",
-        "Cristian Romero (MCL sprain/lateral knee ligament injury - Doubtful)",
-        "Gonzalo Montiel (Muscle tear in left quadriceps - Doubtful)"
+        "Leonardo Balerdi (soleus muscle tear - Out)"
       ],
       "switzerland": [
         "Johan Manzambi (knee injury - Out)",
-        "Luca Jaquez (muscle injury - Doubtful)",
-        "Michel Aebischer (unspecified muscle issue - Doubtful)"
+        "Michel Aebischer (muscle injury - Doubtful)",
+        "Luca Jaquez (muscle injury - Doubtful)"
       ]
     },
     "confirmed_tactics": {
@@ -37,13 +34,13 @@
       }
     },
     "tactical_insights": [
-      "Switzerland's special training aims to neutralize Messi's decisive impact.",
-      "Switzerland's consecutive clean sheets underscore their disciplined defensive approach.",
-      "Argentina's clinical attack faces Switzerland's formidable defensive wall."
+      "Switzerland's disciplined defense must contain Lionel Messi's goal-scoring and playmaking brilliance.",
+      "Argentina's recent dramatic comebacks highlight resilience against Switzerland's consistent defensive solidity.",
+      "Scaloni's flexible, high-pressing Argentine attack will test Yakin's organized, compact Swiss defensive setup."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-11T07:08:15Z",
+    "headline_generated_at_utc": "2026-07-11T14:21:29Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

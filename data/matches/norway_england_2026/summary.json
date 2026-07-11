@@ -10,13 +10,18 @@
     "kickoff_utc": "2026-07-11T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Norway's Upset Momentum Faces England's Title Pressure",
+    "key_headline": "Norway's Historic Run Meets Tuchel's England Challenge",
     "injuries": {
       "norway": [
         "No confirmed injuries reported."
       ],
       "england": [
-        "No confirmed injuries reported."
+        "Jarell Quansah (Suspended - Out)",
+        "Jordan Henderson (wrist injury - Out)",
+        "Reece James (hamstring injury - Doubtful)",
+        "Marc Guéhi (bone bruise and hamstring injury - Doubtful)",
+        "Declan Rice (nerve-related issues and sickness bug - Doubtful)",
+        "Tino Livramento (calf injury - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -32,13 +37,13 @@
       }
     },
     "tactical_insights": [
-      "England's strategy will focus on neutralizing Erling Haaland, with Nico O'Reilly's insights crucial against his Manchester City teammate.",
-      "Norway's stunning upset against five-time champions Brazil in the Round of 16 provides immense momentum and confidence for their quarter-final.",
-      "England's tactical priority is cutting supply lines to Haaland, while Norway's well-organized setup aims to exploit England's defensive focus."
+      "The Golden Boot battle between Erling Haaland and Harry Kane will be central to this quarter-final.",
+      "Norway's upset victory over Brazil highlights their surprising tournament form and tactical discipline.",
+      "Solbakken's disciplined transitions will challenge Tuchel's aggressive pressing and high-intensity attacking style."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-11T07:08:34Z",
+    "headline_generated_at_utc": "2026-07-11T14:21:57Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {

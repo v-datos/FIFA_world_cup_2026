@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-11T07:07:03Z",
-    "source_last_modified": "Sat, 11 Jul 2026 00:35:11 GMT",
+    "checked_at_utc": "2026-07-11T14:20:10Z",
+    "source_last_modified": "Sat, 11 Jul 2026 12:13:32 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -133,8 +133,8 @@
       "source_team_code": "DE",
       "rank": 13,
       "rating_rank": 13,
-      "elo_rating": 1907,
-      "rating_value": 1907
+      "elo_rating": 1908,
+      "rating_value": 1908
     },
     {
       "team": "Morocco",
@@ -1681,8 +1681,8 @@
       "source_team_code": "LC",
       "rank": 185,
       "rating_rank": 185,
-      "elo_rating": 1004,
-      "rating_value": 1004
+      "elo_rating": 1003,
+      "rating_value": 1003
     },
     {
       "team": "Western Sahara",
@@ -1726,8 +1726,8 @@
       "source_team_code": "SX",
       "rank": 190,
       "rating_rank": 190,
-      "elo_rating": 975,
-      "rating_value": 975
+      "elo_rating": 974,
+      "rating_value": 974
     },
     {
       "team": "Montserrat",
@@ -2059,8 +2059,8 @@
       "source_team_code": "AI",
       "rank": 227,
       "rating_rank": 227,
-      "elo_rating": 646,
-      "rating_value": 646
+      "elo_rating": 647,
+      "rating_value": 647
     },
     {
       "team": "Tibet",
