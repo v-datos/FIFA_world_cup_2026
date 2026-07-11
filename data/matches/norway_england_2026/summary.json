@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "norway_england_2026",
+    "team1": "Norway",
+    "team2": "England",
+    "date": "07/11/2026",
+    "time": "15:00",
+    "venue": "Hard Rock Stadium, Miami Gardens, Florida",
+    "stage": "Quarterfinal",
+    "kickoff_utc": "2026-07-11T21:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Norway's Upset Momentum Faces England's Title Pressure",
+    "injuries": {
+      "norway": [
+        "No confirmed injuries reported."
+      ],
+      "england": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "norway": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "England's strategy will focus on neutralizing Erling Haaland, with Nico O'Reilly's insights crucial against his Manchester City teammate.",
+      "Norway's stunning upset against five-time champions Brazil in the Round of 16 provides immense momentum and confidence for their quarter-final.",
+      "England's tactical priority is cutting supply lines to Haaland, while Norway's well-organized setup aims to exploit England's defensive focus."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-11T07:08:34Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}

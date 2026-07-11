@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "match_id": "argentina_switzerland_2026",
+    "team1": "Argentina",
+    "team2": "Switzerland",
+    "date": "07/11/2026",
+    "time": "19:00",
+    "venue": "GEHA Field at Arrowhead Stadium, Kansas City, Missouri",
+    "stage": "Quarterfinal",
+    "kickoff_utc": "2026-07-12T01:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Argentina's Title Defense Meets Swiss Defensive Wall",
+    "injuries": {
+      "argentina": [
+        "Lionel Messi (Muscle fatigue and minor strain in left hamstring - Doubtful)",
+        "Emiliano Martínez (Small fracture - Doubtful)",
+        "Cristian Romero (MCL sprain/lateral knee ligament injury - Doubtful)",
+        "Gonzalo Montiel (Muscle tear in left quadriceps - Doubtful)"
+      ],
+      "switzerland": [
+        "Johan Manzambi (knee injury - Out)",
+        "Luca Jaquez (muscle injury - Doubtful)",
+        "Michel Aebischer (unspecified muscle issue - Doubtful)"
+      ]
+    },
+    "confirmed_tactics": {
+      "argentina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "switzerland": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Switzerland's special training aims to neutralize Messi's decisive impact.",
+      "Switzerland's consecutive clean sheets underscore their disciplined defensive approach.",
+      "Argentina's clinical attack faces Switzerland's formidable defensive wall."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-11T07:08:15Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
