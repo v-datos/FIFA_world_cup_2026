@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-11T14:20:10Z",
-    "source_last_modified": "Sat, 11 Jul 2026 12:13:32 GMT",
+    "checked_at_utc": "2026-07-12T14:24:52Z",
+    "source_last_modified": "Sun, 12 Jul 2026 10:16:05 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -29,22 +29,22 @@
       "rating_value": 2190
     },
     {
-      "team": "France",
-      "source_team_name": "France",
-      "source_team_code": "FR",
-      "rank": 2,
-      "rating_rank": 2,
-      "elo_rating": 2163,
-      "rating_value": 2163
-    },
-    {
       "team": "Argentina",
       "source_team_name": "Argentina",
       "source_team_code": "AR",
+      "rank": 2,
+      "rating_rank": 2,
+      "elo_rating": 2177,
+      "rating_value": 2177
+    },
+    {
+      "team": "France",
+      "source_team_name": "France",
+      "source_team_code": "FR",
       "rank": 3,
       "rating_rank": 3,
-      "elo_rating": 2156,
-      "rating_value": 2156
+      "elo_rating": 2163,
+      "rating_value": 2163
     },
     {
       "team": "England",
@@ -52,8 +52,8 @@
       "source_team_code": "EN",
       "rank": 4,
       "rating_rank": 4,
-      "elo_rating": 2076,
-      "rating_value": 2076
+      "elo_rating": 2097,
+      "rating_value": 2097
     },
     {
       "team": "Colombia",
@@ -83,40 +83,40 @@
       "rating_value": 1993
     },
     {
-      "team": "Norway",
-      "source_team_name": "Norway",
-      "source_team_code": "NO",
-      "rank": 8,
-      "rating_rank": 8,
-      "elo_rating": 1972,
-      "rating_value": 1972
-    },
-    {
       "team": "Netherlands",
       "source_team_name": "Netherlands",
       "source_team_code": "NL",
-      "rank": 9,
-      "rating_rank": 9,
+      "rank": 8,
+      "rating_rank": 8,
       "elo_rating": 1971,
       "rating_value": 1971
     },
     {
-      "team": "Switzerland",
-      "source_team_name": "Switzerland",
-      "source_team_code": "CH",
-      "rank": 10,
-      "rating_rank": 10,
-      "elo_rating": 1949,
-      "rating_value": 1949
+      "team": "Norway",
+      "source_team_name": "Norway",
+      "source_team_code": "NO",
+      "rank": 9,
+      "rating_rank": 9,
+      "elo_rating": 1951,
+      "rating_value": 1951
     },
     {
       "team": "Belgium",
       "source_team_name": "Belgium",
       "source_team_code": "BE",
-      "rank": 11,
-      "rating_rank": 11,
+      "rank": 10,
+      "rating_rank": 10,
       "elo_rating": 1948,
       "rating_value": 1948
+    },
+    {
+      "team": "Switzerland",
+      "source_team_name": "Switzerland",
+      "source_team_code": "CH",
+      "rank": 11,
+      "rating_rank": 11,
+      "elo_rating": 1928,
+      "rating_value": 1928
     },
     {
       "team": "Mexico",
@@ -160,8 +160,8 @@
       "source_team_code": "HR",
       "rank": 16,
       "rating_rank": 16,
-      "elo_rating": 1881,
-      "rating_value": 1881
+      "elo_rating": 1882,
+      "rating_value": 1882
     },
     {
       "team": "Ecuador",
@@ -673,8 +673,8 @@
       "source_team_code": "ZA",
       "rank": 73,
       "rating_rank": 73,
-      "elo_rating": 1560,
-      "rating_value": 1560
+      "elo_rating": 1559,
+      "rating_value": 1559
     },
     {
       "team": "Angola",
