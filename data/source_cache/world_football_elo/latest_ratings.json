@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-13T08:10:59Z",
-    "source_last_modified": "Sun, 12 Jul 2026 10:16:05 GMT",
+    "checked_at_utc": "2026-07-13T15:39:42Z",
+    "source_last_modified": "Mon, 13 Jul 2026 15:20:47 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -160,8 +160,8 @@
       "source_team_code": "HR",
       "rank": 16,
       "rating_rank": 16,
-      "elo_rating": 1882,
-      "rating_value": 1882
+      "elo_rating": 1881,
+      "rating_value": 1881
     },
     {
       "team": "Ecuador",
@@ -1010,20 +1010,20 @@
       "rating_value": 1375
     },
     {
+      "team": "Armenia",
+      "source_team_name": "Armenia",
+      "source_team_code": "AM",
+      "rank": 111,
+      "rating_rank": 111,
+      "elo_rating": 1373,
+      "rating_value": 1373
+    },
+    {
       "team": "Comoros",
       "source_team_name": "Comoros",
       "source_team_code": "KM",
       "rank": 111,
       "rating_rank": 111,
-      "elo_rating": 1374,
-      "rating_value": 1374
-    },
-    {
-      "team": "Armenia",
-      "source_team_name": "Armenia",
-      "source_team_code": "AM",
-      "rank": 112,
-      "rating_rank": 112,
       "elo_rating": 1373,
       "rating_value": 1373
     },
@@ -1888,8 +1888,8 @@
       "source_team_code": "BQ",
       "rank": 208,
       "rating_rank": 208,
-      "elo_rating": 816,
-      "rating_value": 816
+      "elo_rating": 817,
+      "rating_value": 817
     },
     {
       "team": "Maldives",
@@ -2068,8 +2068,8 @@
       "source_team_code": "TE",
       "rank": 228,
       "rating_rank": 228,
-      "elo_rating": 629,
-      "rating_value": 629
+      "elo_rating": 630,
+      "rating_value": 630
     },
     {
       "team": "US Virgin Islands",
