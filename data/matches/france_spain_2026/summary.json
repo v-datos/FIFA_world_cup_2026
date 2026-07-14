@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "france_spain_2026",
+    "team1": "France",
+    "team2": "Spain",
+    "date": "07/14/2026",
+    "time": "13:00",
+    "venue": "AT&T Stadium, Arlington, Texas",
+    "stage": "Semifinal",
+    "kickoff_utc": "2026-07-14T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Spain favored in Semifinal: High possession vs. France's attack.",
+    "injuries": {
+      "france": [
+        "Hugo Ekitike (Achilles injury - Out)"
+      ],
+      "spain": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "france": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "spain": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Spain enters as the slight favorite with higher possession and pass completion.",
+      "France scores more goals per game, while Spain concedes fewer goals.",
+      "Both teams average an identical number of shots per game."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-14T07:05:59Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
