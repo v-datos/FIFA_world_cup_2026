@@ -10,10 +10,14 @@
     "kickoff_utc": "2026-07-14T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Spain favored in Semifinal: High possession vs. France's attack.",
+    "key_headline": "Spain's Dominance Meets France's Efficiency in Semifinal",
     "injuries": {
       "france": [
-        "Hugo Ekitike (Achilles injury - Out)"
+        "Kylian Mbappe (ankle knock - Doubtful)",
+        "Aurelien Tchouameni (thigh muscle issue - Doubtful)",
+        "Manu Kone (minor knee problem and fatigue - Doubtful)",
+        "Dayot Upamecano (foot injury - Doubtful)",
+        "William Saliba (back pain - Doubtful)"
       ],
       "spain": [
         "No confirmed injuries reported."
@@ -32,13 +36,13 @@
       }
     },
     "tactical_insights": [
-      "Spain enters as the slight favorite with higher possession and pass completion.",
-      "France scores more goals per game, while Spain concedes fewer goals.",
-      "Both teams average an identical number of shots per game."
+      "Spain, the slight favorite, maintains significantly higher possession and pass completion than France.",
+      "France demonstrates greater attacking efficiency, scoring 2.67 goals per game compared to Spain's 1.83.",
+      "Spain's defense is more resolute, conceding only 0.17 goals per game, half of France's average."
     ],
-    "headline_source": "ai_web_grounded",
+    "headline_source": "ai_generated",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-14T07:05:59Z",
+    "headline_generated_at_utc": "2026-07-14T14:47:17Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
