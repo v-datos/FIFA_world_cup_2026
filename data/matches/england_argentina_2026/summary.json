@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "match_id": "england_argentina_2026",
+    "team1": "England",
+    "team2": "Argentina",
+    "date": "07/15/2026",
+    "time": "13:00",
+    "venue": "Mercedes-Benz Stadium, Atlanta, Georgia",
+    "stage": "Semifinal",
+    "kickoff_utc": "2026-07-15T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Tuchel's England challenges Scaloni's Argentina in historic semifinal",
+    "injuries": {
+      "england": [
+        "Jordan Henderson (broken wrist - Out)",
+        "Jarell Quansah (red card suspension - Out)",
+        "Declan Rice (illness, hamstring and lower back issue - Doubtful)"
+      ],
+      "argentina": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "england": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "argentina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Lionel Messi's playmaking will challenge England's midfield anchor Declan Rice.",
+      "Argentina's demanding knockout stage journey tests their fitness against England's strong form.",
+      "Tuchel's structured possession and attacking rotations will challenge Scaloni's adaptable, compact midfield."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-15T07:09:15Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
