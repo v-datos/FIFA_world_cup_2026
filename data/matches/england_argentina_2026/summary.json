@@ -10,12 +10,13 @@
     "kickoff_utc": "2026-07-15T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Tuchel's England challenges Scaloni's Argentina in historic semifinal",
+    "key_headline": "Tuchel's England vs. Scaloni's Argentina: A Tactical Semifinal Battle",
     "injuries": {
       "england": [
         "Jordan Henderson (broken wrist - Out)",
-        "Jarell Quansah (red card suspension - Out)",
-        "Declan Rice (illness, hamstring and lower back issue - Doubtful)"
+        "Jarell Quansah (suspension - Out)",
+        "Reece James (hamstring injury - Doubtful)",
+        "Tino Livramento (calf injury - Out)"
       ],
       "argentina": [
         "No confirmed injuries reported."
@@ -34,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "Lionel Messi's playmaking will challenge England's midfield anchor Declan Rice.",
-      "Argentina's demanding knockout stage journey tests their fitness against England's strong form.",
-      "Tuchel's structured possession and attacking rotations will challenge Scaloni's adaptable, compact midfield."
+      "Messi's creative influence against England's midfield, especially with Rice's uncertain fitness, will be crucial.",
+      "Argentina's perfect tournament record, despite challenging knockout wins, highlights their resilience.",
+      "Tuchel's structured possession meets Scaloni's fluid, Messi-centric approach in a tactical duel."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-15T07:09:15Z",
+    "headline_generated_at_utc": "2026-07-15T14:45:28Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
