@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-15T14:44:12Z",
-    "source_last_modified": "Tue, 14 Jul 2026 22:15:55 GMT",
+    "checked_at_utc": "2026-07-16T07:17:27Z",
+    "source_last_modified": "Wed, 15 Jul 2026 22:55:14 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -34,8 +34,8 @@
       "source_team_code": "AR",
       "rank": 2,
       "rating_rank": 2,
-      "elo_rating": 2177,
-      "rating_value": 2177
+      "elo_rating": 2200,
+      "rating_value": 2200
     },
     {
       "team": "France",
@@ -52,8 +52,8 @@
       "source_team_code": "EN",
       "rank": 4,
       "rating_rank": 4,
-      "elo_rating": 2097,
-      "rating_value": 2097
+      "elo_rating": 2074,
+      "rating_value": 2074
     },
     {
       "team": "Colombia",
