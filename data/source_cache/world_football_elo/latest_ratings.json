@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-16T14:55:19Z",
-    "source_last_modified": "Wed, 15 Jul 2026 22:55:14 GMT",
+    "checked_at_utc": "2026-07-17T07:12:26Z",
+    "source_last_modified": "Fri, 17 Jul 2026 00:25:24 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -574,8 +574,8 @@
       "source_team_code": "CR",
       "rank": 62,
       "rating_rank": 62,
-      "elo_rating": 1609,
-      "rating_value": 1609
+      "elo_rating": 1608,
+      "rating_value": 1608
     },
     {
       "team": "Northern Ireland",
@@ -673,8 +673,8 @@
       "source_team_code": "ZA",
       "rank": 73,
       "rating_rank": 73,
-      "elo_rating": 1560,
-      "rating_value": 1560
+      "elo_rating": 1559,
+      "rating_value": 1559
     },
     {
       "team": "Angola",
@@ -754,17 +754,8 @@
       "source_team_code": "GT",
       "rank": 82,
       "rating_rank": 82,
-      "elo_rating": 1504,
-      "rating_value": 1504
-    },
-    {
-      "team": "Syria",
-      "source_team_name": "Syria",
-      "source_team_code": "SY",
-      "rank": 83,
-      "rating_rank": 83,
-      "elo_rating": 1479,
-      "rating_value": 1479
+      "elo_rating": 1505,
+      "rating_value": 1505
     },
     {
       "team": "Oman",
@@ -772,6 +763,15 @@
       "source_team_code": "OM",
       "rank": 83,
       "rating_rank": 83,
+      "elo_rating": 1480,
+      "rating_value": 1480
+    },
+    {
+      "team": "Syria",
+      "source_team_name": "Syria",
+      "source_team_code": "SY",
+      "rank": 84,
+      "rating_rank": 84,
       "elo_rating": 1479,
       "rating_value": 1479
     },
@@ -1010,20 +1010,20 @@
       "rating_value": 1375
     },
     {
+      "team": "Armenia",
+      "source_team_name": "Armenia",
+      "source_team_code": "AM",
+      "rank": 111,
+      "rating_rank": 111,
+      "elo_rating": 1373,
+      "rating_value": 1373
+    },
+    {
       "team": "Comoros",
       "source_team_name": "Comoros",
       "source_team_code": "KM",
       "rank": 111,
       "rating_rank": 111,
-      "elo_rating": 1374,
-      "rating_value": 1374
-    },
-    {
-      "team": "Armenia",
-      "source_team_name": "Armenia",
-      "source_team_code": "AM",
-      "rank": 112,
-      "rating_rank": 112,
       "elo_rating": 1373,
       "rating_value": 1373
     },
@@ -1951,15 +1951,15 @@
       "source_team_code": "LA",
       "rank": 215,
       "rating_rank": 215,
-      "elo_rating": 734,
-      "rating_value": 734
+      "elo_rating": 735,
+      "rating_value": 735
     },
     {
       "team": "East Timor",
       "source_team_name": "East Timor",
       "source_team_code": "TL",
-      "rank": 215,
-      "rating_rank": 215,
+      "rank": 216,
+      "rating_rank": 216,
       "elo_rating": 734,
       "rating_value": 734
     },
