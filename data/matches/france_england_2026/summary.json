@@ -10,15 +10,16 @@
     "kickoff_utc": "2026-07-18T21:00Z"
   },
   "ai_summary": {
-    "key_headline": "Zidane vs. Tuchel: New Managerial Eras Collide",
+    "key_headline": "End of an Era: France Battles England for World Cup Bronze",
     "injuries": {
       "france": [
-        "William Saliba (back injury - Out)"
+        "William Saliba (back - Out)",
+        "Brice Samba (unspecified - Doubtful)",
+        "Hugo Ekitike (Achilles - Out)"
       ],
       "england": [
-        "Jordan Henderson (broken wrist - Out)",
-        "Jarell Quansah (suspension - Out)",
-        "Reece James (doubtful - Doubtful)"
+        "Jordan Henderson (Broken wrist - Out)",
+        "Jarell Quansah (Red card suspension - Out)"
       ]
     },
     "confirmed_tactics": {
@@ -34,13 +35,13 @@
       }
     },
     "tactical_insights": [
-      "The tactical duel between expected managers Zidane and Tuchel will be pivotal.",
-      "France's consistent deep tournament runs underscore their pedigree in this Third Place fixture.",
-      "Tuchel's structured, adaptable tactics will face France's evolving style under a new coaching regime."
+      "Declan Rice's midfield battle against Kylian Mbappé will be crucial for England's defensive stability.",
+      "Didier Deschamps' final match as France coach adds significant emotional weight to the bronze final.",
+      "France's rapid transitions and counter-attacks will challenge England's structured possession and defensive vulnerabilities."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-18T06:55:41Z",
+    "headline_generated_at_utc": "2026-07-18T14:19:26Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
