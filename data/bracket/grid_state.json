@@ -4,12 +4,7 @@
     {
       "name": "Kylian Mbappé",
       "team": "France",
-      "goals": 8
-    },
-    {
-      "name": "Lionel Messi",
-      "team": "Argentina",
-      "goals": 8
+      "goals": 10
     }
   ],
   "groups": [
@@ -828,9 +823,9 @@
           "id": "qf_99",
           "team1": "France",
           "team2": "England",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 4,
+          "score2": 6,
+          "winner": "England"
         },
         {
           "id": "qf_100",
@@ -855,7 +850,7 @@
         },
         {
           "id": "sf_102",
-          "team1": "Winner Match QF-3",
+          "team1": "England",
           "team2": "Winner Match QF-4",
           "score1": null,
           "score2": null,
@@ -1102,9 +1097,9 @@
       "id": "qf_99",
       "team1": "France",
       "team2": "England",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 4,
+      "score2": 6,
+      "winner": "England"
     },
     {
       "id": "qf_100",
@@ -1126,7 +1121,7 @@
     },
     {
       "id": "sf_102",
-      "team1": "Winner Match QF-3",
+      "team1": "England",
       "team2": "Winner Match QF-4",
       "score1": null,
       "score2": null,

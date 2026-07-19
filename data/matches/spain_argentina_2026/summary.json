@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "match_id": "spain_argentina_2026",
+    "team1": "Spain",
+    "team2": "Argentina",
+    "date": "07/19/2026",
+    "time": "13:00",
+    "venue": "MetLife Stadium, East Rutherford, New Jersey",
+    "stage": "Final",
+    "kickoff_utc": "2026-07-19T19:00Z"
+  },
+  "ai_summary": {
+    "key_headline": "Clash of Styles: Argentina's Messi vs. Spain's Collective",
+    "injuries": {
+      "spain": [
+        "No confirmed injuries reported."
+      ],
+      "argentina": [
+        "No confirmed injuries reported."
+      ]
+    },
+    "confirmed_tactics": {
+      "spain": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      },
+      "argentina": {
+        "formation": "TBD",
+        "philosophy": "Baseline tactical preview pending.",
+        "manager": "TBD"
+      }
+    },
+    "tactical_insights": [
+      "Lionel Messi's individual brilliance will test Spain's tournament-best defense, especially against young Lamine Yamal.",
+      "Argentina aims for consecutive World Cup titles, a feat not achieved since 1962, under Scaloni's stable leadership.",
+      "De la Fuente's possession-based system and counter-pressing will clash with Scaloni's Messi-centric attacking transitions."
+    ],
+    "headline_source": "ai_web_grounded",
+    "headline_model": "gemini-2.5-flash",
+    "headline_generated_at_utc": "2026-07-19T07:24:33Z",
+    "injuries_source": "ai_web_grounded"
+  },
+  "data_quality": {
+    "status": "baseline_stub",
+    "source_label": "live_schedule",
+    "sources": [
+      "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
+    ],
+    "warnings": [
+      "Editorial preview pending."
+    ]
+  }
+}
