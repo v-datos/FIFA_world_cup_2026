@@ -10,7 +10,7 @@
     "kickoff_utc": "2026-07-19T19:00Z"
   },
   "ai_summary": {
-    "key_headline": "Clash of Styles: Argentina's Messi vs. Spain's Collective",
+    "key_headline": "Clash of Styles: Spain's Collective vs. Messi's Genius",
     "injuries": {
       "spain": [
         "No confirmed injuries reported."
@@ -32,13 +32,13 @@
       }
     },
     "tactical_insights": [
-      "Lionel Messi's individual brilliance will test Spain's tournament-best defense, especially against young Lamine Yamal.",
-      "Argentina aims for consecutive World Cup titles, a feat not achieved since 1962, under Scaloni's stable leadership.",
-      "De la Fuente's possession-based system and counter-pressing will clash with Scaloni's Messi-centric attacking transitions."
+      "Rodri and Pedri's midfield control will be crucial to disrupt Argentina's attempts to get the ball to Messi.",
+      "Spain enters the final on a 37-game unbeaten streak, showcasing formidable defensive solidity throughout the tournament.",
+      "The final pits Spain's possession-dominant collective against Argentina's blend of tactical discipline and Messi's individual brilliance."
     ],
     "headline_source": "ai_web_grounded",
     "headline_model": "gemini-2.5-flash",
-    "headline_generated_at_utc": "2026-07-19T07:24:33Z",
+    "headline_generated_at_utc": "2026-07-19T14:23:38Z",
     "injuries_source": "ai_web_grounded"
   },
   "data_quality": {
