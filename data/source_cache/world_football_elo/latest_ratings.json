@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-19T14:22:12Z",
-    "source_last_modified": "Sat, 18 Jul 2026 23:16:16 GMT",
+    "checked_at_utc": "2026-07-20T07:53:02Z",
+    "source_last_modified": "Sun, 19 Jul 2026 22:30:03 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -25,8 +25,8 @@
       "source_team_code": "ES",
       "rank": 1,
       "rating_rank": 1,
-      "elo_rating": 2232,
-      "rating_value": 2232
+      "elo_rating": 2259,
+      "rating_value": 2259
     },
     {
       "team": "Argentina",
@@ -34,8 +34,8 @@
       "source_team_code": "AR",
       "rank": 2,
       "rating_rank": 2,
-      "elo_rating": 2200,
-      "rating_value": 2200
+      "elo_rating": 2173,
+      "rating_value": 2173
     },
     {
       "team": "England",
@@ -1078,8 +1078,8 @@
       "source_team_code": "VN",
       "rank": 118,
       "rating_rank": 118,
-      "elo_rating": 1351,
-      "rating_value": 1351
+      "elo_rating": 1353,
+      "rating_value": 1353
     },
     {
       "team": "Sudan",
@@ -1699,8 +1699,8 @@
       "source_team_code": "MM",
       "rank": 187,
       "rating_rank": 187,
-      "elo_rating": 984,
-      "rating_value": 984
+      "elo_rating": 982,
+      "rating_value": 982
     },
     {
       "team": "Aruba",

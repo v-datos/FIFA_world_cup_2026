@@ -794,9 +794,9 @@
           "id": "r16_96",
           "team1": "Spain",
           "team2": "Argentina",
-          "score1": null,
-          "score2": null,
-          "winner": null
+          "score1": 1,
+          "score2": 0,
+          "winner": "Spain"
         }
       ]
     },
@@ -830,7 +830,7 @@
         {
           "id": "qf_100",
           "team1": "Winner Match R16-7",
-          "team2": "Winner Match R16-8",
+          "team2": "Spain",
           "score1": null,
           "score2": null,
           "winner": null
@@ -1071,9 +1071,9 @@
       "id": "r16_96",
       "team1": "Spain",
       "team2": "Argentina",
-      "score1": null,
-      "score2": null,
-      "winner": null
+      "score1": 1,
+      "score2": 0,
+      "winner": "Spain"
     }
   ],
   "qf": [
@@ -1104,7 +1104,7 @@
     {
       "id": "qf_100",
       "team1": "Winner Match R16-7",
-      "team2": "Winner Match R16-8",
+      "team2": "Spain",
       "score1": null,
       "score2": null,
       "winner": null
