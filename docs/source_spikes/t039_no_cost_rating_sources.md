@@ -12,7 +12,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-20T07:53:02Z`
+- World Football Elo checked at: `2026-07-20T15:06:16Z`
 - World Football Elo last modified: `Sun, 19 Jul 2026 22:30:03 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
@@ -20,8 +20,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 - World Football Elo raw team dictionary snapshot: `data/source_cache/world_football_elo/raw/en.teams.tsv`
 - FIFA ranking page: `https://inside.fifa.com/fifa-world-ranking/men`
 - FIFA metadata status: `metadata_only`
-- FIFA last update date: `2026-06-11T10:00:59.636Z`
-- FIFA next update date: `None`
+- FIFA last update date: `2026-07-20T08:37:28.979Z`
+- FIFA next update date: `2026-10-07T12:00:00.000Z`
 
 ## Coverage
 
