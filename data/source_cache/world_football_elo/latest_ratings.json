@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-24T07:26:09Z",
-    "source_last_modified": "Wed, 22 Jul 2026 18:39:39 GMT",
+    "checked_at_utc": "2026-07-24T14:49:24Z",
+    "source_last_modified": "Fri, 24 Jul 2026 14:27:38 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -1487,11 +1487,20 @@
       "rating_value": 1148
     },
     {
+      "team": "Singapore",
+      "source_team_name": "Singapore",
+      "source_team_code": "SG",
+      "rank": 164,
+      "rating_rank": 164,
+      "elo_rating": 1145,
+      "rating_value": 1145
+    },
+    {
       "team": "Saint Vincent and the Grenadines",
       "source_team_name": "Saint Vincent and the Grenadines",
       "source_team_code": "VC",
-      "rank": 164,
-      "rating_rank": 164,
+      "rank": 165,
+      "rating_rank": 165,
       "elo_rating": 1141,
       "rating_value": 1141
     },
@@ -1499,8 +1508,8 @@
       "team": "Papua New Guinea",
       "source_team_name": "Papua New Guinea",
       "source_team_code": "PG",
-      "rank": 165,
-      "rating_rank": 165,
+      "rank": 166,
+      "rating_rank": 166,
       "elo_rating": 1135,
       "rating_value": 1135
     },
@@ -1508,19 +1517,10 @@
       "team": "Puerto Rico",
       "source_team_name": "Puerto Rico",
       "source_team_code": "PR",
-      "rank": 165,
-      "rating_rank": 165,
+      "rank": 166,
+      "rating_rank": 166,
       "elo_rating": 1135,
       "rating_value": 1135
-    },
-    {
-      "team": "Singapore",
-      "source_team_name": "Singapore",
-      "source_team_code": "SG",
-      "rank": 167,
-      "rating_rank": 167,
-      "elo_rating": 1134,
-      "rating_value": 1134
     },
     {
       "team": "India",
@@ -1843,8 +1843,8 @@
       "source_team_code": "KH",
       "rank": 203,
       "rating_rank": 203,
-      "elo_rating": 871,
-      "rating_value": 871
+      "elo_rating": 860,
+      "rating_value": 860
     },
     {
       "team": "Seychelles",
