@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-24T14:49:24Z",
-    "source_last_modified": "Fri, 24 Jul 2026 14:27:38 GMT",
+    "checked_at_utc": "2026-07-25T07:11:24Z",
+    "source_last_modified": "Fri, 24 Jul 2026 15:55:08 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -1078,8 +1078,8 @@
       "source_team_code": "VN",
       "rank": 118,
       "rating_rank": 118,
-      "elo_rating": 1353,
-      "rating_value": 1353
+      "elo_rating": 1355,
+      "rating_value": 1355
     },
     {
       "team": "Sudan",
@@ -1960,8 +1960,8 @@
       "source_team_code": "TL",
       "rank": 216,
       "rating_rank": 216,
-      "elo_rating": 734,
-      "rating_value": 734
+      "elo_rating": 732,
+      "rating_value": 732
     },
     {
       "team": "Samoa",
