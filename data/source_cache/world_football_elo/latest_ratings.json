@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-25T14:28:09Z",
-    "source_last_modified": "Sat, 25 Jul 2026 10:56:38 GMT",
+    "checked_at_utc": "2026-07-26T07:31:25Z",
+    "source_last_modified": "Sat, 25 Jul 2026 15:40:18 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -995,10 +995,10 @@
       "team": "Thailand",
       "source_team_name": "Thailand",
       "source_team_code": "TH",
-      "rank": 109,
-      "rating_rank": 109,
-      "elo_rating": 1376,
-      "rating_value": 1376
+      "rank": 108,
+      "rating_rank": 108,
+      "elo_rating": 1379,
+      "rating_value": 1379
     },
     {
       "team": "North Korea",
@@ -1235,29 +1235,29 @@
       "rating_value": 1303
     },
     {
-      "team": "Kyrgyzstan",
-      "source_team_name": "Kyrgyzstan",
-      "source_team_code": "KG",
-      "rank": 136,
-      "rating_rank": 136,
-      "elo_rating": 1295,
-      "rating_value": 1295
-    },
-    {
       "team": "Malaysia",
       "source_team_name": "Malaysia",
       "source_team_code": "MY",
+      "rank": 136,
+      "rating_rank": 136,
+      "elo_rating": 1302,
+      "rating_value": 1302
+    },
+    {
+      "team": "Kyrgyzstan",
+      "source_team_name": "Kyrgyzstan",
+      "source_team_code": "KG",
       "rank": 137,
       "rating_rank": 137,
-      "elo_rating": 1293,
-      "rating_value": 1293
+      "elo_rating": 1295,
+      "rating_value": 1295
     },
     {
       "team": "Guyana",
       "source_team_name": "Guyana",
       "source_team_code": "GY",
-      "rank": 137,
-      "rating_rank": 137,
+      "rank": 138,
+      "rating_rank": 138,
       "elo_rating": 1293,
       "rating_value": 1293
     },
@@ -1694,20 +1694,11 @@
       "rating_value": 996
     },
     {
-      "team": "Myanmar",
-      "source_team_name": "Myanmar",
-      "source_team_code": "MM",
-      "rank": 187,
-      "rating_rank": 187,
-      "elo_rating": 982,
-      "rating_value": 982
-    },
-    {
       "team": "Aruba",
       "source_team_name": "Aruba",
       "source_team_code": "AW",
-      "rank": 188,
-      "rating_rank": 188,
+      "rank": 187,
+      "rating_rank": 187,
       "elo_rating": 979,
       "rating_value": 979
     },
@@ -1715,8 +1706,8 @@
       "team": "Somalia",
       "source_team_name": "Somalia",
       "source_team_code": "SO",
-      "rank": 188,
-      "rating_rank": 188,
+      "rank": 187,
+      "rating_rank": 187,
       "elo_rating": 979,
       "rating_value": 979
     },
@@ -1724,10 +1715,19 @@
       "team": "Sint Maarten",
       "source_team_name": "Sint Maarten",
       "source_team_code": "SX",
-      "rank": 190,
-      "rating_rank": 190,
+      "rank": 189,
+      "rating_rank": 189,
       "elo_rating": 974,
       "rating_value": 974
+    },
+    {
+      "team": "Myanmar",
+      "source_team_name": "Myanmar",
+      "source_team_code": "MM",
+      "rank": 190,
+      "rating_rank": 190,
+      "elo_rating": 973,
+      "rating_value": 973
     },
     {
       "team": "Montserrat",
@@ -1951,15 +1951,15 @@
       "source_team_code": "LA",
       "rank": 215,
       "rating_rank": 215,
-      "elo_rating": 735,
-      "rating_value": 735
+      "elo_rating": 732,
+      "rating_value": 732
     },
     {
       "team": "East Timor",
       "source_team_name": "East Timor",
       "source_team_code": "TL",
-      "rank": 216,
-      "rating_rank": 216,
+      "rank": 215,
+      "rating_rank": 215,
       "elo_rating": 732,
       "rating_value": 732
     },
