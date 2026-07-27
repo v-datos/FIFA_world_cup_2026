@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-27T08:23:28Z",
-    "source_last_modified": "Sat, 25 Jul 2026 15:40:18 GMT",
+    "checked_at_utc": "2026-07-27T15:39:25Z",
+    "source_last_modified": "Mon, 27 Jul 2026 14:08:31 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -1478,6 +1478,15 @@
       "rating_value": 1177
     },
     {
+      "team": "Singapore",
+      "source_team_name": "Singapore",
+      "source_team_code": "SG",
+      "rank": 163,
+      "rating_rank": 163,
+      "elo_rating": 1148,
+      "rating_value": 1148
+    },
+    {
       "team": "Eswatini",
       "source_team_name": "Eswatini",
       "source_team_code": "SW",
@@ -1485,15 +1494,6 @@
       "rating_rank": 163,
       "elo_rating": 1148,
       "rating_value": 1148
-    },
-    {
-      "team": "Singapore",
-      "source_team_name": "Singapore",
-      "source_team_code": "SG",
-      "rank": 164,
-      "rating_rank": 164,
-      "elo_rating": 1145,
-      "rating_value": 1145
     },
     {
       "team": "Saint Vincent and the Grenadines",
@@ -1958,10 +1958,10 @@
       "team": "East Timor",
       "source_team_name": "East Timor",
       "source_team_code": "TL",
-      "rank": 215,
-      "rating_rank": 215,
-      "elo_rating": 732,
-      "rating_value": 732
+      "rank": 216,
+      "rating_rank": 216,
+      "elo_rating": 729,
+      "rating_value": 729
     },
     {
       "team": "Samoa",
