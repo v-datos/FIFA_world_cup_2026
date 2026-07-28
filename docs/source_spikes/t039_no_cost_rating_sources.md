@@ -1,6 +1,6 @@
 # T-039 No-Cost Rating Source Spike
 
-Last updated: 2026-07-27
+Last updated: 2026-07-28
 Owner: Data Pipeline Engineer
 
 ## Finding
@@ -12,8 +12,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-27T15:39:25Z`
-- World Football Elo last modified: `Mon, 27 Jul 2026 14:08:31 GMT`
+- World Football Elo checked at: `2026-07-28T07:33:58Z`
+- World Football Elo last modified: `Mon, 27 Jul 2026 17:04:21 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
 - World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`

@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-07-27T15:39:25Z",
-    "source_last_modified": "Mon, 27 Jul 2026 14:08:31 GMT",
+    "checked_at_utc": "2026-07-28T07:33:58Z",
+    "source_last_modified": "Mon, 27 Jul 2026 17:04:21 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -1010,11 +1010,20 @@
       "rating_value": 1375
     },
     {
+      "team": "Indonesia",
+      "source_team_name": "Indonesia",
+      "source_team_code": "ID",
+      "rank": 111,
+      "rating_rank": 111,
+      "elo_rating": 1374,
+      "rating_value": 1374
+    },
+    {
       "team": "Armenia",
       "source_team_name": "Armenia",
       "source_team_code": "AM",
-      "rank": 111,
-      "rating_rank": 111,
+      "rank": 112,
+      "rating_rank": 112,
       "elo_rating": 1373,
       "rating_value": 1373
     },
@@ -1022,8 +1031,8 @@
       "team": "Comoros",
       "source_team_name": "Comoros",
       "source_team_code": "KM",
-      "rank": 111,
-      "rating_rank": 111,
+      "rank": 112,
+      "rating_rank": 112,
       "elo_rating": 1373,
       "rating_value": 1373
     },
@@ -1031,17 +1040,8 @@
       "team": "Zimbabwe",
       "source_team_name": "Zimbabwe",
       "source_team_code": "ZW",
-      "rank": 113,
-      "rating_rank": 113,
-      "elo_rating": 1372,
-      "rating_value": 1372
-    },
-    {
-      "team": "Indonesia",
-      "source_team_name": "Indonesia",
-      "source_team_code": "ID",
-      "rank": 113,
-      "rating_rank": 113,
+      "rank": 114,
+      "rating_rank": 114,
       "elo_rating": 1372,
       "rating_value": 1372
     },
@@ -1843,8 +1843,8 @@
       "source_team_code": "KH",
       "rank": 203,
       "rating_rank": 203,
-      "elo_rating": 860,
-      "rating_value": 860
+      "elo_rating": 858,
+      "rating_value": 858
     },
     {
       "team": "Seychelles",
