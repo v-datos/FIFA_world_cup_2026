@@ -1,6 +1,6 @@
 # T-039 No-Cost Rating Source Spike
 
-Last updated: 2026-07-28
+Last updated: 2026-07-29
 Owner: Data Pipeline Engineer
 
 ## Finding
@@ -12,8 +12,8 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-28T15:15:57Z`
-- World Football Elo last modified: `Mon, 27 Jul 2026 17:04:21 GMT`
+- World Football Elo checked at: `2026-07-29T07:38:28Z`
+- World Football Elo last modified: `Tue, 28 Jul 2026 20:53:48 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
 - World Football Elo raw ratings snapshot: `data/source_cache/world_football_elo/raw/World.tsv`
@@ -42,7 +42,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 | 7 | Brazil | 1993 | BR |
 | 8 | Netherlands | 1971 | NL |
 | 9 | Norway | 1951 | NO |
-| 10 | Belgium | 1948 | BE |
+| 10 | Belgium | 1947 | BE |
 | 11 | Switzerland | 1928 | CH |
 | 12 | Mexico | 1913 | MX |
 
