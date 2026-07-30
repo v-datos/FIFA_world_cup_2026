@@ -12,7 +12,7 @@ FIFA ranking remains useful as an official sanity check and fallback reference, 
 ## Source Metadata
 
 - World Football Elo source: `https://www.eloratings.net/World.tsv`
-- World Football Elo checked at: `2026-07-30T07:28:36Z`
+- World Football Elo checked at: `2026-07-30T15:07:09Z`
 - World Football Elo last modified: `Tue, 28 Jul 2026 20:53:48 GMT`
 - World Football Elo status: `used`
 - World Football Elo parser version: `world_football_elo_tsv_v1`
