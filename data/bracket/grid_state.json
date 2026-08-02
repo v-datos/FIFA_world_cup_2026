@@ -2,9 +2,19 @@
   "tournament": "FIFA World Cup 2026",
   "top_scorer": [
     {
+      "name": "Erling Haaland",
+      "team": "Norway",
+      "goals": 7
+    },
+    {
       "name": "Kylian Mbappé",
       "team": "France",
-      "goals": 10
+      "goals": 7
+    },
+    {
+      "name": "Lionel Messi",
+      "team": "Argentina",
+      "goals": 7
     }
   ],
   "groups": [
