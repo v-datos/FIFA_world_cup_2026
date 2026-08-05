@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-08-04T07:32:08Z",
-    "source_last_modified": "Mon, 03 Aug 2026 15:35:55 GMT",
+    "checked_at_utc": "2026-08-05T07:33:14Z",
+    "source_last_modified": "Tue, 04 Aug 2026 15:21:11 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -911,11 +911,20 @@
       "rating_value": 1411
     },
     {
+      "team": "Thailand",
+      "source_team_name": "Thailand",
+      "source_team_code": "TH",
+      "rank": 100,
+      "rating_rank": 100,
+      "elo_rating": 1406,
+      "rating_value": 1406
+    },
+    {
       "team": "Benin",
       "source_team_name": "Benin",
       "source_team_code": "BJ",
-      "rank": 100,
-      "rating_rank": 100,
+      "rank": 101,
+      "rating_rank": 101,
       "elo_rating": 1405,
       "rating_value": 1405
     },
@@ -923,19 +932,10 @@
       "team": "Gabon",
       "source_team_name": "Gabon",
       "source_team_code": "GA",
-      "rank": 101,
-      "rating_rank": 101,
-      "elo_rating": 1401,
-      "rating_value": 1401
-    },
-    {
-      "team": "Thailand",
-      "source_team_name": "Thailand",
-      "source_team_code": "TH",
       "rank": 102,
       "rating_rank": 102,
-      "elo_rating": 1395,
-      "rating_value": 1395
+      "elo_rating": 1401,
+      "rating_value": 1401
     },
     {
       "team": "Uganda",
@@ -1514,22 +1514,22 @@
       "rating_value": 1135
     },
     {
-      "team": "Philippines",
-      "source_team_name": "Philippines",
-      "source_team_code": "PH",
-      "rank": 167,
-      "rating_rank": 167,
-      "elo_rating": 1130,
-      "rating_value": 1130
-    },
-    {
       "team": "India",
       "source_team_name": "India",
       "source_team_code": "IN",
-      "rank": 168,
-      "rating_rank": 168,
+      "rank": 167,
+      "rating_rank": 167,
       "elo_rating": 1128,
       "rating_value": 1128
+    },
+    {
+      "team": "Philippines",
+      "source_team_name": "Philippines",
+      "source_team_code": "PH",
+      "rank": 168,
+      "rating_rank": 168,
+      "elo_rating": 1119,
+      "rating_value": 1119
     },
     {
       "team": "Bermuda",
@@ -1640,22 +1640,22 @@
       "rating_value": 1042
     },
     {
-      "team": "Sao Tome and Principe",
-      "source_team_name": "Sao Tome and Principe",
-      "source_team_code": "ST",
-      "rank": 181,
-      "rating_rank": 181,
-      "elo_rating": 1035,
-      "rating_value": 1035
-    },
-    {
       "team": "Myanmar",
       "source_team_name": "Myanmar",
       "source_team_code": "MM",
+      "rank": 181,
+      "rating_rank": 181,
+      "elo_rating": 1039,
+      "rating_value": 1039
+    },
+    {
+      "team": "Sao Tome and Principe",
+      "source_team_name": "Sao Tome and Principe",
+      "source_team_code": "ST",
       "rank": 182,
       "rating_rank": 182,
-      "elo_rating": 1032,
-      "rating_value": 1032
+      "elo_rating": 1035,
+      "rating_value": 1035
     },
     {
       "team": "Saint Kitts and Nevis",
@@ -1973,22 +1973,22 @@
       "rating_value": 725
     },
     {
-      "team": "Laos",
-      "source_team_name": "Laos",
-      "source_team_code": "LA",
-      "rank": 218,
-      "rating_rank": 218,
-      "elo_rating": 718,
-      "rating_value": 718
-    },
-    {
       "team": "East Timor",
       "source_team_name": "East Timor",
       "source_team_code": "TL",
-      "rank": 219,
-      "rating_rank": 219,
+      "rank": 218,
+      "rating_rank": 218,
       "elo_rating": 712,
       "rating_value": 712
+    },
+    {
+      "team": "Laos",
+      "source_team_name": "Laos",
+      "source_team_code": "LA",
+      "rank": 219,
+      "rating_rank": 219,
+      "elo_rating": 711,
+      "rating_value": 711
     },
     {
       "team": "Guam",
