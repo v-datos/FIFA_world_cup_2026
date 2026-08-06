@@ -7,8 +7,8 @@
     "collection_method": "tsv_fetch",
     "parser_version": "world_football_elo_tsv_v1",
     "status": "used",
-    "checked_at_utc": "2026-08-05T15:10:28Z",
-    "source_last_modified": "Tue, 04 Aug 2026 15:21:11 GMT",
+    "checked_at_utc": "2026-08-06T07:34:01Z",
+    "source_last_modified": "Wed, 05 Aug 2026 22:19:10 GMT",
     "team_dictionary_last_modified": "Sun, 01 Mar 2026 22:51:42 GMT",
     "row_count": 244,
     "warnings": [],
@@ -520,8 +520,8 @@
       "source_team_code": "UZ",
       "rank": 56,
       "rating_rank": 56,
-      "elo_rating": 1630,
-      "rating_value": 1630
+      "elo_rating": 1631,
+      "rating_value": 1631
     },
     {
       "team": "Jordan",
@@ -682,8 +682,8 @@
       "source_team_code": "AO",
       "rank": 74,
       "rating_rank": 74,
-      "elo_rating": 1542,
-      "rating_value": 1542
+      "elo_rating": 1543,
+      "rating_value": 1543
     },
     {
       "team": "United Arab Emirates",
@@ -700,8 +700,8 @@
       "source_team_code": "FI",
       "rank": 76,
       "rating_rank": 76,
-      "elo_rating": 1536,
-      "rating_value": 1536
+      "elo_rating": 1535,
+      "rating_value": 1535
     },
     {
       "team": "New Zealand",
@@ -754,8 +754,8 @@
       "source_team_code": "GT",
       "rank": 82,
       "rating_rank": 82,
-      "elo_rating": 1505,
-      "rating_value": 1505
+      "elo_rating": 1504,
+      "rating_value": 1504
     },
     {
       "team": "Syria",
@@ -1168,8 +1168,8 @@
       "source_team_code": "ID",
       "rank": 128,
       "rating_rank": 128,
-      "elo_rating": 1328,
-      "rating_value": 1328
+      "elo_rating": 1327,
+      "rating_value": 1327
     },
     {
       "team": "Azerbaijan",
@@ -1298,15 +1298,6 @@
       "rating_value": 1286
     },
     {
-      "team": "Tajikistan",
-      "source_team_name": "Tajikistan",
-      "source_team_code": "TJ",
-      "rank": 143,
-      "rating_rank": 143,
-      "elo_rating": 1285,
-      "rating_value": 1285
-    },
-    {
       "team": "Burundi",
       "source_team_name": "Burundi",
       "source_team_code": "BI",
@@ -1314,6 +1305,15 @@
       "rating_rank": 143,
       "elo_rating": 1285,
       "rating_value": 1285
+    },
+    {
+      "team": "Tajikistan",
+      "source_team_name": "Tajikistan",
+      "source_team_code": "TJ",
+      "rank": 144,
+      "rating_rank": 144,
+      "elo_rating": 1284,
+      "rating_value": 1284
     },
     {
       "team": "Dominican Republic",
@@ -1573,8 +1573,8 @@
       "source_team_code": "HK",
       "rank": 173,
       "rating_rank": 173,
-      "elo_rating": 1101,
-      "rating_value": 1101
+      "elo_rating": 1100,
+      "rating_value": 1100
     },
     {
       "team": "Grenada",
@@ -1762,8 +1762,8 @@
       "source_team_code": "BD",
       "rank": 194,
       "rating_rank": 194,
-      "elo_rating": 942,
-      "rating_value": 942
+      "elo_rating": 943,
+      "rating_value": 943
     },
     {
       "team": "Djibouti",
@@ -1789,8 +1789,8 @@
       "source_team_code": "PK",
       "rank": 197,
       "rating_rank": 197,
-      "elo_rating": 909,
-      "rating_value": 909
+      "elo_rating": 911,
+      "rating_value": 911
     },
     {
       "team": "Monaco",
@@ -1973,6 +1973,15 @@
       "rating_value": 725
     },
     {
+      "team": "Laos",
+      "source_team_name": "Laos",
+      "source_team_code": "LA",
+      "rank": 218,
+      "rating_rank": 218,
+      "elo_rating": 712,
+      "rating_value": 712
+    },
+    {
       "team": "East Timor",
       "source_team_name": "East Timor",
       "source_team_code": "TL",
@@ -1980,15 +1989,6 @@
       "rating_rank": 218,
       "elo_rating": 712,
       "rating_value": 712
-    },
-    {
-      "team": "Laos",
-      "source_team_name": "Laos",
-      "source_team_code": "LA",
-      "rank": 219,
-      "rating_rank": 219,
-      "elo_rating": 711,
-      "rating_value": 711
     },
     {
       "team": "Guam",
@@ -2140,8 +2140,8 @@
       "source_team_code": "FM",
       "rank": 236,
       "rating_rank": 236,
-      "elo_rating": 564,
-      "rating_value": 564
+      "elo_rating": 563,
+      "rating_value": 563
     },
     {
       "team": "Marshall Islands",
