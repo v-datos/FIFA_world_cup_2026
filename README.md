@@ -12,7 +12,10 @@ historical BigQuery/StatsBomb proxy visualizations into a responsive
 React/FastAPI application. Source-backed AI matchday research is implemented as
 draft collector/briefing artifacts under the approved T-035 source policy.
 
-**Live Dashboard:** [https://accionar.xyz/dashboards/fifa-2026/](https://accionar.xyz/dashboards/fifa-2026/)
+> [!NOTE]
+> **Project Archived**: The FIFA World Cup 2026 has concluded. This project and dashboard are now retired and preserved in read-only archive mode with final tournament data. Automated GitHub Actions daily data refresh workflows have been disabled.
+
+**Live Dashboard (Archived):** [https://accionar.xyz/dashboards/fifa-2026/](https://accionar.xyz/dashboards/fifa-2026/)
 
 ## Key Features
 

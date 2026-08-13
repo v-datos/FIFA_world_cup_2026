@@ -19,6 +19,12 @@ Current phase: Phase 5 - Framework Rebaseline & Pipeline Hardening
 
 ## Done
 
+- [x] **T-063 - Retire Dashboard and Archive Project**
+  Owner: Orchestrator / Frontend Engineer / Data Pipeline Engineer
+  Completed: 2026-08-12
+  Notes: Retired the live dashboard following the conclusion of the 2026 FIFA World Cup. Disabled automated daily cron triggers in `.github/workflows/matchday-refresh.yml`. Added a bilingual "Archived / Tournament Complete" banner in `App.tsx`. Updated operating docs (`README.md`, `STATUS.md`, `TASKS.md`, `PROJECT_CHARTER.md`) to record project archival.
+  Verify: Run `python3 -m compileall -q src && npm --prefix src/frontend run build`.
+
 - [x] **T-062 - Correct Knockout Stage Metadata and Translation**
   Owner: Frontend Engineer / Data Pipeline Engineer / Orchestrator
   Completed: 2026-07-07

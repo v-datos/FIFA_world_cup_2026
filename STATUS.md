@@ -1,5 +1,19 @@
 # STATUS
 
+## 2026-08-12 - Retire Dashboard and Archive Project
+
+Prepared by: Orchestrator / Frontend Engineer / Data Pipeline Engineer
+
+### Current State
+
+- **Project Archival (T-063)**: The 2026 FIFA World Cup has concluded. The project and dashboard are now retired and preserved in read-only archive mode.
+- **Workflow Retirement**: Disabled automated daily `schedule` cron triggers in `.github/workflows/matchday-refresh.yml`.
+- **UI Archived Banner**: Added a high-contrast, responsive glassmorphism "Archived / Tournament Complete" banner at the top of `App.tsx` (bilingual Spanish/English).
+- **Portfolio Route Retirement**: Prepared the repository for retiring the `https://accionar.xyz/dashboards/fifa-2026/` route and project card on the portfolio website.
+- **Verification**: Built and verified frontend and backend compilation.
+
+---
+
 ## 2026-07-07 - Dynamic Top Scorer Resolution
 
 Prepared by: Orchestrator / Data Pipeline Engineer

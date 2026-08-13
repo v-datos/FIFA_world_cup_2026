@@ -3,7 +3,7 @@ import { Sidebar } from './components/Sidebar';
 import { OverviewTab } from './components/OverviewTab';
 import { MatchAnalysisTab } from './components/MatchAnalysisTab';
 import { StandingsTab } from './components/StandingsTab';
-import { Menu } from 'lucide-react';
+import { Menu, Archive } from 'lucide-react';
 import './App.css';
 
 interface Match {
@@ -108,6 +108,28 @@ function App() {
 
       {/* Main Content Pane */}
       <main className="flex-1 min-h-screen overflow-y-auto p-4 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
+        {/* Archive / Retired Notice Banner */}
+        <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-amber-200 shadow-lg backdrop-blur-md">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-amber-500/20 rounded-lg text-amber-400 shrink-0">
+              <Archive className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-amber-300">
+                {lang === 'Español' ? 'Proyecto Archivado — Mundial Concluido' : 'Project Archived — Tournament Complete'}
+              </h4>
+              <p className="text-xs text-amber-200/80 mt-0.5">
+                {lang === 'Español' 
+                  ? 'Este panel de control se encuentra archivado en modo de lectura con los resultados finales y datos históricos del torneo.'
+                  : 'This dashboard is archived in read-only mode featuring final tournament results and historical analytics.'}
+              </p>
+            </div>
+          </div>
+          <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-500/20 px-2.5 py-1 rounded border border-amber-500/40 text-amber-300 shrink-0">
+            {lang === 'Español' ? 'Archivado' : 'Archived'}
+          </span>
+        </div>
+
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-[400px] gap-3">
             <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />

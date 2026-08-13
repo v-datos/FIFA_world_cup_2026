@@ -6,10 +6,14 @@ name: Matchday Refresh
 # Runs twice daily (UTC) to catch both the day's games and late kickoffs that
 # fall into the next UTC date; also runnable on demand from the Actions tab.
 
+# RETIRED / ARCHIVED WORKFLOW:
+# The FIFA World Cup 2026 has concluded. Automated schedule cron triggers have been
+# disabled. The workflow can still be manually triggered via workflow_dispatch if needed.
+
 on:
-  schedule:
-    - cron: "0 13 * * *"   # 07:00 America/Edmonton (MDT) — morning refresh
-    - cron: "0 5 * * *"    # 23:00 America/Edmonton — catch late/finished games
+  # schedule:
+  #   - cron: "0 13 * * *"   # 07:00 America/Edmonton (MDT) — morning refresh
+  #   - cron: "0 5 * * *"    # 23:00 America/Edmonton — catch late/finished games
   workflow_dispatch: {}
 
 permissions:

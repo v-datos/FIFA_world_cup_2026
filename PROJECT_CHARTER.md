@@ -1,27 +1,22 @@
 # Project Charter - FIFA World Cup 2026 Dashboard
 
 Owner: Orchestrator agent
-Status: Living document
-Last updated: 2026-06-21
+Status: Archived (Tournament Complete)
+Last updated: 2026-08-12
 Profile: software-app
 
 ## Mission
 
 Build a reliable FIFA World Cup 2026 dashboard that combines live tournament
 state, curated match previews, transparent forecast models, historical
-StatsBomb proxy visualizations, and eventually source-backed AI-researched
+StatsBomb proxy visualizations, and source-backed AI-researched
 matchday briefings. The project should stay low-cost, reproducible, and
 understandable enough that future updates can be delegated through the agent
 workflow without rediscovering the system from scratch.
 
 ## Current Objective
 
-Rebaseline the project around the actual React/FastAPI architecture and harden
-the fragile data pipeline before adding new product features.
-
-The immediate objective is **Phase 5 - Framework Rebaseline & Pipeline
-Hardening**. This phase exists because the project evolved faster than its
-operating documents, data contracts, and task routing.
+The 2026 FIFA World Cup has concluded. The project and dashboard are now retired and preserved in read-only archive mode. Automated daily refresh workflows are disabled.
 
 ## Canonical Architecture
 
